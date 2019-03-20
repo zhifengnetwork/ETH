@@ -1,0 +1,114 @@
+2019-03-05 11:46:20 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,10' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 215; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-05 11:46:31 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,10' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 215; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-05 11:46:39 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,10' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 215; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-05 11:46:51 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,10' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 215; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-05 11:47:33 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,10' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 215; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-05 11:47:50 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,10' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 215; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-05 11:47:59 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,10' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 215; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-05 11:48:06 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,10' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 215; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-05 11:48:13 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,10' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 215; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-05 11:48:22 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,10' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 215; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-05 16:37:22 SQL Error :
+------------
+String:
+SQL: <br/>select l.openid,m.avatar,m.nickname,m.mobile,sum(l.money) as money from `ims_stakejilu` l left join `ims_ewei_shop_member` m on l.openid=m.openid  where l.uniacid=12 and l.type=1 and l.createtime>'1551715200' and l.createtime<'1551801599' group by l.openid order by l.money desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'l.type' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 231; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-05 16:37:23 SQL Error :
+------------
+String:
+SQL: <br/>select l.openid,m.avatar,m.nickname,m.mobile,sum(l.money) as money from `ims_stakejilu` l left join `ims_ewei_shop_member` m on l.openid=m.openid  where l.uniacid=12 and l.type=1 and l.createtime>'1551715200' and l.createtime<'1551801599' group by l.openid order by l.money desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'l.type' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 231; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-05 16:37:24 SQL Error :
+------------
+String:
+SQL: <br/>select l.openid,m.avatar,m.nickname,m.mobile,sum(l.money) as money from `ims_stakejilu` l left join `ims_ewei_shop_member` m on l.openid=m.openid  where l.uniacid=12 and l.type=1 and l.createtime>'1551715200' and l.createtime<'1551801599' group by l.openid order by l.money desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'l.type' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 231; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-05 16:37:56 SQL Error :
+------------
+String:
+SQL: <br/>select l.openid,m.avatar,m.nickname,m.mobile,sum(l.money) as money from `ims_stakejilu` l left join `ims_ewei_shop_member` m on l.openid=m.openid  where l.uniacid=12 and l.type=1 and l.createtime>'1551715200' and l.createtime<'1551801599' group by l.openid order by l.money desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'l.type' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 231; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-05 16:38:36 SQL Error :
+------------
+String:
+SQL: <br/>select l.openid,m.avatar,m.nickname,m.mobile,sum(l.money) as money from `ims_stakejilu` l left join `ims_ewei_shop_member` m on l.openid=m.openid  where l.uniacid=12 and l.type=1 and l.createtime>'1551715200' and l.createtime<'1551801599' group by l.openid order by l.money desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'l.type' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 231; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-05 17:48:29 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,10' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 215; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-05 17:48:42 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,10' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 215; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-05 17:48:54 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,10' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 215; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-05 17:50:00 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,10' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 215; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+

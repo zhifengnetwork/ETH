@@ -1,0 +1,132 @@
+{template '_header'}
+
+
+
+<div class='fui-page  fui-page-current'>
+
+    <div class="fui-header">
+
+        <div class="fui-header-left" onclick="window.location.href='{php echo mobileUrl('member/index')}'">
+
+            <a  class="back" ></a>
+
+        </div>
+
+        <div class="title">静态账户转出</div>
+
+        <div class="fui-header-right">&nbsp;</div>
+
+    </div>
+
+    <div class='fui-content navbar' >
+
+        <div class='fui-cell-group fui-cell-group-o'>
+
+       <div id="tab" class="fui-tab fui-tab-danger">
+
+        <a data-tab="tab1"  class="external {if $_GPC['type']==0}active{/if}" href="{php echo mobileUrl('member/withdraw', array('type' => 0))}" data-type='0'>TRX提现</a>
+
+        <a data-tab="tab2" class='external {if $_GPC['type']==1}active{/if}' href="{php echo mobileUrl('member/withdraw1', array('type' => 1))}"  data-type='1'>静态账户</a>
+
+         <a data-tab="tab3" class='external {if $_GPC['type']==2}active{/if}' href="{php echo mobileUrl('member/withdraw2', array('type' => 2))}"  data-type='2'>复投账户</a>
+
+        </div>
+
+            <div class='fui-cell-title'>
+
+                <div class='fui-cell-info' style='color:#999'>当前可转出金额: ￥<span id='current'>{php echo number_format($credit,2)}</span> <a id='btn-all' class='text-primary external' href='#'>全部转出</a></div>
+
+            </div>
+
+
+
+
+
+           <div class='fui-cell-title'>转出至TRX
+
+                {if floatval($set['withdrawmoney'])>0}
+
+               <!--  <small>提现额度最小为: <span class='text-danger'>￥<i id="text_danger">{php echo number_format($set['withdrawmoney'],2)}</i></span></small> -->
+
+                {/if}
+
+            </div>
+
+            <div class='fui-cell'>
+
+                <div class='fui-cell-label big' style='width:auto;'>￥</div>
+
+                <div class='fui-cell-info'><input type='number' class='fui-input' id='money' style='font-size:1.2rem;' ></div>
+
+            </div>
+
+
+
+            <div class="fui-cell">
+
+                <div class="fui-cell-label" style="width: 120px;"><span class="re-g">转出方式</span></div>
+
+                <div class="fui-cell-info">
+
+
+
+                    <select id="applytype">
+
+                        <option value="credit2" >余额</option>    
+
+                    </select>
+
+                </div>
+
+                <div class="fui-cell-remark"></div>
+
+            </div>
+
+
+            <div class='fui-cell-title charge-group' style="display: none;">本次提现将扣除手续费 ￥<span class='text-danger' id='deductionmoney'></span>
+
+            </div>
+
+
+
+            <div class='fui-cell-title charge-group' style="display: none;">本次提现实际到账金额 ￥<span class='text-danger' id='realmoney'></span>
+
+            </div>
+
+        </div>
+
+
+
+        <a id='btn-next' class='btn btn-success block disabled '>提现</a>
+
+
+
+    </div>
+
+    <script language='javascript'>
+
+        require(['biz/member/withdraw1'], function (modal) {
+
+            modal.init({
+
+                withdrawcharge:{php echo floatval($withdrawcharge)},
+
+                withdrawbegin:{php echo floatval($withdrawbegin)},
+
+                withdrawend:{php echo floatval($withdrawend)},
+
+                min:{php echo floatval($set['withdrawmoney'])},
+
+                max:{php echo floatval($credit)},
+
+            });
+
+        });
+
+    </script>
+
+</div>
+
+{template '_footer'}
+
+<!--6Z2S5bKb5piT6IGU5LqS5Yqo572R57uc56eR5oqA5pyJ6ZmQ5YWs5Y+454mI5p2D5omA5pyJ-->

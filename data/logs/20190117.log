@@ -1,0 +1,197 @@
+2019-01-17 10:21:07 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_bee601829567]]></ToUserName>
+<FromUserName><![CDATA[oUt5j51V6OswO_wjN2X-R0K80Dio]]></FromUserName>
+<CreateTime>1547691667</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://hs5.zhouyewei.com/app/index.php?i=12&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>487915228</MenuId>
+</xml>
+
+2019-01-17 10:21:07 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_bee601829567',
+    'fromusername' => 'oUt5j51V6OswO_wjN2X-R0K80Dio',
+    'createtime' => '1547691667',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://hs5.zhouyewei.com/app/index.php?i=12&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '487915228',
+    'from' => 'oUt5j51V6OswO_wjN2X-R0K80Dio',
+    'to' => 'gh_bee601829567',
+    'time' => '1547691667',
+    'type' => 'text',
+    'content' => 'http://hs5.zhouyewei.com/app/index.php?i=12&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2019-01-17 10:21:07 response :
+------------
+
+2019-01-17 10:21:22 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_bee601829567]]></ToUserName>
+<FromUserName><![CDATA[oUt5j51V6OswO_wjN2X-R0K80Dio]]></FromUserName>
+<CreateTime>1547691682</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://hs5.zhouyewei.com/app/index.php?i=12&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>487915228</MenuId>
+</xml>
+
+2019-01-17 10:21:22 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_bee601829567',
+    'fromusername' => 'oUt5j51V6OswO_wjN2X-R0K80Dio',
+    'createtime' => '1547691682',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://hs5.zhouyewei.com/app/index.php?i=12&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '487915228',
+    'from' => 'oUt5j51V6OswO_wjN2X-R0K80Dio',
+    'to' => 'gh_bee601829567',
+    'time' => '1547691682',
+    'type' => 'text',
+    'content' => 'http://hs5.zhouyewei.com/app/index.php?i=12&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2019-01-17 10:21:22 response :
+------------
+
+2019-01-17 10:23:34 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_bee601829567]]></ToUserName>
+<FromUserName><![CDATA[oUt5j5xGuRDC7amXilSW2BpidkX8]]></FromUserName>
+<CreateTime>1547691814</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2019-01-17 10:23:34 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_bee601829567',
+    'fromusername' => 'oUt5j5xGuRDC7amXilSW2BpidkX8',
+    'createtime' => '1547691814',
+    'msgtype' => 'event',
+    'event' => 'subscribe',
+    'eventkey' => '',
+    'from' => 'oUt5j5xGuRDC7amXilSW2BpidkX8',
+    'to' => 'gh_bee601829567',
+    'time' => '1547691814',
+    'type' => 'text',
+    'redirection' => true,
+    'source' => 'subscribe',
+  ),
+)
+
+2019-01-17 10:23:34 response :
+------------
+
+2019-01-17 10:23:37 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_bee601829567]]></ToUserName>
+<FromUserName><![CDATA[oUt5j5xGuRDC7amXilSW2BpidkX8]]></FromUserName>
+<CreateTime>1547691817</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://hs5.zhouyewei.com/app/index.php?i=12&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>487915228</MenuId>
+</xml>
+
+2019-01-17 10:23:37 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_bee601829567',
+    'fromusername' => 'oUt5j5xGuRDC7amXilSW2BpidkX8',
+    'createtime' => '1547691817',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://hs5.zhouyewei.com/app/index.php?i=12&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '487915228',
+    'from' => 'oUt5j5xGuRDC7amXilSW2BpidkX8',
+    'to' => 'gh_bee601829567',
+    'time' => '1547691817',
+    'type' => 'text',
+    'content' => 'http://hs5.zhouyewei.com/app/index.php?i=12&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2019-01-17 10:23:37 response :
+------------
+
+2019-01-17 10:26:43 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_bee601829567]]></ToUserName>
+<FromUserName><![CDATA[oUt5j51V6OswO_wjN2X-R0K80Dio]]></FromUserName>
+<CreateTime>1547692003</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://hs5.zhouyewei.com/app/index.php?i=12&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>487915228</MenuId>
+</xml>
+
+2019-01-17 10:26:43 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_bee601829567',
+    'fromusername' => 'oUt5j51V6OswO_wjN2X-R0K80Dio',
+    'createtime' => '1547692003',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://hs5.zhouyewei.com/app/index.php?i=12&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '487915228',
+    'from' => 'oUt5j51V6OswO_wjN2X-R0K80Dio',
+    'to' => 'gh_bee601829567',
+    'time' => '1547692003',
+    'type' => 'text',
+    'content' => 'http://hs5.zhouyewei.com/app/index.php?i=12&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2019-01-17 10:26:43 response :
+------------
+

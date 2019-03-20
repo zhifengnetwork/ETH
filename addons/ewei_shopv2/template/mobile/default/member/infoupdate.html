@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)http://sd11ebr.cn/app/index.php?i=1&c=entry&p=info&do=member&m=sz_yi -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<script language="javascript" src="js/require.js"></script>
+<script language="javascript" src="js/config.js"></script>
+<script language="javascript" src="js/jquery-1.11.1.min.js"></script>
+<script language="javascript" src="js/jquery.gcjs.js"></script>
+<!--<link rel="stylesheet" type="text/css" href="../addons/sz_yi/template/mobile/default/static/css/style_red.css">-->
+
+
+
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<link rel="stylesheet" type="text/css" href="css/jquery-weui.min.css">
+<link rel="stylesheet" type="text/css" href="css/weui.min.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<!--new add start for style1 2016.09.09-->
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min(1).css">
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/style1.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/iconfont.css">
+<!--new add end for style1-->
+<script>window.PointerEvent = undefined</script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="core" src="js/core.js"></script>
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="tpl" src="js/tmodjs.js"></script>
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="js/jweixin-1.0.0.js" src="js/jweixin-1.0.0.js"></script>
+</head>
+<body>
+
+<!--  --><!-- 我的资料 -->
+<title>我的资料</title>
+<style type="text/css">
+body {margin:0px; background:#f2f2f2; font-family:'微软雅黑'; -moz-appearance:none;}
+@font-face {font-family: "iconfont";
+  src: url('fonts/iconfont02.eot?t=1474179952'); /* IE9*/
+  src: url('fonts/iconfont02.eot?t=1474179952#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('fonts/iconfont02.woff?t=1474179952') format('woff'), /* chrome, firefox */
+  url('fonts/iconfont02.ttf?t=1474179952') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('fonts/iconfont02.svg?t=1474179952#iconfont') format('svg'); /* iOS 4.1- */
+}
+@font-face {font-family: "iconfont";
+  src: url('fonts/iconfont1.eot?t=1474179952'); /* IE9*/
+  src: url('fonts/iconfont1.eot?t=1474179952#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('fonts/iconfont1.woff?t=1474179952') format('woff'), /* chrome, firefox */
+  url('fonts/iconfont1.ttf?t=1474179952') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('fonts/iconfont1.svg?t=1474179952#iconfont') format('svg'); /* iOS 4.1- */
+}
+input{outline: none!important;}
+.hs {
+  font-family:"iconfont" !important;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.hs-xuan:before { content: "\e739"; }
+.hs-wei:before { content: "\e651"; }
+.hs-xuanzhong:before { content: "\d622"; }
+.info_main {height:auto;  background:#fff; margin-top:14px; border-bottom:1px solid #eaeaea; border-top:1px solid #e8e8e8;}
+.info_main .line {margin:0 10px; height:50px; border-bottom:1px solid #e8e8e8;/*border-top:10px solid #f2f2f2;*/ line-height:40px; color:#999;}
+.info_main .my_line{height:60px;border-top:10px solid #f2f2f2;margin:0px 0 0 0;padding:0 10px;}
+.info_main .line .title {height:50px; width:90px; line-height:50px; color:#444; float:left; font-size:16px;padding-left:25px }
+.info_main .line .info { width: 100%; float: right; margin-left: -100px; height: 50px; overflow: hidden; }
+.info_main .line .inner { margin-left:100px;height: 48px;line-height: 48px; }
+.info_main .line input {height:48px; width:100%;display:block; padding:0px; margin:0px; border:0px; float:left; font-size:16px;}
+.info_main .line .inner .user_sex {line-height:40px;}
+.info_sub {height:44px; margin:14px 5px; background:#e45050; border-radius:4px; text-align:center; font-size:16px; line-height:44px; color:#fff;}
+.info_main{margin-top: 0}
+.select { border: 1px solid #f2f2f2; height: 30px; margin-top: 6px; line-height: 20px; background: #f2f2f2; color: #656565 ; padding: 0 5px; border-radius: 3px; }
+.page_topbar{background:#fff;}
+.home{position: absolute;right: 15px;top: 0;color: #000}
+
+.line .pic { width:100%;height:50px;border-radius:5px;color:#999;padding:3px;line-height:35px;font-size:13px;padding-left:10px;}
+    .line .pic span {float:left;width:150px;}
+    .line .pic .plus {left:-100px;padding:0 0 0 100px;position: absolute; margin-right:0px; width:100%;height:30px; color:#dedede; font-size:18px;line-height:30px;text-align:center;z-index: 100}
+    .line .pic .plus i { right:-100px;top:7px;}
+    .line .pic .images { width:auto;}
+    .line .pic .images .img { float:left; position:relative;width:30px;height:30px;border:1px solid #e9e9e9;margin-right:5px;}
+   .line .pic .images .img img { position:absolute;top:0; width:100%;height:100%;}
+    .line .pic .images .img .minus { position:absolute;color:red;width:8px;height:12px;top:-15px;right:-1px;}
+    a:hover{
+      text-decoration:none;
+    }
+</style>
+<script src="js/mobiscroll.core-2.5.2.js" type="text/javascript"></script>
+<script src="js/mobiscroll.core-2.5.2-zh.js" type="text/javascript"></script>
+<link href="js/mobiscroll.core-2.5.2.css" rel="stylesheet" type="text/css">
+<link href="js/mobiscroll.animation-2.5.2.css" rel="stylesheet" type="text/css">
+<script src="js/mobiscroll.datetime-2.5.1.js" type="text/javascript"></script>
+<script src="js/mobiscroll.datetime-2.5.1-zh.js" type="text/javascript"></script>
+<script src="js/mobiscroll.android-ics-2.5.2.js" type="text/javascript"></script>
+<link href="js/mobiscroll.android-ics-2.5.2.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/cascade.js"></script>
+<script src="js/ajaxfileupload.js" type="text/javascript"></script>
+<div id="container"><!-- <div class="page_topbar">
+      <a href="javascript:;" class="back" onclick="history.back()"><i class="fa fa-angle-left"></i></a>
+      <div class="title">我的资料</div>
+      <a href="javascript:;" class="home"><i class="iconfont shouye"></i></a>
+  </div> -->
+  <div class="page_topbar">
+    <a href="#" class="back" onclick="history.back()">
+        <i class="iconfont arrow" style="color: #282828;"></i>
+     </a>
+
+    <div class="title" style=" color: #282828;">我的资料
+    </div>
+  <a href="#">
+      <i class="iconfont  headerRightIcon" style="color: #282828;"></i>
+  </a>
+</div>
+  <div style="margin:10px;color:#999">账号设置</div>
+
+       <form id="form1" name="form1" method="post" action="/index.php?m=info&a=infoupdatedo">
+
+    <div class="info_main">
+			
+	
+		<!-- <div class="line"  id='imgFile0'  style="position:relative"> 
+			<div class="title">头像</div>
+			<div class='info'>
+				<div class='inner'>
+					<div class="pic">
+						
+						<div class="plus">
+						 
+               <i class="iconfont" style="color: #282828;position:absolute;">&#xe612;</i>
+							<input type="file" name='imgFile0' style="position:absolute;width: 100%;height:48px;-webkit-tap-highlight-color: transparent;filter:alpha(Opacity=0); opacity: 0;" />
+						</div>
+						<div class="images">
+							
+							
+						</div>
+						<input  type="hidden"  value=""  id="avatar"/>
+					</div>
+				</div>
+			</div>
+		</div> -->
+	<!-- 	<div class="line"><div class="title">昵称</div><div class='info'><div class='inner'><input type="text" id='nickname' placeholder="请输入您的昵称"  value="" /></div></div></div> -->
+	
+        <div class="line"><div class="title">姓名</div><div class="info"><div class="inner">
+        <input type="text" id="nickname" name="nickname" placeholder="请输入您的姓名" value="张翎浩">
+        </div></div></div>
+ 
+
+       <!-- <input type="hidden" id="mobile" name="mobile" value="13074301777">-->
+        
+      
+        <div class="line my_line"><div class="title">微信号</div><div class="info"><div class="inner"><input type="text" id="weixin" name="weixin" placeholder="请输入微信号" value="13074301777"></div></div></div>
+
+<div style="display: none;">
+<input type="checkbox" name="isagree" value="1" checked="checked" />
+</div> 
+     <!--   <div class="line my_line"><div class="title">支付宝号</div><div class='info'><div class='inner'><input type="text"  id='alipay' placeholder="请输入支付宝账号" value=""/></div></div></div>
+        <div class="line my_line"><div class="title">银行卡号</div><div class='info'><div class='inner'><input type="text"  id='bank_card' placeholder="请输入银行卡账号" value=""/></div></div></div>
+        <div class="line my_line"><div class="title">银行名称</div><div class='info'><div class='inner'><input type="text"  id='bank_name' placeholder="请输入银行名称" value=""/></div></div></div> -->
+        <!-- <div class="line">
+            <div class="title">性别</div>
+            <div class='info'>
+              <div class='inner'>
+                <span class="gender" data-val="1"><i class="hs hs-wei" ></i> 男</span>&nbsp;&nbsp;
+                <span class="gender" data-val="2"><i class="hs hs-wei" ></i> 女
+                <input type="hidden" id="gender" value="0" />
+              </div>
+            </div>
+        </div>
+       -->
+      <!--   <div class="line">
+            <div class="title">所在城市</div><div class='info'><div class='inner'>
+            <select id="sel-provance" onChange="selectCity();" class="select">
+                <option value="" selected="true">省/直辖市</option>
+            </select>
+            <select id="sel-city" onChange="selectcounty()" class="select">
+                <option value="" selected="true">请选择</option>
+            </select>
+            <select id="sel-area" class="select" style="display:none">
+                <option value="" selected="true">请选择</option>
+            </select></div></div>
+        </div> -->
+        <!-- <div class="line"  style="border:0px;"><div class="title">生日</div><div class='info'><div class='inner'><input type="text" id="birthday" placeholder="点击选择日期" readonly value=''/></div></div></div>
+         -->
+    </div>
+
+    <input name="id" type="hidden" value="3062" />
+    <div class="info_sub">
+        
+        <input type="submit" class="info_sub" value="确认修改"  style="border:none; width: 100%; margin: auto;" />
+
+    </div>
+
+    </form>
+  <div class="copyright">版权所有 ©创客新零售</div></div>
+
+
+<style type="text/css">
+    .num1{right: 10px;top:3px;width: 7px;height: 7px;}
+    footer#footer-nav{bottom: -1px;}
+    footer#footer-nav .menu-list li.active a > span{color: #e45050;}
+    footer#footer-nav .menu-list li.active a > i{color: #e45050;}
+    footer#footer-nav{    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #fff));}
+    footer#footer-nav{height: 57px !important}
+
+    .f-tac{text-align: center;} 
+    .weui-flex .weui-flex__item i,.weui-flex .weui-flex__item .ftext{color: #747474;line-height: 17px;font-size: 14px;}
+    .weui-flex .weui-flex__item a.active i,.weui-flex .weui-flex__item a.active .ftext{color: #e45050;}
+    .weui-flex .weui-flex__item a .iconfont{font-size: 25px;line-height: 25px;}
+    .weui-flex .weui-flex__item a {padding: 6px 0;display: block;}
+    .weui-flex .weui-flex__item a:hover,.weui-flex .weui-flex__item a:active{text-decoration: none;}
+</style>
+<link rel="stylesheet" type="text/css" href="css/iconfont.css">
+<link rel="stylesheet" type="text/css" href="css/weui.min.css">
+
+        <style type="text/css">
+                footer#footer-nav .menu-list li { width:20%}
+            </style>
+    
+
+
+
+</body></html>

@@ -1,0 +1,6 @@
+<div class="ulleft-nav">
+<ul class="nav nav-tabs">
+    {ifp 'shop.zyw.view'}<li {if $_GPC['p'] == 'goods' || empty($_GPC['op'])} class="active" {/if}><a href="{php echo $this->createWebUrl('shop/zyw')}">赠送金果明细</a></li>{/if}
+    {ifp 'shop.zyw.view'}<li {if $_GPC['op'] == 'zyw'} class="active" {/if}><a href="{php echo $this->createWebUrl('shop/zyw',array('op'=>'zyw'))}">赠送耕种果明细</a></li>{/if}
+    
+</div>

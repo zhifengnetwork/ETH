@@ -1,0 +1,115 @@
+2019-02-27 09:45:53 SQL Error :
+------------
+String:
+SQL: <br/>UPDATE `ims_guamai` SET `file` =  :file_1 , `status` =  :status_2 WHERE `uniacid` =  :__uniacid_1 AND `id` =  :__id_2<hr/>Params: <br/>array (
+  ':file_1' => 'http://hs5.zhouyewei.com/attachment/images/12/2019/02/jme18PVR1bhSfzbf1Blsu0mVpf8Mhh.jpg',
+  ':status_2' => 1,
+  ':__uniacid_1' => 12,
+  ':__id_2' => '0',
+)<hr/>SQL Error: <br/>Unknown column 'file' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 278; <br />file: /framework/function/pdo.func.php; line: 66; <br />file: /addons/ewei_shopv2/core/mobile/member/guamai.php; line: 137; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-27 09:46:08 SQL Error :
+------------
+String:
+SQL: <br/>UPDATE `ims_guamai` SET `file` =  :file_1 , `status` =  :status_2 WHERE `uniacid` =  :__uniacid_1 AND `id` =  :__id_2<hr/>Params: <br/>array (
+  ':file_1' => 'http://hs5.zhouyewei.com/attachment/images/12/2019/02/jme18PVR1bhSfzbf1Blsu0mVpf8Mhh.jpg',
+  ':status_2' => 1,
+  ':__uniacid_1' => 12,
+  ':__id_2' => '0',
+)<hr/>SQL Error: <br/>Unknown column 'file' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 278; <br />file: /framework/function/pdo.func.php; line: 66; <br />file: /addons/ewei_shopv2/core/mobile/member/guamai.php; line: 137; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-27 09:46:32 SQL Error :
+------------
+String:
+SQL: <br/>UPDATE `ims_guamai` SET `file` =  :file_1 , `status` =  :status_2 WHERE `uniacid` =  :__uniacid_1 AND `id` =  :__id_2<hr/>Params: <br/>array (
+  ':file_1' => 'http://hs5.zhouyewei.com/attachment/images/12/2019/02/Qz5F2v3jsJR5xvLZyOOvYy5EbX4Jo8.png',
+  ':status_2' => 1,
+  ':__uniacid_1' => 12,
+  ':__id_2' => '0',
+)<hr/>SQL Error: <br/>Unknown column 'file' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 278; <br />file: /framework/function/pdo.func.php; line: 66; <br />file: /addons/ewei_shopv2/core/mobile/member/guamai.php; line: 137; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-27 09:47:09 SQL Error :
+------------
+String:
+SQL: <br/>UPDATE `ims_guamai` SET `file` =  :file_1 , `status` =  :status_2 WHERE `uniacid` =  :__uniacid_1 AND `id` =  :__id_2<hr/>Params: <br/>array (
+  ':file_1' => 'http://hs5.zhouyewei.com/attachment/images/12/2019/02/I621UzRuSX8XR75r58w277CUz5fw8c.jpg',
+  ':status_2' => 1,
+  ':__uniacid_1' => 12,
+  ':__id_2' => '0',
+)<hr/>SQL Error: <br/>Unknown column 'file' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 278; <br />file: /framework/function/pdo.func.php; line: 66; <br />file: /addons/ewei_shopv2/core/mobile/member/guamai.php; line: 137; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-27 11:05:38 SQL Error :
+------------
+String:
+SQL: <br/>select g.*,m.nickname,m.zfbfile,m.wxfile,m.bankid,m.bankname,m.bank,m2.nickname from`ims_guamai` g left join `ims_ewei_shop_member` m ON m.openid=g.openid left join `ims_ewei_shop_member` m2 ON m2.openid2=g.openid where g.uniacid=12 and g.id='1'<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'm2.openid2' in 'on clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/guamai.php; line: 138; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-27 11:06:06 SQL Error :
+------------
+String:
+SQL: <br/>select g.*,m.nickname,m.zfbfile,m.wxfile,m.bankid,m.bankname,m.bank,m2.nickname from`ims_guamai` g left join `ims_ewei_shop_member` m ON m.openid=g.openid left join `ims_ewei_shop_member` m2 ON m2.openid2=g.openid where g.uniacid=12 and g.id='1'<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'm2.openid2' in 'on clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/guamai.php; line: 138; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-27 11:06:07 SQL Error :
+------------
+String:
+SQL: <br/>select g.*,m.nickname,m.zfbfile,m.wxfile,m.bankid,m.bankname,m.bank,m2.nickname from`ims_guamai` g left join `ims_ewei_shop_member` m ON m.openid=g.openid left join `ims_ewei_shop_member` m2 ON m2.openid2=g.openid  where g.uniacid=12 and g.id='1'<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'm2.openid2' in 'on clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/guamai.php; line: 138; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-27 17:35:33 SQL Error :
+------------
+String:
+SQL: <br/>SELECT `value` FROM `ims_core_cache` WHERE `key` =  :__key_1  LIMIT 1<hr/>Params: <br/>array (
+  ':__key_1' => 'we7:module_setting:12:ewei_shopv2',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 227; <br />file: /framework/class/db.class.php; line: 259; <br />file: /framework/function/pdo.func.php; line: 61; <br />file: /framework/function/cache.mysql.func.php; line: 10; <br />file: /framework/function/cache.func.php; line: 39; <br />file: /framework/model/module.mod.php; line: 304; <br />file: /framework/model/module.mod.php; line: 497; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-02-27 17:35:33 SQL Error :
+------------
+String:
+SQL: <br/>SELECT * FROM `ims_uni_account_modules` WHERE `module` =  :__module_1 AND `uniacid` =  :__uniacid_2  LIMIT 1<hr/>Params: <br/>array (
+  ':__module_1' => 'ewei_shopv2',
+  ':__uniacid_2' => 12,
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 227; <br />file: /framework/function/pdo.func.php; line: 49; <br />file: /framework/model/module.mod.php; line: 306; <br />file: /framework/model/module.mod.php; line: 497; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-02-27 17:35:52 SQL Error :
+------------
+String:
+SQL: <br/>SELECT `value` FROM `ims_core_cache` WHERE `key` =  :__key_1  LIMIT 1<hr/>Params: <br/>array (
+  ':__key_1' => 'we7:module_setting:12:ewei_shopv2',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 227; <br />file: /framework/class/db.class.php; line: 259; <br />file: /framework/function/pdo.func.php; line: 61; <br />file: /framework/function/cache.mysql.func.php; line: 10; <br />file: /framework/function/cache.func.php; line: 39; <br />file: /framework/model/module.mod.php; line: 304; <br />file: /framework/model/module.mod.php; line: 497; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-02-27 17:35:52 SQL Error :
+------------
+String:
+SQL: <br/>SELECT * FROM `ims_uni_account_modules` WHERE `module` =  :__module_1 AND `uniacid` =  :__uniacid_2  LIMIT 1<hr/>Params: <br/>array (
+  ':__module_1' => 'ewei_shopv2',
+  ':__uniacid_2' => 12,
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 227; <br />file: /framework/function/pdo.func.php; line: 49; <br />file: /framework/model/module.mod.php; line: 306; <br />file: /framework/model/module.mod.php; line: 497; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-02-27 17:54:42 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.jifen,og.type,og.status,o.ordersn,og.endtime
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				,m2.id as m2id,m2.realname as m2realname,m2.mobile as m2mobile,m2.nickname as m2nickname,m2.avatar as m2avatar FROM `ims_ewei_shop_order_goods1` og left join `ims_ewei_shop_order` o ON o.id=og.orderid left join `ims_ewei_shop_member` m ON m.openid=og.openid left join `ims_ewei_shop_member` m2 ON m2.openid=og.openid2 WHERE og.uniacid=:uniacid ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.endtime' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/finance/log.php; line: 310; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-02-27 17:54:47 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.jifen,og.type,og.status,o.ordersn,og.endtime
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				,m2.id as m2id,m2.realname as m2realname,m2.mobile as m2mobile,m2.nickname as m2nickname,m2.avatar as m2avatar FROM `ims_ewei_shop_order_goods1` og left join `ims_ewei_shop_order` o ON o.id=og.orderid left join `ims_ewei_shop_member` m ON m.openid=og.openid left join `ims_ewei_shop_member` m2 ON m2.openid=og.openid2 WHERE og.uniacid=:uniacid ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.endtime' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/finance/log.php; line: 310; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-02-27 17:54:56 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.jifen,og.type,og.status,o.ordersn,og.endtime
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				,m2.id as m2id,m2.realname as m2realname,m2.mobile as m2mobile,m2.nickname as m2nickname,m2.avatar as m2avatar FROM `ims_ewei_shop_order_goods1` og left join `ims_ewei_shop_order` o ON o.id=og.orderid left join `ims_ewei_shop_member` m ON m.openid=og.openid left join `ims_ewei_shop_member` m2 ON m2.openid=og.openid2 WHERE og.uniacid=:uniacid ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.endtime' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/finance/log.php; line: 310; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+

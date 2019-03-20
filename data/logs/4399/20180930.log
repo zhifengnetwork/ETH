@@ -1,0 +1,320 @@
+2018-09-30 12:01:30 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_b16bd8900ba6]]></ToUserName>
+<FromUserName><![CDATA[odAWa1dFr8F6wzo4TcXtFlDir-io]]></FromUserName>
+<CreateTime>1538280090</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://13.hskj2016.com/app/index.php?i=4&c=entry&do=shop&m=sz_yi]]></EventKey>
+<MenuId>416303577</MenuId>
+</xml>
+
+2018-09-30 12:01:30 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_b16bd8900ba6',
+    'fromusername' => 'odAWa1dFr8F6wzo4TcXtFlDir-io',
+    'createtime' => '1538280090',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://13.hskj2016.com/app/index.php?i=4&c=entry&do=shop&m=sz_yi',
+    'menuid' => '416303577',
+    'from' => 'odAWa1dFr8F6wzo4TcXtFlDir-io',
+    'to' => 'gh_b16bd8900ba6',
+    'time' => '1538280090',
+    'type' => 'text',
+    'content' => 'http://13.hskj2016.com/app/index.php?i=4&c=entry&do=shop&m=sz_yi',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2018-09-30 12:01:30 response :
+------------
+
+2018-09-30 12:01:53 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_b16bd8900ba6]]></ToUserName>
+<FromUserName><![CDATA[odAWa1dFr8F6wzo4TcXtFlDir-io]]></FromUserName>
+<CreateTime>1538280113</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://2.hskj2018.com]]></EventKey>
+<MenuId>416303577</MenuId>
+</xml>
+
+2018-09-30 12:01:53 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_b16bd8900ba6',
+    'fromusername' => 'odAWa1dFr8F6wzo4TcXtFlDir-io',
+    'createtime' => '1538280113',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://2.hskj2018.com',
+    'menuid' => '416303577',
+    'from' => 'odAWa1dFr8F6wzo4TcXtFlDir-io',
+    'to' => 'gh_b16bd8900ba6',
+    'time' => '1538280113',
+    'type' => 'text',
+    'content' => 'http://2.hskj2018.com',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2018-09-30 12:01:53 response :
+------------
+
+2018-09-30 12:02:02 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_b16bd8900ba6]]></ToUserName>
+<FromUserName><![CDATA[odAWa1dFr8F6wzo4TcXtFlDir-io]]></FromUserName>
+<CreateTime>1538280122</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://13.hskj2016.com/app/index.php?i=4&c=entry&do=shop&m=sz_yi]]></EventKey>
+<MenuId>416303577</MenuId>
+</xml>
+
+2018-09-30 12:02:02 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_b16bd8900ba6',
+    'fromusername' => 'odAWa1dFr8F6wzo4TcXtFlDir-io',
+    'createtime' => '1538280122',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://13.hskj2016.com/app/index.php?i=4&c=entry&do=shop&m=sz_yi',
+    'menuid' => '416303577',
+    'from' => 'odAWa1dFr8F6wzo4TcXtFlDir-io',
+    'to' => 'gh_b16bd8900ba6',
+    'time' => '1538280122',
+    'type' => 'text',
+    'content' => 'http://13.hskj2016.com/app/index.php?i=4&c=entry&do=shop&m=sz_yi',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2018-09-30 12:02:02 response :
+------------
+
+2018-09-30 12:02:48 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_b16bd8900ba6]]></ToUserName>
+<FromUserName><![CDATA[odAWa1dFr8F6wzo4TcXtFlDir-io]]></FromUserName>
+<CreateTime>1538280167</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://2.hskj2018.com]]></EventKey>
+<MenuId>416303577</MenuId>
+</xml>
+
+2018-09-30 12:02:48 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_b16bd8900ba6',
+    'fromusername' => 'odAWa1dFr8F6wzo4TcXtFlDir-io',
+    'createtime' => '1538280167',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://2.hskj2018.com',
+    'menuid' => '416303577',
+    'from' => 'odAWa1dFr8F6wzo4TcXtFlDir-io',
+    'to' => 'gh_b16bd8900ba6',
+    'time' => '1538280167',
+    'type' => 'text',
+    'content' => 'http://2.hskj2018.com',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2018-09-30 12:02:48 response :
+------------
+
+2018-09-30 12:02:55 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_b16bd8900ba6]]></ToUserName>
+<FromUserName><![CDATA[odAWa1dFr8F6wzo4TcXtFlDir-io]]></FromUserName>
+<CreateTime>1538280175</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://13.hskj2016.com/app/index.php?i=4&c=entry&p=commission&m=sz_yi&do=plugin]]></EventKey>
+<MenuId>416303577</MenuId>
+</xml>
+
+2018-09-30 12:02:55 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_b16bd8900ba6',
+    'fromusername' => 'odAWa1dFr8F6wzo4TcXtFlDir-io',
+    'createtime' => '1538280175',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://13.hskj2016.com/app/index.php?i=4&c=entry&p=commission&m=sz_yi&do=plugin',
+    'menuid' => '416303577',
+    'from' => 'odAWa1dFr8F6wzo4TcXtFlDir-io',
+    'to' => 'gh_b16bd8900ba6',
+    'time' => '1538280175',
+    'type' => 'text',
+    'content' => 'http://13.hskj2016.com/app/index.php?i=4&c=entry&p=commission&m=sz_yi&do=plugin',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2018-09-30 12:02:55 response :
+------------
+
+2018-09-30 12:03:00 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_b16bd8900ba6]]></ToUserName>
+<FromUserName><![CDATA[odAWa1dFr8F6wzo4TcXtFlDir-io]]></FromUserName>
+<CreateTime>1538280180</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://13.hskj2016.com/app/index.php?i=4&c=entry&do=shop&m=sz_yi]]></EventKey>
+<MenuId>416303577</MenuId>
+</xml>
+
+2018-09-30 12:03:00 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_b16bd8900ba6',
+    'fromusername' => 'odAWa1dFr8F6wzo4TcXtFlDir-io',
+    'createtime' => '1538280180',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://13.hskj2016.com/app/index.php?i=4&c=entry&do=shop&m=sz_yi',
+    'menuid' => '416303577',
+    'from' => 'odAWa1dFr8F6wzo4TcXtFlDir-io',
+    'to' => 'gh_b16bd8900ba6',
+    'time' => '1538280180',
+    'type' => 'text',
+    'content' => 'http://13.hskj2016.com/app/index.php?i=4&c=entry&do=shop&m=sz_yi',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2018-09-30 12:03:00 response :
+------------
+
+2018-09-30 12:11:36 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_b16bd8900ba6]]></ToUserName>
+<FromUserName><![CDATA[odAWa1dFr8F6wzo4TcXtFlDir-io]]></FromUserName>
+<CreateTime>1538280696</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://13.hskj2016.com/app/index.php?i=4&c=entry&do=shop&m=sz_yi]]></EventKey>
+<MenuId>416303577</MenuId>
+</xml>
+
+2018-09-30 12:11:36 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_b16bd8900ba6',
+    'fromusername' => 'odAWa1dFr8F6wzo4TcXtFlDir-io',
+    'createtime' => '1538280696',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://13.hskj2016.com/app/index.php?i=4&c=entry&do=shop&m=sz_yi',
+    'menuid' => '416303577',
+    'from' => 'odAWa1dFr8F6wzo4TcXtFlDir-io',
+    'to' => 'gh_b16bd8900ba6',
+    'time' => '1538280696',
+    'type' => 'text',
+    'content' => 'http://13.hskj2016.com/app/index.php?i=4&c=entry&do=shop&m=sz_yi',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2018-09-30 12:11:36 response :
+------------
+
+2018-09-30 12:11:41 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_b16bd8900ba6]]></ToUserName>
+<FromUserName><![CDATA[odAWa1dFr8F6wzo4TcXtFlDir-io]]></FromUserName>
+<CreateTime>1538280701</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://2.hskj2018.com]]></EventKey>
+<MenuId>416303577</MenuId>
+</xml>
+
+2018-09-30 12:11:41 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_b16bd8900ba6',
+    'fromusername' => 'odAWa1dFr8F6wzo4TcXtFlDir-io',
+    'createtime' => '1538280701',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://2.hskj2018.com',
+    'menuid' => '416303577',
+    'from' => 'odAWa1dFr8F6wzo4TcXtFlDir-io',
+    'to' => 'gh_b16bd8900ba6',
+    'time' => '1538280701',
+    'type' => 'text',
+    'content' => 'http://2.hskj2018.com',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2018-09-30 12:11:41 response :
+------------
+

@@ -1,0 +1,83 @@
+{template '_header'}
+
+<div class='fui-page  fui-page-current'>
+
+    <div class="fui-header">
+
+		<div class="fui-header-left">
+
+			<a class="back" onclick='location.back()'></a>
+
+		</div>
+
+		<div class="title">余额转账</div>
+
+		<div class="fui-header-right">&nbsp;</div>
+
+	</div>
+
+
+
+	<div class='fui-content' style='margin-top:5px;'>
+
+		<div class="fui-cell-group">
+
+			<div class="fui-cell must ">
+
+				<div class="fui-cell-label ">对方账户</div>
+
+				<div class="fui-cell-info"><input type="tel" class='fui-input' id='mobile' name='mobile' placeholder="请输入对方账户手机号或id号"  value="{$member['realname']}" /></div>
+				
+
+	    </div>
+		<div style="margin-top: 10px;margin-left:10px;font-size: 12px;">
+				<span>该操作将进行实时转入对方账户，无法退款</span></div>
+		<a href='#' id='btn-submit' class='btn btn-success block'>下一步</a>
+
+	</div>
+
+	<script language='javascript'>
+	
+	$("#btn-submit").click(function(){
+		var mobile = $("#mobile").val();
+		if(!mobile){
+			FoxUI.toast.show('请输入对方账号');
+			return false;
+		}
+
+		$.ajax({
+			url:"{php echo mobileurl('member/zhuanzhang/judge')}",
+			type:"post",
+			data:{mobile:mobile},
+			success:function(status){
+				console.log(status);
+				var sta = JSON.parse(status);
+
+				if(sta.status == '-1'){
+					FoxUI.toast.show('不能对自己账户进行转账');
+					return false;
+				}else if(sta.status == '1' ){
+					window.location.href = "{php echo mobileurl('member/zhuanzhang/zhuanzhanginfo')}&id="+sta.result.mid;
+				}else{
+					FoxUI.toast.show('您输入的账户不存在');
+				}
+
+
+			}
+		})
+	})
+		
+
+</script>
+
+
+
+</div>
+
+{template '_footer'}
+
+
+
+
+
+<!--4000097827-->

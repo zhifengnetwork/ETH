@@ -1,0 +1,73 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>{$_W['account']['name']}{if !empty($_W['page']['title'])}&nbsp;{$_W['page']['title']}{/if}</title>
+	<meta name="format-detection" content="telephone=no, address=no">
+	<meta name="apple-mobile-web-app-capable" content="yes" /> <!-- apple devices fullscreen -->
+	<meta name="apple-touch-fullscreen" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="shortcut icon" href="{$_W['siteroot']}{$_W['config']['upload']['attachdir']}/{if !empty($_W['setting']['copyright']['icon'])}{$_W['setting']['copyright']['icon']}{else}images/global/wechat.jpg{/if}" />	
+	<script type="text/javascript" src="{$_W['siteroot']}app/resource/js/lib/mui.min.js?v=20160906"></script>
+	<script type="text/javascript" src="{$_W['siteroot']}app/resource/js/app/common.js?v=20160906"></script>
+	<link href="{$_W['siteroot']}app/resource/css/bootstrap.min.css?v=20160906" rel="stylesheet">
+	<link href="{$_W['siteroot']}app/resource/css/common.min.css?v=20160906" rel="stylesheet">
+</head>
+<body>
+<style>
+body {
+	margin:0 auto;
+	min-width:320px;
+	max-width:640px;
+	height:100%;
+	background:#FFF;
+	font-size:14px;
+	font-family:Helvetica,STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Arial;
+	line-height:1.5;
+	color:#666;
+	background-color:E2E2E2;
+	-webkit-text-size-adjust:100% !important;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none
+}
+.costprice {
+	#font-size: 17px;
+}
+.costprice span{
+	color: #E64340;
+}
+
+</style>
+{loop $list $index $item}
+<div class="mui-card" style="margin-top: 10px;">
+	<!--页眉，放置标题-->
+	<div class="mui-card-header"><strong>{$item['form_theme']}</strong>
+	</div>
+	<!--内容区-->
+	<div class="mui-card-content" style="margin: 10px;">
+		<a href="{php echo $this->createMobileUrl('index', array ('rid'=>$item['rid']))}"><img  src="{php echo tomedia($item['form_pic'])}" width="100%"/></a>
+		<div style="height:100px;width:100%;display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;-o-text-overflow:ellipsis;">
+		{$item['details']}
+		</div>
+	</div>
+	<!--页脚，放置补充信息或支持的操作-->
+	<div class="mui-card-footer">{$item['viewnum']}浏览▪{$item['submitnum']}参与<span class="pull-right"><a href="{php echo $this->createMobileUrl('index', array ('rid'=>$item['rid']))}">查看更多</a></span></div>
+</div>
+{/loop}
+
+<div class="weui_panel_bd">
+	<div class="weui_media_box weui_media_text">
+		<h4 class="weui_media_title"></h4>
+		<p class="weui_media_desc"></p>
+	</div>
+</div>
+
+<footer style="width:100%;min-width:300px;margin-top:10px;margin-bottom:50px;padding:10px 0;color:#555;text-align:center;">
+	<a style="color:#555;margin:0 3px;" href="{php echo $this->module['config']['footerurl']}">
+		&copy;{if empty($this->module['config']['footer'])}{$_W['account']['name']}{else}{php echo $this->module['config']['footer']}{/if}
+	</a>
+</footer>
+</body>
+</html>

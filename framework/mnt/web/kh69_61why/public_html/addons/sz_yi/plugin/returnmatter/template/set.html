@@ -1,0 +1,196 @@
+{template 'common/header'}
+
+<link rel="stylesheet" href="./resource/css/bootstrap-switch.min.css" type="text/css" />
+
+<script type="text/javascript" src="./resource/js/lib/bootstrap-switch.js"></script>
+
+{template 'tabs'}
+
+<style>
+
+    .panel-heading{background: #E8ECEF;padding:5px 0px 5px 40px;margin: 20px 0px 0 0;border: 1px solid #CFCFCF;
+
+        border-bottom: none;font-size: 16px;font-weight: 200;}
+
+    .panel-body{padding:20px 0;margin-bottom: 20px;border: 1px solid #CFCFCF;border-top: none;background: #fff;}
+
+    .form-group>span{float: left;padding-left: 15px;padding-top: 7px;}
+
+    .form-group div.boostrap-switch{float: left;padding-left: 15px;}
+
+</style>
+
+
+
+<form id="setform"  action="" method="post" class="form-horizontal form">
+
+        <div class='panel-heading'>
+
+            购物返设置
+
+        </div>
+
+        <div class='panel-body'>
+
+            <div class="form-group">
+
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">开启购物返系统</label>
+
+                <div class="boostrap-switch">
+
+                     <label class="radio-inline queue"><input type="radio"  name="setdata[returnmatter]" value="0" {if $set['returnmatter'] ==0} checked="checked"{/if} /> 关闭</label>
+
+                    <label class="radio-inline queue"><input type="radio"  name="setdata[returnmatter]" value="1" {if $set['returnmatter'] ==1} checked="checked"{/if} /> 开启</label>
+
+                </div>
+
+            </div>
+
+
+
+			<!--<div class="form-group">
+
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">出局</label>
+
+                <div class="boostrap-switch">
+
+                    <input type="text" name="setdata[out]" class="form-control" value="{$set['out']}"  />
+
+					  <span class='help-block'>设置出局人数返利</span>
+
+                </div>
+
+            </div>-->
+
+			
+
+            <div class="form-group">
+
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label">产品购物返比例</label>
+
+            <div class="col-sm-4">
+
+                <div class="input-group">
+
+                    <!-- <div class="input-group-addon">提现到微信</div> -->
+
+                    <input type="text" name="setdata[product]" class="form-control" value="{$set['product']}"  />
+
+                    <div class="input-group-addon">%</div>
+
+                </div>
+
+            </div>
+
+            <span class='help-block'>设置产品价格可返的比例</span>
+
+        </div>
+
+       <div class="form-group">
+
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label">营业额比例</label>
+
+            <div class="col-sm-4">
+
+                <div class="input-group">
+
+                
+
+                    <input type="text" name="setdata[percentage]" class="form-control" value="{$set['percentage']}"  />
+
+                    <div class="input-group-addon">%</div>
+
+                </div>
+
+            </div>
+
+            <span class='help-block'>设定营业额支出比例</span>
+
+        </div>
+
+       
+
+    <div class="form-group">
+
+        <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+
+        <div class="col-sm-9">
+
+            <input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1" onclick='return formcheck()' />
+
+            <input type="hidden" name="token" value="{$_W['token']}" />
+
+        </div>
+
+    </div>
+
+    </div>
+
+
+
+<script type="text/javascript">
+
+    $('.queue').click(function(){
+
+        if($(this).find('input').val() == 1)
+
+        {
+
+            $("#return_queue").show();
+
+        }else
+
+        {
+
+            $("#return_queue").hide();
+
+        }
+
+    });
+
+    $('.law').click(function(){
+
+        if($(this).find('input').val() == 1)
+
+        {
+
+            $("#return_time").show();
+
+        }else
+
+        {
+
+            $("#return_time").hide();
+
+        }
+
+    });
+
+    $('.rule').click(function(){
+
+        if($(this).find('input').val() == 2)
+
+        {
+
+            $("#return_rule").show();
+
+        }else
+
+        {
+
+            $("#return_rule").hide();
+
+        }
+
+    });
+
+</script>
+
+</form>
+
+</div>
+
+</div>
+
+{template 'web/_footer'}
+

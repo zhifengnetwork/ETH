@@ -1,0 +1,121 @@
+{template 'common/header'}
+<link href="{BC_ZHYY_STATIC}/css/bc.css?v=1} " rel="stylesheet">
+<style>
+.red {
+	color : red;
+}
+</style>
+<div class="main">
+    <form action="" method="post" class="form-horizontal form">
+        <h4>短信通道设置（充值请拨：18898762506 曹经理）</h4>
+        <table class="tb">	
+            <tr>
+                <th>是否启用短信通知</th>
+                <td>
+	                <select  class="span4" name="sendsmsnotice" id="sendsmsnotice" >
+						<option value="1"  {if $settings['sendsmsnotice'] ==1}selected=selected{/if}>启用</option>
+						<option value="0"  {if empty($settings['sendsmsnotice'])}selected=selected{/if}>停用</option>
+					</select>
+					<span class="help-block">是否允许自动发送短信通知</span>
+                </td>
+            </tr>			
+            <tr>
+                <th><span class="red">*</span>用户账号</th>
+                <td>
+	                <input type="text" name="userid" required value="{$settings['userid']}">
+					<span class="help-block">短信平台用户账号</span>
+                </td>
+            </tr>
+            <tr>
+                <th><span class="red">*</span>用户名</th>
+                <td>
+	                <input type="text" name="username" required value="{$settings['username']}">
+					<span class="help-block">短信平台用户名</span>
+                </td>
+            </tr>			
+            <tr>
+                <th><span class="red">*</span>密码</th>
+                <td>
+	                <input type="password" name="password" required value="{$settings['password']}">
+					<span class="help-block">短信平台密码</span>
+                </td>
+            </tr>
+            <tr>
+                <th><span class="red">*</span>核实密码</th>
+                <td>
+	                <input type="password" name="password2" required value="{$settings['password']}">
+					<span class="help-block">重复密码输入</span>
+                </td>
+            </tr>
+            <tr>
+                <th><span class="red">*</span>短信签名</th>
+                <td>
+	                <input type="text" name="sign" required value="{$settings['sign']}">
+					<span class="help-block">签名</span>
+                </td>
+            </tr>			
+		</table>	
+        <h4 class="">显示设置</h4>
+        <table class="tb">
+            <tr class="hide">
+                <th>特别备注设置</th>
+                <td>
+	                <select  class="span4" name="showfeature" id="showfeature" >
+						<option value="1"  {if empty($settings['showfeature']) || $settings['showfeature'] ==1}selected=selected{/if}>显示</option>
+						<option value="2"  {if $settings['showfeature'] ==2}selected=selected{/if}>隐藏</option>
+					</select>
+					<span class="help-block">是否允许设置活动特别备注</span>
+                </td>
+            </tr>		
+            <tr class="hide">
+                <th>价格设置</th>
+                <td>
+	                <select  class="span4" name="showprice" id="showprice" >
+						<option value="1"  {if empty($settings['showprice']) || $settings['showprice'] ==1}selected=selected{/if}>显示</option>
+						<option value="2"  {if $settings['showprice'] ==2}selected=selected{/if}>隐藏</option>
+					</select>
+					<span class="help-block">是否允许设置价格</span>
+                </td>
+            </tr>
+            <tr>
+                <th>用户页附加图片设置</th>
+                <td>
+	                <select  class="span4" name="showminepic" id="showminepic" >
+						<option value="1"  {if $settings['showminepic'] ==1}selected=selected{/if}>显示</option>
+						<option value="2"  {if empty($settings['showminepic']) || $settings['showminepic'] ==2}selected=selected{/if}>隐藏</option>
+					</select>
+					<span class="help-block">是否允许设置提交用户页附加图片</span>
+                </td>
+            </tr>		
+            <tr>
+                <th>浏览用户分享术语设置</th>
+                <td>
+	                <select  class="span4" name="showwords1" id="showwords1" >
+						<option value="1"  {if $settings['showwords1'] ==1}selected=selected{/if}>显示</option>
+						<option value="2"  {if empty($settings['showwords1']) || $settings['showwords1'] ==2}selected=selected{/if}>隐藏</option>
+					</select>
+					<span class="help-block">是否允许设置浏览用户分享术语</span>
+                </td>
+            </tr>
+            <tr>
+                <th>提交用户分享术语设置</th>
+                <td>
+	                <select  class="span4" name="showwords2" id="showwords2" >
+						<option value="1"  {if $settings['showwords2'] ==1}selected=selected{/if}>显示</option>
+						<option value="2"  {if empty($settings['showwords2']) || $settings['showwords2'] ==2}selected=selected{/if}>隐藏</option>
+					</select>
+					<span class="help-block">是否允许设置提交用户分享术语</span>
+                </td>
+            </tr>
+		</table>
+		<table class="tb">	
+			<tr>
+				<th colspan="2">
+					<input id="submitbtn" name="submit" type="submit" value="提交" class="btn btn-primary span3" />
+					<input type="hidden" name="token" value="{$_W['token']}" />
+				</th>
+			</tr>
+		</table>
+    </form>
+</div>
+{template 'common/footer'}

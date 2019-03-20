@@ -1,0 +1,1 @@
+select * from `hs_sz_yi_order` where  ordersn='SH201702101857510722' and uniacid='' limit 1 

@@ -1,0 +1,203 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0;" />
+    <title>公众号数据监控</title>
+    {template 'head'}
+</head>
+<body class="bodybg">
+<center>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="">
+
+        <div class="container" style="margin:0px; padding:0px; padding:0px 3px;">
+            <button type="button" class="btn btn-lg btn-primary btn-block" style="margin:5px 0px;">{$account_name}</button>
+        </div>
+
+    </nav>
+
+    <div id="wrapper" style="margin-top: 50px" class="container-fluid">
+
+                <div class="row">
+                    <div class="col-xs-6 col-md-3">
+                        <img style="width: 100%;" src="{php echo tomedia('qrcode_'.$acid.'.jpg');}?time={php echo time()}" alt="">
+                    </div>
+                    <div class="col-xs-6 col-md-3">
+                        <img style="width: 100%;" src="{php echo tomedia('headimg_'.$acid.'.jpg')}?time={php echo time()}" alt="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div  style="margin-top: 10px; text-align: left; padding-left: 10px;  height: 30px; line-height:30px; font-weight: bold; color: white"  class="col-xs-12 btn-primary">
+                       今日关键指标
+                    </div>
+                </div>
+                <div class="row">
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">今日新关注: {$today_add_num}</div>
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">今日取消关注: {$today_cancel_num}</div>
+                </div>
+                <div class="row">
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">今日净增关注: {$today_jing_num}</div>
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">累计关注: {$today_total_num}</div>
+                </div>
+                <div class="row">
+                    <div style="padding-left: 10px; margin-top: 10px; text-align: left; height: 30px; line-height:30px; font-weight: bold; color: white"  class="col-xs-12 btn-primary">
+                        昨日关键指标
+                    </div>
+                </div>
+                <div class="row">
+                    <div  style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">昨日新关注: <?php echo $yesterday_stat['new'];?></div>
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">昨日取消关注: <?php echo $yesterday_stat['cancel']; ?></div>
+                </div>
+                <div class="row">
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">昨日净增关注: <?php echo intval($yesterday_stat['new']) - intval($yesterday_stat['cancel']);?></div>
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">累计关注: <?php echo $yesterday_stat['cumulate'];?></div>
+                </div>
+                
+                
+                {if $ewei_rs}
+                <div class="row">
+                    <div  style="margin-top: 10px; text-align: left; padding-left: 10px;  height: 30px; line-height:30px; font-weight: bold; color: white"  class="col-xs-12 btn-primary">
+                       人人商城关键指标
+                    </div>
+                </div>
+                <div class="row">
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">已售罄商品: {$ewei_rs['goods_totals']}</div>
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">待发货订单: {$ewei_rs['status1']}</div>
+                </div>
+                <div class="row">
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">维权中订单: {$ewei_rs['status4']}</div>
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">待审核提现: {$ewei_rs['finance_total']}</div>
+                </div>
+                <div class="row">
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">分销商总数: {$ewei_rs['commission_agent_total']}</div>
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">待审核分销商: {$ewei_rs['commission_agent_status0_total']}</div>
+                </div>
+                <div class="row">
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">待审核佣金申请: {$ewei_rs['commission_apply_status1_total']}</div>
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">待打款佣金申请: {$ewei_rs['commission_apply_status2_total']}</div>
+                </div>
+                
+                
+                <div class="row">
+                    <div  style="margin-top: 10px; text-align: left; padding-left: 10px;  height: 30px; line-height:30px; font-weight: bold; color: white"  class="col-xs-12 btn-primary">
+                       人人商城[订单]
+                    </div>
+                </div>
+                <div class="row">
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">全部订单: {$ewei_rs['all']}</div>
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">待发货: <span style="color:#F00;">{$ewei_rs['status1']}</span></div>
+                </div>
+                <div class="row">
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">待收货: <span style="color:#F90;">{$ewei_rs['status2']}</span></div>
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">待付款: {$ewei_rs['status0']}</div>
+                </div>
+                <div class="row">
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">已完成: {$ewei_rs['status3']}</div>
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">已关闭: {$ewei_rs['status_1']}</div>
+                </div>
+                <div class="row" style="border-bottom:1px #0099FF dotted;">
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">维权申请: <span style="color:#F00;">{$ewei_rs['status4']}</span></div>
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">维权完成: {$ewei_rs['status5']}</div>
+                </div>
+                
+                <div class="row">
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left; color:#1AB394;" class="col-xs-6">今日成交</div>
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">人均消费: ¥{$ewei_rs_order['order0']['avg']}</div>
+                </div>
+                <div class="row" style="border-bottom:1px #0099FF dotted;">
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">成交量: {$ewei_rs_order['order0']['count']}</div>
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">成交额: ¥{$ewei_rs_order['order0']['price']}</div>
+                </div>
+                <div class="row">
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left; color:#1C84C6;" class="col-xs-6">昨日成交</div>
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">人均消费: ¥{$ewei_rs_order['order1']['avg']}</div>
+                </div>
+                <div class="row" style="border-bottom:1px #0099FF dotted;">
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">成交量: {$ewei_rs_order['order1']['count']}</div>
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">成交额: ¥{$ewei_rs_order['order1']['price']}</div>
+                </div>
+                <div class="row">
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left; color:#F8AC59;" class="col-xs-6">近7日成交</div>
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">人均消费: ¥{$ewei_rs_order['order7']['avg']}</div>
+                </div>
+                <div class="row" style="border-bottom:1px #0099FF dotted;">
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">成交量: {$ewei_rs_order['order7']['count']}</div>
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">成交额: ¥{$ewei_rs_order['order7']['price']}</div>
+                </div>
+                <div class="row">
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left; color:#ED5565;" class="col-xs-6">近1个月成交</div>
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">人均消费: ¥{$ewei_rs_order['order30']['avg']}</div>
+                </div>
+                <div class="row" style="border-bottom:1px #0099FF dotted;">
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">成交量: {$ewei_rs_order['order30']['count']}</div>
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">成交额: ¥{$ewei_rs_order['order30']['price']}</div>
+                </div>
+                
+                <div class="row">
+                    <div  style="margin-top: 10px; text-align: left; padding-left: 10px;  height: 30px; line-height:30px; font-weight: bold; color: white"  class="col-xs-12 btn-primary">
+                       人人商城[会员]
+                    </div>
+                </div>
+                <div class="row">
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">今日新增: {$ewei_rs_member['member_newmember0']['count']}</div>
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">{$ewei_rs_member['member_newmember0']['rate']}% ↑</div>
+                </div>
+                <div class="row">
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">昨日新增: {$ewei_rs_member['member_newmember1']['count']}</div>
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">{$ewei_rs_member['member_newmember1']['rate']}% ↑</div>
+                </div>
+                <div class="row" style="border-bottom:1px #0099FF dotted;">
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">过去七天新增: {$ewei_rs_member['member_newmember7']['count']}</div>
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">{$ewei_rs_member['member_newmember7']['rate']}% ↑</div>
+                </div>
+                <div class="row">
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left; color:#1AB394;" class="col-xs-6">会员性别统计</div>
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">未知: ¥{$ewei_rs_member['member_membergender'][0]}</div>
+                </div>
+                <div class="row" style="border-bottom:1px #0099FF dotted;">
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">男: {$ewei_rs_member['member_membergender'][1]}</div>
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">女: {$ewei_rs_member['member_membergender'][2]}</div>
+                </div>
+                <div class="row" style="border-bottom:1px #0099FF dotted;">
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left; color:#1C84C6;" class="col-xs-6">会员等级统计</div>
+                    {loop $ewei_rs_member['member_memberlevel']['data'] $key $item}
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">{$item['name']}: {$item['value']}</div>
+                    {/loop}
+                </div>
+                <div class="row" style="border-bottom:1px #0099FF dotted;">
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left; color:#ED5565;" class="col-xs-6">会员区域统计(前21)</div>
+                    {loop $ewei_rs_member['member_province'] $key2 $item2}
+                    <div style="margin-top: 10px; font-weight: bold; padding-left: 10px; text-align: left;" class="col-xs-6">{$item2['name']}: {$item2['value']}</div>
+                    {/loop}
+                </div>
+                {/if}
+
+            <div><br></div>
+            <div><br></div>
+            <div><br></div>
+            <div><br></div>
+            </div>
+
+
+    </div>
+
+
+    <!-- 底部固定 -->
+    <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+        <div class="container" style="margin:0px; padding:0px; padding:0px 3px;">
+            <button type="button" class="btn btn-lg btn-primary btn-block" onclick="refresh()" style="margin:5px 0px;">刷新页面</button>
+        </div>
+    </nav>
+
+    <!-- 底部固定 -->
+</center>
+
+<script>
+    function refresh()
+    {
+        location.reload();
+    }
+</script>
+</body>
+
+</html>

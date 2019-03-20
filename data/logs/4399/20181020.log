@@ -1,0 +1,916 @@
+2018-10-20 22:28:18 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 157; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:28:18 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 157; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:28:18 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'upgrade',
+  ':value_2' => 'a:3:{s:7:"upgrade";b:0;s:4:"data";a:3:{s:5:"files";a:0:{}s:7:"schemas";a:0:{}s:7:"upgrade";b:0;}s:10:"lastupdate";i:1540045638;}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/cloud.mod.php; line: 213; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:28:18 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloud:transtoken',
+  ':value_2' => 's:39:"36d9ad41nygI9gUsBg5RUJFOEGdc/2MmLgANbGM";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/cloud.mod.php; line: 214; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:28:18 SQL Error :
+------------
+String:
+SQL: <br/>DELETE FROM `ims_core_cache` WHERE `key`=:key<hr/>Params: <br/>array (
+  ':key' => 'cloud:transtoken',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/function/pdo.func.php; line: 31; <br />file: /framework/function/cache.mysql.func.php; line: 63; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 28; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:28:18 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'checkupgrade:system',
+  ':value_2' => 'a:1:{s:10:"lastupdate";i:1540045638;}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 29; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:28:26 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 157; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:28:26 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 157; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:28:26 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'upgrade',
+  ':value_2' => 'a:3:{s:7:"upgrade";b:0;s:4:"data";a:3:{s:5:"files";a:0:{}s:7:"schemas";a:0:{}s:7:"upgrade";b:0;}s:10:"lastupdate";i:1540045646;}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/cloud.mod.php; line: 213; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:28:26 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloud:transtoken',
+  ':value_2' => 's:39:"d0a10Aq0Py7prs3MbxZJvaCWiM9xHemBa39fEvE";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/cloud.mod.php; line: 214; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:28:26 SQL Error :
+------------
+String:
+SQL: <br/>DELETE FROM `ims_core_cache` WHERE `key`=:key<hr/>Params: <br/>array (
+  ':key' => 'cloud:transtoken',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/function/pdo.func.php; line: 31; <br />file: /framework/function/cache.mysql.func.php; line: 63; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 28; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:28:26 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'checkupgrade:system',
+  ':value_2' => 'a:1:{s:10:"lastupdate";i:1540045646;}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 29; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:28:26 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 379; <br />file: /framework/model/module.mod.php; line: 492; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:28:26 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 379; <br />file: /framework/model/module.mod.php; line: 492; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:29:26 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 389; <br />file: /framework/model/module.mod.php; line: 496; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:29:26 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 389; <br />file: /framework/model/module.mod.php; line: 496; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:31:46 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 157; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:31:46 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 157; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:31:46 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'upgrade',
+  ':value_2' => 'a:3:{s:7:"upgrade";b:0;s:4:"data";a:3:{s:5:"files";a:0:{}s:7:"schemas";a:0:{}s:7:"upgrade";b:0;}s:10:"lastupdate";i:1540045846;}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/cloud.mod.php; line: 213; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:31:46 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloud:transtoken',
+  ':value_2' => 's:39:"6c6aNLBra+ar4fnFN6KtR8m4rlqHRu1wbIObmQQ";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/cloud.mod.php; line: 214; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:31:46 SQL Error :
+------------
+String:
+SQL: <br/>DELETE FROM `ims_core_cache` WHERE `key`=:key<hr/>Params: <br/>array (
+  ':key' => 'cloud:transtoken',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/function/pdo.func.php; line: 31; <br />file: /framework/function/cache.mysql.func.php; line: 63; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 28; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:31:46 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'checkupgrade:system',
+  ':value_2' => 'a:1:{s:10:"lastupdate";i:1540045846;}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 29; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:31:46 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 379; <br />file: /framework/model/module.mod.php; line: 492; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:31:46 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 379; <br />file: /framework/model/module.mod.php; line: 492; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:32:26 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 157; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:32:26 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 157; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:32:26 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'upgrade',
+  ':value_2' => 'a:3:{s:7:"upgrade";b:0;s:4:"data";a:3:{s:5:"files";a:0:{}s:7:"schemas";a:0:{}s:7:"upgrade";b:0;}s:10:"lastupdate";i:1540045886;}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/cloud.mod.php; line: 213; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:32:26 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloud:transtoken',
+  ':value_2' => 's:39:"3922buUJY8R8wZZHw9M2GAN46gRlkLZsYM7OW1I";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/cloud.mod.php; line: 214; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:32:26 SQL Error :
+------------
+String:
+SQL: <br/>DELETE FROM `ims_core_cache` WHERE `key`=:key<hr/>Params: <br/>array (
+  ':key' => 'cloud:transtoken',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/function/pdo.func.php; line: 31; <br />file: /framework/function/cache.mysql.func.php; line: 63; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 28; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:32:26 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'checkupgrade:system',
+  ':value_2' => 'a:1:{s:10:"lastupdate";i:1540045886;}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 29; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:32:26 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 379; <br />file: /framework/model/module.mod.php; line: 492; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:32:26 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 379; <br />file: /framework/model/module.mod.php; line: 492; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:32:28 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 157; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:32:28 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 157; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:32:28 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'upgrade',
+  ':value_2' => 'a:3:{s:7:"upgrade";b:0;s:4:"data";a:3:{s:5:"files";a:0:{}s:7:"schemas";a:0:{}s:7:"upgrade";b:0;}s:10:"lastupdate";i:1540045888;}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/cloud.mod.php; line: 213; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:32:28 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloud:transtoken',
+  ':value_2' => 's:39:"3a78GVIg5zPA3fITYBVkI0JcSAnyRgv68ttVk+I";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/cloud.mod.php; line: 214; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:32:28 SQL Error :
+------------
+String:
+SQL: <br/>DELETE FROM `ims_core_cache` WHERE `key`=:key<hr/>Params: <br/>array (
+  ':key' => 'cloud:transtoken',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/function/pdo.func.php; line: 31; <br />file: /framework/function/cache.mysql.func.php; line: 63; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 28; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:32:28 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'checkupgrade:system',
+  ':value_2' => 'a:1:{s:10:"lastupdate";i:1540045888;}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 29; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:32:28 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 379; <br />file: /framework/model/module.mod.php; line: 492; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:32:28 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 379; <br />file: /framework/model/module.mod.php; line: 492; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:32:46 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 389; <br />file: /framework/model/module.mod.php; line: 496; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:32:46 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 389; <br />file: /framework/model/module.mod.php; line: 496; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:33:26 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 389; <br />file: /framework/model/module.mod.php; line: 496; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:33:26 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 389; <br />file: /framework/model/module.mod.php; line: 496; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:33:28 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 389; <br />file: /framework/model/module.mod.php; line: 496; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:33:28 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 389; <br />file: /framework/model/module.mod.php; line: 496; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:33:51 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 157; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:33:51 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 157; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:33:51 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'upgrade',
+  ':value_2' => 'a:3:{s:7:"upgrade";b:0;s:4:"data";a:3:{s:5:"files";a:0:{}s:7:"schemas";a:0:{}s:7:"upgrade";b:0;}s:10:"lastupdate";i:1540045971;}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/cloud.mod.php; line: 213; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:33:51 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloud:transtoken',
+  ':value_2' => 's:39:"db77zzgrFYQQvt14Zn5AOFUY75OKmQE/Gtt5qYA";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/cloud.mod.php; line: 214; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:33:51 SQL Error :
+------------
+String:
+SQL: <br/>DELETE FROM `ims_core_cache` WHERE `key`=:key<hr/>Params: <br/>array (
+  ':key' => 'cloud:transtoken',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/function/pdo.func.php; line: 31; <br />file: /framework/function/cache.mysql.func.php; line: 63; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 28; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:33:51 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'checkupgrade:system',
+  ':value_2' => 'a:1:{s:10:"lastupdate";i:1540045971;}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 29; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:33:51 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 379; <br />file: /framework/model/module.mod.php; line: 492; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:33:51 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 379; <br />file: /framework/model/module.mod.php; line: 492; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:33:52 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 157; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:33:52 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 157; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:33:52 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'upgrade',
+  ':value_2' => 'a:3:{s:7:"upgrade";b:0;s:4:"data";a:3:{s:5:"files";a:0:{}s:7:"schemas";a:0:{}s:7:"upgrade";b:0;}s:10:"lastupdate";i:1540045972;}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/cloud.mod.php; line: 213; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:33:52 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloud:transtoken',
+  ':value_2' => 's:39:"a9c72x6k5tnxZbOIf6bFwTT2cbyoQ/rvmVXLEfM";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/cloud.mod.php; line: 214; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:33:52 SQL Error :
+------------
+String:
+SQL: <br/>DELETE FROM `ims_core_cache` WHERE `key`=:key<hr/>Params: <br/>array (
+  ':key' => 'cloud:transtoken',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/function/pdo.func.php; line: 31; <br />file: /framework/function/cache.mysql.func.php; line: 63; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 28; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:33:52 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'checkupgrade:system',
+  ':value_2' => 'a:1:{s:10:"lastupdate";i:1540045972;}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 29; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:33:52 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 379; <br />file: /framework/model/module.mod.php; line: 492; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:33:52 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 379; <br />file: /framework/model/module.mod.php; line: 492; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:33:55 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 157; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:33:55 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 157; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:33:55 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'upgrade',
+  ':value_2' => 'a:3:{s:7:"upgrade";b:0;s:4:"data";a:3:{s:5:"files";a:0:{}s:7:"schemas";a:0:{}s:7:"upgrade";b:0;}s:10:"lastupdate";i:1540045975;}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/cloud.mod.php; line: 213; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:33:55 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloud:transtoken',
+  ':value_2' => 's:39:"cd19WFp970J6pM+o6oeXfEy/03haWXab13w5fXE";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/cloud.mod.php; line: 214; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:33:55 SQL Error :
+------------
+String:
+SQL: <br/>DELETE FROM `ims_core_cache` WHERE `key`=:key<hr/>Params: <br/>array (
+  ':key' => 'cloud:transtoken',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/function/pdo.func.php; line: 31; <br />file: /framework/function/cache.mysql.func.php; line: 63; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 28; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:33:55 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'checkupgrade:system',
+  ':value_2' => 'a:1:{s:10:"lastupdate";i:1540045975;}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 29; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:33:55 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 379; <br />file: /framework/model/module.mod.php; line: 492; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:33:55 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 379; <br />file: /framework/model/module.mod.php; line: 492; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:34:51 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 389; <br />file: /framework/model/module.mod.php; line: 496; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:34:51 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 389; <br />file: /framework/model/module.mod.php; line: 496; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:34:52 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 389; <br />file: /framework/model/module.mod.php; line: 496; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:34:52 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 389; <br />file: /framework/model/module.mod.php; line: 496; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:34:55 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 389; <br />file: /framework/model/module.mod.php; line: 496; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:34:55 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 389; <br />file: /framework/model/module.mod.php; line: 496; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:35:56 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 157; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:35:56 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 157; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:35:56 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'upgrade',
+  ':value_2' => 'a:3:{s:7:"upgrade";b:0;s:4:"data";a:3:{s:5:"files";a:0:{}s:7:"schemas";a:0:{}s:7:"upgrade";b:0;}s:10:"lastupdate";i:1540046096;}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/cloud.mod.php; line: 213; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:35:56 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloud:transtoken',
+  ':value_2' => 's:39:"2920WFitSdL3jesJBPk2b4EwWArPlMaAis/2tFA";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/cloud.mod.php; line: 214; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:35:56 SQL Error :
+------------
+String:
+SQL: <br/>DELETE FROM `ims_core_cache` WHERE `key`=:key<hr/>Params: <br/>array (
+  ':key' => 'cloud:transtoken',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/function/pdo.func.php; line: 31; <br />file: /framework/function/cache.mysql.func.php; line: 63; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 28; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:35:56 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'checkupgrade:system',
+  ':value_2' => 'a:1:{s:10:"lastupdate";i:1540046096;}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 29; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:35:56 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 379; <br />file: /framework/model/module.mod.php; line: 492; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:35:56 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 379; <br />file: /framework/model/module.mod.php; line: 492; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:36:20 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 157; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:36:20 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 157; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:36:20 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'upgrade',
+  ':value_2' => 'a:3:{s:7:"upgrade";b:0;s:4:"data";a:3:{s:5:"files";a:0:{}s:7:"schemas";a:0:{}s:7:"upgrade";b:0;}s:10:"lastupdate";i:1540046120;}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/cloud.mod.php; line: 213; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:36:20 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloud:transtoken',
+  ':value_2' => 's:39:"14ecW+mgchLW/9jXNnCagWreG+FfmNryOaeq1S0";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/cloud.mod.php; line: 214; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:36:20 SQL Error :
+------------
+String:
+SQL: <br/>DELETE FROM `ims_core_cache` WHERE `key`=:key<hr/>Params: <br/>array (
+  ':key' => 'cloud:transtoken',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/function/pdo.func.php; line: 31; <br />file: /framework/function/cache.mysql.func.php; line: 63; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 28; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:36:20 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'checkupgrade:system',
+  ':value_2' => 'a:1:{s:10:"lastupdate";i:1540046120;}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 29; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:36:20 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 379; <br />file: /framework/model/module.mod.php; line: 492; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:36:20 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 379; <br />file: /framework/model/module.mod.php; line: 492; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:36:56 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 389; <br />file: /framework/model/module.mod.php; line: 496; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:36:56 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 389; <br />file: /framework/model/module.mod.php; line: 496; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:37:05 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 157; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:37:05 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 157; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:37:05 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'upgrade',
+  ':value_2' => 'a:3:{s:7:"upgrade";b:0;s:4:"data";a:3:{s:5:"files";a:0:{}s:7:"schemas";a:0:{}s:7:"upgrade";b:0;}s:10:"lastupdate";i:1540046165;}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/cloud.mod.php; line: 213; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:37:05 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloud:transtoken',
+  ':value_2' => 's:39:"cffbi20oCjExUcSocfr95ue1RtYKRRHK6tOuDBw";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/cloud.mod.php; line: 214; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:37:05 SQL Error :
+------------
+String:
+SQL: <br/>DELETE FROM `ims_core_cache` WHERE `key`=:key<hr/>Params: <br/>array (
+  ':key' => 'cloud:transtoken',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/function/pdo.func.php; line: 31; <br />file: /framework/function/cache.mysql.func.php; line: 63; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 28; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:37:05 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'checkupgrade:system',
+  ':value_2' => 'a:1:{s:10:"lastupdate";i:1540046165;}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 29; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:37:05 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 379; <br />file: /framework/model/module.mod.php; line: 492; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:37:05 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 379; <br />file: /framework/model/module.mod.php; line: 492; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:37:20 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 389; <br />file: /framework/model/module.mod.php; line: 496; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:37:20 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 389; <br />file: /framework/model/module.mod.php; line: 496; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:38:05 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 389; <br />file: /framework/model/module.mod.php; line: 496; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:38:05 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 389; <br />file: /framework/model/module.mod.php; line: 496; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:39:14 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 157; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:39:14 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 157; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:39:14 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'upgrade',
+  ':value_2' => 'a:3:{s:7:"upgrade";b:0;s:4:"data";a:3:{s:5:"files";a:0:{}s:7:"schemas";a:0:{}s:7:"upgrade";b:0;}s:10:"lastupdate";i:1540046294;}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/cloud.mod.php; line: 213; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:39:14 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloud:transtoken',
+  ':value_2' => 's:39:"c6ce/uE+T8zVCmBM90wxF6aoz8NXBDkoy1JRSLg";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/cloud.mod.php; line: 214; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 20; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:39:14 SQL Error :
+------------
+String:
+SQL: <br/>DELETE FROM `ims_core_cache` WHERE `key`=:key<hr/>Params: <br/>array (
+  ':key' => 'cloud:transtoken',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/function/pdo.func.php; line: 31; <br />file: /framework/function/cache.mysql.func.php; line: 63; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 28; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:39:14 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'checkupgrade:system',
+  ':value_2' => 'a:1:{s:10:"lastupdate";i:1540046294;}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /web/source/utility/checkupgrade.ctrl.php; line: 29; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:39:14 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 379; <br />file: /framework/model/module.mod.php; line: 492; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:39:14 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 379; <br />file: /framework/model/module.mod.php; line: 492; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:40:14 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 389; <br />file: /framework/model/module.mod.php; line: 496; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2018-10-20 22:40:14 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 389; <br />file: /framework/model/module.mod.php; line: 496; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+

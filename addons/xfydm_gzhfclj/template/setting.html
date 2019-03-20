@@ -1,0 +1,205 @@
+{template 'common/header'}
+
+
+
+<div class="main">
+
+
+
+	<form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1">
+
+
+
+		<div class="panel panel-default">
+
+
+
+			<div class="panel-heading">关注超链接多回复设置</div>
+
+
+
+			<div class="panel-body">
+
+				
+
+				
+
+
+
+				<div class="form-group">
+
+
+
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">第一条文本回复</label>
+
+
+
+					<div class="col-sm-6 col-xs-9">
+
+
+
+						<input type="text" name="first" class="form-control" value="{$settings['first']}" placeholder="留空不填则不回复" />
+
+
+
+					</div>
+
+
+
+					
+
+
+
+				</div>
+
+
+
+				<div class="form-group">
+
+
+
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">回复间隔时间</label>
+
+
+
+					<div class="col-sm-6 col-xs-9">
+
+
+
+						<input type="text" name="time" class="form-control" value="{$settings['time']}" placeholder="单位为秒，留空不填则没有间隔时间">
+
+
+
+					</div>
+
+
+
+					<div class="col-sm-3 col-xs-3">
+
+						注意：间隔时间总和要小于4秒，此处最大填写4秒
+
+					</div>
+
+					
+
+				</div>
+
+
+
+				<div class="form-group">
+
+
+
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">第二条文本回复</label>
+
+
+
+					<div class="col-sm-6 col-xs-9">
+
+
+
+						<input type="text" name="second" class="form-control" value="{$settings['second']}" placeholder="留空不填则不回复"/>
+
+
+
+					</div>
+
+
+
+					
+
+
+
+				</div>
+
+
+
+				<div class="form-group">
+
+
+
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">第三条图片回复</label>
+
+
+
+					<div class="col-sm-6 col-xs-9">
+
+
+
+						{php echo tpl_form_field_image('pic', $settings['pic'])}
+
+
+
+						<div class="help-block">留空不填则不回复</div>
+
+
+
+					</div>
+
+
+
+					
+
+
+
+				</div>
+
+
+
+				<div class="form-group">
+
+
+
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">超链接设置：</label>
+
+
+
+					<div class="col-sm-6 col-xs-9">
+
+
+
+						{php echo tpl_ueditor('content',$settings['content']);}
+
+
+
+					</div>
+
+					<div class="col-sm-3 col-xs-3">
+
+						介绍：在此处对文本添加超链接后，点击左上角的HTML按钮，复制编辑框中的代码，将代码放到基础设置-文字回复-添加基本文字回复-回复内容，然后保存。当有用户触发此条关键字时，就会看到此条带有链接的文本，点击会跳转到相应的链接。
+
+					</div>
+
+					
+
+	
+
+				</div>
+
+
+
+		<div class="form-group col-sm-12">
+
+
+
+			<input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1" />
+
+
+
+			<input type="hidden" name="token" value="{$_W['token']}" />
+
+
+
+		</div>
+
+
+
+	</form>
+
+
+
+</div>
+
+
+
+{template 'common/footer'}

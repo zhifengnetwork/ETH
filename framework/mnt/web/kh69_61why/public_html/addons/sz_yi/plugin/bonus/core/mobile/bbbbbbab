@@ -1,0 +1,1 @@
+select * from `hs_sz_yi_bonus_log` where 1  and `openid`='oP_Ugv6v6AMDbcMy0E075m54CXLo' and uniacid=149 order by id desc LIMIT 0,20

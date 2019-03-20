@@ -1,0 +1,614 @@
+2019-02-16 09:15:39 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 379; <br />file: /framework/model/module.mod.php; line: 492; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-02-16 09:15:39 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 379; <br />file: /framework/model/module.mod.php; line: 492; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-02-16 09:15:39 SQL Error :
+------------
+String:
+SQL: <br/>SELECT `value` FROM `ims_core_cache` WHERE `key` =  :__key_1  LIMIT 1<hr/>Params: <br/>array (
+  ':__key_1' => 'we7:module_setting:12:ewei_shopv2',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 227; <br />file: /framework/class/db.class.php; line: 259; <br />file: /framework/function/pdo.func.php; line: 61; <br />file: /framework/function/cache.mysql.func.php; line: 10; <br />file: /framework/function/cache.func.php; line: 39; <br />file: /framework/model/module.mod.php; line: 304; <br />file: /framework/model/module.mod.php; line: 497; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-02-16 09:15:39 SQL Error :
+------------
+String:
+SQL: <br/>SELECT * FROM `ims_uni_account_modules` WHERE `module` =  :__module_1 AND `uniacid` =  :__uniacid_2  LIMIT 1<hr/>Params: <br/>array (
+  ':__module_1' => 'ewei_shopv2',
+  ':__uniacid_2' => 12,
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 227; <br />file: /framework/function/pdo.func.php; line: 49; <br />file: /framework/model/module.mod.php; line: 306; <br />file: /framework/model/module.mod.php; line: 497; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-02-16 09:27:00 SQL Error :
+------------
+String:
+SQL: <br/>select * From`ims_ewei_shop_member`where uniacid=12 and openid=wap_user_12_17671252557<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'wap_user_12_17671252557' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/model/common.php; line: 108; <br />file: /addons/ewei_shopv2/core/mobile/member/recharge.php; line: 255; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 10:12:21 SQL Error :
+------------
+String:
+SQL: <br/>select sun(money) as money from`ims_ewei_shop_member_log`where uniacid12 and openid=:openid<hr/>Params: <br/>array (
+  ':openid' => 'wap_user_12_17671252555',
+)<hr/>SQL Error: <br/>FUNCTION hskj_1.sun does not exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/model/common.php; line: 107; <br />file: /addons/ewei_shopv2/core/model/common.php; line: 129; <br />file: /addons/ewei_shopv2/core/mobile/member/recharge.php; line: 255; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 10:12:31 SQL Error :
+------------
+String:
+SQL: <br/>select sun(money) as money from`ims_ewei_shop_member_log`where uniacid12 and openid=:openid<hr/>Params: <br/>array (
+  ':openid' => 'wap_user_12_17671252555',
+)<hr/>SQL Error: <br/>FUNCTION hskj_1.sun does not exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/model/common.php; line: 107; <br />file: /addons/ewei_shopv2/core/model/common.php; line: 129; <br />file: /addons/ewei_shopv2/core/mobile/member/recharge.php; line: 255; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 10:12:49 SQL Error :
+------------
+String:
+SQL: <br/>select sum(money) as money from`ims_ewei_shop_member_log`where uniacid12 and openid=:openid<hr/>Params: <br/>array (
+  ':openid' => 'wap_user_12_17671252555',
+)<hr/>SQL Error: <br/>Unknown column 'uniacid12' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/model/common.php; line: 107; <br />file: /addons/ewei_shopv2/core/model/common.php; line: 129; <br />file: /addons/ewei_shopv2/core/mobile/member/recharge.php; line: 255; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 10:14:40 SQL Error :
+------------
+String:
+SQL: <br/>select * from`ims_ewei_shop_member_log`where uniacid12 and openid=:openid<hr/>Params: <br/>array (
+  ':openid' => 'wap_user_12_17671252555',
+)<hr/>SQL Error: <br/>Unknown column 'uniacid12' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/model/common.php; line: 107; <br />file: /addons/ewei_shopv2/core/model/common.php; line: 129; <br />file: /addons/ewei_shopv2/core/mobile/member/recharge.php; line: 255; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 10:15:37 SQL Error :
+------------
+String:
+SQL: <br/>select * from`ims_ewei_shop_member_log`where uniacid12 and openid=:openid<hr/>Params: <br/>array (
+  ':openid' => 'wap_user_12_17671252555',
+)<hr/>SQL Error: <br/>Unknown column 'uniacid12' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/model/common.php; line: 107; <br />file: /addons/ewei_shopv2/core/model/common.php; line: 129; <br />file: /addons/ewei_shopv2/core/mobile/member/recharge.php; line: 255; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 10:38:13 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 379; <br />file: /framework/model/module.mod.php; line: 492; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-02-16 10:38:13 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 379; <br />file: /framework/model/module.mod.php; line: 492; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-02-16 10:38:13 SQL Error :
+------------
+String:
+SQL: <br/>SELECT `value` FROM `ims_core_cache` WHERE `key` =  :__key_1  LIMIT 1<hr/>Params: <br/>array (
+  ':__key_1' => 'we7:module_setting:12:ewei_shopv2',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 227; <br />file: /framework/class/db.class.php; line: 259; <br />file: /framework/function/pdo.func.php; line: 61; <br />file: /framework/function/cache.mysql.func.php; line: 10; <br />file: /framework/function/cache.func.php; line: 39; <br />file: /framework/model/module.mod.php; line: 304; <br />file: /framework/model/module.mod.php; line: 497; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-02-16 10:38:13 SQL Error :
+------------
+String:
+SQL: <br/>SELECT * FROM `ims_uni_account_modules` WHERE `module` =  :__module_1 AND `uniacid` =  :__uniacid_2  LIMIT 1<hr/>Params: <br/>array (
+  ':__module_1' => 'ewei_shopv2',
+  ':__uniacid_2' => 12,
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 227; <br />file: /framework/function/pdo.func.php; line: 49; <br />file: /framework/model/module.mod.php; line: 306; <br />file: /framework/model/module.mod.php; line: 497; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-02-16 13:46:58 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 379; <br />file: /framework/model/module.mod.php; line: 492; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-02-16 13:46:58 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 379; <br />file: /framework/model/module.mod.php; line: 492; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-02-16 13:46:58 SQL Error :
+------------
+String:
+SQL: <br/>SELECT `value` FROM `ims_core_cache` WHERE `key` =  :__key_1  LIMIT 1<hr/>Params: <br/>array (
+  ':__key_1' => 'we7:module_setting:12:ewei_shopv2',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 227; <br />file: /framework/class/db.class.php; line: 259; <br />file: /framework/function/pdo.func.php; line: 61; <br />file: /framework/function/cache.mysql.func.php; line: 10; <br />file: /framework/function/cache.func.php; line: 39; <br />file: /framework/model/module.mod.php; line: 304; <br />file: /framework/model/module.mod.php; line: 497; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-02-16 13:46:58 SQL Error :
+------------
+String:
+SQL: <br/>SELECT * FROM `ims_uni_account_modules` WHERE `module` =  :__module_1 AND `uniacid` =  :__uniacid_2  LIMIT 1<hr/>Params: <br/>array (
+  ':__module_1' => 'ewei_shopv2',
+  ':__uniacid_2' => 12,
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 227; <br />file: /framework/function/pdo.func.php; line: 49; <br />file: /framework/model/module.mod.php; line: 306; <br />file: /framework/model/module.mod.php; line: 497; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-02-16 17:08:35 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 23; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:08:36 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 23; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:08:36 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 23; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:08:36 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 23; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:08:37 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 23; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:08:37 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 23; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:08:37 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 23; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:08:38 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 23; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:08:38 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 23; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:10:58 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 23; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:11:08 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '0',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 23; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:11:23 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '0',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 23; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:11:31 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '0',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 23; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:11:44 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '0',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 23; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:13:20 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 23; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:13:24 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '0',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 23; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:13:27 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '0',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 23; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:13:42 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '0',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 23; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:13:44 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '0',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 23; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:13:44 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '0',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 23; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:13:58 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 23; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:14:00 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 23; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:14:02 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 23; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:14:17 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 23; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:14:18 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '0',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 23; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:14:46 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '0',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 26; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:14:50 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '0',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 26; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:15:03 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '0',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 26; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:15:09 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '0',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 26; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:15:37 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 26; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:17:11 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 27; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:17:11 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 27; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:17:11 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 27; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:17:14 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '0',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 27; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:17:23 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 27; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:17:43 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 27; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:17:44 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 27; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:18:12 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '0',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 27; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:18:27 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 27; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:18:32 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 27; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:18:47 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '0',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 27; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:20:50 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => NULL,
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 26; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:20:51 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => NULL,
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 26; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:21:08 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '8',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 26; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:21:09 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '8',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 26; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:21:10 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '8',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 26; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:21:10 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '8',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 26; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:21:11 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '8',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 26; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:21:11 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '8',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 26; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:21:16 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '8',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 26; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:21:17 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '8',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 26; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:21:18 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '8',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 26; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:21:18 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '8',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 26; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:21:29 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '8',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 26; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:21:30 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '8',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 26; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:21:31 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '8',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 26; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:21:31 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '8',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 26; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:21:31 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '8',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 26; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:21:31 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '8',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 26; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-02-16 17:21:31 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member_level4`where uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '8',
+)<hr/>SQL Error: <br/>Table 'hskj_1.ims_ewei_shop_member_level4' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 26; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+

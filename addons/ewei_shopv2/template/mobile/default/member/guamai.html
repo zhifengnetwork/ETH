@@ -1,0 +1,690 @@
+{template '_header'}
+
+<style>
+  #tab > a{
+    flex: 1;
+  }
+  .mydingdan{
+    flex: 1;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+  }
+
+  .fui-header {
+    background: #0a181f;
+    color: #fff;
+  }
+
+  .fui-header .title {
+    color: #fff;
+  }
+
+  .fui-header a.back:before {
+    border-color: #fff;
+  }
+
+  .fui-header-right>.icon-add4 {
+    font-size: 22px;
+  }
+
+  .fui-tab {
+    background: #0a181f;
+  }
+
+  .fui-tab.fui-tab-danger a.active {
+    color: #F0E68C;
+    border-color: #F0E68C;
+  }
+
+  .fui-tab a {
+    color: #fff;
+  }
+
+  .fui-tab-o,
+  .fui-tab {
+    margin-bottom: 0;
+  }
+
+  .fui-list-group {
+    margin-top: 0;
+  }
+
+  .lis {
+    background-color: #061016;
+    padding: 10px 20px;
+    position: relative;
+    border-bottom: 1px solid #666;
+  }
+
+  .lis_lie {
+    display: flex;
+    color: #fff;
+  }
+
+  .lis_lie0 {
+    justify-content: space-between;
+  }
+
+  .lis_lie0>span {
+    font-size: 16px;
+    color: #9f2332;
+    width: 20%;
+  }
+
+  .lis_lie0>p {
+    color: #c2a378;
+  }
+
+  .lis_lie0>p>i {
+    color: #fff;
+    font-size: 18px;
+  }
+
+  .lis_lie1 {
+    font-size: 16px;
+  }
+
+  .lis_lie2 {
+    color: #666;
+  }
+
+  .maiRu_btn {
+    background-color: #429547;
+    color: #fff;
+    border-radius: 2px;
+    position: absolute;
+    right: 20px;
+    bottom: 5px;
+    width: 25%;
+    padding: 5px 0;
+    text-align: center;
+  }
+
+  .maiChu_btn {
+    background-color: #a02332;
+    color: #fff;
+    border-radius: 2px;
+    position: absolute;
+    right: 20px;
+    bottom: 5px;
+    width: 25%;
+    padding: 5px 0;
+    text-align: center;
+  }
+    .mask1_btn{
+      width: 100%;
+      text-align: center;
+      height: 30px;
+      line-height: 30px;
+      background-color: #0a0;
+      margin: 10px 0 20px;
+    }
+    .mask1 > .mask1_lis{
+      display: flex;
+      background-color: #fff;
+      color: #000;
+      padding: 5px 10px;
+      align-items: center;
+    }
+    .mask1 > .mask1_lis > .buyNum{
+      border: 0;
+      outline-style: none;
+      width: 70%;
+    }
+    .mask1 > .mask1_lis > .allBuy{
+      width: 30%;
+    }
+    .mask1 > .mask1_lis > .allBuy > span{
+      color: #c2a378;
+    }
+    .mask1 > p{
+      padding: 5px 0;
+    }
+    .mask1 > .mask_tit{
+      margin-top: 10px;
+      font-size: 16px;
+      text-align: center;
+      color: #c2a378;
+    }
+    .mask1 >.mask1_pice{
+      display: flex;
+    }
+    .mask1 >.mask1_pice > p{
+        width: 20%;
+        text-align: center;
+    }
+    .maiRu_price{
+      padding: 5px 10px;
+      width: 80%;
+      border: 0;
+      outline-style: none;
+    }
+    .mask1{
+      background-color: #0e222d;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      z-index: 9;
+      color: #fff;
+      padding: 0 20px;
+    }
+    .mask0 {
+      background-color: #0e222d;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      z-index: 9;
+      color: #fff;
+      padding: 0 20px;
+    }
+    .mask0 > .mask_tit {
+      margin-top: 10px;
+      font-size: 16px;
+      text-align: center;
+      color: #c2a378;
+    }
+
+    .mask0 > .mask_lis>input {
+      width: 100%;
+      padding: 5px 10px;
+    }
+
+    .tishi {
+      text-align: right;
+      color: #888;
+      font-size: 12px;
+      padding: 3px 0;
+      border-bottom: 1px solid #666;
+    }
+
+    .mask0_btn {
+      width: 100%;
+      text-align: center;
+      height: 30px;
+      line-height: 30px;
+      background-color: #0a0;
+      margin: 20px 0;
+    }
+  .disable{
+    pointer-events: none;
+  }
+</style>
+
+<div class='fui-page  fui-page-current member-log-page'>
+
+  <div class="fui-header">
+
+    <div class="fui-header-left">
+
+      <a class="back"></a>
+
+    </div>
+
+    <div class="title">ETH/CNY</div>
+    <div class="fui-header-right" data-type="0">
+      <i class="icon icon-add4"></i>
+    </div>
+  </div>
+
+  <div class='fui-content navbar'>
+
+
+
+    {if $_W['shopset']['trade']['withdraw']}
+
+    <div id="tab" class="fui-tab fui-tab-danger">
+
+      <a data-tab="tab1" class="tab1 external {if $type == 0}active{/if}" data-type='0'>买入</a>
+
+      <a data-tab="tab2" class='tab2 external {if $type == 1}active{/if}' data-type='1'>卖出</a>
+
+      <span onclick="location.href='{php echo mobileurl('member/guamai/guamaijilu')}'" class="mydingdan">我的订单</span>
+
+    </div>
+
+    {/if}
+
+
+    <div class='content-empty' style='display:none;'>
+
+      <i class='icon icon-searchlist'></i><br />暂时没有任何记录!
+
+    </div>
+
+
+
+    <div class='fui-list-group container' style="display:none;">
+
+    </div>
+
+    <div class='infinite-loading'><span class='fui-preloader'></span><span class='text'> 正在加载...</span></div>
+
+  </div>
+
+  <!-- 卖出 -->
+  <div class="mask0">
+    <div class="mask_tit">卖出ETH</div>
+    <div class="mask_lis">
+      <p>价格(CNY)</p>
+      <input type="number" placeholder="请输入卖出的价格" class="maiChu_price">
+      <div class="tishi">参考价格：￥<span class="price_Min">{$start}</span>-￥<span class="price_Max">{$end}</span></div>
+    </div>
+    <div class="mask_lis">
+      <p>数量(ETH)</p>
+      <input type="number" placeholder="请输入卖出的数量" class="maiChu_Num">
+    </div>
+    <div class="mask_lis">
+      <p>预获金额(CNY)</p>
+      <input type="number" disabled value="0" class="getMoney0">
+      <div class="tishi">手续费：<span class="sxf0">{$sys['trxsxf']}</span></div>
+    </div>
+    <div class="mask_lis">
+      <p>待付(ETH)</p>
+      <input type="number" disabled value="0" class="setTrx0">
+    </div>
+    <div class="mask0_btn">确定卖出</div>
+  </div>
+
+  <!-- 买入 -->
+  <div class="mask1">
+    <div class="mask_tit">买入ETH</div>
+
+    <div class="mask1_pice">
+      <p>单价</p>
+      <input type="number" placeholder="请输入买入的价格" class="maiRu_price">
+    </div>
+    <div class="tishi">参考价格：￥<span class="price_Min">{$start}</span>-￥<span class="price_Max">{$end}</span></div>
+
+    <p>买入数量</p>
+    <div class="mask1_lis">
+      <input type="number" placeholder="请输入购买的数量" class="buyNum">
+    </div>
+    <p>交易总额</p>
+    <input type="number" disabled value="0" style="padding: 5px 10px;width: 100%;" class="mairu_Money">
+    <!-- <div class="tishi">预扣手续费<span style="color:#9f2332;">0</span>UES</div> -->
+    <div class="mask1_btn">确定买入</div>
+  </div>
+
+
+  <!-- 买入模板 -->
+  <script id="tpl_maichu" type="text/html">
+      <ul>
+      <% each list as val %>
+        <li class="lis">
+          <p style="color: #fff;">挂卖编号：<% val.id %> </p>
+          <div class="lis_lie lis_lie0">
+            <p>挂单人:  <% val.nickname %>　
+              <% if val.zfbfile==1 %> <i class="icon icon-alipay"></i> <% /if %>
+              <% if val.wxfile==1 %> <i class="icon icon-wechat1"></i> <% /if %>
+              <% if val.bank==1 %> <i class="icon icon-vipcard"></i> <% /if %>
+            </p>
+            <span>￥<% val.price %> </span>
+          </div>
+          <% if val.openid2 != '' %>
+          <p style="color:#c2a378">抢单人：<% val.nickname2 %></p>
+          <% /if %>
+          <div class="lis_lie lis_lie1">挂单数量 <% val.trx %></div>
+          <!-- <div class="lis_lie lis_lie2">限额 2800.0-2800.0 UES</div> -->
+          <% if val.status == 0 %>
+          <div class="maiRu_btn" data-id='<% val.id %>' <% if val.self == 1 %> onclick="alert('不能买入自己发放的账单')"<% else if val.self3 == 1 %> onclick="alert('该账单正在交易中')"<% else %> onclick="location.href='{php echo mobileurl('member/guamai/sellout')}&id=<% val.id %>&op=1'"<% /if %>>买入
+          </div>
+          <% /if %>
+          <% if val.status == 1 %>
+          <div class="maiRu_btn" data-id='<% val.id %>' style="background-color: #a02332;" <% if val.self == 1 %> onclick="alert('不能买入自己发放的账单')"<% else if val.self3 == 1 %> onclick="alert('该账单正在交易中')"<% else %> onclick="location.href='{php echo mobileurl('member/guamai/sellout')}&id=<% val.id %>&op=1'"<% /if %>>交易中</div>
+          <% /if %>
+        </li>
+      <% /each %>
+      </ul>
+  </script>
+
+  <!-- 卖出模板 -->
+  <script id="tpl_mairu" type="text/html">
+    <ul>
+    <% each list as val %>
+        <li class="lis">
+          <p style="color: #fff;">挂卖编号：<% val.id %> </p>
+          <div class="lis_lie lis_lie0">
+            <p> 挂单人: <% val.nickname %>　
+              
+            </p>
+            <span>￥ <% val.price %> </span>
+          </div>
+          <% if val.openid2 != '' %>
+          <p style="color:#c2a378">抢单人：<% val.nickname2 %></p>
+          <% /if %>
+          <div class="lis_lie lis_lie1">挂单数量 <% val.trx %> </div>
+          <!-- <div class="lis_lie lis_lie2">限额 2800.0-2800.0 UES</div> -->
+
+          <% if val.status == 0 %>
+          <div class="maiChu_btn" data-id="<% val.id %>" style="background-color: #429547"
+            <% if val.self == 1 %> onclick="alert('不能卖出自己发放的账单')"
+            <% else if val.self3 == 1 %> onclick="alert('该账单正在交易中')"
+            <% else %> data-flag = '0' <% /if %> >卖出</div>
+          <% /if %>
+
+          <% if val.status == 1 %>
+          <div class="maiChu_btn" data-id="<% val.id %>" style="background-color: #a02332" 
+          <% if val.self == 1 %> onclick="alert('不能卖出自己发放的账单')"
+          <% else if val.self3 == 1 %> onclick="alert('该账单正在交易中')"
+          <% else if val.self3 == 0 %> onclick="location.href='{php echo mobileurl('member/guamai/sellout')}&id=<% val.id %>&op=0'"
+          <% else %> data-flag = '0' 
+          <% /if %> >交易中
+          </div>
+          <% /if %>
+
+        </li>
+    <% /each %>
+    </ul>
+  </script>
+
+
+  <!-- js -->
+  <script type="text/javascript">
+
+  $('.container').on('click','.maiChu_btn',function (e) {
+      if($(this).data('flag') == 0){
+          e.stopPropagation();
+          $(this).addClass('disable')
+          let id = $(this).data('id');
+          $.ajax({
+            type:'post',
+            url:"{php echo mobileurl('member/guamai/sellout')}",
+            data:{id:id, type:0},
+            dataType:'json',
+            success:function(data){
+              console.log(data);
+              alert(data.result.message);
+              $('.maiChu_btn').removeClass('disable');
+              if(data.status == 1){
+                  location.reload();
+                  window._type = 0;
+                  console.log(window._type);
+                  
+              }
+
+            },error:function(err){
+              console.log(err);
+              $('.maiChu_btn').removeClass('disable');
+
+            }
+          })
+      }
+  })
+
+
+    // $('.container').on('click','.maiRu_btn',function (e) {
+    //   e.stopPropagation();
+    //   let openid = $('.maiRu_btn').data('openid');
+    //   location.href="{php echo mobileurl('member/guamai/sellout'),array('openid'=>"+ openid +")}"
+    // })
+
+
+    // 确定卖出
+    $('.mask0_btn').click(function () {
+      let maiChu_price = $('.maiChu_price').val();  // 卖出价格
+      let price_min = $('.price_Min').html();       // 最小单价
+      let price_max = $('.price_Max').html();        // 最大单价
+      let maiChu_num = $('.maiChu_Num').val();       // 卖出数量
+      let getMoney0 = $('.getMoney0').val();        // 获得金额
+      let sxf0 = $('.sxf0').html();                 // 手续费
+      let setTrx0 = $('.setTrx0').val();            // 支付TRX
+
+      // 1. 卖出价格需在最小单价与最大单价区间中
+      if(maiChu_price < price_min || maiChu_price > price_max){
+        alert('请根据参考价格来输入价格！')
+        return
+      } else if(maiChu_num <= 0){
+        alert('请输入卖出的数量！')
+        return
+      }
+
+      $.ajax({
+        type:'post',
+        url:"{php echo mobileurl('member/guamai/hangonsale')}",
+        data:{
+          price: maiChu_price,
+          trx: maiChu_num,
+          money: getMoney0,
+          servicecharge: sxf0,
+          trx2: setTrx0,
+          type: "1"
+        },
+        dataType: 'json',
+        success:function(data){
+          console.log(data);
+          if(data.status == '-2'){
+            alert(data.result.message);
+            location.href="{php echo mobileurl('member/wallet')}";
+          }else if(data.status == 1){
+            alert(data.result.message);
+            location.reload();
+          }
+          
+        },error:function(err){
+          console.log(err);
+          
+        }
+      })
+
+    })
+
+    // 监听卖出价格的input变化
+    $('.maiChu_price').bind('input onpropertychange',function () {
+      if($('.maiChu_price').val() < 0){
+        alert('卖出价格必须大于0');
+        $('.maiChu_price').val('');
+        return false;
+      }
+
+      if($('.maiChu_Num').val() != '' && $('.maiChu_price').val() != ''){
+        let getMoney = $('.maiChu_Num').val() * $('.maiChu_price').val();
+        let num = $('.maiChu_Num').val();
+        $('.getMoney0').val(getMoney);
+        setTrx = Number(num) + Number($('.sxf0').html());
+        $('.setTrx0').val(setTrx);
+      } else {
+        $('.getMoney0').val('0');
+        $('.setTrx0').val("0");
+      }
+
+    })
+    // 监听卖出数量的input变化
+    $('.maiChu_Num').bind('input onpropertychange',function () {
+      let r = /^[1-9]+[0-9]*]*$/;
+      if(!r.test($('.maiChu_Num').val())){
+        alert('卖出数量必须为大于0的整数');
+        $('.maiChu_Num').val('');
+        return false;
+      }
+
+      if($('.maiChu_price').val() != '' && $('.maiChu_Num').val() != ''){
+        let getMoney = $('.maiChu_Num').val() * $('.maiChu_price').val();
+        let num = $('.maiChu_Num').val();
+        $('.getMoney0').val(getMoney);
+        setTrx = Number(num) + Number($('.sxf0').html());
+        $('.setTrx0').val(setTrx);
+      } else {
+        $('.getMoney0').val('0');
+        $('.setTrx0').val("0");
+      }
+    })
+
+    // 监听买入价格的input变化
+    $('.maiRu_price').bind('input onpropertychange',function () {
+      if($('.maiRu_price').val() < 0){
+        alert('卖出价格必须大于0');
+        $('.maiRu_price').val('');
+        return false;
+      }
+
+      if($('.buyNum').val() != '' && $('.maiRu_price').val() != ''){
+        let getMoney = $('.buyNum').val() * $('.maiRu_price').val();
+        $('.mairu_Money').val(getMoney);
+      } else {
+        $('.mairu_Money').val('0');
+      }
+
+    })
+    // 监听买入数量的input变化
+    $('.buyNum').bind('input onpropertychange',function () {
+      let r = /^[1-9]+[0-9]*]*$/;
+      if(!r.test($('.buyNum').val())){
+        alert('卖出数量必须为大于0的整数');
+        $('.buyNum').val('');
+        return false;
+      }
+
+      if($('.maiRu_price').val() != '' && $('.buyNum').val() != ''){
+        let getMoney = $('.buyNum').val() * $('.maiRu_price').val();
+        $('.mairu_Money').val(getMoney);
+      } else {
+        $('.getMoney0').val('0');
+      }
+    })
+
+    // 确定买入
+    $('.mask1_btn').click(function () {
+      let maiRu_price = $('.maiRu_price').val();
+      let price_min = $('.price_Min').html();
+      let price_max = $('.price_Max').html();
+      let buy_nam = $('.buyNum').val();
+      // 1. 买入价格需在最小单价与最大单价区间中
+      if(maiRu_price < price_min || maiRu_price > price_max){
+        alert('请根据参考价格来输入价格！')
+        return
+      } else if(buy_nam <= 0 || buy_nam == ''){
+        alert('请输入买入的数量！')
+        return
+      }
+
+      $.ajax({
+        type:'post',
+        url:"{php echo mobileurl('member/guamai/hangonsale')}",
+        data:{
+          price: $('.maiRu_price').val(),
+          trx: $('.buyNum').val(),
+          money: $('.mairu_Money').val(),
+          type: "0"
+        },
+        dataType: 'json',
+        success:function(data){
+          console.log(data);
+          if(data.status == '-2'){
+            alert(data.result.message);
+            location.href="{php echo mobileurl('member/wallet')}";
+          }else if(data.status == 1){
+            alert(data.result.message);
+            location.reload();
+          }
+          
+        },error:function(err){
+          console.log(err);
+          
+        }
+      })
+
+    
+    
+    })
+
+    $(function () {
+    // 页面加载时隐藏弹窗至屏幕外
+      $('.mask0').css('bottom', $('.mask0').height() * -1);
+      $('.mask1').css('bottom', $('.mask1').height() * -1);
+    })
+
+    // 设置全部变量0为卖出，1为买入
+    var typeTab = 0;
+    $('.tab1').click(function () {
+      typeTab = 0;
+    })
+    $('.tab2').click(function () {
+      typeTab = 1;
+    })
+
+    // 点击加号弹出弹框
+    $('.fui-header-right').click(function () {
+      console.log(typeTab);
+      if (typeTab == 1) {
+
+        $.ajax({
+          type:'post',
+          url:"{php echo mobileurl('member/guamai/judgeguamai')}",
+          data:{type:1},
+          dataType:'json',
+          success:function(data){
+            console.log(data);
+            if(data.status == 1){
+                $('.mask0').animate({
+                  bottom: "0"
+                }, 600)
+            } else if (data.status == 0){
+              FoxUI.toast.show(data.result.message);
+            }
+            
+          },error:function(err){
+            console.log(err);
+            
+          }
+        })
+
+
+      } else if (typeTab == 0) {
+
+        $.ajax({
+          type:'post',
+          url:"{php echo mobileurl('member/guamai/judgeguamai')}",
+          data:{type:0},
+          dataType:'json',
+          success:function(data){
+            console.log(data);
+            if(data.status == 0){
+              FoxUI.toast.show(data.result.message);
+            }else if(data.status == 1){
+              $('.mask1').animate({
+                bottom: "0"
+              }, 600)
+            }
+            
+          },error:function(err){
+            console.log(err);
+            
+          }
+        })
+
+
+
+      }
+
+    })
+
+    // 点击内容缩起弹窗
+    $('.fui-content').click(function () {
+      $('.mask0,.mask1').animate({
+        bottom: $('.mask0').height() * -1
+      }, 600)
+    })
+
+  </script>
+
+
+  <script language='javascript'>
+    window._type = 1;
+    require(['biz/member/guamai'], function (modal) {
+
+      modal.init({ type: window._type });
+
+    });
+  </script>
+
+  {php $this->footerMenus()}
+
+
+</div>
+
+
+
+{template '_footer'}

@@ -1,0 +1,38 @@
+{template '_header'}
+<script type="text/javascript">
+   
+    $(function(){
+         $("#ok").click(function(){
+              $.ajax({
+                 type:"post",
+                 url:"{php echo mobileurl('member/mywallet/timers')}",
+                 data:{},
+                 success:function(status){
+                    var sta = JSON.parse(status);
+                    alert(sta.openid);
+                     // timer = setInterval("CountDownTime()",3000);
+                     timer = setTimeout(function(){
+                            $.ajax({
+                             type:"post",
+                             url:"{php echo mobileurl('member/mywallet/timeris')}",
+                             data:{openid:sta.openid},
+                             success:function(status){
+                                var sta = JSON.parse(status);
+                                alert(sta.list);
+                             }
+                          })
+
+                     },10000);
+
+                 }
+              })
+         })
+    })
+    
+              var orign_time = 1552903200;
+              var leftTime = Date.parse(new Date())/1000;//转化成秒
+              var maxTime = orign_time-leftTime;
+     
+</script> 
+<div id="timer" style="color:red" mce_style="color:red"></div>
+<div><button id="ok">干就完事了么</button></div>

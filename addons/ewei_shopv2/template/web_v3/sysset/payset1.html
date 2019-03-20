@@ -1,0 +1,269 @@
+{template '_header'}
+
+
+
+<style>
+
+    .tabs-container .tab-pane .panel-body {border-left: none; border-right: none; border-bottom: none;}
+    .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+        background: #9c3c3c ;
+        color:white;
+    }
+    .nav-tabs .active ,.nav-tabs .active:focus ,.nav-tabs .active:hover{
+        opacity: 1;
+        color:white;
+        background: #9c3c3c ;
+    }
+    
+    .nav-tabs li:hover,.nav-tabs li:hover a{
+        background: #9c3c3c !important;
+        color:white!important;
+    }
+    .nav li {
+        float:left; width: 65px;
+        height: 65px;
+        background: #44b46e;    
+        border-radius: 50%;
+        margin-left:20px;
+    }
+
+    .nav li a{
+        line-height: 20px;
+        margin: 18px 15px;
+        text-align: center;
+        padding:0;
+        font-size:14px;
+        font-weight: bold;
+        color: white;
+        opacity: 0.9;
+    }
+
+
+</style>
+
+
+
+<form action="" method="post" class="form-horizontal form-validate" enctype="multipart/form-data" >
+
+    <div class="page-header">
+
+        <img src="../addons/ewei_shopv2/static/images/font_31.png">当前位置：<span class="text-primary">支付方式</span>
+
+    </div>
+
+<div class="page-content">
+
+
+    <div class="tabs-container">
+
+        <div class="tab-content ">
+
+            <!-- 微信端开始-->
+
+            <div class="tab-pane  active" id="tab_wechat">
+
+                <div class="panel panel-default">
+
+                    <div class="panel-body">
+
+                        <div class="col-sm-9 col-xs-12">
+
+                            <h4 class="set_title">微信支付</h4>
+
+                            <span>
+
+                            <p class="text text-danger">如果是微信支付，请上传您的微信收款码  </p>
+
+                        </span>
+
+                        </div>
+
+                        <div class="col-lg pull-right" style="padding-top:10px;text-align: right" >
+
+                            <input type="checkbox" class="js-switch" name="data[weixin]" value="1" {if $data['weixin']==1}checked{/if} />
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label class="col-lg control-label">微信收款码</label>
+
+                        <div class="col-sm-9 col-xs-12">
+
+                            {ifp 'sysset.payset1.edit'}
+
+                            {php echo tpl_form_field_image2('data[weixinfile]', $data['weixinfile'])}
+
+                            <span class='help-block'>正方型图片</span>
+
+                            {else}
+
+                            <input type="hidden" name="data[weixinfile]" value="{$data['weixinfile']}"/>
+
+                            {if !empty($data['weixinfile'])}
+
+                            <a href='{php echo tomedia($data['weixinfile'])}' target='_blank'>
+
+                            <img src="{php echo tomedia($data['weixinfile'])}" style='width:100px;border:1px solid #ccc;padding:1px' />
+
+                            </a>
+
+                            {/if}
+
+                            {/if}
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div class="panel panel-default" >
+
+                <div class="panel-body">
+
+                    <div class="col-sm-9 col-xs-12">
+
+                        <h4 class="set_title">支付宝支付</h4>
+
+                        <span>开启后，请上传您的支付宝收款码.</span>
+
+                    </div>
+
+                    <div class="col-lg pull-right" style="padding-top:10px;text-align: right" >
+
+                        <input type="checkbox" class="js-switch"  name="data[zfb]"  value="1" {if $data['zfb']==1}checked{/if} />
+
+                    </div>
+                    <div class="form-group">
+
+                        <label class="col-lg control-label">支付宝收款码</label>
+
+                        <div class="col-sm-9 col-xs-12">
+
+                            {ifp 'sysset.payset1.edit'}
+
+                            {php echo tpl_form_field_image2('data[zfbfile]', $data['zfbfile'])}
+
+                            <span class='help-block'>正方型图片</span>
+
+                            {else}
+
+                            <input type="hidden" name="data[zfbfile]" value="{$data['zfbfile']}"/>
+
+                            {if !empty($data['zfbfile'])}
+
+                            <a href='{php echo tomedia($data['zfbfile'])}' target='_blank'>
+
+                            <img src="{php echo tomedia($data['zfbfile'])}" style='width:100px;border:1px solid #ccc;padding:1px' />
+
+                            </a>
+
+                            {/if}
+
+                            {/if}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="panel panel-default" >
+
+                <div class="panel-body">
+
+                    <div class="col-sm-9 col-xs-12">
+
+                        <h4 class="set_title">银行卡支付</h4>
+
+                        <span>如果支持银行卡付款，请上传您收款的银行卡号和开户行截图。</span>
+
+                    </div>
+
+                    <div class="col-lg pull-right" style="padding-top:10px;text-align: right" >
+
+                        <input type="checkbox" class="js-switch" name="data[yhk]" value="1" {if $data['yhk']==1}checked{/if} />
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label class="col-lg control-label">银行卡截图</label>
+
+                        <div class="col-sm-9 col-xs-12">
+
+                            {ifp 'sysset.payset1.edit'}
+
+                            {php echo tpl_form_field_image2('data[yhkfile]', $data['yhkfile'])}
+
+                            <span class='help-block'>正方型图片</span>
+
+                            {else}
+
+                            <input type="hidden" name="data[yhkfile]" value="{$data['yhkfile']}"/>
+
+                            {if !empty($data['yhkfile'])}
+
+                            <a href='{php echo tomedia($data['yhkfile'])}' target='_blank'>
+
+                            <img src="{php echo tomedia($data['yhkfile'])}" style='width:100px;border:1px solid #ccc;padding:1px' />
+
+                            </a>
+
+                            {/if}
+
+                            {/if}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    <!--微信端 结束-->
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    </div>
+
+    <span class="">
+
+        {ifp 'sysset.payset.edit'}
+
+            <input type="submit" value="提交" class="btn btn-primary"  />
+
+        {/if}
+
+    </span>
+
+</form>
+
+</div>
+
+
+
+
+{template '_footer'}
+
+<!--青岛易联互动网络科技有限公司-->

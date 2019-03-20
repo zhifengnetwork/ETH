@@ -1,0 +1,110 @@
+{template 'common/header'}
+<style>
+.width100 {
+	width:100px;
+}
+</style>
+<div class="main">
+	<ul class="nav nav-tabs">
+		<li{if $_GPC['do'] == 'manage'} class="active"{/if}><a href="{php echo $this->createWebUrl('index',array('op'=>'manage'));}">智慧智慧预约</a></li>
+		<li{if $_GPC['do'] == 'post'} class="active"{/if}><a href="{php echo url('platform/reply/post',array('m'=>$this->module['name']));}">添加智慧表单</a></li>
+		<li{if $_GPC['do'] == 'list'} class="active"{/if}><a href="{php echo $this->createWebUrl('list',array('op'=>'list','rid'=>$rid));}">提交名单</a></li>
+	</ul>
+<div class="panel panel-default">
+<div class="panel-heading">
+	<div class="row-fluid">
+		<form action="">
+			<input type="hidden" name="c" value="site" />
+			<input type="hidden" name="a" value="entry" />
+			<input type="hidden" name="m" value="bc_zhyy" />
+			<input type="hidden" name="do" value="list" />
+			<input type="hidden" name="op" value="export" />	
+			<input type="hidden" name="rid" value="{$rid}" />				
+    	<button type="submit" name="EXP01" value="EXP01" class="btn btn-warning">导出数据</button><span id="resizecolumn" class="text-info hide pull-right">提示:表格列宽度可以调整！</span>
+		</form>
+    </div>
+</div>
+	<div style="position:relative">
+		<div class="panel-body table-responsive" style="overflow-x:auto;">
+			<table id="maintable" class="table table-hover"	style="position:relative;min-width:1300px;">
+			<thead class="navbar-inner">
+				<tr>
+					<th style="width:60px;">序号</th>
+					<th style="width:120px;">昵称</th>
+					<th style="width:140px;">时间</th>
+					<th style="width:100px;">金额</th>
+					<th style="width:100px;">支付方式</th>
+					<th style="width:100px;">支付{if $needWriteoff == 1}/核销{/if}状态</th>					
+					<th style="width:140px;">操作</th>
+					<th class="hide">内容</th>
+					{$ths}
+					<th style="width:120px;">OPENID</th>
+				</tr>
+			</thead>
+			<tbody>
+				{loop $list $row}
+				<tr>
+					<td>{$row['id']}</td>
+					<td>{$row['nickname']}</td>
+					<td>{php echo date('Y/m/d H:i',$row['createtime']);}</td>
+					<td>{$row['paid']}</td>
+					<td>{if $row['paytype']==1}微信支付{else}余额支付{/if}</td>
+					<td>{if $row['status'] == -1}取消
+						{elseif $row['status'] == 0}待付款
+						{elseif $row['status'] == 1}已支付
+						{elseif $row['status'] == 999}已支付
+						{elseif $row['status'] == 101}申请退款
+						{else}{$row['status']}
+						{/if}
+						{if $needWriteoff == 1}
+							{if $row['write_off_status'] == 1}/已核销
+							{else}/未核销
+							{/if}
+						{/if}						
+					</td>
+					<td>
+						<a class="btn btn-default" data-toggle="tooltip" data-placement="top" href="javascript:;" onclick="editdata(this);" title="编辑"><i class="fa fa-edit"></i></a>
+                        <a class="btn btn-default" data-toggle="tooltip" data-placement="top" href="{php echo $this->createWebUrl('list',array('rid'=>$row['rid'],'id'=>$row['id'],'op'=>'deletedata'))}" onclick="if(!confirm('数据删除后将不可恢复，确定删除吗?')) return false;" title="删除"><i class="fa fa-times"></i></a>					
+					</td>					
+					<td class="hide"><input type="hidden" value='{$row["fields"]}' class="field"></td>
+					{$tds}
+					<td>{$row['openid']}</td>
+				</tr>
+				{/loop}
+			</tbody>
+		</table>
+	</div>
+</div>
+</div>
+{$pager}
+</div>
+
+<div class="modal fade" id="data-modal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">修改数据</h4>
+			</div>
+			<form id="modifyform" action="{php echo $this->createWebUrl('list',array('op'=>'updatedata','rid'=>$rid))}" method="post">
+			<input type="hidden" name="id" id="rowid">
+			<div class="modal-body clearfix form-horizontal" style="max-height:500px;overflow:auto;">
+			</div>
+			</form>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" style="width:150px;" data-dismiss="modal">取消</button>
+				<button type="button" class="btn btn-primary" style="width:150px;" data-dismiss="modal" onclick="postmodify();">确定</button><!-- onclick 最好使用util.ajaxshow -->
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+var getiamgeurl = "{php echo $this->createWebUrl('list', array('op' => 'downloadmedias'))}";
+var colResizablejs = "{MODULE_URL}/static/js/colResizable-1.5.source.js";
+$("#maintable").find("th").addClass("width100");
+</script>
+<!--<script src="{MODULE_URL}/static/js/colResizable-1.5.source.js"></script>-->
+<script type="text/javascript" src="{MODULE_URL}/static/js/bc_x_common.js"></script>
+<script type="text/javascript" src="{MODULE_URL}/static/js/list.js?v={php echo time()}"></script>
+
+{template 'common/footer'}

@@ -1,0 +1,196 @@
+{template '_header'}
+<style>
+    .upload-img3{
+        position: relative;text-align: center;
+    }
+    .upload-img3 img{
+        max-width: 100%;
+        max-height: 200px;
+        margin: 0 auto;
+    }
+    .img{
+        width: 100%;height: 200px;    
+        font-size: 150px;
+    }
+    .img strong{
+        font-size: 16px;display: block;
+    }
+    #business_license{
+        position: absolute;
+        width: 100%;height: 200px;top: 0;
+        opacity: 0;
+    }
+</style>
+<div class='fui-page  fui-page-current order-pay-page'>
+    <div class="fui-header">
+        <div class="fui-header-left">
+            <a class="back" onclick='history.back()'></a>
+        </div>
+        <div class="title" style='margin-right:-2rem;'>支付凭证</div>
+        <div class="fui-header-right">
+            <!--<a href="{php echo mobileUrl('order')}" class="external">我的订单</a>-->
+        </div>
+    </div>
+    <div class='fui-content '>
+        <div class="fui-cell-group" style="margin-top: 0">
+            <div class="fui-cell">
+                <div class="fui-cell-label">订单编号</div>
+                <div class="fui-cell-info"></div>
+                <input type="hidden" value="{$orderid}" id="orderid" name="orderid" />
+                <div class="fui-cell-remark noremark">{$order['ordersn']}</div>
+            </div>
+            <div class="fui-cell">
+                <div class="fui-cell-label">订单金额</div>
+                <div class="fui-cell-info"></div>
+                <div class="fui-cell-remark noremark"><span class='text-danger bigprice'>￥{if empty($ispeerpay)}{php echo number_format($order['price'],2)}{else}<span id="peerpay">{php echo number_format($peerprice,2)}</span>{/if}</span>
+                </div>
+            </div>
+            <div class="fui-cell">
+                <div class="fui-cell-label">支付方式</div>
+                <div class="fui-cell-info"></div>
+                <input type="hidden" value="{$type}" id="zf" name="zf" />
+                <div class="fui-cell-remark noremark">
+                    {if $type=='wx'}微信支付{elseif $type=='zfb'}支付宝支付{elseif $type=='yhk'}银行卡支付{/if}
+                </div>
+            </div>
+        </div>
+        <!-- <div style="width:100%;height:200px;background-color: green; ">
+                上传支付凭证div
+        </div> -->
+        <!-- <button >上传</button> -->
+
+        <!-- 店招 -->
+        <div class="fui-cell-group">
+
+             <div class="fui-cell ">
+
+               <!--  <div class="fui-cell-label">店招图片</div>  -->
+
+                <div class="fui-cell-info">
+                    <div class="upload-img3 ">
+
+                        <p class="img">
+                            +
+                            <strong>点击上传支付凭证</strong>
+                        </p>
+
+
+                        <input type="file" name="logoimg_2" id="business_license" value="" />
+
+                        <input type="hidden" id="logo_2" name="logo_2" value="{$order['file']}" />
+
+                        <img src="" class="oldImg" id="oldImg" style="display: none">
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+            <button class="btn btn-default" id="submit" style="width: 60%;margin:25px auto;display: block">上传支付凭证</button>
+
+<script type="text/javascript" src="../addons/ewei_shopv2/static/js/dist/ajaxfileupload.js"></script>
+<script type="text/javascript">
+    var $orderFile = "{$order['file']}";
+    console.log($orderFile,"{$order['file']}");
+    if( $orderFile ){
+        $('.upload-img3 p').remove();
+
+        $('.upload-img3 text').remove();
+        // var img = document.createElement("img");
+
+        // img.src = '../attachment/'+$orderFile;
+
+        // img.className='oldImg';
+
+        // $(".upload-img2").append( img );
+        var oldImg = document.getElementById('oldImg');
+        oldImg.src = '../attachment/'+$orderFile;
+        oldImg.style.display = 'block';
+    }
+    
+    $("#submit").click(function(){
+       var file = $("#logo_2").val();
+       var zf = $("#zf").val();
+       var orderid = $("#orderid").val();
+       if(!file){
+           FoxUI.toast.show('请上传您的支付凭证');
+           return false;
+       }
+        $.ajax({
+            url: "{php echo mobileUrl('order/pay1/submit')}",
+            type:'post',
+            data: {file:file,zf:zf,orderid:orderid},
+            success:function(start){
+                var sta = JSON.parse(start);
+                if(sta.status=='1'){
+                    FoxUI.toast.show('您的支付凭证上传成功');
+                    window.location.href = "{php echo mobileUrl('order/pay/success',array('id'=>$orderid,'result'=>'true'))}";
+                }
+            }
+        })
+
+    });
+
+    /*店招图片上传*/
+require(['tpl', 'core'], function(tpl, core) {
+    $('#business_license').change(function() {
+
+        var src = $(".upload-img3 img").prop('src');
+        console.log(src);
+        $.ajaxFileUpload({
+
+            url: core.getUrl('util/uploader'),
+
+            data: {file: "logoimg_2"},
+
+            secureuri: false, 
+
+            fileElementId: 'business_license', 
+
+            dataType: 'json', 
+
+            success: function(res, status) {
+
+                // console.log(res,status,res.url);
+                console.log(res,res.message);
+                if(res.message == undefined){
+                    var img = document.createElement("img");
+
+                
+                    // if(img.src == 'undefined'){
+                    //     img.src == src;
+                    // }else{
+                        img.src = res.url;
+                    // }
+                    img.className='imgclass_2';
+
+                    $('.upload-img3 .imgclass_2').remove();
+                    $('.upload-img3 .oldImg').remove();
+                    $('input[name="logo_2"]').val(res.filename); // 把上传成功后的地址写入隐藏域
+
+                    $('.upload-img3 p').remove();
+
+                    $('.upload-img3 text').remove();
+
+                    $(".upload-img3").append( img );
+                    console.log(img);
+                }else{
+                    // alert('请选择图片')
+                }
+                
+
+            }, error: function(data, status, e) {
+
+              
+
+            }
+
+        });
+
+    });
+})
+</script>
+{template '_footer'}
+<!--NDAwMDA5NzgyNw==-->

@@ -1,0 +1,531 @@
+2019-03-01 09:05:41 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/class/cloudapi.class.php; line: 118; <br />file: /framework/class/cloudapi.class.php; line: 149; <br />file: /framework/class/cloudapi.class.php; line: 173; <br />file: /framework/class/cloudapi.class.php; line: 221; <br />file: /framework/model/cache.mod.php; line: 271; <br />file: /framework/model/module.mod.php; line: 359; <br />file: /web/source/home/welcome.ctrl.php; line: 58; <br />file: /web/index.php; line: 213; <br />
+
+2019-03-01 09:05:41 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/class/cloudapi.class.php; line: 118; <br />file: /framework/class/cloudapi.class.php; line: 149; <br />file: /framework/class/cloudapi.class.php; line: 173; <br />file: /framework/class/cloudapi.class.php; line: 221; <br />file: /framework/model/cache.mod.php; line: 271; <br />file: /framework/model/module.mod.php; line: 359; <br />file: /web/source/home/welcome.ctrl.php; line: 58; <br />file: /web/index.php; line: 213; <br />
+
+2019-03-01 09:05:41 SQL Error :
+------------
+String:
+SQL: <br/>SELECT * FROM `ims_modules`<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/class/db.class.php; line: 238; <br />file: /framework/function/pdo.func.php; line: 53; <br />file: /framework/model/cache.mod.php; line: 272; <br />file: /framework/model/module.mod.php; line: 359; <br />file: /web/source/home/welcome.ctrl.php; line: 58; <br />file: /web/index.php; line: 213; <br />
+
+2019-03-01 09:05:41 SQL Error :
+------------
+String:
+SQL: <br/>SELECT * FROM `ims_modules_recycle`<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/class/db.class.php; line: 238; <br />file: /framework/function/pdo.func.php; line: 53; <br />file: /framework/model/cache.mod.php; line: 275; <br />file: /framework/model/module.mod.php; line: 359; <br />file: /web/source/home/welcome.ctrl.php; line: 58; <br />file: /web/index.php; line: 213; <br />
+
+2019-03-01 09:05:41 SQL Error :
+------------
+String:
+SQL: <br/>SELECT `name` FROM `ims_modules` WHERE `type` <> :type<hr/>Params: <br/>array (
+  ':type' => 'system',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /framework/model/cloud.mod.php; line: 669; <br />file: /framework/model/cloud.mod.php; line: 371; <br />file: /framework/model/cache.mod.php; line: 277; <br />file: /framework/model/module.mod.php; line: 359; <br />file: /web/source/home/welcome.ctrl.php; line: 58; <br />file: /web/index.php; line: 213; <br />
+
+2019-03-01 09:05:41 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'we7:module:all_uninstall',
+  ':value_2' => 'a:2:{s:6:"expire";i:1551405881;s:4:"data";a:4:{s:13:"cloud_m_count";N;s:7:"modules";a:2:{s:7:"recycle";a:0:{}s:11:"uninstalled";a:1:{s:3:"app";a:1:{s:11:"ewei_shopv2";a:8:{s:4:"from";s:5:"local";s:4:"name";s:11:"ewei_shopv2";s:7:"version";s:5:"3.1.1";s:5:"title";s:14:"人人商城V3";s:11:"app_support";i:2;s:13:"wxapp_support";i:1;s:11:"main_module";s:0:"";s:15:"upgrade_support";b:0;}}}}s:9:"app_count";i:1;s:11:"wxapp_count";i:0;}}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/cache.mod.php; line: 377; <br />file: /framework/model/module.mod.php; line: 359; <br />file: /web/source/home/welcome.ctrl.php; line: 58; <br />file: /web/index.php; line: 213; <br />
+
+2019-03-01 09:05:41 SQL Error :
+------------
+String:
+SQL: <br/>SELECT `value` FROM `ims_core_cache` WHERE `key` =  :__key_1  LIMIT 1<hr/>Params: <br/>array (
+  ':__key_1' => 'we7:user_modules:1',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 227; <br />file: /framework/class/db.class.php; line: 259; <br />file: /framework/function/pdo.func.php; line: 61; <br />file: /framework/function/cache.mysql.func.php; line: 10; <br />file: /framework/function/cache.func.php; line: 39; <br />file: /framework/model/user.mod.php; line: 352; <br />file: /framework/model/user.mod.php; line: 462; <br />file: /web/source/home/welcome.ctrl.php; line: 62; <br />file: /web/index.php; line: 213; <br />
+
+2019-03-01 09:05:41 SQL Error :
+------------
+String:
+SQL: <br/>SELECT * FROM `ims_users`  WHERE 1  AND `uid`=:uid LIMIT 1<hr/>Params: <br/>array (
+  ':uid' => 1,
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /framework/model/user.mod.php; line: 160; <br />file: /framework/model/user.mod.php; line: 354; <br />file: /framework/model/user.mod.php; line: 462; <br />file: /web/source/home/welcome.ctrl.php; line: 62; <br />file: /web/index.php; line: 213; <br />
+
+2019-03-01 09:05:41 SQL Error :
+------------
+String:
+SQL: <br/>SELECT `name` FROM `ims_modules` WHERE `issystem` =  :__issystem_1<hr/>Params: <br/>array (
+  ':__issystem_1' => 1,
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/class/db.class.php; line: 238; <br />file: /framework/function/pdo.func.php; line: 53; <br />file: /framework/model/user.mod.php; line: 356; <br />file: /framework/model/user.mod.php; line: 462; <br />file: /web/source/home/welcome.ctrl.php; line: 62; <br />file: /web/index.php; line: 213; <br />
+
+2019-03-01 09:05:41 SQL Error :
+------------
+String:
+SQL: <br/>SELECT `name` FROM `ims_modules` ORDER BY mid DESC <hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/class/db.class.php; line: 238; <br />file: /framework/function/pdo.func.php; line: 53; <br />file: /framework/model/user.mod.php; line: 358; <br />file: /framework/model/user.mod.php; line: 462; <br />file: /web/source/home/welcome.ctrl.php; line: 62; <br />file: /web/index.php; line: 213; <br />
+
+2019-03-01 09:05:41 SQL Error :
+------------
+String:
+SQL: <br/>SHOW TABLES LIKE 'ims_modules_plugin'<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 556; <br />file: /framework/function/pdo.func.php; line: 130; <br />file: /framework/model/user.mod.php; line: 391; <br />file: /framework/model/user.mod.php; line: 462; <br />file: /web/source/home/welcome.ctrl.php; line: 62; <br />file: /web/index.php; line: 213; <br />
+
+2019-03-01 09:05:41 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'we7:user_modules:1',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/user.mod.php; line: 414; <br />file: /framework/model/user.mod.php; line: 462; <br />file: /web/source/home/welcome.ctrl.php; line: 62; <br />file: /web/index.php; line: 213; <br />
+
+2019-03-01 09:05:41 SQL Error :
+------------
+String:
+SQL: <br/>SELECT `value` FROM `ims_core_cache` WHERE `key` =  :__key_1  LIMIT 1<hr/>Params: <br/>array (
+  ':__key_1' => 'we7:user_modules:1',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 227; <br />file: /framework/class/db.class.php; line: 259; <br />file: /framework/function/pdo.func.php; line: 61; <br />file: /framework/function/cache.mysql.func.php; line: 10; <br />file: /framework/function/cache.func.php; line: 39; <br />file: /framework/model/user.mod.php; line: 352; <br />file: /framework/model/user.mod.php; line: 462; <br />file: /web/source/home/welcome.ctrl.php; line: 63; <br />file: /web/index.php; line: 213; <br />
+
+2019-03-01 09:05:41 SQL Error :
+------------
+String:
+SQL: <br/>SELECT * FROM `ims_users`  WHERE 1  AND `uid`=:uid LIMIT 1<hr/>Params: <br/>array (
+  ':uid' => 1,
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /framework/model/user.mod.php; line: 160; <br />file: /framework/model/user.mod.php; line: 354; <br />file: /framework/model/user.mod.php; line: 462; <br />file: /web/source/home/welcome.ctrl.php; line: 63; <br />file: /web/index.php; line: 213; <br />
+
+2019-03-01 09:05:41 SQL Error :
+------------
+String:
+SQL: <br/>SELECT `name` FROM `ims_modules` WHERE `issystem` =  :__issystem_1<hr/>Params: <br/>array (
+  ':__issystem_1' => 1,
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/class/db.class.php; line: 238; <br />file: /framework/function/pdo.func.php; line: 53; <br />file: /framework/model/user.mod.php; line: 356; <br />file: /framework/model/user.mod.php; line: 462; <br />file: /web/source/home/welcome.ctrl.php; line: 63; <br />file: /web/index.php; line: 213; <br />
+
+2019-03-01 09:05:41 SQL Error :
+------------
+String:
+SQL: <br/>SELECT `name` FROM `ims_modules` ORDER BY mid DESC <hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/class/db.class.php; line: 238; <br />file: /framework/function/pdo.func.php; line: 53; <br />file: /framework/model/user.mod.php; line: 358; <br />file: /framework/model/user.mod.php; line: 462; <br />file: /web/source/home/welcome.ctrl.php; line: 63; <br />file: /web/index.php; line: 213; <br />
+
+2019-03-01 09:05:41 SQL Error :
+------------
+String:
+SQL: <br/>SHOW TABLES LIKE 'ims_modules_plugin'<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 556; <br />file: /framework/function/pdo.func.php; line: 130; <br />file: /framework/model/user.mod.php; line: 391; <br />file: /framework/model/user.mod.php; line: 462; <br />file: /web/source/home/welcome.ctrl.php; line: 63; <br />file: /web/index.php; line: 213; <br />
+
+2019-03-01 09:05:41 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'we7:user_modules:1',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/user.mod.php; line: 414; <br />file: /framework/model/user.mod.php; line: 462; <br />file: /web/source/home/welcome.ctrl.php; line: 63; <br />file: /web/index.php; line: 213; <br />
+
+2019-03-01 10:06:59 SQL Error :
+------------
+String:
+SQL: <br/>INSERT INTO `ims_stakejilu` SET <hr/>Params: <br/>NULL<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 104; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-01 10:06:59 SQL Error :
+------------
+String:
+SQL: <br/>INSERT INTO `ims_stakejilu` SET <hr/>Params: <br/>NULL<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 104; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-01 10:06:59 SQL Error :
+------------
+String:
+SQL: <br/>INSERT INTO `ims_stakejilu` SET <hr/>Params: <br/>NULL<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 104; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-01 10:06:59 SQL Error :
+------------
+String:
+SQL: <br/>INSERT INTO `ims_stakejilu` SET <hr/>Params: <br/>NULL<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 104; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-01 10:06:59 SQL Error :
+------------
+String:
+SQL: <br/>INSERT INTO `ims_stakejilu` SET <hr/>Params: <br/>NULL<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 104; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-01 10:06:59 SQL Error :
+------------
+String:
+SQL: <br/>INSERT INTO `ims_stakejilu` SET <hr/>Params: <br/>NULL<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 104; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-01 10:06:59 SQL Error :
+------------
+String:
+SQL: <br/>INSERT INTO `ims_stakejilu` SET <hr/>Params: <br/>NULL<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 104; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-01 10:06:59 SQL Error :
+------------
+String:
+SQL: <br/>INSERT INTO `ims_stakejilu` SET <hr/>Params: <br/>NULL<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 104; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-01 10:06:59 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_sessions` SET `sid` =  :sid_1 , `uniacid` =  :uniacid_2 , `openid` =  :openid_3 , `data` =  :data_4 , `expiretime` =  :expiretime_5<hr/>Params: <br/>NULL<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 82; <br />file: /framework/class/db.class.php; line: 108; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/class/wesession.class.php; line: 165; <br />file: ; line: ; <br />file: ; line: ; <br />
+
+2019-03-01 10:07:09 SQL Error :
+------------
+String:
+SQL: <br/>INSERT INTO `ims_stakejilu` SET <hr/>Params: <br/>NULL<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 104; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-01 10:07:09 SQL Error :
+------------
+String:
+SQL: <br/>INSERT INTO `ims_stakejilu` SET <hr/>Params: <br/>NULL<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 104; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-01 10:07:09 SQL Error :
+------------
+String:
+SQL: <br/>INSERT INTO `ims_stakejilu` SET <hr/>Params: <br/>NULL<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 104; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-01 10:07:09 SQL Error :
+------------
+String:
+SQL: <br/>INSERT INTO `ims_stakejilu` SET <hr/>Params: <br/>NULL<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 104; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-01 10:07:09 SQL Error :
+------------
+String:
+SQL: <br/>INSERT INTO `ims_stakejilu` SET <hr/>Params: <br/>NULL<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 104; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-01 10:07:09 SQL Error :
+------------
+String:
+SQL: <br/>INSERT INTO `ims_stakejilu` SET <hr/>Params: <br/>NULL<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 104; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-01 10:07:09 SQL Error :
+------------
+String:
+SQL: <br/>INSERT INTO `ims_stakejilu` SET <hr/>Params: <br/>NULL<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 104; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-01 10:07:09 SQL Error :
+------------
+String:
+SQL: <br/>INSERT INTO `ims_stakejilu` SET <hr/>Params: <br/>NULL<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 104; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-01 10:07:09 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_sessions` SET `sid` =  :sid_1 , `uniacid` =  :uniacid_2 , `openid` =  :openid_3 , `data` =  :data_4 , `expiretime` =  :expiretime_5<hr/>Params: <br/>NULL<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 82; <br />file: /framework/class/db.class.php; line: 108; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/class/wesession.class.php; line: 165; <br />file: ; line: ; <br />file: ; line: ; <br />
+
+2019-03-01 10:09:38 SQL Error :
+------------
+String:
+SQL: <br/>INSERT INTO `ims_stakejilu` SET <hr/>Params: <br/>NULL<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 104; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-01 10:09:38 SQL Error :
+------------
+String:
+SQL: <br/>INSERT INTO `ims_stakejilu` SET <hr/>Params: <br/>NULL<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 104; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-01 10:09:38 SQL Error :
+------------
+String:
+SQL: <br/>INSERT INTO `ims_stakejilu` SET <hr/>Params: <br/>NULL<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 104; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-01 10:09:38 SQL Error :
+------------
+String:
+SQL: <br/>INSERT INTO `ims_stakejilu` SET <hr/>Params: <br/>NULL<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 104; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-01 10:09:38 SQL Error :
+------------
+String:
+SQL: <br/>INSERT INTO `ims_stakejilu` SET <hr/>Params: <br/>NULL<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 104; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-01 10:09:38 SQL Error :
+------------
+String:
+SQL: <br/>INSERT INTO `ims_stakejilu` SET <hr/>Params: <br/>NULL<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 104; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-01 10:09:38 SQL Error :
+------------
+String:
+SQL: <br/>INSERT INTO `ims_stakejilu` SET <hr/>Params: <br/>NULL<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 104; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-01 10:09:38 SQL Error :
+------------
+String:
+SQL: <br/>INSERT INTO `ims_stakejilu` SET <hr/>Params: <br/>NULL<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 104; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-01 10:09:38 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_sessions` SET `sid` =  :sid_1 , `uniacid` =  :uniacid_2 , `openid` =  :openid_3 , `data` =  :data_4 , `expiretime` =  :expiretime_5<hr/>Params: <br/>NULL<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 82; <br />file: /framework/class/db.class.php; line: 108; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/class/wesession.class.php; line: 165; <br />file: ; line: ; <br />file: ; line: ; <br />
+
+2019-03-01 11:37:01 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_settings` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'cloudip',
+  ':value_2' => 'a:0:{}',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/model/setting.mod.php; line: 24; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 389; <br />file: /framework/model/module.mod.php; line: 496; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-03-01 11:37:01 SQL Error :
+------------
+String:
+SQL: <br/>REPLACE INTO `ims_core_cache` SET `key` =  :key_1 , `value` =  :value_2<hr/>Params: <br/>array (
+  ':key_1' => 'setting',
+  ':value_2' => 's:0:"";',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /framework/function/cache.mysql.func.php; line: 55; <br />file: /framework/model/setting.mod.php; line: 27; <br />file: /framework/model/cloud.mod.php; line: 138; <br />file: /framework/model/cloud.mod.php; line: 389; <br />file: /framework/model/module.mod.php; line: 496; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-03-01 11:37:01 SQL Error :
+------------
+String:
+SQL: <br/>SELECT `value` FROM `ims_core_cache` WHERE `key` =  :__key_1  LIMIT 1<hr/>Params: <br/>array (
+  ':__key_1' => 'we7:module_setting:12:ewei_shopv2',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 227; <br />file: /framework/class/db.class.php; line: 259; <br />file: /framework/function/pdo.func.php; line: 61; <br />file: /framework/function/cache.mysql.func.php; line: 10; <br />file: /framework/function/cache.func.php; line: 39; <br />file: /framework/model/module.mod.php; line: 304; <br />file: /framework/model/module.mod.php; line: 497; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-03-01 11:37:01 SQL Error :
+------------
+String:
+SQL: <br/>SELECT * FROM `ims_uni_account_modules` WHERE `module` =  :__module_1 AND `uniacid` =  :__uniacid_2  LIMIT 1<hr/>Params: <br/>array (
+  ':__module_1' => 'ewei_shopv2',
+  ':__uniacid_2' => 12,
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 227; <br />file: /framework/function/pdo.func.php; line: 49; <br />file: /framework/model/module.mod.php; line: 306; <br />file: /framework/model/module.mod.php; line: 497; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-03-01 11:43:03 SQL Error :
+------------
+String:
+SQL: <br/>SELECT credit FROM `ims_ewei_shop_member` WHERE  uniacid=:uniacid and openid=:openid limit 1<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':openid' => 'wap_user_12_13242828169',
+)<hr/>SQL Error: <br/>Unknown column 'credit' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 140; <br />file: /framework/function/pdo.func.php; line: 36; <br />file: /addons/ewei_shopv2/core/model/member.php; line: 265; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 242; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-01 11:43:03 SQL Error :
+------------
+String:
+SQL: <br/>UPDATE `ims_ewei_shop_member` SET `credit` =  :credit_1 WHERE `uniacid` =  :__uniacid_1 AND `openid` =  :__openid_2<hr/>Params: <br/>array (
+  ':credit_1' => 66.329999999999998,
+  ':__uniacid_1' => 12,
+  ':__openid_2' => 'wap_user_12_13242828169',
+)<hr/>SQL Error: <br/>Unknown column 'credit' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 278; <br />file: /framework/function/pdo.func.php; line: 66; <br />file: /addons/ewei_shopv2/core/model/member.php; line: 271; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 242; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-01 11:43:03 SQL Error :
+------------
+String:
+SQL: <br/>SELECT credit FROM `ims_ewei_shop_member` WHERE  uniacid=:uniacid and openid=:openid limit 1<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':openid' => 'wap_user_12_17671252551',
+)<hr/>SQL Error: <br/>Unknown column 'credit' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 140; <br />file: /framework/function/pdo.func.php; line: 36; <br />file: /addons/ewei_shopv2/core/model/member.php; line: 265; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 242; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-01 11:43:03 SQL Error :
+------------
+String:
+SQL: <br/>UPDATE `ims_ewei_shop_member` SET `credit` =  :credit_1 WHERE `uniacid` =  :__uniacid_1 AND `openid` =  :__openid_2<hr/>Params: <br/>array (
+  ':credit_1' => 22.109999999999999,
+  ':__uniacid_1' => 12,
+  ':__openid_2' => 'wap_user_12_17671252551',
+)<hr/>SQL Error: <br/>Unknown column 'credit' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 278; <br />file: /framework/function/pdo.func.php; line: 66; <br />file: /addons/ewei_shopv2/core/model/member.php; line: 271; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 242; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-01 11:43:03 SQL Error :
+------------
+String:
+SQL: <br/>SELECT credit FROM `ims_ewei_shop_member` WHERE  uniacid=:uniacid and openid=:openid limit 1<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':openid' => 'wap_user_12_17671252556',
+)<hr/>SQL Error: <br/>Unknown column 'credit' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 140; <br />file: /framework/function/pdo.func.php; line: 36; <br />file: /addons/ewei_shopv2/core/model/member.php; line: 265; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 242; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-01 11:43:03 SQL Error :
+------------
+String:
+SQL: <br/>UPDATE `ims_ewei_shop_member` SET `credit` =  :credit_1 WHERE `uniacid` =  :__uniacid_1 AND `openid` =  :__openid_2<hr/>Params: <br/>array (
+  ':credit_1' => 265.31999999999999,
+  ':__uniacid_1' => 12,
+  ':__openid_2' => 'wap_user_12_17671252556',
+)<hr/>SQL Error: <br/>Unknown column 'credit' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 278; <br />file: /framework/function/pdo.func.php; line: 66; <br />file: /addons/ewei_shopv2/core/model/member.php; line: 271; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 242; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-01 11:43:03 SQL Error :
+------------
+String:
+SQL: <br/>SELECT credit FROM `ims_ewei_shop_member` WHERE  uniacid=:uniacid and openid=:openid limit 1<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':openid' => 'wap_user_12_18502021417',
+)<hr/>SQL Error: <br/>Unknown column 'credit' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 140; <br />file: /framework/function/pdo.func.php; line: 36; <br />file: /addons/ewei_shopv2/core/model/member.php; line: 265; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 242; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-01 11:43:03 SQL Error :
+------------
+String:
+SQL: <br/>UPDATE `ims_ewei_shop_member` SET `credit` =  :credit_1 WHERE `uniacid` =  :__uniacid_1 AND `openid` =  :__openid_2<hr/>Params: <br/>array (
+  ':credit_1' => 66.329999999999998,
+  ':__uniacid_1' => 12,
+  ':__openid_2' => 'wap_user_12_18502021417',
+)<hr/>SQL Error: <br/>Unknown column 'credit' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 278; <br />file: /framework/function/pdo.func.php; line: 66; <br />file: /addons/ewei_shopv2/core/model/member.php; line: 271; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 242; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-01 13:56:12 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.jifen,og.type,og.status
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				,m2.id as m2id,m2.realname as m2realname,m2.mobile as m2mobile,m2.nickname as m2nickname,m2.avatar as m2avatar FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid left join `ims_ewei_shop_member` m2 ON m2.openid=og.openid2 WHERE og.uniacid=:uniacid ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.jifen' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 345; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-01 13:56:12 SQL Error :
+------------
+String:
+SQL: <br/>SELECT count(og.id) FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid left join `ims_ewei_shop_member` m2 ON m2.openid=og.openid2 WHERE og.uniacid=:uniacid ORDER BY og.id DESC <hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.openid2' in 'on clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 140; <br />file: /framework/function/pdo.func.php; line: 36; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 346; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-01 13:56:40 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.jifen,og.type,og.status
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				,m2.id as m2id,m2.realname as m2realname,m2.mobile as m2mobile,m2.nickname as m2nickname,m2.avatar as m2avatar FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid left join `ims_ewei_shop_member` m2 ON m2.openid=og.openid2 WHERE og.uniacid=:uniacid ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.jifen' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 345; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-01 13:56:40 SQL Error :
+------------
+String:
+SQL: <br/>SELECT count(og.id) FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid left join `ims_ewei_shop_member` m2 ON m2.openid=og.openid2 WHERE og.uniacid=:uniacid ORDER BY og.id DESC <hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.openid2' in 'on clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 140; <br />file: /framework/function/pdo.func.php; line: 36; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 346; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-01 14:31:10 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.number,og.thigh,og.multiple,og.endtime,og.lottery
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				 FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid AND (m.id=:info OR m.realname =:info OR m.mobile=:info OR m.nickname=:info OR m2.id=:info OR m2.realname =:info OR m2.mobile=:info OR m2.nickname=:info) ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':info' => '17671252556',
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'm2.id' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 353; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-01 14:31:10 SQL Error :
+------------
+String:
+SQL: <br/>SELECT count(og.id) FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid AND (m.id=:info OR m.realname =:info OR m.mobile=:info OR m.nickname=:info OR m2.id=:info OR m2.realname =:info OR m2.mobile=:info OR m2.nickname=:info) ORDER BY og.id DESC <hr/>Params: <br/>array (
+  ':info' => '17671252556',
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'm2.id' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 140; <br />file: /framework/function/pdo.func.php; line: 36; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 354; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-01 14:44:00 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.numberid,og.stakesum,og.lottery,og.type,og.ranking
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				 FROM `ims_winningrecord` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.lottery' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 390; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-01 14:44:16 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.numberid,og.stakesum,og.lottery,og.type,og.ranking
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				 FROM `ims_winningrecord` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.lottery' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 390; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-01 14:44:16 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.numberid,og.stakesum,og.lottery,og.type,og.ranking,og.number
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				 FROM `ims_winningrecord` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.lottery' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 390; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-01 14:44:17 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.numberid,og.stakesum,og.lottery,og.type,og.ranking,og.number
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				 FROM `ims_winningrecord` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.lottery' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 390; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-01 14:44:33 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.numberid,og.stakesum,og.lottery,og.type,og.ranking,og.number
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				 FROM `ims_winningrecord` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.lottery' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 389; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-01 14:44:42 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.numberid,og.stakesum,og.lottery,og.type,og.ranking,og.number
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				 FROM `ims_winningrecord` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.lottery' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 389; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-01 14:55:21 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.numberid,og.stakesum,og.type,og.ranking,og.number
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				 FROM `ims_winningrecord` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid AND og.thigh=:type ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':type' => '-1',
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.thigh' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 389; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-01 14:55:21 SQL Error :
+------------
+String:
+SQL: <br/>SELECT count(og.id) FROM `ims_winningrecord` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid AND og.thigh=:type ORDER BY og.id DESC <hr/>Params: <br/>array (
+  ':type' => '-1',
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.thigh' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 140; <br />file: /framework/function/pdo.func.php; line: 36; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 390; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-01 14:55:29 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.numberid,og.stakesum,og.type,og.ranking,og.number
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				 FROM `ims_winningrecord` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid AND og.thigh=:type ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':type' => '-1',
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.thigh' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 389; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-01 14:55:29 SQL Error :
+------------
+String:
+SQL: <br/>SELECT count(og.id) FROM `ims_winningrecord` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid AND og.thigh=:type ORDER BY og.id DESC <hr/>Params: <br/>array (
+  ':type' => '-1',
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.thigh' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 140; <br />file: /framework/function/pdo.func.php; line: 36; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 390; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-01 15:13:16 SQL Error :
+------------
+String:
+SQL: <br/>SELECT count(g.id) FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid and og.openid=:openid  ORDER BY og.id DESC <hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':openid' => 'wap_user_12_13242828161',
+)<hr/>SQL Error: <br/>Unknown column 'g.id' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 140; <br />file: /framework/function/pdo.func.php; line: 36; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 157; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-01 15:13:24 SQL Error :
+------------
+String:
+SQL: <br/>SELECT count(g.id) FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid and og.openid=:openid  ORDER BY og.id DESC <hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':openid' => 'wap_user_12_17671252556',
+)<hr/>SQL Error: <br/>Unknown column 'g.id' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 140; <br />file: /framework/function/pdo.func.php; line: 36; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 157; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-01 15:13:24 SQL Error :
+------------
+String:
+SQL: <br/>SELECT count(g.id) FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid and og.openid=:openid  ORDER BY og.id DESC <hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':openid' => 'wap_user_12_17671252556',
+)<hr/>SQL Error: <br/>Unknown column 'g.id' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 140; <br />file: /framework/function/pdo.func.php; line: 36; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 157; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-01 15:13:25 SQL Error :
+------------
+String:
+SQL: <br/>SELECT count(g.id) FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid and og.openid=:openid  ORDER BY og.id DESC <hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':openid' => 'wap_user_12_17671252556',
+)<hr/>SQL Error: <br/>Unknown column 'g.id' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 140; <br />file: /framework/function/pdo.func.php; line: 36; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 157; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+

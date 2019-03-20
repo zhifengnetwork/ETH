@@ -1,0 +1,342 @@
+{template '_header'}
+<style>
+
+    .style i{
+
+        vertical-align: middle;
+
+    }
+    .input-group-select{
+        left:0;top:0;
+    }
+    .btn-success{
+        margin-top: 0;
+    }
+</style>
+
+<div class="page-header"><img src="../addons/ewei_shopv2/static/images/font_31.png">当前位置：<span class="text-primary">买入记录</span></div>
+
+<div class="page-content">
+
+    <form action="./index.php" method="get" class="form-horizontal table-search" role="form" id="form1">
+
+        <input type="hidden" name="c" value="site" />
+
+        <input type="hidden" name="a" value="entry" />
+
+        <input type="hidden" name="m" value="ewei_shopv2" />
+
+        <input type="hidden" name="do" value="web" />
+
+        <input type="hidden" name="r" value="sale.sellout" />
+
+        <div class="page-toolbar">
+
+            <span class="pull-left">
+
+                    {php echo tpl_daterange('time', array('sm'=>true,'placeholder'=>'买入订单创建时间'),true);}
+
+                </span>
+
+            <div class="input-group">
+
+                <span class="input-group-select">
+
+                    <select name="status" class="form-control"   style="width:100px;"  >
+
+                        <option value="" {if $_GPC['status']==''}selected{/if}>状态</option>
+
+                            <option value="0" {if $_GPC['status']=='0'}selected{/if}>未交易</option>
+
+                            <option value="1" {if $_GPC['status']=='1'}selected{/if}>交易中</option>
+
+                            <option value="2" {if $_GPC['status']=='2'}selected{/if}>交易完成</option>
+
+                            <option value="3" {if $_GPC['status']=='3'}selected{/if}>交易失败</option>
+
+                    </select>
+
+                </span>
+
+                <!-- <span class="input-group-select">
+
+                    <select name="groupid" class="form-control" style="width:100px;"  >
+
+                        <option value="">会员分组</option>
+
+                        {loop $groups $group}
+
+                        <option value="{$group['id']}" {if $_GPC['groupid']==$group['id']}selected{/if}>{$group['groupname']}</option>
+
+                        {/loop}
+
+                    </select>
+
+                </span> -->
+
+                <!-- <span class="input-group-select">
+
+                    <select name="level" class="form-control" style="width:100px;"  >
+
+                        <option value="">会员等级</option>
+
+                        {loop $levels $level}
+
+                        <option value="{$level['id']}" {if $_GPC['level']==$level['id']}selected{/if}>{$level['levelname']}</option>
+
+                        {/loop}
+
+                    </select>
+
+                </span> -->
+
+                <!-- <span class="input-group-select">
+
+                    {if $_GPC['type']==0}
+
+                    <select name="rechargetype" class="form-control" style="width:100px;"  >
+
+                        <option value='' {if $_GPC['rechargetype']==''}selected{/if}>充值方式</option>
+
+                        <option value='wechat' {if $_GPC['rechargetype']=='wechat'}selected{/if}>微信</option>
+
+                        <option value='alipay' {if $_GPC['rechargetype']=='alipay'}selected{/if}>支付宝</option>
+
+                        <option value='system' {if $_GPC['rechargetype']=='system'}selected{/if}>后台</option>
+
+                        <option value='system1' {if $_GPC['rechargetype']=='system1'}selected{/if}>后台扣款</option>
+
+                        {if p('ccard')}<option value='ccard' {if $_GPC['rechargetype']=='ccard'}selected{/if}>充值卡返佣</option>{/if}
+
+                    </select>
+
+                    {/if}
+
+                </span> -->
+
+                <span class="input-group-select">
+
+                    <select name="searchfield"  class="form-control"   style="width:120px;"  >
+
+                        <!-- <option value="logno" {if $_GPC['searchfield']=='logno'}selected{/if}>提现单号</option> -->
+
+                        <option value="member" {if $_GPC['searchfield']=='member'}selected{/if}>会员信息</option>
+
+                    </select>
+
+                </span>
+
+                <input type="text" class="form-control"  name="keyword" value="{$_GPC['keyword']}" placeholder="请输入关键词" />
+
+                <span class="input-group-btn">
+
+                    <button class="btn  btn-primary" type="submit"> 搜索</button>
+
+                    {ifp 'finance.log.recharge.export'}
+
+                        <!-- <button type="submit" name="export" value="1" class="btn btn-success ">导出</button> -->
+
+                    {/if}
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </form>
+
+    {if empty($list)}
+
+    <div class="panel panel-default">
+
+        <div class="panel-body empty-data">未查询到相关数据</div>
+
+    </div>
+
+    {else}
+
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <table class="table">
+
+                <thead>
+
+                <tr>
+
+                    <th style='width:50px;text-align: center;'>id</th>
+
+                    <th style='width:200px'>买入人</th>
+
+                    <th style='width:200px;'>购买人</th>
+
+                    <th style='width:100px;'>买入币</th>
+
+                    <th style='width:100px;'>卖出金额</th>
+
+                    <th style='width:200px;'>买入时间</th>
+
+                    <th style='width:200px;'>购买时间</th>
+
+                    <th style='width:300px;'>打款凭证</th>
+
+                    <th style='width:100px;'>状态</th>
+
+                   
+
+                </tr>
+
+                </thead>
+
+                <tbody>
+
+                {loop $list $row}
+
+                <tr>
+
+                    <!-- id -->
+                    <td>
+                        {$row['id']}
+
+                    </td>
+
+                    <!-- 卖出人 -->
+                    <td data-toggle='tooltip' title='{$row['nickname']}'>
+
+                        {ifp 'member.list.detail'}
+
+                        <a  href="{php echo webUrl('member/list/detail',array('id' => $row['mid']));}" target='_blank'>
+
+                            <img class="radius50" src='{php echo tomedia($row['m1avatar'])}' style='width:30px;height:30px;padding1px;border:1px solid #ccc' / onerror="this.src='../addons/ewei_shopv2/static/images/noface.png'"> {$row['m1nickname']}
+
+                        </a>
+
+                        {else}
+
+                        <img src='{php echo tomedia($row['avatar'])}' style='width:30px;height:30px;padding1px;border:1px solid #ccc' /> {$row['nickname']}
+
+                        {/if}
+
+                    </td>
+
+                    <!-- 购买人 -->
+                    <td data-toggle='tooltip' title='{$row['nickname']}'>
+
+                        {ifp 'member.list.detail'}
+
+                        <a  href="{php echo webUrl('member/list/detail',array('id' => $row['mid']));}" target='_blank'>
+
+                            <img class="radius50" src='{php echo tomedia($row['m2avatar'])}' style='width:30px;height:30px;padding1px;border:1px solid #ccc' / onerror="this.src='../addons/ewei_shopv2/static/images/noface.png'"> 
+                            {if !$row['m2nickname']}暂无{else}{$row['m2nickname']}{/if}
+
+                        </a>
+
+                        {else}
+
+                        <img src='{php echo tomedia($row['avatar'])}' style='width:30px;height:30px;padding1px;border:1px solid #ccc' /> {$row['nickname']}
+
+                        {/if}
+
+                    </td>
+
+                    <!-- 卖出币 -->
+                    <td>{$row['trx']}</td>
+
+                    <!-- 卖出金额 -->
+                    <td>{$row['money']}</td>
+
+                    
+                    <!-- 卖出时间 -->
+                    <td  class="style">
+                        <?php echo date("Y-m-d H:i:s",$row['createtime']);?>
+                    </td>
+
+                    <!-- 购买时间  -->
+                    <td  class="style">
+                        {if $row['endtime']}  <?php echo date("Y-m-d H:i:s",$row['endtime']);?>{/if}
+                    </td> 
+
+                    <!-- 打款凭证 -->
+                    <td style="">
+                         <img src="{$row['file']}" style="width:100px;hight:100px;">
+                    </td>
+
+                    <!-- 状态 -->
+                    <td>
+                        {if $row['status']==0}
+
+                        <span class='text-default'>未交易</span>
+
+                        {else if $row['status']==1}
+
+                        <span class='text-success'>交易中</span>
+
+                        {else if $row['status']==2}
+
+                        <span class='text-default'>交易完成</span>
+
+                        {else if $row['status']==3}
+
+                        <span class='text-danger'>交易失败</span>
+
+                        {/if}
+                    </td>
+
+                    
+
+                </tr>
+
+                {if !empty($row['remark'])}
+
+                <tr style=";border-bottom:none;background:#f9f9f9;">
+
+                    <td colspan='8' style='text-align:left'>
+
+                        备注:<span class="text-info">{$row['remark']}</span>
+
+                    </td>
+
+                </tr>
+
+                {/if}
+
+                {/loop}
+
+                </tbody>
+
+                <tfoot>
+
+                <tr>
+
+                    </td>
+
+                    <td colspan="8" style="text-align: right">
+
+                        {$pager}
+
+                    </td>
+
+                </tr>
+
+                </tfoot>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    {/if}
+
+
+
+</div>
+
+
+{template '_footer'}
+
+
+
+<!--6Z2S5bKb5piT6IGU5LqS5Yqo572R57uc56eR5oqA5pyJ6ZmQ5YWs5Y+454mI5p2D5omA5pyJ-->

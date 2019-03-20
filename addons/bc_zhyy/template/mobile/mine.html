@@ -1,0 +1,270 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>我的{$reply['form_theme']}</title>
+	<meta name="format-detection" content="telephone=no, address=no">
+	<meta name="apple-mobile-web-app-capable" content="yes" /> <!-- apple devices fullscreen -->
+	<meta name="apple-touch-fullscreen" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="shortcut icon" href="{$_W['siteroot']}{$_W['config']['upload']['attachdir']}/{if !empty($_W['setting']['copyright']['icon'])}{$_W['setting']['copyright']['icon']}{else}images/global/wechat.jpg{/if}" />		
+<link type="text/css" rel="stylesheet" href="{MODULE_URL}/static/css/weui.min.css">
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js?v=20170427"></script>
+	<script src="{$_W['siteroot']}app/resource/js/require.js"></script>
+	<script src="{$_W['siteroot']}app/resource/js/app/config.js"></script>
+</head>
+<body>
+<style>
+body {
+	margin:0 auto;
+	min-width:320px;
+	max-width:640px;
+	height:100%;
+	background:#FFF;
+	font-size:14px;
+	font-family:Helvetica,STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Arial;
+	line-height:1.5;
+	color:#666;
+	background-color:#fbf9fe;
+	-webkit-text-size-adjust:100% !important;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none
+}
+</style>
+<script type="text/javascript">
+	window.sysinfo = {
+		{if !empty($_W['uniacid'])}'uniacid': '{$_W['uniacid']}',{/if}
+		{if !empty($_W['acid'])}'acid': '{$_W['acid']}',{/if}{if !empty($_W['openid'])}'openid': '{$_W['openid']}',{/if}
+		{if !empty($_W['uid'])}'uid': '{$_W['uid']}',{/if}
+		'siteroot': '{$_W['siteroot']}',
+		'siteurl': '{$_W['siteurl']}',
+		'attachurl': '{$_W['attachurl']}',
+		'attachurl_local': '{$_W['attachurl_local']}',
+		'attachurl_remote': '{$_W['attachurl_remote']}',
+		{if defined('MODULE_URL')}'MODULE_URL': '{MODULE_URL}',{/if}
+		'cookie' : {'pre': '{$_W['config']['cookie']['pre']}'}
+	};
+	// jssdk config 对象
+	jssdkconfig = {php echo json_encode($_W['account']['jssdkconfig']);} || {};
+	// 是否启用调试
+	jssdkconfig.debug = false;
+	jssdkconfig.jsApiList = [
+		'checkJsApi',
+		'onMenuShareTimeline',
+		'onMenuShareAppMessage',
+		'onMenuShareQQ',
+		'onMenuShareWeibo',
+		'hideMenuItems',
+		'showMenuItems',
+		'hideAllNonBaseMenuItem',
+		'showAllNonBaseMenuItem',
+		'translateVoice',
+		'startRecord',
+		'stopRecord',
+		'onRecordEnd',
+		'playVoice',
+		'pauseVoice',
+		'stopVoice',
+		'uploadVoice',
+		'downloadVoice',
+		'chooseImage',
+		'previewImage',
+		'uploadImage',
+		'downloadImage',
+		'getNetworkType',
+		'openLocation',
+		'getLocation',
+		'hideOptionMenu',
+		'showOptionMenu',
+		'closeWindow',
+		'scanQRCode',
+		'chooseWXPay',
+		'openProductSpecificView',
+		'addCard',
+		'chooseCard',
+		'openCard'
+	];
+	
+</script>
+{if $settings['showminepic'] ==1 && !empty($reply['mine_pic'])}<img src="{php echo tomedia($reply['mine_pic'])}" width="100%"/>{/if}
+{loop $orders $index $o}
+<div class="weui_panel">	
+<div class="weui_cells_title"><h3>{if $o['status'] == 0}<i class="weui_icon_warn"></i>{else}<i class="weui_icon_info"></i>{/if}我的{$reply['form_theme']}<small>(SN:{$o['id']},{php echo date('Y/m/d H:i',$o['createtime']);})</small></h3></div>
+<div class="weui_cells weui_cells_form" id="cells">
+{if $o['paid']>0}
+<div class="weui_cell">
+<span class="costprice">付款：<span>￥{$o['paid']}元</span></span>
+<a href="javascript:;" class="weui_btn weui_btn_mini weui_btn_plain_primary" style="margin-right: 0px;">
+{if $o['status'] == 0}待付款
+{elseif $o['status'] == 1}已付款
+{elseif $o['status'] == 999}已完成
+{elseif $o['status'] == -1}已取消
+{/if}</a>
+</div>
+{/if}
+<input type="hidden" value='{$o["fields"]}'>
+</div>
+{if $o['paid']>0}
+{if $o['status'] == 0}
+<div class="weui_cell">
+<a class="" href="{php echo $this->createMobileUrl( 'order', array ('order' => $o['id'],'rid'=>$o['rid'],'op'=>'cancel') );}" id="cancel">取消订单</a>
+<a class="weui_btn weui_btn_primary weui_btn_mini" href="{php echo $this->createMobileUrl ( 'pay', array ('order' => $o['id'],'rid'=>$o['rid']) );}" id="pay" style="margin-right: 0px;width: 101px;height: 30px;">付款</a></div>
+{elseif $o['status'] == 1}
+<div class="weui_cell"><a class="hide" href="javascript:" id="payback" style="display: none;">申请退款</a></div>
+{/if}
+{/if}
+</div>
+{/loop}
+<div class="weui_panel_bd">
+            <div class="weui_media_box weui_media_text">
+                <h4 class="weui_media_title"></h4>
+                <p class="weui_media_desc"></p>
+            </div>
+        </div>
+
+<footer style="width:100%;min-width:300px;margin-top:10px;margin-bottom:50px;padding:10px 0;color:#555;text-align:center;">
+	<a style="color:#555;margin:0 3px;" href="{php echo $this->module['config']['footerurl']}">
+		&copy;{if empty($this->module['config']['footer'])}{$_W['account']['name']}{else}{php echo $this->module['config']['footer']}{/if}
+	</a>
+</footer>
+<script>
+wx.config(jssdkconfig);
+require(['jquery','util'], function ($,u) {
+	var init = function(d){
+		var s = "";
+		var top = '<div class="weui_cell">';
+		var label = '<div class="weui_cell_hd"><label class="weui_label">' + d.title + '</label></div>';
+		var input = "";
+		if (d.inputtype == 2 || d.inputtype == 7){
+			label = '';
+			input = '<div class="weui_cell_bd weui_cell_primary"><textarea class="weui_textarea" rows="3">'+ d.value + '</textarea>'
+				+'<div class="weui_textarea_counter"><span>' + d.title + '</span></div></div>';
+			input = '<p>'+ d.title + '：' + d.value + '</p>';		
+		}else{
+			input = '<div class="weui_cell_bd weui_cell_primary">'
+					+'<input class="weui_input" type="text" readonly value="'+ d.value +'">'
+					+'</div>';
+					input = '<p>'+ d.title + '：' + d.value + '</p>';
+			label = '';
+			input = '<p>'+ d.title + '：' + d.value + '</p>';
+		}
+		if (d.inputtype == 9 ){
+			label = '';
+			input = '<div class="weui_cell_bd weui_cell_primary"><div class="weui_uploader"><div class="weui_uploader_hd weui_cell">'
+					+'<div class="weui_cell_bd weui_cell_primary">'+ d.title +'</div></div>'
+					+ '<div class="weui_uploader_bd"><ul class="weui_uploader_files">';
+			var t; 
+			if (d.value.length == 0){
+				t = {serverIds:'',images:''};
+			}else{
+				t = JSON.parse(d.value);
+			}
+			var images = '';
+			if (t.serverIds) images = t.serverIds.split(";");
+			var attachs = '';
+			if (t.images) attachs = t.images.split(";");
+			if (attachs){
+				for (var i in attachs){
+					if (attachs.length > 0){
+						input = input + '<li class="weui_uploader_file" locallink="' + attachs[i]　+ '" style="background-image:url()"></li>';
+					}
+				}
+			}else{
+				for (var i in images){
+					if (images[i].length > 0){
+						if (attachs.length > 0){
+							input = input + '<li class="weui_uploader_file" locallink="' + attachs[i]　+ '" style="background-image:url()"></li>';
+						}else{
+							input = input + '<li class="weui_uploader_file" data="'+ images[i] + '" style="background-image:url()"></li>';
+						}
+					}
+				}
+			}
+			input = input + '</ul></div></div>';
+		}
+		s = label + input;
+		s = top + s + '</div>';
+		return s;
+	};
+	$(document).ready(function () {
+		$("input[type='hidden']").each(function(){
+			var inputs = $(this).val();
+			if (inputs.length == 0) return;
+			inputs = JSON.parse(inputs);
+			for (var i in inputs){
+				var s = init(inputs[i]);
+				$(this).parent().append(s);
+			}		
+		});
+		wx.ready(function(){
+			var lis = [];
+			var ids = [];		
+			$(".weui_uploader_file").each(function(){
+				var li = this;
+				var id = $(this).attr("data");
+				var link = $(li).attr("locallink");
+				if (link){
+					link = u.tomedia($(li).attr("locallink"));
+					$(li).attr("style",'background-image:url('+ link +')');
+					return;
+				}
+				if (id) {
+					lis.push(this);
+					ids.push(id);
+				}
+			});	
+			var j = 0;
+			var max = lis.length;
+			function download(){
+				var id = ids[j];
+				var li = lis[j];
+				j = j + 1;
+				wx.downloadImage({
+					serverId: id, // 需要下载的图片的服务器端ID，由uploadImage接口获得
+					isShowProgressTips: 0, // 默认为1，显示进度提示
+					success: function (res) {
+						var localId = res.localId; // 返回图片下载后的本地ID
+						if (window.__wxjs_is_wkwebview) {
+							wx.getLocalImgData({
+								localId: localId, // 图片的localID
+								success: function (_res) {
+									//var localData = _res.localData; // localData是图片的base64数据，可以用img标签显示
+									//$(ul).append('<li class="weui_uploader_file weui_uploader_status" style="background-image:url(' + localData + ')"></li>');
+									$(li).attr("style", 'background-image:url(' + _res.localData + ')');
+									if (j < max) download();
+								}
+							});
+						} else {
+							$(li).attr("style", 'background-image:url(' + localId + ')');
+							if (j < max) download();
+						}
+					}
+				});
+			}
+			if (max > 0){
+				download();
+			}
+		});
+	});
+});
+</script>
+<script>
+wx.ready(function () {
+	var sharedata = {
+		a:"",
+		b:"",
+		title: "{if $settings['showwords2'] ==1 && !empty($reply['sharemsg1'])}{php echo str_replace('N',$count,$reply['sharemsg1'])}{else}{$reply['form_theme']}{/if}",
+		desc: "{php echo strip_tags($reply['details'])}",
+		link: "{php echo murl('entry',array('rid'=>$rid,'do'=>'index','op'=>'display','m'=>$this->module['name']),true,true)}",
+		imgUrl: '{php echo tomedia($reply["form_pic"])}'
+	};
+	wx.onMenuShareAppMessage(sharedata);
+	wx.onMenuShareTimeline(sharedata);
+	wx.onMenuShareQQ(sharedata);
+	wx.onMenuShareWeibo(sharedata);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1048 @@
+2019-01-08 10:28:36 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_monthyeji_pen`where uniacid=:uniacid and openid=:openid order by time desc<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':openid' => 'wap_user_12_17671252557',
+)<hr/>SQL Error: <br/>Unknown column 'time' in 'order clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/yeji.php; line: 14; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 10:28:37 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_monthyeji_pen`where uniacid=:uniacid and openid=:openid order by time desc<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':openid' => 'wap_user_12_17671252557',
+)<hr/>SQL Error: <br/>Unknown column 'time' in 'order clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/yeji.php; line: 14; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 10:28:38 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_monthyeji_pen`where uniacid=:uniacid and openid=:openid order by time desc<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':openid' => 'wap_user_12_17671252557',
+)<hr/>SQL Error: <br/>Unknown column 'time' in 'order clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/yeji.php; line: 14; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 10:28:39 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_monthyeji_pen`where uniacid=:uniacid and openid=:openid order by time desc<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':openid' => 'wap_user_12_17671252557',
+)<hr/>SQL Error: <br/>Unknown column 'time' in 'order clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/yeji.php; line: 14; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:44 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:44 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '0',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='0'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:44 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '23',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='23'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:44 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='26'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:44 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:44 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:44 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:44 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:44 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:44 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '23',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='23'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:44 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:44 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:44 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='26'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:50 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:50 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '0',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='0'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:50 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '23',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='23'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:50 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='26'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:50 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:50 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:50 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:50 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:50 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:50 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '23',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='23'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:50 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:50 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:50 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='26'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:57 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:57 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '0',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='0'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:57 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '23',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='23'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:57 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='26'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:57 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:57 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:57 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:57 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:57 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:57 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '23',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='23'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:57 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:57 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:36:57 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='26'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:37:25 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:37:25 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '0',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='0'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:37:25 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '23',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='23'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:37:25 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='26'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:37:25 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:37:25 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:37:25 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:37:25 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:37:25 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:37:25 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '23',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='23'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:37:25 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:37:25 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:37:25 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='26'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:06 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:06 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '0',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='0'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:06 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '23',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='23'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:06 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='26'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:06 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:06 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:06 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:06 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:06 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:06 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '23',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='23'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:06 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:06 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:06 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='26'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:12 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:12 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '0',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='0'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:12 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '23',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='23'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:12 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='26'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:12 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:12 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:12 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:12 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:12 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:12 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '23',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='23'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:12 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:12 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:12 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='26'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:19 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:19 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '0',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='0'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:19 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '23',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='23'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:19 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='26'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:19 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:19 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:19 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:19 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:19 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:19 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '23',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='23'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:19 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:19 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '22',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='22'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 11:38:19 SQL Error :
+------------
+String:
+SQL: <br/>select levelname from`ims_ewei_shop_commission_level`whrer uniacid=:uniacid and id=:id<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':id' => '26',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uniacid='12' and id='26'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 13:50:24 SQL Error :
+------------
+String:
+SQL: <br/>SELECT `value` FROM `ims_core_cache` WHERE `key` =  :__key_1  LIMIT 1<hr/>Params: <br/>array (
+  ':__key_1' => 'we7:module_setting:12:ewei_shopv2',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 227; <br />file: /framework/class/db.class.php; line: 259; <br />file: /framework/function/pdo.func.php; line: 61; <br />file: /framework/function/cache.mysql.func.php; line: 10; <br />file: /framework/function/cache.func.php; line: 39; <br />file: /framework/model/module.mod.php; line: 304; <br />file: /framework/model/module.mod.php; line: 497; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-01-08 13:50:24 SQL Error :
+------------
+String:
+SQL: <br/>SELECT * FROM `ims_uni_account_modules` WHERE `module` =  :__module_1 AND `uniacid` =  :__uniacid_2  LIMIT 1<hr/>Params: <br/>array (
+  ':__module_1' => 'ewei_shopv2',
+  ':__uniacid_2' => 12,
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 227; <br />file: /framework/function/pdo.func.php; line: 49; <br />file: /framework/model/module.mod.php; line: 306; <br />file: /framework/model/module.mod.php; line: 497; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-01-08 13:51:14 SQL Error :
+------------
+String:
+SQL: <br/>SELECT `value` FROM `ims_core_cache` WHERE `key` =  :__key_1  LIMIT 1<hr/>Params: <br/>array (
+  ':__key_1' => 'we7:module_setting:12:ewei_shopv2',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 227; <br />file: /framework/class/db.class.php; line: 259; <br />file: /framework/function/pdo.func.php; line: 61; <br />file: /framework/function/cache.mysql.func.php; line: 10; <br />file: /framework/function/cache.func.php; line: 39; <br />file: /framework/model/module.mod.php; line: 304; <br />file: /framework/model/module.mod.php; line: 497; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-01-08 13:51:14 SQL Error :
+------------
+String:
+SQL: <br/>SELECT * FROM `ims_uni_account_modules` WHERE `module` =  :__module_1 AND `uniacid` =  :__uniacid_2  LIMIT 1<hr/>Params: <br/>array (
+  ':__module_1' => 'ewei_shopv2',
+  ':__uniacid_2' => 12,
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 227; <br />file: /framework/function/pdo.func.php; line: 49; <br />file: /framework/model/module.mod.php; line: 306; <br />file: /framework/model/module.mod.php; line: 497; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-01-08 13:57:30 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 13:57:33 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 14:46:13 SQL Error :
+------------
+String:
+SQL: <br/>SELECT `value` FROM `ims_core_cache` WHERE `key` =  :__key_1  LIMIT 1<hr/>Params: <br/>array (
+  ':__key_1' => 'we7:module_setting:12:ewei_shopv2',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 227; <br />file: /framework/class/db.class.php; line: 259; <br />file: /framework/function/pdo.func.php; line: 61; <br />file: /framework/function/cache.mysql.func.php; line: 10; <br />file: /framework/function/cache.func.php; line: 39; <br />file: /framework/model/module.mod.php; line: 304; <br />file: /framework/model/module.mod.php; line: 497; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-01-08 14:46:13 SQL Error :
+------------
+String:
+SQL: <br/>SELECT * FROM `ims_uni_account_modules` WHERE `module` =  :__module_1 AND `uniacid` =  :__uniacid_2  LIMIT 1<hr/>Params: <br/>array (
+  ':__module_1' => 'ewei_shopv2',
+  ':__uniacid_2' => 12,
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 227; <br />file: /framework/function/pdo.func.php; line: 49; <br />file: /framework/model/module.mod.php; line: 306; <br />file: /framework/model/module.mod.php; line: 497; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-01-08 15:17:26 SQL Error :
+------------
+String:
+SQL: <br/>SELECT `value` FROM `ims_core_cache` WHERE `key` =  :__key_1  LIMIT 1<hr/>Params: <br/>array (
+  ':__key_1' => 'we7:module_setting:12:ewei_shopv2',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 227; <br />file: /framework/class/db.class.php; line: 259; <br />file: /framework/function/pdo.func.php; line: 61; <br />file: /framework/function/cache.mysql.func.php; line: 10; <br />file: /framework/function/cache.func.php; line: 39; <br />file: /framework/model/module.mod.php; line: 304; <br />file: /framework/model/module.mod.php; line: 497; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-01-08 15:17:26 SQL Error :
+------------
+String:
+SQL: <br/>SELECT * FROM `ims_uni_account_modules` WHERE `module` =  :__module_1 AND `uniacid` =  :__uniacid_2  LIMIT 1<hr/>Params: <br/>array (
+  ':__module_1' => 'ewei_shopv2',
+  ':__uniacid_2' => 12,
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 227; <br />file: /framework/function/pdo.func.php; line: 49; <br />file: /framework/model/module.mod.php; line: 306; <br />file: /framework/model/module.mod.php; line: 497; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-01-08 15:28:03 SQL Error :
+------------
+String:
+SQL: <br/>SELECT `value` FROM `ims_core_cache` WHERE `key` =  :__key_1  LIMIT 1<hr/>Params: <br/>array (
+  ':__key_1' => 'we7:module_setting:12:ewei_shopv2',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 227; <br />file: /framework/class/db.class.php; line: 259; <br />file: /framework/function/pdo.func.php; line: 61; <br />file: /framework/function/cache.mysql.func.php; line: 10; <br />file: /framework/function/cache.func.php; line: 39; <br />file: /framework/model/module.mod.php; line: 304; <br />file: /framework/model/module.mod.php; line: 497; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-01-08 15:28:03 SQL Error :
+------------
+String:
+SQL: <br/>SELECT * FROM `ims_uni_account_modules` WHERE `module` =  :__module_1 AND `uniacid` =  :__uniacid_2  LIMIT 1<hr/>Params: <br/>array (
+  ':__module_1' => 'ewei_shopv2',
+  ':__uniacid_2' => 12,
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 227; <br />file: /framework/function/pdo.func.php; line: 49; <br />file: /framework/model/module.mod.php; line: 306; <br />file: /framework/model/module.mod.php; line: 497; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-01-08 15:49:46 SQL Error :
+------------
+String:
+SQL: <br/>SELECT `value` FROM `ims_core_cache` WHERE `key` =  :__key_1  LIMIT 1<hr/>Params: <br/>array (
+  ':__key_1' => 'we7:module_setting:12:ewei_shopv2',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 227; <br />file: /framework/class/db.class.php; line: 259; <br />file: /framework/function/pdo.func.php; line: 61; <br />file: /framework/function/cache.mysql.func.php; line: 10; <br />file: /framework/function/cache.func.php; line: 39; <br />file: /framework/model/module.mod.php; line: 304; <br />file: /framework/model/module.mod.php; line: 497; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-01-08 15:49:46 SQL Error :
+------------
+String:
+SQL: <br/>SELECT * FROM `ims_uni_account_modules` WHERE `module` =  :__module_1 AND `uniacid` =  :__uniacid_2  LIMIT 1<hr/>Params: <br/>array (
+  ':__module_1' => 'ewei_shopv2',
+  ':__uniacid_2' => 12,
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 227; <br />file: /framework/function/pdo.func.php; line: 49; <br />file: /framework/model/module.mod.php; line: 306; <br />file: /framework/model/module.mod.php; line: 497; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-01-08 16:58:07 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 16:58:16 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:00:23 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:00:24 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:00:38 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:00:47 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:02:15 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:02:52 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:02:53 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:02:54 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:03:31 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:05:02 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:14:09 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:14:10 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:14:40 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:14:41 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:14:43 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:14:48 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:14:51 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:15:02 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:15:02 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:15:43 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:15:43 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:15:45 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:15:48 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:16:22 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:16:23 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:16:24 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:17:30 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:17:50 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-08 17:17:54 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+

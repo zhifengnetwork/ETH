@@ -1,0 +1,67 @@
+2019-01-16 15:08:27 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 109; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-16 15:08:36 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 109; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-01-16 15:31:40 SQL Error :
+------------
+String:
+SQL: <br/>SELECT `value` FROM `ims_core_cache` WHERE `key` =  :__key_1  LIMIT 1<hr/>Params: <br/>array (
+  ':__key_1' => 'we7:module_setting:12:ewei_shopv2',
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 227; <br />file: /framework/class/db.class.php; line: 259; <br />file: /framework/function/pdo.func.php; line: 61; <br />file: /framework/function/cache.mysql.func.php; line: 10; <br />file: /framework/function/cache.func.php; line: 39; <br />file: /framework/model/module.mod.php; line: 304; <br />file: /framework/model/module.mod.php; line: 497; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-01-16 15:31:40 SQL Error :
+------------
+String:
+SQL: <br/>SELECT * FROM `ims_uni_account_modules` WHERE `module` =  :__module_1 AND `uniacid` =  :__uniacid_2  LIMIT 1<hr/>Params: <br/>array (
+  ':__module_1' => 'ewei_shopv2',
+  ':__uniacid_2' => 12,
+)<hr/>SQL Error: <br/>MySQL server has gone away<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/class/db.class.php; line: 227; <br />file: /framework/function/pdo.func.php; line: 49; <br />file: /framework/model/module.mod.php; line: 306; <br />file: /framework/model/module.mod.php; line: 497; <br />file: /web/source/module/manage-account.ctrl.php; line: 22; <br />file: /web/index.php; line: 213; <br />
+
+2019-01-16 19:19:38 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_bee601829567]]></ToUserName>
+<FromUserName><![CDATA[oUt5j51V6OswO_wjN2X-R0K80Dio]]></FromUserName>
+<CreateTime>1547637578</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://hs5.zhouyewei.com/app/index.php?i=12&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>487915228</MenuId>
+</xml>
+
+2019-01-16 19:19:38 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_bee601829567',
+    'fromusername' => 'oUt5j51V6OswO_wjN2X-R0K80Dio',
+    'createtime' => '1547637578',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://hs5.zhouyewei.com/app/index.php?i=12&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '487915228',
+    'from' => 'oUt5j51V6OswO_wjN2X-R0K80Dio',
+    'to' => 'gh_bee601829567',
+    'time' => '1547637578',
+    'type' => 'text',
+    'content' => 'http://hs5.zhouyewei.com/app/index.php?i=12&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2019-01-16 19:19:38 response :
+------------
+

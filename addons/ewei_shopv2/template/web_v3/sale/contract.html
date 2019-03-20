@@ -1,0 +1,41 @@
+{template '_header'}
+
+<div class="region-goods-details row">
+
+
+
+    <h1 class="region-goods-left col-sm-12">游戏规则</h1>
+
+
+	<form  action="{php echo weburl('sale/contract')}" method="post" class="form-horizontal form-validate">
+    <div class=" region-goods-right col-sm-10">
+
+
+
+        <div class="">
+
+
+
+            {php echo tpl_ueditor('content',$data['contract'],array('height'=>'300'))}
+
+
+
+        </div>
+
+        <div class="form-group" style="background:#fff">
+
+            <label class="col-lg control-label"></label>
+
+            <div class="col-xs-12">
+
+                <input type="submit" value="提交" class="btn btn-primary">
+
+            </div>
+
+        </div>
+
+    </div>
+	</form>
+</div>
+
+{template '_footer'}

@@ -1,0 +1,44 @@
+ims_sz_yi_goods表  字段  returnmatter
+
+sz_yi_returnmatter
+
+
+core/web/shop/goods.php
+//购物返
+if (p('returnmatter')) {
+	$data['returnmatter'] = intval($_GPC['returnmatter']);
+}
+
+template/web/shop/goods/basic.html
+
+{if !empty($set_returnmatter['returnmatter'])}
+<div class="form-group">
+    <label class="col-xs-12 col-sm-3 col-md-2 control-label">是否购物返</label>
+    <div class="col-sm-6 col-xs-6">
+        {ife 'shop.goods' $item}
+        <label class="radio-inline"><input type="radio" name="returnmatter" value="1" {if $item['returnmatter'] == 1}checked="true"{/if}  /> 是</label>
+        <label class="radio-inline"><input type="radio" name="returnmatter" value="0" {if $item['returnmatter'] == 0}checked="true"{/if}  /> 否</label>
+           {else}
+           <div class='form-control-static'>{if $item['isreturn']}是{else}否{/if}</div>
+         {/if}
+    </div>
+</div>
+{/if}
+
+
+core\mobile\order/op.php
+
+ p('returnmatter') -> addreutrn($orderid);
+
+core\mobile\order/confirm.php
+//加入购物返字段
+
+ims_sz_yi_returnmatter_money
+
+
+sz_yi\core\web\order
+
+	} else if ($to == 'finish') {
+		//购物返
+		 p('returnmatter') -> addreutrn($id);
+		order_list_finish($item);

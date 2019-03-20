@@ -1,0 +1,143 @@
+<table class="table">
+
+    <thead>
+
+    <tr>
+
+        <td>商品</td>
+
+        <td style="width:100px;text-align: center;">商品价格</td>
+
+        <td style="width:100px;text-align: center;">兑换库存</td>
+
+        <th style="width:100px;text-align: center;">操作</th>
+
+    </tr>
+
+    </thead>
+
+
+
+
+
+    <tbody id="param-items" class="ui-sortable table-choose">
+
+    {loop $res $k $v}
+
+    <tr>
+
+        <td>
+
+            <img src="{php echo tomedia($v['thumb']);}" style="width:30px;height:30px;padding1px;border:1px solid #ccc">{$v['title']}</td>
+
+        <td style="text-align: right;">¥{$v['marketprice']}</td>
+
+        <td style="text-align: right;">{$v['total']}</td>
+
+        <td style="text-align: center;">
+
+            <a href="javascript:;" class="label label-primary select" gtitle="{$v['title']}" gthumb="{php echo tomedia($v['thumb']);}" dataid="{$v['id']}" {if $v['hasoption']==1}type="has_checkbox[]"{else}type="no_checkbox[]"{/if} gtype="{$v['hasoption']}">选择</a>
+
+        </td>
+
+    </tr>
+
+    {/loop}
+
+    </tbody>
+
+</table>
+
+
+
+<script>
+
+    $(document).ready(function () {
+
+        $(".select").click(function () {//商品选择器
+
+            var dataid = $(this).attr('dataid');
+
+            var condition = "tr[data-id='"+dataid+"']";
+
+            var exsit = $(condition).length;
+
+            var link = "{php echo webUrl('exchange/goods/optionset',array('groupid'=>$id));}&id="+$(this).attr('dataid')+"&gtype="+$(this).attr('gtype');
+
+            var input = '';
+
+            if ($(this).attr('gtype') != '1'){
+
+                input = '<input type="hidden" name="no_checkbox[]" value="'+$(this).attr('dataid')+'">';
+
+            }
+
+            if(exsit<1){
+
+                var content = '<tr class="multi-product-item" data-id="'+$(this).attr('dataid')+'" data-name="goodsid">' +input+
+
+                        '<td style="width:80px;">' +
+
+                        '<img src="'+$(this).attr('gthumb')+'" style="width:70px;border:1px solid #ccc;padding:1px"></td>' +
+
+                        '<td style="width:220px;">'+$(this).attr('gtitle')+'</td>' +
+
+                        '<td><a class="btn btn-default btn-sm" data-toggle="ajaxModal" href="'+link+'" id="optiontitle5115">设置</a></td>' +
+
+                        '<td><a href="javascript:void(0);" class="btn btn-default btn-sm" title="删除" data-id="'+$(this).attr('dataid')+'" onclick="biz.selector_new.remove(this,\'goodsid\')">' +
+
+                        '<i class="fa fa-times"></i></a></td></tr>';
+
+                $(".tablet").append(content);
+
+            }
+
+        });
+
+        $('#count').click(function(){
+            $('#myModal').modal('show');
+            // 获取已选中商品列表
+            var dataIdArr = [];
+            var dataId = $('.tablet').children();                                   //已选商品
+            // 循环获得data-id  进行比对
+            dataId.each(function(i){
+                // console.log(this.dataset.id);
+                dataIdArr.push(this.dataset.id);
+            })
+
+            // 通过tr获取子元素最后一个td 的 data-id 
+            var modalArr = [];                                                      //商品列表
+            var modalTr = $('.table-choose tr');
+            modalTr.removeClass('green');
+            for(var j=0;j<modalTr.length;j++){
+                modalArr.push(modalTr.eq(j).children('td:last').children().attr('dataid'));
+            }
+            
+            // console.log(dataIdArr,modalArr);
+            // 比对两个数组  获取相同的dataid
+            for(var k=0;k<dataIdArr.length;k++){
+                // var dataIdK = dataIdArr[k];
+                for(var l=0;l<modalArr.length;l++){
+                    if(modalArr[l] == dataIdArr[k]){
+
+                        // 对列表中已选择的商品添加选中样式
+                        // for(var q=0;q<modalTr.length;q++){
+                        //     if(modalTr.eq(q).children('td:last').children().attr('dataid') == modalArr[l]){
+                        //         modalTr.eq(q).addClass('green');
+                        //     }
+                        // }
+                    }
+                }
+            }
+
+            // 把列表中对应id赋予样式
+
+
+
+        })
+
+    });
+
+</script>
+
+<!--4000097827-->

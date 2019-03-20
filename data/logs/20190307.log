@@ -1,0 +1,270 @@
+2019-03-07 09:18:07 SQL Error :
+------------
+String:
+SQL: <br/>select kefufile,wxfufile from`ims_ewei_shop_sysset`where uniacid=12<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'wxfufile' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/androidapi.php; line: 20; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-07 10:57:26 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,10' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/androidapi.php; line: 368; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-07 13:06:43 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_member` where uniacid = 12 and id in ()  ORDER BY isagent desc,id desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  ORDER BY isagent desc,id desc limit 0,10' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/plugin/commission/core/mobile/down.php; line: 215; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-07 14:02:05 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.number,og.thigh,og.multiple,og.endtime,og.lottery
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				 FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid and og.openid=:openid  ORDER BY og.id DESC  LIMIT 0,10<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':openid' => 'wap_user_12_17671252557',
+)<hr/>SQL Error: <br/>Unknown column 'og.lottery' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 157; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-07 14:02:17 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.number,og.thigh,og.multiple,og.endtime,og.lottery
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				 FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.lottery' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 360; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-07 14:02:18 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.number,og.thigh,og.multiple,og.endtime,og.lottery
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				 FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.lottery' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 360; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-07 14:02:18 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.number,og.thigh,og.multiple,og.endtime,og.lottery
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				 FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.lottery' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 360; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-07 14:02:19 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.number,og.thigh,og.multiple,og.endtime,og.lottery
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				 FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.lottery' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 360; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-07 14:03:02 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.number,og.thigh,og.multiple,og.endtime,og.lottery
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				 FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid and og.openid=:openid  ORDER BY og.id DESC  LIMIT 0,10<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':openid' => 'wap_user_12_17671252557',
+)<hr/>SQL Error: <br/>Unknown column 'og.lottery' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 157; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-07 14:03:04 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.number,og.thigh,og.multiple,og.endtime,og.lottery
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				 FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid and og.openid=:openid  ORDER BY og.id DESC  LIMIT 0,10<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':openid' => 'wap_user_12_17671252557',
+)<hr/>SQL Error: <br/>Unknown column 'og.lottery' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 157; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-07 14:03:22 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.number,og.thigh,og.multiple,og.endtime,og.lottery
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				 FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.lottery' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 360; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-07 14:03:23 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.number,og.thigh,og.multiple,og.endtime,og.lottery
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				 FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.lottery' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 360; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-07 14:03:24 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.number,og.thigh,og.multiple,og.endtime,og.lottery
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				 FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.lottery' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 360; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-07 14:03:24 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.number,og.thigh,og.multiple,og.endtime,og.lottery
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				 FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.lottery' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 360; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-07 14:03:25 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.number,og.thigh,og.multiple,og.endtime,og.lottery
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				 FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.lottery' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 360; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-07 14:03:25 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.number,og.thigh,og.multiple,og.endtime,og.lottery
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				 FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.lottery' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 360; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-07 14:03:26 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.number,og.thigh,og.multiple,og.endtime,og.lottery
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				 FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.lottery' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 360; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-07 14:03:26 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.number,og.thigh,og.multiple,og.endtime,og.lottery
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				 FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.lottery' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 360; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-07 14:03:26 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.number,og.thigh,og.multiple,og.endtime,og.lottery
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				 FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.lottery' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 360; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-07 14:03:27 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.number,og.thigh,og.multiple,og.endtime,og.lottery
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				 FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.lottery' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 360; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-07 14:03:27 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.number,og.thigh,og.multiple,og.endtime,og.lottery
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				 FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.lottery' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 360; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-07 14:03:59 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.id,og.money,og.createtime,og.number,og.thigh,og.multiple,og.endtime,og.lottery
+				,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+				 FROM `ims_stakejilu` og left join `ims_ewei_shop_member` m ON m.openid=og.openid  WHERE og.uniacid=:uniacid ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.lottery' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 360; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-07 15:44:08 SQL Error :
+------------
+String:
+SQL: <br/>select l.openid,m.avatar,m.nickname,m.mobile,sum(l.money) as moneys from `ims_stakejilu` l left join `ims_ewei_shop_member` m on l.openid=m.openid  where l.uniacid=12 and l.thigh=0 and l.createtime>'1551888000' and l.createtime<'1551974399' group by l.openid order by l.moneys desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'l.moneys' in 'order clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 232; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-07 15:44:09 SQL Error :
+------------
+String:
+SQL: <br/>select l.openid,m.avatar,m.nickname,m.mobile,sum(l.money) as moneys from `ims_stakejilu` l left join `ims_ewei_shop_member` m on l.openid=m.openid  where l.uniacid=12 and l.thigh=0 and l.createtime>'1551888000' and l.createtime<'1551974399' group by l.openid order by l.moneys desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'l.moneys' in 'order clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 232; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-07 15:44:16 SQL Error :
+------------
+String:
+SQL: <br/>select l.openid,m.avatar,m.nickname,m.mobile,sum(l.money) as moneys from `ims_stakejilu` l left join `ims_ewei_shop_member` m on l.openid=m.openid  where l.uniacid=12 and l.thigh=0 and l.createtime>'1551888000' and l.createtime<'1551974399' group by l.openid order by l.moneys desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'l.moneys' in 'order clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 232; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-07 15:44:17 SQL Error :
+------------
+String:
+SQL: <br/>select l.openid,m.avatar,m.nickname,m.mobile,sum(l.money) as moneys from `ims_stakejilu` l left join `ims_ewei_shop_member` m on l.openid=m.openid  where l.uniacid=12 and l.thigh=0 and l.createtime>'1551888000' and l.createtime<'1551974399' group by l.openid order by l.moneys desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'l.moneys' in 'order clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 232; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-07 15:44:17 SQL Error :
+------------
+String:
+SQL: <br/>select l.openid,m.avatar,m.nickname,m.mobile,sum(l.money) as moneys from `ims_stakejilu` l left join `ims_ewei_shop_member` m on l.openid=m.openid  where l.uniacid=12 and l.thigh=0 and l.createtime>'1551888000' and l.createtime<'1551974399' group by l.openid order by l.moneys desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'l.moneys' in 'order clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 232; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-07 15:44:17 SQL Error :
+------------
+String:
+SQL: <br/>select l.openid,m.avatar,m.nickname,m.mobile,sum(l.money) as moneys from `ims_stakejilu` l left join `ims_ewei_shop_member` m on l.openid=m.openid  where l.uniacid=12 and l.thigh=0 and l.createtime>'1551888000' and l.createtime<'1551974399' group by l.openid order by l.moneys desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'l.moneys' in 'order clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 232; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-07 15:47:57 SQL Error :
+------------
+String:
+SQL: <br/>select l.openid,m.avatar,m.nickname,m.mobile,sum(l.money) as money from `ims_stakejilu` l left join `ims_ewei_shop_member` m on l.openid=m.openid  having l.uniacid=12 and l.thigh=0 and l.createtime>'1551888000' and l.createtime<'1551974399' group by l.openid order by l.money desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'group by l.openid order by l.money desc limit 0,10' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 232; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-07 15:47:58 SQL Error :
+------------
+String:
+SQL: <br/>select l.openid,m.avatar,m.nickname,m.mobile,sum(l.money) as money from `ims_stakejilu` l left join `ims_ewei_shop_member` m on l.openid=m.openid  having l.uniacid=12 and l.thigh=0 and l.createtime>'1551888000' and l.createtime<'1551974399' group by l.openid order by l.money desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'group by l.openid order by l.money desc limit 0,10' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 232; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-07 15:49:27 SQL Error :
+------------
+String:
+SQL: <br/>select l.openid,m.avatar,m.nickname,m.mobile,sum(l.money) as money from `ims_stakejilu` l left join `ims_ewei_shop_member` m on l.openid=m.openid  having l.uniacid=12 and l.thigh=0 and l.createtime>'1551888000' and l.createtime<'1551974399' group by l.openid order by l.money desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'group by l.openid order by l.money desc limit 0,10' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 232; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-07 15:49:29 SQL Error :
+------------
+String:
+SQL: <br/>select l.openid,m.avatar,m.nickname,m.mobile,sum(l.money) as money from `ims_stakejilu` l left join `ims_ewei_shop_member` m on l.openid=m.openid  having l.uniacid=12 and l.thigh=0 and l.createtime>'1551888000' and l.createtime<'1551974399' group by l.openid order by l.money desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'group by l.openid order by l.money desc limit 0,10' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 232; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-07 15:49:30 SQL Error :
+------------
+String:
+SQL: <br/>select l.openid,m.avatar,m.nickname,m.mobile,sum(l.money) as money from `ims_stakejilu` l left join `ims_ewei_shop_member` m on l.openid=m.openid  having l.uniacid=12 and l.thigh=0 and l.createtime>'1551888000' and l.createtime<'1551974399' group by l.openid order by l.money desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'group by l.openid order by l.money desc limit 0,10' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 232; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-07 15:49:30 SQL Error :
+------------
+String:
+SQL: <br/>select l.openid,m.avatar,m.nickname,m.mobile,sum(l.money) as money from `ims_stakejilu` l left join `ims_ewei_shop_member` m on l.openid=m.openid  having l.uniacid=12 and l.thigh=0 and l.createtime>'1551888000' and l.createtime<'1551974399' group by l.openid order by l.money desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'group by l.openid order by l.money desc limit 0,10' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 232; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-07 15:49:31 SQL Error :
+------------
+String:
+SQL: <br/>select l.openid,m.avatar,m.nickname,m.mobile,sum(l.money) as money from `ims_stakejilu` l left join `ims_ewei_shop_member` m on l.openid=m.openid  having l.uniacid=12 and l.thigh=0 and l.createtime>'1551888000' and l.createtime<'1551974399' group by l.openid order by l.money desc limit 0,10<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'group by l.openid order by l.money desc limit 0,10' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/lottery.php; line: 232; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+

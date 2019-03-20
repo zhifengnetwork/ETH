@@ -1,0 +1,7 @@
+
+{
+   "statistics":"YES",
+   "dbname":"stat_fans",
+   "today_new":"new",
+   "today_cancel":"cancel"
+}

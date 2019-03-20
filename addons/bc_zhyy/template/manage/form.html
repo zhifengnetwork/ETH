@@ -1,0 +1,392 @@
+
+<input type="hidden" name="reply_id" value="{$reply['id']}" />
+<div class="panel panel-default">
+    <div class="panel-heading">
+        活动设置
+    </div>
+    <div class="panel-body">
+		{if !empty($reply['rid'])}
+        <div class="form-group">
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'></span> 访问路径</label>
+            <div class="col-sm-5 col-xs-6 col-md-10 col-lg-8">
+               	<label>{php echo murl('entry',array('rid'=>$reply['rid'],'do'=>'index','op'=>'display','m'=>$this->module['name']),true,true)}</label>
+            </div>
+        </div>
+		{/if}
+        <div class="form-group">
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 活动名称</label>
+            <div class="col-sm-5 col-xs-6 col-md-10 col-lg-8">
+               	<input type="text" id="form_theme" class="form-control" required placeholder="" name="form_theme" value="{$reply['form_theme']}">
+            </div>
+        </div>
+ 		<div class="form-group">
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 活动图片</label>
+            <div class="col-sm-5 col-xs-6 col-md-10 col-lg-8">
+               	{php echo tpl_form_field_image('form_pic',$reply['form_pic']);}
+            </div>
+        </div>
+		{if $settings['showminepic'] ==1}
+ 		<div class="form-group">
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 附加图片</label>
+            <div class="col-sm-5 col-xs-6 col-md-10 col-lg-8">
+               	{php echo tpl_form_field_image('mine_pic',$reply['mine_pic']);}
+				<div class="help-block">用户数据页面显示</div>
+            </div>
+        </div>
+		{/if}
+        <div class="form-group">
+            <label class="col-xs-6 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 活动时间</label>
+            <div class="col-sm-9 col-xs-12 col-md-10 col-lg-8">
+               	{php echo tpl_form_field_daterange('datelimit', array('starttime'=>date('Y-m-d',$reply['valid_time_start']),'endtime'=>date('Y-m-d',$reply['valid_time_end'])))}
+				<div class="help-block">活动时间超过1年则微信端不显示活动时间项</div>
+            </div>
+			
+        </div>	
+		{if empty($settings['showfeature']) || $settings['showfeature'] ==1}
+        <div class="form-group">
+            <label class="col-xs-6 col-sm-3 col-md-2 control-label"><span style='color:red'></span> 特别备注</label>
+            <div class="col-sm-5 col-xs-6 col-md-10 col-lg-8">
+               	<input type="text" id='feature' name="feature" class="form-control" notrequired value="{$reply['feature']}">
+				<div class="help-block">简短的说明，如“包邮”“店庆特惠”等</div>
+            </div>
+        </div>		
+		{/if}
+		{if empty($settings['showprice']) || $settings['showprice'] ==1}
+        <div class="form-group">
+            <label class="col-xs-6 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 商品价格</label>
+				<div class="col-sm-5 col-xs-6 col-md-10 col-lg-8">
+					<div class="input-group">
+						<span class="input-group-addon ">市场价</span>
+						<input type="number" step="0.01" name="marketprice" id="marketprice" class="span2 form-control" value="{$reply['marketprice']}">
+						<span class="input-group-addon ">元</span>
+					</div>	
+					</br>
+					<div class="input-group">
+						<span class="input-group-addon ">活动价</span>
+						<input type="number" step="0.01" name="costprice" id="costprice" class="span2 form-control" value="{$reply['costprice']}">
+						<span class="input-group-addon ">元</span>
+					</div>
+					<div class="help-block">没有特别优惠价格时，活动价填0即可。两项价格都小于0时，微信端不显示价格项。</div>	
+            </div>
+        </div>
+		{/if}
+        <div class="form-group">
+            <label class="col-xs-6 col-sm-3 col-md-2 control-label"><span style='color:red'></span> 联系电话</label>
+            <div class="col-sm-5 col-xs-6 col-md-10 col-lg-8">
+               	<input type="text" id='tel' name="phone" class="form-control" value="{$reply['phone']}">
+				<div class="help-block">此项为空，则微信端不显示联系电话项</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-6 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 成功提示</label>
+            <div class="col-sm-5 col-xs-6 col-md-10 col-lg-8">
+               	<input type="text" id="success_prompt" class="form-control" required placeholder="" name="success_prompt" value="{$reply['success_prompt']}">
+            </div>
+        </div>		
+        <div class="form-group hide">
+            <label class="col-xs-6 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 失败提示</label>
+            <div class="col-sm-5 col-xs-6 col-md-10 col-lg-8">
+               	<input type="text" id="error_prompt" class="form-control" notrequired placeholder="" name="error_prompt" value="{$reply['error_prompt']}">
+            </div>
+        </div>			
+     	<div class="form-group">
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label">提交次数</label>
+            <div class="col-sm-5 col-xs-6 col-md-10 col-lg-8">
+               	<div class="input-group">
+					<input class="form-control" name="submit_times" type="number" value="{$reply['submit_times']}" />
+					<span class="input-group-addon">次</span>
+				</div>
+				<div class="help-block">提交次数限制,0为不限制</div>
+            </div>
+        </div>
+		{if $settings['showwords1'] ==1}
+        <div class="form-group">
+            <label class="col-xs-6 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 分享话术A</label>
+            <div class="col-sm-5 col-xs-6 col-md-10 col-lg-8">
+               	<input type="text" id="sharemsg0" class="form-control" required placeholder="" name="sharemsg0" value="{$reply['sharemsg0']}">
+				<div class="help-block">浏览用户的分享话术</div>
+            </div>			
+        </div>	
+		{/if}
+		{if $settings['showwords2'] ==1}
+        <div class="form-group">
+            <label class="col-xs-6 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 分享话术B</label>
+            <div class="col-sm-5 col-xs-6 col-md-10 col-lg-8">
+               	<input type="text" id="sharemsg1" class="form-control" required placeholder="" name="sharemsg1" value="{$reply['sharemsg1']}">
+				<div class="help-block">提交用户的分享话术，N代表提交人数，例如“已有N人提交数据”</div>
+            </div>			
+        </div>		
+		{/if}
+		<div class="form-group">
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 是否核销</label>
+            <div class="col-sm-2 col-xs-6 col-md-10 col-lg-8">
+			    <label class="radio-inline col-sm-2">
+					  <input type="radio" name="needwriteoff" id="needwriteoff" value="1" {if $reply['needwriteoff'] == 1}checked{/if} style="display:block;"> 是
+			    </label>
+				<label class="radio-inline col-sm-2">
+					  <input type="radio" name="needwriteoff" id="needwriteoff" value="0" {if $reply['needwriteoff'] == 0}checked{/if} style="display:block;"> 否
+			    </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 活动规则</label>
+            <div class="col-sm-5 col-xs-6 col-md-10 col-lg-8">
+                {php echo tpl_ueditor('details', $reply['details']);}
+            </div>
+        </div>
+		<div class="row">
+			<label class="col-xs-6 col-sm-3 col-md-2 control-label"></label>
+			<div class="col-sm-5 col-xs-6 col-md-10 col-lg-8">
+				<div class="panel panel-default">
+				  <div class="panel-heading">其他设置</div>
+				  <div class="panel-body">
+						<ul id="myTab" class="nav nav-tabs">
+							<li>
+								<a href="#sms" data-toggle="tab">短信通知</a>
+							</li>
+							<li class="active"><a href="#notice" data-toggle="tab">微信消息</a></li>
+						</ul>
+						<div id="myTabContent" class="tab-content">
+							<div class="tab-pane fade " id="sms">
+								        <div class="form-group">
+											<label class="col-md-3 control-label"><span style='color:red'></span> 短信通知电话</label>
+											<div class="col-md-8">
+												<input type="text" id='tel' name="setting_notice_phone" class="form-control" value="{$reply['setting_notice_phone']}">
+												<div class="help-block">用户提交预约请求后发送短信通知</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-3 control-label"><span style='color:red'></span> 短信通知模板</label>
+											<div class="col-md-8">
+												<input type="text" id='tel' name="setting_notice_message" class="form-control" value="{$reply['setting_notice_message']}">
+												<div class="help-block">用户提交预约请求后发送短信通知的内容，其中"{user}"(引号中的内容)表示预约用户的昵称或识别ID</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-3 control-label"><span style='color:red'></span>用户号码数据项</label>
+											<div class="col-md-8">
+												<input type="text" id='setting_consumer_phone' name="setting_consumer_phone" class="form-control" value="{$reply['setting_consumer_phone']}">
+												<div class="help-block">预约消费者提交手机号码的数据项，“提交数据”表格中的显示名称</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-3 control-label"><span style='color:red'></span> 短信通知模板</label>
+											<div class="col-md-8">
+												<input type="text" id='setting_consumer_message' name="setting_consumer_message" class="form-control" value="{$reply['setting_consumer_message']}">
+												<div class="help-block">发送短信通知预约消费者的内容，其中"{user}"(引号中的内容)表示预约用户的昵称或识别ID、"{code}"表示核销码</div>
+											</div>
+										</div>	
+							</div>
+							<div class="tab-pane fade in active" id="notice">
+							            <div class="form-group">
+											<label class="col-md-3 control-label"><span style='color:red'></span> 模板ID</label>
+											<div class="col-md-8">
+												<input type="text" id='setting_consumer_wechat_tmplid' name='setting_consumer_wechat_tmplid' class="form-control" value="{$reply['setting_consumer_wechat_tmplid']}">
+												<div class="help-block">微信消息模板ID</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-3 control-label"><span style='color:red'></span> 关键字取值</label>
+											<div class="col-md-8">
+												<input type="text" id='setting_consumer_wechat_tmplkey' name='setting_consumer_wechat_tmplkey' class="form-control" value="{$reply['setting_consumer_wechat_tmplkey']}">
+												<div class="help-block">微信模板消息关键字取值，来自提交数据，用英文;隔开的显示名称，注意顺序。列如：预约人;预约项目;预约时间</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-3 control-label"><span style='color:red'></span> 消息标题</label>
+											<div class="col-md-8">
+												<input type="text" id='setting_consumer_wechat_title' name='setting_consumer_wechat_title' class="form-control" value="{$reply['setting_consumer_wechat_title']}">
+												<div class="help-block">微信模板消息标题</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-3 control-label"><span style='color:red'></span> 备注</label>
+											<div class="col-md-8">
+												<input type="text" id='setting_consumer_wechat_remark' name='setting_consumer_wechat_remark' class="form-control" value="{$reply['setting_consumer_wechat_remark']}">
+												<div class="help-block">微信模板消息备注</div>
+											</div>
+										</div>
+										<!--
+										<div class="form-group">
+											<label class="col-md-3 control-label"><span style='color:red'></span> 微信通知模板</label>
+											<div class="col-md-8">
+												<input type="text" id='setting_consumer_wechat_notice' name="setting_consumer_wechat_notice" class="form-control" value="{$reply['setting_consumer_wechat_notice']}">
+												<div class="help-block">发送微信消息通知预约消费者的内容，其中"{code}"(引号中的内容)表示核销码</div>
+											</div>
+										</div> -->
+							</div>
+						</div>
+				  </div>
+				</div>
+			</div>
+		</div>
+	
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        提交数据
+    </div>
+    <div class="panel-body">
+		<div class="panel panel-default">
+			<div class="panel-body table-responsive">
+				<table class="table">
+					<thead>
+						<tr><th>显示名称</th>
+						<th>填写说明</th>
+						<th>填写类型</th>
+						<th>验证类型</th>
+						<th style="width:200px;">原型效果</th>
+						<th>是否必填</th>
+						<th>是否隐藏</th>
+						<th>显示顺序</th>
+						<th>错误提示</th>
+						<th>操作</th></tr>
+					</thead>
+					<tbody id="bctbody">
+					</tbody>
+				</table>
+			</div>
+			
+		</div>
+		<a href="javascript:;" class="btn btn-primary editinput" >增加输入项</a>
+    </div>
+</div>
+<!-- 模态框（Modal） -->
+<style>
+#myModal .form-group{
+	margin-bottom: 10px;
+}
+</style>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+   aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" 
+               aria-hidden="true">×
+            </button>
+            <h4 class="modal-title" id="myModalLabel">
+               <strong>填写项目设置</strong>
+            </h4>
+         </div>
+         <div class="modal-body">
+
+			<input type="hidden" name="key" value="-1">
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label">显示名称</label>
+				<div class="col-sm-6 col-md-8 col-xs-12">
+					<input type="text" class="form-control" placeholder="" name="inputtitle" value="">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label">显示顺序</label>
+				<div class="col-sm-6 col-md-8 col-xs-12">
+					<input type="text" class="form-control" placeholder="1" name="sortnumber" value="">
+				</div>
+			</div>				
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label">填写说明</label>
+				<div class="col-sm-6 col-md-8 col-xs-12">
+					<input type="text" class="form-control" placeholder="" name="desc" value="">
+				</div>
+			</div>	
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+				  <div class="checkbox">
+					<label class="col-sm-3">
+					  <input type="checkbox" name="isneed" style="display:block;"> 是否必填
+					</label>
+					<label class="col-sm-6">
+					  <input type="checkbox" name="ishide" style="display:block;"> 是否在手机端隐藏
+					</label>					
+				  </div>
+				</div>
+			</div>					
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label">填写类型</label>
+				<div class="col-sm-6 col-md-9 col-xs-12">
+					<label class="radio-inline hide col-sm-3">
+					  <input type="radio" name="inputtype" id="inlineRadio7" value="7" style="display:block;"> 富文本输入框
+					</label>				
+					<label class="radio-inline col-sm-3">
+					  <input type="radio" name="inputtype" id="inlineRadio1" value="1" checked style="display:block;"> 单行文本
+					</label>
+					<label class="radio-inline col-sm-3">
+					  <input type="radio" name="inputtype" id="inlineRadio2" value="2" style="display:block;"> 多行文本
+					</label>
+					<label class="radio-inline col-sm-3">
+					  <input type="radio" name="inputtype" id="inlineRadio3" value="3" style="display:block;"> 单项选择
+					</label>
+					<label class="radio-inline col-sm-3">
+					  <input type="radio" name="inputtype" id="inlineRadio4" value="4" style="display:block;"> 多项选择
+					</label>
+					<label class="radio-inline col-sm-3">
+					  <input type="radio" name="inputtype" id="inlineRadio5" value="5" style="display:block;"> 日期
+					</label>
+					<label class="radio-inline col-sm-3">
+					  <input type="radio" name="inputtype" id="inlineRadio6" value="6" style="display:block;"> 时间
+					</label>
+					<label class="radio-inline col-sm-3">
+					  <input type="radio" name="inputtype" id="inlineRadio8" value="8" style="display:block;"> 车牌
+					</label>
+					<label class="radio-inline col-sm-3">
+					  <input type="radio" name="inputtype" id="inlineRadio9" value="9" style="display:block;"> 图片
+					</label>	
+					<label class="radio-inline col-sm-6">
+					  <input type="radio" name="inputtype" id="inlineRadio10" value="10" style="display:block;"> 省市区(县)
+					</label>					
+				</div>
+			</div>		
+			<div class="form-group" id="optiongroup">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label">可选项</label>
+				<div class="col-sm-6 col-md-8 col-xs-12">
+					<textarea class="form-control" rows="3" name="options"></textarea>
+					<span class="help-block" style="margin-bottom: 0px;">不同的选项以;符号隔开，例如“男;女”</span>
+				</div>
+			</div>
+	
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label">验证类型</label>
+				<div class="col-sm-6 col-md-8 col-xs-12">
+					<label class="radio-inline">
+					  <input type="radio" name="checktype" id="inlineRadio1" value="0" checked="true" style="display:block;"> 不验证
+					</label>				
+					<label class="radio-inline">
+					  <input type="radio" name="checktype" id="inlineRadio1" value="1" style="display:block;"> 手机号码
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="checktype" id="inlineRadio2" value="2" style="display:block;"> 身份证号码
+					</label>			
+				</div>
+			</div>
+
+			<div class="form-group hide">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label">错误提示</label>
+				<div class="col-sm-6 col-md-8 col-xs-12">
+					<input type="text" class="form-control" placeholder="" name="errormsg" value="">
+				</div>
+			</div>
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            <button type="button" class="btn btn-primary span3" id="saveinput"><span class='glyphicon glyphicon-ok'></span>&nbsp;确定</button>
+         </div>
+      </div><!-- /.modal-content -->
+   </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<input type="hidden" name="forms" value="{$reply['fields']}" id="forms">
+<script type="text/javascript" src="{MODULE_URL}/static/js/bc_zhyy.js?v={php echo time();}"></script>
+<script type="text/javascript" src="{MODULE_URL}/static/js/form.js?v={php echo time();}"></script>
+<script language='javascript'>
+require(['jquery'], function($, u){
+	$(document).ready(function(){
+		$("a[href='./index.php?c=platform&a=reply&m=bc_zhyy']").attr("href","{$manageurl}");
+		//添加校验标志
+		$("input[name='form_pic']").attr("required",1);
+		//$("input[name='form_pic']").attr("readonly",1);
+		$("textarea[name='details']").attr("required",1);
+	});
+});
+</script>
+

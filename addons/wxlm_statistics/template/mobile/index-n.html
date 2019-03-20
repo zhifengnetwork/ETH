@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>公众号数据监控</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="apple-mobile-web-app-title" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" type="text/css" href="../addons/wxlm_statistics/template/mobile/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../addons/wxlm_statistics/template/mobile/css/style.css">
+</head>
+<body>
+<div>
+    <div class="header">
+        {$account_name}
+    </div>
+    <div class="back-img">
+        <div class="code">
+            <img src="{php echo tomedia('headimg_'.$acid.'.jpg')}?time={php echo time()}" alt="" width="100%">
+        </div>
+        <div class="logo">
+            <img src="{php echo tomedia('qrcode_'.$acid.'.jpg');}?time={php echo time()}" width="100%" alt="">
+        </div>
+    </div>
+    <div class="title">
+        <div class="title-name">
+            今日关键指标
+        </div>
+        <div class="title-img">
+            <img src="../addons/wxlm_statistics/template/mobile/images/xie1.jpg" height="100%" alt="">
+        </div>
+    </div>
+    <div class="today-conten">
+
+        <div class="today">今日新关注:{$today_add_num}</div>
+        <div class="today-1"></div>
+        <div class="today">今日取消关注:{$today_cancel_num}</div>
+        <div class="today">今日净增关注:{$today_jing_num}</div>
+        <div class="today-1"></div>
+        <div class="today">累计关注:{$today_total_num}</div>
+
+
+    </div>
+    <div class="title">
+        <div class="title-name">
+            昨日关键指标
+        </div>
+    </div>
+    <div class="yesterday-conten">
+        <div class="yesterday-schedule-new">
+            <div class="left">昨日新关注: </div><div class="right"><p class="schedule"><span style="width: {$yest_new_width}%;"></span></p>
+            <span>{$yesterday_stat['new']}</span>
+        </div>
+        </div>
+        <div class="yesterday-schedule-cancel">
+            <div class="left">昨日取消关注: </div><div class="right"><p class="schedule"><span style="width: {$yest_cancel_width}%;"></span></p>
+            <span>{$yesterday_stat['cancel']}</span>
+        </div>
+        </div>
+        <div class="yesterday-schedule-up">
+            <div class="left">昨日净增关注:</div><div class="right"><p class="schedule"><span style="width: {$yest_add_width}%;"></span></p>
+            <span>{php echo intval($yesterday_stat['new']) - intval($yesterday_stat['cancel'])}</span>
+        </div>
+        </div>
+        <div class="yesterday-schedule-all">
+            <div class="left">累计关注:</div><div class="right"><p class="schedule"><span style="width: 85%;"></span></p>
+            <span>{$yesterday_stat['cumulate']}</span>
+        </div>
+        </div>
+    </div>
+    {if $ewei_rs}
+    <div class="title">
+        <div class="title-name">
+            人人商城关键指标
+        </div>
+        <div class="title-img2">
+            <img src="../addons/wxlm_statistics/template/mobile/images/xie2.jpg" height="100%" alt="">
+        </div>
+    </div>
+    <div class="shop-conten">
+        <p class="decorative"></p><p class="decorative"><p class="decorative"></p><p class="decorative">
+        <div class="left">
+        <p>已售罄商品: <span> {$ewei_rs['goods_totals']}</span></p>
+        <p>维权中订单: <span> {$ewei_rs['status4']}</span></p>
+        <p>分销商总数: <span> {$ewei_rs['commission_agent_total']}</span></p>
+        <p>待审核佣金申请: <span> {$ewei_rs['commission_apply_status1_total']}</span></p>
+    </div><div class="right">
+    <p>待发货订单: <span> {$ewei_rs['status1']}</span></p>
+    <p>待审核体现: <span> {$ewei_rs['finance_total']}</span></p>
+    <p>待审核分销商: <span> {$ewei_rs['commission_agent_status0_total']}</span></p>
+    <p>待打款佣金申请: <span> {$ewei_rs['commission_apply_status2_total']}</span></p>
+</div>
+</div>
+<div class="title">
+    <div class="title-name">
+        人人商城【 订单 】
+    </div>
+    <div class="title-img3">
+        <img src="../addons/wxlm_statistics/template/mobile/images/xie3.jpg" height="100%" alt="">
+    </div>
+</div>
+<div class="order-conten">
+    <div class="left">
+        <p>全部商品: <span> {$ewei_rs['all']}</span></p>
+        <p>待收货: <span class="orange"> {$ewei_rs['status2']}</span></p>
+        <p>已完成: <span> {$ewei_rs['status3']}</span></p>
+        <p>维权申请: <span class="red"> {$ewei_rs['status4']}</span></p>
+    </div><div class="right">
+    <p>待发货: <span class="red"> {$ewei_rs['status1']}</span></p>
+    <p>待付款: <span> {$ewei_rs['status0']}</span></p>
+    <p>待关闭: <span> {$ewei_rs['status_1']}</span></p>
+    <p>维权完成: <span> {$ewei_rs['status5']}</span></p>
+</div>
+    <div class="today-turnover">
+        <div class="small-title green">今日成交</div>
+        <p>人均消费: ¥<span>{$ewei_rs_order['order0']['avg']}</span></p>
+        <p>成交量: <span>{$ewei_rs_order['order0']['count']}</span></p>
+        <p>成交额: ¥<span>{$ewei_rs_order['order0']['price']}</span></p>
+    </div>
+    <div class="yesterday-turnover">
+        <div class="small-title blue">昨日成交</div>
+        <p>人均消费: ¥<span>{$ewei_rs_order['order1']['avg']}</span></p>
+        <p>成交量: <span>{$ewei_rs_order['order1']['count']}</span></p>
+        <p>成交额: ¥<span>{$ewei_rs_order['order1']['price']}</span></p>
+    </div>
+    <div class="week-turnover">
+        <div class="small-title orange">近7日成交</div>
+        <p>人均消费: ¥<span>{$ewei_rs_order['order7']['avg']}</span></p>
+        <p>成交量: <span>{$ewei_rs_order['order7']['count']}</span></p>
+        <p>成交额: ¥<span>{$ewei_rs_order['order7']['price']}</span></p>
+    </div>
+    <div class="month-turnover">
+        <div class="small-title red">近1个月成交</div>
+        <p>人均消费: ¥<span>{$ewei_rs_order['order30']['avg']}</span></p>
+        <p>成交量: <span>{$ewei_rs_order['order30']['count']}</span></p>
+        <p>成交额: ¥<span>{$ewei_rs_order['order30']['price']}</span></p>
+    </div>
+    <div class="title">
+        <div class="title-name">
+            人人商城【 会员 】
+        </div>
+        <div class="title-img4">
+            <img src="../addons/wxlm_statistics/template/mobile/images/xie2.jpg" height="100%" alt="">
+        </div>
+    </div>
+    <div class="vip-conten">
+        <div class="vip-up">今日新增: <span>{$ewei_rs_member['member_newmember0']['count']}</span><p><span>{$ewei_rs_member['member_newmember0']['rate']}</span>% ↗</p></div>
+        <div class="vip-up">成交量: <span>{$ewei_rs_member['member_newmember1']['count']}</span><p><span>{$ewei_rs_member['member_newmember1']['rate']}</span>% ↗</p></div>
+        <div class="vip-up">过去七天新增: <span>{$ewei_rs_member['member_newmember7']['count']}</span><p><span>{$ewei_rs_member['member_newmember7']['rate']}</span>% ↗</p></div>
+    </div>
+    <div class="vip-gender">
+        <div class="small-title cyan">会员性别统计</div>
+        <p>未知: <span>{$ewei_rs_member['member_membergender'][0]}</span></p>
+        <p>男: <span>{$ewei_rs_member['member_membergender'][1]}</span></p>
+        <p>女: <span>{$ewei_rs_member['member_membergender'][2]}</span></p>
+    </div>
+    <div class="vip-grade">
+        <div class="small-title blue">会员等级统计</div>
+        {loop $ewei_rs_member['member_memberlevel']['data'] $key $item}
+        <p>{$item['name']}: <span>{$item['value']}</span></p>
+        {/loop}
+    </div>
+    <div class="vip-district">
+        <div class="small-title red">会员区域统计(前21)</div>
+        {loop $ewei_rs_member['member_province'] $key2 $item2}
+        <p>{$item2['name']}: <span>{$item2['value']}</span>
+        {/loop}
+    </div>
+    {/if}
+</div>
+</body>
+</html>

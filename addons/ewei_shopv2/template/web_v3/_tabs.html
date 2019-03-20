@@ -1,0 +1,64 @@
+<!-- <div class="subnav-scene">
+
+	{if empty($sysmenus['submenu']['route']) && !$sysmenus['submenu']['main']}
+
+		{$sysmenus['submenu']['subtitle']}
+
+	{else}
+
+		<a href="{php echo webUrl($sysmenus['submenu']['route'])}">{$sysmenus['submenu']['subtitle']}</a>
+
+	{/if}
+
+</div> -->
+
+
+
+{if !empty($sysmenus['submenu']['items'])}
+
+	{loop $sysmenus['submenu']['items'] $submenu}
+
+		{if !empty($submenu['items'])}
+			
+			<div class='menu-header {if $submenu['active']}active data-active{/if}'>
+				<div class="menu-icon icon-{if $submenu['active']}uniE901{else}1{/if}"></div>
+				<h5>{$submenu['title']}</h5>
+			</div>
+			
+			<ul {if $submenu['active']}style="display: block"{/if}>
+
+				{loop $submenu['items'] $threemenu}
+
+					<li {if $threemenu['active']}class="active"{/if}>
+						<a href="{$threemenu['url']}" style="cursor: pointer;" data-route="{$threemenu['route']}">
+							{$threemenu['title']}
+						</a>
+					</li>
+				{/loop}
+
+			</ul>
+
+		{else}
+				
+				<div class="menu-header {if $submenu["active"]}active{/if}">
+					<div class="menu-icon icon-{if $submenu['active']}uniE901{else}1{/if}"></div>
+					<h5>{$submenu['title']}</h5>
+					<!-- <li class="" style=" position: relative"><a href="{$submenu['url']}" style="cursor: pointer;" data-route="{$submenu['route']}">{$submenu['title']}</a></li> -->
+
+				</div>
+				<ul {if $submenu['active']}style="display: block"{/if}>
+
+					<li {if $threemenu['active']}class="active"{/if}>
+						<a href="{$submenu['url']}" style="cursor: pointer;"">
+							{$submenu['title']}
+						</a>
+					</li>
+
+				</ul>
+				
+		{/if}
+
+	{/loop}
+
+
+{/if}

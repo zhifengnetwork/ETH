@@ -1,0 +1,1 @@
+addons\sz_yi\template\mobile\style1\shop\index.html
