@@ -13,6 +13,11 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		parent::__construct();
 		$this->member = m('member')->getInfo($_W['openid']);
 	}
+	
+	public function number_order(){
+		
+		include $this->template();
+	}
 
 	public function main() 
 	{
