@@ -76,7 +76,7 @@
 		display: none;
 	}
 	/* 买入 卖出按钮样式 */
-	
+
 	.buying {
 		height: 2rem;
 		text-align: center;
@@ -108,7 +108,6 @@
 	}
 	
 
-<<<<<<< HEAD
 	/*-----选中状态----*/
 	.on {
 		color: #F0E68C !important;
@@ -247,169 +246,6 @@
 	.mask1 {
 		background-color: #0e222d;
 		/* position: fixed;
-=======
-  #tab > a{
-    flex: 1;
-  }
-  .mydingdan{
-    flex: 1;
-    color: #fff;
-    text-align: center;
-    line-height: 40px;
-  }
-
-  .fui-header {
-    background: #0a181f;
-    color: #fff;
-  }
-
-  .fui-header .title {
-    color: #fff;
-  }
-
-  .fui-header a.back:before {
-    border-color: #fff;
-  }
-
-  .fui-header-right>.icon-add4 {
-    font-size: 22px;
-  }
-
-  .fui-tab {
-    background: #0a181f;
-  }
-
-  .fui-tab.fui-tab-danger a.active {
-    color: #F0E68C;
-    border-color: #F0E68C;
-  }
-
-  .fui-tab a {
-    color: #fff;
-  }
-
-  .fui-tab-o,
-  .fui-tab {
-    margin-bottom: 0;
-  }
-.clearfix:before{
-	display:block;
-	clear:both;
-	content:"";
-	visibility:hidden;
-	height:0;
-}
-.clearfix:after{
-	display:block;
-	clear:both;
-	content:"";
-	visibility:hidden;
-	height:0;
-} 
-.clearfix{zoom:1}  /*是在处理兼容性问题*/
-.tab_header .hide{
-  display: none;
-}
-
-/* 买入 卖出按钮样式 */
-.buying{
-  height: 2rem;
-  text-align: center;
-}
- .pay-tt{
-   display: inline-block;
-   width: 48%;
-   height: 2rem;
-   /* background: #F0E68C; */
-   text-align: center;
-   /* line-height: 2rem; */
-   padding: .5rem;
- }
- .pay-tt.active{
-  background: #F0E68C; 
-  color: #000;
- }
-  .fui-list-group {
-    margin-top: 0;
-  }
-	ul li{list-style: none;}
-	.tab_header{width: 100%}
-	.tab_header ul li{width:33%;float: left;text-align: center;color: #fff;line-height: 2rem;height: 2rem;}
-
-	.on{color:#F0E68C !important;border-bottom: 2px solid #F0E68C;}
-	.box{padding-top:2.2rem;background: #071a21;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
-
-  .lj_plane{width: 20px;height: 20px;padding-top: 3px;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
-  .fui-header-right a{display: inline-block;}
-<<<<<<< HEAD
-  .tab_content{color: #fff;}
-
-  /* 订单内容 */
-  .order_list{width: 100%;height: auto;border-bottom: 1px solid #eee;}
-  .order{padding:.4rem;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
-  .order p{display: flex;justify-content: space-between;line-height: 1rem;}
-  .form span{width: 20%;}
-  .buy b{font-size: 18px;color:#F0E68C; margin-left: .5rem;font-weight: normal;}
-  .buy img{width: .5rem;height: .8rem;margin-left: .5rem;vertical-align: text-top;}
-  .fn_cl{color:#F0E68C;}
-  .ccc{color:#999999;}
-  .order div span{margin-right: 1rem;}
-=======
-  .tab_content{color: #fff;padding-top: .5rem;padding-bottom: .5rem;}
-
-  /* 买入 卖出弹框 */
-  .mask1_btn{
-      width: 100%;
-      text-align: center;
-      height: 30px;
-      line-height: 30px;
-      background-color: #0a0;
-      margin: 10px 0 20px;
-    }
-    .mask1 > .mask1_lis{
-      display: flex;
-      background-color: #fff;
-      color: #000;
-      padding: 5px 10px;
-      align-items: center;
-    }
-    .mask1 > .mask1_lis > .buyNum{
-      border: 0;
-      outline-style: none;
-      width: 70%;
-    }
-    .mask1 > .mask1_lis > .allBuy{
-      width: 30%;
-    }
-    .mask1 > .mask1_lis > .allBuy > span{
-      color: #c2a378;
-    }
-    .mask1 > p{
-      padding: 5px 0;
-    }
-    .mask1 > .mask_tit{
-      margin-top: 10px;
-      font-size: 16px;
-      text-align: center;
-      color: #c2a378;
-    }
-    .mask1 >.mask1_pice{
-      display: flex;
-    }
-    .mask1 >.mask1_pice > p{
-        width: 20%;
-        text-align: center;
-    }
-    .maiRu_price{
-      padding: 5px 10px;
-      width: 80%;
-      border: 0;
-      outline-style: none;
-    }
-    .mask1{
-      background-color: #0e222d;
-      /* position: fixed;
->>>>>>> d69372e5686121a3b1a9ab28ae3b2850acdc461b
       width: 100%;
       bottom: 0;
       left: 0;
@@ -424,7 +260,6 @@
       width: 100%;
       bottom: 0;
       left: 0; */
-<<<<<<< HEAD
 		z-index: 9;
 		color: #fff;
 		padding: 20px;
@@ -458,7 +293,7 @@
 		background-color: #0a0;
 		margin: 20px 0;
 	}
-	
+	/*-------我的申诉-------*/
 	.main {
 		width: 100%;
 		margin-top: 0.5rem;
@@ -555,41 +390,6 @@
 	}
 	
 	
-=======
-      z-index: 9;
-      color: #fff;
-      padding:  20px;
-    }
-    .mask0 > .mask_tit {
-      margin-top: 10px;
-      font-size: 16px;
-      text-align: center;
-      color: #c2a378;
-    }
-
-    .mask0 > .mask_lis>input {
-      width: 100%;
-      padding: 5px 10px;
-    }
-
-    .tishi {
-      text-align: right;
-      color: #888;
-      font-size: 12px;
-      padding: 3px 0;
-      border-bottom: 1px solid #666;
-    }
-
-    .mask0_btn {
-      width: 100%;
-      text-align: center;
-      height: 30px;
-      line-height: 30px;
-      background-color: #0a0;
-      margin: 20px 0;
-    }
->>>>>>> 2899951b12db1609b00b7abe4b027c394b051929
->>>>>>> d69372e5686121a3b1a9ab28ae3b2850acdc461b
 </style>
 
 <div class='fui-page  fui-page-current member-log-page'>
@@ -610,7 +410,6 @@
 
 	<!--nav-->
 	<div class="box">
-<<<<<<< HEAD
 		<!--这个是tab切换标题-->
 		<div class="tab_header">
 			<ul class="clearfix">
@@ -624,6 +423,7 @@
 			<div class="clear"></div>
 			<!--这个是要显示的内容部分-->
 			<div class="tab_content">
+				<!--------我的订单---------->
 				<div class="tab_con active">
 					<div class="order_list">
 						<div class="order">
@@ -698,15 +498,16 @@
 						</div>
 					</div>
 				
-				
-				
 				</div>
+				
+				<!--------发布广告----------->
 				<div class="tab_con">
 					<div class="buying">
 						<a class="pay-tt active">买入ETH</a>
 						<a class="pay-tt">卖出ETH</a>
 					</div>
 				</div>
+				<!--------我的申诉----------->
 				<div class="tab_con">
 					<div class="main">
 						<p class="appeal_reason">申诉原因</p>
@@ -716,180 +517,6 @@
 				</div>
 			
 			
-=======
-
-			<!--这个是tab切换标题-->
-
-			<div class="tab_header">
-
-				<ul class="clearfix">
-					<li class="current on con_on"> 我的订单</li>
-
-					<li class="con_on">发布广告</li>
-
-					<li class="con_on">我的申诉</li>
-
-				</ul>
-				<div class="clear"></div>
-
-				<!--这个是要显示的内容部分-->
-
-				<div class="tab_content">
-
-					<div>
-            <div class="order_list">
-              <div class="order">
-                <p class="buy">
-                  <span>买入<b>UES</b></span>
-                  <span class="fn_cl">已取消<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
-                </p>
-                <p class="form">
-                  <span>创建时间</span>
-                  <span>数量(UES)</span>
-                  <span>价格(CNY)</span>
-                  <span>总额(CNY)</span>
-                </p>
-                <p class="form ccc">
-                  <span>16:10&nbsp;11/13</span>
-                  <span>10000.0</span>
-                  <span>0.25</span>
-                  <span>2500.00</span>
-                </p>
-                <div class="ccc" >
-                  <span>订单号</span>
-                  <span>666666666666666</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-					<div  class="hide buying">
-             <a class="pay-tt active">买入ETH</a> 
-             <a class="pay-tt">卖出ETH</a>
-          </div> 
-
-					<div  class="hide">tab3的内容</div>
-
-        </div>
-        <div class="mask0_box hide">
-          <!-- 卖出 -->
-            <div class="mask0 hide" >
-      
-              <div class="mask_lis">
-                <p>价格(CNY)</p>
-                <input type="number" placeholder="请输入卖出的价格" class="maiChu_price">
-                <div class="tishi">参考价格：￥<span class="price_Min"><?php  echo $start;?></span>-￥<span class="price_Max"><?php  echo $end;?></span></div>
-              </div>
-              <div class="mask_lis">
-                <p>数量(ETH)</p>
-                <input type="number" placeholder="请输入卖出的数量" class="maiChu_Num">
-              </div>
-              <div class="mask_lis">
-                <p>预获金额(CNY)</p>
-                <input type="number" disabled value="0" class="getMoney0">
-                <div class="tishi">手续费：<span class="sxf0"><?php  echo $sys['trxsxf'];?></span></div>
-              </div>
-              <div class="mask_lis">
-                <p>待付(ETH)</p>
-                <input type="number" disabled value="0" class="setTrx0">
-              </div>
-              <div class="mask0_btn">确定卖出</div>
-            </div>
-
-            <!-- 买入 -->
-            <div class="mask1 " >
-            
-
-              <div class="mask1_pice">
-                <p>单价</p>
-                <input type="number" placeholder="请输入买入的价格" class="maiRu_price">
-              </div>
-              <div class="tishi">参考价格：￥<span class="price_Min"><?php  echo $start;?></span>-￥<span class="price_Max"><?php  echo $end;?></span></div>
-
-              <p>买入数量</p>
-              <div class="mask1_lis">
-                <input type="number" placeholder="请输入购买的数量" class="buyNum">
-              </div>
-              <p>交易总额</p>
-              <input type="number" disabled value="0" style="padding: 5px 10px;width: 100%;" class="mairu_Money">
-              <!-- <div class="tishi">预扣手续费<span style="color:#9f2332;">0</span>UES</div> -->
-              <div class="mask1_btn">确定买入</div>
-            </div>
-          </div>
-                  <!-- 买入模板 -->
-        <script id="tpl_maichu" type="text/html">
-          <ul>
-          <% each list as val %>
-            <li class="lis">
-              <p style="color: #fff;">挂卖编号：<% val.id %> </p>
-              <div class="lis_lie lis_lie0">
-                <p>挂单人:  <% val.nickname %>　
-                  <% if val.zfbfile==1 %> <i class="icon icon-alipay"></i> <% /if %>
-                  <% if val.wxfile==1 %> <i class="icon icon-wechat1"></i> <% /if %>
-                  <% if val.bank==1 %> <i class="icon icon-vipcard"></i> <% /if %>
-                </p>
-                <span>￥<% val.price %> </span>
-              </div>
-              <% if val.openid2 != '' %>
-              <p style="color:#c2a378">抢单人：<% val.nickname2 %></p>
-              <% /if %>
-              <div class="lis_lie lis_lie1">挂单数量 <% val.trx %></div>
-              <!-- <div class="lis_lie lis_lie2">限额 2800.0-2800.0 UES</div> -->
-              <% if val.status == 0 %>
-              <div class="maiRu_btn" data-id='<% val.id %>' <% if val.self == 1 %> onclick="alert('不能买入自己发放的账单')"<% else if val.self3 == 1 %> onclick="alert('该账单正在交易中')"<% else %> onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<% val.id %>&op=1'"<% /if %>>买入
-              </div>
-              <% /if %>
-              <% if val.status == 1 %>
-              <div class="maiRu_btn" data-id='<% val.id %>' style="background-color: #a02332;" <% if val.self == 1 %> onclick="alert('不能买入自己发放的账单')"<% else if val.self3 == 1 %> onclick="alert('该账单正在交易中')"<% else %> onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<% val.id %>&op=1'"<% /if %>>交易中</div>
-              <% /if %>
-            </li>
-          <% /each %>
-          </ul>
-      </script>
-
-      <!-- 卖出模板 -->
-      <script id="tpl_mairu" type="text/html">
-        <ul>
-        <% each list as val %>
-            <li class="lis">
-              <p style="color: #6b5b3a; justify-content: space-between;display: flex;">唐**<% val.id %>  <span style="color:#891635;font-size:.8rem;padding-right: 1.5rem;" >￥ <% val.price %> </span></p>
-                <div class="lis_lie lis_lie1">挂单数量 <% val.trx %> </div>
-                
-              <div class="lis_lie lis_lie0">
-                <p style="color:#545d62">限额: <% val.nickname %>　
-                  
-                </p>
-              
-              </div>
-              <% if val.openid2 != '' %>
-              <p style="color:#c2a378">抢单人：<% val.nickname2 %></p>
-              <% /if %>
-            
-              <!-- <div class="lis_lie lis_lie2">限额 2800.0-2800.0 UES</div> -->
-
-              <% if val.status == 0 %>
-              <div class="maiChu_btn" data-id="<% val.id %>"
-                <% if val.self == 1 %> onclick="alert('不能卖出自己发放的账单')"
-                <% else if val.self3 == 1 %> onclick="alert('该账单正在交易中')"
-                <% else %> data-flag = '0' <% /if %> >卖出</div>
-              <% /if %>
-
-              <% if val.status == 1 %>
-              <div class="maiChu_btn" data-id="<% val.id %>" style="background-color: #a02332" 
-              <% if val.self == 1 %> onclick="alert('不能卖出自己发放的账单')"
-              <% else if val.self3 == 1 %> onclick="alert('该账单正在交易中')"
-              <% else if val.self3 == 0 %> onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<% val.id %>&op=0'"
-              <% else %> data-flag = '0' 
-              <% /if %> >交易中
-              </div>
-              <% /if %>
-
-            </li>
-        <% /each %>
-        </ul>
-      </script>
-
->>>>>>> d69372e5686121a3b1a9ab28ae3b2850acdc461b
 			</div>
 			<div class="mask0_box hide">
 				<!-- 卖出 -->
@@ -1038,24 +665,14 @@
 </div>
 <script type="text/javascript">
 	$(function() {
-
-		/*var $asd = $(".tab_header ul li");
-	
-					$asd.click(function() {
-	
-					$(this).addClass("current").siblings().removeClass("current");
-	
-					var $index = $asd.index(this);
-	
-					var $content = $(".tab_content div");
-	
-					$content.eq($index).show().siblings().hide();*/
+		//tab切换
 		$(".tab_header .con_on").on("click", function() {
 			var index=$(this).index();
 			$(this).addClass("on").siblings().removeClass("on");
+			//内容切换
 			$(".tab_content .tab_con").eq(index).addClass("active").siblings().removeClass("active");
 		
-		
+		//买入卖出切换
 		if($(this).index() == 1) {
 				$(".mask0_box").show()
 			} else {
