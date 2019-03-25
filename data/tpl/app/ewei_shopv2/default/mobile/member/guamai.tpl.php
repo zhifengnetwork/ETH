@@ -235,7 +235,7 @@
     </div>
   </div>
 
-  <div class='fui-content navbar'>
+  <div class='fui-content navbar' style="background-color:#0a181f">
 
 
 
@@ -351,15 +351,17 @@
     <ul>
     <% each list as val %>
         <li class="lis">
-          <p style="color: #6b5b3a; justify-content: space-between;display: flex;">唐**<% val.id %>  <span style="color:#891635;font-size:.8rem;padding-right: 1.5rem;" >￥ <% val.price %> </span></p>
-            <div class="lis_lie lis_lie1">挂单数量 <% val.trx %> </div>
-            
-          <div class="lis_lie lis_lie0">
-            <p style="color:#545d62">限额: <% val.nickname %>　
-              
-            </p>
+          <p style="color: #ffffff; justify-content: space-between;display: flex;">挂卖编号：<% val.id %>  <span style="color:#891635;font-size:.8rem;padding-right: 1.5rem;" >￥ <% val.price %> </span></p>
           
+          <div class="lis_lie lis_lie0">
+            <p >抢单人: <% val.nickname %>　
+              <% if val.zfbfile==1 %> <i class="icon icon-alipay"></i> <% /if %>
+              <% if val.wxfile==1 %> <i class="icon icon-wechat1"></i> <% /if %>
+              <% if val.bank==1 %> <i class="icon icon-vipcard"></i> <% /if %>
+            </p>
+            
           </div>
+          <div class="lis_lie lis_lie1">挂单数量 <% val.trx %> </div>
           <% if val.openid2 != '' %>
           <p style="color:#c2a378">抢单人：<% val.nickname2 %></p>
           <% /if %>
