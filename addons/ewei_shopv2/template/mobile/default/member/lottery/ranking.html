@@ -61,7 +61,6 @@
   	width: 19%;
   	text-align: center;
   	
-<<<<<<< HEAD
   }
   .headertitle li span:nth-child(5){
   	
@@ -93,54 +92,6 @@
   	
   }
  
-=======
-  }
-  .headertitle li span:nth-child(5){
-  	
-  	display: inline-block;
-  	width: 35%;
-  	text-align: center;
-  	color: red;
-  	
-  }
-  
-  .getprice{
-  	font-size: .6rem;
-  	margin-top: .4rem;
-  	
-  	
-  }
-  .getprice li span:nth-child(1){
-  	
-  	display: inline-block;
-  	width: 20%;
-  	text-align: center;
-  	
-  	
-  }
-  .getprice li span:nth-child(2){
-  	
-  	display: inline-block;
-  	width: 20%;
-  	text-align: center;
-  	
-  }
-  .getprice li span:nth-child(3){
-  	
-  	display: inline-block;
-  	width: 20%;
-  	text-align: center;
-  	
-  }
-  .getprice li span:nth-child(4){
-  	
-  	display: inline-block;
-  	width: 40%;
-  	text-align: center;
-  	
-  }
-  
->>>>>>> 8488e82de675908c9475f8ff4444a4534256a7b5
  
  
 </style>
@@ -161,15 +112,15 @@
       <img src="../addons/ewei_shopv2/static/images/touzhiBg.png" alt="" width="100%">
     </div>
 
-    <!--{if $investment == ''}
+    {if $investment == ''}
     <p style="color: red;text-align: center;font-size: 1rem;font-weight: 600;">投资总额: {$sale['sum']}</p>
-    {/if}-->
+    {/if}
 
    
-    <!--<div class="zanwu">
+   <div class="zanwu">
       <i class="icon icon-cry" style="font-size: 4rem;"></i>
       <p style="font-size: 1rem;">今日暂无排行</p>
-    </div>-->
+    </div>
     
     
     <div id="wrap">
@@ -177,76 +128,6 @@
             <span class="select">投资排名</span><span>上期中奖名单</span>
         </div>
         <div id="con">
-<<<<<<< HEAD
-            <div class="show" >
-            	   <ul class="headertitle lis">
-            	    <li><span>排名</span><span>ID</span><span>昵称</span><span>预计获奖</span><span style="font-size: .6rem;">今日投资金额(TRX)</span></li>
-            	    <li><span>第1名</span><span>36536</span><span>131xxx5458</span><span>1.000500</span><span style="font-size: .6rem;">0.004000</span></li>
-						     </ul>
-						    	
-            </div>    
-         
-            <div style="display: none;">
-            	   
-            	   <!--1-->
-            	   <div class="getprice good-item">
-            	    <!--<li><span>排名</span><span>ID</span><span>昵称</span><span>获奖金额</span></li>-->
-            	    <!--<li><span>第1名</span><span>36536</span><span>131xxx5458</span><span>120500</span></li>-->
-            	    <div class="lis">
-            	    	
-            	    	  <p>时间：2019-03-21 23:10:52</p>
-            	    	  <p>中奖期号：23</p>
-            	    	  <p>中奖注数：1股</p>
-            	  	
-            	    </div><div class="lis">
-            	    	
-            	    	  <p>中奖号：888</p>
-            	    	  <p>中奖金额：1.400000</p>
-            	    	  <p>投注中奖</p>
-                     </div>
-                  </div>
-                  <!--2-->
-                   <div class="getprice good-item">
-            	    <!--<li><span>排名</span><span>ID</span><span>昵称</span><span>获奖金额</span></li>-->
-            	    <!--<li><span>第1名</span><span>36536</span><span>131xxx5458</span><span>120500</span></li>-->
-            	    <div class="lis">
-            	    	
-            	    	  <p>时间：2019-03-21 23:10:52</p>
-            	    	  <p>中奖期号：23</p>
-            	    	  <p>中奖注数：1股</p>
-            	  	
-            	    </div><div class="lis">
-            	    	
-            	    	  <p>中奖号：888</p>
-            	    	  <p>中奖金额：1.400000</p>
-            	    	  <p>投注中奖</p>
-                     </div>
-                  </div>
-                  <!--3-->
-                   <div class="getprice good-item">
-            	    <!--<li><span>排名</span><span>ID</span><span>昵称</span><span>获奖金额</span></li>-->
-            	    <!--<li><span>第1名</span><span>36536</span><span>131xxx5458</span><span>120500</span></li>-->
-            	    <div class="lis">
-            	    	
-            	    	  <p>时间：2019-03-21 23:10:52</p>
-            	    	  <p>中奖期号：23</p>
-            	    	  <p>中奖注数：1股</p>
-            	  	
-            	    </div><div class="lis">
-            	    	
-            	    	  <p>中奖号：888</p>
-            	    	  <p>中奖金额：1.400000</p>
-            	    	  <p>投注中奖</p>
-                     </div>
-                  </div>
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-=======
           <div class="show" >
                 
                 <ul class="headertitle lis">
@@ -267,24 +148,27 @@
                   {/loop}
                 </ul>
           </div>    
-
           <div style="display: none;" class="getprice">
-              <ul class="getprice">
-                {if $winning == ''}
+              {if $winning == ''}
                 <p style="color: red;text-align: center;font-size: 1rem;font-weight: 600;">投资总额: {$sale['sum']}</p>
                 {/if}
-                <li><span>昵称</span><span>获奖金额</span><span>中奖号</span></li>
-                {loop $winning $winn}
-                  <li class="lis" style="font-size:.6rem">
-                    <span>{$winn['openid']}</span>
-                    <span>{$winn['money']}</span>
-                    <span>{$winn['number']}</span>
-                  </li>
+              <div class="getprice good-item">
+                  {loop $winning $winn}
+                <div class="lis">
+                  
+                    <p>时间：{$winn['createtime']}</p>
+                    <p>中奖号：{$winn['number']}</p>
+                    <p>中奖注数：{$winn['stakesum']}股</p>
+                
+                </div><div class="lis">
+                    <p>中奖人昵称：{$winn['openid']}</p>
+                    <p>中奖金额：{$winn['money']}</p>
+                    <p>投注中奖</p>
+                </div>
                 {/loop}
-              </ul>  
+              </div>
           </div>
         </div>
->>>>>>> 8488e82de675908c9475f8ff4444a4534256a7b5
 </div>
 
 {php $this->footerMenus()}
