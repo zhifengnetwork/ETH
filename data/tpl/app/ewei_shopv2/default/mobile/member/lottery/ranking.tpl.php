@@ -61,6 +61,39 @@
   	width: 19%;
   	text-align: center;
   	
+<<<<<<< HEAD
+  }
+  .headertitle li span:nth-child(5){
+  	
+  	display: inline-block;
+  	width: 35%;
+  	text-align: center;
+  	color: red;
+  	
+  }
+  .good-item{
+  	
+  	border-bottom: .05rem solid #CCCCCC;
+  	padding-bottom: .5rem;
+  	box-sizing: border-box;
+  	
+  }
+  .good-item .lis{
+  	
+  	margin-top: .5rem;
+  	font-size: .6rem;
+  	display: inline-block;
+  	width: 50%;
+  	padding-left: .5rem;
+  	box-sizing: border-box;
+ 
+  }
+  .good-item .lis:nth-child(2) p:nth-child(3){
+  	color: green;
+  	
+  }
+ 
+=======
   }
   .headertitle li span:nth-child(5){
   	
@@ -107,6 +140,7 @@
   	
   }
   
+>>>>>>> 8488e82de675908c9475f8ff4444a4534256a7b5
  
  
 </style>
@@ -143,6 +177,76 @@
             <span class="select">投资排名</span><span>上期中奖名单</span>
         </div>
         <div id="con">
+<<<<<<< HEAD
+            <div class="show" >
+            	   <ul class="headertitle lis">
+            	    <li><span>排名</span><span>ID</span><span>昵称</span><span>预计获奖</span><span style="font-size: .6rem;">今日投资金额(TRX)</span></li>
+            	    <li><span>第1名</span><span>36536</span><span>131xxx5458</span><span>1.000500</span><span style="font-size: .6rem;">0.004000</span></li>
+						     </ul>
+						    	
+            </div>    
+         
+            <div style="display: none;">
+            	   
+            	   <!--1-->
+            	   <div class="getprice good-item">
+            	    <!--<li><span>排名</span><span>ID</span><span>昵称</span><span>获奖金额</span></li>-->
+            	    <!--<li><span>第1名</span><span>36536</span><span>131xxx5458</span><span>120500</span></li>-->
+            	    <div class="lis">
+            	    	
+            	    	  <p>时间：2019-03-21 23:10:52</p>
+            	    	  <p>中奖期号：23</p>
+            	    	  <p>中奖注数：1股</p>
+            	  	
+            	    </div><div class="lis">
+            	    	
+            	    	  <p>中奖号：888</p>
+            	    	  <p>中奖金额：1.400000</p>
+            	    	  <p>投注中奖</p>
+                     </div>
+                  </div>
+                  <!--2-->
+                   <div class="getprice good-item">
+            	    <!--<li><span>排名</span><span>ID</span><span>昵称</span><span>获奖金额</span></li>-->
+            	    <!--<li><span>第1名</span><span>36536</span><span>131xxx5458</span><span>120500</span></li>-->
+            	    <div class="lis">
+            	    	
+            	    	  <p>时间：2019-03-21 23:10:52</p>
+            	    	  <p>中奖期号：23</p>
+            	    	  <p>中奖注数：1股</p>
+            	  	
+            	    </div><div class="lis">
+            	    	
+            	    	  <p>中奖号：888</p>
+            	    	  <p>中奖金额：1.400000</p>
+            	    	  <p>投注中奖</p>
+                     </div>
+                  </div>
+                  <!--3-->
+                   <div class="getprice good-item">
+            	    <!--<li><span>排名</span><span>ID</span><span>昵称</span><span>获奖金额</span></li>-->
+            	    <!--<li><span>第1名</span><span>36536</span><span>131xxx5458</span><span>120500</span></li>-->
+            	    <div class="lis">
+            	    	
+            	    	  <p>时间：2019-03-21 23:10:52</p>
+            	    	  <p>中奖期号：23</p>
+            	    	  <p>中奖注数：1股</p>
+            	  	
+            	    </div><div class="lis">
+            	    	
+            	    	  <p>中奖号：888</p>
+            	    	  <p>中奖金额：1.400000</p>
+            	    	  <p>投注中奖</p>
+                     </div>
+                  </div>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+=======
           <div class="show" >
                 
                 <ul class="headertitle lis">
@@ -180,6 +284,7 @@
               </ul>  
           </div>
         </div>
+>>>>>>> 8488e82de675908c9475f8ff4444a4534256a7b5
 </div>
 
 <?php  $this->footerMenus()?>
