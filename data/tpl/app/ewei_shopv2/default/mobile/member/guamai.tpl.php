@@ -271,7 +271,7 @@
   </div>
 
   <!-- 卖出 -->
-  <div class="mask0">
+  <!--<div class="mask0">
     <div class="mask_tit">卖出ETH</div>
     <div class="mask_lis">
       <p>价格(CNY)</p>
@@ -292,10 +292,10 @@
       <input type="number" disabled value="0" class="setTrx0">
     </div>
     <div class="mask0_btn">确定卖出</div>
-  </div>
+  </div>-->
 
   <!-- 买入 -->
-  <div class="mask1">
+  <!--<div class="mask1">
     <div class="mask_tit">买入ETH</div>
 
     <div class="mask1_pice">
@@ -310,9 +310,9 @@
     </div>
     <p>交易总额</p>
     <input type="number" disabled value="0" style="padding: 5px 10px;width: 100%;" class="mairu_Money">
-    <!-- <div class="tishi">预扣手续费<span style="color:#9f2332;">0</span>UES</div> -->
+    <!-- <div class="tishi">预扣手续费<span style="color:#9f2332;">0</span>UES</div>
     <div class="mask1_btn">确定买入</div>
-  </div>
+  </div>-->
 
 
   <!-- 买入模板 -->
@@ -365,9 +365,7 @@
           <% if val.openid2 != '' %>
           <p style="color:#c2a378">抢单人：<% val.nickname2 %></p>
           <% /if %>
-        
           <!-- <div class="lis_lie lis_lie2">限额 2800.0-2800.0 UES</div> -->
-
           <% if val.status == 0 %>
           <div class="maiChu_btn" data-id="<% val.id %>"
             <% if val.self == 1 %> onclick="alert('不能卖出自己发放的账单')"
@@ -384,7 +382,6 @@
           <% /if %> >交易中
           </div>
           <% /if %>
-
         </li>
     <% /each %>
     </ul>

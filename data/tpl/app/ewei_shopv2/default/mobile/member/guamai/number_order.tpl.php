@@ -327,12 +327,12 @@
 	
 	.button {
 		width: 78%;
-		height: 2.6rem;
+		height: 2.2rem;
 		border: 1px solid green;
 		color: black;
 		background: white;
 		border-radius: .3rem;
-		line-height: 2.6rem;
+		line-height: 2.2rem;
 		text-align: center;
 		font-size: 1.1rem;
 		margin: auto;
@@ -512,6 +512,7 @@
 					<div class="main">
 						<p class="appeal_reason">申诉原因</p>
 						<textarea placeholder="请输入申诉原因"></textarea>
+						
 						<div class="button">申诉</div>
 					</div>
 				</div>
@@ -553,6 +554,9 @@
 					<p>买入数量</p>
 					<div class="mask1_lis">
 						<input type="number" placeholder="请输入购买的数量" class="buyNum">
+					</div>
+					<div class="mask_lis">
+						<div class="tishi">手续费：<span class="sxf0"><?php  echo $sys['trxsxf'];?></span></div>
 					</div>
 					<p>交易总额</p>
 					<input type="number" disabled value="0" style="padding: 5px 10px;width: 100%;" class="mairu_Money">
@@ -664,6 +668,181 @@
 
 </div>
 <script type="text/javascript">
+ // 确定卖出
+ $('.mask0_btn').click(function () {
+      let maiChu_price = $('.maiChu_price').val();  // 卖出价格
+      let price_min = $('.price_Min').html();       // 最小单价
+      let price_max = $('.price_Max').html();        // 最大单价
+      let maiChu_num = $('.maiChu_Num').val();       // 卖出数量
+      let getMoney0 = $('.getMoney0').val();        // 获得金额
+      let sxf0 = $('.sxf0').html();                 // 手续费
+      let setTrx0 = $('.setTrx0').val();            // 支付TRX
+
+      // 1. 卖出价格需在最小单价与最大单价区间中
+      if(maiChu_price < price_min || maiChu_price > price_max){
+        alert('请根据参考价格来输入价格！')
+        return
+      } else if(maiChu_num <= 0){
+        alert('请输入卖出的数量！')
+        return
+      }
+
+      $.ajax({
+        type:'post',
+        url:"<?php  echo mobileurl('member/guamai/hangonsale')?>",
+        data:{
+          price: maiChu_price,
+          trx: maiChu_num,
+          money: getMoney0,
+          servicecharge: sxf0,
+          trx2: setTrx0,
+          type: "1"
+        },
+        dataType: 'json',
+        success:function(data){
+          console.log(data);
+          if(data.status == '-2'){
+            alert(data.result.message);
+            location.href="<?php  echo mobileurl('member/guamai')?>";
+          }else if(data.status == 1){
+            alert(data.result.message);
+            location.reload();
+          }
+          
+        },error:function(err){
+          console.log(err);
+          
+        }
+      })
+
+    })
+		// 监听卖出价格的input变化
+    $('.maiChu_price').bind('input onpropertychange',function () {
+      if($('.maiChu_price').val() < 0){
+        alert('卖出价格必须大于0');
+        $('.maiChu_price').val('');
+        return false;
+      }
+
+      if($('.maiChu_Num').val() != '' && $('.maiChu_price').val() != ''){
+        let getMoney = $('.maiChu_Num').val() * $('.maiChu_price').val();
+        let num = $('.maiChu_Num').val();
+        $('.getMoney0').val(getMoney);
+        setTrx = Number(num) + Number($('.sxf0').html());
+        $('.setTrx0').val(setTrx);
+      } else {
+        $('.getMoney0').val('0');
+        $('.setTrx0').val("0");
+      }
+
+    })
+    // 监听卖出数量的input变化
+    $('.maiChu_Num').bind('input onpropertychange',function () {
+      let r = /^[1-9]+[0-9]*]*$/;
+      if(!r.test($('.maiChu_Num').val())){
+        alert('卖出数量必须为大于0的整数');
+        $('.maiChu_Num').val('');
+        return false;
+      }
+
+      if($('.maiChu_price').val() != '' && $('.maiChu_Num').val() != ''){
+        let getMoney = $('.maiChu_Num').val() * $('.maiChu_price').val();
+        let num = $('.maiChu_Num').val();
+        $('.getMoney0').val(getMoney);
+        setTrx = Number(num) + Number($('.sxf0').html());
+        $('.setTrx0').val(setTrx);
+      } else {
+        $('.getMoney0').val('0');
+        $('.setTrx0').val("0");
+      }
+    })
+
+    // 监听买入价格的input变化
+    $('.maiRu_price').bind('input onpropertychange',function () {
+      if($('.maiRu_price').val() < 0){
+        alert('卖出价格必须大于0');
+        $('.maiRu_price').val('');
+        return false;
+      }
+
+      if($('.buyNum').val() != '' && $('.maiRu_price').val() != ''){
+        let getMoney = ($('.buyNum').val()-$('.sxf0').html()) * $('.maiRu_price').val();
+				console.log($('.buyNum').val());
+				console.log($('.maiRu_price').val());
+				console.log($('.sxf0').html());
+        $('.mairu_Money').val(getMoney);
+      } else {
+        $('.mairu_Money').val('0');
+      }
+
+    })
+    // 监听买入数量的input变化
+    $('.buyNum').bind('input onpropertychange',function () {
+      let r = /^[1-9]+[0-9]*]*$/;
+      if(!r.test($('.buyNum').val())){
+        alert('卖出数量必须为大于0的整数');
+        $('.buyNum').val('');
+        return false;
+      }
+
+      if($('.maiRu_price').val() != '' && $('.buyNum').val() != ''){
+        let getMoney = ($('.buyNum').val()-$('.sxf0').html()) * $('.maiRu_price').val();
+        $('.mairu_Money').val(getMoney);
+				console.log($('.buyNum').val());
+				console.log($('.maiRu_price').val());
+				console.log($('.sxf0').html());
+
+      } else {
+        $('.getMoney0').val('0');
+      }
+    })
+
+	// 确定买入
+	$('.mask1_btn').click(function () {
+      let maiRu_price = $('.maiRu_price').val();
+      let price_min = $('.price_Min').html();
+      let price_max = $('.price_Max').html();
+      let buy_nam = $('.buyNum').val();
+      // 1. 买入价格需在最小单价与最大单价区间中
+      if(maiRu_price < price_min || maiRu_price > price_max){
+        alert('请根据参考价格来输入价格！')
+        return
+      } else if(buy_nam <= 0 || buy_nam == ''){
+        alert('请输入买入的数量！')
+        return
+      }
+
+      $.ajax({
+        type:'post',
+        url:"<?php  echo mobileurl('member/guamai/hangonsale')?>",
+        data:{
+          price: $('.maiRu_price').val(),
+          trx: $('.buyNum').val(),
+          money: $('.mairu_Money').val(),
+          type: "0"
+        },
+        dataType: 'json',
+        success:function(data){
+          console.log(data);
+          if(data.status == '-2'){
+            alert(data.result.message);
+            location.href="<?php  echo mobileurl('member/guamai')?>";
+          }else if(data.status == 1){
+            alert(data.result.message);
+            location.reload();
+          }
+          
+        },error:function(err){
+          console.log(err);
+          
+        }
+      })
+
+    
+    
+    })
+
+	
 	$(function() {
 		//tab切换
 		$(".tab_header .con_on").on("click", function() {
