@@ -73,6 +73,17 @@
   .lj_plane{width: 20px;height: 20px;padding-top: 3px;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
   .fui-header-right a{display: inline-block;}
   .tab_content{color: #fff;}
+
+  /* 订单内容 */
+  .order_list{width: 100%;height: auto;border-bottom: 1px solid #eee;}
+  .order{padding:.4rem;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
+  .order p{display: flex;justify-content: space-between;line-height: 1rem;}
+  .form span{width: 20%;}
+  .buy b{font-size: 18px;color:#F0E68C; margin-left: .5rem;font-weight: normal;}
+  .buy img{width: .5rem;height: .8rem;margin-left: .5rem;vertical-align: text-top;}
+  .fn_cl{color:#F0E68C;}
+  .ccc{color:#999999;}
+  .order div span{margin-right: 1rem;}
 </style>
 
 <div class='fui-page  fui-page-current member-log-page'>
@@ -105,7 +116,7 @@
 				<ul class="clearfix">
 					<li class="current on con_on"> 我的订单</li>
 
-					<li>发布广告</li>
+					<li class="con_on">发布广告</li>
 
 					<li class="con_on">我的申诉</li>
 
@@ -116,7 +127,32 @@
 
 				<div class="tab_content">
 
-					<div>tab1的内容</div>
+					<div>
+            <div class="order_list">
+              <div class="order">
+                <p class="buy">
+                  <span>买入<b>UES</b></span>
+                  <span class="fn_cl">已取消<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+                </p>
+                <p class="form">
+                  <span>创建时间</span>
+                  <span>数量(UES)</span>
+                  <span>价格(CNY)</span>
+                  <span>总额(CNY)</span>
+                </p>
+                <p class="form ccc">
+                  <span>16:10&nbsp;11/13</span>
+                  <span>10000.0</span>
+                  <span>0.25</span>
+                  <span>2500.00</span>
+                </p>
+                <div class="ccc" >
+                  <span>订单号</span>
+                  <span>666666666666666</span>
+                </div>
+              </div>
+            </div>
+          </div>
 
 					<div>tab2的内容</div>
 
