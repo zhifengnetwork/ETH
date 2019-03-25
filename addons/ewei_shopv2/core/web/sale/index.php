@@ -199,7 +199,7 @@ class Index_EweiShopV2Page extends ComWebPage
 			//投资人获得彩票的额度
 			$investment = serialize(array('investment1'=>$_GPC['investment1'],'investment2'=>$_GPC['investment2'],'investment3'=>$_GPC['investment3'],'investment4'=>$_GPC['investment4'],'investment5'=>$_GPC['investment5'],'investment6'=>$_GPC['investment6'],'investment7'=>$_GPC['investment7'],'investment8'=>$_GPC['investment8'],'investment9'=>$_GPC['investment9'],'investment10'=>$_GPC['investment10']));
 			// show_json($investment);
-			$data = array('number'=>$_GPC['number'],'price'=>$_GPC['price'],'winner'=>$_GPC['winner'],"investment"=>$investment);
+			$data = array('number'=>$_GPC['number'],'price'=>$_GPC['price'],'winner'=>$_GPC['winner'],"investment"=>$investment,'time'=>$_GPC['time']);
 			if(!$sale){
 				$data['uniacid'] = $_W['uniacid'];
 				$list = pdo_insert("ewei_shop_lottery2",$data);
@@ -227,8 +227,8 @@ class Index_EweiShopV2Page extends ComWebPage
 
 			if($_GPC['type']==1){ 
 
-
-				pdo_update("ewei_shop_lottery2",array('number'=>$_GPC['number']),array('uniacid'=>$_W['uniacid']));	
+				// dump($_GPC);
+				pdo_update("ewei_shop_lottery2",array('number'=>$_GPC['number'],'time'=>$_GPC['time']),array('uniacid'=>$_W['uniacid']));	
 
 				//查出中奖的人数
 				$sale = pdo_fetch("select * from".tablename("ewei_shop_lottery2")."where uniacid=".$_W['uniacid']);
@@ -282,7 +282,7 @@ class Index_EweiShopV2Page extends ComWebPage
 				//修改这次的所有的押注记录
 				pdo_update("stakejilu",array('thigh'=>1,'endtime'=>time()),array('uniacid'=>$_W['uniacid'],'thigh'=>0));
 
-				pdo_update("ewei_shop_lottery2",array('price'=>0,'number'=>'','sum'=>0,'numberis'=>$sale['number']),array('uniacid'=>$_W['uniacid']));
+				pdo_update("ewei_shop_lottery2",array('price'=>0,'number'=>'','sum'=>0,'numberis'=>$sale['number'],'time'=>$sale['time']),array('uniacid'=>$_W['uniacid']));
 
 				show_json(1,"开奖成功");
 

@@ -178,6 +178,7 @@
     position: absolute;
     width: 100%;
   }
+  
 
 </style>
 
@@ -199,13 +200,14 @@
       </div>
 
       <div class="navIfo2">
-        <a href="<?php  echo mobileurl('member/lottery/ranking')?>">投资排行</a>
-        <a href="javascript:;" class="advert">
-          <div class="advert_con">
-              <p class="item">上次开奖号：<?php  echo $sale['numberis'];?></p>
-              <p class="item">上次开奖号：<?php  echo $sale['numberis'];?></p>
-          </div>
-        </a>
+        <a href="<?php  echo mobileurl('member/lottery/ranking')?>">中奖名单/排行</a>
+        <!-- <a href="javascript:;" class="advert">
+          
+        </a> -->
+        <div class="advert_con" style="height: 2rem; top: 0px;">
+          <p class="item">第 <i style="color:#bb2639"><?php  echo $sale['time'];?></i> 期</p>
+          <p>开奖号为：<i style="color:#bb2639"><?php  echo $sale['numberis'];?></i></p>
+        </div>
         <a href="<?php  echo mobileurl('member/lottery/rule')?>">游戏规则</a>
       </div>
 

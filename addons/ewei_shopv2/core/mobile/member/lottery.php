@@ -19,7 +19,7 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 		global $_W;
 		global $_GPC;
 		$type = $_GPC['type'];
-		$sale = pdo_fetch("select price,numberis from".tablename("ewei_shop_lottery2")."where uniacid=".$_W['uniacid']);
+		$sale = pdo_fetch("select price,numberis,time from".tablename("ewei_shop_lottery2")."where uniacid=".$_W['uniacid']);
 
 		include $this->template();
 	}
@@ -231,22 +231,19 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 		//查出今日投资的前10名
 		$investment = pdo_fetchall("select m.id,l.openid,m.avatar,m.nickname,m.mobile,sum(l.money) as moneys from ".tablename("stakejilu")." l left join ".tablename("ewei_shop_member")." m on l.openid=m.openid "." where l.uniacid=".$_W['uniacid']." and l.thigh=0 and l.createtime>'$start' and l.createtime<'$end' group by l.openid order by moneys desc limit 0,10");
 
-		// var_dump($investment);
+		var_dump($investment);
 
 		//投资排名的中奖额度
 		$touzi = unserialize($sale['investment']);
 
 		$i = 1;
 		foreach ($investment as $key => $val) {
-
 			if($touzi['investment'.$i]){
-
 				$investment[$key]['type'] = $i;
 				$investment[$key]['yuji'] = number_format($touzi['investment'.$i]*$sale['sum']*0.01,6);
 				$investment[$key]['bfb'] = $touzi['investment'.$i];
 
 			}
-			
 			$i++;
 		}
 		

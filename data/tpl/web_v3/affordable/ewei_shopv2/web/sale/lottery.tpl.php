@@ -56,7 +56,10 @@
 
             <div class="col-sm-12">
 
-
+                <div class='input-group fixmore-input-group'>
+                    <span class="input-group-addon">本期开奖期数</span>
+                    <input type="text" name="data[time]"  value="<?php  echo $sale['time'];?>" class="form-control time"  maxlength="8" />
+                </div>
                 <div class='input-group fixmore-input-group'>
                     <span class="input-group-addon">本期开奖号</span>
                     <input type="text" name="data[number]"  value="<?php  echo $sale['number'];?>" class="form-control number" onkeyup="this.value=this.value.replace(/[^0-9]+/,'');" maxlength="3" />
@@ -116,6 +119,7 @@
                     let number = $('.number').val();
                     let price = $('.price').val();
                     let winner = $('.winner').val();
+                    let time = $('.time').val();
                     // console.log(number.length);
                     
                     if( number == '' || number.length == 3){
@@ -132,6 +136,7 @@
                             number: number,
                             price:price,
                             winner:winner,
+                            time:time,
                             investment1:$('.investment1').val(),
                             investment2:$('.investment2').val(),
                             investment3:$('.investment3').val(),
@@ -149,6 +154,7 @@
                             if(data.status == -1){
                                 alert(data.result.message);
                                 $('.number').val('');
+                                $('.time').val('');
                                 return
                             }
                             if(data.status == 1){
@@ -167,8 +173,13 @@
                     let number = $('.number').val();
                     let price = $('.price').val();
                     let sum = $('.sum').val();
+                    let time = $('.time').val();
                     if(number == 0 || number == ''){
                         alert('请输入本期开奖号');
+                        return
+                    }
+                    if(time == 0 || time == ''){
+                        alert('请输入本期期号');
                         return
                     }
                     if(price == 0 || price == ''){
@@ -186,7 +197,8 @@
                         url:"<?php  echo weburl('sale/lotteryis')?>",
                         data:{
                            type:'1',
-                            number: number
+                            number: number,
+                            time: time
                         },
                         dataType:'json',
                         success:function(data){
