@@ -61,6 +61,7 @@
   	width: 19%;
   	text-align: center;
   	
+<<<<<<< HEAD
   }
   .headertitle li span:nth-child(5){
   	
@@ -92,6 +93,54 @@
   	
   }
  
+=======
+  }
+  .headertitle li span:nth-child(5){
+  	
+  	display: inline-block;
+  	width: 35%;
+  	text-align: center;
+  	color: red;
+  	
+  }
+  
+  .getprice{
+  	font-size: .6rem;
+  	margin-top: .4rem;
+  	
+  	
+  }
+  .getprice li span:nth-child(1){
+  	
+  	display: inline-block;
+  	width: 20%;
+  	text-align: center;
+  	
+  	
+  }
+  .getprice li span:nth-child(2){
+  	
+  	display: inline-block;
+  	width: 20%;
+  	text-align: center;
+  	
+  }
+  .getprice li span:nth-child(3){
+  	
+  	display: inline-block;
+  	width: 20%;
+  	text-align: center;
+  	
+  }
+  .getprice li span:nth-child(4){
+  	
+  	display: inline-block;
+  	width: 40%;
+  	text-align: center;
+  	
+  }
+  
+>>>>>>> 8488e82de675908c9475f8ff4444a4534256a7b5
  
  
 </style>
@@ -128,6 +177,7 @@
             <span class="select">投资排名</span><span>中奖名单</span>
         </div>
         <div id="con">
+<<<<<<< HEAD
             <div class="show" >
             	   <ul class="headertitle lis">
             	    <li><span>排名</span><span>ID</span><span>昵称</span><span>预计获奖</span><span style="font-size: .6rem;">今日投资金额(TRX)</span></li>
@@ -196,6 +246,44 @@
                   
                   
                   
+=======
+          <div class="show" >
+                <?php  if($investment == '') { ?>
+                <p style="color: red;text-align: center;font-size: 1rem;font-weight: 600;">投资总额: <?php  echo $sale['sum'];?></p>
+                <?php  } ?>
+                <ul class="headertitle lis">
+                  <li><span>排名</span><span>ID</span><span>昵称</span><span>预计获奖</span><span style="font-size: .6rem;">今日投资金额(TRX)</span></li>
+                  <?php  if(is_array($investment)) { foreach($investment as $val) { ?>
+                  <li class="lis" style="font-size:.6rem">
+                    <span>第<?php  echo $val['type'];?>名</span>
+                    <span>
+                      <?php  echo $val['id'];?>
+                      <!-- <img src="<?php  echo tomedia($val['avatar'])?>" alt="" class="lis_img" onerror="this.src='../addons/ewei_shopv2/static/images/noface.png'"> -->
+                    </span>
+                    <span><?php  echo $val['nickname'];?></span>
+                    <span><?php  echo $val['yuji'];?> <span style="color:red">(<?php  echo $val['bfb'];?>%)</span> </span>
+                    <span><?php  echo $val['moneys'];?></span>
+                  </li>
+                  <?php  } } ?>
+                </ul>
+                <div class="zanwu">
+                  <i class="icon icon-cry" style="font-size: 4rem;"></i>
+                  <p style="font-size: 1rem;">今日暂无排行</p>
+                </div>
+          </div>    
+
+          <div style="display: none;" class="getprice">
+              <ul class="getprice">
+                <li><span>排名</span><span>ID</span><span>昵称</span><span>获奖金额</span></li>
+                <li><span>第1名</span><span>36536</span><span>131xxx5458</span><span>120500</span></li>
+              </ul>  
+              <div class="zanwu">
+                <i class="icon icon-cry" style="font-size: 4rem;"></i>
+                <p style="font-size: 1rem;">今日暂无中奖名单</p>
+              </div>
+          </div>
+        </div>
+>>>>>>> 8488e82de675908c9475f8ff4444a4534256a7b5
 </div>
 
 <?php  $this->footerMenus()?>
