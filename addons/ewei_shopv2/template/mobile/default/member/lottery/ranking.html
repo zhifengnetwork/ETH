@@ -5,18 +5,19 @@
     text-align: center;
     padding-top: 3rem;
     color: #ccc;
+
     display: none;
   }
  
   #tit span{
   	
   	display: inline-block;
-  	width: 26%;
+  	width: 29%;
   	height: 1.5rem;
   	line-height: 1.5rem;
   	/*border: 1px solid green;*/
   	text-align: center;
-  	margin-left: 16%;
+  	margin-left: 14%;
   	
   }
   .select{
@@ -30,45 +31,75 @@
   .show{
   	font-size: .6rem;
   	margin-top: .4rem;
-  	
-  	
   }
-  .headertitle li span:nth-child(1){
-  	
-  	display: inline-block;
-  	width: 13%;
-  	text-align: center;
-  	
-  	
+  .headertitle {
+    list-style-type: none;
   }
-  .headertitle li span:nth-child(2){
-  	
-  	display: inline-block;
-  	width: 13%;
-  	text-align: center;
-  	
+  .headertitle p  {
+    width: 100%;
+    height: 2rem;
+    line-height: 2rem;
   }
-  .headertitle li span:nth-child(3){
-  	
-  	display: inline-block;
-  	width: 20%;
-  	text-align: center;
-  	
+  .headertitle p span {
+    float: left;
+    display: block;
+    height: 100%;
+    text-align: center;
+
   }
-  .headertitle li span:nth-child(4){
-  	
-  	display: inline-block;
-  	width: 19%;
-  	text-align: center;
-  	
+  .headertitle p span:nth-child(1){
+  	width: 10%;	
   }
-  .headertitle li span:nth-child(5){
-  	
-  	display: inline-block;
-  	width: 35%;
-  	text-align: center;
+  .headertitle p span:nth-child(2){
+  	width: 13%;	
+  }
+  .headertitle p span:nth-child(3){
+  	width: 22%;
+	
+  }
+  .headertitle p span:nth-child(4){
+  	width: 22%;	
+  }
+  .headertitle p span:nth-child(5){
+    padding-top: .2rem;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 33%;
+    line-height: .8rem;
+    color: red;
+   
+  }
+  .data_listWrap {
+    width: 100%;
+    height: 100%;
+  }
+  .data_listBox {
+    width: 100%;
+    height: auto;
+  }
+  .data_listBox_term {
+    float: left;
+    height: .8rem;
+    text-align: center;
+  }
+  .data_listBox_term:nth-child(1){
+  	width: 12%;	
+  }
+  .data_listBox_term:nth-child(2){
+  	width: 11%;	
+  }
+  .data_listBox_term:nth-child(3){
+  	width: 22%;
+	
+  }
+  .data_listBox_term:nth-child(4){
+  	width: 29%;	
+  }
+  .data_listBox_term:nth-child(5){
+  	width: 26%;
+    line-height: 1rem;
   	color: red;
-  	
   }
   .good-item{
   	
@@ -124,31 +155,39 @@
     
     
     <div id="wrap">
-         <div id="tit">
+        <div id="tit">
             <span class="select">投资排名</span><span>上期中奖名单</span>
         </div>
         <div id="con">
+
           <div class="show" >
-                
-                <ul class="headertitle lis">
+              
+                <!--data 头部-->
+                <div class="headertitle lis">
                     {if $investment == ''}
                     <p style="color: red;text-align: center;font-size: 1rem;font-weight: 600;">投资总额: {$sale['sum']}</p>
                     {/if}
-                  <li><span>排名</span><span>ID</span><span>昵称</span><span>预计获奖</span><span style="font-size: .6rem;">今日投资金额(TRX)</span></li>
-                  {loop $investment $val}
-                  <li class="lis" style="font-size:.6rem">
-                    <span>第{$val['type']}名</span>
-                    <span>
-                      {$val['id']}
-                    </span>
-                    <span>{$val['nickname']}</span>
-                    <span>{$val['yuji']} <span style="color:red">({$val['bfb']}%)</span> </span>
-                    <span>{$val['moneys']}</span>
-                  </li>
-                  {/loop}
-                </ul>
-          </div>    
-          <div style="display: none;" class="getprice">
+                  <p><span>排名</span><span>ID</span><span>昵称</span><span>预计获奖</span><span style="font-size: .6rem;">今日投资金额<br/>(TRX)</span></p>
+                  
+                </div>
+                <!--data list -->
+                <div class="data_listWrap">
+                      {loop $investment $val}
+                        <p class="data_listBox" style="font-size:.6rem">
+                          <span class="data_listBox_term">第{$val['type']}名</span>
+                          <span class="data_listBox_term">
+                            {$val['id']}
+                          </span>
+                          <span class="data_listBox_term">{$val['nickname']}</span>
+                          <span class="data_listBox_term">{$val['yuji']} <span style="color:red">({$val['bfb']}%)</span> </span>
+                          <span class="data_listBox_term">{$val['moneys']}</span>
+                        </p>
+                      {/loop}                                   
+                </div>
+              
+          </div> 
+             
+          <div style="display: none;" class="getprice show">
               {if $winning == ''}
                 <p style="color: red;text-align: center;font-size: 1rem;font-weight: 600;">投资总额: {$sale['sum']}</p>
                 {/if}
@@ -180,7 +219,7 @@
             var i = $(this).index();//下标第一种写法
             //var i = $('tit').index(this);//下标第二种写法
             $(this).addClass('select').siblings().removeClass('select');
-            $('#con div').eq(i).show().siblings().hide();
+            $('#con .show').eq(i).show().siblings().hide();
            
            
         });
