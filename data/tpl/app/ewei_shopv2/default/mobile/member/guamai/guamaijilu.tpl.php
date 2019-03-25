@@ -90,7 +90,7 @@
     padding: 5px 0;
     text-align: center;
   }
-
+  .maiChu_btn {background-color: #a02332;}
   .maiChu_btn {
     background-color: #a02332;
     color: #fff;
