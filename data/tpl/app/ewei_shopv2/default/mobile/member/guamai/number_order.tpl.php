@@ -73,6 +73,12 @@
   .lj_plane{width: 20px;height: 20px;padding-top: 3px;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
   .fui-header-right a{display: inline-block;}
   .tab_content{color: #fff;}
+  .fui-page{background: #071a21;}
+  .tab_con1_one{line-height: 2rem;height: 2rem;padding: 0 0.7rem;}
+  .tab_con1_one p{display: inline-block;}
+  .tab_con1_one_l{float: left;}
+  .tab_con1_one_r{float: right;}
+  .tab_con1_one_r_img{width: 26px;height: 25px;vertical-align: middle;}
 </style>
 
 <div class='fui-page  fui-page-current member-log-page'>
@@ -90,37 +96,64 @@
     	 <i class="fui-header-right icon icon-add4"></i>
     </div>
   </div>
-
-
-
-
+	
    <!--nav-->
- 
 	<div class="box">
-
 			<!--这个是tab切换标题-->
-
 			<div class="tab_header">
-
 				<ul class="clearfix">
 					<li class="current on con_on"> 我的订单</li>
 
-					<li>发布广告</li>
+					<li class="con_on">发布广告</li>
 
 					<li class="con_on">我的申诉</li>
 
 				</ul>
 				<div class="clear"></div>
-
 				<!--这个是要显示的内容部分-->
-
 				<div class="tab_content">
-
-					<div>tab1的内容</div>
+					<div class="tab_con1">
+						<div class="tab_con1_one clearfix">
+							<div class="tab_con1_one_l">
+								<p>买入</p>
+								<p>UES</p>
+							</div>
+							<div class="tab_con1_one_r">
+								<p>已取消</p>
+								<p><img class="tab_con1_one_r_img" src="../addons/ewei_shopv2/static/images/zhifeng/jiantou.png" /></p>
+							</div>
+						</div>
+						<div class="tab_con1_two">
+							<ul>
+								<li>
+									<p>创建</p>
+									<p>20:42 02-23</p>
+								</li>
+								<li>
+									<p>数量(UES)</p>
+									<p>10000.0</p>
+								</li>
+								<li>
+									<p>价格(CNY)</p>
+									<p>0.25</p>
+								</li>
+								<li>
+									<p>总额(CNY)</p>
+									<p>2500.00</p>
+								</li>
+							</ul>
+						</div>
+						<div class="tab_con1_there">
+							<p>订单号</p>
+							<p>1009288424325062657</p>
+						</div>
+						
+						
+					</div>
 
 					<div>tab2的内容</div>
 
-					<div >tab3的内容</div>
+					<div>tab3的内容</div>
 
 				</div>
 
