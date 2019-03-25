@@ -248,11 +248,10 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 			}
 			$i++;
 		}
-		$data = array('investment'=>$investment,'winning'=>$winning);
-
-		// show_json(1,$data);	
-		var_dump($investment);
-		var_dump($winning);
+		foreach ($winning as $k=>$v){
+				$winning[$k]['createtime'] = date("Y-m-d H:i:s",$v['createtime']);
+				$winning[$k]['openid'] = substr($v['openid'],-11);
+		}
 		include  $this->template();
 	}
 

@@ -5,18 +5,19 @@
     text-align: center;
     padding-top: 3rem;
     color: #ccc;
+
     display: none;
   }
  
   #tit span{
   	
   	display: inline-block;
-  	width: 26%;
+  	width: 29%;
   	height: 1.5rem;
   	line-height: 1.5rem;
   	/*border: 1px solid green;*/
   	text-align: center;
-  	margin-left: 16%;
+  	margin-left: 14%;
   	
   }
   .select{
@@ -30,46 +31,75 @@
   .show{
   	font-size: .6rem;
   	margin-top: .4rem;
-  	
-  	
   }
-  .headertitle li span:nth-child(1){
-  	
-  	display: inline-block;
-  	width: 13%;
-  	text-align: center;
-  	
-  	
+  .headertitle {
+    list-style-type: none;
   }
-  .headertitle li span:nth-child(2){
-  	
-  	display: inline-block;
-  	width: 13%;
-  	text-align: center;
-  	
+  .headertitle p  {
+    width: 100%;
+    height: 2rem;
+    line-height: 2rem;
   }
-  .headertitle li span:nth-child(3){
-  	
-  	display: inline-block;
-  	width: 20%;
-  	text-align: center;
-  	
+  .headertitle p span {
+    float: left;
+    display: block;
+    height: 100%;
+    text-align: center;
+
   }
-  .headertitle li span:nth-child(4){
-  	
-  	display: inline-block;
-  	width: 19%;
-  	text-align: center;
-  	
-<<<<<<< HEAD
+  .headertitle p span:nth-child(1){
+  	width: 10%;	
   }
-  .headertitle li span:nth-child(5){
-  	
-  	display: inline-block;
-  	width: 35%;
-  	text-align: center;
+  .headertitle p span:nth-child(2){
+  	width: 13%;	
+  }
+  .headertitle p span:nth-child(3){
+  	width: 22%;
+	
+  }
+  .headertitle p span:nth-child(4){
+  	width: 22%;	
+  }
+  .headertitle p span:nth-child(5){
+    padding-top: .2rem;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 33%;
+    line-height: .8rem;
+    color: red;
+   
+  }
+  .data_listWrap {
+    width: 100%;
+    height: 100%;
+  }
+  .data_listBox {
+    width: 100%;
+    height: auto;
+  }
+  .data_listBox_term {
+    float: left;
+    height: .8rem;
+    text-align: center;
+  }
+  .data_listBox_term:nth-child(1){
+  	width: 12%;	
+  }
+  .data_listBox_term:nth-child(2){
+  	width: 11%;	
+  }
+  .data_listBox_term:nth-child(3){
+  	width: 22%;
+	
+  }
+  .data_listBox_term:nth-child(4){
+  	width: 29%;	
+  }
+  .data_listBox_term:nth-child(5){
+  	width: 26%;
+    line-height: 1rem;
   	color: red;
-  	
   }
   .good-item{
   	
@@ -93,54 +123,6 @@
   	
   }
  
-=======
-  }
-  .headertitle li span:nth-child(5){
-  	
-  	display: inline-block;
-  	width: 35%;
-  	text-align: center;
-  	color: red;
-  	
-  }
-  
-  .getprice{
-  	font-size: .6rem;
-  	margin-top: .4rem;
-  	
-  	
-  }
-  .getprice li span:nth-child(1){
-  	
-  	display: inline-block;
-  	width: 20%;
-  	text-align: center;
-  	
-  	
-  }
-  .getprice li span:nth-child(2){
-  	
-  	display: inline-block;
-  	width: 20%;
-  	text-align: center;
-  	
-  }
-  .getprice li span:nth-child(3){
-  	
-  	display: inline-block;
-  	width: 20%;
-  	text-align: center;
-  	
-  }
-  .getprice li span:nth-child(4){
-  	
-  	display: inline-block;
-  	width: 40%;
-  	text-align: center;
-  	
-  }
-  
->>>>>>> 8488e82de675908c9475f8ff4444a4534256a7b5
  
  
 </style>
@@ -166,125 +148,66 @@
     <?php  } ?>
 
    
-    <!--<div class="zanwu">
+   <div class="zanwu">
       <i class="icon icon-cry" style="font-size: 4rem;"></i>
       <p style="font-size: 1rem;">今日暂无排行</p>
-    </div>-->
+    </div>
     
     
     <div id="wrap">
-         <div id="tit">
+        <div id="tit">
             <span class="select">投资排名</span><span>上期中奖名单</span>
         </div>
         <div id="con">
-<<<<<<< HEAD
-            <div class="show" >
-            	   <ul class="headertitle lis">
-            	    <li><span>排名</span><span>ID</span><span>昵称</span><span>预计获奖</span><span style="font-size: .6rem;">今日投资金额(TRX)</span></li>
-            	    <li><span>第1名</span><span>36536</span><span>131xxx5458</span><span>1.000500</span><span style="font-size: .6rem;">0.004000</span></li>
-						     </ul>
-						    	
-            </div>    
-         
-            <div style="display: none;">
-            	   
-            	   <!--1-->
-            	   <div class="getprice good-item">
-            	    <!--<li><span>排名</span><span>ID</span><span>昵称</span><span>获奖金额</span></li>-->
-            	    <!--<li><span>第1名</span><span>36536</span><span>131xxx5458</span><span>120500</span></li>-->
-            	    <div class="lis">
-            	    	
-            	    	  <p>时间：2019-03-21 23:10:52</p>
-            	    	  <p>中奖期号：23</p>
-            	    	  <p>中奖注数：1股</p>
-            	  	
-            	    </div><div class="lis">
-            	    	
-            	    	  <p>中奖号：888</p>
-            	    	  <p>中奖金额：1.400000</p>
-            	    	  <p>投注中奖</p>
-                     </div>
-                  </div>
-                  <!--2-->
-                   <div class="getprice good-item">
-            	    <!--<li><span>排名</span><span>ID</span><span>昵称</span><span>获奖金额</span></li>-->
-            	    <!--<li><span>第1名</span><span>36536</span><span>131xxx5458</span><span>120500</span></li>-->
-            	    <div class="lis">
-            	    	
-            	    	  <p>时间：2019-03-21 23:10:52</p>
-            	    	  <p>中奖期号：23</p>
-            	    	  <p>中奖注数：1股</p>
-            	  	
-            	    </div><div class="lis">
-            	    	
-            	    	  <p>中奖号：888</p>
-            	    	  <p>中奖金额：1.400000</p>
-            	    	  <p>投注中奖</p>
-                     </div>
-                  </div>
-                  <!--3-->
-                   <div class="getprice good-item">
-            	    <!--<li><span>排名</span><span>ID</span><span>昵称</span><span>获奖金额</span></li>-->
-            	    <!--<li><span>第1名</span><span>36536</span><span>131xxx5458</span><span>120500</span></li>-->
-            	    <div class="lis">
-            	    	
-            	    	  <p>时间：2019-03-21 23:10:52</p>
-            	    	  <p>中奖期号：23</p>
-            	    	  <p>中奖注数：1股</p>
-            	  	
-            	    </div><div class="lis">
-            	    	
-            	    	  <p>中奖号：888</p>
-            	    	  <p>中奖金额：1.400000</p>
-            	    	  <p>投注中奖</p>
-                     </div>
-                  </div>
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-=======
+
           <div class="show" >
-                
-                <ul class="headertitle lis">
+              
+                <!--data 头部-->
+                <div class="headertitle lis">
                     <?php  if($investment == '') { ?>
                     <p style="color: red;text-align: center;font-size: 1rem;font-weight: 600;">投资总额: <?php  echo $sale['sum'];?></p>
                     <?php  } ?>
-                  <li><span>排名</span><span>ID</span><span>昵称</span><span>预计获奖</span><span style="font-size: .6rem;">今日投资金额(TRX)</span></li>
-                  <?php  if(is_array($investment)) { foreach($investment as $val) { ?>
-                  <li class="lis" style="font-size:.6rem">
-                    <span>第<?php  echo $val['type'];?>名</span>
-                    <span>
-                      <?php  echo $val['id'];?>
-                    </span>
-                    <span><?php  echo $val['nickname'];?></span>
-                    <span><?php  echo $val['yuji'];?> <span style="color:red">(<?php  echo $val['bfb'];?>%)</span> </span>
-                    <span><?php  echo $val['moneys'];?></span>
-                  </li>
-                  <?php  } } ?>
-                </ul>
-          </div>    
-
-          <div style="display: none;" class="getprice">
-              <ul class="getprice">
-                <?php  if($winning == '') { ?>
+                  <p><span>排名</span><span>ID</span><span>昵称</span><span>预计获奖</span><span style="font-size: .6rem;">今日投资金额<br/>(TRX)</span></p>
+                  
+                </div>
+                <!--data list -->
+                <div class="data_listWrap">
+                      <?php  if(is_array($investment)) { foreach($investment as $val) { ?>
+                        <p class="data_listBox" style="font-size:.6rem">
+                          <span class="data_listBox_term">第<?php  echo $val['type'];?>名</span>
+                          <span class="data_listBox_term">
+                            <?php  echo $val['id'];?>
+                          </span>
+                          <span class="data_listBox_term"><?php  echo $val['nickname'];?></span>
+                          <span class="data_listBox_term"><?php  echo $val['yuji'];?> <span style="color:red">(<?php  echo $val['bfb'];?>%)</span> </span>
+                          <span class="data_listBox_term"><?php  echo $val['moneys'];?></span>
+                        </p>
+                      <?php  } } ?>                                   
+                </div>
+              
+          </div> 
+             
+          <div style="display: none;" class="getprice show">
+              <?php  if($winning == '') { ?>
                 <p style="color: red;text-align: center;font-size: 1rem;font-weight: 600;">投资总额: <?php  echo $sale['sum'];?></p>
                 <?php  } ?>
-                <li><span>昵称</span><span>获奖金额</span><span>中奖号</span></li>
-                <?php  if(is_array($winning)) { foreach($winning as $winn) { ?>
-                  <li class="lis" style="font-size:.6rem">
-                    <span><?php  echo $winn['openid'];?></span>
-                    <span><?php  echo $winn['money'];?></span>
-                    <span><?php  echo $winn['number'];?></span>
-                  </li>
+              <div class="getprice good-item">
+                  <?php  if(is_array($winning)) { foreach($winning as $winn) { ?>
+                <div class="lis">
+                  
+                    <p>时间：<?php  echo $winn['createtime'];?></p>
+                    <p>中奖号：<?php  echo $winn['number'];?></p>
+                    <p>中奖注数：<?php  echo $winn['stakesum'];?>股</p>
+                
+                </div><div class="lis">
+                    <p>中奖人昵称：<?php  echo $winn['openid'];?></p>
+                    <p>中奖金额：<?php  echo $winn['money'];?></p>
+                    <p>投注中奖</p>
+                </div>
                 <?php  } } ?>
-              </ul>  
+              </div>
           </div>
         </div>
->>>>>>> 8488e82de675908c9475f8ff4444a4534256a7b5
 </div>
 
 <?php  $this->footerMenus()?>
@@ -296,7 +219,7 @@
             var i = $(this).index();//下标第一种写法
             //var i = $('tit').index(this);//下标第二种写法
             $(this).addClass('select').siblings().removeClass('select');
-            $('#con div').eq(i).show().siblings().hide();
+            $('#con .show').eq(i).show().siblings().hide();
            
            
         });
