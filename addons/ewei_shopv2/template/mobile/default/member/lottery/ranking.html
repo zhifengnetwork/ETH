@@ -61,7 +61,10 @@
   	width: 19%;
   	text-align: center;
   	
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7b6505a887848be92e3eccd90f756e6817756a88
   }
   .headertitle li span:nth-child(5){
   	
@@ -93,6 +96,7 @@
   	
   }
  
+<<<<<<< HEAD
 
   }
   .headertitle li span:nth-child(5){
@@ -141,6 +145,8 @@
   }
   
 
+=======
+>>>>>>> 7b6505a887848be92e3eccd90f756e6817756a88
  
  
 </style>
@@ -161,15 +167,15 @@
       <img src="../addons/ewei_shopv2/static/images/touzhiBg.png" alt="" width="100%">
     </div>
 
-    <!--{if $investment == ''}
+    {if $investment == ''}
     <p style="color: red;text-align: center;font-size: 1rem;font-weight: 600;">投资总额: {$sale['sum']}</p>
-    {/if}-->
+    {/if}
 
    
-    <!--<div class="zanwu">
+   <div class="zanwu">
       <i class="icon icon-cry" style="font-size: 4rem;"></i>
       <p style="font-size: 1rem;">今日暂无排行</p>
-    </div>-->
+    </div>
     
     
     <div id="wrap">
@@ -177,6 +183,7 @@
             <span class="select">投资排名</span><span>上期中奖名单</span>
         </div>
         <div id="con">
+<<<<<<< HEAD
 
             <div class="show" >
             	   <ul class="headertitle lis">
@@ -246,6 +253,8 @@
                   
                   
 
+=======
+>>>>>>> 7b6505a887848be92e3eccd90f756e6817756a88
           <div class="show" >
                 
                 <ul class="headertitle lis">
@@ -266,24 +275,31 @@
                   {/loop}
                 </ul>
           </div>    
-
           <div style="display: none;" class="getprice">
-              <ul class="getprice">
-                {if $winning == ''}
+              {if $winning == ''}
                 <p style="color: red;text-align: center;font-size: 1rem;font-weight: 600;">投资总额: {$sale['sum']}</p>
                 {/if}
-                <li><span>昵称</span><span>获奖金额</span><span>中奖号</span></li>
-                {loop $winning $winn}
-                  <li class="lis" style="font-size:.6rem">
-                    <span>{$winn['openid']}</span>
-                    <span>{$winn['money']}</span>
-                    <span>{$winn['number']}</span>
-                  </li>
+              <div class="getprice good-item">
+                  {loop $winning $winn}
+                <div class="lis">
+                  
+                    <p>时间：{$winn['createtime']}</p>
+                    <p>中奖号：{$winn['number']}</p>
+                    <p>中奖注数：{$winn['stakesum']}股</p>
+                
+                </div><div class="lis">
+                    <p>中奖人昵称：{$winn['openid']}</p>
+                    <p>中奖金额：{$winn['money']}</p>
+                    <p>投注中奖</p>
+                </div>
                 {/loop}
-              </ul>  
+              </div>
           </div>
         </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7b6505a887848be92e3eccd90f756e6817756a88
 </div>
 
 {php $this->footerMenus()}
