@@ -140,21 +140,21 @@
     
     <div id="wrap">
          <div id="tit">
-            <span class="select">投资排名</span><span>中奖名单</span>
+            <span class="select">投资排名</span><span>上期中奖名单</span>
         </div>
         <div id="con">
           <div class="show" >
-                <?php  if($investment == '') { ?>
-                <p style="color: red;text-align: center;font-size: 1rem;font-weight: 600;">投资总额: <?php  echo $sale['sum'];?></p>
-                <?php  } ?>
+                
                 <ul class="headertitle lis">
+                    <?php  if($investment == '') { ?>
+                    <p style="color: red;text-align: center;font-size: 1rem;font-weight: 600;">投资总额: <?php  echo $sale['sum'];?></p>
+                    <?php  } ?>
                   <li><span>排名</span><span>ID</span><span>昵称</span><span>预计获奖</span><span style="font-size: .6rem;">今日投资金额(TRX)</span></li>
                   <?php  if(is_array($investment)) { foreach($investment as $val) { ?>
                   <li class="lis" style="font-size:.6rem">
                     <span>第<?php  echo $val['type'];?>名</span>
                     <span>
                       <?php  echo $val['id'];?>
-                      <!-- <img src="<?php  echo tomedia($val['avatar'])?>" alt="" class="lis_img" onerror="this.src='../addons/ewei_shopv2/static/images/noface.png'"> -->
                     </span>
                     <span><?php  echo $val['nickname'];?></span>
                     <span><?php  echo $val['yuji'];?> <span style="color:red">(<?php  echo $val['bfb'];?>%)</span> </span>
@@ -162,29 +162,28 @@
                   </li>
                   <?php  } } ?>
                 </ul>
-                <div class="zanwu">
-                  <i class="icon icon-cry" style="font-size: 4rem;"></i>
-                  <p style="font-size: 1rem;">今日暂无排行</p>
-                </div>
           </div>    
 
           <div style="display: none;" class="getprice">
               <ul class="getprice">
-                <li><span>排名</span><span>ID</span><span>昵称</span><span>获奖金额</span></li>
-                <li><span>第1名</span><span>36536</span><span>131xxx5458</span><span>120500</span></li>
+                <?php  if($winning == '') { ?>
+                <p style="color: red;text-align: center;font-size: 1rem;font-weight: 600;">投资总额: <?php  echo $sale['sum'];?></p>
+                <?php  } ?>
+                <li><span>昵称</span><span>获奖金额</span><span>中奖号</span></li>
+                <?php  if(is_array($winning)) { foreach($winning as $winn) { ?>
+                  <li class="lis" style="font-size:.6rem">
+                    <span><?php  echo $winn['openid'];?></span>
+                    <span><?php  echo $winn['money'];?></span>
+                    <span><?php  echo $winn['number'];?></span>
+                  </li>
+                <?php  } } ?>
               </ul>  
-              <div class="zanwu">
-                <i class="icon icon-cry" style="font-size: 4rem;"></i>
-                <p style="font-size: 1rem;">今日暂无中奖名单</p>
-              </div>
           </div>
         </div>
 </div>
 
 <?php  $this->footerMenus()?>
 <?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('_footer', TEMPLATE_INCLUDEPATH)) : (include template('_footer', TEMPLATE_INCLUDEPATH));?>
-
-
 <script>
   $(function () {
     

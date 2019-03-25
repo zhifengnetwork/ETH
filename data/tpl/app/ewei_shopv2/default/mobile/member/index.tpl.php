@@ -312,7 +312,7 @@
 
 		<a class="fui-cell external btn-logout">
 
-			<div class="fui-cell-text" style="text-align: center;">
+			<div class="fui-cell-text" style="text-align: center;margin-bottom: .5rem;">
 				<p class="fui-cell-text">退出登录</p>
 			</div>
 

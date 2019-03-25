@@ -231,7 +231,9 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 		//查出今日投资的前10名
 		$investment = pdo_fetchall("select m.id,l.openid,m.avatar,m.nickname,m.mobile,sum(l.money) as moneys from ".tablename("stakejilu")." l left join ".tablename("ewei_shop_member")." m on l.openid=m.openid "." where l.uniacid=".$_W['uniacid']." and l.thigh=0 and l.createtime>'$start' and l.createtime<'$end' group by l.openid order by moneys desc limit 0,10");
 
-		var_dump($investment);
+		$shop_lottery = pdo_fetchall("select number,numberis from ".tablename('ewei_shop_lottery2')." where id=1");
+		$number = $shop_lottery[0]['numberis'];
+		$winning = pdo_fetchall("select * from ".tablename("winningrecord")." where type = 1 and number = ".$number." and createtime>'$start' and createtime<'$end'");
 
 		//投资排名的中奖额度
 		$touzi = unserialize($sale['investment']);
@@ -246,9 +248,11 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 			}
 			$i++;
 		}
-		
+		$data = array('investment'=>$investment,'winning'=>$winning);
 
-		// var_dump($investment);
+		// show_json(1,$data);	
+		var_dump($investment);
+		var_dump($winning);
 		include  $this->template();
 	}
 

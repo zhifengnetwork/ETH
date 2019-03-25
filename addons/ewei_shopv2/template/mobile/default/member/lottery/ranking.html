@@ -140,14 +140,15 @@
     
     <div id="wrap">
          <div id="tit">
-            <span class="select">投资排名</span><span>中奖名单</span>
+            <span class="select">投资排名</span><span>上期中奖名单</span>
         </div>
         <div id="con">
           <div class="show" >
-                {if $investment == ''}
-                <p style="color: red;text-align: center;font-size: 1rem;font-weight: 600;">投资总额: {$sale['sum']}</p>
-                {/if}
+                
                 <ul class="headertitle lis">
+                    {if $investment == ''}
+                    <p style="color: red;text-align: center;font-size: 1rem;font-weight: 600;">投资总额: {$sale['sum']}</p>
+                    {/if}
                   <li><span>排名</span><span>ID</span><span>昵称</span><span>预计获奖</span><span style="font-size: .6rem;">今日投资金额(TRX)</span></li>
                   {loop $investment $val}
                   <li class="lis" style="font-size:.6rem">
@@ -161,29 +162,28 @@
                   </li>
                   {/loop}
                 </ul>
-                <div class="zanwu">
-                  <i class="icon icon-cry" style="font-size: 4rem;"></i>
-                  <p style="font-size: 1rem;">今日暂无排行</p>
-                </div>
           </div>    
 
           <div style="display: none;" class="getprice">
               <ul class="getprice">
-                <li><span>排名</span><span>ID</span><span>昵称</span><span>获奖金额</span></li>
-                <li><span>第1名</span><span>36536</span><span>131xxx5458</span><span>120500</span></li>
+                {if $winning == ''}
+                <p style="color: red;text-align: center;font-size: 1rem;font-weight: 600;">投资总额: {$sale['sum']}</p>
+                {/if}
+                <li><span>昵称</span><span>获奖金额</span><span>中奖号</span></li>
+                {loop $winning $winn}
+                  <li class="lis" style="font-size:.6rem">
+                    <span>{$winn['openid']}</span>
+                    <span>{$winn['money']}</span>
+                    <span>{$winn['number']}</span>
+                  </li>
+                {/loop}
               </ul>  
-              <div class="zanwu">
-                <i class="icon icon-cry" style="font-size: 4rem;"></i>
-                <p style="font-size: 1rem;">今日暂无中奖名单</p>
-              </div>
           </div>
         </div>
 </div>
 
 {php $this->footerMenus()}
 {template '_footer'}
-
-
 <script>
   $(function () {
     
