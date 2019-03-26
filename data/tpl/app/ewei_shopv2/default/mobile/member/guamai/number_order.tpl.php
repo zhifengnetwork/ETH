@@ -368,9 +368,14 @@
 	}
 
 	.order .form span {
-		width: 22%;
+		width: 50%;
+		/*text-align: center;*/
 	}
+<<<<<<< HEAD
 
+=======
+	.order .form span:nth-child(2){padding-left: 2%;}
+>>>>>>> cace6fdbc72daa2954d5855e21de9c35bd8ca24b
 	.buy b {
 		font-size: 18px;
 		color: #F0E68C;
@@ -396,8 +401,14 @@
 	.order div span {
 		margin-right: 1rem;
 	}
+<<<<<<< HEAD
 
 
+=======
+	/*-----倒计时------*/
+	.order_time{/*font-weight: bold;*/letter-spacing: 0.03rem; padding-right: 0.85rem;box-sizing: border-box; width: 100%; color: #fff;font-size: 0.7rem;height:1.2rem;line-height: 1.2rem; text-align: right;}
+	
+>>>>>>> cace6fdbc72daa2954d5855e21de9c35bd8ca24b
 </style>
 
 <div class='fui-page  fui-page-current member-log-page'>
@@ -453,7 +464,11 @@
 								<span class="fn_cl">未交易<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
 								<?php  } ?>
 								<?php  if($winn['status'] == '1') { ?>
+<<<<<<< HEAD
+								<span class="fn_cl" onclick="location.href='./index.php?i=12&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=member.guamai.sellout&amp;mid=36538&amp;id=24&amp;op=0'">交易中<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+=======
 								<span class="fn_cl" onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<?php  echo $winn['id'];?>&op=0'" >交易中<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+>>>>>>> 04e0409a855e78c7572b0c11475974d401f6910e
 								<?php  } ?>
 								<?php  if($winn['status'] == '2') { ?>
 								<span class="fn_cl">交易完成<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
@@ -462,22 +477,39 @@
 								<span class="fn_cl">交易失败<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
 								<?php  } ?>
 							</p>
+<<<<<<< HEAD
 
+=======
+							
+							
+							<p class="form ">
+								<!--倒计时-时间戳-->
+								<!--<input type="hidden" value="1553684400" />-->
+								<span id="order_time" class="order_time" style="width: 100%;"></span>
+							</p>
+>>>>>>> cace6fdbc72daa2954d5855e21de9c35bd8ca24b
 							<p class="form">
 								<span>创建时间</span>
 								<span>数量(UES)</span>
-								<span>价格(CNY)</span>
-								<span>总额(CNY)</span>
 							</p>
 							<p class="form font_color_999">
 								<span><?php  echo $winn['createtime'];?></span>
 								<span><?php  echo $winn['trx'];?></span>
+							</p>
+							<p class="form">
+								<span>价格(CNY)</span>
+								<span>总额(CNY)</span>
+							</p>
+							<p class="form font_color_999">
 								<span><?php  echo $winn['price'];?></span>
 								<span><?php  echo $winn['trx2'];?></span>
 							</p>
+							<p class="form">
+								<span> 挂单人:  182xxxx8860</span>
+								<span> 抢单人:  182xxxx8860</span>
+							</p>
 							<div class="font_color_999">
-								<span>订单号</span>
-								<span>666666666666666</span>
+								<span>订单号:  66666666662222266666</span>
 							</div>
 						</div>
 					</div>
@@ -547,6 +579,69 @@
 					<div class="mask1_btn">确定买入</div>
 				</div>
 			</div>
+			<script type="text/javascript" src="../../../../../../../app/themes/chengzi_bphweizhan/js/jquery-1.8.2.min.js" ></script>
+			<!---交易倒计时----->
+			<script>  
+				
+			 $(function(){
+			 	var addTimer = function(){
+		        var list = [],
+		          interval;
+		           
+		        return function(id,timeStamp){
+		          if(!interval){
+		            interval = setInterval(go,1);
+		          }
+		          list.push({ele:document.getElementById(id),time:timeStamp});
+		        }
+		         
+		        function go() { 
+		          for (var i = 0; i < list.length; i++) { 
+		            list[i].ele.innerHTML = changeTimeStamp(list[i].time); 
+		            if (!list[i].time) 
+		              list.splice(i--, 1); 
+		          } 
+		        }
+		         function changeTimeStamp(timeStamp){
+          var distancetime = new Date(timeStamp*1000).getTime() - new Date().getTime();
+          if(distancetime > 0){ 
+　　　　　　　　//如果大于0.说明尚未到达截止时间       
+			/*毫秒*/
+            var ms = Math.floor(distancetime%1000);
+            /*秒*/
+            var sec = Math.floor(distancetime/1000%60);
+            /*分*/
+            var min = Math.floor(distancetime/1000/60%60);
+            /*小时*/
+//          var hour =Math.floor(distancetime/1000/60/60/24);
+             
+            if(ms<100){
+              ms = "0"+ ms;
+            }
+            if(sec<10){
+              sec = "0"+ sec;
+            }
+            if(min<10){
+              min = "0"+ min;
+            }
+//          if(hour<10){
+//            hour = "0"+ hour;
+//          }
+             
+            return "倒计时："+min + ":" +sec + ":" +ms;
+          }else{
+　　　　　　　　//若否，就是已经到截止时间了
+            return "已截止！"
+          }  
+        }        
+      }();
+      //倒计时位置，时间戳
+      addTimer("order_time",1553684400);
+			})
+				 
+				 
+			</script>  
+			
 			<!-- 买入模板 -->
 			<script id="tpl_maichu" type="text/html">
 				<ul>

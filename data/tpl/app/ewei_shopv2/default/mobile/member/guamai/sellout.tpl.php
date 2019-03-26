@@ -211,10 +211,10 @@
   }
 
   .setImgBox>.pic {
-    width: 100%;
+    width: 54%;
     height: 100%;
     position: absolute;
-    left: 0;
+    left: 3.4rem;
     top: 0;
   }
 
