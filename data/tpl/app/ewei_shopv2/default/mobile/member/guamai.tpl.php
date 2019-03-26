@@ -235,7 +235,7 @@
     </div>
   </div>
 
-  <div class='fui-content navbar'>
+  <div class='fui-content navbar' style="background-color:#0a181f">
 
 
 
@@ -271,7 +271,7 @@
   </div>
 
   <!-- 卖出 -->
-  <div class="mask0">
+  <!--<div class="mask0">
     <div class="mask_tit">卖出ETH</div>
     <div class="mask_lis">
       <p>价格(CNY)</p>
@@ -292,10 +292,10 @@
       <input type="number" disabled value="0" class="setTrx0">
     </div>
     <div class="mask0_btn">确定卖出</div>
-  </div>
+  </div>-->
 
   <!-- 买入 -->
-  <div class="mask1">
+  <!--<div class="mask1">
     <div class="mask_tit">买入ETH</div>
 
     <div class="mask1_pice">
@@ -310,9 +310,9 @@
     </div>
     <p>交易总额</p>
     <input type="number" disabled value="0" style="padding: 5px 10px;width: 100%;" class="mairu_Money">
-    <!-- <div class="tishi">预扣手续费<span style="color:#9f2332;">0</span>UES</div> -->
+    <!-- <div class="tishi">预扣手续费<span style="color:#9f2332;">0</span>UES</div>
     <div class="mask1_btn">确定买入</div>
-  </div>
+  </div>-->
 
 
   <!-- 买入模板 -->
@@ -351,21 +351,21 @@
     <ul>
     <% each list as val %>
         <li class="lis">
-          <p style="color: #6b5b3a; justify-content: space-between;display: flex;">唐**<% val.id %>  <span style="color:#891635;font-size:.8rem;padding-right: 1.5rem;" >￥ <% val.price %> </span></p>
-            <div class="lis_lie lis_lie1">挂单数量 <% val.trx %> </div>
-            
-          <div class="lis_lie lis_lie0">
-            <p style="color:#545d62">限额: <% val.nickname %>　
-              
-            </p>
+          <p style="color: #ffffff; justify-content: space-between;display: flex;">挂卖编号：<% val.id %>  <span style="color:#891635;font-size:.8rem;padding-right: 1.5rem;" >￥ <% val.price %> </span></p>
           
+          <div class="lis_lie lis_lie0">
+            <p >抢单人: <% val.nickname %>　
+              <% if val.zfbfile==1 %> <i class="icon icon-alipay"></i> <% /if %>
+              <% if val.wxfile==1 %> <i class="icon icon-wechat1"></i> <% /if %>
+              <% if val.bank==1 %> <i class="icon icon-vipcard"></i> <% /if %>
+            </p>
+            
           </div>
+          <div class="lis_lie lis_lie1">挂单数量 <% val.trx %> </div>
           <% if val.openid2 != '' %>
           <p style="color:#c2a378">抢单人：<% val.nickname2 %></p>
           <% /if %>
-        
           <!-- <div class="lis_lie lis_lie2">限额 2800.0-2800.0 UES</div> -->
-
           <% if val.status == 0 %>
           <div class="maiChu_btn" data-id="<% val.id %>"
             <% if val.self == 1 %> onclick="alert('不能卖出自己发放的账单')"
@@ -382,7 +382,6 @@
           <% /if %> >交易中
           </div>
           <% /if %>
-
         </li>
     <% /each %>
     </ul>
