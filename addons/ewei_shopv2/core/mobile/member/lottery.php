@@ -250,7 +250,7 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 		}
 		foreach ($winning as $k=>$v){
 				$winning[$k]['createtime'] = date("Y-m-d H:i:s",$v['createtime']);
-				$winning[$k]['openid'] = substr($v['openid'],-11);
+				$winning[$k]['openid'] = substr_replace(substr($v['openid'],-11),'****',3,4);
 		}
 		include  $this->template();
 	}

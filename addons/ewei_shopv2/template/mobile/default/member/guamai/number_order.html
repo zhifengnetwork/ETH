@@ -453,7 +453,7 @@
 								<span class="fn_cl">未交易<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
 								{/if}
 								{if $winn['status'] == '1'}
-								<span class="fn_cl">交易中<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+								<span class="fn_cl" onclick="location.href='{php echo mobileurl('member/guamai/sellout')}&id={$winn['id']}&op=0'" >交易中<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
 								{/if}
 								{if $winn['status'] == '2'}
 								<span class="fn_cl">交易完成<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
