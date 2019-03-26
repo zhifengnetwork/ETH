@@ -18,13 +18,19 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		global $_W;
 		global $_GPC;
 		$type = 0;
-
+		$openid = $_W['openid'];
 		//价格基础TRX价格  以及手续费
 		$sys = pdo_fetch("select trxprice,trxsxf from".tablename("ewei_shop_sysset")."where uniacid=".$_W['uniacid']);
 		$sys['trxsxf'] = $sys['trxsxf']/100;
 		$start = $sys['trxprice']*(1-0.1);
 		$end = $sys['trxprice']*(1+0.1);
 		$member = m('member')->getMember($_W['openid'], true);
+		//用户买入,卖出订单
+		$guamai = pdo_fetchall("select * from".tablename("guamai")."where openid='".$openid."' or openid2='".$openid."' order by id desc");
+		foreach ($guamai as $key=>$val){
+			$guamai[$key]['createtime'] = date("Y-m-d H:i:s",$val['createtime']);
+		}
+		// dump($guamai);
 		include $this->template();
 	}
 
