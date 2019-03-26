@@ -455,7 +455,11 @@
 								<span class="fn_cl">未交易<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
 								<?php  } ?>
 								<?php  if($winn['status'] == '1') { ?>
+<<<<<<< HEAD
 								<span class="fn_cl" onclick="location.href='./index.php?i=12&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=member.guamai.sellout&amp;mid=36538&amp;id=24&amp;op=0'">交易中<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+=======
+								<span class="fn_cl" onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<?php  echo $winn['id'];?>&op=0'" >交易中<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+>>>>>>> 04e0409a855e78c7572b0c11475974d401f6910e
 								<?php  } ?>
 								<?php  if($winn['status'] == '2') { ?>
 								<span class="fn_cl">交易完成<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
