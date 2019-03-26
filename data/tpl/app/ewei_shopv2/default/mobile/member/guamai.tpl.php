@@ -249,7 +249,7 @@
 
       <a data-tab="tab2" class='tab2 external <?php  if($type == 1) { ?>active<?php  } ?>' data-type='1'>卖出</a>
 
-     <!-- <span onclick="location.href='<?php  echo mobileurl('member/guamai/guamaijilu')?>'" class="mydingdan">我的订单</span>-->
+     <!-- <span onclick="location.href='<?php  echo mobileurl('member/guamai/guamaijilu')?>'" class="mydingdan">我的订单</span> -->
 
     </div>
 
