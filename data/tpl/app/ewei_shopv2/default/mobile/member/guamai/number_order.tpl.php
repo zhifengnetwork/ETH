@@ -389,7 +389,6 @@
 	.fn_cl {
 		color: #F0E68C;
 	}
-
 	.font_color_999 {
 		color: #999999;
 	}
@@ -557,9 +556,6 @@
 					<p>买入数量</p>
 					<div class="mask1_lis">
 						<input type="number" placeholder="请输入购买的数量" class="buyNum">
-					</div>
-					<div class="mask_lis">
-						<div class="tishi">手续费：<span class="sxf0"><?php  echo $sys['trxsxf'];?></span></div>
 					</div>
 					<p>交易总额</p>
 					<input type="number" disabled value="0" style="padding: 5px 10px;width: 100%;" class="mairu_Money">
@@ -734,7 +730,6 @@
 
 </div>
 <script type="text/javascript">
-// 申诉原因
 $('.button').click(function () {
 	let textarea = $('.textarea').val();
 	if(textarea == ''){

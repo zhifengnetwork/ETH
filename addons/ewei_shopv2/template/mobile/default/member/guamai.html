@@ -70,7 +70,7 @@
     font-size: 16px;
     color: #9f2332;
     width: 22%;
-  
+
   }
 
   .lis_lie0>p {
@@ -102,7 +102,7 @@
     text-align: center;
   }
 
-  .maiChu_btn  {background-color: #a02332;} 
+  .maiChu_btn  {background-color: #a02332;}
   .maiChu_btn {
     background-color: #a02332;
     color: #fff;
@@ -354,14 +354,14 @@
     <% each list as val %>
         <li class="lis">
           <p style="color: #ffffff; justify-content: space-between;display: flex;">挂卖编号：<% val.id %>  <span style="color:#891635;font-size:.8rem;padding-right: 1.5rem;" >￥ <% val.price %> </span></p>
-          
+
           <div class="lis_lie lis_lie0">
             <p >抢单人: <% val.nickname %>　
               <% if val.zfbfile==1 %> <i class="icon icon-alipay"></i> <% /if %>
               <% if val.wxfile==1 %> <i class="icon icon-wechat1"></i> <% /if %>
               <% if val.bank==1 %> <i class="icon icon-vipcard"></i> <% /if %>
             </p>
-            
+
           </div>
           <div class="lis_lie lis_lie1">挂单数量 <% val.trx %> </div>
           <% if val.openid2 != '' %>
@@ -376,11 +376,11 @@
           <% /if %>
 
           <% if val.status == 1 %>
-          <div class="maiChu_btn" data-id="<% val.id %>" style="background-color: #a02332" 
+          <div class="maiChu_btn" data-id="<% val.id %>" style="background-color: #a02332"
           <% if val.self == 1 %> onclick="alert('不能卖出自己发放的账单')"
           <% else if val.self3 == 1 %> onclick="alert('该账单正在交易中')"
           <% else if val.self3 == 0 %> onclick="location.href='{php echo mobileurl('member/guamai/sellout')}&id=<% val.id %>&op=0'"
-          <% else %> data-flag = '0' 
+          <% else %> data-flag = '0'
           <% /if %> >交易中
           </div>
           <% /if %>
@@ -411,7 +411,7 @@
                   location.reload();
                   window._type = 0;
                   console.log(window._type);
-                  
+
               }
 
             },error:function(err){
@@ -471,10 +471,10 @@
             alert(data.result.message);
             location.reload();
           }
-          
+
         },error:function(err){
           console.log(err);
-          
+
         }
       })
 
@@ -588,15 +588,15 @@
             alert(data.result.message);
             location.reload();
           }
-          
+
         },error:function(err){
           console.log(err);
-          
+
         }
       })
 
-    
-    
+
+
     })
 
     $(function () {
@@ -613,7 +613,7 @@
     $('.tab2').click(function () {
       typeTab = 1;
     })
-    
+
 
     // 点击加号弹出弹框
     $('.fui-header-rig').click(function () {
@@ -634,10 +634,10 @@
             } else if (data.status == 0){
               FoxUI.toast.show(data.result.message);
             }
-            
+
           },error:function(err){
             console.log(err);
-            
+
           }
         })
 
@@ -658,10 +658,10 @@
                 bottom: "0"
               }, 600)
             }
-            
+
           },error:function(err){
             console.log(err);
-            
+
           }
         })
 

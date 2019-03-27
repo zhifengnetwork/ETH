@@ -33,7 +33,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 			// var_dump($val);nickname2
 			$guamai[$key]['datatime'] = date("Y-m-d H:i:s",$val['createtime']);
 			$guamai[$key]['time_news'] = ($val['createtime']+1800) - $time;
-			$guamai[$key]['nickname'] = $val['']
+			$guamai[$key]['nickname'] = $val[''];
 		}
 		// dump($guamai);
 		include $this->template();
