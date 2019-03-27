@@ -27,7 +27,6 @@ class Crontab_EweiShopV2Page extends MobileLoginPage
 			if($time<=$createtime){
 				continue;
 			}
-			dump($val);
 			$openid = $val['openid'];
 			$users = pdo_fetch("select id,openid,credit2 from".tablename("ewei_shop_member")." where openid='".$openid."'");
 			if(empty($users)){
