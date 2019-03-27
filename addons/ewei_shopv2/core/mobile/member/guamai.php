@@ -71,7 +71,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 			if($updeta_order){
 				$result = pdo_update("ewei_shop_member",array("credit2"=>$users['credit2']),array("openid"=>$val['openid']));
 
-				echo('执行成功-----'.$data.'---'.$result);
+				echo('执行成功-----'.$data);
 			}else{
 
 				echo('执行失败-----'.$data);
