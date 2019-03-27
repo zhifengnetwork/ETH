@@ -371,7 +371,7 @@
 		width: 50%;
 		/*text-align: center;*/
 	}
-	.order .form span:nth-child(2){padding-left: 2%;}
+	.order .form span:nth-child(2){padding-left: 8%;}
 	.buy b {
 		font-size: 18px;
 		color: #F0E68C;
@@ -473,21 +473,15 @@
 								<span id="order_time" class="order_time" style="width: 100%;"></span>
 							</p>
 							<p class="form">
-								<span>创建时间</span>
-								<span>数量(UES)</span>
+								<span>创建时间： <span class="font_color_999"><?php  echo $winn['datatime'];?></span></span>
+								<span>数量(UES)： <span class="font_color_999"> <?php  echo $winn['trx'];?></span></span>
 							</p>
-							<p class="form font_color_999">
-								<span><?php  echo $winn['datatime'];?></span>
-								<span><?php  echo $winn['trx'];?></span>
-							</p>
+							
 							<p class="form">
-								<span>价格(CNY)</span>
-								<span>总额(CNY)</span>
+								<span>价格(CNY)： <span class="font_color_999"><?php  echo $winn['price'];?></span></span>
+								<span>总额(CNY)： <span class="font_color_999"><?php  echo $winn['trx2'];?></span></span>
 							</p>
-							<p class="form font_color_999">
-								<span><?php  echo $winn['price'];?></span>
-								<span><?php  echo $winn['trx2'];?></span>
-							</p>
+							
 							<p class="form">
 								<?php  if($winn['openid'] != '') { ?>
 								<span style="color:#c2a378">挂单人:  <?php  echo $winn['nickname'];?></span>
