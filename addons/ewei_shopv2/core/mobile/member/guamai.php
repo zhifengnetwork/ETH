@@ -47,12 +47,17 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		global $_W;
 		global $_GPC;
 
-		if($_W['ispost']){
-			$id = $_GPC['id'];
-			$guamai = pdo_fetch("select * from".tablename("guamai")."where id='".$id."'");
-
+		$id = $_GPC['id'];
+		$guamai = pdo_fetchall("select * from".tablename("guamai")." where status=1 or status=0");
+		if(empty($guamai)){
+			return false;
 		}
-
+		foreach($guamai as $key=>$val){
+			$openid = $val['openid'];
+			$users = pdo_fetch("select id,openid,credit2 from".tablename("ewei_shop_member")." where openid='".$openid."'");
+			dump($users);
+			dump($val);
+		}
 
 
 
@@ -206,6 +211,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 			}
 
 			$data = array('openid'=>$openid,'uniacid'=>$_W['uniacid'],'price'=>$_GPC['price'],'trx'=>$_GPC['trx'],'trx2'=>$_GPC['trx2'],'money'=>$_GPC['money'],'type'=>$type,'status'=>'0','createtime'=>time());
+			dump($data);die;
 			$data['apple_time'] = time()+1800;
 			$result = pdo_insert("guamai",$data);
 			// show_json($result);
