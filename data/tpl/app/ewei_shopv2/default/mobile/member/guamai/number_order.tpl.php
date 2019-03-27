@@ -475,20 +475,20 @@
 
 							<p class="form">
 								<!--倒计时-时间戳-->
-								<?php  echo $winn['createtime'];?>
-								<input type="hidden" value="<?php  echo $winn['time_news'];?>" />
+								<?php  echo $winn['apple_time'];?>
+								<input type="hidden" value="<?php  echo $winn['apple_time'];?>" />
 								<span id="order_time" class="order_time" style="width: 100%;"></span>
 							</p>
 							<p class="form">
 								<span>创建时间： <span class="font_color_999"><?php  echo $winn['datatime'];?></span></span>
 								<span>数量(UES)： <span class="font_color_999"> <?php  echo $winn['trx'];?></span></span>
 							</p>
-							
+
 							<p class="form">
 								<span>价格(CNY)： <span class="font_color_999"><?php  echo $winn['price'];?></span></span>
-								<span>总额(CNY)： <span class="font_color_999"><?php  echo $winn['trx2'];?></span></span>
+								<span>总额(CNY)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span>
 							</p>
-							
+
 							<p class="form">
 								<?php  if($winn['openid'] != '') { ?>
 								<span style="color:#c2a378">挂单人:  <?php  echo $winn['nickname'];?></span>
@@ -687,9 +687,13 @@
         }
       }();
       //倒计时位置，时间戳
+<<<<<<< HEAD
 			var formtime= $(".form input")
 			var order = $(".form #order_time")
 			addTimer(order,formtime);
+=======
+      addTimer("order_time",1553672628);
+>>>>>>> eb1535f45451ba34463930007372ed12461dbd52
 			})
 
 

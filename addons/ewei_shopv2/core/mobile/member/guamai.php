@@ -16,6 +16,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 
 	//我的订单
 	public function number_order(){
+		date_default_timezone_set('PRC');
 		global $_W;
 		global $_GPC;
 		$type = 0;
@@ -27,17 +28,34 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		$end = $sys['trxprice']*(1+0.1);
 		$member = m('member')->getMember($_W['openid'], true);
 		//用户买入,卖出订单
-		$guamai = pdo_fetchall("select * from".tablename("guamai")."where openid='".$openid."' or openid2='".$openid."' order by id desc");
+		$guamai = pdo_fetchall("select * from".tablename("guamai")."where openid='".$openid."' or openid2='".$openid."' order by status desc");
 		$time = time();
 		foreach ($guamai as $key=>$val){
 			// var_dump($val);nickname2
-			$guamai[$key]['datatime'] = date("m:d H:i:s",$val['createtime']);
+			$guamai[$key]['datatime'] = date("m/d H:i:s",$val['createtime']);
 			$guamai[$key]['time_news'] = ($val['createtime']+1800) - $time;
 			$guamai[$key]['nickname'] = substr($val['openid'],-11);
 			$guamai[$key]['nickname2'] = substr($val['openid2'],-11);
 		}
 		// dump($guamai);
 		include $this->template();
+	}
+
+	//订单倒计时
+	public function appeal_order()
+	{
+		global $_W;
+		global $_GPC;
+
+		if($_W['ispost']){
+			$id = $_GPC['id'];
+			$guamai = pdo_fetch("select * from".tablename("guamai")."where id='".$id."'");
+
+		}
+
+
+
+
 	}
 
 	//我的申诉
@@ -188,7 +206,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 			}
 
 			$data = array('openid'=>$openid,'uniacid'=>$_W['uniacid'],'price'=>$_GPC['price'],'trx'=>$_GPC['trx'],'trx2'=>$_GPC['trx2'],'money'=>$_GPC['money'],'type'=>$type,'status'=>'0','createtime'=>time());
-
+			$data['apple_time'] = time()+1800;
 			$result = pdo_insert("guamai",$data);
 			// show_json($result);
 			if($type == 1){		//卖出
