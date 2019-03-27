@@ -14,6 +14,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		$this->member = m('member')->getInfo($_W['openid']);
 	}
 
+	//我的订单
 	public function number_order(){
 		global $_W;
 		global $_GPC;
@@ -27,11 +28,45 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		$member = m('member')->getMember($_W['openid'], true);
 		//用户买入,卖出订单
 		$guamai = pdo_fetchall("select * from".tablename("guamai")."where openid='".$openid."' or openid2='".$openid."' order by id desc");
+		$time = time();
 		foreach ($guamai as $key=>$val){
-			$guamai[$key]['createtime'] = date("Y-m-d H:i:s",$val['createtime']);
+			// var_dump($val);nickname2
+			$guamai[$key]['datatime'] = date("Y-m-d H:i:s",$val['createtime']);
+			$guamai[$key]['time_news'] = ($val['createtime']+1800) - $time;
+			$guamai[$key]['nickname'] = $val['']
 		}
 		// dump($guamai);
 		include $this->template();
+	}
+
+	//我的申诉
+	public function tab_con(){
+		global $_W;
+		global $_GPC;
+
+		if($_W['ispost']){
+			$id = $_GPC['id'];
+			$guamai = pdo_fetch("select * from".tablename("guamai")."where id='".$id."'");
+			$appeal = pdo_fetch("select * from".tablename("guamai_appeal")."where stuas=0 and order_id='".$id."'");
+			if($appeal){
+				show_json(1,'您还有一条为审核的申诉,请稍后再试!!!');
+			}else{
+				$data_appeal = array(
+					"openid"=>$guamai['openid'],
+					"openid2"=>$guamai['openid2'],
+					"order_id"=>$id,
+					"file"=>$guamai['file'],
+					"type"=>$guamai['type'],
+					"appeal_name"=>$_W['mid'],
+					"stuas"=>0,
+					"createtime"=>time()
+				);
+				$guamai_appeal = pdo_insert("guamai_appeal",$data_appeal);
+				if($guamai_appeal){
+					show_json(1,'申诉成功');
+				}
+			}
+		}
 	}
 
 	public function main()
