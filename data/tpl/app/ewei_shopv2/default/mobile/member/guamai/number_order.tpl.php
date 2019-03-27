@@ -82,7 +82,7 @@
 		text-align: center;
 		display:-webkit-box;
 		display: -moz-box;
-		display: -ms-flexbox;	
+		display: -ms-flexbox;
 		display: -webkit-flex;
 		display: flex;
     flex-wrap: nowrap;
@@ -434,7 +434,7 @@
 								<?php  } ?>
 								<?php  if($winn['status'] == '3') { ?>
 								<span class="fn_cl" data-val="3">交易失败<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
-							  <?php  } ?> 
+							  <?php  } ?>
 							</p>
 
 
@@ -468,7 +468,7 @@
 						</div>
 					</div>
 					<?php  } } ?>
-					
+
 				</div>
 				<!--------发布广告----------->
 				<div class="tab_con">
@@ -489,7 +489,7 @@
 				      	 		<p>提币的通知</p >
 				      	 		<p>02-25</p >
 				      	 	</div>
-				      	 </div>	
+				      	 </div>
 				   	</div>
 				</div>
 
@@ -561,15 +561,11 @@
 							list.push({ele:id,time:timeStamp});
 							id.each((element,value) => {
 								let $value = $(value)
-								
+
 							});
 		        }
 		        function go(){
-		          for (var i = 0; i < list.length; i++) {	
-		            // list[i].ele.innerHTML = changeTimeStamp(list[i].time);
-		            // if (!list[i].time){
-		            //   list.splice(i--, 1);
-								// }
+		          for (var i = 0; i < list.length; i++) {
 								for (var t = 0;t<list[i].ele.length; t++){
 									list[i].ele[t].innerHTML = (changeTimeStamp(list[i].time[t]))
 									var $li = $(list[i].ele[t])
@@ -577,14 +573,12 @@
 									 if(hide==2 || hide==3){
 									  $li.parent().remove()
 									 }
-								
 								}
 		          }
-							
 							}
 		         function changeTimeStamp(timeStamp){
 					 var	$timeStamp = $(timeStamp).val()
-          var distancetime = new Date($timeStamp*1000).getTime() - new Date().getTime();
+           var distancetime = new Date($timeStamp*1000).getTime() - new Date().getTime();
           if(distancetime > 0){
 　　　　　　　　//如果大于0.说明尚未到达截止时间
 			/*毫秒*/
