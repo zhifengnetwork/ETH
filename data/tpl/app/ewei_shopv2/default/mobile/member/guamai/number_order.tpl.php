@@ -459,17 +459,17 @@
 								<?php  } ?>
 
 								<?php  if($winn['status'] == '0') { ?>
-								<span class="fn_cl">未交易<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+								<span class="fn_cl" data-val="0">未交易<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
 								<?php  } ?>
 								<?php  if($winn['status'] == '1') { ?>
-								<span class="fn_cl" onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<?php  echo $winn['id'];?>&op=0'" >交易中<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+								<span class="fn_cl" data-val="1" onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<?php  echo $winn['id'];?>&op=0'" >交易中<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
 								<?php  } ?>
 								<?php  if($winn['status'] == '2') { ?>
-								<span class="fn_cl">交易完成<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+								<span class="fn_cl" data-val="2">交易完成<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
 								<?php  } ?>
 								<?php  if($winn['status'] == '3') { ?>
-								<span class="fn_cl">交易失败<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
-								<?php  } ?>
+								<span class="fn_cl" data-val="3">交易失败<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+							  <?php  } ?> 
 							</p>
 
 
@@ -503,63 +503,7 @@
 						</div>
 					</div>
 					<?php  } } ?>
-					<div class="order_list">
-						<div class="order">
-
-							<p class="buy">
-								<?php  if($winn['type'] == '0') { ?>
-								<span style="color:#0a0">买入<b>UES</b></span>
-								<?php  } ?>
-								<?php  if($winn['type'] == '1') { ?>
-								<span style="color:brown">卖出<b>UES</b></span>
-								<?php  } ?>
-
-								<?php  if($winn['status'] == '0') { ?>
-								<span class="fn_cl">未交易<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
-								<?php  } ?>
-								<?php  if($winn['status'] == '1') { ?>
-								<span class="fn_cl" onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<?php  echo $winn['id'];?>&op=0'" >交易中<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
-								<?php  } ?>
-								<?php  if($winn['status'] == '2') { ?>
-								<span class="fn_cl">交易完成<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
-								<?php  } ?>
-								<?php  if($winn['status'] == '3') { ?>
-								<span class="fn_cl">交易失败<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
-								<?php  } ?>
-							</p>
-
-
-							<p class="form">
-								<!--倒计时-时间戳-->
-								<?php  echo $winn['createtime'];?>
-								<input type="hidden" value="800000000000" />
-								<span id="order_time" class="order_time" style="width: 100%;"></span>
-							</p>
-							<p class="form">
-								<span>创建时间： <span class="font_color_999"><?php  echo $winn['datatime'];?></span></span>
-								<span>数量(UES)： <span class="font_color_999"> <?php  echo $winn['trx'];?></span></span>
-							</p>
-							
-							<p class="form">
-								<span>价格(CNY)： <span class="font_color_999"><?php  echo $winn['price'];?></span></span>
-								<span>总额(CNY)： <span class="font_color_999"><?php  echo $winn['trx2'];?></span></span>
-							</p>
-							
-							<p class="form">
-								<?php  if($winn['openid'] != '') { ?>
-								<span style="color:#c2a378">挂单人:  <?php  echo $winn['nickname'];?></span>
-								<?php  } ?>
-								<?php  if($winn['openid2'] != '') { ?>
-								<span style="color:#c2a378">抢单人:  <?php  echo $winn['nickname2'];?></span>
-								<?php  } ?>
-							</p>
-							<div class="font_color_999">
-								<span>订单号:  66666666662222266666</span>
-							</div>
-						</div>
-					</div>
-				
-				</div>
+					
 
 				<!--------发布广告----------->
 				<div class="tab_con">
@@ -629,19 +573,26 @@
 			<script>
 
 			 $(function(){
-			
+			  // fn_cl 是否显示倒计时
+				  //  $(".buy .fn_cl").on("bind",()=>{
+          //       console.log($(this))
+					//  })
+					//console.log( $(".buy .fn_cl"))
 			 	var addTimer = function(){
 		        var list = [],
 		          interval;
 		        return function(id,timeStamp){
 		          if(!interval){
 		             interval = setInterval(go,1);
-		          }
+							}
 		          // list.push({ele:document.getElementById(id),time:timeStamp});
 							list.push({ele:id,time:timeStamp});
-							console.log(list)
+							id.each((element,value) => {
+								let $value = $(value)
+								
+							});
 		        }
-		        function go() {
+		        function go(){
 		          for (var i = 0; i < list.length; i++) {	
 		            // list[i].ele.innerHTML = changeTimeStamp(list[i].time);
 		            // if (!list[i].time){
@@ -649,6 +600,12 @@
 								// }
 								for (var t = 0;t<list[i].ele.length; t++){
 									list[i].ele[t].innerHTML = (changeTimeStamp(list[i].time[t]))
+									var $li = $(list[i].ele[t])
+									var hide = $li.parent().prev().children(".fn_cl").attr("data-val")
+									 if(hide==2 || hide==3){
+									  $li.parent().remove()
+									 }
+								
 								}
 		          }
 							
@@ -687,13 +644,9 @@
         }
       }();
       //倒计时位置，时间戳
-<<<<<<< HEAD
 			var formtime= $(".form input")
 			var order = $(".form #order_time")
 			addTimer(order,formtime);
-=======
-      addTimer("order_time",1553672628);
->>>>>>> eb1535f45451ba34463930007372ed12461dbd52
 			})
 
 
