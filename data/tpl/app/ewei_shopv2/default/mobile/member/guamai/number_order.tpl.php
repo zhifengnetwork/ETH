@@ -22,7 +22,7 @@
 	}
 	/*---背景颜色----*/
 		.fui-page {
-		background: #071a21;
+		background: #0e222d;
 	}
 
 	.fui-header a.back:before {
@@ -80,18 +80,23 @@
 	.buying {
 		height: 2rem;
 		text-align: center;
-		padding-top: .5rem;
+		display:-webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;	
+		display: -webkit-flex;
+		display: flex;
+    flex-wrap: nowrap;
+
 	}
 
 	.pay-tt {
 		display: inline-block;
-		width: 48%;
+		width: 100%;
 		height: 2rem;
-		/* background: #F0E68C; */
 		text-align: center;
-		/* line-height: 2rem; */
-		padding: .5rem;
+		line-height: 2rem;
 		color: #fff;
+		font-size: 0.7rem;
 	}
 
 	.pay-tt.active {
@@ -189,7 +194,10 @@
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 	}
-	.tab_content .tab_con{display: none;}
+	.tab_content .tab_con{
+		display: none;
+		padding: .5rem .2rem 0 .2rem;
+		}
 	.tab_content .tab_con.active{display: block;}
 
 	/* 买入 卖出弹框 */
@@ -399,7 +407,6 @@
 	}
 	/*-----倒计时------*/
 	.order_time{/*font-weight: bold;*/letter-spacing: 0.03rem; padding-right: 0.85rem;box-sizing: border-box; width: 100%; color: #fff;font-size: 0.7rem;height:1.2rem;line-height: 1.2rem; text-align: right;}
-
 </style>
 
 <div class='fui-page  fui-page-current member-log-page'>
@@ -452,17 +459,17 @@
 								<?php  } ?>
 
 								<?php  if($winn['status'] == '0') { ?>
-								<span class="fn_cl">未交易<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+								<span class="fn_cl" data-val="0">未交易<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
 								<?php  } ?>
 								<?php  if($winn['status'] == '1') { ?>
-								<span class="fn_cl" onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<?php  echo $winn['id'];?>&op=0'" >交易中<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+								<span class="fn_cl" data-val="1" onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<?php  echo $winn['id'];?>&op=0'" >交易中<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
 								<?php  } ?>
 								<?php  if($winn['status'] == '2') { ?>
-								<span class="fn_cl">交易完成<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+								<span class="fn_cl" data-val="2">交易完成<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
 								<?php  } ?>
 								<?php  if($winn['status'] == '3') { ?>
-								<span class="fn_cl">交易失败<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
-								<?php  } ?>
+								<span class="fn_cl" data-val="3">交易失败<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+							  <?php  } ?> 
 							</p>
 
 
@@ -496,7 +503,7 @@
 						</div>
 					</div>
 					<?php  } } ?>
-				</div>
+					
 
 				<!--------发布广告----------->
 				<div class="tab_con">
@@ -566,37 +573,56 @@
 			<script>
 
 			 $(function(){
+			  // fn_cl 是否显示倒计时
+				  //  $(".buy .fn_cl").on("bind",()=>{
+          //       console.log($(this))
+					//  })
+					//console.log( $(".buy .fn_cl"))
 			 	var addTimer = function(){
 		        var list = [],
 		          interval;
-
 		        return function(id,timeStamp){
 		          if(!interval){
-		            interval = setInterval(go,1);
-		          }
-		          list.push({ele:document.getElementById(id),time:timeStamp});
+		             interval = setInterval(go,1);
+							}
+		          // list.push({ele:document.getElementById(id),time:timeStamp});
+							list.push({ele:id,time:timeStamp});
+							id.each((element,value) => {
+								let $value = $(value)
+								
+							});
 		        }
-
-		        function go() {
-		          for (var i = 0; i < list.length; i++) {
-		            list[i].ele.innerHTML = changeTimeStamp(list[i].time);
-		            if (!list[i].time)
-		              list.splice(i--, 1);
+		        function go(){
+		          for (var i = 0; i < list.length; i++) {	
+		            // list[i].ele.innerHTML = changeTimeStamp(list[i].time);
+		            // if (!list[i].time){
+		            //   list.splice(i--, 1);
+								// }
+								for (var t = 0;t<list[i].ele.length; t++){
+									list[i].ele[t].innerHTML = (changeTimeStamp(list[i].time[t]))
+									var $li = $(list[i].ele[t])
+									var hide = $li.parent().prev().children(".fn_cl").attr("data-val")
+									 if(hide==2 || hide==3){
+									  $li.parent().remove()
+									 }
+								
+								}
 		          }
-		        }
+							
+							}
 		         function changeTimeStamp(timeStamp){
-          var distancetime = new Date(timeStamp*1000).getTime() - new Date().getTime();
+					 var	$timeStamp = $(timeStamp).val()
+          var distancetime = new Date($timeStamp*1000).getTime() - new Date().getTime();
           if(distancetime > 0){
 　　　　　　　　//如果大于0.说明尚未到达截止时间
 			/*毫秒*/
-            var ms = Math.floor(distancetime%1000);
+            var ms =  Math.floor(distancetime%1000);
             /*秒*/
             var sec = Math.floor(distancetime/1000%60);
             /*分*/
             var min = Math.floor(distancetime/1000/60%60);
             /*小时*/
 //          var hour =Math.floor(distancetime/1000/60/60/24);
-
             if(ms<100){
               ms = "0"+ ms;
             }
@@ -609,16 +635,18 @@
 //          if(hour<10){
 //            hour = "0"+ hour;
 //          }
-
             return "倒计时："+min + ":" +sec;
-          }else{
+          }
+					else{
 　　　　　　　　//若否，就是已经到截止时间了
             return "已截止！"
           }
         }
       }();
       //倒计时位置，时间戳
-      addTimer("order_time",1553672628);
+			var formtime= $(".form input")
+			var order = $(".form #order_time")
+			addTimer(order,formtime);
 			})
 
 
@@ -958,7 +986,6 @@ $('.mask0_btn').click(function () {
 	$(".buying .pay-tt").click(function() {
 		var $a = $(this)
 		$a.addClass("active").siblings().removeClass("active")
-		$(this).index()
 		if($(this).index() == 0) {
 			$(".mask1").show().siblings(".mask0").hide();
 		} else {
