@@ -468,12 +468,8 @@
 						</div>
 					</div>
 					<?php  } } ?>
-<<<<<<< HEAD
-				
-=======
 					
 				</div>
->>>>>>> c11adfe5ab8dc66923f02d4664362d1a3d1a2d52
 				<!--------发布广告----------->
 				<div class="tab_con">
 					<div class="buying">
