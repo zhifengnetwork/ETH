@@ -503,8 +503,7 @@
 						</div>
 					</div>
 					<?php  } } ?>
-					
-
+				
 				<!--------发布广告----------->
 				<div class="tab_con">
 					<div class="buying">
@@ -971,7 +970,7 @@ $('.mask0_btn').click(function () {
 			$(this).addClass("on").siblings().removeClass("on");
 			//内容切换
 			$(".tab_content .tab_con").eq(index).addClass("active").siblings().removeClass("active");
-
+      console.log(	$(".tab_content .tab_con").eq(index))
 		//买入卖出切换
 		if($(this).index() == 1) {
 				$(".mask0_box").show()
