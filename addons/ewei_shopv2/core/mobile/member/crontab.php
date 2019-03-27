@@ -13,7 +13,7 @@ class Crontab_EweiShopV2Page
 	//订单倒计时
 	public function main()
 	{
-    echo '123123';die;
+
 		$data = date('Y-m-d H:i:s',time());
 		$guamai = pdo_fetchall("select * from".tablename("guamai")." where status=1 or status=0");
 		if(empty($guamai)){
@@ -25,7 +25,6 @@ class Crontab_EweiShopV2Page
 			if($time<=$createtime){
 				continue;
 			}
-			dump($val);
 			$openid = $val['openid'];
 			$users = pdo_fetch("select id,openid,credit2 from".tablename("ewei_shop_member")." where openid='".$openid."'");
 			if(empty($users)){
