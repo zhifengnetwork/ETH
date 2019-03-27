@@ -1,8 +1,5 @@
 <?php
-if (!(defined('IN_IA')))
-{
-	exit('Access Denied');
-}
+
 
 echo 111;
 // class Crontab_EweiShopV2Page extends MobileLoginPage
