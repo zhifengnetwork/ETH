@@ -48,7 +48,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		if($_W['ispost']){
 			$id = $_GPC['id'];
 			$guamai = pdo_fetch("select * from".tablename("guamai")."where id='".$id."'");
-			$appeal = pdo_fetch("select * from".tablename("guamai_appeal")."where stuas=0 and order_id='".$id."'");
+			$appeal = pdo_fetch("select * from".tablename("guamai_appeal")."where stuas=0 and order_id='".$id."' and appeal_name='".$_W['mid']."'");
 			if($appeal){
 				show_json(1,'您还有一条为审核的申诉,请稍后再试!!!');
 			}else{
