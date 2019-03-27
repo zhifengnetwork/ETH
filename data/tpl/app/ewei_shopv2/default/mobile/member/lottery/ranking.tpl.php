@@ -47,8 +47,11 @@
     text-align: center;
 
   }
-  .headertitle p span:nth-child(1){
-  	width: 10%;	
+  .headertitle li span:nth-child(4){
+  	
+  	display: inline-block;
+  	width: 19%;
+  	text-align: center;
   }
   .headertitle p span:nth-child(2){
   	width: 13%;	
@@ -122,9 +125,6 @@
   	color: green;
   	
   }
- 
- 
- 
 </style>
 
 <div class='fui-page  fui-page-current'>
@@ -159,7 +159,6 @@
             <span class="select">投资排名</span><span>上期中奖名单</span>
         </div>
         <div id="con">
-
           <div class="show" >
               
                 <!--data 头部-->
@@ -190,7 +189,7 @@
           <div style="display: none;" class="getprice show">
               <?php  if($winning == '') { ?>
                 <p style="color: red;text-align: center;font-size: 1rem;font-weight: 600;">投资总额: <?php  echo $sale['sum'];?></p>
-                <?php  } ?>
+              <?php  } ?>
               <div class="getprice good-item">
                   <?php  if(is_array($winning)) { foreach($winning as $winn) { ?>
                 <div class="lis">

@@ -4,19 +4,19 @@
 	#tab>a {
 		flex: 1;
 	}
-	
+
 	.mydingdan {
 		flex: 1;
 		color: #fff;
 		text-align: center;
 		line-height: 40px;
 	}
-	
+
 	.fui-header {
 		background: #0a181f;
 		color: #fff;
 	}
-	
+
 	.fui-header .title {
 		color: #fff;
 	}
@@ -24,28 +24,28 @@
 		.fui-page {
 		background: #071a21;
 	}
-	
+
 	.fui-header a.back:before {
 		border-color: #fff;
 	}
-	
+
 	.fui-header-right>.icon-add4 {
 		font-size: 22px;
 	}
-	
+
 	.fui-tab {
 		background: #0a181f;
 	}
-	
+
 	.fui-tab.fui-tab-danger a.active {
 		color: #F0E68C;
 		border-color: #F0E68C;
 	}
-	
+
 	.fui-tab a {
 		color: #fff;
 	}
-	
+
 	.fui-tab-o,
 	.fui-tab {
 		margin-bottom: 0;
@@ -58,7 +58,7 @@
 		visibility: hidden;
 		height: 0;
 	}
-	
+
 	.clearfix:after {
 		display: block;
 		clear: both;
@@ -66,12 +66,12 @@
 		visibility: hidden;
 		height: 0;
 	}
-	
+
 	.clearfix {
 		zoom: 1
 	}
 	/*是在处理兼容性问题*/
-	
+
 	.tab_header .hide {
 		display: none;
 	}
@@ -82,7 +82,7 @@
 		text-align: center;
 		padding-top: .5rem;
 	}
-	
+
 	.pay-tt {
 		display: inline-block;
 		width: 48%;
@@ -93,33 +93,38 @@
 		padding: .5rem;
 		color: #fff;
 	}
-	
+
 	.pay-tt.active {
 		background: #F0E68C;
 		color: #000;
 	}
-	
+
 	.fui-list-group {
 		margin-top: 0;
 	}
-	
+
 	ul li {
 		list-style: none;
 	}
-	
+
 
 	/*-----选中状态----*/
 	.on {
 		color: #F0E68C !important;
 		border-bottom: 2px solid #F0E68C;
 	}
-	
+
 	.box {
-		padding-top: 2.2rem;
+
+		padding:2.2rem 0 2.7rem 0;
 		background: #071a21;
 		box-sizing: border-box;
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
+		overflow-y: scroll;
+	    height: 100%;
+
+
 	}
 	/*----飞机图标---*/
 	.lj_plane {
@@ -130,16 +135,15 @@
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 	}
-	
+
 	.fui-header-right a {
 		display: inline-block;
 	}
+
+
 	/*---tab切换---*/
-	.tab_header {
-		width: 100%
-	}
-	
-	.tab_header ul li {
+	.box_nav{position: fixed;width: 100%;height: 2rem;background: #0a181f;}
+	.box_nav ul li {
 		width: 33%;
 		float: left;
 		text-align: center;
@@ -147,7 +151,10 @@
 		line-height: 2rem;
 		height: 2rem;
 	}
-	
+	/*------tab切换里面的内容------*/
+	.tab_header {
+		width: 100%
+	}
 	.tab_content {
 		color: #fff;
 	}
@@ -156,35 +163,37 @@
 		height: 2rem;
 		padding: 0 0.7rem;
 	}
-	
+
 	.tab_con1_one p {
 		display: inline-block;
 	}
-	
+
 	.tab_con1_one_l {
 		float: left;
 	}
-	
+
 	.tab_con1_one_r {
 		float: right;
 	}
-	
+
 	.tab_con1_one_r_img {
 		width: 26px;
 		height: 25px;
 		vertical-align: middle;
 	}
-	
+
 	.tab_content {
 		color: #fff;
-		padding-top: .5rem;
-		padding-bottom: .5rem;
+		padding: 2rem 0 0.5rem 0;
+		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
 	}
 	.tab_content .tab_con{display: none;}
 	.tab_content .tab_con.active{display: block;}
-	
+
 	/* 买入 卖出弹框 */
-	
+
 	.mask1_btn {
 		width: 100%;
 		text-align: center;
@@ -193,7 +202,7 @@
 		background-color: #0a0;
 		margin: 10px 0 20px;
 	}
-	
+
 	.mask1>.mask1_lis {
 		display: flex;
 		background-color: #fff;
@@ -201,48 +210,48 @@
 		padding: 5px 10px;
 		align-items: center;
 	}
-	
+
 	.mask1>.mask1_lis>.buyNum {
 		border: 0;
 		outline-style: none;
 		width: 70%;
 	}
-	
+
 	.mask1>.mask1_lis>.allBuy {
 		width: 30%;
 	}
-	
+
 	.mask1>.mask1_lis>.allBuy>span {
 		color: #c2a378;
 	}
-	
+
 	.mask1>p {
 		padding: 5px 0;
 	}
-	
+
 	.mask1>.mask_tit {
 		margin-top: 10px;
 		font-size: 16px;
 		text-align: center;
 		color: #c2a378;
 	}
-	
+
 	.mask1>.mask1_pice {
 		display: flex;
 	}
-	
+
 	.mask1>.mask1_pice>p {
 		width: 20%;
 		text-align: center;
 	}
-	
+
 	.maiRu_price {
 		padding: 5px 10px;
 		width: 80%;
 		border: 0;
 		outline-style: none;
 	}
-	
+
 	.mask1 {
 		background-color: #0e222d;
 		/* position: fixed;
@@ -253,7 +262,7 @@
 		color: #fff;
 		padding: 20px;
 	}
-	
+
 	.mask0 {
 		background-color: #0e222d;
 		/* position: fixed;
@@ -264,19 +273,19 @@
 		color: #fff;
 		padding: 20px;
 	}
-	
+
 	.mask0>.mask_tit {
 		margin-top: 10px;
 		font-size: 16px;
 		text-align: center;
 		color: #c2a378;
 	}
-	
+
 	.mask0>.mask_lis>input {
 		width: 100%;
 		padding: 5px 10px;
 	}
-	
+
 	.tishi {
 		text-align: right;
 		color: #888;
@@ -284,7 +293,7 @@
 		padding: 3px 0;
 		border-bottom: 1px solid #666;
 	}
-	
+
 	.mask0_btn {
 		width: 100%;
 		text-align: center;
@@ -298,17 +307,16 @@
 		width: 100%;
 		margin-top: 0.5rem;
 	}
-	
+
 	.main p {
 		font-size: 1rem;
-		padding-top: 0.3rem;
-		padding-bottom: 0.5rem;
+		padding: 0.3rem 0 0.5rem 0;
 		box-sizing: border-box;
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 		text-align: center;
 	}
-	
+
 	textarea {
 		outline: none;
 		width: 78%;
@@ -320,11 +328,11 @@
 		padding: 0.4rem;
 		letter-spacing: 0.05rem;
 	}
-	
+
 	.appeal_reason {
 		color: white;
 	}
-	
+
 	.button {
 		width: 78%;
 		height: 2.6rem;
@@ -339,57 +347,78 @@
 		margin-top: 0.8rem;
 	}
 	/* 订单内容 */
-	
+
 	.order_list {
 		width: 100%;
 		height: auto;
-		border-bottom: 1px solid #eee;
+		border-bottom: 1px solid #c5c5c5;
 	}
-	
+
 	.order {
 		padding: .4rem;
 		box-sizing: border-box;
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 	}
-	
+
 	.order p {
 		display: flex;
 		justify-content: space-between;
 		line-height: 1.5rem;
 	}
+<<<<<<< HEAD
 	
 	.order .form span {
 		width: 22%;
+=======
+
+	.order .form span {
+		width: 50%;
+		/*text-align: center;*/
+>>>>>>> c471a7f98b76ae27a46007bdf61e188996110dc2
 	}
-	
+<<<<<<< HEAD
+
+=======
+	.order .form span:nth-child(2){padding-left: 2%;}
+>>>>>>> cace6fdbc72daa2954d5855e21de9c35bd8ca24b
 	.buy b {
 		font-size: 18px;
 		color: #F0E68C;
 		margin-left: .5rem;
 		font-weight: normal;
 	}
-	
+
 	.buy img {
 		width: .4rem;
     height: .55rem;
     margin: 0 .5rem;
     vertical-align: baseline;
 	}
-	
+
 	.fn_cl {
 		color: #F0E68C;
 	}
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> c471a7f98b76ae27a46007bdf61e188996110dc2
 	.font_color_999 {
 		color: #999999;
 	}
-	
+
 	.order div span {
 		margin-right: 1rem;
 	}
+<<<<<<< HEAD
+
+
+=======
+	/*-----倒计时------*/
+	.order_time{/*font-weight: bold;*/letter-spacing: 0.03rem; padding-right: 0.85rem;box-sizing: border-box; width: 100%; color: #fff;font-size: 0.7rem;height:1.2rem;line-height: 1.2rem; text-align: right;}
 	
-	
+>>>>>>> cace6fdbc72daa2954d5855e21de9c35bd8ca24b
 </style>
 
 <div class='fui-page  fui-page-current member-log-page'>
@@ -410,8 +439,7 @@
 
 	<!--nav-->
 	<div class="box">
-		<!--这个是tab切换标题-->
-		<div class="tab_header">
+		<div class="box_nav">
 			<ul class="clearfix">
 				<li class="current on con_on" > 我的订单</li>
 
@@ -421,23 +449,92 @@
 
 			</ul>
 			<div class="clear"></div>
+		</div>
+
+		<!--这个是tab切换标题-->
+		<div class="tab_header">
+
 			<!--这个是要显示的内容部分-->
 			<div class="tab_content">
 				<!--------我的订单---------->
 				<div class="tab_con active">
+					<?php  if(is_array($guamai)) { foreach($guamai as $winn) { ?>
 					<div class="order_list">
 						<div class="order">
+
 							<p class="buy">
-								<span>买入<b>UES</b></span>
-								<span class="fn_cl">已取消<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+								<?php  if($winn['type'] == '0') { ?>
+								<span style="color:#0a0">买入<b>UES</b></span>
+								<?php  } ?>
+								<?php  if($winn['type'] == '1') { ?>
+								<span style="color:brown">卖出<b>UES</b></span>
+								<?php  } ?>
+
+								<?php  if($winn['status'] == '0') { ?>
+								<span class="fn_cl">未交易<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+								<?php  } ?>
+								<?php  if($winn['status'] == '1') { ?>
+<<<<<<< HEAD
+								<span class="fn_cl" onclick="location.href='./index.php?i=12&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=member.guamai.sellout&amp;mid=36538&amp;id=24&amp;op=0'">交易中<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+=======
+								<span class="fn_cl" onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<?php  echo $winn['id'];?>&op=0'" >交易中<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+>>>>>>> 04e0409a855e78c7572b0c11475974d401f6910e
+								<?php  } ?>
+								<?php  if($winn['status'] == '2') { ?>
+								<span class="fn_cl">交易完成<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+								<?php  } ?>
+								<?php  if($winn['status'] == '3') { ?>
+								<span class="fn_cl">交易失败<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+								<?php  } ?>
 							</p>
+<<<<<<< HEAD
+
+=======
+							
+							
+							<p class="form ">
+								<!--倒计时-时间戳-->
+								<!--<input type="hidden" value="1553684400" />-->
+								<span id="order_time" class="order_time" style="width: 100%;"></span>
+							</p>
+>>>>>>> cace6fdbc72daa2954d5855e21de9c35bd8ca24b
 							<p class="form">
 								<span>创建时间</span>
 								<span>数量(UES)</span>
+<<<<<<< HEAD
 								<span>价格(CNY)</span>
 								<span>总额(CNY)</span>
 							</p>
 							<p class="form font_color_999">
+								<span>16:10&nbsp;11/13</span>
+								<span>10000.0</span>
+								<span>0.25</span>
+								<span>2500.00</span>
+							</p>
+							<div class="font_color_999">
+								<span>订单号</span>
+								<span>666666666666666</span>
+							</div>
+						</div>
+					</div>
+				<div class="order_list">
+						<div class="order">
+							<p class="buy">
+								<span>买入<b>UES</b></span>
+								<span class="fn_cl">已取消<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+=======
+							</p>
+							<p class="form font_color_999">
+								<span><?php  echo $winn['createtime'];?></span>
+								<span><?php  echo $winn['trx'];?></span>
+>>>>>>> c471a7f98b76ae27a46007bdf61e188996110dc2
+							</p>
+							<p class="form">
+								<span>价格(CNY)</span>
+								<span>总额(CNY)</span>
+							</p>
+							<p class="form font_color_999">
+<<<<<<< HEAD
 								<span>16:10&nbsp;11/13</span>
 								<span>10000.0</span>
 								<span>0.25</span>
@@ -470,36 +567,23 @@
 							<div class="font_color_999">
 								<span>订单号</span>
 								<span>666666666666666</span>
-							</div>
-						</div>
-					</div>
-				<div class="order_list">
-						<div class="order">
-							<p class="buy">
-								<span>买入<b>UES</b></span>
-								<span class="fn_cl">已取消<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+=======
+								<span><?php  echo $winn['price'];?></span>
+								<span><?php  echo $winn['trx2'];?></span>
 							</p>
 							<p class="form">
-								<span>创建时间</span>
-								<span>数量(UES)</span>
-								<span>价格(CNY)</span>
-								<span>总额(CNY)</span>
-							</p>
-							<p class="form font_color_999">
-								<span>16:10&nbsp;11/13</span>
-								<span>10000.0</span>
-								<span>0.25</span>
-								<span>2500.00</span>
+								<span> 挂单人:  182xxxx8860</span>
+								<span> 抢单人:  182xxxx8860</span>
 							</p>
 							<div class="font_color_999">
-								<span>订单号</span>
-								<span>666666666666666</span>
+								<span>订单号:  66666666662222266666</span>
+>>>>>>> c471a7f98b76ae27a46007bdf61e188996110dc2
 							</div>
 						</div>
 					</div>
-				
+					<?php  } } ?>
 				</div>
-				
+
 				<!--------发布广告----------->
 				<div class="tab_con">
 					<div class="buying">
@@ -511,12 +595,16 @@
 				<div class="tab_con">
 					<div class="main">
 						<p class="appeal_reason">申诉原因</p>
+<<<<<<< HEAD
 						<textarea placeholder="请输入申诉原因"></textarea>
+=======
+						<textarea class="textarea" placeholder="请输入申诉原因"></textarea>
+>>>>>>> c471a7f98b76ae27a46007bdf61e188996110dc2
 						<div class="button">申诉</div>
 					</div>
 				</div>
-			
-			
+
+
 			</div>
 			<div class="mask0_box hide">
 				<!-- 卖出 -->
@@ -560,6 +648,69 @@
 					<div class="mask1_btn">确定买入</div>
 				</div>
 			</div>
+			<script type="text/javascript" src="../../../../../../../app/themes/chengzi_bphweizhan/js/jquery-1.8.2.min.js" ></script>
+			<!---交易倒计时----->
+			<script>  
+				
+			 $(function(){
+			 	var addTimer = function(){
+		        var list = [],
+		          interval;
+		           
+		        return function(id,timeStamp){
+		          if(!interval){
+		            interval = setInterval(go,1);
+		          }
+		          list.push({ele:document.getElementById(id),time:timeStamp});
+		        }
+		         
+		        function go() { 
+		          for (var i = 0; i < list.length; i++) { 
+		            list[i].ele.innerHTML = changeTimeStamp(list[i].time); 
+		            if (!list[i].time) 
+		              list.splice(i--, 1); 
+		          } 
+		        }
+		         function changeTimeStamp(timeStamp){
+          var distancetime = new Date(timeStamp*1000).getTime() - new Date().getTime();
+          if(distancetime > 0){ 
+　　　　　　　　//如果大于0.说明尚未到达截止时间       
+			/*毫秒*/
+            var ms = Math.floor(distancetime%1000);
+            /*秒*/
+            var sec = Math.floor(distancetime/1000%60);
+            /*分*/
+            var min = Math.floor(distancetime/1000/60%60);
+            /*小时*/
+//          var hour =Math.floor(distancetime/1000/60/60/24);
+             
+            if(ms<100){
+              ms = "0"+ ms;
+            }
+            if(sec<10){
+              sec = "0"+ sec;
+            }
+            if(min<10){
+              min = "0"+ min;
+            }
+//          if(hour<10){
+//            hour = "0"+ hour;
+//          }
+             
+            return "倒计时："+min + ":" +sec + ":" +ms;
+          }else{
+　　　　　　　　//若否，就是已经到截止时间了
+            return "已截止！"
+          }  
+        }        
+      }();
+      //倒计时位置，时间戳
+      addTimer("order_time",1553684400);
+			})
+				 
+				 
+			</script>  
+			
 			<!-- 买入模板 -->
 			<script id="tpl_maichu" type="text/html">
 				<ul>
@@ -654,7 +805,7 @@
 					<% /each %>
 				</ul>
 			</script>
-			
+
 
 		</div>
 
@@ -664,14 +815,201 @@
 
 </div>
 <script type="text/javascript">
+<<<<<<< HEAD
+=======
+$('.button').click(function () {
+	let textarea = $('.textarea').val();  // 申诉原因
+
+	// 1. 卖出价格需在最小单价与最大单价区间中
+	if(textarea == ''){
+		alert('请输入申诉原因！')
+		return
+	}
+	console.log(1231233);
+
+})
+// 确定卖出
+$('.mask0_btn').click(function () {
+      let maiChu_price = $('.maiChu_price').val();  // 卖出价格
+      let price_min = $('.price_Min').html();       // 最小单价
+      let price_max = $('.price_Max').html();        // 最大单价
+      let maiChu_num = $('.maiChu_Num').val();       // 卖出数量
+      let getMoney0 = $('.getMoney0').val();        // 获得金额
+      let sxf0 = $('.sxf0').html();                 // 手续费
+      let setTrx0 = $('.setTrx0').val();            // 支付TRX
+
+      // 1. 卖出价格需在最小单价与最大单价区间中
+      if(maiChu_price < price_min || maiChu_price > price_max){
+        alert('请根据参考价格来输入价格！')
+        return
+      } else if(maiChu_num <= 0){
+        alert('请输入卖出的数量！')
+        return
+      }
+
+      $.ajax({
+        type:'post',
+        url:"<?php  echo mobileurl('member/guamai/hangonsale')?>",
+        data:{
+          price: maiChu_price,
+          trx: maiChu_num,
+          money: getMoney0,
+          servicecharge: sxf0,
+          trx2: setTrx0,
+          type: "1"
+        },
+        dataType: 'json',
+        success:function(data){
+          console.log(data);
+          if(data.status == '-2'){
+            alert(data.result.message);
+            location.href="<?php  echo mobileurl('member/wallet')?>";
+          }else if(data.status == 1){
+            alert(data.result.message);
+            location.reload();
+          }
+
+        },error:function(err){
+          console.log(err);
+
+        }
+      })
+
+    })
+
+    // 监听卖出价格的input变化
+    $('.maiChu_price').bind('input onpropertychange',function () {
+      if($('.maiChu_price').val() < 0){
+        alert('卖出价格必须大于0');
+        $('.maiChu_price').val('');
+        return false;
+      }
+
+      if($('.maiChu_Num').val() != '' && $('.maiChu_price').val() != ''){
+        let getMoney = $('.maiChu_Num').val() * $('.maiChu_price').val();
+        let num = $('.maiChu_Num').val();
+        $('.getMoney0').val(getMoney);
+        setTrx = Number(num) + Number($('.sxf0').html());
+        $('.setTrx0').val(setTrx);
+      } else {
+        $('.getMoney0').val('0');
+        $('.setTrx0').val("0");
+      }
+
+    })
+    // 监听卖出数量的input变化
+    $('.maiChu_Num').bind('input onpropertychange',function () {
+      let r = /^[1-9]+[0-9]*]*$/;
+      if(!r.test($('.maiChu_Num').val())){
+        alert('卖出数量必须为大于0的整数');
+        $('.maiChu_Num').val('');
+        return false;
+      }
+
+      if($('.maiChu_price').val() != '' && $('.maiChu_Num').val() != ''){
+        let getMoney = $('.maiChu_Num').val() * $('.maiChu_price').val();
+        let num = $('.maiChu_Num').val();
+        $('.getMoney0').val(getMoney);
+        setTrx = Number(num) + Number($('.sxf0').html()*num);
+        $('.setTrx0').val(setTrx);
+      } else {
+        $('.getMoney0').val('0');
+        $('.setTrx0').val("0");
+      }
+    })
+
+    // 监听买入价格的input变化
+    $('.maiRu_price').bind('input onpropertychange',function () {
+      if($('.maiRu_price').val() < 0){
+        alert('卖出价格必须大于0');
+        $('.maiRu_price').val('');
+        return false;
+      }
+
+      if($('.buyNum').val() != '' && $('.maiRu_price').val() != ''){
+		let getMoney = ($('.buyNum').val()-$('.sxf0').html()*$('.buyNum').val()) * $('.maiRu_price').val();
+		console.log($('.buyNum').val());
+		console.log($('.maiRu_price').val());
+		console.log($('.sxf0').html());
+        $('.mairu_Money').val(getMoney);
+      } else {
+        $('.mairu_Money').val('0');
+      }
+
+    })
+    // 监听买入数量的input变化
+    $('.buyNum').bind('input onpropertychange',function () {
+      let r = /^[1-9]+[0-9]*]*$/;
+      if(!r.test($('.buyNum').val())){
+        alert('卖出数量必须为大于0的整数');
+        $('.buyNum').val('');
+        return false;
+      }
+
+      if($('.maiRu_price').val() != '' && $('.buyNum').val() != ''){
+		let getMoney = ($('.buyNum').val()-$('.sxf0').html()*$('.buyNum').val()) * $('.maiRu_price').val();
+		console.log($('.buyNum').val());
+		console.log($('.maiRu_price').val());
+		console.log($('.sxf0').html()*$('.buyNum').val());
+        $('.mairu_Money').val(getMoney);
+      } else {
+        $('.getMoney0').val('0');
+      }
+    })
+
+    // 确定买入
+    $('.mask1_btn').click(function () {
+      let maiRu_price = $('.maiRu_price').val();
+      let price_min = $('.price_Min').html();
+      let price_max = $('.price_Max').html();
+      let buy_nam = $('.buyNum').val();
+      // 1. 买入价格需在最小单价与最大单价区间中
+      if(maiRu_price < price_min || maiRu_price > price_max){
+        alert('请根据参考价格来输入价格！')
+        return
+      } else if(buy_nam <= 0 || buy_nam == ''){
+        alert('请输入买入的数量！')
+        return
+      }
+
+      $.ajax({
+        type:'post',
+        url:"<?php  echo mobileurl('member/guamai/hangonsale')?>",
+        data:{
+          price: $('.maiRu_price').val(),
+          trx: $('.buyNum').val(),
+          money: $('.mairu_Money').val(),
+          type: "0"
+        },
+        dataType: 'json',
+        success:function(data){
+          console.log(data);
+          if(data.status == '-2'){
+            alert(data.result.message);
+            location.href="<?php  echo mobileurl('member/wallet')?>";
+          }else if(data.status == 1){
+            alert(data.result.message);
+            location.reload();
+          }
+
+        },error:function(err){
+          console.log(err);
+
+        }
+      })
+
+
+
+    })
+>>>>>>> c471a7f98b76ae27a46007bdf61e188996110dc2
 	$(function() {
 		//tab切换
-		$(".tab_header .con_on").on("click", function() {
+		$(".box_nav .con_on").on("click", function() {
 			var index=$(this).index();
 			$(this).addClass("on").siblings().removeClass("on");
 			//内容切换
 			$(".tab_content .tab_con").eq(index).addClass("active").siblings().removeClass("active");
-		
+
 		//买入卖出切换
 		if($(this).index() == 1) {
 				$(".mask0_box").show()
