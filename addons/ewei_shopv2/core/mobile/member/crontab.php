@@ -5,14 +5,14 @@ if (!(defined('IN_IA')))
 }
 class Crontab_EweiShopV2Page extends MobileLoginPage
 {
-	protected $member;
-	public function __construct()
-	{
-		global $_W;
-		global $_GPC;
-		parent::__construct();
-		$this->member = m('member')->getInfo($_W['openid']);
-	}
+	// protected $member;
+	// public function __construct()
+	// {
+	// 	global $_W;
+	// 	global $_GPC;
+	// 	parent::__construct();
+	// 	$this->member = m('member')->getInfo($_W['openid']);
+	// }
 	//订单倒计时
 	public function main()
 	{
