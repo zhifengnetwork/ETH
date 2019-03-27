@@ -315,45 +315,10 @@
 		width: 100%;
 		margin-top: 0.5rem;
 	}
-
-	.main p {
-		font-size: 1rem;
-		padding: 0.3rem 0 0.5rem 0;
-		box-sizing: border-box;
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		text-align: center;
-	}
-
-	textarea {
-		outline: none;
-		width: 78%;
-		height: 12rem;
-		margin-left: 11%;
-		font-size: 0.7rem;
-		border: 2px solid black;
-		border-radius: 0.3rem;
-		padding: 0.4rem;
-		letter-spacing: 0.05rem;
-	}
-
-	.appeal_reason {
-		color: white;
-	}
-
-	.button {
-		width: 78%;
-		height: 2.6rem;
-		border: 1px solid green;
-		color: black;
-		background: white;
-		border-radius: .3rem;
-		line-height: 2.6rem;
-		text-align: center;
-		font-size: 1.1rem;
-		margin: auto;
-		margin-top: 0.8rem;
-	}
+	.wtf_item {display: inline-block;width: 100%;}
+	.wtf_item1 {border-bottom: 1px solid #fff;line-height: 1.9rem;height: 1.9rem;width: 100%;}
+	.wtf_item1 p:nth-child(1){font-size: 0.65rem;color: #FFFFFF;float: left;margin-left: 0.6rem;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
+	.wtf_item1 p:nth-child(2) {font-size: 0.65rem;color: #FFFFFF;float: right;padding-right: 0.6rem;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
 	/* 订单内容 */
 
 	.order_list {
@@ -504,7 +469,7 @@
 					</div>
 					{/loop}
 					
-
+				</div>
 				<!--------发布广告----------->
 				<div class="tab_con">
 					<div class="buying">
@@ -514,11 +479,18 @@
 				</div>
 				<!--------我的申诉----------->
 				<div class="tab_con">
-					<div class="main">
-						<p class="appeal_reason">申诉原因</p>
-						<textarea class="textarea" placeholder="请输入申诉原因"></textarea>
-						<div class="button">申诉</div>
-					</div>
+					<div class="wtf_top">
+			      		 <div class="wtf_item">
+			      	 		<div class="wtf_item1" onclick="window.location.href = ''">
+				      	 		<p>全面恢复正常</p >
+				      	 		<p>03-03</p >
+				      	 	</div>
+				      	 	<div class="wtf_item1">
+				      	 		<p>提币的通知</p >
+				      	 		<p>02-25</p >
+				      	 	</div>
+				      	 </div>	
+				   	</div>
 				</div>
 
 
