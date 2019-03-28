@@ -713,25 +713,16 @@
 			<script>
 
 			 $(function(){
-			  // fn_cl 是否显示倒计时
-				  //  $(".buy .fn_cl").on("bind",()=>{
-          //       console.log($(this))
-					//  })
-					//console.log( $(".buy .fn_cl"))
+			 
 			 	var addTimer = function(){
 		        var list = [],
 		          interval;
 		        return function(id,timeStamp){
 		          if(!interval){
-		             //interval = setInterval(go,1);
-								 interval = setTimeout(go,1)
+		             interval = setInterval(go,1);
 							}
 		          // list.push({ele:document.getElementById(id),time:timeStamp});
 							list.push({ele:id,time:timeStamp});
-							// id.each((element,value) => {
-							// 	let $value = $(value)
-							// });
-							console.log(list)
 		        }
 		        function go(){
 		          for (var i = 0; i < list.length; i++) {
@@ -781,7 +772,6 @@
       //倒计时位置，时间戳
 			var formtime= $(".form .time")
 			var order = $(".form .order_time")
-			console.log(formtime)
 			addTimer(order,formtime);
 			})
 
