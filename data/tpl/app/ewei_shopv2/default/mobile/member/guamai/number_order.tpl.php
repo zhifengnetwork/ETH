@@ -198,6 +198,11 @@
 		display: none;
 		padding: .5rem .2rem 0 .2rem;
 		}
+
+.tab_content .tab_conn{
+		display: none;
+		padding: .5rem .2rem 0 .2rem;
+}
 	.tab_content .tab_con.active{display: block;}
 
 	/* 买入 卖出弹框 */
@@ -429,6 +434,13 @@
   .tab_cut ul .tab_item a{
 		color: #FFFFFF;
 	}
+	/* 交易状态切换 */
+	.my_order .tab_cont{
+	 display: none;
+	}
+	.my_order .tab_cont.active{
+		display: block;
+	}
 </style>
 
 <div class='fui-page  fui-page-current member-log-page'>
@@ -484,65 +496,251 @@
 						</ul>
 					</div>
 				<!--------我的订单---------->
-				<div class="tab_con active">
-					<?php  if(is_array($guamai)) { foreach($guamai as $winn) { ?>
-					<div class="order_list">
-						<div class="order">
+				<div class="tab_con my_order active">
+				<!-- 未交易 -->
+					<div class="tab_cont undone active">
+						<?php  if(is_array($guamai)) { foreach($guamai as $winn) { ?>
+						<div class="order_list">
+							<div class="order">
 
-							<p class="buy">
-								<?php  if($winn['type'] == '0') { ?>
-								<span style="color:#0a0">买入<b>UES</b></span>
-								<?php  } ?>
-								<?php  if($winn['type'] == '1') { ?>
-								<span style="color:brown">卖出<b>UES</b></span>
-								<?php  } ?>
+								<p class="buy">
+									<?php  if($winn['type'] == '0') { ?>
+									<span style="color:#0a0">买入<b>UES</b></span>
+									<?php  } ?>
+									<?php  if($winn['type'] == '1') { ?>
+									<span style="color:brown">卖出<b>UES</b></span>
+									<?php  } ?>
 
-								<?php  if($winn['status'] == '0') { ?>
-								<span class="fn_cl" data-val="0">未交易<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
-								<?php  } ?>
-								<?php  if($winn['status'] == '1') { ?>
-								<span class="fn_cl" data-val="1" onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<?php  echo $winn['id'];?>&op=0'" >交易中<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
-								<?php  } ?>
-								<?php  if($winn['status'] == '2') { ?>
-								<span class="fn_cl" data-val="2">交易完成<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
-								<?php  } ?>
-								<?php  if($winn['status'] == '3') { ?>
-								<span class="fn_cl" data-val="3">交易失败<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
-								<?php  } ?>
-								<?php  if($winn['status'] == '4') { ?>
-								<span class="fn_cl" data-val="4">交易取消<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
-							  <?php  } ?>
-							</p>
-
-
-							<p class="form">
-								<!-- <span>创建时间： <span class="font_color_999"><?php  echo $winn['datatime'];?></span></span> -->
-								<span><span class="font_color_999"> <?php  echo $winn['trx'];?></span>个</span>
-								<span>$<span class="font_color_999"><?php  echo $winn['price'];?></span></span>
-								<span>总额(CNY)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span>
-							</p>
-							<!-- <p class="form">
-								<?php  if($winn['openid'] != '') { ?>
-								<span style="color:#c2a378">挂单人:  <?php  echo $winn['nickname'];?></span>
-								<?php  } ?>
-								<?php  if($winn['openid2'] != '') { ?>
-								<span style="color:#c2a378">抢单人:  <?php  echo $winn['nickname2'];?></span>
-								<?php  } ?>
-							</p>
-							<!-- <div class="font_color_999">
-								<span>订单号:  66666666662222266666</span>
-							</div> -->
-							<p class="form form_spww">
-									<!--倒计时-时间戳-->
-									<!-- <?php  echo $winn['apple_time'];?> -->
-									<span><span class="font_color_999"><?php  echo $winn['datatime'];?></span></span>
-									<input type="hidden" value="<?php  echo $winn['apple_time'];?>" class="time"/>
-									<span id="order_time" class="order_time" ></span>
+									<?php  if($winn['status'] == '0') { ?>
+									<span class="fn_cl" data-val="0">未交易<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+									<?php  } ?>
+									<?php  if($winn['status'] == '1') { ?>
+									<span class="fn_cl" data-val="1" onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<?php  echo $winn['id'];?>&op=0'" >交易中<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+									<?php  } ?>
+									<?php  if($winn['status'] == '2') { ?>
+									<span class="fn_cl" data-val="2">交易完成<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+									<?php  } ?>
+									<?php  if($winn['status'] == '3') { ?>
+									<span class="fn_cl" data-val="3">交易失败<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+									<?php  } ?>
+									<?php  if($winn['status'] == '4') { ?>
+									<span class="fn_cl" data-val="4">交易取消<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+									<?php  } ?>
 								</p>
-						</div>
-					</div>
-					<?php  } } ?>
 
+
+								<p class="form">
+									<!-- <span>创建时间： <span class="font_color_999"><?php  echo $winn['datatime'];?></span></span> -->
+									<span><span class="font_color_999"> <?php  echo $winn['trx'];?></span>个</span>
+									<span>$<span class="font_color_999"><?php  echo $winn['price'];?></span></span>
+									<span>总额(CNY)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span>
+								</p>
+								<!-- <p class="form">
+									<?php  if($winn['openid'] != '') { ?>
+									<span style="color:#c2a378">挂单人:  <?php  echo $winn['nickname'];?></span>
+									<?php  } ?>
+									<?php  if($winn['openid2'] != '') { ?>
+									<span style="color:#c2a378">抢单人:  <?php  echo $winn['nickname2'];?></span>
+									<?php  } ?>
+								</p>
+								<!-- <div class="font_color_999">
+									<span>订单号:  66666666662222266666</span>
+								</div> -->
+								<p class="form form_spww">
+										<!--倒计时-时间戳-->
+										<!-- <?php  echo $winn['apple_time'];?> -->
+										<span><span class="font_color_999"><?php  echo $winn['datatime'];?></span></span>
+										<input type="hidden" value="<?php  echo $winn['apple_time'];?>" class="time"/>
+										<span id="order_time" class="order_time" ></span>
+									</p>
+							</div>
+						</div>
+						<?php  } } ?>
+
+					</div>
+				<!-- 交易中 -->
+					<div class="tab_cont  trading ">
+							<?php  if(is_array($guamai)) { foreach($guamai as $winn) { ?>
+							<div class="order_list">
+								<div class="order">
+		
+									<p class="buy">
+										<?php  if($winn['type'] == '0') { ?>
+										<span style="color:#0a0">买入<b>UES</b></span>
+										<?php  } ?>
+										<?php  if($winn['type'] == '1') { ?>
+										<span style="color:brown">卖出<b>UES</b></span>
+										<?php  } ?>
+		
+										<?php  if($winn['status'] == '0') { ?>
+										<span class="fn_cl" data-val="0">未交易<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+										<?php  } ?>
+										<?php  if($winn['status'] == '1') { ?>
+										<span class="fn_cl" data-val="1" onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<?php  echo $winn['id'];?>&op=0'" >交易中<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+										<?php  } ?>
+										<?php  if($winn['status'] == '2') { ?>
+										<span class="fn_cl" data-val="2">交易完成<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+										<?php  } ?>
+										<?php  if($winn['status'] == '3') { ?>
+										<span class="fn_cl" data-val="3">交易失败<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+										<?php  } ?>
+										<?php  if($winn['status'] == '4') { ?>
+										<span class="fn_cl" data-val="4">交易取消<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+										<?php  } ?>
+									</p>
+		
+		
+									<p class="form">
+										<!-- <span>创建时间： <span class="font_color_999"><?php  echo $winn['datatime'];?></span></span> -->
+										<span><span class="font_color_999"> <?php  echo $winn['trx'];?></span>个</span>
+										<span>$<span class="font_color_999"><?php  echo $winn['price'];?></span></span>
+										<span>总额(CNY)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span>
+									</p>
+									<!-- <p class="form">
+										<?php  if($winn['openid'] != '') { ?>
+										<span style="color:#c2a378">挂单人:  <?php  echo $winn['nickname'];?></span>
+										<?php  } ?>
+										<?php  if($winn['openid2'] != '') { ?>
+										<span style="color:#c2a378">抢单人:  <?php  echo $winn['nickname2'];?></span>
+										<?php  } ?>
+									</p>
+									<!-- <div class="font_color_999">
+										<span>订单号:  66666666662222266666</span>
+									</div> -->
+									<p class="form form_spww">
+											<!--倒计时-时间戳-->
+											<!-- <?php  echo $winn['apple_time'];?> -->
+											<span><span class="font_color_999"><?php  echo $winn['datatime'];?></span></span>
+											<input type="hidden" value="<?php  echo $winn['apple_time'];?>" class="time"/>
+											<span id="order_time" class="order_time" ></span>
+										</p>
+								</div>
+							</div>
+							<?php  } } ?>
+		
+						</div>
+				<!-- 交易完成 -->
+					<div class="tab_cont  achieve ">
+							<?php  if(is_array($guamai)) { foreach($guamai as $winn) { ?>
+							<div class="order_list">
+								<div class="order">
+		
+									<p class="buy">
+										<?php  if($winn['type'] == '0') { ?>
+										<span style="color:#0a0">买入<b>UES</b></span>
+										<?php  } ?>
+										<?php  if($winn['type'] == '1') { ?>
+										<span style="color:brown">卖出<b>UES</b></span>
+										<?php  } ?>
+		
+										<?php  if($winn['status'] == '0') { ?>
+										<span class="fn_cl" data-val="0">未交易<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+										<?php  } ?>
+										<?php  if($winn['status'] == '1') { ?>
+										<span class="fn_cl" data-val="1" onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<?php  echo $winn['id'];?>&op=0'" >交易中<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+										<?php  } ?>
+										<?php  if($winn['status'] == '2') { ?>
+										<span class="fn_cl" data-val="2">交易完成<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+										<?php  } ?>
+										<?php  if($winn['status'] == '3') { ?>
+										<span class="fn_cl" data-val="3">交易失败<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+										<?php  } ?>
+										<?php  if($winn['status'] == '4') { ?>
+										<span class="fn_cl" data-val="4">交易取消<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+										<?php  } ?>
+									</p>
+		
+		
+									<p class="form">
+										<!-- <span>创建时间： <span class="font_color_999"><?php  echo $winn['datatime'];?></span></span> -->
+										<span><span class="font_color_999"> <?php  echo $winn['trx'];?></span>个</span>
+										<span>$<span class="font_color_999"><?php  echo $winn['price'];?></span></span>
+										<span>总额(CNY)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span>
+									</p>
+									<!-- <p class="form">
+										<?php  if($winn['openid'] != '') { ?>
+										<span style="color:#c2a378">挂单人:  <?php  echo $winn['nickname'];?></span>
+										<?php  } ?>
+										<?php  if($winn['openid2'] != '') { ?>
+										<span style="color:#c2a378">抢单人:  <?php  echo $winn['nickname2'];?></span>
+										<?php  } ?>
+									</p>
+									<!-- <div class="font_color_999">
+										<span>订单号:  66666666662222266666</span>
+									</div> -->
+									<p class="form form_spww">
+											<!--倒计时-时间戳-->
+											<!-- <?php  echo $winn['apple_time'];?> -->
+											<span><span class="font_color_999"><?php  echo $winn['datatime'];?></span></span>
+											<input type="hidden" value="<?php  echo $winn['apple_time'];?>" class="time"/>
+											<span id="order_time" class="order_time" ></span>
+										</p>
+								</div>
+							</div>
+							<?php  } } ?>
+		
+					</div>
+				<!-- 交易失败 -->
+					<div class="tab_cont defeated ">
+							<?php  if(is_array($guamai)) { foreach($guamai as $winn) { ?>
+							<div class="order_list">
+								<div class="order">
+		
+									<p class="buy">
+										<?php  if($winn['type'] == '0') { ?>
+										<span style="color:#0a0">买入<b>UES</b></span>
+										<?php  } ?>
+										<?php  if($winn['type'] == '1') { ?>
+										<span style="color:brown">卖出<b>UES</b></span>
+										<?php  } ?>
+		
+										<?php  if($winn['status'] == '0') { ?>
+										<span class="fn_cl" data-val="0">未交易<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+										<?php  } ?>
+										<?php  if($winn['status'] == '1') { ?>
+										<span class="fn_cl" data-val="1" onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<?php  echo $winn['id'];?>&op=0'" >交易中<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+										<?php  } ?>
+										<?php  if($winn['status'] == '2') { ?>
+										<span class="fn_cl" data-val="2">交易完成<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+										<?php  } ?>
+										<?php  if($winn['status'] == '3') { ?>
+										<span class="fn_cl" data-val="3">交易失败<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+										<?php  } ?>
+										<?php  if($winn['status'] == '4') { ?>
+										<span class="fn_cl" data-val="4">交易取消<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+										<?php  } ?>
+									</p>
+		
+		
+									<p class="form">
+										<!-- <span>创建时间： <span class="font_color_999"><?php  echo $winn['datatime'];?></span></span> -->
+										<span><span class="font_color_999"> <?php  echo $winn['trx'];?></span>个</span>
+										<span>$<span class="font_color_999"><?php  echo $winn['price'];?></span></span>
+										<span>总额(CNY)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span>
+									</p>
+									<!-- <p class="form">
+										<?php  if($winn['openid'] != '') { ?>
+										<span style="color:#c2a378">挂单人:  <?php  echo $winn['nickname'];?></span>
+										<?php  } ?>
+										<?php  if($winn['openid2'] != '') { ?>
+										<span style="color:#c2a378">抢单人:  <?php  echo $winn['nickname2'];?></span>
+										<?php  } ?>
+									</p>
+									<!-- <div class="font_color_999">
+										<span>订单号:  66666666662222266666</span>
+									</div> -->
+									<p class="form form_spww">
+											<!--倒计时-时间戳-->
+											<!-- <?php  echo $winn['apple_time'];?> -->
+											<span><span class="font_color_999"><?php  echo $winn['datatime'];?></span></span>
+											<input type="hidden" value="<?php  echo $winn['apple_time'];?>" class="time"/>
+											<span id="order_time" class="order_time" ></span>
+										</p>
+								</div>
+							</div>
+							<?php  } } ?>
+		
+						</div>
 				</div>
 				<!--------发布广告----------->
 				<div class="tab_con">
@@ -1012,12 +1210,11 @@ $('.mask0_btn').click(function () {
 			$(this).addClass("on").siblings().removeClass("on");
 			//内容切换
 			$(".tab_content .tab_con").eq(index).addClass("active").siblings().removeClass("active");
+			console.log($(".tab_content .tab_con").eq(index)	)
 		//买入卖出切换
 		if(index == 0){
-			console.log(index == 0)
 			$('.tab_cut').show()
 		}else {
-			console.log(index == 0)
 			$('.tab_cut').hide()
 		}
 		if($(this).index() == 1) {
@@ -1032,7 +1229,11 @@ $('.mask0_btn').click(function () {
 		$(".tab_item>a").click(function(e){
 		   e.preventDefault();
 			 let li = $(this).parent();
+			 let index = li.index()
+			 console.log(index)
 			 li.addClass("active").siblings().removeClass('active');
+			 $('.my_order .tab_cont').eq(index).addClass('active').siblings().removeClass('active')
+			 console.log( $('.my_order .tab_cont').eq(index))
 		})
 
 	})
