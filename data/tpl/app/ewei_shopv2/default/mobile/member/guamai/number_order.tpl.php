@@ -621,10 +621,16 @@
 										<?php  } ?>
 									</p>
 
-
 									<p class="form">
-										<span><span class="font_color_999"> <?php  echo $winn['trx'];?></span>/个</span>
-									</p>
+											<span><span class="font_color_999"> <?php  echo $winn['trx'];?></span>/个</span>
+											<span>$<span class="font_color_999"><?php  echo $winn['price'];?></span></span>
+											<span>总额(RMB)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span>
+										</p>
+
+									<p class="form form_spww">
+											<!--倒计时-时间戳-->
+											<span><span class="font_color_999"><?php  echo $winn['datatime'];?></span></span>
+										</p>
 
 								</div>
 							</div>
