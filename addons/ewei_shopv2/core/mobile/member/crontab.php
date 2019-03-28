@@ -15,7 +15,7 @@ class Crontab_EweiShopV2Page
 	{
 
 		$data = date('Y-m-d H:i:s',time());
-		$guamai = pdo_fetchall("select * from".tablename("guamai")." where status=1 or status=0");
+		$guamai = pdo_fetchall("select * from".tablename("guamai")." where status=1");
 		if(empty($guamai)){
 			return false;
 		}
@@ -36,7 +36,7 @@ class Crontab_EweiShopV2Page
 			}
 
 			$users['credit2'] = $users['credit2'] + $appeal_money;
-			$updeta_order = pdo_update("guamai",array("status"=>4),array("openid"=>$val['openid'],"id"=>$val['id']));
+			$updeta_order = pdo_update("guamai",array("status"=>3),array("openid"=>$val['openid'],"id"=>$val['id']));
 			if($updeta_order){
 				$result = pdo_update("ewei_shop_member",array("credit2"=>$users['credit2']),array("openid"=>$val['openid']));
 
