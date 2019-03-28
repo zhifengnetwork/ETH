@@ -1340,8 +1340,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$filename = file_random_name(ATTACHMENT_ROOT . '/' . $path, $ext);
 
 		$res = file_put_contents(ATTACHMENT_ROOT.'/'.$path.$filename,$img_content);
-		dump($res);
-		dump(123123);
+
 		if(!$res){
 			return error(-1, '保存上传文件失败');
 		}
