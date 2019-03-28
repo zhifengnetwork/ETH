@@ -717,14 +717,15 @@
 		          interval;
 		        return function(id,timeStamp){
 		          if(!interval){
-		             interval = setInterval(go,1);
+		             //interval = setInterval(go,1);
+								 interval = setTimeout(go,1)
 							}
 		          // list.push({ele:document.getElementById(id),time:timeStamp});
 							list.push({ele:id,time:timeStamp});
-							id.each((element,value) => {
-								let $value = $(value)
-
-							});
+							// id.each((element,value) => {
+							// 	let $value = $(value)
+							// });
+							console.log(list)
 		        }
 		        function go(){
 		          for (var i = 0; i < list.length; i++) {
@@ -772,8 +773,9 @@
         }
       }();
       //倒计时位置，时间戳
-			var formtime= $(".form time")
+			var formtime= $(".form .time")
 			var order = $(".form .order_time")
+			console.log(formtime)
 			addTimer(order,formtime);
 			})
 
@@ -1120,10 +1122,8 @@ $('.mask0_btn').click(function () {
 		   e.preventDefault();
 			 let li = $(this).parent();
 			 let index = li.index()
-			 console.log(index)
 			 li.addClass("active").siblings().removeClass('active');
 			 $('.my_order .tab_cont').eq(index).addClass('active').siblings().removeClass('active')
-			 console.log( $('.my_order .tab_cont').eq(index))
 		})
 
 	})
