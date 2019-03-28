@@ -144,11 +144,11 @@
     </div>
 
     <?php  if($investment == '') { ?>
-    <p style="color: red;text-align: center;font-size: 1rem;font-weight: 600;position: absolute;
+    <p style="color: #f7f7f7;text-align: center;font-size: 1rem;font-weight: 600;position: absolute;
     top: 111px;
     left: 18px;">投资总额: <?php  echo $sale['sum'];?></p>
     <?php  } else { ?>
-    <p style="color: red;text-align: center;font-size: 1rem;font-weight: 600;position: absolute;
+    <p style="color: #f7f7f7;text-align: center;font-size: 1rem;font-weight: 600;position: absolute;
     top: 111px;
     left: 18px;">投资总额: <?php  echo $sale['sum'];?></p>
     <?php  } ?>
@@ -169,10 +169,7 @@
 
                 <!--data 头部-->
                 <div class="headertitle lis">
-                    <?php  if($investment == '') { ?>
-                    <p style="color: red;text-align: center;font-size: 1rem;font-weight: 600;">投资总额: <?php  echo $sale['sum'];?></p>
-                    <?php  } ?>
-                  <p><span>排名</span><span>ID</span><span>昵称</span><span>预计获奖</span><span style="font-size: .6rem;">今日投资金额<br/>(ETH)</span></p>
+                  <p style="margin-left: 17px;"><span>排名</span><span>ID</span><span>昵称</span><span>预计获奖</span><span style="font-size: .6rem;">今日投资金额<br/>(ETH)</span></p>
 
                 </div>
                 <!--data list -->
