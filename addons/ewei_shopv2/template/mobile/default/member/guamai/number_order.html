@@ -82,7 +82,7 @@
 		text-align: center;
 		display:-webkit-box;
 		display: -moz-box;
-		display: -ms-flexbox;	
+		display: -ms-flexbox;
 		display: -webkit-flex;
 		display: flex;
     flex-wrap: nowrap;
@@ -508,14 +508,31 @@
 								{/if}
 								{if $winn['status'] == '3'}
 								<span class="fn_cl" data-val="3">交易失败<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
-							  {/if} 
+								{/if}
+								{if $winn['status'] == '4'}
+								<span class="fn_cl" data-val="3">交易取消<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+							  {/if}
 							</p>
 
 
 							<p class="form">
+<<<<<<< HEAD
 								<!-- <span>创建时间： <span class="font_color_999">{$winn['datatime']}</span></span> -->
 								<span><span class="font_color_999"> {$winn['trx']}</span>个</span>
 								<span>$<span class="font_color_999">{$winn['price']}</span></span>
+=======
+								<!--倒计时-时间戳-->
+								<input type="hidden" value="{$winn['apple_time']}" />
+								<span id="order_time" class="order_time" style="width: 100%;"></span>
+							</p>
+							<p class="form">
+								<span>创建时间： <span class="font_color_999">{$winn['datatime']}</span></span>
+								<span>数量(UES)： <span class="font_color_999"> {$winn['trx']}</span></span>
+							</p>
+
+							<p class="form">
+								<span>价格(CNY)： <span class="font_color_999">{$winn['price']}</span></span>
+>>>>>>> 51de71ef1cd62e06ac050c739091c61eaaad2e6e
 								<span>总额(CNY)： <span class="font_color_999">{$winn['money']}</span></span>
 							</p>
 							<!-- <p class="form">
@@ -526,9 +543,10 @@
 								<span style="color:#c2a378">抢单人:  {$winn['nickname2']}</span>
 								{/if}
 							</p>
-							<div class="font_color_999">
+							<!-- <div class="font_color_999">
 								<span>订单号:  66666666662222266666</span>
 							</div> -->
+<<<<<<< HEAD
 							<p class="form form_spww">
 									<!--倒计时-时间戳-->
 									<!-- {$winn['apple_time']} -->
@@ -536,10 +554,12 @@
 									<input type="hidden" value="{$winn['apple_time']}" class="time"/>
 									<span id="order_time" class="order_time" ></span>
 								</p>
+=======
+>>>>>>> 51de71ef1cd62e06ac050c739091c61eaaad2e6e
 						</div>
 					</div>
 					{/loop}
-					
+
 				</div>
 				<!--------发布广告----------->
 				<div class="tab_con">
@@ -551,17 +571,17 @@
 				<!--------我的申诉----------->
 				<div class="tab_con">
 					<div class="wtf_top">
-			      		 <div class="wtf_item">
-			      	 		<div class="wtf_item1" onclick="window.location.href = ''">
-				      	 		<p>全面恢复正常</p >
-				      	 		<p>03-03</p >
-				      	 	</div>
-				      	 	<div class="wtf_item1">
-				      	 		<p>提币的通知</p >
-				      	 		<p>02-25</p >
-				      	 	</div>
-				      	 </div>	
-				   	</div>
+						<div class="wtf_item">
+						<div class="wtf_item1" onclick="window.location.href = ''">
+							<p>全面恢复正常</p >
+							<p>03-03</p >
+						</div>
+						<div class="wtf_item1">
+							<p>提币的通知</p >
+							<p>02-25</p >
+						</div>
+						</div>
+					</div>
 				</div>
 
 
@@ -632,15 +652,11 @@
 							list.push({ele:id,time:timeStamp});
 							id.each((element,value) => {
 								let $value = $(value)
-								
+
 							});
 		        }
 		        function go(){
-		          for (var i = 0; i < list.length; i++) {	
-		            // list[i].ele.innerHTML = changeTimeStamp(list[i].time);
-		            // if (!list[i].time){
-		            //   list.splice(i--, 1);
-								// }
+		          for (var i = 0; i < list.length; i++) {
 								for (var t = 0;t<list[i].ele.length; t++){
 									list[i].ele[t].innerHTML = (changeTimeStamp(list[i].time[t]))
 									var $li = $(list[i].ele[t])
@@ -648,14 +664,12 @@
 									 if(hide==2 || hide==3 || hide==0){
 									  $li.hide()	
 									 }
-								
 								}
 		          }
-							
 							}
 		         function changeTimeStamp(timeStamp){
 					 var	$timeStamp = $(timeStamp).val()
-          var distancetime = new Date($timeStamp*1000).getTime() - new Date().getTime();
+           var distancetime = new Date($timeStamp*1000).getTime() - new Date().getTime();
           if(distancetime > 0){
 　　　　　　　　//如果大于0.说明尚未到达截止时间
 			/*毫秒*/

@@ -32,35 +32,13 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		$time = time();
 		foreach ($guamai as $key=>$val){
 			// var_dump($val);nickname2
-			$guamai[$key]['datatime'] = date("m/d H:i:s",$val['createtime']);
+			$guamai[$key]['datatime'] = date("Y-m-d H:i:s",$val['createtime']);
 			$guamai[$key]['time_news'] = ($val['createtime']+1800) - $time;
 			$guamai[$key]['nickname'] = substr($val['openid'],-11);
 			$guamai[$key]['nickname2'] = substr($val['openid2'],-11);
 		}
 		// dump($guamai);
 		include $this->template();
-	}
-
-	//订单倒计时
-	public function appeal_order()
-	{
-		global $_W;
-		global $_GPC;
-
-		$id = $_GPC['id'];
-		$guamai = pdo_fetchall("select * from".tablename("guamai")." where status=1 or status=0");
-		if(empty($guamai)){
-			return false;
-		}
-		foreach($guamai as $key=>$val){
-			$openid = $val['openid'];
-			$users = pdo_fetch("select id,openid,credit2 from".tablename("ewei_shop_member")." where openid='".$openid."'");
-			dump($users);
-			dump($val);
-		}
-
-
-
 	}
 
 	//我的申诉
@@ -211,7 +189,6 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 			}
 
 			$data = array('openid'=>$openid,'uniacid'=>$_W['uniacid'],'price'=>$_GPC['price'],'trx'=>$_GPC['trx'],'trx2'=>$_GPC['trx2'],'money'=>$_GPC['money'],'type'=>$type,'status'=>'0','createtime'=>time());
-			dump($data);die;
 			$data['apple_time'] = time()+1800;
 			$result = pdo_insert("guamai",$data);
 			// show_json($result);
