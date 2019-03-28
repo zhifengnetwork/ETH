@@ -511,18 +511,16 @@
 									<span style="color:brown">卖出<b>ETH</b></span>
 									<?php  } ?>
 									<?php  if($winn['status'] == '0') { ?>
-									<span class="fn_cl" data-val="0">未交易<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+									<span class="fn_cl" data-val="0" onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<?php  echo $winn['id'];?>&op=<?php  echo $winn['type'];?>'" >未交易<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
 									<?php  } ?>
 								</p>
 								<p class="form">
-									<span><span class="font_color_999"> <?php  echo $winn['trx'];?></span>个</span>
+									<span><span class="font_color_999"> <?php  echo $winn['trx'];?></span>/个</span>
 									<span>$<span class="font_color_999"><?php  echo $winn['price'];?></span></span>
 									<span>总额(RMB)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span>
 								</p>
 								<p class="form form_spww">
 										<span><span class="font_color_999"><?php  echo $winn['datatime'];?></span></span>
-										<input type="hidden" value="<?php  echo $winn['apple_time'];?>" class="time"/>
-										<span id="order_time" class="order_time" ></span>
 									</p>
 							</div>
 						</div>
@@ -550,12 +548,12 @@
 										<?php  } ?>
 									</p>
 									<p class="form">
-										<span><span class="font_color_999"> <?php  echo $winn['trx'];?></span>个</span>
+										<span><span class="font_color_999"> <?php  echo $winn['trx'];?></span>/个</span>
 										<span>$<span class="font_color_999"><?php  echo $winn['price'];?></span></span>
 										<span>总额(RMB)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span>
 									</p>
 									<p class="form form_spww">
-
+	<!--倒计时-时间戳-->
 											<span><span class="font_color_999"><?php  echo $winn['datatime'];?></span></span>
 											<input type="hidden" value="<?php  echo $winn['apple_time'];?>" class="time"/>
 											<span id="order_time" class="order_time" ></span>
@@ -588,15 +586,13 @@
 
 
 									<p class="form">
-										<span><span class="font_color_999"> <?php  echo $winn['trx'];?></span>个</span>
+										<span><span class="font_color_999"> <?php  echo $winn['trx'];?></span>/个</span>
 										<span>$<span class="font_color_999"><?php  echo $winn['price'];?></span></span>
 										<span>总额(RMB)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span>
 									</p>
 									<p class="form form_spww">
 											<!--倒计时-时间戳-->
 											<span><span class="font_color_999"><?php  echo $winn['datatime'];?></span></span>
-											<input type="hidden" value="<?php  echo $winn['apple_time'];?>" class="time"/>
-											<span id="order_time" class="order_time" ></span>
 										</p>
 								</div>
 							</div>
@@ -627,16 +623,9 @@
 
 
 									<p class="form">
-										<span><span class="font_color_999"> <?php  echo $winn['trx'];?></span>个</span>
-										<span>$<span class="font_color_999"><?php  echo $winn['price'];?></span></span>
-										<span>总额(RMB)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span>
+										<span><span class="font_color_999"> <?php  echo $winn['trx'];?></span>/个</span>
 									</p>
-									<p class="form form_spww">
-											<!--倒计时-时间戳-->
-											<span><span class="font_color_999"><?php  echo $winn['datatime'];?></span></span>
-											<input type="hidden" value="<?php  echo $winn['apple_time'];?>" class="time"/>
-											<span id="order_time" class="order_time" ></span>
-										</p>
+
 								</div>
 							</div>
 							<?php  } ?>

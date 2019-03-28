@@ -293,6 +293,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		$op = $_GPC['op'];
 		$type = $_GPC['type'];
 		$sell = pdo_fetch("select g.*,m.nickname,m.mobile,m.zfbfile,m.wxfile,m.bankid,m.bankname,m.bank,m2.nickname as nickname2,m2.zfbfile as zfbfile2,m2.wxfile as wxfile2,m2.bankid as bankid2,m2.bankname as bankname2,m2.bank as bank2 from".tablename('guamai').' g left join '.tablename('ewei_shop_member').' m ON m.openid=g.openid left join '.tablename('ewei_shop_member').' m2 ON m2.openid=g.openid2 '." where g.uniacid=".$_W['uniacid']." and g.id='$id'");
+		// dump($sell);
 		if($op == 1){
 			if($sell['zfbfile']) $payment[] = array('name'=>"支付宝",'type'=>'zfb');
 			if($sell['wxfile']) $payment[] = array('name'=>"微信",'type'=>'wx');
