@@ -508,28 +508,17 @@
 								<?php  } ?>
 								<?php  if($winn['status'] == '3') { ?>
 								<span class="fn_cl" data-val="3">交易失败<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+								<?php  } ?>
+								<?php  if($winn['status'] == '4') { ?>
+								<span class="fn_cl" data-val="4">交易取消<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
 							  <?php  } ?>
 							</p>
 
 
 							<p class="form">
-<<<<<<< HEAD
 								<!-- <span>创建时间： <span class="font_color_999"><?php  echo $winn['datatime'];?></span></span> -->
 								<span><span class="font_color_999"> <?php  echo $winn['trx'];?></span>个</span>
 								<span>$<span class="font_color_999"><?php  echo $winn['price'];?></span></span>
-=======
-								<!--倒计时-时间戳-->
-								<input type="hidden" value="<?php  echo $winn['apple_time'];?>" />
-								<span id="order_time" class="order_time" style="width: 100%;"></span>
-							</p>
-							<p class="form">
-								<span>创建时间： <span class="font_color_999"><?php  echo $winn['datatime'];?></span></span>
-								<span>数量(UES)： <span class="font_color_999"> <?php  echo $winn['trx'];?></span></span>
-							</p>
-
-							<p class="form">
-								<span>价格(CNY)： <span class="font_color_999"><?php  echo $winn['price'];?></span></span>
->>>>>>> 51de71ef1cd62e06ac050c739091c61eaaad2e6e
 								<span>总额(CNY)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span>
 							</p>
 							<!-- <p class="form">
@@ -543,7 +532,6 @@
 							<!-- <div class="font_color_999">
 								<span>订单号:  66666666662222266666</span>
 							</div> -->
-<<<<<<< HEAD
 							<p class="form form_spww">
 									<!--倒计时-时间戳-->
 									<!-- <?php  echo $winn['apple_time'];?> -->
@@ -551,8 +539,6 @@
 									<input type="hidden" value="<?php  echo $winn['apple_time'];?>" class="time"/>
 									<span id="order_time" class="order_time" ></span>
 								</p>
-=======
->>>>>>> 51de71ef1cd62e06ac050c739091c61eaaad2e6e
 						</div>
 					</div>
 					<?php  } } ?>
@@ -658,7 +644,7 @@
 									list[i].ele[t].innerHTML = (changeTimeStamp(list[i].time[t]))
 									var $li = $(list[i].ele[t])
 									var hide = $li.parent().parent().children(".buy").children('.fn_cl').attr("data-val")
-									 if(hide==2 || hide==3 || hide==0){
+									 if(hide==2 || hide==3 || hide==0 || hide==4){
 									  $li.hide()	
 									 }
 								}
