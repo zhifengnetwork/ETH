@@ -364,7 +364,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 
 					//币足够的时候进行抢单  （扣币）
 					m('member')->setCredit($_W['openid'],'credit2',-$sell['trx']);
-					$result = pdo_update("guamai",array('status'=>1,'openid2'=>$_W['openid']),array('uniacid'=>$_W['uniacid'],'id'=>$id));
+					$result = pdo_update("guamai",array('status'=>1,'openid2'=>$_W['openid'],'createtime'=>time()),array('uniacid'=>$_W['uniacid'],'id'=>$id));
 
 					com('sms')->send_zhangjun2($sell['mobile'], $id,"买入订单被抢单！");
 

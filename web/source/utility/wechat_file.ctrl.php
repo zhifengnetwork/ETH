@@ -125,7 +125,7 @@ if ($do == 'upload') {
 	}
 
 	if (empty($_FILES['file']['name'])) {
-		$result['message'] = '上传失败, 请选择要上传的文件！';
+		$result['message'] = '上传失败, 请选择要上传的文件1111111！';
 		die(json_encode($result));
 	}
 	if ($_FILES['file']['error'] != 0) {
