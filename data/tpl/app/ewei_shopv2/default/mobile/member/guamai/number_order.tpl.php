@@ -511,7 +511,7 @@
 									<span style="color:brown">卖出<b>ETH</b></span>
 									<?php  } ?>
 									<?php  if($winn['status'] == '0') { ?>
-									<span class="fn_cl" data-val="0" onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<?php  echo $winn['id'];?>&op=<?php  echo $winn['type'];?>'" >未交易<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+									<span class="fn_cl" data-val="0" onclick="location.href='<?php  echo mobileurl('member/guamai/sellout_list')?>&id=<?php  echo $winn['id'];?>&type=<?php  echo $winn['status'];?>'" >未交易<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
 									<?php  } ?>
 								</p>
 								<p class="form">
@@ -723,15 +723,10 @@
 		          interval;
 		        return function(id,timeStamp){
 		          if(!interval){
-		             //interval = setInterval(go,1);
-								 interval = setTimeout(go,1)
+		             interval = setInterval(go,1);
 							}
 		          // list.push({ele:document.getElementById(id),time:timeStamp});
 							list.push({ele:id,time:timeStamp});
-							// id.each((element,value) => {
-							// 	let $value = $(value)
-							// });
-							console.log(list)
 		        }
 		        function go(){
 		          for (var i = 0; i < list.length; i++) {
@@ -781,7 +776,6 @@
       //倒计时位置，时间戳
 			var formtime= $(".form .time")
 			var order = $(".form .order_time")
-			console.log(formtime)
 			addTimer(order,formtime);
 			})
 

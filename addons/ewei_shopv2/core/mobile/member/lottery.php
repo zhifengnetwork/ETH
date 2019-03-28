@@ -1,12 +1,12 @@
 <?php
-if (!(defined('IN_IA'))) 
+if (!(defined('IN_IA')))
 {
 	exit('Access Denied');
 }
-class Lottery_EweiShopV2Page extends MobileLoginPage 
+class Lottery_EweiShopV2Page extends MobileLoginPage
 {
 	protected $member;
-	public function __construct() 
+	public function __construct()
 	{
 		global $_W;
 		global $_GPC;
@@ -14,7 +14,7 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 		$this->member = m('member')->getInfo($_W['openid']);
 	}
 
-	public function main() 
+	public function main()
 	{
 		global $_W;
 		global $_GPC;
@@ -31,12 +31,12 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 		global $_GPC;
 
 		$minNum = $_GPC['minNum'];$maxNum = $_GPC['maxNum'];
-		
+
 		$op = array();
-		for ($minNum; $minNum <=$maxNum ; $minNum++) { 
+		for ($minNum; $minNum <=$maxNum ; $minNum++) {
 			$op[] = $minNum;
 		}
-		
+
 		$yes = array();
 
 		foreach ($op as $key => $val) {
@@ -56,7 +56,7 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 
 				}
 
-				$kn = substr($kn, 0, -1);		
+				$kn = substr($kn, 0, -1);
 
 			}
 
@@ -67,7 +67,7 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 
 	}
 
-	//下注 
+	//下注
 	public function bets(){
 		global $_W;
 		global $_GPC;
@@ -81,7 +81,7 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 				$member = m('member')->getMember($_W['openid'], true);
 
 				$data = array('credit2'=>$member['credit2'],'credit4'=>$member['credit4']);
-				
+
 				show_json(1,array('list'=>$data));
 
 			}else if($type == 2){  //下注
@@ -122,7 +122,7 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 				show_json(1,"下注成功");
 			}
 
-			
+
 
 		}
 	}
@@ -214,7 +214,7 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 
 		$data = array('list'=>$list);
 
-		show_json(1,$data);	
+		show_json(1,$data);
 	}
 
 	//投资排行
@@ -264,6 +264,6 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 		// var_dump($data['contract']);
 		include  $this->template();
 	}
-	
+
 }
 ?>
