@@ -70,7 +70,6 @@
     -moz-box-sizing: border-box;
     width: 33%;
     line-height: .8rem;
-    color: red;
 
   }
   .data_listWrap {
@@ -100,9 +99,8 @@
   	width: 29%;
   }
   .data_listBox_term:nth-child(5){
-  	width: 26%;
+  	width: 20%;
     line-height: 1rem;
-  	color: red;
   }
   .good-item{
 
@@ -181,7 +179,7 @@
                             <?php  echo $val['id'];?>
                           </span>
                           <span class="data_listBox_term"><?php  echo $val['nickname'];?></span>
-                          <span class="data_listBox_term"><?php  echo $val['yuji'];?> <span style="color:red">(<?php  echo $val['bfb'];?>%)</span> </span>
+                          <span class="data_listBox_term"><?php  echo $val['yuji'];?> <span>(<?php  echo $val['bfb'];?>%)</span> </span>
                           <span class="data_listBox_term"><?php  echo $val['moneys'];?></span>
                         </p>
                       <?php  } } ?>
@@ -190,9 +188,6 @@
           </div>
 
           <div style="display: none;" class="getprice show">
-              <?php  if($winning == '') { ?>
-                <p style="color: red;text-align: center;font-size: 1rem;font-weight: 600;">投资总额: <?php  echo $sale['sum'];?></p>
-              <?php  } ?>
               <div class="getprice good-item">
                   <?php  if(is_array($winning)) { foreach($winning as $winn) { ?>
                 <div class="lis">
