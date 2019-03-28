@@ -145,7 +145,7 @@ function file_wechat_upload($file, $type = 'image', $name = '') {
 	if (!in_array($type, array('image', 'thumb', 'voice', 'video', 'audio'))) {
 		return error(-2, '未知的上传类型');
 	}
-	
+
 	global $_W;
 	$ext = pathinfo($file['name'], PATHINFO_EXTENSION);
 	$ext = strtolower($ext);
@@ -167,7 +167,7 @@ function file_wechat_upload($file, $type = 'image', $name = '') {
 		}
 		$result['path'] = $name;
 	}
-	
+
 	if (!file_move($file['tmp_name'], ATTACHMENT_ROOT . '/' . $result['path'])) {
 		return error(-1, '保存上传文件失败');
 	}
@@ -576,7 +576,7 @@ function file_fetch($url, $limit = 0, $path = '') {
 			return error(-1, '提取资源失败, 资源文件类型错误.');
 			break;
 	}
-	
+
 	if (intval($resp['headers']['Content-Length']) > $limit) {
 		return error(-1, '上传的媒体文件过大('.sizecount($resp['headers']['Content-Length']).' > '.sizecount($limit));
 	}
