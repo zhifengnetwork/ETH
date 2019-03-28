@@ -32,6 +32,9 @@ String:
 SQL: <br/>select id,couponid,openid,isparent,sendtime,price,merchid,isverify,addressid,isvirtualsend,virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2 <hr/>Params: <br/>array (
 )<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/task/order/receive.php; line: 23; <br />
 
+<<<<<<< HEAD
+2019-03-27 19:04:05 SQL Error :
+=======
 2019-03-27 20:11:38 SQL Error :
 ------------
 String:
@@ -39,6 +42,7 @@ SQL: <br/>select id,couponid,openid,isparent,sendtime,price,merchid,isverify,add
 )<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/task/order/receive.php; line: 23; <br />
 
 2019-03-27 21:14:22 SQL Error :
+>>>>>>> 51de71ef1cd62e06ac050c739091c61eaaad2e6e
 ------------
 String:
 SQL: <br/>select id,couponid,openid,isparent,sendtime,price,merchid,isverify,addressid,isvirtualsend,virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2 <hr/>Params: <br/>array (

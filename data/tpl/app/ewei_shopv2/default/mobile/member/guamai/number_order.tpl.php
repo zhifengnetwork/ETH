@@ -338,20 +338,44 @@
 		display: flex;
 		justify-content: space-between;
 		line-height: 1.5rem;
+		height: 1.5rem;
 	}
 
-	.order .form span {
+	.order .form{
+		display: flex;
+	  justify-content: flex-start;
+	}
+
+	.order .form>span {
 		width: 50%;
 		/*text-align: center;*/
+		display: flex;
+	  flex-wrap: nowrap;
+		overflow: hidden;
+		white-space : nowrap ;
 	}
-	.order .form span:nth-child(2){padding-left: 8%;}
+	.order .form>span:nth-child(1),.order .form>span:nth-child(2){
+		width: 30%;
+	}
+	.order .form>span:nth-child(2){
+		padding:0 .3rem;
+	}
+	.order	.form_spww>span:nth-child(1){
+		width: 50%;
+	}
 	.buy b {
 		font-size: 18px;
 		color: #F0E68C;
 		margin-left: .5rem;
-		font-weight: normal;
+		font-weight: nowrap ;
 	}
-
+	.order .form_spww{
+		display: flex;
+	  justify-content: space-between;
+	}
+	.form_spww>span{
+		width: 100%;
+	}
 	.buy img {
 		width: .4rem;
     height: .55rem;
@@ -371,7 +395,40 @@
 		margin-right: 1rem;
 	}
 	/*-----倒计时------*/
-	.order_time{/*font-weight: bold;*/letter-spacing: 0.03rem; padding-right: 0.85rem;box-sizing: border-box; width: 100%; color: #fff;font-size: 0.7rem;height:1.2rem;line-height: 1.2rem; text-align: right;}
+	.order_time{/*font-weight: bold;*/
+		letter-spacing: 0.03rem;
+		padding-left: 0.85rem;
+		box-sizing: border-box; width: 100%;
+		color: #fff;
+		font-size: 0.7rem;
+		text-align: right;}
+
+	/* 我的订单 tab */
+	.tab_cut{
+		width: 100%;
+		padding: 0.3rem;
+	}
+  .tab_cut>ul{
+		display: flex;
+		flex-wrap: nowrap;
+	}
+	/* 默认样式 */
+	.tab_cut ul .tab_item{
+		width: 25%;
+		text-align: center;
+		height: 2rem;
+		line-height: 2rem;
+	}
+	/* 选中样式 */
+	.tab_cut ul .tab_item.active{
+		background: #F0E68C;
+	}
+	.tab_cut ul .tab_item.active>a{
+		color:#0a181f;
+	}
+  .tab_cut ul .tab_item a{
+		color: #FFFFFF;
+	}
 </style>
 
 <div class='fui-page  fui-page-current member-log-page'>
@@ -409,6 +466,23 @@
 
 			<!--这个是要显示的内容部分-->
 			<div class="tab_content">
+					<!-- tab切换内容   未交易 交易中  交易完成  交易失败-->
+				  <div class="tab_cut">
+						<ul>
+							<li class="tab_item active">
+								<a href="">未交易</a>
+							</li>
+							<li class="tab_item">
+								<a href="">交易中</a>
+							</li>
+							<li class="tab_item">
+								<a href="">交易完成</a>
+							</li>
+							<li class="tab_item">
+								<a href="">交易失败</a>
+							</li>
+						</ul>
+					</div>
 				<!--------我的订单---------->
 				<div class="tab_con active">
 					<?php  if(is_array($guamai)) { foreach($guamai as $winn) { ?>
@@ -436,27 +510,18 @@
 								<span class="fn_cl" data-val="3" onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<?php  echo $winn['id'];?>&op=<?php  echo $winn['type'];?>&type=3'" >交易失败<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
 								<?php  } ?>
 								<?php  if($winn['status'] == '4') { ?>
-								<span class="fn_cl" data-val="3" onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<?php  echo $winn['id'];?>&op=<?php  echo $winn['type'];?>&type=4'" >交易取消<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+								<span class="fn_cl" data-val="4">交易取消<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
 							  <?php  } ?>
 							</p>
 
 
 							<p class="form">
-								<!--倒计时-时间戳-->
-								<input type="hidden" value="<?php  echo $winn['apple_time'];?>" />
-								<span id="order_time" class="order_time" style="width: 100%;"></span>
-							</p>
-							<p class="form">
-								<span>创建时间： <span class="font_color_999"><?php  echo $winn['datatime'];?></span></span>
-								<span>数量(UES)： <span class="font_color_999"> <?php  echo $winn['trx'];?></span></span>
-							</p>
-
-							<p class="form">
-								<span>价格(CNY)： <span class="font_color_999"><?php  echo $winn['price'];?></span></span>
+								<!-- <span>创建时间： <span class="font_color_999"><?php  echo $winn['datatime'];?></span></span> -->
+								<span><span class="font_color_999"> <?php  echo $winn['trx'];?></span>个</span>
+								<span>$<span class="font_color_999"><?php  echo $winn['price'];?></span></span>
 								<span>总额(CNY)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span>
 							</p>
-
-							<p class="form">
+							<!-- <p class="form">
 								<?php  if($winn['openid'] != '') { ?>
 								<span style="color:#c2a378">挂单人:  <?php  echo $winn['nickname'];?></span>
 								<?php  } ?>
@@ -467,6 +532,13 @@
 							<!-- <div class="font_color_999">
 								<span>订单号:  66666666662222266666</span>
 							</div> -->
+							<p class="form form_spww">
+									<!--倒计时-时间戳-->
+									<!-- <?php  echo $winn['apple_time'];?> -->
+									<span><span class="font_color_999"><?php  echo $winn['datatime'];?></span></span>
+									<input type="hidden" value="<?php  echo $winn['apple_time'];?>" class="time"/>
+									<span id="order_time" class="order_time" ></span>
+								</p>
 						</div>
 					</div>
 					<?php  } } ?>
@@ -571,9 +643,9 @@
 								for (var t = 0;t<list[i].ele.length; t++){
 									list[i].ele[t].innerHTML = (changeTimeStamp(list[i].time[t]))
 									var $li = $(list[i].ele[t])
-									var hide = $li.parent().prev().children(".fn_cl").attr("data-val")
-									 if(hide==2 || hide==3){
-									  $li.parent().remove()
+									var hide = $li.parent().parent().children(".buy").children('.fn_cl').attr("data-val")
+									 if(hide==2 || hide==3 || hide==0 || hide==4){
+									  $li.hide()
 									 }
 								}
 		          }
@@ -612,8 +684,8 @@
         }
       }();
       //倒计时位置，时间戳
-			var formtime= $(".form input")
-			var order = $(".form #order_time")
+			var formtime= $(".form time")
+			var order = $(".form .order_time")
 			addTimer(order,formtime);
 			})
 
@@ -936,11 +1008,18 @@ $('.mask0_btn').click(function () {
 		//tab切换
 		$(".box_nav .con_on").on("click", function() {
 			var index=$(this).index();
+			$('.tab_cut').hide()
 			$(this).addClass("on").siblings().removeClass("on");
 			//内容切换
 			$(".tab_content .tab_con").eq(index).addClass("active").siblings().removeClass("active");
-      console.log(	$(".tab_content .tab_con").eq(index))
 		//买入卖出切换
+		if(index == 0){
+			console.log(index == 0)
+			$('.tab_cut').show()
+		}else {
+			console.log(index == 0)
+			$('.tab_cut').hide()
+		}
 		if($(this).index() == 1) {
 				$(".mask0_box").show()
 			} else {
@@ -948,11 +1027,20 @@ $('.mask0_btn').click(function () {
 			}
 		})
 
+
+		//我的订单 状态切换
+		$(".tab_item>a").click(function(e){
+		   e.preventDefault();
+			 let li = $(this).parent();
+			 li.addClass("active").siblings().removeClass('active');
+		})
+
 	})
 
 	// 买入卖出
 	$(".buying .pay-tt").click(function() {
 		var $a = $(this)
+		$('.tab_cut').hide()
 		$a.addClass("active").siblings().removeClass("active")
 		if($(this).index() == 0) {
 			$(".mask1").show().siblings(".mask0").hide();

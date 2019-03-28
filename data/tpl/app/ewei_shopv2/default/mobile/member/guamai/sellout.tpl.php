@@ -73,9 +73,9 @@
       <a class="back"></a>
     </div>
     <?php  if($op == 1) { ?>
-    <div class="title">卖出TRX</div>
+    <div class="title">卖出ETH</div>
     <?php  } else if($op == 0) { ?>
-    <div class="title">买入TRX</div>
+    <div class="title">买入ETH</div>
     <?php  } ?>
     <div class="fui-header-right">
     </div>
@@ -267,9 +267,9 @@
     </div>
 
     <?php  if($op == 1) { ?>
-    <div class="title">卖出TRX</div>
+    <div class="title">卖出ETH</div>
     <?php  } else if($op == 0) { ?>
-    <div class="title">买入TRX</div>
+    <div class="title">买入ETH</div>
     <?php  } ?>
 
     <div class="fui-header-right">
@@ -545,9 +545,9 @@
     </div>
 
    <?php  if($op == 1) { ?>
-    <div class="title">卖出TRX</div>
+    <div class="title">卖出ETH</div>
     <?php  } else if($op == 0) { ?>
-    <div class="title">买入TRX</div>
+    <div class="title">买入ETH</div>
     <?php  } ?>
 
     <div class="fui-header-right">
@@ -770,9 +770,9 @@
         <a class="back"></a>
       </div>
       <?php  if($op == 1) { ?>
-      <div class="title">卖出TRX</div>
+      <div class="title">卖出ETH</div>
       <?php  } else if($op == 0) { ?>
-      <div class="title">买入TRX</div>
+      <div class="title">买入ETH</div>
       <?php  } ?>
       <div class="fui-header-right">
       </div>
