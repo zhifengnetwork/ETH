@@ -1335,7 +1335,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$result = array();
 		$uniacid = intval($_W['uniacid']);
 		$path = "images/{$uniacid}/" . date('Y/m/');
-		mkdirs(ATTACHMENT_ROOT . '/' . $path);
+		mkdirs(ATTACHMENT_ROOT . '/' . $path,0777);
 
 		$filename = file_random_name(ATTACHMENT_ROOT . '/' . $path, $ext);
 
