@@ -424,19 +424,19 @@
 								{/if}
 
 								{if $winn['status'] == '0'}
-								<span class="fn_cl" data-val="0">未交易<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+								<span class="fn_cl" data-val="0" onclick="location.href='{php echo mobileurl('member/guamai/sellout')}&id={$winn['id']}&op={$winn['type']}&type=0'" >未交易<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
 								{/if}
 								{if $winn['status'] == '1'}
-								<span class="fn_cl" data-val="1" onclick="location.href='{php echo mobileurl('member/guamai/sellout')}&id={$winn['id']}&op=0'" >交易中<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+								<span class="fn_cl" data-val="1" onclick="location.href='{php echo mobileurl('member/guamai/sellout')}&id={$winn['id']}&op={$winn['type']}&type=1'" >交易中<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
 								{/if}
 								{if $winn['status'] == '2'}
-								<span class="fn_cl" data-val="2">交易完成<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+								<span class="fn_cl" data-val="2" onclick="location.href='{php echo mobileurl('member/guamai/sellout')}&id={$winn['id']}&op={$winn['type']}&type=2'" >交易完成<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
 								{/if}
 								{if $winn['status'] == '3'}
-								<span class="fn_cl" data-val="3">交易失败<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+								<span class="fn_cl" data-val="3" onclick="location.href='{php echo mobileurl('member/guamai/sellout')}&id={$winn['id']}&op={$winn['type']}&type=3'" >交易失败<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
 								{/if}
 								{if $winn['status'] == '4'}
-								<span class="fn_cl" data-val="3">交易取消<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+								<span class="fn_cl" data-val="3" onclick="location.href='{php echo mobileurl('member/guamai/sellout')}&id={$winn['id']}&op={$winn['type']}&type=4'" >交易取消<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
 							  {/if}
 							</p>
 
