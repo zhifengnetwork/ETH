@@ -440,7 +440,6 @@
 
 							<p class="form">
 								<!--倒计时-时间戳-->
-								<?php  echo $winn['apple_time'];?>
 								<input type="hidden" value="<?php  echo $winn['apple_time'];?>" />
 								<span id="order_time" class="order_time" style="width: 100%;"></span>
 							</p>
@@ -462,9 +461,9 @@
 								<span style="color:#c2a378">抢单人:  <?php  echo $winn['nickname2'];?></span>
 								<?php  } ?>
 							</p>
-							<div class="font_color_999">
+							<!-- <div class="font_color_999">
 								<span>订单号:  66666666662222266666</span>
-							</div>
+							</div> -->
 						</div>
 					</div>
 					<?php  } } ?>
@@ -480,17 +479,17 @@
 				<!--------我的申诉----------->
 				<div class="tab_con">
 					<div class="wtf_top">
-			      		 <div class="wtf_item">
-			      	 		<div class="wtf_item1" onclick="window.location.href = ''">
-				      	 		<p>全面恢复正常</p >
-				      	 		<p>03-03</p >
-				      	 	</div>
-				      	 	<div class="wtf_item1">
-				      	 		<p>提币的通知</p >
-				      	 		<p>02-25</p >
-				      	 	</div>
-				      	 </div>
-				   	</div>
+						<div class="wtf_item">
+						<div class="wtf_item1" onclick="window.location.href = ''">
+							<p>全面恢复正常</p >
+							<p>03-03</p >
+						</div>
+						<div class="wtf_item1">
+							<p>提币的通知</p >
+							<p>02-25</p >
+						</div>
+						</div>
+					</div>
 				</div>
 
 

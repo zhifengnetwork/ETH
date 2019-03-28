@@ -32,53 +32,13 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		$time = time();
 		foreach ($guamai as $key=>$val){
 			// var_dump($val);nickname2
-			$guamai[$key]['datatime'] = date("m/d H:i:s",$val['createtime']);
+			$guamai[$key]['datatime'] = date("Y-m-d H:i:s",$val['createtime']);
 			$guamai[$key]['time_news'] = ($val['createtime']+1800) - $time;
 			$guamai[$key]['nickname'] = substr($val['openid'],-11);
 			$guamai[$key]['nickname2'] = substr($val['openid2'],-11);
 		}
 		// dump($guamai);
 		include $this->template();
-	}
-
-	//订单倒计时
-	public function appeal_order()
-	{
-		$data = date('Y-m-d H:i:s',time());
-		$guamai = pdo_fetchall("select * from".tablename("guamai")." where status=1 or status=0");
-		if(empty($guamai)){
-			return false;
-		}
-		foreach($guamai as $key=>$val){
-			$createtime = $val['createtime']+1800;
-			$time = time();
-			if($time<=$createtime){
-				continue;
-			}
-			dump($val);
-			$openid = $val['openid'];
-			$users = pdo_fetch("select id,openid,credit2 from".tablename("ewei_shop_member")." where openid='".$openid."'");
-			if(empty($users)){
-				continue;
-			}
-			$appeal_money = $val['trx'];
-			if($val['type'] == 1){
-				$appeal_money = $val['trx2'];
-			}
-
-			$users['credit2'] = $users['credit2'] + $appeal_money;
-			$updeta_order = pdo_update("guamai",array("status"=>3),array("openid"=>$val['openid'],"id"=>$val['id']));
-			if($updeta_order){
-				$result = pdo_update("ewei_shop_member",array("credit2"=>$users['credit2']),array("openid"=>$val['openid']));
-
-				echo('执行成功-----'.$data);
-			}else{
-
-				echo('执行失败-----'.$data);
-				continue;
-			}
-		}
-		echo('执行-----'.$data);
 	}
 
 	//我的申诉
