@@ -713,11 +713,7 @@
 			<script>
 
 			 $(function(){
-			  // fn_cl 是否显示倒计时
-				  //  $(".buy .fn_cl").on("bind",()=>{
-          //       console.log($(this))
-					//  })
-					//console.log( $(".buy .fn_cl"))
+			 
 			 	var addTimer = function(){
 		        var list = [],
 		          interval;
