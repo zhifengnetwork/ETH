@@ -1702,7 +1702,7 @@ function cloud_upgrade($type, $post_data = array(), $timeout = 60)
     global $_W;
     load()->func('communication');
     $domain = trim(preg_replace("/http(s)?:\/\//", "", rtrim($_W['siteroot'],"/")));
-    $extra['CURLOPT_REFERER'] = $domain;	
+    $extra['CURLOPT_REFERER'] = $domain;
     $ip= getIP();
     $post_data['type'] = $type;
     $post_data['module'] = $_W['current_module']['name'];
@@ -1779,14 +1779,14 @@ function db_table_create_sqll_ab($schema) {
 	}
 	foreach ($schema['indexes'] as $value) {
 		$fields = implode('`,`', $value['fields']);
-	
+
 		if($value['type'] == 'index') {
 			if(!empty($value['length'])){
 				$sql .= "KEY `{$value['name']}` (`{$fields}`({$value['length']})),\n";
 			}else{
 				$sql .= "KEY `{$value['name']}` (`{$fields}`),\n";
 			}
-			
+
 		}
 		if($value['type'] == 'unique') {
 			$sql .= "UNIQUE KEY `{$value['name']}` (`{$fields}`),\n";
@@ -1798,10 +1798,10 @@ function db_table_create_sqll_ab($schema) {
 			$sql .= "FULLTEXT KEY `{$value['name']}` (`{$fields}`),\n";
 		}
 	}
-	
+
 	$sql = rtrim($sql);
 	$sql = rtrim($sql, ',');
-	
+
 	$sql .= "\n) ENGINE=$engine DEFAULT CHARSET=$charset;\n\n";
 	return $sql;
 }
@@ -1809,7 +1809,7 @@ function db_table_create_sqll_ab($schema) {
 
 function db_schema_comparel_ab($table1, $table2) {
 	$table1['charset'] == $table2['charset'] ? '' : $ret['diffs']['charset'] = true;
-	
+
 	$fields1 = array_keys($table1['fields']);
 	$fields2 = array_keys($table2['fields']);
 	$diffs = array_diff($fields1, $fields2);
@@ -1901,7 +1901,7 @@ function db_table_fix_sql_ab($schema1, $schema2, $strict = false) {
 						if ($field['increment'] == 1) {
 							$primary = $field;
 							break;
-						} 
+						}
 					}
 					if (!empty($primary)) {
 						$piece = _db_build_field_sql_ab($primary);
@@ -1933,7 +1933,7 @@ function db_table_fix_sql_ab($schema1, $schema2, $strict = false) {
 	}
 
 	if(!empty($diff['indexes'])) {
-		
+
 		if(!empty($diff['indexes']['less'])) {
 			foreach($diff['indexes']['less'] as $indexname) {
 				$index = $schema2['indexes'][$indexname];
@@ -1944,12 +1944,12 @@ function db_table_fix_sql_ab($schema1, $schema2, $strict = false) {
 		if(!empty($diff['indexes']['diff'])) {
 			foreach($diff['indexes']['diff'] as $indexname) {
 				$index = $schema2['indexes'][$indexname];
-				
+
 				$piece = _db_build_index_sql_ab($index);
-				
+
 				$sqls[] = "ALTER TABLE `{$schema1['tablename']}` DROP ".($indexname == 'PRIMARY' ? " PRIMARY KEY " :($index['type']=="FULLTEXT"? "FULLTEXT ":"INDEX {$indexname}" )).", ADD {$piece}";
 			}
-			 
+
 		}
 		if($strict && !empty($diff['indexes']['greater'])) {
 			foreach($diff['indexes']['greater'] as $indexname) {
@@ -1967,8 +1967,8 @@ function db_table_fix_sql_ab($schema1, $schema2, $strict = false) {
 function _db_build_index_sql_ab($index) {
 	$piece = '';
 	$fields = implode('`,`', $index['fields']);
-	
-	
+
+
 	if($index['type'] == 'index') {
 		if(!empty($index['length'])){
 				$piece .= "KEY `{$index['name']}` (`{$fields}`({$index['length']}))";
@@ -2017,4 +2017,3 @@ function _db_build_field_sql_ab($field) {
 
 ?>
 
-        

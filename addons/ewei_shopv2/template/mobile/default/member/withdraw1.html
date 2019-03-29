@@ -24,7 +24,7 @@
 
        <div id="tab" class="fui-tab fui-tab-danger">
 
-        <a data-tab="tab1"  class="external {if $_GPC['type']==0}active{/if}" href="{php echo mobileUrl('member/withdraw', array('type' => 0))}" data-type='0'>TRX提现</a>
+        <a data-tab="tab1"  class="external {if $_GPC['type']==0}active{/if}" href="{php echo mobileUrl('member/withdraw', array('type' => 0))}" data-type='0'>ETH提现</a>
 
         <a data-tab="tab2" class='external {if $_GPC['type']==1}active{/if}' href="{php echo mobileUrl('member/withdraw1', array('type' => 1))}"  data-type='1'>静态账户</a>
 
@@ -42,7 +42,7 @@
 
 
 
-           <div class='fui-cell-title'>转出至TRX
+           <div class='fui-cell-title'>转出至ETH
 
                 {if floatval($set['withdrawmoney'])>0}
 
@@ -72,7 +72,7 @@
 
                     <select id="applytype">
 
-                        <option value="credit2" >余额</option>    
+                        <option value="credit2" >余额</option>
 
                     </select>
 

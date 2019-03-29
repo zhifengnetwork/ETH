@@ -697,7 +697,7 @@ class System_EweiShopV2Model
 			array(
 				'title' => '基本功能',
 				'items' => array(
-					array('title' => 'ETH资产', 'route' => 'enough', 'desc' => 'TRX价格', 'keywords' => '营销'),
+					array('title' => 'ETH资产', 'route' => 'enough', 'desc' => 'ETH价格', 'keywords' => '营销'),
 					array('title' => '卖出记录', 'route' => 'sellout', 'desc' => '卖出记录', 'keywords' => '营销'),
 					array('title' => '买入记录', 'route' => 'purchase', 'desc' => '买入记录', 'keywords' => '营销'),
 					array('title' => '福彩3D', 'route' => 'lottery', 'desc' => '彩票', 'keywords' => '营销'),

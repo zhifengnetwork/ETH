@@ -1,11 +1,11 @@
 <?php
-if (!(defined('IN_IA'))) 
+if (!(defined('IN_IA')))
 {
 	exit('Access Denied');
 }
-class Index_EweiShopV2Page extends MobilePage 
+class Index_EweiShopV2Page extends MobilePage
 {
-	public function main() 
+	public function main()
 	{
 		global $_W;
 		global $_GPC;
@@ -16,8 +16,8 @@ class Index_EweiShopV2Page extends MobilePage
 		$index_cache = $this->getpage();
 
 		$member = m('member')->getMember($_W['openid'], true);
-		
-		$sys = pdo_fetch("select give from ".tablename("ewei_shop_sysset")."where uniacid=".$_W['uniacid']); 
+
+		$sys = pdo_fetch("select give from ".tablename("ewei_shop_sysset")."where uniacid=".$_W['uniacid']);
 		$openid = $_W['openid'];
 		//获取该会员最高的投资倍率
         $arr1 = pdo_fetch("select max(section) as section from ".tablename("ewei_shop_member_log")."where uniacid=".$_W['uniacid']." and openid='$openid'");
@@ -41,23 +41,23 @@ class Index_EweiShopV2Page extends MobilePage
       	$notice = pdo_fetchall("select * from ".tablename("ewei_shop_notice")."where uniacid=".$_W['uniacid']." and status='1' ");
       	// var_dump($notice);
 
-		if (!(empty($mid))) 
+		if (!(empty($mid)))
 		{
-			$index_cache = preg_replace_callback('/href=[\\\'"]?([^\\\'" ]+).*?[\\\'"]/', function($matches) use($mid) 
+			$index_cache = preg_replace_callback('/href=[\\\'"]?([^\\\'" ]+).*?[\\\'"]/', function($matches) use($mid)
 			{
 				$preg = $matches[1];
-				if (strexists($preg, 'mid=')) 
+				if (strexists($preg, 'mid='))
 				{
 					return 'href=\'' . $preg . '\'';
 				}
-				if (!(strexists($preg, 'javascript'))) 
+				if (!(strexists($preg, 'javascript')))
 				{
 					$preg = preg_replace('/(&|\\?)mid=[\\d+]/', '', $preg);
-					if (strexists($preg, '?')) 
+					if (strexists($preg, '?'))
 					{
 						$newpreg = $preg . '&mid=' . $mid;
 					}
-					else 
+					else
 					{
 						$newpreg = $preg . '?mid=' . $mid;
 					}
@@ -134,18 +134,18 @@ class Index_EweiShopV2Page extends MobilePage
 			$slide = pdo_fetchall("select * from ".tablename("ewei_shop_adv")."where uniacid=".$_W['uniacid']." and enabled='1' ");
 			$data = array('status'=>1,'list'=>$slide);
 			echo json_encode($data);
-		}	
+		}
 	}
 
 	public function notice(){
 		global $_W;
 		global $_GPC;
 		if ($_W['ispost']) {
-			
+
 			$notice = pdo_fetchall("select * from ".tablename("ewei_shop_notice")."where uniacid=".$_W['uniacid']." and status='1' ");
 			$data = array('status'=>1,'list'=>$notice);
 	        echo json_encode($data);
-		}	
+		}
 	}
 
 	public function trx(){
@@ -162,12 +162,12 @@ class Index_EweiShopV2Page extends MobilePage
 			}
 		   $data = array('status'=>1,'list'=>array('trx'=>$member['credit1']));
 	       echo json_encode($data);
-		}	
+		}
 	}
 
 
 
-	public function get_recommand() 
+	public function get_recommand()
 	{
 		global $_W;
 		global $_GPC;
@@ -175,13 +175,13 @@ class Index_EweiShopV2Page extends MobilePage
 		$recommand = m('goods')->getList($args);
 		show_json(1, array('list' => $recommand['list'], 'pagesize' => $args['pagesize'], 'total' => $recommand['total'], 'page' => intval($_GPC['page'])));
 	}
-	private function getcache() 
+	private function getcache()
 	{
 		global $_W;
 		global $_GPC;
 		return m('common')->createStaticFile(mobileUrl('getpage', NULL, true));
 	}
-	public function getpage() 
+	public function getpage()
 	{
 		global $_W;
 		global $_GPC;
@@ -194,15 +194,15 @@ class Index_EweiShopV2Page extends MobilePage
 		$cubes = ((is_array($_W['shopset']['shop']['cubes']) ? $_W['shopset']['shop']['cubes'] : array()));
 		$banners = pdo_fetchall('select id,bannername,link,thumb from ' . tablename('ewei_shop_banner') . ' where uniacid=:uniacid and iswxapp=0 and enabled=1 order by displayorder desc', array(':uniacid' => $uniacid));
 		$bannerswipe = $_W['shopset']['shop']['bannerswipe'];
-		if (!(empty($_W['shopset']['shop']['indexrecommands']))) 
+		if (!(empty($_W['shopset']['shop']['indexrecommands'])))
 		{
 			$goodids = implode(',', $_W['shopset']['shop']['indexrecommands']);
-			if (!(empty($goodids))) 
+			if (!(empty($goodids)))
 			{
 				$indexrecommands = pdo_fetchall('select id, title, thumb, marketprice,ispresell,presellprice, productprice, minprice, total from ' . tablename('ewei_shop_goods') . ' where id in( ' . $goodids . ' ) and uniacid=:uniacid and status=1 order by instr(\'' . $goodids . '\',id),displayorder desc', array(':uniacid' => $uniacid));
-				foreach ($indexrecommands as $key => $value ) 
+				foreach ($indexrecommands as $key => $value )
 				{
-					if (0 < $value['ispresell']) 
+					if (0 < $value['ispresell'])
 					{
 						$indexrecommands[$key]['minprice'] = $value['presellprice'];
 					}
@@ -217,13 +217,13 @@ class Index_EweiShopV2Page extends MobilePage
 		require $this->template('index_tpl');
 		return ob_get_clean();
 	}
-	public function seckillinfo() 
+	public function seckillinfo()
 	{
 		$seckillinfo = plugin_run('seckill::getTaskSeckillInfo');
 		include $this->template('shop/index/seckill_tpl');
 		exit();
 	}
-	public function qr() 
+	public function qr()
 	{
 		global $_W;
 		global $_GPC;
