@@ -859,5 +859,27 @@
     })
   </script>
 {/if}
+<script>
+$('.Btn_on').click(function () {
+  let id = "{$sell[id]}";
+  $.ajax({
+    type:'post',
+    url:"{php echo mobileurl('member/guamai/tab_con')}",
+    data:{id:id},
+    dataType:'json',
+    success:function(data){
+      console.log(data);
+      if(data.status == 1){
+        alert(data.result.message);
+        history.back(-1);
+      }
+
+    },error:function(err){
+      console.log(err);
+
+    }
+  })
+});
+</script>
 {php $this->footerMenus()}
 {template '_footer'}
