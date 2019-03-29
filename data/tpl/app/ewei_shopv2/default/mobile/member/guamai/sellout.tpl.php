@@ -859,5 +859,27 @@
     })
   </script>
 <?php  } ?>
+<script>
+$('.Btn_on').click(function () {
+  let id = "<?php  echo $sell['id'];?>";
+  $.ajax({
+    type:'post',
+    url:"<?php  echo mobileurl('member/guamai/tab_con')?>",
+    data:{id:id},
+    dataType:'json',
+    success:function(data){
+      console.log(data);
+      if(data.status == 1){
+        alert(data.result.message);
+        history.back(-1);
+      }
+
+    },error:function(err){
+      console.log(err);
+
+    }
+  })
+});
+</script>
 <?php  $this->footerMenus()?>
 <?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('_footer', TEMPLATE_INCLUDEPATH)) : (include template('_footer', TEMPLATE_INCLUDEPATH));?>

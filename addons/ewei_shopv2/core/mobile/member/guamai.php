@@ -367,7 +367,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 
 				if($result) show_json(1,"抢单成功");
 
-			}else if($type == 0){  //买入
+			}else if($type == 1){  //买入
 
 				$id = $_GPC['id'];
 
