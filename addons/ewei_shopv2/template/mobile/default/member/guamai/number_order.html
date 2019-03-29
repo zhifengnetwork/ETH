@@ -147,7 +147,7 @@
 
 
 	/*---tab切换---*/
-	.box_nav{position: fixed;width: 100%;height: 2rem;background: #0a181f;}
+	.box_nav{position: fixed;width: 100%;height: 2rem;background: #0a181f;max-width: 750px}
 	.box_nav ul li {
 		width: 33%;
 		float: left;
