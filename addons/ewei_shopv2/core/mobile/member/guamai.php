@@ -194,7 +194,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 			}
 
 			$data = array('openid'=>$openid,'uniacid'=>$_W['uniacid'],'price'=>$_GPC['price'],'trx'=>$_GPC['trx'],'trx2'=>$_GPC['trx2'],'money'=>$_GPC['money'],'type'=>$type,'status'=>'0','createtime'=>time());
-			// $data['apple_time'] = time()+1800;
+			$data['apple_time'] = time()+1800;
 			$result = pdo_insert("guamai",$data);
 			// show_json($result);
 			if($type == 1){		//卖出
@@ -335,7 +335,8 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 				com('sms')->send_zhangjun2($mobile, $_GPC['id'],"卖出订单被抢单！");
 				// exit();
 				// show_json($mobile);
-				$result = pdo_update("guamai",array('file'=>$_GPC['file'],'status'=>1,'openid2'=>$_W['openid']),array('uniacid'=>$_W['uniacid'],'id'=>$_GPC['id']));
+				$apple_time = time()+1800;
+				$result = pdo_update("guamai",array('file'=>$_GPC['file'],'status'=>1,'apple_time'=>$apple_time,'openid2'=>$_W['openid']),array('uniacid'=>$_W['uniacid'],'id'=>$_GPC['id']));
 
 				if($result) show_json(1,"抢单成功");
 
@@ -368,8 +369,10 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 					}
 
 					//币足够的时候进行抢单  （扣币）
+					$apple_time = time()+1800;
+
 					m('member')->setCredit($_W['openid'],'credit2',-$sell['trx']);
-					$result = pdo_update("guamai",array('status'=>1,'openid2'=>$_W['openid'],'createtime'=>time()),array('uniacid'=>$_W['uniacid'],'id'=>$id));
+					$result = pdo_update("guamai",array('status'=>1,'openid2'=>$_W['openid'],'createtime'=>time(),'apple_time'=>$apple_time),array('uniacid'=>$_W['uniacid'],'id'=>$id));
 
 					com('sms')->send_zhangjun2($sell['mobile'], $id,"买入订单被抢单！");
 

@@ -35,7 +35,7 @@ class System_EweiShopV2Model
 			}
 			else {
 				$allmenus = $this->shopMenu();
-			
+
 			}
 		}
 
@@ -574,7 +574,7 @@ class System_EweiShopV2Model
 // //		            array('title' => '商品组', 'route' => 'group'),
 // //		            array('title' => '标签管理', 'route' => 'label', 'extend' => 'goods.label.style'),
 // 		        )
-// 		    ),			
+// 		    ),
 // //			array(
 // //				'title' => '虚拟卡密',
 // //				'route' => 'virtual',
@@ -619,8 +619,8 @@ class System_EweiShopV2Model
 		    'route'=>'',
 		    'items'=>array(
 		       array(
-		           
-		         
+
+
 		       )
 		    )
 			) */
@@ -639,7 +639,7 @@ class System_EweiShopV2Model
 //                     			array('title' => '待审核', 'route' => 'status0', 'desc' => '待付款订单管理'),
 //                     			array('title' => '已完成', 'route' => 'status3', 'desc' => '已完成订单管理'),
 //                     			array('title' => '已关闭', 'route' => 'status_1', 'desc' => '已关闭订单管理'),
-                    			
+
 //     		           ),
 //     		        ),
 // //			array(
@@ -697,6 +697,7 @@ class System_EweiShopV2Model
 			array(
 				'title' => '基本功能',
 				'items' => array(
+					array('title' => 'ETC申诉', 'route' => 'appeal', 'desc' => 'ETC申诉', 'keywords' => '营销'),
 					array('title' => 'ETH资产', 'route' => 'enough', 'desc' => 'TRX价格', 'keywords' => '营销'),
 					array('title' => '卖出记录', 'route' => 'sellout', 'desc' => '卖出记录', 'keywords' => '营销'),
 					array('title' => '买入记录', 'route' => 'purchase', 'desc' => '买入记录', 'keywords' => '营销'),
@@ -829,7 +830,7 @@ class System_EweiShopV2Model
 			// 	'title' => '交易',
 			// 	'items' => array(
 					array('title' => '交易设置', 'route' => 'trade'),
-				
+
 			// 		array('title' => '支付设置', 'route' => 'payset'),
 			// 		array('title' => '支付管理', 'route' => 'payment')
 			// 		)
@@ -1135,7 +1136,7 @@ class System_EweiShopV2Model
 					/* $return_arr['menu_items'][] = array('text' => '应用中心', 'href' => webUrl('system/plugin/apps')); */
 					$return_arr['menu_items'][] = 'line';
 					$return_arr['menu_items'][] = array('text' => '系统更新', 'href' => './index.php?c=site&a=entry&m=ewei_shopv2&do=web&r=system.auth.upgrade');
-			
+
 				}
 
 				$return_arr['menu_items'][] = array('text' => '修改密码', 'href' => './index.php?c=user&a=profile&', 'blank' => true);

@@ -1024,7 +1024,7 @@ $('.mask0_btn').click(function () {
 		   e.preventDefault();
 			 let li = $(this).parent();
 			 let index = li.index();
-			 $("#load").load(location.href+" #load");
+			//  $("#load").load(location.href+" #load");
 			 $('.my_order').css('left',-index+'00%');
 			 li.addClass("active").siblings().removeClass('active');
 			 //$('.my_order .tab_cont').eq(index).addClass('active').siblings().removeClass('active')
