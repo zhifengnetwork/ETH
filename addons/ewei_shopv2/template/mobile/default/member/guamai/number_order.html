@@ -160,9 +160,6 @@
 	.tab_header {
 		width: 100%
 	}
-	.tab_content {
-		color: #fff;
-	}
 	.tab_con1_one {
 		line-height: 2rem;
 		height: 2rem;
@@ -193,16 +190,17 @@
 		box-sizing: border-box;
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
+		overflow: hidden;
 	}
 	.tab_content .tab_con{
 		display: none;
 		padding: .5rem .2rem 0 .2rem;
 		}
 
-.tab_content .tab_conn{
+/* .tab_content .tab_conn{
 		display: none;
 		padding: .5rem .2rem 0 .2rem;
-}
+} */
 	.tab_content .tab_con.active{
 		display: block;
 	}
@@ -269,21 +267,12 @@
 
 	.mask1 {
 		background-color: #0e222d;
-		/* position: fixed;
-      width: 100%;
-      bottom: 0;
-      left: 0;
-      z-index: 9; */
 		color: #fff;
 		padding: 20px;
 	}
 
 	.mask0 {
 		background-color: #0e222d;
-		/* position: fixed;
-      width: 100%;
-      bottom: 0;
-      left: 0; */
 		z-index: 9;
 		color: #fff;
 		padding: 20px;
@@ -355,7 +344,6 @@
 
 	.order .form>span {
 		width: 50%;
-		/*text-align: center;*/
 		display: flex;
 	  flex-wrap: nowrap;
 		overflow: hidden;
@@ -414,7 +402,6 @@
 	.tab_cut{
 		width: 100%;
 		padding: 0.3rem;
-		/* position: fixed; */
 	}
   .tab_cut>ul{
 		display: flex;
@@ -438,7 +425,7 @@
 		color: #FFFFFF;
 	}
 	/* 交易状态切换 */
-	/* .my_order{
+	.my_order{
 		position: relative;
     display: -webkit-box;
     display: -webkit-flex;
@@ -446,19 +433,18 @@
     width: 100%;
     height: 100%;
     will-change: left;
-	} */
+	}
 	.my_order .tab_cont{
-	 display: none;
 	 /* padding: .5rem .2rem 0 .2rem; */
 	 width: 100%;
-    /* -webkit-flex-shrink: 0;
+    -webkit-flex-shrink: 0;
     flex-shrink: 0;
     box-sizing: border-box;
-		width: 100%; */
+		width: 100%;
 	}
-	.my_order .tab_cont.active{
+	/* .my_order .tab_cont.active{
 		display: block;
-	}
+	} */
 </style>
 
 <div class='fui-page  fui-page-current member-log-page'>
@@ -514,8 +500,8 @@
 						</ul>
 					</div>
 				<!--------我的订单---------->
-				<div class="tab_con my_order active" >
-					<!-- <div class="my_order" style="left: 0%;transition-duration: 0.3s;">	 -->
+				<div class="tab_con  active " style="padding:0" >
+					<div class="my_order" style="left: 0%;transition-duration: 0.3s;">	
 				<!-- 未交易 -->
 					<div class="tab_cont undone ">
 						{loop $guamai $winn}
@@ -657,9 +643,9 @@
 							{/loop}
 						</div>
 				</div>
-			<!-- </div> -->
+			</div>
 				<!--------发布广告----------->
-				<div class="tab_con">
+				<div class="tab_con ">
 					<div class="buying">
 						<a class="pay-tt active">买入ETH</a>
 						<a class="pay-tt">卖出ETH</a>
@@ -1134,15 +1120,13 @@ $('.mask0_btn').click(function () {
 
 
 		//我的订单 状态切换
-		$(".tab_item>a").click(function(){
-			 console.log($(this))
-		  //  e.preventDefault();
+		$(".tab_item>a").click(function(e){
+		   e.preventDefault();
 			 let li = $(this).parent();
 			 let index = li.index()
-			 console.log(li.parent())
-			// $('.my_order').css('left',-index+'00%');
+			 $('.my_order').css('left',-index+'00%');
 			 li.addClass("active").siblings().removeClass('active');
-			 $('.my_order .tab_cont').eq(index).addClass('active').siblings().removeClass('active')
+			 //$('.my_order .tab_cont').eq(index).addClass('active').siblings().removeClass('active')
 		})
 
 	})
