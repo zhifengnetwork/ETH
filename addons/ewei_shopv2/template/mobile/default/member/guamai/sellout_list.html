@@ -85,11 +85,11 @@
 
     <div class='fui-content navbar'>
       <div class="txtInfo">
-        <p>挂卖人：{$sell['nickname']} </p>
+        <p>挂卖人：{$sell['mobile']} </p>
         <p>挂卖单价：{$sell['price']} </p>
         <p>挂卖数量：{$sell['trx']} </p>
         <p>待收款：{$sell['money']} </p>
-        <p style="margin-top:10px">付款人：{$sell['nickname2']} </p>
+        <p style="margin-top:10px">付款人：{$sell['mobile2']} </p>
         <div class="zfBox">
           <!-- <span>支付方式：</span>
           <p>微信</p> -->
@@ -108,6 +108,9 @@
       </div>
     </div>
   </div>
+  {else if $status==3}
+
+
 {/if}
 {php $this->footerMenus()}
 {template '_footer'}

@@ -545,7 +545,7 @@
 										<?php  } ?>
 
 										<?php  if($winn['status'] == '1') { ?>
-										<span class="fn_cl" data-val="1" onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<?php  echo $winn['id'];?>&op=0'" >交易中<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+										<span class="fn_cl" data-val="1" onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<?php  echo $winn['id'];?>&op=<?php  echo $winn['type'];?>&status=<?php  echo $winn['status'];?>'">交易中<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
 										<?php  } ?>
 									</p>
 									<p class="form">
@@ -618,7 +618,7 @@
 
 
 										<?php  if($winn['status'] == '3') { ?>
-										<span class="fn_cl" data-val="3">交易失败<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+										<span class="fn_cl" data-val="3" onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<?php  echo $winn['id'];?>&op=<?php  echo $winn['type'];?>&status=<?php  echo $winn['status'];?>'" >交易失败<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
 										<?php  } ?>
 									</p>
 
