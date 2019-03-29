@@ -411,7 +411,6 @@
                   location.reload();
                   window._type = 0;
                   console.log(window._type);
-
               }
 
             },error:function(err){
