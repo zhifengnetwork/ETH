@@ -556,11 +556,20 @@
 
   <div class='fui-content navbar'>
     <div class="txtInfo">
-      <p>挂卖人：<?php  echo $sell['nickname'];?> </p>
+      <?php  if($op ==0) { ?>
+      <p>挂买人：<?php  echo $sell['nickname'];?> </p>
+      <?php  } else { ?>
+      <p>挂卖人：<?php  echo $sell['mobile'];?> </p>
+      <?php  } ?>
       <p>挂卖单价：<?php  echo $sell['price'];?> </p>
       <p>挂卖数量：<?php  echo $sell['trx'];?> </p>
       <p>需付款：<?php  echo $sell['money'];?> </p>
+      <?php  if($op ==0) { ?>
       <p>收款人:<?php  echo $sell['nickname2'];?> </p>
+      <?php  } else { ?>
+      <p>付款人:<?php  echo $sell['nickname2'];?> </p>
+      <?php  } ?>
+
       <div class="zfBox">
         <span>支付方式：</span>
         <select name="zfselect" id="zfselect">
@@ -780,11 +789,21 @@
 
     <div class='fui-content navbar'>
       <div class="txtInfo">
-        <p>挂卖人：<?php  echo $sell['nickname'];?> </p>
+          <?php  if($op ==0) { ?>
+          <p>挂买人：<?php  echo $sell['nickname'];?> </p>
+          <?php  } else { ?>
+          <p>挂卖人：<?php  echo $sell['mobile'];?> </p>
+          <?php  } ?>
+        <!-- <p>挂卖人：<?php  echo $sell['nickname'];?> </p> -->
         <p>挂卖单价：<?php  echo $sell['price'];?> </p>
         <p>挂卖数量：<?php  echo $sell['trx'];?> </p>
         <p>待收款：<?php  echo $sell['money'];?> </p>
+        <?php  if($op ==0) { ?>
         <p style="margin-top:10px">收款人：<?php  echo $sell['nickname2'];?> </p>
+        <?php  } else { ?>
+        <p style="margin-top:10px">收款人：<?php  echo $sell['nickname2'];?> </p>
+        <?php  } ?>
+
         <div class="zfBox">
           <!-- <span>支付方式：</span>
           <p>微信</p> -->

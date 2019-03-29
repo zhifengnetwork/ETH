@@ -37,7 +37,12 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 			$guamai[$key]['nickname'] = substr($val['openid'],-11);
 			$guamai[$key]['nickname2'] = substr($val['openid2'],-11);
 		}
-		// dump($guamai);
+
+		//申诉
+		$guamai_appeal = pdo_fetchall("select * from".tablename("guamai_appeal")."where appeal_name='".$_W['mid']."'");
+		foreach ($guamai_appeal as $k=>$v){
+			$guamai_appeal[$k]['createtime'] = date("m-d",$val['createtime']);
+		}
 		include $this->template();
 	}
 
@@ -320,7 +325,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		}else if($sell['openid2']==$_W['openid']){
 			$type = 2;
 		}
-
+		// dump($sell);
 		if($_W['ispost']){
 			// show_json(123454);
 			$type = $_GPC['type'];
