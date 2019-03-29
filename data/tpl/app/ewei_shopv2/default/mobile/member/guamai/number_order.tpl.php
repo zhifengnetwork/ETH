@@ -501,7 +501,7 @@
 					</div>
 				<!--------我的订单---------->
 				<div class="tab_con  active " style="padding:0" >
-					<div class="my_order" style="left: 0%;transition-duration: 0.3s;">	
+					<div class="my_order" style="left: 0%;transition-duration: 0.3s;">
 				<!-- 未交易 -->
 					<div class="tab_cont undone ">
 						<?php  if(is_array($guamai)) { foreach($guamai as $winn) { ?>

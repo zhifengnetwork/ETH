@@ -189,7 +189,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 			}
 
 			$data = array('openid'=>$openid,'uniacid'=>$_W['uniacid'],'price'=>$_GPC['price'],'trx'=>$_GPC['trx'],'trx2'=>$_GPC['trx2'],'money'=>$_GPC['money'],'type'=>$type,'status'=>'0','createtime'=>time());
-			$data['apple_time'] = time()+1800;
+			// $data['apple_time'] = time()+1800;
 			$result = pdo_insert("guamai",$data);
 			// show_json($result);
 			if($type == 1){		//卖出
