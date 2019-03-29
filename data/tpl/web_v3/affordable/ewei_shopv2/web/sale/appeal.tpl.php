@@ -205,6 +205,7 @@
                     </td>
                     <td><?php  echo $row['m1mobile'];?></td>
                     <td><?php  echo $row['m2mobile'];?></td>
+                    <td><?php  echo $row['order_id'];?></td>
                     <td><?php  echo date('Y-m-d',$row['createtime'])?><br/><?php  echo date('H:i',$row['createtime'])?></td>
                     <td><?php  echo $row['money'];?></td>
 
@@ -216,7 +217,6 @@
 
                     </td>
 
-                    <td><?php  if(!empty($row['realname'])) { ?><?php  echo $row['realname'];?><?php  } else { ?>匿名<?php  } ?><br/><?php  if(!empty($row['mobile'])) { ?><?php  echo $row['mobile'];?><?php  } else { ?>暂无<?php  } ?></td>
                     <td style="text-align: center;">
 
 
