@@ -23,7 +23,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		$openid = $_W['openid'];
 		//价格基础TRX价格  以及手续费
 		$sys = pdo_fetch("select trxprice,trxsxf from".tablename("ewei_shop_sysset")."where uniacid=".$_W['uniacid']);
-		$sys['trxsxf'] = $sys['trxsxf']/100;
+		$sys['trxsxf'] = round($sys['trxsxf'],2);
 		$start = $sys['trxprice']*(1-0.1);
 		$end = $sys['trxprice']*(1+0.1);
 		$member = m('member')->getMember($_W['openid'], true);
