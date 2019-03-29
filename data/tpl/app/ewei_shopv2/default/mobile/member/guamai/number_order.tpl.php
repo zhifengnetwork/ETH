@@ -86,7 +86,6 @@
 		display: -webkit-flex;
 		display: flex;
     flex-wrap: nowrap;
-
 	}
 
 	.pay-tt {
@@ -97,6 +96,7 @@
 		line-height: 2rem;
 		color: #fff;
 		font-size: 0.7rem;
+		touch-action: pan-x;
 	}
 
 	.pay-tt.active {
@@ -147,7 +147,7 @@
 
 
 	/*---tab切换---*/
-	.box_nav{position: fixed;width: 100%;height: 2rem;background: #0a181f;}
+	.box_nav{position: fixed;width: 100%;height: 2rem;background: #0a181f;max-width: 750px}
 	.box_nav ul li {
 		width: 33%;
 		float: left;
@@ -197,16 +197,11 @@
 		padding: .5rem .2rem 0 .2rem;
 		}
 
-/* .tab_content .tab_conn{
-		display: none;
-		padding: .5rem .2rem 0 .2rem;
-} */
 	.tab_content .tab_con.active{
 		display: block;
 	}
 
 	/* 买入 卖出弹框 */
-
 	.mask1_btn {
 		width: 100%;
 		text-align: center;
@@ -402,6 +397,7 @@
 	.tab_cut{
 		width: 100%;
 		padding: 0.3rem;
+		touch-action: pan-x;
 	}
   .tab_cut>ul{
 		display: flex;
@@ -486,22 +482,22 @@
 				  <div class="tab_cut">
 						<ul>
 							<li class="tab_item active">
-								<a href="">未交易</a>
+								<a href=""  >未交易</a>
 							</li>
 							<li class="tab_item">
-								<a href="">交易中</a>
+								<a href=""  >交易中</a>
 							</li>
 							<li class="tab_item">
-								<a href="">交易完成</a>
+								<a href=""  >交易完成</a>
 							</li>
 							<li class="tab_item">
-								<a href="">交易失败</a>
+								<a href=""  >交易失败</a>
 							</li>
 						</ul>
 					</div>
 				<!--------我的订单---------->
 				<div class="tab_con  active " style="padding:0" >
-					<div class="my_order" style="left: 0%;transition-duration: 0.3s;">
+					<div class="my_order" id="load"style="left: 0%;transition-duration: 0.3s;">
 				<!-- 未交易 -->
 					<div class="tab_cont undone ">
 						<?php  if(is_array($guamai)) { foreach($guamai as $winn) { ?>
@@ -1120,7 +1116,8 @@ $('.mask0_btn').click(function () {
 		$(".tab_item>a").click(function(e){
 		   e.preventDefault();
 			 let li = $(this).parent();
-			 let index = li.index()
+			 let index = li.index();
+			 $("#load").load(location.href+" #load");
 			 $('.my_order').css('left',-index+'00%');
 			 li.addClass("active").siblings().removeClass('active');
 			 //$('.my_order .tab_cont').eq(index).addClass('active').siblings().removeClass('active')
