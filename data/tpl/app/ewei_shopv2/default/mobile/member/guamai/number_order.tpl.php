@@ -657,7 +657,7 @@
 								<p>该订单“<?php  echo $appeal['order_id'];?>”,在进行审核。</p>
 								<?php  } else if($appeal['stuas'] == 1) { ?>
 								<p>该订单“<?php  echo $appeal['order_id'];?>”,审核通过，并对该账号进行处罚。</p>
-								{else $appeal['stuas'] == 2}
+								<?php  } else if($appeal['stuas'] == 2) { ?>
 								<p>该订单“<?php  echo $appeal['order_id'];?>”,该申诉失效。</p>
 								<?php  } ?>
 								<p><?php  echo $appeal['createtime'];?></p>
