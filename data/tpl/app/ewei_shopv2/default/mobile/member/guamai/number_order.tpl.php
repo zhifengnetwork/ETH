@@ -684,7 +684,7 @@
 					<div class="mask_lis">
 						<p>预获金额(CNY)</p>
 						<input type="number" disabled value="0" class="getMoney0">
-						<div class="tishi">手续费：<span class="sxf0"><?php  echo $sys['trxsxf'];?></span></div>
+						<div class="tishi">手续费：<span class="sxf0"><?php  echo $sys['trxsxf'];?></span>%</div>
 					</div>
 					<div class="mask_lis">
 						<p>待付(ETH)</p>
@@ -706,7 +706,7 @@
 						<input type="number" placeholder="请输入购买的数量" class="buyNum">
 					</div>
 					<div class="mask_lis">
-						<div class="tishi">手续费：<span class="sxf0"><?php  echo $sys['trxsxf'];?></span></div>
+						<div class="tishi">手续费：<span class="sxf0"><?php  echo $sys['trxsxf'];?></span>%</div>
 					</div>
 					<p>交易总额</p>
 					<input type="number" disabled value="0" style="padding: 5px 10px;width: 100%;" class="mairu_Money">
@@ -719,7 +719,7 @@
 			<script>
 
 			 $(function(){
-			 
+
 			 	var addTimer = function(){
 		        var list = [],
 		          interval;
@@ -1005,7 +1005,7 @@ $('.mask0_btn').click(function () {
         let getMoney = $('.maiChu_Num').val() * $('.maiChu_price').val();
         let num = $('.maiChu_Num').val();
         $('.getMoney0').val(getMoney);
-        setTrx = Number(num) + Number($('.sxf0').html()*num);
+        setTrx = Number(num) + Number($('.sxf0').html()*num/100);
         $('.setTrx0').val(setTrx);
       } else {
         $('.getMoney0').val('0');
@@ -1022,10 +1022,7 @@ $('.mask0_btn').click(function () {
       }
 
       if($('.buyNum').val() != '' && $('.maiRu_price').val() != ''){
-		let getMoney = ($('.buyNum').val()-$('.sxf0').html()*$('.buyNum').val()) * $('.maiRu_price').val();
-		console.log($('.buyNum').val());
-		console.log($('.maiRu_price').val());
-		console.log($('.sxf0').html());
+		let getMoney = ($('.buyNum').val()-$('.sxf0').html()*$('.buyNum').val()/100) * $('.maiRu_price').val();
         $('.mairu_Money').val(getMoney);
       } else {
         $('.mairu_Money').val('0');
@@ -1041,16 +1038,16 @@ $('.mask0_btn').click(function () {
         return false;
       }
 
-      if($('.maiRu_price').val() != '' && $('.buyNum').val() != ''){
-		let getMoney = ($('.buyNum').val()-$('.sxf0').html()*$('.buyNum').val()) * $('.maiRu_price').val();
-		console.log($('.buyNum').val());
-		console.log($('.maiRu_price').val());
-		console.log($('.sxf0').html()*$('.buyNum').val());
-        $('.mairu_Money').val(getMoney);
-      } else {
-        $('.getMoney0').val('0');
-      }
-    })
+    if($('.maiRu_price').val() != '' && $('.buyNum').val() != ''){
+			let getMoney = ($('.buyNum').val()-$('.sxf0').html()*$('.buyNum').val()/100) * $('.maiRu_price').val();
+			console.log($('.buyNum').val());
+			console.log($('.maiRu_price').val());
+			console.log($('.sxf0').html()*$('.buyNum').val()/100);
+			$('.mairu_Money').val(getMoney);
+		} else {
+			$('.getMoney0').val('0');
+		}
+	})
 
     // 确定买入
     $('.mask1_btn').click(function () {
