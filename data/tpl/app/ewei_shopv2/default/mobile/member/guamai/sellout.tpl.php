@@ -697,9 +697,6 @@
   })
 </script>
 
-ass="fui-header-right">
-      </div>
-    </div>
 <?php  } else if($op ==0 && $type==2) { ?>     <!-- 买入订单   抢单人人进入 -->
   <style>
   .fui-header {
@@ -777,7 +774,10 @@ ass="fui-header-right">
       <?php  } else if($op == 0) { ?>
       <div class="title">买入TRX</div>
       <?php  } ?>
-      <div cl
+      <div class="fui-header-right">
+      </div>
+    </div>
+
     <div class='fui-content navbar'>
       <div class="txtInfo">
         <p>挂卖人：<?php  echo $sell['nickname'];?> </p>

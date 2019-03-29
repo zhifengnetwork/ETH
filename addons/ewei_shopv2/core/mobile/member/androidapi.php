@@ -1,19 +1,19 @@
 <?php
-if (!(defined('IN_IA'))) 
+if (!(defined('IN_IA')))
 {
 	exit('Access Denied');
 }
-class Androidapi_EweiShopV2Page extends MobilePage 
+class Androidapi_EweiShopV2Page extends MobilePage
 {
-	public function main() 
+	public function main()
 	{
 		global $_W ;
 		global $_GPC;
-			
+
 	}
 
 	//投资
-	public function wechat_complete() 
+	public function wechat_complete()
 	{
 		global $_W;
 		global $_GPC;
@@ -53,7 +53,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 
 			// var_dump($list);exit();
 			// show_json($list);
-			
+
 			$moneys = $money*$ass['multiple'];
 
 			//m('member')->setCredit($_W['openid'],'credit1',$moneys);
@@ -78,7 +78,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 	}
 
 	//出金    转出至TRX
-	public function zhuanchutrx() 
+	public function zhuanchutrx()
 	{
 		global $_W;
 		global $_GPC;
@@ -91,7 +91,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			echo json_encode($data1);exit();
 		}
 		$set = $_W['shopset']['trade'];
-		if (empty($set['withdraw'])) 
+		if (empty($set['withdraw']))
 		{
 			$data1 = array('status'=>0,"fail"=>"系统未开启提现");
 			echo json_encode($data1);exit();
@@ -104,25 +104,25 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			$data1 = array('status'=>0,"fail"=>"请完善您的资料");
 			echo json_encode($data1);exit();
 		}
-		
+
 		$money = floatval($_GPC['money']);
 		$credit = m('member')->getCredit($_W['openid'], 'credit2');
-		
+
 		$apply = array();
 		$type_array = array();
-		
+
 		$realmoney = $money;
 
-		if (!(empty($set_array['charge']))) 
+		if (!(empty($set_array['charge'])))
 		{
 			$money_array = m('member')->getCalculateMoney($money, $set_array);
-			if ($money_array['flag']) 
+			if ($money_array['flag'])
 			{
 				$realmoney = $money_array['realmoney'];
 				$deductionmoney = $money_array['deductionmoney'];
 			}
 		}
-		
+
 		m('member')->setCredit($_W['openid'], 'credit2', -$money, array(0, $_W['shopset']['set'][''] . '余额提现预扣除: ' . $money . ',实际到账金额:' . $realmoney . ',手续费金额:' . $deductionmoney));
 		$logno = m('common')->createNO('member_log', 'logno', 'RW');
 		$apply['uniacid'] = $_W['uniacid'];
@@ -146,7 +146,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 	}
 
 	//静态账户转出
-	public function zhuanchujingtai() 
+	public function zhuanchujingtai()
 	{
 		global $_W;
 		global $_GPC;
@@ -159,7 +159,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			echo json_encode($data1);exit();
 		}
 		$set = $_W['shopset']['trade'];
-		if (empty($set['withdraw'])) 
+		if (empty($set['withdraw']))
 		{
 			$data1 = array('status'=>0,"fail"=>"系统未开启提现");
 			echo json_encode($data1);exit();
@@ -170,24 +170,24 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$set_array['end'] = floatval($set['withdrawend']);
 		$money = floatval($_GPC['money']);
 		$credit = m('member')->getCredit($_W['openid'], 'credit3');
-		if ($money <= 0) 
+		if ($money <= 0)
 		{
 			$data1 = array('status'=>0,"fail"=>"提现金额错误");
 			echo json_encode($data1);exit();
 		}
-		if ($credit < $money) 
+		if ($credit < $money)
 		{
 			$data1 = array('status'=>0,"fail"=>"提现金额过大");
 			echo json_encode($data1);exit();
 		}
 		$apply = array();
 		$type_array = array();
-		
+
 		$realmoney = $money;
-		if (!(empty($set_array['charge']))) 
+		if (!(empty($set_array['charge'])))
 		{
 			$money_array = m('member')->getCalculateMoney($money, $set_array);
-			if ($money_array['flag']) 
+			if ($money_array['flag'])
 			{
 				$realmoney = $money_array['realmoney'];
 				$deductionmoney = $money_array['deductionmoney'];
@@ -205,9 +205,9 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$apply['status'] = 0;
 		$apply['money'] = $money;
 		$apply['realmoney'] = $realmoney;
-		
+
 		$ass = pdo_insert('ewei_shop_member_log', $apply);
-		
+
 		$logid = pdo_insertid();
 		m('notice')->sendMemberLogMessage($logid);
 		$data = array('status'=>1,"success"=>"静态账户转出成功");
@@ -218,7 +218,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 	public function futouzhanghu() {
 		global $_W;
 		global $_GPC;
-		
+
 		$id = $_GPC['id'];
 		if($id){
 			$set = $_W['shopset']['trade'];
@@ -277,7 +277,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 
 		$data = array('status'=>0,"list"=>array('list'=>$list,'money'=>$count['money']));
 		echo json_encode($data);exit();
-		
+
 	}
 
 	public function digui($members,$mid){
@@ -461,7 +461,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			$data = array('status'=>0,"fail"=>"请上传会员的id");
 			echo json_encode($data);exit();
 		}
-		
+
 		$type = $_GPC['type'];
 
 		$list =  pdo_fetchall("select g.*,m.nickname from".tablename("ewei_shop_member_log")."g left join".tablename("ewei_shop_member")."m on g.openid=m.openid"." where g.uniacid=:uniacid and g.type='$type' and g.openid=:openid order by g.createtime desc",array(':uniacid'=>$_W['uniacid'],':openid'=>$_W['openid']));
@@ -476,14 +476,14 @@ class Androidapi_EweiShopV2Page extends MobilePage
 
 
 	//3d彩票
-	//下注 
+	//下注
 	public function caipiaobets(){
 		global $_W;
 		global $_GPC;
-		
+
 		$id = $_GPC['id'];
 
-		
+
 		if($id){
 			$memberis = pdo_fetch("select * from ".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and id='$id'");
 			$_W['openid'] = $memberis['openid'];
@@ -503,7 +503,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				$data = array('credit1'=>$member['credit1'],'credit4'=>$member['credit4']);
 
 				echo json_encode(array('status'=>1,"list"=>$data));exit();
-				
+
 				show_json(1,array('list'=>$data));
 
 			}else if($type == 2){  //下注
@@ -517,8 +517,8 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				$money = $_GPC['money'];
 
 				$list = json_decode($_POST['list'],true);
-			
-				
+
+
 				if($payment == 1){  //TRX支付
 
 					if($member['credit1']<$money)  show_json(-1,"您的TRX币不足");
@@ -543,7 +543,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				pdo_update("ewei_shop_lottery2",array('sum'=>$sale['sum']+$money),array('uniacid'=>$_W['uniacid']));
 				$data = array('status'=>1,"success"=>"下注成功");
 				echo json_encode($data);exit();
-			}	
+			}
 		}
 	}
 
@@ -582,13 +582,13 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				$investment[$key]['yuji'] = round($touzi['investment'.$i]*$sale['sum']*0.01,2);
 
 			}
-			
+
 			$i++;
 		}
 		$data = array('status'=>0,"list"=>$investment);
 		echo json_encode($data);exit();
 		// var_dump($investment);
-		
+
 	}
 
 	//一键包号
@@ -598,12 +598,12 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		global $_GPC;
 
 		$minNum = $_GPC['minNum'];$maxNum = $_GPC['maxNum'];
-		
+
 		$op = array();
-		for ($minNum; $minNum <=$maxNum ; $minNum++) { 
+		for ($minNum; $minNum <=$maxNum ; $minNum++) {
 			$op[] = $minNum;
 		}
-		
+
 		$yes = array();
 
 		foreach ($op as $key => $val) {
@@ -623,7 +623,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 
 				}
 
-				$kn = substr($kn, 0, -1);		
+				$kn = substr($kn, 0, -1);
 
 			}
 
@@ -723,7 +723,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 
 		$data = array('status'=>1,"result"=>array('list' => $list, 'total' => $total, 'pagesize' => $psize));
 		echo json_encode($data);exit();
-		
+
 
 	}
 	//3d彩票
@@ -763,10 +763,10 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$list = pdo_fetchall($select.$tablename.$where.$limit,$params);
 		$total = pdo_fetchcolumn('SELECT count(g.id) FROM '.$tablename.$where, $params);
 		// show_json(111);
-		
+
 		foreach ($list as $key=>$val) {
 			$list[$key]['createtime'] = date("Y-m-d H:i:s",$val['createtime']);
-			if($val['zfbfile']) $list[$key]['zfbfile'] = 1; 
+			if($val['zfbfile']) $list[$key]['zfbfile'] = 1;
 			if($val['wxfile']) $list[$key]['wxfile'] = 1;
 			if($val['bankid'] && $val['bankname'] && $val['bank']) $list[$key]['bank'] = 1;
 			//判断该信息是否是自己发布的（未交易时）
@@ -776,14 +776,14 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		}
 
 		// show_json($item);
-		
+
 
 		$data = array('status'=>1,"result"=>array('list' => $list, 'total' => $total, 'pagesize' => $psize));
 		echo json_encode($data);exit();
 	}
 
 	//价格建议区间
-	public function guamaijianyi() 
+	public function guamaijianyi()
 	{
 		global $_W;
 		global $_GPC;
@@ -836,7 +836,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			}
 
 			$data = array('openid'=>$openid,'uniacid'=>$_W['uniacid'],'price'=>$_GPC['price'],'trx'=>$_GPC['trx'],'trx2'=>$_GPC['trx2'],'money'=>$_GPC['money'],'type'=>$type,'status'=>'0','createtime'=>time());
-			
+
 			$result = pdo_insert("guamai",$data);
 			// show_json($result);
 			if($type == 1){		//卖出
@@ -850,7 +850,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				$data = array('status'=>1,"success"=>"挂卖成功！");
 				echo json_encode($data);exit();
 			}
-			
+
 
 		}
 	}
@@ -881,7 +881,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			if($sell['wxfile2']) $payment[] = array('name'=>"微信",'type'=>'wx');
 			if($sell['bank2'] &&$sell['bankid2'] && $sell['bankname2']) $payment[] = array('name'=>"银行",'type'=>'bank');
 		}
-		
+
 		if($sell['openid']==$_W['openid']){
 			$type = 1;
 		}else if($sell['openid2']==$_W['openid']){
@@ -891,13 +891,13 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			$data = array('status'=>0,"list"=>array('op'=>$op,'type'=>$type,'sell'=>$sell,'zf'=>$payment));
 			echo json_encode($data);exit();
 		}
-		
+
 		if($_W['ispost']){
 			// show_json(123454);
 			$type = $_GPC['type'];
 			$mobile = $_GPC['mobile'];
 			if($type == 1){   //卖出
-				
+
 				com('sms')->send_zhangjun2($mobile, $_GPC['id'],"卖出订单被抢单！");
 				// exit();
 				// show_json($mobile);
@@ -906,7 +906,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				if($result) echo json_encode(array('status'=>1,'success'=>"抢单成功"));exit();
 
 			}else if($type == 0){  //买入
-				
+
 				$id = $_GPC['id'];
 
 				$op = $_GPC['op'];
@@ -915,23 +915,23 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				$member = m('member')->getMember($_W['openid'], true);
 				$sell = pdo_fetch("select g.trx,m.mobile,m2.mobile as mobile2 from".tablename("guamai").' g left join '.tablename('ewei_shop_member').' m ON m.openid=g.openid '.' left join '.tablename('ewei_shop_member').' m2 ON m2.openid=g.openid2 '." where g.uniacid=".$_W['uniacid']." and g.id='$id' and g.type=0");
 
-				if($op == 1){	//买入订单  挂单人付钱	
+				if($op == 1){	//买入订单  挂单人付钱
 					$result = pdo_update("guamai",array('file'=>$_GPC['file']),array('uniacid'=>$_W['uniacid'],'id'=>$id));
 
 					com('sms')->send_zhangjun2($sell['mobile2'], $id,"买入订单挂单人已上传支付凭证！");
 
 					if($result) echo json_encode(array('status'=>1,'success'=>"挂单人付款成功"));exit();
 
-				}else{	
+				}else{
 
 					//判断该会员是否上传收款信息
 					if(!$member['zfbfile'] && !$member['wxfile'] && (!$member['bankid'] || !$member['bankname'] || !$member['bank'])){
 						echo json_encode(array('status'=>0,'success'=>"请上传支付凭证"));exit();
-					}	
+					}
 
 					if($member['credit1']<$sell['trx']){
 						echo json_encode(array('status'=>0,'success'=>"您的TRX不足，请尽快投资"));exit();
-						
+
 					}
 
 					//币足够的时候进行抢单  （扣币）
@@ -944,14 +944,14 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				}
 
 			}
-			
+
 
 		}
 
 	}
 
 
-	//买入卖出的确认收款  
+	//买入卖出的确认收款
 	public function guamaiselloutyes(){
 		global $_W;
 		global $_GPC;
@@ -997,10 +997,10 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				show_json(1,"订单完成");
 
 			}
-			
+
 		}
 	}
-	//c2c 
+	//c2c
 
 
 	//个人
@@ -1067,12 +1067,12 @@ class Androidapi_EweiShopV2Page extends MobilePage
         m('member')->setCredit($_W['openid'],'credit2',$money);
 
         pdo_update("ewei_shop_member", array('type' => 2,'credit5'=>$money,'agentlevel'=>0,'agentlevel2'=>0,'agentlevel3'=>0),array('openid'=>$_W['openid'],'uniacid'=>$_W['uniacid']));
-        
+
         echo json_encode(array('status'=>1,"success"=>"退出操作成功"));
 	}
 
 	//上传头像和修改会员姓名
-	public function homeface() 
+	public function homeface()
 	{
 		global $_W;
 		global $_GPC;
@@ -1084,8 +1084,8 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			$data = array('status'=>1,"nickname"=>$members['nickname'],'avatar'=>$members['avatar']);
 			echo json_encode($data);exit();
 		}
-		
-		if ($_W['ispost']) 
+
+		if ($_W['ispost'])
 		{
 			if($_GPC['into']){
 				$data = array('status'=>1,"nickname"=>$memberis['nickname'],'avatar'=>$memberis['avatar']);
@@ -1093,12 +1093,12 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			}
 			$nickname = trim($_GPC['nickname']);
 			$avatar = trim($_GPC['avatar']);
-			if (empty($nickname)) 
+			if (empty($nickname))
 			{
 				$data = array('status'=>0,"fail"=>"请填写昵称");
 				echo json_encode($data);exit();
 			}
-			if (empty($avatar)) 
+			if (empty($avatar))
 			{
 				$data = array('status'=>0,"fail"=>"请上传头像");
 				echo json_encode($data);exit();
@@ -1126,12 +1126,12 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				$data = array('status'=>1,"walletaddress"=>$memberis['walletaddress'],'walletcode'=>$memberis['walletcode'],'zfbfile'=>$memberis['zfbfile'],'wxfile'=>$memberis['wxfile'],'bankid'=>$memberis['bankid'],'bankname'=>$memberis['bankname'],'bank'=>$memberis['bank']);
 				echo json_encode($data);exit();
 			}
-		if (empty($_GPC['adress'])) 
+		if (empty($_GPC['adress']))
 		{
 			$data = array('status'=>0,"fail"=>"请填写钱包地址");
 			echo json_encode($data);exit();
 		}
-		if (empty($_GPC['url'])) 
+		if (empty($_GPC['url']))
 		{
 			$data = array('status'=>0,"fail"=>"请上传钱包二维码");
 			echo json_encode($data);exit();
@@ -1165,7 +1165,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 	}
 
 	//修改密码
-	public function cahngepwd() 
+	public function cahngepwd()
 	{
 		global $_W;
 		global $_GPC;
@@ -1179,9 +1179,9 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		}
 		$member = m('member')->getMember($_W['openid'], true);
 		$wapset = m('common')->getSysset('wap');
-	
+
 		// show_json(111);
-		if ($_W['ispost']) 
+		if ($_W['ispost'])
 		{
 			$mobile = trim($_GPC['mobile']);
 			$verifycode = trim($_GPC['verifycode']);
@@ -1192,21 +1192,21 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			if($_GPC['code'] && ($_GPC['code'] != $verifycode) ){
 				show_json(0, '验证码错误或已过期!');
 			}else if(!$_GPC['code']){
-				if (!(isset($_SESSION[$key])) || ($_SESSION[$key] !== $verifycode) || !(isset($_SESSION['verifycodesendtime'])) || (($_SESSION['verifycodesendtime'] + 600) < time())) 
+				if (!(isset($_SESSION[$key])) || ($_SESSION[$key] !== $verifycode) || !(isset($_SESSION['verifycodesendtime'])) || (($_SESSION['verifycodesendtime'] + 600) < time()))
 				{
 					show_json(0, '验证码错误或已过期!');
 				}
 			}
-			
+
 			$member = pdo_fetch('select id,openid,mobile,pwd,salt,credit1,credit2, createtime from ' . tablename('ewei_shop_member') . ' where mobile=:mobile and uniacid=:uniacid and mobileverify=1 limit 1', array(':mobile' => $mobile, ':uniacid' => $_W['uniacid']));
 			$salt = ((empty($member) ? '' : $member['salt']));
-			if (empty($salt)) 
+			if (empty($salt))
 			{
 				$salt = random(16);
-				while (1) 
+				while (1)
 				{
 					$count = pdo_fetchcolumn('select count(*) from ' . tablename('ewei_shop_member') . ' where salt=:salt limit 1', array(':salt' => $salt));
-					if ($count <= 0) 
+					if ($count <= 0)
 					{
 						break;
 					}
@@ -1218,15 +1218,15 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			echo json_encode(array('status'=>1,'success'=>'修改密码成功'));
 		}
 		$sendtime = $_SESSION['verifycodesendtime'];
-		if (empty($sendtime) || (($sendtime + 60) < time())) 
+		if (empty($sendtime) || (($sendtime + 60) < time()))
 		{
 			$endtime = 0;
 		}
-		else 
+		else
 		{
 			$endtime = 60 - time() - $sendtime;
 		}
-		
+
 	}
 
 	public function kefu(){
@@ -1259,14 +1259,14 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			$book=array('status'=>1,'message'=>'您上传的类型有误');
 			echo json_encode($book);
 			exit;
-		  
+
 		}
 		//判断是否是通过HTTP POST上传的
 		if(!is_uploaded_file($file['tmp_name'])){
 		    //如果不是通过HTTP POST上传的
 			$book=array('status'=>0,'message'=>'上传来源有误');
 			echo json_encode($book);
-			exit; 
+			exit;
 		}
 		$upload_path = "./img/"; //上传文件的存放路径
 
@@ -1285,19 +1285,19 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$url='http://'.$_SERVER['SERVER_NAME'].'/app/img/'.$file['name'];
 		   $book=array('status'=>1,'message'=>'上传成功','url'=>$url);
 			echo json_encode($book);
-			exit; 
+			exit;
 		}else{
 		  $book=array('status'=>0,'message'=>'上传失败');
 			echo json_encode($book);
-			exit; 
+			exit;
 		}
 
 	}
 
-	
+
 	function new_file_upload($data, $type = 'image') {
 		$harmtype = array('asp', 'php', 'jsp', 'js', 'css', 'php3', 'php4', 'php5', 'ashx', 'aspx', 'exe', 'cgi');
-		if (empty($data)) { 
+		if (empty($data)) {
 			return error(-1, '没有上传内容');
 		}
 
@@ -1305,24 +1305,24 @@ class Androidapi_EweiShopV2Page extends MobilePage
 
 		switch($type){
 	        case 'image/png':
-	            $ext='png'; 
+	            $ext='png';
 	            break;
 	        case 'image/jpeg';
 	            $ext='jpeg';
 	            break;
 	        case 'image/jpeg':
 	            $ext='jpg';
-	            break; 
+	            break;
 	        case 'image/bmp':
 	            $ext='bmp';
 	            break;
 	        default:
-	            $ext='jpg'; 
+	            $ext='jpg';
 	    }
 		$setting = setting_load('upload');
 		$allowExt = array('gif', 'jpg', 'jpeg', 'bmp', 'png', 'ico');
 		$limit = $setting['upload']['image']['limit'];
-		 
+
 		$setting = $_W['setting']['upload'][$ext];
 		if (!empty($setting)) {
 			$allowExt = array_merge($setting['extentions'], $allowExt);
@@ -1335,16 +1335,16 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$result = array();
 		$uniacid = intval($_W['uniacid']);
 		$path = "images/{$uniacid}/" . date('Y/m/');
-		mkdirs(ATTACHMENT_ROOT . '/' . $path);
-	 			
+		mkdirs(ATTACHMENT_ROOT . '/' . $path,0777);
+
 		$filename = file_random_name(ATTACHMENT_ROOT . '/' . $path, $ext);
-		
+
 		$res = file_put_contents(ATTACHMENT_ROOT.'/'.$path.$filename,$img_content);
 
-		if(!$res){ 
+		if(!$res){
 			return error(-1, '保存上传文件失败');
 		}
-		$result['path'] = $path.$filename; 
+		$result['path'] = $path.$filename;
 		$result['success'] = true;
 		return $result;
 	}
@@ -1359,10 +1359,10 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		show_json($str);
 
         $type = $_POST['type'];
-       
+
         load()->func('file');
 		$path = '/images/ewei_shop/' . $_W['uniacid'];
-		if (!(is_dir(ATTACHMENT_ROOT . $path))) 
+		if (!(is_dir(ATTACHMENT_ROOT . $path)))
 		{
 			mkdirs(ATTACHMENT_ROOT . $path);
 		}
@@ -1371,16 +1371,16 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$_W['uploadsetting']['image']['extentions'] = $_W['config']['upload']['image']['extentions'];
 		$_W['uploadsetting']['image']['limit'] = $_W['config']['upload']['image']['limit'];
 		$file = $this->new_file_upload($str,$type);
-		if (is_error($file)) 
+		if (is_error($file))
 		{
 			$result['message'] = $file['message'];
 			exit(json_encode($result));
 		}
 
-        if (function_exists('file_remote_upload')) 
+        if (function_exists('file_remote_upload'))
 		{
 			$remote = file_remote_upload($file['path']);
-			if (is_error($remote)) 
+			if (is_error($remote))
 			{
 				$result['message'] = $remote['message'];
 				exit(json_encode($result));
@@ -1392,14 +1392,14 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$result['filename'] = $file['path'];
 		$result['url'] = trim($_W['attachurl'] . $result['filename']);
 		// pdo_insert('core_attachment', array('uniacid' => $_W['uniacid'], 'uid' => $_W['member']['uid'], 'filename' => $uploadfile['name'], 'attachment' => $result['filename'], 'type' => 1, 'createtime' => TIMESTAMP));
-		exit(json_encode($result));   
+		exit(json_encode($result));
 	}
 
 	public function get_file(){
 		echo json_encode( $_FILES['uploadedfile']);
 		// $path = ATTACHMENT_ROOT ."images/{$uniacid}/" . date('Y/m/');
         $local_path  = ATTACHMENT_ROOT ."images/{$uniacid}/" . date('Y/05/');//服务器文件的存放路径
-       
+
         $img_name = basename( $_FILES['uploadedfile']['name']);//服务器中的图片名（uploadedfile是键值名，可自行设定）
 
         $target_path = $local_path.$img_name;

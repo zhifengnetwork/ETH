@@ -143,7 +143,7 @@ function file_upload($file, $type = 'image', $name = '') {
 		$path = "{$type}s/{$uniacid}/" . date('Y/m/');
 		mkdirs(ATTACHMENT_ROOT . '/' . $path);
 		$filename = file_random_name(ATTACHMENT_ROOT . '/' . $path, $ext);
-		
+
 		$result['path'] = $path . $filename;
 	} else {
 		mkdirs(dirname(ATTACHMENT_ROOT . '/' . $name));
@@ -152,7 +152,7 @@ function file_upload($file, $type = 'image', $name = '') {
 		}
 		$result['path'] = $name;
 	}
-	
+
 	if (!file_move($file['tmp_name'], ATTACHMENT_ROOT . '/' . $result['path'])) {
 		return error(-1, '保存上传文件失败');
 	}
@@ -167,14 +167,14 @@ function file_wechat_upload($file, $type = 'image', $name = '') {
 	if (!in_array($type, array('image', 'thumb', 'voice', 'video', 'audio'))) {
 		return error(-2, '未知的上传类型');
 	}
-	
+
 	global $_W;
 	$ext = pathinfo($file['name'], PATHINFO_EXTENSION);
 	$ext = strtolower($ext);
 	if (in_array(strtolower($ext), $harmtype)) {
 		return error(-3, '不允许上传此类文件');
 	}
-	
+
 	$result = array();
 	if (empty($name) || $name == 'auto') {
 		$uniacid = intval($_W['uniacid']);
@@ -189,7 +189,7 @@ function file_wechat_upload($file, $type = 'image', $name = '') {
 		}
 		$result['path'] = $name;
 	}
-	
+
 	if (!file_move($file['tmp_name'], ATTACHMENT_ROOT . '/' . $result['path'])) {
 		return error(-1, '保存上传文件失败');
 	}
@@ -213,7 +213,7 @@ function file_remote_upload($filename, $auto_delete_local = true) {
 			'ssl' => $_W['setting']['remote']['ftp']['ssl'],
 			'passive' => $_W['setting']['remote']['ftp']['pasv'],
 			'timeout' => $_W['setting']['remote']['ftp']['timeout'],
-			'rootdir' => $_W['setting']['remote']['ftp']['dir'] 
+			'rootdir' => $_W['setting']['remote']['ftp']['dir']
 		);
 		$ftp = new Ftp($ftp_config);
 		if (true === $ftp->connect()) {
@@ -249,7 +249,7 @@ function file_remote_upload($filename, $auto_delete_local = true) {
 		$config = new Qiniu\Config();
 		$uploadmgr = new Qiniu\Storage\UploadManager($config);
 				$putpolicy = Qiniu\base64_urlSafeEncode(json_encode(array(
-			'scope' => $_W['setting']['remote']['qiniu']['bucket'] . ':' . $filename 
+			'scope' => $_W['setting']['remote']['qiniu']['bucket'] . ':' . $filename
 		)));
 		$uploadtoken = $auth->uploadToken($_W['setting']['remote']['qiniu']['bucket'], $filename, 3600, $putpolicy);
 		list($ret, $err) = $uploadmgr->putFile($uploadtoken, $filename, ATTACHMENT_ROOT . '/' . $filename);
@@ -298,7 +298,7 @@ function file_random_name($dir, $ext) {
 	do {
 		$filename = random(30) . '.' . $ext;
 	} while (file_exists($dir . $filename));
-	
+
 	return $filename;
 }
 
@@ -330,7 +330,7 @@ function file_remote_delete($file) {
 			'ssl' => $_W['setting']['remote']['ftp']['ssl'],
 			'passive' => $_W['setting']['remote']['ftp']['pasv'],
 			'timeout' => $_W['setting']['remote']['ftp']['timeout'],
-			'rootdir' => $_W['setting']['remote']['ftp']['dir'] 
+			'rootdir' => $_W['setting']['remote']['ftp']['dir']
 		);
 		$ftp = new Ftp($ftp_config);
 		if (true === $ftp->connect()) {
@@ -389,7 +389,7 @@ function file_remote_delete($file) {
 
 function file_image_thumb($srcfile, $desfile = '', $width = 0) {
 	global $_W;
-	
+
 	if (!file_exists($srcfile)) {
 		return error('-1', '原图像不存在');
 	}
@@ -403,7 +403,7 @@ function file_image_thumb($srcfile, $desfile = '', $width = 0) {
 	if (intval($width) < 0) {
 		return error('-1', '缩放宽度无效');
 	}
-	
+
 	if (empty($desfile)) {
 		$ext = pathinfo($srcfile, PATHINFO_EXTENSION);
 		$srcdir = dirname($srcfile);
@@ -411,7 +411,7 @@ function file_image_thumb($srcfile, $desfile = '', $width = 0) {
 			$desfile = $srcdir . '/' . random(30) . ".{$ext}";
 		} while (file_exists($desfile));
 	}
-	
+
 	$des = dirname($desfile);
 		if (!file_exists($des)) {
 		if (!mkdirs($des)) {
@@ -420,7 +420,7 @@ function file_image_thumb($srcfile, $desfile = '', $width = 0) {
 	} elseif (!is_writable($des)) {
 		return error('-1', '目录无法写入');
 	}
-	
+
 		$org_info = @getimagesize($srcfile);
 	if ($org_info) {
 		if ($width == 0 || $width > $org_info[0]) {
@@ -461,10 +461,10 @@ function file_image_thumb($srcfile, $desfile = '', $width = 0) {
 			imagepng($img_dst, $desfile);
 		}
 	}
-	
+
 	imagedestroy($img_dst);
 	imagedestroy($img_org);
-	
+
 	return str_replace(ATTACHMENT_ROOT . '/', '', $desfile);
 }
 
@@ -479,7 +479,7 @@ function file_image_crop($src, $desfile, $width = 400, $height = 300, $position 
 	if (intval($position) > 9 || intval($position) < 1) {
 		return error('-1', '裁剪位置无效');
 	}
-	
+
 	$des = dirname($desfile);
 		if (!file_exists($des)) {
 		if (!mkdirs($des)) {
@@ -505,7 +505,7 @@ function file_image_crop($src, $desfile, $width = 400, $height = 300, $position 
 	} else {
 		return error('-1', '获取原始图像信息失败');
 	}
-	
+
 		if ($width == '0' || $width > $org_info[0]) {
 		$width = $org_info[0];
 	}
@@ -560,7 +560,7 @@ function file_image_crop($src, $desfile, $width = 400, $height = 300, $position 
 	if ($height == $org_info[1]) {
 		$dst_y = 0;
 	}
-	
+
 	if (function_exists("imagecreatetruecolor") && function_exists("imagecopyresampled") && @$img_dst = imagecreatetruecolor($width, $height)) {
 		imagecopyresampled($img_dst, $img_org, 0, 0, $dst_x, $dst_y, $width, $height, $width, $height);
 	} else {
@@ -593,7 +593,7 @@ function file_lists($filepath, $subdir = 1, $ex = '', $isdir = 0, $md5 = 0, $enf
 			continue;
 		}
 		if (!empty($ex) && strtolower(substr($v, -$ex_num, $ex_num)) == $ex) {
-			
+
 			if ($md5) {
 				$file_list[$v1] = md5_file($v);
 			} else {
@@ -675,7 +675,7 @@ function file_remote_attach_fetch($url, $limit = 0, $path = '') {
 	if (!file_exists(ATTACHMENT_ROOT . $path) && mkdirs(ATTACHMENT_ROOT . $path, 0700, true)) {
 		return error(- 1, '提取文件失败: 权限不足.');
 	}
-	
+
 	if (! $limit) {
 		if ($type == 'images'){
 			$limit = $_W['setting']['upload']['image']['limit'] * 1024;

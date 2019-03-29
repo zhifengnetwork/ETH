@@ -8,9 +8,9 @@
 
     display: none;
   }
- 
+
   #tit span{
-  	
+
   	display: inline-block;
   	width: 29%;
   	height: 1.5rem;
@@ -18,15 +18,15 @@
   	/*border: 1px solid green;*/
   	text-align: center;
   	margin-left: 14%;
-  	
+
   }
   .select{
-  	
+
   	border-bottom: .1rem solid #353A45;
   	/*border:1px solid red;*/
   	color:#353A45 ;
   	font-weight: bolder;
-  	
+
   }
   .show{
   	font-size: .6rem;
@@ -48,20 +48,20 @@
 
   }
   .headertitle li span:nth-child(4){
-  	
+
   	display: inline-block;
   	width: 19%;
   	text-align: center;
   }
   .headertitle p span:nth-child(2){
-  	width: 13%;	
+  	width: 13%;
   }
   .headertitle p span:nth-child(3){
   	width: 22%;
-	
+
   }
   .headertitle p span:nth-child(4){
-  	width: 22%;	
+  	width: 22%;
   }
   .headertitle p span:nth-child(5){
     padding-top: .2rem;
@@ -70,8 +70,7 @@
     -moz-box-sizing: border-box;
     width: 33%;
     line-height: .8rem;
-    color: red;
-   
+
   }
   .data_listWrap {
     width: 100%;
@@ -87,43 +86,42 @@
     text-align: center;
   }
   .data_listBox_term:nth-child(1){
-  	width: 12%;	
+  	width: 12%;
   }
   .data_listBox_term:nth-child(2){
-  	width: 11%;	
+  	width: 11%;
   }
   .data_listBox_term:nth-child(3){
   	width: 22%;
-	
+
   }
   .data_listBox_term:nth-child(4){
-  	width: 29%;	
+  	width: 29%;
   }
   .data_listBox_term:nth-child(5){
-  	width: 26%;
+  	width: 20%;
     line-height: 1rem;
-  	color: red;
   }
   .good-item{
-  	
+
   	border-bottom: .05rem solid #CCCCCC;
   	padding-bottom: .5rem;
   	box-sizing: border-box;
-  	
+
   }
   .good-item .lis{
-  	
+
   	margin-top: .5rem;
   	font-size: .6rem;
   	display: inline-block;
   	width: 50%;
   	padding-left: .5rem;
   	box-sizing: border-box;
- 
+
   }
   .good-item .lis:nth-child(2) p:nth-child(3){
   	color: green;
-  	
+
   }
 </style>
 
@@ -144,30 +142,33 @@
     </div>
 
     <?php  if($investment == '') { ?>
-    <p style="color: red;text-align: center;font-size: 1rem;font-weight: 600;">投资总额: <?php  echo $sale['sum'];?></p>
+    <p style="color: #f7f7f7;text-align: center;font-size: 1rem;font-weight: 600;position: absolute;
+    top: 111px;
+    left: 18px;">投资总额: <?php  echo $sale['sum'];?></p>
+    <?php  } else { ?>
+    <p style="color: #f7f7f7;text-align: center;font-size: 1rem;font-weight: 600;position: absolute;
+    top: 111px;
+    left: 18px;">投资总额: <?php  echo $sale['sum'];?></p>
     <?php  } ?>
 
-   
+
    <div class="zanwu">
       <i class="icon icon-cry" style="font-size: 4rem;"></i>
       <p style="font-size: 1rem;">今日暂无排行</p>
     </div>
-    
-    
+
+
     <div id="wrap">
         <div id="tit">
-            <span class="select">投资排名</span><span>上期中奖名单</span>
+            <span class="select">投资排名</span><span>中奖名单</span>
         </div>
         <div id="con">
           <div class="show" >
-              
+
                 <!--data 头部-->
                 <div class="headertitle lis">
-                    <?php  if($investment == '') { ?>
-                    <p style="color: red;text-align: center;font-size: 1rem;font-weight: 600;">投资总额: <?php  echo $sale['sum'];?></p>
-                    <?php  } ?>
-                  <p><span>排名</span><span>ID</span><span>昵称</span><span>预计获奖</span><span style="font-size: .6rem;">今日投资金额<br/>(TRX)</span></p>
-                  
+                  <p style="margin-left: 17px;"><span>排名</span><span>ID</span><span>昵称</span><span>预计获奖</span><span style="font-size: .6rem;">今日投资金额<br/>(ETH)</span></p>
+
                 </div>
                 <!--data list -->
                 <div class="data_listWrap">
@@ -178,26 +179,23 @@
                             <?php  echo $val['id'];?>
                           </span>
                           <span class="data_listBox_term"><?php  echo $val['nickname'];?></span>
-                          <span class="data_listBox_term"><?php  echo $val['yuji'];?> <span style="color:red">(<?php  echo $val['bfb'];?>%)</span> </span>
+                          <span class="data_listBox_term"><?php  echo $val['yuji'];?> <span>(<?php  echo $val['bfb'];?>%)</span> </span>
                           <span class="data_listBox_term"><?php  echo $val['moneys'];?></span>
                         </p>
-                      <?php  } } ?>                                   
+                      <?php  } } ?>
                 </div>
-              
-          </div> 
-             
+
+          </div>
+
           <div style="display: none;" class="getprice show">
-              <?php  if($winning == '') { ?>
-                <p style="color: red;text-align: center;font-size: 1rem;font-weight: 600;">投资总额: <?php  echo $sale['sum'];?></p>
-              <?php  } ?>
               <div class="getprice good-item">
                   <?php  if(is_array($winning)) { foreach($winning as $winn) { ?>
                 <div class="lis">
-                  
+
                     <p>时间：<?php  echo $winn['createtime'];?></p>
                     <p>中奖号：<?php  echo $winn['number'];?></p>
                     <p>中奖注数：<?php  echo $winn['stakesum'];?>股</p>
-                
+
                 </div><div class="lis">
                     <p>中奖人昵称：<?php  echo $winn['openid'];?></p>
                     <p>中奖金额：<?php  echo $winn['money'];?></p>
@@ -213,17 +211,17 @@
 <?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('_footer', TEMPLATE_INCLUDEPATH)) : (include template('_footer', TEMPLATE_INCLUDEPATH));?>
 <script>
   $(function () {
-    
+
       $('#tit span').click(function() {
             var i = $(this).index();//下标第一种写法
             //var i = $('tit').index(this);//下标第二种写法
             $(this).addClass('select').siblings().removeClass('select');
             $('#con .show').eq(i).show().siblings().hide();
-           
-           
+
+
         });
-    
-    
+
+
   })
- 
+
 </script>

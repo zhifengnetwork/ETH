@@ -530,7 +530,7 @@
 									<span style="color:brown">卖出<b>ETH</b></span>
 									<?php  } ?>
 									<?php  if($winn['status'] == '0') { ?>
-									<span class="fn_cl" data-val="0" onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<?php  echo $winn['id'];?>&op=<?php  echo $winn['type'];?>'" >未交易<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+									<span class="fn_cl" data-val="0" onclick="location.href='<?php  echo mobileurl('member/guamai/sellout_list')?>&id=<?php  echo $winn['id'];?>&type=<?php  echo $winn['status'];?>'" >未交易<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
 									<?php  } ?>
 								</p>
 								<p class="form">
