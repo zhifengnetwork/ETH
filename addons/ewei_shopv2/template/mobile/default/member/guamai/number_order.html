@@ -203,7 +203,9 @@
 		display: none;
 		padding: .5rem .2rem 0 .2rem;
 }
-	.tab_content .tab_con.active{display: block;}
+	.tab_content .tab_con.active{
+		display: block;
+	}
 
 	/* 买入 卖出弹框 */
 
@@ -412,6 +414,7 @@
 	.tab_cut{
 		width: 100%;
 		padding: 0.3rem;
+		/* position: fixed; */
 	}
   .tab_cut>ul{
 		display: flex;
@@ -435,8 +438,23 @@
 		color: #FFFFFF;
 	}
 	/* 交易状态切换 */
+	/* .my_order{
+		position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    will-change: left;
+	} */
 	.my_order .tab_cont{
 	 display: none;
+	 /* padding: .5rem .2rem 0 .2rem; */
+	 width: 100%;
+    /* -webkit-flex-shrink: 0;
+    flex-shrink: 0;
+    box-sizing: border-box;
+		width: 100%; */
 	}
 	.my_order .tab_cont.active{
 		display: block;
@@ -496,9 +514,10 @@
 						</ul>
 					</div>
 				<!--------我的订单---------->
-				<div class="tab_con my_order active">
+				<div class="tab_con my_order active" >
+					<!-- <div class="my_order" style="left: 0%;transition-duration: 0.3s;">	 -->
 				<!-- 未交易 -->
-					<div class="tab_cont undone active">
+					<div class="tab_cont undone ">
 						{loop $guamai $winn}
 						{if $winn['status'] == '0'}
 						<div class="order_list">
@@ -638,6 +657,7 @@
 							{/loop}
 						</div>
 				</div>
+			<!-- </div> -->
 				<!--------发布广告----------->
 				<div class="tab_con">
 					<div class="buying">
@@ -1097,8 +1117,8 @@ $('.mask0_btn').click(function () {
 			$('.tab_cut').hide()
 			$(this).addClass("on").siblings().removeClass("on");
 			//内容切换
-			$(".tab_content .tab_con").eq(index).addClass("active").siblings().removeClass("active");
-			console.log($(".tab_content .tab_con").eq(index)	)
+			 $(".tab_content .tab_con").eq(index).addClass("active").siblings().removeClass("active");
+			// $(".tab_content .tab_con").eq(index).show().siblings().hide();
 		//买入卖出切换
 		if(index == 0){
 			$('.tab_cut').show()
@@ -1114,10 +1134,13 @@ $('.mask0_btn').click(function () {
 
 
 		//我的订单 状态切换
-		$(".tab_item>a").click(function(e){
-		   e.preventDefault();
+		$(".tab_item>a").click(function(){
+			 console.log($(this))
+		  //  e.preventDefault();
 			 let li = $(this).parent();
 			 let index = li.index()
+			 console.log(li.parent())
+			// $('.my_order').css('left',-index+'00%');
 			 li.addClass("active").siblings().removeClass('active');
 			 $('.my_order .tab_cont').eq(index).addClass('active').siblings().removeClass('active')
 		})
@@ -1129,6 +1152,7 @@ $('.mask0_btn').click(function () {
 		var $a = $(this)
 		$('.tab_cut').hide()
 		$a.addClass("active").siblings().removeClass("active")
+		// $a.show().siblings().hide()
 		if($(this).index() == 0) {
 			$(".mask1").show().siblings(".mask0").hide();
 		} else {
