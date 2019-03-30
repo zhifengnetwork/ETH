@@ -313,19 +313,25 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		$users = pdo_fetch("select id,openid,credit2 from".tablename("ewei_shop_member")." where openid='".$openid."'");
 		$sell = pdo_fetch("select g.*,m.openid,m.credit2 from".tablename('guamai').' g left join '.tablename('ewei_shop_member').' m ON m.openid=g.openid '." where g.id='$id'");
 		if(empty($sell)) return false;
+		// dump($sell);die;
 		if($sell['type']==0){
-			$data = array("credit2"=>$sell['trx']+$sell['credit2']);
+			// $data = array("credit2"=>$sell['trx']+$sell['credit2']);
+			$updeta_order = pdo_update("guamai",array("status"=>3,"createtime"=>time()),array("openid"=>$sell['openid'],"id"=>$sell['id']));
+			if($updeta_order){
+				show_json(1,"撤销成功");
+			}
 		}else{
 			$data = array("credit2"=>$sell['trx2']+$sell['credit2']);
+			$updeta_order = pdo_update("guamai",array("status"=>3,"createtime"=>time()),array("openid"=>$sell['openid'],"id"=>$sell['id']));
+			if($updeta_order)
+			{
+				$result = pdo_update("ewei_shop_member",$data,array("openid"=>$sell['openid']));
+				show_json(1,"撤销成功");
+			}else{
+				show_json(1,"撤销失败!");
+			}
 		}
-		$updeta_order = pdo_update("guamai",array("status"=>3,"createtime"=>time()),array("openid"=>$sell['openid'],"id"=>$sell['id']));
-		if($updeta_order)
-		{
-			$result = pdo_update("ewei_shop_member",$data,array("openid"=>$sell['openid']));
-			show_json(1,"撤销成功");
-		}else{
-			show_json(1,"撤销失败!");
-		}
+
 	}
 
 	public function sellout(){
