@@ -497,7 +497,7 @@
 					</div>
 				<!--------我的订单---------->
 				<div class="tab_con  active " style="padding:0" >
-					<div class="my_order" id="load"style="left: 0%;transition-duration: 0.3s;">	
+					<div class="my_order" id="load"style="left: 0%;transition-duration: 0.3s;">
 				<!-- 未交易 -->
 					<div class="tab_cont undone">
 						<?php  if(is_array($guamai)) { foreach($guamai as $winn) { ?>
@@ -651,19 +651,23 @@
 				<div class="tab_con">
 					<div class="wtf_top">
 						<div class="wtf_item">
-						<div class="wtf_item1" onclick="window.location.href = ''">
-							<p>全面恢复正常</p >
-							<p>03-03</p >
-						</div>
-						<div class="wtf_item1">
-							<p>提币的通知</p >
-							<p>02-25</p >
-						</div>
+								<?php  if(is_array($guamai_appeal)) { foreach($guamai_appeal as $appeal) { ?>
+							<div class="wtf_item1" onclick="window.location.href = ''">
+								<?php  if($appeal['stuas'] == 0) { ?>
+								<p>该订单“<?php  echo $appeal['order_id'];?>”,在进行审核。</p>
+								<?php  } else if($appeal['stuas'] == 1) { ?>
+								<p>该订单“<?php  echo $appeal['order_id'];?>”,审核通过，并对该账号进行处罚。</p>
+								{else $appeal['stuas'] == 2}
+								<p>该订单“<?php  echo $appeal['order_id'];?>”,该申诉失效。</p>
+								<?php  } ?>
+								<p><?php  echo $appeal['createtime'];?></p>
+							</div>
+							<?php  } } ?>
 						</div>
 					</div>
 				</div>
 
-
+				<!-- <?php  if($appeal['stuas'] == 0) { ?>正在进行审核。<?php  } else if($appeal['stuas'] == 1) { ?>审核通过，并对该账号进行处罚。{else $appeal['stuas'] == 2}该申诉失效.<?php  } ?> -->
 			</div>
 			<div class="mask0_box hide">
 				<!-- 卖出 -->
@@ -725,7 +729,7 @@
 							}
 		          // list.push({ele:document.getElementById(id),time:timeStamp});
 							list.push({ele:id,time:timeStamp});
-							//console.log(list)
+							console.log(list)
 		        }
 		        function go(){
 		          for (var i = 0; i < list.length; i++) {
@@ -780,103 +784,6 @@
 
 
 			</script>
-
-			<!-- 买入模板 -->
-			<script id="tpl_maichu" type="text/html">
-				<ul>
-					<% each list as val %>
-					<li class="lis">
-						<p style="color: #fff;">挂卖编号：
-							<% val.id %> </p>
-						<div class="lis_lie lis_lie0">
-							<p>挂单人:
-								<% val.nickname %>
-								<% if val.zfbfile==1 %> <i class="icon icon-alipay"></i>
-								<% /if %>
-								<% if val.wxfile==1 %> <i class="icon icon-wechat1"></i>
-								<% /if %>
-								<% if val.bank==1 %> <i class="icon icon-vipcard"></i>
-								<% /if %>
-							</p>
-							<span>￥<% val.price %> </span>
-						</div>
-						<% if val.openid2 != '' %>
-						<p style="color:#c2a378">抢单人：
-							<% val.nickname2 %>
-						</p>
-						<% /if %>
-						<div class="lis_lie lis_lie1">挂单数量
-							<% val.trx %>
-						</div>
-						<!-- <div class="lis_lie lis_lie2">限额 2800.0-2800.0 UES</div> -->
-						<% if val.status == 0 %>
-						<div class="maiRu_btn" data-id='<% val.id %>' <% if val.self==1 %> onclick="alert('不能买入自己发放的账单')"
-							<% else if val.self3 == 1 %> onclick="alert('该账单正在交易中')"
-							<% else %> onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=
-							<% val.id %>&op=1'"
-							<% /if %>>买入
-						</div>
-						<% /if %>
-						<% if val.status == 1 %>
-						<div class="maiRu_btn" data-id='<% val.id %>' style="background-color: #a02332;" <% if val.self==1 %> onclick="alert('不能买入自己发放的账单')"
-							<% else if val.self3 == 1 %> onclick="alert('该账单正在交易中')"
-							<% else %> onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=
-							<% val.id %>&op=1'"
-							<% /if %>>交易中</div>
-						<% /if %>
-					</li>
-					<% /each %>
-				</ul>
-			</script>
-
-			<!-- 卖出模板 -->
-			<script id="tpl_mairu" type="text/html">
-				<ul>
-					<% each list as val %>
-					<li class="lis">
-						<p style="color: #6b5b3a; justify-content: space-between;display: flex;">唐**
-							<% val.id %> <span style="color:#891635;font-size:.8rem;padding-right: 1.5rem;">￥ <% val.price %> </span></p>
-						<div class="lis_lie lis_lie1">挂单数量
-							<% val.trx %> </div>
-
-						<div class="lis_lie lis_lie0">
-							<p style="color:#545d62">限额:
-								<% val.nickname %>
-
-							</p>
-
-						</div>
-						<% if val.openid2 != '' %>
-						<p style="color:#c2a378">抢单人：
-							<% val.nickname2 %>
-						</p>
-						<% /if %>
-
-						<!-- <div class="lis_lie lis_lie2">限额 2800.0-2800.0 UES</div> -->
-
-						<% if val.status == 0 %>
-						<div class="maiChu_btn" data-id="<% val.id %>" <% if val.self==1 %> onclick="alert('不能卖出自己发放的账单')"
-							<% else if val.self3 == 1 %> onclick="alert('该账单正在交易中')"
-							<% else %> data-flag = '0'
-							<% /if %> >卖出</div>
-						<% /if %>
-
-						<% if val.status == 1 %>
-						<div class="maiChu_btn" data-id="<% val.id %>" style="background-color: #a02332" <% if val.self==1 %> onclick="alert('不能卖出自己发放的账单')"
-							<% else if val.self3 == 1 %> onclick="alert('该账单正在交易中')"
-							<% else if val.self3 == 0 %> onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=
-							<% val.id %>&op=0'"
-							<% else %> data-flag = '0'
-							<% /if %> >交易中
-						</div>
-						<% /if %>
-
-					</li>
-					<% /each %>
-				</ul>
-			</script>
-
-
 		</div>
 
 	</div>
