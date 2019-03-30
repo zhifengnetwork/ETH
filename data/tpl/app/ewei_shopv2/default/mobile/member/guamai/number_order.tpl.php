@@ -667,8 +667,8 @@
 
 									<p class="form form_spww">
 											<!--倒计时-时间戳-->
-											<span><span class="font_color_999"><?php  echo $winn['datatime'];?></span></span>
-										</p>
+										<span><span class="font_color_999"><?php  echo $winn['datatime'];?></span></span>
+									</p>
 
 								</div>
 							</div>

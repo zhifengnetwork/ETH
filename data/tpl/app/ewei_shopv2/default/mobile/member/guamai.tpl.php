@@ -411,13 +411,19 @@
             dataType:'json',
             success:function(data){
               console.log(data);
-              alert(data.result.message);
+              // alert(data.result.message);
+
               $('.maiChu_btn').removeClass('disable');
               if(data.status == 1){
                   location.reload();
                   window._type = 0;
                   console.log(window._type);
 
+              }
+              if(confirm(data.result.message)){
+                location.href="<?php  echo mobileurl('member/guamai/')?>";
+              }else {
+                console.log('取消!')
               }
 
             },error:function(err){
