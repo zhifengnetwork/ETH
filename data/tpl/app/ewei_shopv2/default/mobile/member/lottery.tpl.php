@@ -178,7 +178,7 @@
     position: absolute;
     width: 100%;
   }
-  
+
 
 </style>
 
@@ -202,7 +202,7 @@
       <div class="navIfo2">
         <a href="<?php  echo mobileurl('member/lottery/ranking')?>">中奖名单/排行</a>
         <!-- <a href="javascript:;" class="advert">
-          
+
         </a> -->
         <div class="advert_con" style="height: 2rem; top: 0px;">
           <p class="item">第 <i style="color:#bb2639"><?php  echo $sale['time'];?></i> 期</p>
@@ -258,8 +258,8 @@
         <div class="baohaoleft">
           <div class="baohaoleft_top">
             <span style="margin-right:.2rem;">一键包号:</span>
-            <input type="text" class="minNum" onkeyup="this.value=this.value.replace(/[^0-9]+/,'');" maxlength="1"> 
-            ~ 
+            <input type="text" class="minNum" onkeyup="this.value=this.value.replace(/[^0-9]+/,'');" maxlength="1">
+            ~
             <input type="text" class="maxNum" onkeyup="this.value=this.value.replace(/[^0-9]+/,'');" maxlength="1">
           </div>
           <div class="baohaoleft_beishu">
@@ -385,7 +385,7 @@
 
   // 确定下注1
   $('.foot_btn').click(function () {
-    
+
     if($('.price').html() == 0 && $('.listBox').text() != ''){
       alert('当前股票单价为0,不可加注');
       return;
@@ -395,7 +395,7 @@
       alert('请先下注！');
       return
     }
-    
+
     let beishu = 0;
     $('.beishu').each(function () {
       beishu += Number($(this).val())
@@ -415,7 +415,7 @@
         $('.futou').html(data.result.list.credit4);
 
         $('.mask0').fadeIn(300);
-        
+
       }
     })
 
@@ -427,8 +427,8 @@
     // console.log($('.TRX').html() + 'TRX金额');
     // console.log($('.futou').html() + '复投余额');
     // console.log($('.mask0_money').html() + '总金额');
-    
-    
+
+
 
     if($('#mask0_box_select').val() == 0){
       alert('请选择支付方式！')
@@ -449,7 +449,7 @@
     let data = {
       payment: $('#mask0_box_select').val(),  //支付方式
       money: $('.mask0_money').html(),  //代下注金额
-      type:'2',   
+      type:'2',
       list:[]    //下注的列表和倍数的数组
     }
 
@@ -461,7 +461,7 @@
 
       let beishu = $(this).children('.multBox').children('.beishu').val()
       // console.log(num +'----'+ beishu);
-      
+
       let arr = [];
       arr.push(num);
       arr.push(beishu);
@@ -481,13 +481,13 @@
         }else if(data.status == 1){
           alert('下注成功！');
           // window.open("http://www.jb51.net");
-          window.location.href="<?php  echo mobileurl('member/lottery/stakejilu')?>"; 
+          window.location.href="<?php  echo mobileurl('member/lottery/stakejilu')?>";
         }
 
-        
+
       },error:function(err){
         console.log(err);
-        
+
       }
     })
   })
@@ -533,15 +533,15 @@
         $('.gewei').css({background:'#fff',color:'#ff4500'});
         $('.gewei').removeClass('activeNum');
         $('.selectNum').removeClass('active');
-        
+
       }
 
-      
+
     }else if($(this).css('color') == 'rgb(255, 255, 255)'){
       $(this).css({background:'#fff',color:'#ff4500'});
       $(this).parents('.selectNum0').removeClass('active');
       num0 = '';
-      
+
     }
   })
 
@@ -621,7 +621,7 @@
                     <div class="lis_close icon icon-deletefill"></div>
                   </li> `;
         $('.listBox').append(str);
-        
+
         $('.baiwei').css({background:'#fff',color:'#ff4500'});
         $('.baiwei').removeClass('activeNum');
         $('.shiwei').css({background:'#fff',color:'#ff4500'});
@@ -643,7 +643,7 @@
   $('.listBox').on('click','.lis_close',function (e) {
     e.stopPropagation();
     $(this).parents('.lis').remove();
-    
+
   })
 
   // 一键包号
@@ -694,12 +694,12 @@
                       <div class="lis_close icon icon-deletefill"></div>
                     </li> `;
           $('.listBox').append(str);
-          
+
         }
-        
+
       },error:function(err){
         console.log(err);
-        
+
       }
     })
 

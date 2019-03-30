@@ -38,3 +38,125 @@ String:
 SQL: <br/>select id,couponid,openid,isparent,sendtime,price,merchid,isverify,addressid,isvirtualsend,virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2 <hr/>Params: <br/>array (
 )<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/task/order/receive.php; line: 23; <br />
 
+2019-03-29 16:49:25 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.*,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+		,m2.id as m2id,m2.realname as m2realname,m2.mobile as m2mobile,m2.nickname as m2nickname,m2.avatar as m2avatar FROM `ims_guamai_appeal` og left join `ims_ewei_shop_member` m ON m.openid=og.openid left join `ims_ewei_shop_member` m2 ON m2.openid=og.openid2 WHERE og.uniacid=:uniacid and og.type=1 ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.uniacid' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 102; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-29 16:51:02 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.*,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+		,m2.id as m2id,m2.realname as m2realname,m2.mobile as m2mobile,m2.nickname as m2nickname,m2.avatar as m2avatar FROM `ims_guamai_appeal` og left join `ims_ewei_shop_member` m ON m.openid=og.openid left join `ims_ewei_shop_member` m2 ON m2.openid=og.openid2og.id>0 ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.openid2og.id' in 'on clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 102; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-29 16:51:31 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.*,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+		,m2.id as m2id,m2.realname as m2realname,m2.mobile as m2mobile,m2.nickname as m2nickname,m2.avatar as m2avatar FROM `ims_guamai_appeal` og left join `ims_ewei_shop_member` m ON m.openid=og.openid left join `ims_ewei_shop_member` m2 ON m2.openid=og.openid2og.id>0 ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.openid2og.id' in 'on clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 102; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-29 16:54:31 SQL Error :
+------------
+String:
+SQL: <br/>SELECT og.*,m.id as m1id,m.realname as m1realname,m.mobile as m1mobile,m.nickname as m1nickname,m.avatar as m1avatar
+		,m2.id as m2id,m2.realname as m2realname,m2.mobile as m2mobile,m2.nickname as m2nickname,m2.avatar as m2avatar FROM `ims_guamai_appeal` og left join `ims_ewei_shop_member` m ON m.openid=og.openid left join `ims_ewei_shop_member` m2 ON m2.openid=og.openid2og.id>0 ORDER BY og.id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Unknown column 'og.openid2og.id' in 'on clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 102; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-29 16:55:49 SQL Error :
+------------
+String:
+SQL: <br/>SELECT *`ims_guamai_appeal`id>0 ORDER BY id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`ims_guamai_appeal`id>0 ORDER BY id DESC  LIMIT 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 101; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-29 17:01:31 SQL Error :
+------------
+String:
+SQL: <br/>select * fromguamai_appeal id>0 ORDER BY id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'fromguamai_appeal id>0 ORDER BY id DESC  LIMIT 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 76; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-29 17:02:54 SQL Error :
+------------
+String:
+SQL: <br/>select * fromguamai_appeal id>0 ORDER BY id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'fromguamai_appeal id>0 ORDER BY id DESC  LIMIT 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 76; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-29 17:03:26 SQL Error :
+------------
+String:
+SQL: <br/>select * from guamai_appeal id>0 ORDER BY id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '>0 ORDER BY id DESC  LIMIT 0,20' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 76; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-29 17:04:54 SQL Error :
+------------
+String:
+SQL: <br/>select * from guamai_appeal where id>0 ORDER BY id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Table 'hskj.guamai_appeal' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 76; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-29 17:05:29 SQL Error :
+------------
+String:
+SQL: <br/>select * from guamai_appeal where id>0 ORDER BY id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Table 'hskj.guamai_appeal' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 76; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-29 17:10:43 SQL Error :
+------------
+String:
+SQL: <br/>select * from guamai_appeal where id>0 ORDER BY id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Table 'hskj.guamai_appeal' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 76; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-29 17:10:52 SQL Error :
+------------
+String:
+SQL: <br/>select * from guamai_appeal where id>0 ORDER BY id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Table 'hskj.guamai_appeal' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 76; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-29 17:10:55 SQL Error :
+------------
+String:
+SQL: <br/>select * from guamai_appeal where id>0 ORDER BY id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Table 'hskj.guamai_appeal' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 76; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-29 17:10:58 SQL Error :
+------------
+String:
+SQL: <br/>select * from guamai_appeal where id>0 ORDER BY id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Table 'hskj.guamai_appeal' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 76; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-29 17:11:50 SQL Error :
+------------
+String:
+SQL: <br/>select * from guamai_appeal where id>0 ORDER BY id DESC  LIMIT 0,20<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Table 'hskj.guamai_appeal' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 76; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-29 17:27:15 SQL Error :
+------------
+String:
+SQL: <br/>SELECT count(id) FROM `ims_guamai_appeal` og left join `ims_ewei_shop_member` m ON m.openid=og.openid left join `ims_ewei_shop_member` m2 ON m2.openid=og.openid2 where og.id>0 ORDER BY og.id DESC <hr/>Params: <br/>array (
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Column 'id' in field list is ambiguous<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 140; <br />file: /framework/function/pdo.func.php; line: 36; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 81; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-03-29 21:55:55 SQL Error :
+------------
+String:
+SQL: <br/>select id,couponid,openid,isparent,sendtime,price,merchid,isverify,addressid,isvirtualsend,virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2 <hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/task/order/receive.php; line: 23; <br />
+
+2019-03-29 22:56:04 SQL Error :
+------------
+String:
+SQL: <br/>select id,couponid,openid,isparent,sendtime,price,merchid,isverify,addressid,isvirtualsend,virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2 <hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/task/order/receive.php; line: 23; <br />
+

@@ -33,7 +33,7 @@
 
     <div class="trx">
       <div class="trxTop">
-        <span>可用TRX个数</span>
+        <span>可用ETH个数</span>
         <span><?php  echo $investment;?></span>
       </div>
       <div class="trxBtm">
@@ -87,7 +87,7 @@
 
 <script type="text/javascript">
   var type  = "<?php  echo $member['type'];?>";
-  
+
   if(type!=2){
       $("#bonusjilu").click(function(){
           window.location.href='<?php  echo mobileUrl('member/bonusjilu')?>';
@@ -103,7 +103,7 @@
           alert("您的账号已锁户");
        });
   }
-      
+
 </script>
 
 <?php  if(empty($_GPC['isnewstore']) ) { ?>

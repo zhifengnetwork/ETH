@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * [ZhiFun System] Copyright (c) 2016 ZHIFUN.CC
  * WeiShiHui is NOT a free software, it under the license terms, visited http://www.zhifun.cc/ for more details.
@@ -53,11 +53,11 @@ define('ATTACH_TYPE_NEWS', 4);
 define('ATTACH_SAVE_TYPE_FIXED', 1);
 define('ATTACH_SAVE_TYPE_TEMP', 2);
 
-define('STATUS_OFF', 0); define('STATUS_ON', 1); define('STATUS_SUCCESS', 0); 
+define('STATUS_OFF', 0); define('STATUS_ON', 1); define('STATUS_SUCCESS', 0);
 define('CACHE_EXPIRE_SHORT', 60);
 define('CACHE_EXPIRE_MIDDLE', 300);
 define('CACHE_EXPIRE_LONG', 3600);
-define('CACHE_KEY_LENGTH', 100); 
+define('CACHE_KEY_LENGTH', 100);
 define('CACHE_KEY_MODULE_SETTING', 'module_setting:%s:%s');
 define('CACHE_KEY_MODULE_INFO', 'module_info:%s');
 define('CACHE_KEY_ACCOUNT_MODULES', 'unimodules:%s:%s');

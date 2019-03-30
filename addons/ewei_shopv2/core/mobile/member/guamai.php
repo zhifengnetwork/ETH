@@ -295,11 +295,37 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		global $_GPC;
 		//该订单的信息
 		$id = $_GPC['id'];
-		$type = $_GPC['type'];
+		$status = $_GPC['status'];
+		$op = $_GPC['op'];
 
-		$sell = pdo_fetch("select g.*,m.nickname,m.mobile,m.zfbfile,m.wxfile,m.bankid,m.bankname,m.bank,m2.nickname as nickname2,m2.zfbfile as zfbfile2,m2.wxfile as wxfile2,m2.bankid as bankid2,m2.bankname as bankname2,m2.bank as bank2 from".tablename('guamai').' g left join '.tablename('ewei_shop_member').' m ON m.openid=g.openid left join '.tablename('ewei_shop_member').' m2 ON m2.openid=g.openid2 '." where g.uniacid=".$_W['uniacid']." and g.id='$id'");
-
+		$sell = pdo_fetch("select g.*,m.nickname,m.mobile,m.zfbfile,m.wxfile,m.bankid,m.bankname,m.bank,m2.mobile as mobile2,m2.nickname as nickname2,m2.zfbfile as zfbfile2,m2.wxfile as wxfile2,m2.bankid as bankid2,m2.bankname as bankname2,m2.bank as bank2 from".tablename('guamai').' g left join '.tablename('ewei_shop_member').' m ON m.openid=g.openid left join '.tablename('ewei_shop_member').' m2 ON m2.openid=g.openid2 '." where g.uniacid=".$_W['uniacid']." and g.id='$id'");
+		// dump($sell);
 		include $this->template();
+	}
+
+	//撤销订单
+	public function sellout_tab_con()
+	{
+		global $_W;
+		global $_GPC;
+		//该订单的信息
+		$id = $_GPC['id'];
+		$users = pdo_fetch("select id,openid,credit2 from".tablename("ewei_shop_member")." where openid='".$openid."'");
+		$sell = pdo_fetch("select g.*,m.openid,m.credit2 from".tablename('guamai').' g left join '.tablename('ewei_shop_member').' m ON m.openid=g.openid '." where g.id='$id'");
+		if(empty($sell)) return false;
+		if($sell['type']==0){
+			$data = array("credit2"=>$sell['trx']+$sell['credit2']);
+		}else{
+			$data = array("credit2"=>$sell['trx2']+$sell['credit2']);
+		}
+		$updeta_order = pdo_update("guamai",array("status"=>3,"createtime"=>time()),array("openid"=>$sell['openid'],"id"=>$sell['id']));
+		if($updeta_order)
+		{
+			$result = pdo_update("ewei_shop_member",$data,array("openid"=>$sell['openid']));
+			show_json(1,"撤销成功");
+		}else{
+			show_json(1,"撤销失败!");
+		}
 	}
 
 	public function sellout(){
@@ -309,7 +335,8 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		//该订单的信息
 		$id = $_GPC['id'];
 		$op = $_GPC['op'];
-		$sell = pdo_fetch("select g.*,m.nickname,m.mobile,m.zfbfile,m.wxfile,m.bankid,m.bankname,m.bank,m2.nickname as nickname2,m2.zfbfile as zfbfile2,m2.wxfile as wxfile2,m2.bankid as bankid2,m2.bankname as bankname2,m2.bank as bank2 from".tablename('guamai').' g left join '.tablename('ewei_shop_member').' m ON m.openid=g.openid left join '.tablename('ewei_shop_member').' m2 ON m2.openid=g.openid2 '." where g.uniacid=".$_W['uniacid']." and g.id='$id'");
+		$sell = pdo_fetch("select g.*,m.nickname,m.mobile,m.zfbfile,m.wxfile,m.bankid,m.bankname,m.bank,m2.nickname as nickname2,m2.mobile as mobile2,m2.zfbfile as zfbfile2,m2.wxfile as wxfile2,m2.bankid as bankid2,m2.bankname as bankname2,m2.bank as bank2 from".tablename('guamai').' g left join '.tablename('ewei_shop_member').' m ON m.openid=g.openid left join '.tablename('ewei_shop_member').' m2 ON m2.openid=g.openid2 '." where g.uniacid=".$_W['uniacid']." and g.id='$id'");
+		// dump($sell);
 		if($op == 1){
 			if($sell['zfbfile']) $payment[] = array('name'=>"支付宝",'type'=>'zfb');
 			if($sell['wxfile']) $payment[] = array('name'=>"微信",'type'=>'wx');
@@ -340,7 +367,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 
 				if($result) show_json(1,"抢单成功");
 
-			}else if($type == 0){  //买入
+			}else if($type == 1){  //买入
 
 				$id = $_GPC['id'];
 

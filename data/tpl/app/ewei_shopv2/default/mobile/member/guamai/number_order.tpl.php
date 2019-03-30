@@ -518,7 +518,7 @@
 								<p class="form">
 									<span><span class="font_color_999"> <?php  echo $winn['trx'];?></span>/个</span>
 									<span>$<span class="font_color_999"><?php  echo $winn['price'];?></span></span>
-									<span>总额(RMB)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span>
+									<span>总额(CNY)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span>
 								</p>
 								<p class="form form_spww">
 										<span><span class="font_color_999"><?php  echo $winn['datatime'];?></span></span>
@@ -545,13 +545,13 @@
 										<?php  } ?>
 
 										<?php  if($winn['status'] == '1') { ?>
-										<span class="fn_cl" data-val="1" onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<?php  echo $winn['id'];?>&op=0'" >交易中<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+										<span class="fn_cl" data-val="1" onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<?php  echo $winn['id'];?>&op=<?php  echo $winn['type'];?>&status=<?php  echo $winn['status'];?>'">交易中<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
 										<?php  } ?>
 									</p>
 									<p class="form">
 										<span><span class="font_color_999"> <?php  echo $winn['trx'];?></span>/个</span>
 										<span>$<span class="font_color_999"><?php  echo $winn['price'];?></span></span>
-										<span>总额(RMB)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span>
+										<span>总额(CNY)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span>
 									</p>
 									<p class="form form_spww">
 	<!--倒计时-时间戳-->
@@ -580,7 +580,7 @@
 										<span style="color:brown">卖出<b>ETH</b></span>
 										<?php  } ?>
 										<?php  if($winn['status'] == '2') { ?>
-										<span class="fn_cl" data-val="2">交易完成<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+										<span class="fn_cl" data-val="2" onclick="location.href='<?php  echo mobileurl('member/guamai/sellout_list')?>&id=<?php  echo $winn['id'];?>&op=<?php  echo $winn['type'];?>&status=<?php  echo $winn['status'];?>'">交易完成<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
 										<?php  } ?>
 
 									</p>
@@ -589,7 +589,7 @@
 									<p class="form">
 										<span><span class="font_color_999"> <?php  echo $winn['trx'];?></span>/个</span>
 										<span>$<span class="font_color_999"><?php  echo $winn['price'];?></span></span>
-										<span>总额(RMB)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span>
+										<span>总额(CNY)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span>
 									</p>
 									<p class="form form_spww">
 											<!--倒计时-时间戳-->
@@ -618,14 +618,14 @@
 
 
 										<?php  if($winn['status'] == '3') { ?>
-										<span class="fn_cl" data-val="3">交易失败<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
+										<span class="fn_cl" data-val="3" onclick="location.href='<?php  echo mobileurl('member/guamai/sellout_list')?>&id=<?php  echo $winn['id'];?>&op=<?php  echo $winn['type'];?>&status=<?php  echo $winn['status'];?>'" >交易失败<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
 										<?php  } ?>
 									</p>
 
 									<p class="form">
 											<span><span class="font_color_999"> <?php  echo $winn['trx'];?></span>/个</span>
 											<span>$<span class="font_color_999"><?php  echo $winn['price'];?></span></span>
-											<span>总额(RMB)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span>
+											<span>总额(CNY)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span>
 										</p>
 
 									<p class="form form_spww">
@@ -657,7 +657,7 @@
 								<p>该订单“<?php  echo $appeal['order_id'];?>”,在进行审核。</p>
 								<?php  } else if($appeal['stuas'] == 1) { ?>
 								<p>该订单“<?php  echo $appeal['order_id'];?>”,审核通过，并对该账号进行处罚。</p>
-								{else $appeal['stuas'] == 2}
+								<?php  } else if($appeal['stuas'] == 2) { ?>
 								<p>该订单“<?php  echo $appeal['order_id'];?>”,该申诉失效。</p>
 								<?php  } ?>
 								<p><?php  echo $appeal['createtime'];?></p>
