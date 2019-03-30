@@ -82,17 +82,17 @@
     <div class='fui-content navbar'>
       <div class="txtInfo">
         <?php  if($op == 1) { ?>
-        <p>挂卖人：<?php  echo $sell['mobile2'];?> </p>
+        <p>挂卖人：<?php  echo $sell['mobile'];?> </p>
         <?php  } else if($op == 0) { ?>
-        <p>挂买人：<?php  echo $sell['mobile'];?> </p>
+        <p>挂买人：<?php  echo $sell['mobile2'];?> </p>
         <?php  } ?>
         <p>挂卖单价：<?php  echo $sell['price'];?> </p>
         <p>挂卖数量：<?php  echo $sell['trx'];?> </p>
         <p>待收款：<?php  echo $sell['money'];?> </p>
         <?php  if($op == 1) { ?>
-        <p style="margin-top:10px">付款人：<?php  echo $sell['mobile'];?> </p>
+        <p style="margin-top:10px">付款人：<?php  echo $sell['mobile2'];?> </p>
         <?php  } else if($op == 0) { ?>
-        <p style="margin-top:10px">收款人：<?php  echo $sell['mobile2'];?> </p>
+        <p style="margin-top:10px">收款人：<?php  echo $sell['mobile'];?> </p>
         <?php  } ?>
         <div class="zfBox">
         </div>

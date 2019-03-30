@@ -82,17 +82,17 @@
     <div class='fui-content navbar'>
       <div class="txtInfo">
         {if $op == 1}
-        <p>挂卖人：{$sell['mobile2']} </p>
+        <p>挂卖人：{$sell['mobile']} </p>
         {else if $op == 0}
-        <p>挂买人：{$sell['mobile']} </p>
+        <p>挂买人：{$sell['mobile2']} </p>
         {/if}
         <p>挂卖单价：{$sell['price']} </p>
         <p>挂卖数量：{$sell['trx']} </p>
         <p>待收款：{$sell['money']} </p>
         {if $op == 1}
-        <p style="margin-top:10px">付款人：{$sell['mobile']} </p>
+        <p style="margin-top:10px">付款人：{$sell['mobile2']} </p>
         {else if $op == 0}
-        <p style="margin-top:10px">收款人：{$sell['mobile2']} </p>
+        <p style="margin-top:10px">收款人：{$sell['mobile']} </p>
         {/if}
         <div class="zfBox">
         </div>
