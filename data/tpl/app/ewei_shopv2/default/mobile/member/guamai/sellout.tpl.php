@@ -132,7 +132,7 @@
       $.ajax({
         type:'post',
         url:"<?php  echo mobileurl('member/guamai/selloutyes')?>",
-        data:{selloutyes:id,type:1},
+        data:{selloutyes:id,type:2},
         dataType:'json',
         success:function(data){
           console.log(data);
@@ -312,14 +312,14 @@
         </div>
         <div class="ewmBox">
           <div class="ewmTie">请扫描二维码完成支付</div>
-          <img src="<?php  echo $sell['wxfile'];?>" alt="" class="ewmImg wxewm">
-          <img src="<?php  echo $sell['zfbfile'];?>" alt="" class="ewmImg zfbewm">
+          <img src="<?php  echo $sell['wxfile2'];?>" alt="" class="ewmImg wxewm">
+          <img src="<?php  echo $sell['zfbfile2'];?>" alt="" class="ewmImg zfbewm">
         </div>
         <div class="bankBox">
           <div class="bankBoxTie">*请前往当地银行打款</div>
-          <p>银行：<?php  echo $sell['bank'];?></p>
-          <p>户主：<?php  echo $sell['bankname'];?></p>
-          <p>卡号：<?php  echo $sell['bankid'];?></p>
+          <p>银行：<?php  echo $sell['bank2'];?></p>
+          <p>户主：<?php  echo $sell['bankname2'];?></p>
+          <p>卡号：<?php  echo $sell['bankid2'];?></p>
 
         </div>
 
@@ -365,7 +365,7 @@
         $.ajax({
           type:'post',
           url:"<?php  echo mobileurl('member/guamai/sellout')?>",
-          data:{id:"<?php  echo $sell['id'];?>",mobile:"<?php  echo $sell['mobile'];?>",file:$('#avatar').val(),type:1},
+          data:{id:"<?php  echo $sell['id'];?>",mobile:"<?php  echo $sell['mobile'];?>",file:$('#avatar').val(),type:1,op:1},
           dataType:'json',
           success:function(data){
             console.log(data);
@@ -794,7 +794,7 @@
         $.ajax({
           type:'post',
           url:"<?php  echo mobileurl('member/guamai/sellout')?>",
-          data:{id:"<?php  echo $sell['id'];?>",mobile:"<?php  echo $sell['mobile'];?>",file:$('#avatar').val(),type:1},
+          data:{id:"<?php  echo $sell['id'];?>",mobile:"<?php  echo $sell['mobile'];?>",file:$('#avatar').val(),type:2,op:1},
           dataType:'json',
           success:function(data){
             console.log(data);

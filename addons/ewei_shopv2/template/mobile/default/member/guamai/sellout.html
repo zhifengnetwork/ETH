@@ -132,7 +132,7 @@
       $.ajax({
         type:'post',
         url:"{php echo mobileurl('member/guamai/selloutyes')}",
-        data:{selloutyes:id,type:1},
+        data:{selloutyes:id,type:2},
         dataType:'json',
         success:function(data){
           console.log(data);
@@ -312,14 +312,14 @@
         </div>
         <div class="ewmBox">
           <div class="ewmTie">请扫描二维码完成支付</div>
-          <img src="{$sell['wxfile']}" alt="" class="ewmImg wxewm">
-          <img src="{$sell['zfbfile']}" alt="" class="ewmImg zfbewm">
+          <img src="{$sell['wxfile2']}" alt="" class="ewmImg wxewm">
+          <img src="{$sell['zfbfile2']}" alt="" class="ewmImg zfbewm">
         </div>
         <div class="bankBox">
           <div class="bankBoxTie">*请前往当地银行打款</div>
-          <p>银行：{$sell['bank']}</p>
-          <p>户主：{$sell['bankname']}</p>
-          <p>卡号：{$sell['bankid']}</p>
+          <p>银行：{$sell['bank2']}</p>
+          <p>户主：{$sell['bankname2']}</p>
+          <p>卡号：{$sell['bankid2']}</p>
 
         </div>
 
@@ -365,7 +365,7 @@
         $.ajax({
           type:'post',
           url:"{php echo mobileurl('member/guamai/sellout')}",
-          data:{id:"{$sell['id']}",mobile:"{$sell['mobile']}",file:$('#avatar').val(),type:1},
+          data:{id:"{$sell['id']}",mobile:"{$sell['mobile']}",file:$('#avatar').val(),type:1,op:1},
           dataType:'json',
           success:function(data){
             console.log(data);
@@ -794,7 +794,7 @@
         $.ajax({
           type:'post',
           url:"{php echo mobileurl('member/guamai/sellout')}",
-          data:{id:"{$sell['id']}",mobile:"{$sell['mobile']}",file:$('#avatar').val(),type:1},
+          data:{id:"{$sell['id']}",mobile:"{$sell['mobile']}",file:$('#avatar').val(),type:2,op:1},
           dataType:'json',
           success:function(data){
             console.log(data);

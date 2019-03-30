@@ -4,3 +4,39 @@ String:
 SQL: <br/>select id,couponid,openid,isparent,sendtime,price,merchid,isverify,addressid,isvirtualsend,virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2 <hr/>Params: <br/>array (
 )<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/task/order/receive.php; line: 23; <br />
 
+2019-03-30 12:02:58 SQL Error :
+------------
+String:
+SQL: <br/>select id,couponid,openid,isparent,sendtime,price,merchid,isverify,addressid,isvirtualsend,virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2 <hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/task/order/receive.php; line: 23; <br />
+
+2019-03-30 13:18:13 SQL Error :
+------------
+String:
+SQL: <br/>select id,couponid,openid,isparent,sendtime,price,merchid,isverify,addressid,isvirtualsend,virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2 <hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/task/order/receive.php; line: 23; <br />
+
+2019-03-30 13:39:15 SQL Error :
+------------
+String:
+SQL: <br/>select g.*,m.mobile,m2.mobile as mobile2,m.credit2 m2.credit2 as credit22 from`ims_guamai` g left join `ims_ewei_shop_member` m ON m.openid=g.openid left join `ims_ewei_shop_member` m2 ON m2.openid=g.openid2  where g.uniacid=12 and g.id='91'<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.credit2 as credit22 from`ims_guamai` g left join `ims_ewei_shop_member` m ON m.' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/guamai.php; line: 443; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-30 13:40:19 SQL Error :
+------------
+String:
+SQL: <br/>select g.*,m.mobile,m2.mobile as mobile2,m.credit2 m2.credit2 as credit22 from`ims_guamai` g left join `ims_ewei_shop_member` m ON m.openid=g.openid left join `ims_ewei_shop_member` m2 ON m2.openid=g.openid2  where g.uniacid=12 and g.id='91'<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.credit2 as credit22 from`ims_guamai` g left join `ims_ewei_shop_member` m ON m.' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/guamai.php; line: 443; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-30 13:40:28 SQL Error :
+------------
+String:
+SQL: <br/>select g.*,m.mobile,m2.mobile as mobile2,m.credit2 m2.credit2 as credit22 from`ims_guamai` g left join `ims_ewei_shop_member` m ON m.openid=g.openid left join `ims_ewei_shop_member` m2 ON m2.openid=g.openid2  where g.uniacid=12 and g.id='91'<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.credit2 as credit22 from`ims_guamai` g left join `ims_ewei_shop_member` m ON m.' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/guamai.php; line: 443; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2019-03-30 14:18:23 SQL Error :
+------------
+String:
+SQL: <br/>select id,couponid,openid,isparent,sendtime,price,merchid,isverify,addressid,isvirtualsend,virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2 <hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/task/order/receive.php; line: 23; <br />
+

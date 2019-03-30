@@ -865,7 +865,9 @@ $('.mask0_btn').click(function () {
           }else if(data.status == 1){
             alert(data.result.message);
             location.reload();
-          }
+          }else if(data.status == -1){
+						alert(data.result.message);
+					}
 
         },error:function(err){
           console.log(err);
@@ -942,10 +944,13 @@ $('.mask0_btn').click(function () {
       }
 
     if($('.maiRu_price').val() != '' && $('.buyNum').val() != ''){
-			let getMoney = ($('.buyNum').val()-$('.sxf0').html()*$('.buyNum').val()/100) * $('.maiRu_price').val();
+			var sxf0 = $('.sxf0').html()*$('.buyNum').val()/100;
+			// Number(sxf0) +
+			var muns =  Number($('.buyNum').val());
+			let getMoney = muns * $('.maiRu_price').val();
 			console.log($('.buyNum').val());
 			console.log($('.maiRu_price').val());
-			console.log($('.sxf0').html()*$('.buyNum').val()/100);
+			console.log(Number(sxf0) + Number($('.buyNum').val()));
 			$('.mairu_Money').val(getMoney);
 		} else {
 			$('.getMoney0').val('0');
@@ -957,7 +962,8 @@ $('.mask0_btn').click(function () {
       let maiRu_price = $('.maiRu_price').val();
       let price_min = $('.price_Min').html();
       let price_max = $('.price_Max').html();
-      let buy_nam = $('.buyNum').val();
+			let buy_nam = $('.buyNum').val();
+			let sxf0 = $('.sxf0').html()*$('.buyNum').val()/100;                // 手续费
       // 1. 买入价格需在最小单价与最大单价区间中
       if(maiRu_price < price_min || maiRu_price > price_max){
         alert('请根据参考价格来输入价格！')
@@ -974,7 +980,8 @@ $('.mask0_btn').click(function () {
           price: $('.maiRu_price').val(),
           trx: $('.buyNum').val(),
           money: $('.mairu_Money').val(),
-          type: "0"
+					type: "0",
+					sxf0:sxf0
         },
         dataType: 'json',
         success:function(data){
@@ -985,7 +992,9 @@ $('.mask0_btn').click(function () {
           }else if(data.status == 1){
             alert(data.result.message);
             location.reload();
-          }
+          }else if(data.status == -1){
+						alert(data.result.message);
+					}
 
         },error:function(err){
           console.log(err);
