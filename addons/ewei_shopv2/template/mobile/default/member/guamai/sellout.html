@@ -72,10 +72,18 @@
       <div class="fui-header-left">
         <a class="back"></a>
       </div>
-      {if $op == 1}
-      <div class="title">卖出ETH</div>
-      {else if $op == 0}
-      <div class="title">买入ETH</div>
+      {if $openid == $sell['openid2']}
+        {if $op == 1}
+        <div class="title">买入ETH</div>
+        {else if $op == 0}
+        <div class="title">卖出ETH</div>
+        {/if}
+      {else}
+        {if $op == 1}
+        <div class="title">卖出ETH</div>
+        {else if $op == 0}
+        <div class="title">买入ETH</div>
+        {/if}
       {/if}
       <div class="fui-header-right">
       </div>
@@ -276,12 +284,24 @@
         <a class="back"></a>
       </div>
 
+      <!-- {if $op == 1}
+      <div class="title">卖出ETH</div>
+      {else if $op == 0}
+      <div class="title">买入ETH</div>
+      {/if} -->
+      {if $openid == $sell['openid2']}
+      {if $op == 1}
+      <div class="title">买入ETH</div>
+      {else if $op == 0}
+      <div class="title">卖出ETH</div>
+      {/if}
+    {else}
       {if $op == 1}
       <div class="title">卖出ETH</div>
       {else if $op == 0}
       <div class="title">买入ETH</div>
       {/if}
-
+    {/if}
       <div class="fui-header-right">
       </div>
     </div>
@@ -502,10 +522,23 @@
       <div class="fui-header-left">
         <a class="back"></a>
       </div>
-      {if $op == 1}
-      <div class="title">卖出ETH</div>
-      {else if $op == 0}
+      <!-- {if $op == 1} -->
+      <!-- <div class="title">卖出ETH</div> -->
+      <!-- {else if $op == 0}
       <div class="title">买入ETH</div>
+      {/if} -->
+      {if $openid == $sell['openid2']}
+        {if $op == 1}
+        <div class="title">买入ETH</div>
+        {else if $op == 0}
+        <div class="title">卖出ETH</div>
+        {/if}
+      {else}
+        {if $op == 1}
+        <div class="title">卖出ETH</div>
+        {else if $op == 0}
+        <div class="title">买入ETH</div>
+        {/if}
       {/if}
       <div class="fui-header-right">
       </div>
@@ -705,12 +738,24 @@
         <a class="back"></a>
       </div>
 
+      <!-- {if $op == 1}
+      <div class="title">卖出ETH</div>
+      {else if $op == 0}
+      <div class="title">买入ETH</div>
+      {/if} -->
+      {if $openid == $sell['openid2']}
+      {if $op == 1}
+      <div class="title">买入ETH</div>
+      {else if $op == 0}
+      <div class="title">卖出ETH</div>
+      {/if}
+    {else}
       {if $op == 1}
       <div class="title">卖出ETH</div>
       {else if $op == 0}
       <div class="title">买入ETH</div>
       {/if}
-
+    {/if}
       <div class="fui-header-right">
       </div>
     </div>

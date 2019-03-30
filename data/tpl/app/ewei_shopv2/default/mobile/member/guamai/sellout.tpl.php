@@ -72,10 +72,18 @@
       <div class="fui-header-left">
         <a class="back"></a>
       </div>
-      <?php  if($op == 1) { ?>
-      <div class="title">卖出ETH</div>
-      <?php  } else if($op == 0) { ?>
-      <div class="title">买入ETH</div>
+      <?php  if($openid == $sell['openid2']) { ?>
+        <?php  if($op == 1) { ?>
+        <div class="title">买入ETH</div>
+        <?php  } else if($op == 0) { ?>
+        <div class="title">卖出ETH</div>
+        <?php  } ?>
+      <?php  } else { ?>
+        <?php  if($op == 1) { ?>
+        <div class="title">卖出ETH</div>
+        <?php  } else if($op == 0) { ?>
+        <div class="title">买入ETH</div>
+        <?php  } ?>
       <?php  } ?>
       <div class="fui-header-right">
       </div>
@@ -276,12 +284,24 @@
         <a class="back"></a>
       </div>
 
+      <!-- <?php  if($op == 1) { ?>
+      <div class="title">卖出ETH</div>
+      <?php  } else if($op == 0) { ?>
+      <div class="title">买入ETH</div>
+      <?php  } ?> -->
+      <?php  if($openid == $sell['openid2']) { ?>
+      <?php  if($op == 1) { ?>
+      <div class="title">买入ETH</div>
+      <?php  } else if($op == 0) { ?>
+      <div class="title">卖出ETH</div>
+      <?php  } ?>
+    <?php  } else { ?>
       <?php  if($op == 1) { ?>
       <div class="title">卖出ETH</div>
       <?php  } else if($op == 0) { ?>
       <div class="title">买入ETH</div>
       <?php  } ?>
-
+    <?php  } ?>
       <div class="fui-header-right">
       </div>
     </div>
@@ -502,10 +522,23 @@
       <div class="fui-header-left">
         <a class="back"></a>
       </div>
-      <?php  if($op == 1) { ?>
-      <div class="title">卖出ETH</div>
-      <?php  } else if($op == 0) { ?>
+      <!-- <?php  if($op == 1) { ?> -->
+      <!-- <div class="title">卖出ETH</div> -->
+      <!-- <?php  } else if($op == 0) { ?>
       <div class="title">买入ETH</div>
+      <?php  } ?> -->
+      <?php  if($openid == $sell['openid2']) { ?>
+        <?php  if($op == 1) { ?>
+        <div class="title">买入ETH</div>
+        <?php  } else if($op == 0) { ?>
+        <div class="title">卖出ETH</div>
+        <?php  } ?>
+      <?php  } else { ?>
+        <?php  if($op == 1) { ?>
+        <div class="title">卖出ETH</div>
+        <?php  } else if($op == 0) { ?>
+        <div class="title">买入ETH</div>
+        <?php  } ?>
       <?php  } ?>
       <div class="fui-header-right">
       </div>
@@ -705,12 +738,24 @@
         <a class="back"></a>
       </div>
 
+      <!-- <?php  if($op == 1) { ?>
+      <div class="title">卖出ETH</div>
+      <?php  } else if($op == 0) { ?>
+      <div class="title">买入ETH</div>
+      <?php  } ?> -->
+      <?php  if($openid == $sell['openid2']) { ?>
+      <?php  if($op == 1) { ?>
+      <div class="title">买入ETH</div>
+      <?php  } else if($op == 0) { ?>
+      <div class="title">卖出ETH</div>
+      <?php  } ?>
+    <?php  } else { ?>
       <?php  if($op == 1) { ?>
       <div class="title">卖出ETH</div>
       <?php  } else if($op == 0) { ?>
       <div class="title">买入ETH</div>
       <?php  } ?>
-
+    <?php  } ?>
       <div class="fui-header-right">
       </div>
     </div>

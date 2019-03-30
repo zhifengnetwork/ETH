@@ -330,24 +330,24 @@
       </div>
 
 
-<!-- 
+<!--
       <div class="moneyBox">
         <div>
           <div class="moneyBox_img">
             <img src="../addons/ewei_shopv2/static/images/trx.png" alt="trx">
           </div>
-          <div class="name">TRX</div>
+          <div class="name">ETH</div>
         </div>
         <div>￥<?php  echo $member['credit1'];?></div>
       </div> -->
 
       <div class="gonggao">
-        
+
         <div class="gonggao_left">
           <img src="../addons/ewei_shopv2/static/icon/gonggao.png" alt="" width="20">
           <span style="color:#ebb338; margin-left: 5px;">公告</span>
         </div>
-         
+
         <div class="gonggao_cent">
           <?php  if(is_array($notice)) { foreach($notice as $val) { ?>
 
@@ -356,7 +356,7 @@
           <?php  } } ?>
 
         </div>
-        
+
       </div>
 
       <!-- <ul class="uls">
@@ -446,7 +446,7 @@
         }
       })
 
-    
+
 
       // if("<?php  echo $member['type'];?>" != 2){
       //   $('.lis > a').eq(5).click(function () {
@@ -484,7 +484,7 @@
 
           $('.gonggao_cent  p').eq(index).css('left', i + 'px')
         }, 20);
-  
+
          $.ajax({
               type:'post',
               data:{},
@@ -504,11 +504,11 @@
         console.log($(window).height());
         if($(window).height() < 700 ){
           console.log('gaibian');
-          
+
           $('.swipslider').css('height', '180px');
           $('.lis > a').css('margin-top','.5rem')
         }
-        
+
 
       });
 

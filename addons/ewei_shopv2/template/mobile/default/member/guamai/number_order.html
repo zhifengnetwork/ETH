@@ -505,11 +505,20 @@
 						<div class="order_list">
 							<div class="order">
 								<p class="buy">
-									{if $winn['type'] == '0'}
-									<span style="color:#0a0">买入<b>ETH</b></span>
-									{/if}
-									{if $winn['type'] == '1'}
-									<span style="color:brown">卖出<b>ETH</b></span>
+										{if $openid == $winn['openid2']}
+										{if $winn['type'] == '0'}
+											<span style="color:brown">卖出<b>ETH</b></span>
+										{/if}
+										{if $winn['type'] == '1'}
+											<span style="color:#0a0">买入<b>ETH</b></span>
+										{/if}
+									{else}
+										{if $winn['type'] == '0'}
+										<span style="color:#0a0">买入<b>ETH</b></span>
+										{/if}
+										{if $winn['type'] == '1'}
+										<span style="color:brown">卖出<b>ETH</b></span>
+										{/if}
 									{/if}
 									{if $winn['status'] == '0'}
 									<span class="fn_cl" data-val="0" onclick="location.href='{php echo mobileurl('member/guamai/sellout_list')}&id={$winn['id']}&type={$winn['status']}'" >未交易<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
@@ -537,12 +546,22 @@
 								<div class="order">
 
 									<p class="buy">
-										{if $winn['type'] == '0'}
-										<span style="color:#0a0">买入<b>ETH</b></span>
+										{if $openid == $winn['openid2']}
+											{if $winn['type'] == '0'}
+												<span style="color:brown">卖出<b>ETH</b></span>
+											{/if}
+											{if $winn['type'] == '1'}
+												<span style="color:#0a0">买入<b>ETH</b></span>
+											{/if}
+										{else}
+											{if $winn['type'] == '0'}
+											<span style="color:#0a0">买入<b>ETH</b></span>
+											{/if}
+											{if $winn['type'] == '1'}
+											<span style="color:brown">卖出<b>ETH</b></span>
+											{/if}
 										{/if}
-										{if $winn['type'] == '1'}
-										<span style="color:brown">卖出<b>ETH</b></span>
-										{/if}
+
 
 										{if $winn['status'] == '1'}
 										<span class="fn_cl" data-val="1" onclick="location.href='{php echo mobileurl('member/guamai/sellout')}&id={$winn['id']}&op={$winn['type']}&status={$winn['status']}'">交易中<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
@@ -573,11 +592,20 @@
 								<div class="order">
 
 									<p class="buy">
-										{if $winn['type'] == '0'}
-										<span style="color:#0a0">买入<b>ETH</b></span>
-										{/if}
-										{if $winn['type'] == '1'}
-										<span style="color:brown">卖出<b>ETH</b></span>
+											{if $openid == $winn['openid2']}
+											{if $winn['type'] == '0'}
+												<span style="color:brown">卖出<b>ETH</b></span>
+											{/if}
+											{if $winn['type'] == '1'}
+												<span style="color:#0a0">买入<b>ETH</b></span>
+											{/if}
+										{else}
+											{if $winn['type'] == '0'}
+											<span style="color:#0a0">买入<b>ETH</b></span>
+											{/if}
+											{if $winn['type'] == '1'}
+											<span style="color:brown">卖出<b>ETH</b></span>
+											{/if}
 										{/if}
 										{if $winn['status'] == '2'}
 										<span class="fn_cl" data-val="2" onclick="location.href='{php echo mobileurl('member/guamai/sellout_list')}&id={$winn['id']}&op={$winn['type']}&status={$winn['status']}'">交易完成<img src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
@@ -609,11 +637,20 @@
 								<div class="order">
 
 									<p class="buy">
-										{if $winn['type'] == '0'}
-										<span style="color:#0a0">买入<b>ETH</b></span>
-										{/if}
-										{if $winn['type'] == '1'}
-										<span style="color:brown">卖出<b>ETH</b></span>
+										{if $openid == $winn['openid2']}
+											{if $winn['type'] == '0'}
+												<span style="color:brown">卖出<b>ETH</b></span>
+											{/if}
+											{if $winn['type'] == '1'}
+												<span style="color:#0a0">买入<b>ETH</b></span>
+											{/if}
+										{else}
+											{if $winn['type'] == '0'}
+											<span style="color:#0a0">买入<b>ETH</b></span>
+											{/if}
+											{if $winn['type'] == '1'}
+											<span style="color:brown">卖出<b>ETH</b></span>
+											{/if}
 										{/if}
 
 
@@ -630,8 +667,8 @@
 
 									<p class="form form_spww">
 											<!--倒计时-时间戳-->
-											<span><span class="font_color_999">{$winn['datatime']}</span></span>
-										</p>
+										<span><span class="font_color_999">{$winn['datatime']}</span></span>
+									</p>
 
 								</div>
 							</div>
