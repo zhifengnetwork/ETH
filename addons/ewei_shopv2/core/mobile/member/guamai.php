@@ -314,6 +314,9 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		$sell = pdo_fetch("select g.*,m.openid,m.credit2 from".tablename('guamai').' g left join '.tablename('ewei_shop_member').' m ON m.openid=g.openid '." where g.id='$id'");
 		if(empty($sell)) return false;
 		// dump($sell);die;
+		if($sell['status']==1){
+			show_json(1,"该订单已经在进行中,不能进行撤销!!!");
+		}
 		if($sell['type']==0){
 			// $data = array("credit2"=>$sell['trx']+$sell['credit2']);
 			$updeta_order = pdo_update("guamai",array("status"=>3,"createtime"=>time()),array("openid"=>$sell['openid'],"id"=>$sell['id']));
