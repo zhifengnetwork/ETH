@@ -85,7 +85,13 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 				show_json(1,array('list'=>$data));
 
 			}else if($type == 2){  //下注
+				$t = time();
+				$start = mktime(19,59,59,date("m",$t),date("d",$t),date("Y",$t));
 
+				if($t>=$start){
+					show_json(-1,"下注失败!每日下注时间为下午20点前.");
+				}
+				// $end = mktime(23,59,59,date("m",$t),date("d",$t),date("Y",$t));
 				$member = m('member')->getMember($_W['openid'], true);
 
 				$sale = pdo_fetch("select * from".tablename("ewei_shop_lottery2")."where uniacid=".$_W['uniacid']);
