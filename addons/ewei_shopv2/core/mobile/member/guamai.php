@@ -393,7 +393,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 				$mobile = pdo_fetch("select * from".tablename("guamai")." where id='".$_GPC['id']."'");
 				$mobile = substr($mobile['openid'],-11);
 				// dump($mobile);die;
-				com('sms')->send_zhangjun2($mobile, $_GPC['id'],"买入订单被抢单！");
+				com('sms')->send_zhangjun2($mobile, $_GPC['id'],"已被抢单成功！请在有效时间内及时付款.");
 				if($result) show_json(1,"抢单成功");
 
 			}else if($type == 1){  //买入
