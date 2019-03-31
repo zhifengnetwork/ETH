@@ -204,8 +204,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 				}
 				show_json(1,'挂卖成功');
 			}else{
-
-				show_json(1,'挂买成功');
+				show_json(1,'挂卖成功');
 			}
 
 
