@@ -407,7 +407,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 				if($op == 1){	//买入订单  挂单人付钱
 					$result = pdo_update("guamai",array('file'=>$_GPC['file']),array('uniacid'=>$_W['uniacid'],'id'=>$id));
 
-					com('sms')->send_zhangjun2($sell['mobile2'], $id,"买入订单挂单人已上传支付凭证！");
+					com('sms')->send_zhangjun2($sell['mobile2'], $id,"对方已付款成功,请及时确认.");
 
 					if($result) show_json(1,"挂单人付款成功");
 
@@ -447,7 +447,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 				if($op == 1){	//买入订单  挂单人付钱
 					$result = pdo_update("guamai",array('file'=>$_GPC['file']),array('uniacid'=>$_W['uniacid'],'id'=>$id));
 
-					com('sms')->send_zhangjun2($sell['mobile2'], $id,"买入订单挂单人已上传支付凭证！");
+					com('sms')->send_zhangjun2($sell['mobile2'], $id,"对方已付款成功,请及时确认.");
 
 					if($result) show_json(1,"挂单人付款成功");
 
@@ -509,7 +509,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 				//给抢单人充币
 				pdo_update("guamai",array('status'=>2,'endtime'=>time()),array('uniacid'=>$_W['uniacid'],'id'=>$id));
 				pdo_update("ewei_shop_member",array("credit2"=>$ETH),array("openid"=>$sell['openid2']));
-				com('sms')->send_zhangjun2($sell['mobile2'], $id,"卖出订单抢单完成！");
+				com('sms')->send_zhangjun2($sell['mobile2'], $id,"对方已确认收款并放币,请注意查看.");
 				show_json(1,"订单完成");
 
 			}else if($type==2){			//买入订单抢单人点击确认收款
@@ -531,7 +531,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 				pdo_update("guamai",array('status'=>2,'endtime'=>time()),array('uniacid'=>$_W['uniacid'],'id'=>$id));
 				pdo_update("ewei_shop_member",array("credit2"=>$ETH),array("openid"=>$sell['openid']));
 				pdo_update("ewei_shop_member",array("credit2"=>$credit2),array("openid"=>$sell['openid2']));
-				com('sms')->send_zhangjun2($sell['mobile'], $id,"买入订单挂单完成！");
+				com('sms')->send_zhangjun2($sell['mobile'], $id,"对方已确认收款并放币,请注意查看.");
 
 				show_json(1,"订单完成");
 
