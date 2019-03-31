@@ -173,7 +173,7 @@ class Sms_EweiShopV2ComModel extends ComModel
 
 
 
-	    $content = "【ETH】您订单编号为：".$id."的订单已操作，请注意查看！";
+	    $content = "【ETH】您订单编号为：".$id.$name."，请注意查看！";
 
 
 
