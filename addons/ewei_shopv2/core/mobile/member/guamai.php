@@ -370,8 +370,11 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 			$type = $_GPC['type'];
 			$mobile = $_GPC['mobile'];
 			// dump($openid);
-			$guamai = pdo_fetchall("select * from".tablename("guamai")." where openid='".$openid."' or openid2='".$openid."' and status=1");
-			$guamai_nums = count($guamai);
+			$guamai = pdo_fetchall("select * from".tablename("guamai")." where status=1 and openid='".$openid."' or openid2='".$openid."'");
+			// dump($guamai);die;
+			if($guamai){
+				$guamai_nums = count($guamai);
+			}
 			if($type == 0){   //卖出
 				if($guamai_nums >= 1)
 				{
