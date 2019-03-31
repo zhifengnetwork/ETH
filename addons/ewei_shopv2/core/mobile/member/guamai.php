@@ -372,14 +372,11 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 			// dump($openid);
 			$guamai = pdo_fetchall("select * from".tablename("guamai")." where openid='".$openid."' or openid2='".$openid."' and status=1");
 			$guamai_nums = count($guamai);
-			// dump($guamai_nums);
-			// dump($guamai);die;
-			if($guamai_nums >= 1)
-			{
-				show_json(-1,"您还有订单尚未处理或还在交易中,请先进行交易！");
-			}
-
 			if($type == 0){   //卖出
+				if($guamai_nums >= 1)
+				{
+					show_json(-1,"您还有订单尚未处理或还在交易中,请先进行交易！");
+				}
 				//判断该用户是否有足够的币进行抢单
 				$member = m('member')->getMember($_W['openid'], true);
 
@@ -410,7 +407,10 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 					if($result) show_json(1,"挂单人付款成功");
 
 				}else{
-
+					if($guamai_nums >= 1)
+					{
+						show_json(-1,"您还有订单尚未处理或还在交易中,请先进行交易！");
+					}
 					//判断该会员是否上传收款信息
 					if(!$member['zfbfile'] && !$member['wxfile'] && (!$member['bankid'] || !$member['bankname'] || !$member['bank'])){
 						show_json(-1,"请上传您的收款信息");
@@ -448,6 +448,10 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 					if($result) show_json(1,"挂单人付款成功");
 
 				}else{
+					if($guamai_nums >= 1)
+					{
+						show_json(-1,"您还有订单尚未处理或还在交易中,请先进行交易！");
+					}
 					//判断该会员是否上传收款信息
 					if(!$member['zfbfile'] && !$member['wxfile'] && (!$member['bankid'] || !$member['bankname'] || !$member['bank'])){
 						if($result) show_json(-1,"请上传您的收款信息");
