@@ -148,6 +148,10 @@
             alert(data.result.message);
             history.back(-1);
           }
+          if(data.status == -1)
+          {
+            alert(data.result.message);
+          }
 
         },error:function(err){
           console.log(err);
@@ -603,6 +607,10 @@
             alert(data.result.message);
             history.back(-1);
           }
+          if(data.status == -1){
+            alert(data.result.message);
+          }
+
 
         },error:function(err){
           console.log(err);

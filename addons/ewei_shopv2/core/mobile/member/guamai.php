@@ -370,6 +370,12 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 			$type = $_GPC['type'];
 			$mobile = $_GPC['mobile'];
 			if($type == 0){   //卖出
+				//判断该用户是否有足够的币进行抢单
+				$member = m('member')->getMember($_W['openid'], true);
+
+				if($member['credit2']<$sell['trx']){
+					show_json(-1,"您的TRX不足，请尽快投资！");
+				}
 				com('sms')->send_zhangjun2($mobile, $_GPC['id'],"卖出订单被抢单！");
 				// exit();
 				// show_json($mobile);
@@ -397,11 +403,11 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 
 					//判断该会员是否上传收款信息
 					if(!$member['zfbfile'] && !$member['wxfile'] && (!$member['bankid'] || !$member['bankname'] || !$member['bank'])){
-						if($result) show_json(-1,"请上传您的收款信息");
+						show_json(-1,"请上传您的收款信息");
 					}
 
 					if($member['credit2']<$sell['trx']){
-						if($result) show_json(-1,"您的TRX不足，请尽快投资！");
+						show_json(-1,"您的TRX不足，请尽快投资！");
 					}
 
 					//币足够的时候进行抢单  （扣币）
@@ -412,7 +418,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 
 					com('sms')->send_zhangjun2($sell['mobile'], $id,"买入订单被抢单！");
 
-					if($result) show_json(1,"抢单成功");
+					show_json(1,"抢单成功");
 				}
 
 			}else if($type==2){//卖出
@@ -467,22 +473,24 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 
 			$id = $_GPC['selloutyes'];
 			$type = $_GPC['type'];
-			if($type==1){			//卖出订单挂单人点击确认收款
 
+			if($type==1){			//卖出订单挂单人点击确认收款
 				$sell = pdo_fetch("select g.*,m.mobile,m2.mobile as mobile2,m2.openid as openid2,m.credit2,m2.credit2 as credit22 from".tablename('guamai').' g left join '.tablename('ewei_shop_member').' m ON m.openid=g.openid left join '.tablename('ewei_shop_member').' m2 ON m2.openid=g.openid2 '." where g.uniacid=".$_W['uniacid']." and g.id='$id'");
 				// show_json($sell);
-
-
 				$credit2 = $sell['credit2']-$sell['trx2'];
+				//判断该用户是否有足够的币进行抢单
+				$member = m('member')->getMember($sell['openid'], true);
+				//判断该会员是否上传收款信息
+				if(!$member['zfbfile'] && !$member['wxfile'] && (!$member['bankid'] || !$member['bankname'] || !$member['bank'])){
+					show_json(-1,"请上传您的收款信息");
+				}
+				if($member['credit2']<$sell['trx']){
+					show_json(-1,"您的TRX不足，请尽快投资！");
+				}
 				$ETH = $sell['credit22']+$sell['trx'];
-				// dump($sell['credit2']);
-				// dump($sell['openid']."---".$credit2);
-				// dump($sell['openid2']."---".$ETH);die;
 				//给抢单人充币
 				pdo_update("guamai",array('status'=>2,'endtime'=>time()),array('uniacid'=>$_W['uniacid'],'id'=>$id));
-				// pdo_update("ewei_shop_member",array("credit2"=>$credit2),array("openid"=>$sell['openid']));
 				pdo_update("ewei_shop_member",array("credit2"=>$ETH),array("openid"=>$sell['openid2']));
-				// m('member')->setCredit($sell['openid2'],'credit2',$sell['trx']);
 				com('sms')->send_zhangjun2($sell['mobile2'], $id,"卖出订单抢单完成！");
 				show_json(1,"订单完成");
 
@@ -491,8 +499,15 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 				// show_json($sell);
 				$ETH = $sell['credit2']+$sell['trx']-$sell['sxf0'];
 				$credit2 = $sell['credit22']-$sell['trx'];
-				// dump($sell);die;
-
+				//判断该用户是否有足够的币进行抢单
+				$member = m('member')->getMember($sell['openid2'], true);
+				//判断该会员是否上传收款信息
+				if(!$member['zfbfile'] && !$member['wxfile'] && (!$member['bankid'] || !$member['bankname'] || !$member['bank'])){
+					show_json(-1,"请上传您的收款信息");
+				}
+				if($member['credit22']<$sell['trx']){
+					show_json(-1,"您的TRX不足，请尽快投资！");
+				}
 				//给挂单人充币
 				pdo_update("guamai",array('status'=>2,'endtime'=>time()),array('uniacid'=>$_W['uniacid'],'id'=>$id));
 				pdo_update("ewei_shop_member",array("credit2"=>$ETH),array("openid"=>$sell['openid']));
