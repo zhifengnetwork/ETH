@@ -379,13 +379,11 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 				}
 				//判断该用户是否有足够的币进行抢单
 				$member = m('member')->getMember($_W['openid'], true);
-
 				if($member['credit2']<$sell['trx']){
 					show_json(-1,"您的TRX不足，请尽快投资！");
 				}
 				com('sms')->send_zhangjun2($mobile, $_GPC['id'],"卖出订单被抢单！");
 				// exit();
-				// show_json($mobile);
 				$apple_time = time()+1800;
 				$result = pdo_update("guamai",array('file'=>$_GPC['file'],'status'=>1,'apple_time'=>$apple_time,'openid2'=>$_W['openid']),array('uniacid'=>$_W['uniacid'],'id'=>$_GPC['id']));
 
@@ -415,7 +413,6 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 					if(!$member['zfbfile'] && !$member['wxfile'] && (!$member['bankid'] || !$member['bankname'] || !$member['bank'])){
 						show_json(-1,"请上传您的收款信息");
 					}
-
 					if($member['credit2']<$sell['trx']){
 						show_json(-1,"您的TRX不足，请尽快投资！");
 					}
