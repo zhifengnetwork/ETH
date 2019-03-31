@@ -127,21 +127,33 @@
   <script>
     $('.Btn_on').click(function () {
       let id = "<?php  echo $sell['id'];?>";
-      $.ajax({
-        type:'post',
-        url:"<?php  echo mobileurl('member/guamai/tab_con')?>",
-        data:{id:id},
-        dataType:'json',
-        success:function(data){
-          console.log(data);
-          if(data.status == 1){
-            alert(data.result.message);
-            history.back(-1);
-          }
-        },error:function(err){
-          console.log(err);
-        }
-      })
+      //iframe层-父子操作
+
+      //页面层-自定义
+      layer.open({
+        type: 1,
+        title: false,
+        closeBtn: 0,
+        shadeClose: true,
+        skin: 'yourclass',
+        content: '自定义HTML内容'
+      });
+
+      // $.ajax({
+      //   type:'post',
+      //   url:"<?php  echo mobileurl('member/guamai/tab_con')?>",
+      //   data:{id:id},
+      //   dataType:'json',
+      //   success:function(data){
+      //     console.log(data);
+      //     if(data.status == 1){
+      //       alert(data.result.message);
+      //       history.back(-1);
+      //     }
+      //   },error:function(err){
+      //     console.log(err);
+      //   }
+      // })
     });
   </script>
 
