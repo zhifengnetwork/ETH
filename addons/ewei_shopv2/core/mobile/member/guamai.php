@@ -368,7 +368,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		if($_W['ispost']){
 			// show_json(123454);
 			$type = $_GPC['type'];
-			$mobile = $_GPC['mobile'];
+			// $mobile = substr($_GPC['openid'],-11);
 			// dump($openid);
 			$guamai = pdo_fetchall("select * from".tablename("guamai")." where status=1 and openid='".$openid."' or openid2='".$openid."'");
 			// dump($guamai);die;
@@ -385,11 +385,15 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 				if($member['credit2']<$sell['trx']){
 					show_json(-1,"您的TRX不足，请尽快投资！");
 				}
-				com('sms')->send_zhangjun2($mobile, $_GPC['id'],"卖出订单被抢单！");
+
+
 				// exit();
 				$apple_time = time()+1800;
 				$result = pdo_update("guamai",array('file'=>$_GPC['file'],'status'=>1,'apple_time'=>$apple_time,'openid2'=>$_W['openid']),array('uniacid'=>$_W['uniacid'],'id'=>$_GPC['id']));
-
+				$mobile = pdo_fetch("select * from".tablename("guamai")." where id='".$_GPC['id']."'");
+				$mobile = substr($mobile['openid'],-11);
+				// dump($mobile);die;
+				com('sms')->send_zhangjun2($mobile, $_GPC['id'],"买入订单被抢单！");
 				if($result) show_json(1,"抢单成功");
 
 			}else if($type == 1){  //买入
