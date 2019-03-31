@@ -383,7 +383,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 				//判断该用户是否有足够的币进行抢单
 				$member = m('member')->getMember($_W['openid'], true);
 				if($member['credit2']<$sell['trx']){
-					show_json(-1,"您的TRX不足，请尽快投资！");
+					show_json(-1,"您的ETH不足，请尽快投资！");
 				}
 
 
@@ -421,7 +421,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 						show_json(-1,"请上传您的收款信息");
 					}
 					if($member['credit2']<$sell['trx']){
-						show_json(-1,"您的TRX不足，请尽快投资！");
+						show_json(-1,"您的ETH不足，请尽快投资！");
 					}
 
 					//币足够的时候进行抢单  （扣币）
@@ -430,7 +430,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 					m('member')->setCredit($_W['openid'],'credit2',-$sell['trx']);
 					$result = pdo_update("guamai",array('status'=>1,'openid2'=>$_W['openid'],'createtime'=>time(),'apple_time'=>$apple_time),array('uniacid'=>$_W['uniacid'],'id'=>$id));
 
-					com('sms')->send_zhangjun2($sell['mobile'], $id,"买入订单被抢单！");
+					com('sms')->send_zhangjun2($sell['mobile'], $id,"卖出订单被抢单！");
 
 					show_json(1,"抢单成功");
 				}
@@ -461,7 +461,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 						if($result) show_json(-1,"请上传您的收款信息");
 					}
 					if($member['credit2']<$sell['trx']){
-						if($result) show_json(-1,"您的TRX不足，请尽快投资！");
+						if($result) show_json(-1,"您的ETH不足，请尽快投资！");
 					}
 					//币足够的时候进行抢单  （扣币）
 					$apple_time = time()+1800;
@@ -503,7 +503,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 					show_json(-1,"请上传您的收款信息");
 				}
 				if($member['credit2']<$sell['trx']){
-					show_json(-1,"您的TRX不足，请尽快投资！");
+					show_json(-1,"您的ETH不足，请尽快投资！");
 				}
 				$ETH = $sell['credit22']+$sell['trx'];
 				//给抢单人充币
@@ -525,7 +525,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 					show_json(-1,"请上传您的收款信息");
 				}
 				if($member['credit2']<$sell['trx']){
-					show_json(-1,"您的TRX不足，请尽快投资！");
+					show_json(-1,"您的ETH不足，请尽快投资！");
 				}
 				//给挂单人充币
 				pdo_update("guamai",array('status'=>2,'endtime'=>time()),array('uniacid'=>$_W['uniacid'],'id'=>$id));
