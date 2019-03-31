@@ -515,11 +515,12 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 				$credit2 = $sell['credit22']-$sell['trx'];
 				//判断该用户是否有足够的币进行抢单
 				$member = m('member')->getMember($sell['openid2'], true);
+				// dump($member['credit2']);die;
 				//判断该会员是否上传收款信息
 				if(!$member['zfbfile'] && !$member['wxfile'] && (!$member['bankid'] || !$member['bankname'] || !$member['bank'])){
 					show_json(-1,"请上传您的收款信息");
 				}
-				if($member['credit22']<$sell['trx']){
+				if($member['credit2']<$sell['trx']){
 					show_json(-1,"您的TRX不足，请尽快投资！");
 				}
 				//给挂单人充币
