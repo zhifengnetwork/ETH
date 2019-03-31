@@ -104,7 +104,7 @@
           <div>收款手续费：<% item.money2 %> 元</div>
         </div>
         <%/each%>
-        
+
     </script>
 
 
