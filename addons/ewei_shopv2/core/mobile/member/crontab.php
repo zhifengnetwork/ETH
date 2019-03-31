@@ -20,7 +20,7 @@ class Crontab_EweiShopV2Page
 			return false;
 		}
 		foreach($guamai as $key=>$val){
-			$createtime = $val['createtime']+1800;
+			$createtime = $val['apple_time'];
 			$time = time();
 			if($time<=$createtime){
 				continue;

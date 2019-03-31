@@ -369,6 +369,16 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 			// show_json(123454);
 			$type = $_GPC['type'];
 			$mobile = $_GPC['mobile'];
+			// dump($openid);
+			$guamai = pdo_fetchall("select * from".tablename("guamai")." where openid='".$openid."' or openid2='".$openid."' and status=1");
+			$guamai_nums = count($guamai);
+			// dump($guamai_nums);
+			// dump($guamai);die;
+			if($guamai_nums >= 1)
+			{
+				show_json(-1,"您还有订单尚未处理或还在交易中,请先进行交易！");
+			}
+
 			if($type == 0){   //卖出
 				//判断该用户是否有足够的币进行抢单
 				$member = m('member')->getMember($_W['openid'], true);
