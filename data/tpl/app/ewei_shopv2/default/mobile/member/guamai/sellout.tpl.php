@@ -72,10 +72,18 @@
       <div class="fui-header-left">
         <a class="back"></a>
       </div>
-      <?php  if($op == 1) { ?>
-      <div class="title">卖出ETH</div>
-      <?php  } else if($op == 0) { ?>
-      <div class="title">买入ETH</div>
+      <?php  if($openid == $sell['openid2']) { ?>
+        <?php  if($op == 1) { ?>
+        <div class="title">买入ETH</div>
+        <?php  } else if($op == 0) { ?>
+        <div class="title">卖出ETH</div>
+        <?php  } ?>
+      <?php  } else { ?>
+        <?php  if($op == 1) { ?>
+        <div class="title">卖出ETH</div>
+        <?php  } else if($op == 0) { ?>
+        <div class="title">买入ETH</div>
+        <?php  } ?>
       <?php  } ?>
       <div class="fui-header-right">
       </div>
@@ -132,13 +140,17 @@
       $.ajax({
         type:'post',
         url:"<?php  echo mobileurl('member/guamai/selloutyes')?>",
-        data:{selloutyes:id,type:1},
+        data:{selloutyes:id,type:2},
         dataType:'json',
         success:function(data){
           console.log(data);
           if(data.status == 1){
             alert(data.result.message);
             history.back(-1);
+          }
+          if(data.status == -1)
+          {
+            alert(data.result.message);
           }
 
         },error:function(err){
@@ -276,12 +288,24 @@
         <a class="back"></a>
       </div>
 
+      <!-- <?php  if($op == 1) { ?>
+      <div class="title">卖出ETH</div>
+      <?php  } else if($op == 0) { ?>
+      <div class="title">买入ETH</div>
+      <?php  } ?> -->
+      <?php  if($openid == $sell['openid2']) { ?>
+      <?php  if($op == 1) { ?>
+      <div class="title">买入ETH</div>
+      <?php  } else if($op == 0) { ?>
+      <div class="title">卖出ETH</div>
+      <?php  } ?>
+    <?php  } else { ?>
       <?php  if($op == 1) { ?>
       <div class="title">卖出ETH</div>
       <?php  } else if($op == 0) { ?>
       <div class="title">买入ETH</div>
       <?php  } ?>
-
+    <?php  } ?>
       <div class="fui-header-right">
       </div>
     </div>
@@ -312,14 +336,14 @@
         </div>
         <div class="ewmBox">
           <div class="ewmTie">请扫描二维码完成支付</div>
-          <img src="<?php  echo $sell['wxfile'];?>" alt="" class="ewmImg wxewm">
-          <img src="<?php  echo $sell['zfbfile'];?>" alt="" class="ewmImg zfbewm">
+          <img src="<?php  echo $sell['wxfile2'];?>" alt="" class="ewmImg wxewm">
+          <img src="<?php  echo $sell['zfbfile2'];?>" alt="" class="ewmImg zfbewm">
         </div>
         <div class="bankBox">
           <div class="bankBoxTie">*请前往当地银行打款</div>
-          <p>银行：<?php  echo $sell['bank'];?></p>
-          <p>户主：<?php  echo $sell['bankname'];?></p>
-          <p>卡号：<?php  echo $sell['bankid'];?></p>
+          <p>银行123：<?php  echo $sell['bank2'];?>    <span>复制</span>    </p>
+          <p>户主：<?php  echo $sell['bankname2'];?>  <span>复制</span></p>
+          <p>卡号：<?php  echo $sell['bankid2'];?>   <span>复制</span></p>
 
         </div>
 
@@ -365,7 +389,7 @@
         $.ajax({
           type:'post',
           url:"<?php  echo mobileurl('member/guamai/sellout')?>",
-          data:{id:"<?php  echo $sell['id'];?>",mobile:"<?php  echo $sell['mobile'];?>",file:$('#avatar').val(),type:1},
+          data:{id:"<?php  echo $sell['id'];?>",mobile:"<?php  echo $sell['mobile'];?>",file:$('#avatar').val(),type:1,op:1},
           dataType:'json',
           success:function(data){
             console.log(data);
@@ -502,10 +526,23 @@
       <div class="fui-header-left">
         <a class="back"></a>
       </div>
-      <?php  if($op == 1) { ?>
-      <div class="title">卖出ETH</div>
-      <?php  } else if($op == 0) { ?>
+      <!-- <?php  if($op == 1) { ?> -->
+      <!-- <div class="title">卖出ETH</div> -->
+      <!-- <?php  } else if($op == 0) { ?>
       <div class="title">买入ETH</div>
+      <?php  } ?> -->
+      <?php  if($openid == $sell['openid2']) { ?>
+        <?php  if($op == 1) { ?>
+        <div class="title">买入ETH</div>
+        <?php  } else if($op == 0) { ?>
+        <div class="title">卖出ETH</div>
+        <?php  } ?>
+      <?php  } else { ?>
+        <?php  if($op == 1) { ?>
+        <div class="title">卖出ETH</div>
+        <?php  } else if($op == 0) { ?>
+        <div class="title">买入ETH</div>
+        <?php  } ?>
       <?php  } ?>
       <div class="fui-header-right">
       </div>
@@ -570,6 +607,10 @@
             alert(data.result.message);
             history.back(-1);
           }
+          if(data.status == -1){
+            alert(data.result.message);
+          }
+
 
         },error:function(err){
           console.log(err);
@@ -638,8 +679,17 @@
 
     .bankBox>p {
       font-size: .8rem;
+      display: flex;
+      justify-content: space-between;
     }
-
+    /* 复制按钮 */
+    .bankBox>p>span{
+      color: #fff;
+      background-color: #0a0;
+      border-radius: .5rem;
+      padding: 10px 0;
+      text-align: center;
+    }
     .setImg {
       padding: .5rem 0;
     }
@@ -705,12 +755,24 @@
         <a class="back"></a>
       </div>
 
+      <!-- <?php  if($op == 1) { ?>
+      <div class="title">卖出ETH</div>
+      <?php  } else if($op == 0) { ?>
+      <div class="title">买入ETH</div>
+      <?php  } ?> -->
+      <?php  if($openid == $sell['openid2']) { ?>
+      <?php  if($op == 1) { ?>
+      <div class="title">买入ETH</div>
+      <?php  } else if($op == 0) { ?>
+      <div class="title">卖出ETH</div>
+      <?php  } ?>
+    <?php  } else { ?>
       <?php  if($op == 1) { ?>
       <div class="title">卖出ETH</div>
       <?php  } else if($op == 0) { ?>
       <div class="title">买入ETH</div>
       <?php  } ?>
-
+    <?php  } ?>
       <div class="fui-header-right">
       </div>
     </div>
@@ -794,7 +856,7 @@
         $.ajax({
           type:'post',
           url:"<?php  echo mobileurl('member/guamai/sellout')?>",
-          data:{id:"<?php  echo $sell['id'];?>",mobile:"<?php  echo $sell['mobile'];?>",file:$('#avatar').val(),type:1},
+          data:{id:"<?php  echo $sell['id'];?>",mobile:"<?php  echo $sell['mobile'];?>",file:$('#avatar').val(),type:2,op:1},
           dataType:'json',
           success:function(data){
             console.log(data);
