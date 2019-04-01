@@ -742,10 +742,6 @@
 					<div class="mask1_lis">
 						<input type="number" placeholder="请输入购买的数量" class="buyNum">
 					</div>
-					<p>预获币数(ETH)</p>
-					<div class="mask1_lis">
-							<input type="number" disabled value="0" class="mairu_Money">
-					</div>
 					<div class="mask_lis">
 						<div class="tishi">手续费：<span class="sxf0"><?php  echo $sys['trxsxf'];?></span>%</div>
 					</div>
