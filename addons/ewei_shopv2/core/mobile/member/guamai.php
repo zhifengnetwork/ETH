@@ -77,6 +77,12 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 			}
 		}
 	}
+	//申诉详情
+	public function guamai_appeal_list()
+	{
+
+		include $this->template();
+	}
 
 	public function main()
 	{

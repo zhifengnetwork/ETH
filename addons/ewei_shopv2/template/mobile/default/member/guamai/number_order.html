@@ -688,16 +688,12 @@
 				<div class="tab_con">
 					<div class="wtf_top">
 						<div class="wtf_item">
-								{loop $guamai_appeal $appeal}
-							<div class="wtf_item1" onclick="window.location.href = ''">
-								{if $appeal['stuas'] == 0}
-								<p>该订单“{$appeal['order_id']}”,在进行审核。</p>
-								{else if $appeal['stuas'] == 1}
-								<p>该订单“{$appeal['order_id']}”,审核通过，并对该账号进行处罚。</p>
-								{else if $appeal['stuas'] == 2}
-								<p>该订单“{$appeal['order_id']}”,该申诉失效。</p>
-								{/if}
-								<p>{$appeal['createtime']}</p>
+							{loop $guamai_appeal $appeal}
+							<div class="wtf_item1">
+								<a href="{php echo mobileurl('member/guamai/guamai_appeal_list')}?id={$appeal['id']}">
+									<p>{$appeal['text']}</p>
+									<p>{$appeal['createtime']}</p>
+								</a>
 							</div>
 							{/loop}
 						</div>

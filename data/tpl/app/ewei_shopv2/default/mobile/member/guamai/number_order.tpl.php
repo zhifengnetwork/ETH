@@ -688,16 +688,13 @@
 				<div class="tab_con">
 					<div class="wtf_top">
 						<div class="wtf_item">
-								<?php  if(is_array($guamai_appeal)) { foreach($guamai_appeal as $appeal) { ?>
-							<div class="wtf_item1" onclick="window.location.href = ''">
-								<?php  if($appeal['stuas'] == 0) { ?>
-								<p>该订单“<?php  echo $appeal['order_id'];?>”,在进行审核。</p>
-								<?php  } else if($appeal['stuas'] == 1) { ?>
-								<p>该订单“<?php  echo $appeal['order_id'];?>”,审核通过，并对该账号进行处罚。</p>
-								<?php  } else if($appeal['stuas'] == 2) { ?>
-								<p>该订单“<?php  echo $appeal['order_id'];?>”,该申诉失效。</p>
-								<?php  } ?>
-								<p><?php  echo $appeal['createtime'];?></p>
+							<?php  if(is_array($guamai_appeal)) { foreach($guamai_appeal as $appeal) { ?>
+							<div class="wtf_item1">
+								<a href="<?php  echo mobileurl('member/guamai/guamai_appeal_list')?>?id=<?php  echo $appeal['id'];?>">
+									<p><?php  echo $appeal['text'];?></p>
+
+									<p><?php  echo $appeal['createtime'];?></p>
+								</a>
 							</div>
 							<?php  } } ?>
 						</div>
