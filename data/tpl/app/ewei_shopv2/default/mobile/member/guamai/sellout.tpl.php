@@ -405,8 +405,7 @@
         $(function(){
     //点击按钮，复制二维码链接
 	$(".copy").click(function(){
-             let val = $(this).prev('.info').children('span').text()
-             // console.log(val)
+             let val = $(this).prev('.info').children('span').text();
              //实例化clipboard
              var clipboard = new ClipboardJS('#copy');
              clipboard.on("success", function(val){
@@ -722,20 +721,25 @@
       color: red;
     }
 
-    /* .bankBox>p {
+    .bankBox>div {
       font-size: .8rem;
       display: flex;
-      justify-content: space-between;
+      justify-content:space-between;
       padding-bottom: .2rem;
+      white-space: nowrap;
     }
-   
-    .bankBox>p>span{
+    .bankBox>div>.info{
+      overflow: hidden;
+      white-space: nowrap;
+      width: 100%;
+    }
+    .bankBox>div>.copy{
       color: #fff;
       background-color: #0a0;
-      border-radius: .5rem;
-      padding: 0 10px;
       text-align: center;
-    } */
+      padding: 0px 10px;
+      border-radius: .5rem;
+    }
     .setImg {
       padding: .5rem 0;
     }
@@ -853,12 +857,27 @@
           <img src="<?php  echo $sell['zfbfile'];?>" alt="" class="ewmImg zfbewm">
         </div>
         <div class="bankBox">
-          <div class="bankBoxTie">*请前往当地银行打款</div>
-          <p>银行：<?php  echo $sell['bank'];?>  <span>复制</span></p>
-          <p>户主：<?php  echo $sell['bankname'];?>  <span>复制</span></p>
-          <p>卡号：<?php  echo $sell['bankid'];?>  <span>复制</span></p>
-
-        </div>
+            <div class="bankBoxTie">*请前往当地银行打款</div>
+            <div>
+                <div class="info">
+                  银行：
+                  <span id="codeText"><?php  echo $sell['bank'];?></span>
+                </div>  
+                <span class="copy" id="copy" data-clipboard-target="#codeText">复制</span>
+              </div>
+              <div>
+                  <div class="info">户主：
+                <span id="codeText"><?php  echo $sell['bankname'];?> </span> 
+              </div>
+                <span class="copy" id="copy" data-clipboard-target="#codeText">复制</span>
+            </div>
+              <div>
+                  <div class="info">卡号：
+                <span id="codeText"><?php  echo $sell['bankid'];?> </span> 
+              </div> 
+                <span class="copy" id="copy" data-clipboard-target="#codeText">复制</span>
+              </div>
+          </div>
 
         <div class="setImg">
           <p>上传凭证：</p>
@@ -885,6 +904,27 @@
 
   <script src="../addons/ewei_shopv2/static/js/dist/ajaxfileupload.js" type="text/javascript"></script>
   <script type="text/javascript">
+          $(function(){
+    //点击按钮，复制二维码链接
+	$(".copy").click(function(){
+             let val = $(this).prev('.info').children('#codeText').text();
+             let text = $('#codeText').text()
+             console.log(val)
+             //实例化clipboard
+             var clipboard = new ClipboardJS('#copy',{
+               text:function(){
+                 return val
+               }
+             })
+             clipboard.on("success", function(e){
+                 console.log(e);
+             });
+             clipboard.on("error", function(e){
+                 console.log(e);
+             });
+             alert("复制成功");
+ })
+ })
     // 提交js
     $('.buyBtn').click(function () {
       $(this).addClass('disable');
