@@ -178,9 +178,18 @@
     position: absolute;
     width: 100%;
   }
+   .advert_con{
+
+    border: 1px solid #ccc;
+   
+
+   }
   .navIfo2{
    height: 2.1rem
 
+  }
+  select {
+  border:none
   }
 
 
@@ -209,7 +218,7 @@
 
         </a> -->
         <div class="advert_con" style="height: 2rem; top: 0px;">
-            <span style="width:2.8rem;display:inline-block;text-align: center">期号</span>    <span>开奖号</span>
+            <span style="width:2.5rem;display:inline-block;text-align: center">期号</span>    <span>开奖号</span>
             <br/>
 
           <select name="" id="sel">
