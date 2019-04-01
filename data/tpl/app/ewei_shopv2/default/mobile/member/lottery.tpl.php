@@ -205,8 +205,18 @@
 
         </a> -->
         <div class="advert_con" style="height: 2rem; top: 0px;">
-          <p class="item">第 <i style="color:#bb2639"><?php  echo $sale['time'];?></i> 期</p>
-          <p>开奖号为：<i style="color:#bb2639"><?php  echo $sale['numberis'];?></i></p>
+            期号    开奖号码
+
+          <select name="">
+            <?php  if(is_array($sale)) { foreach($sale as $appeal) { ?>
+              <option value="0">
+                <p class="item"> <i style="color:#bb2639"><?php  echo $appeal['time'];?></i></p>
+                <p><i style="color:#bb2639"><?php  echo $appeal['number'];?></i></p>
+              </option>
+            <?php  } } ?>
+          </select>
+          <!-- <p class="item">第 <i style="color:#bb2639"><?php  echo $sale['time'];?></i> 期</p>
+          <p>开奖号为：<i style="color:#bb2639"><?php  echo $sale['numberis'];?></i></p> -->
         </div>
         <a href="<?php  echo mobileurl('member/lottery/rule')?>">游戏规则</a>
       </div>
