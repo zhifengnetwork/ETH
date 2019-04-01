@@ -72,7 +72,7 @@
 	.se_tank_con{margin-top: 0.7rem;margin-left: 0.3rem;}
 	.se_tank_con textarea{border-radius: 0.2rem; width: 70%;height: 5rem;resize: none;border: none;padding: 0.3rem;font-size: 0.65rem;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
 	.se_tank_con p{font-size: 0.7rem;color: #fff;display: inline-block;vertical-align:top;}
-	.se_tank_btn{width: 68.5%;height: 3.5rem;line-height: 2.5rem;margin-left: 22%;}  
+	.se_tank_btn{width: 68.5%;height: 3.5rem;line-height: 2.5rem;margin-left: 22%;}
 	.se_tank_btn button{width: 100%;height: 1.6rem;background: #0a0;border: none;color: #fff;border-radius: 0.2rem;}
 </style>
 
@@ -132,68 +132,71 @@
         <div class="Btn_on">申诉</div>
       </div>
     </div>
-  
+
     <div class="se_tank">
     	<span class="se_tank_span">收起</span>
     	<div class="se_title">
     		<span>申诉标题:</span>
-    		<input type="text" />
+    		<input class="text" name="text" type="text" />
     	</div>
     	<div class="se_tank_con">
     		<p>申诉内容:</p>
-    		<textarea></textarea>	
+    		<textarea class="textarea"></textarea>
     	</div>
     	<div class="se_tank_btn">
-    		<a><button>确定</button></a>
+    		<a><button class="button">确定</button></a>
     	</div>
     </div>
   </div>
 
-  
+
 
   <script>
     $('.Btn_on').click(function () {
-<<<<<<< HEAD
     	$(".se_tank").css('height','13rem');
+      console.log(123);
 //    let id = "<?php  echo $sell['id'];?>";
-//    $.ajax({
-//      type:'post',
-//      url:"<?php  echo mobileurl('member/guamai/tab_con')?>",
-//      data:{id:id},
-//      dataType:'json',
-//      success:function(data){
-//        console.log(data);
-//        if(data.status == 1){
-//          alert(data.result.message);
-//          history.back(-1);
-//        }
-//      },error:function(err){
-//        console.log(err);
-//      }
-//    })
-      
-=======
+  //  $.ajax({
+  //    type:'post',
+  //    url:"<?php  echo mobileurl('member/guamai/tab_con')?>",
+  //    data:{id:id},
+  //    dataType:'json',
+  //    success:function(data){
+  //      console.log(data);
+  //      if(data.status == 1){
+  //        alert(data.result.message);
+  //        history.back(-1);
+  //      }
+  //    },error:function(err){
+  //      console.log(err);
+  //    }
+  //  })
+
+    });
+    $(".se_tank_span").click(function(){
+    	$(".se_tank").css('height',0);
+    })
+    $(".button").click(function(){
       let id = "<?php  echo $sell['id'];?>";
+      let text = $(".text").val();
+      let textarea = $(".textarea").val();
       $.ajax({
         type:'post',
         url:"<?php  echo mobileurl('member/guamai/tab_con')?>",
-        data:{id:id},
+        data:{id:id,text:text,textarea:textarea},
         dataType:'json',
         success:function(data){
           console.log(data);
           if(data.status == 1){
             alert(data.result.message);
-            history.back(-1);
+            // history.back(-1);
+            $(".se_tank").css('height',0);
           }
         },error:function(err){
           console.log(err);
         }
       })
->>>>>>> fb9decd538923dbc4fd72058968aa847a54905ec
     });
-    $(".se_tank_btn,.se_tank_span").click(function(){
-    	$(".se_tank").css('height',0);
-    })
   </script>
 
 <?php  } else if($status==0) { ?>     <!-- 买入订单   挂卖人进入 -->
