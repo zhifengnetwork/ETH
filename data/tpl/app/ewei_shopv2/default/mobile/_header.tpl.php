@@ -16,9 +16,10 @@
         <script src="./resource/js/lib/jquery-1.11.1.min.js"></script>
        <script src='//res.wx.qq.com/open/js/jweixin-1.1.0.js'></script>
 <!--   <script src="../addons/ewei_shopv2/static/js/dist/foxui/js/foxui.min.js"></script>-->
+        <script src="<?php  echo EWEI_SHOPV2_LOCAL?>static/js/clipboard.js"></script>
         <script src="<?php  echo EWEI_SHOPV2_LOCAL?>static/js/require.js"></script>
         <script src="<?php  echo EWEI_SHOPV2_LOCAL?>static/js/myconfig-app.js"></script>
-        <script src="<?php  echo EWEI_SHOPV2_LOCAL?>static/layer/layer.js"></script>
+       
         <script language="javascript">require(['core'],function(modal){modal.init({siteUrl: "<?php  echo $_W['siteroot'];?>",baseUrl: "<?php  echo mobileUrl('ROUTES')?>"})});</script>
 
 

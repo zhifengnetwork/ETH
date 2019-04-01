@@ -398,7 +398,65 @@
 
   <!-- js -->
   <script type="text/javascript">
+<<<<<<< HEAD
+  // 买入
 
+  $('.container').on('click','.mairu',function (e) {
+      if($(this).data('flag') == 0){
+          e.stopPropagation();
+          $(this).addClass('disable')
+          let id = $(this).data('id');
+          $.ajax({
+            type:'post',
+            url:"<?php  echo mobileurl('member/guamai/sellout')?>",
+            data:{id:id, type:0},
+            dataType:'json',
+            success:function(data){
+              console.log(data);
+<<<<<<< HEAD
+              alert(data.result.message);
+              $('.maiChu_btn').removeClass('disable');
+              if(data.status == 1){
+                  location.reload();
+                  window._type = 0;
+                  console.log(window._type);
+=======
+              // alert(data.result.message);
+
+              $('.mairu').removeClass('disable');
+              // if(data.status == 1){
+              //     location.reload();
+              //     window._type = 0;
+              //     console.log(window._type);
+
+              // }
+              if(data.status == 1)
+              {
+                if(confirm(data.result.message)){
+                  location.href="<?php  echo mobileurl('member/guamai/number_order')?>";
+                }else {
+                  console.log('取消!')
+                }
+                window._type = 0;
+              }
+
+              if(data.status == -1)
+              {
+                alert(data.result.message);
+>>>>>>> 1ef799ec16cf1857b6ddf9688888ac81d1cdc044
+              }
+
+            },error:function(err){
+              console.log(err);
+              $('.maiChu_btn').removeClass('disable');
+
+            }
+          })
+      }
+  })
+=======
+
+>>>>>>> b72aa552a570bf867ef6b7d2f0867ded194cda61
   $('.container').on('click','.maiChu_btn',function (e) {
       if($(this).data('flag') == 0){
           e.stopPropagation();
