@@ -718,7 +718,7 @@
 					</div>
 					<div class="mask_lis">
 						<p>预获金额(CNY)</p>
-						<input class="mask_lis_input" type="number" disabled value="0" class="getMoney0">
+						<input class="mask_lis_input getMoney0" type="number" disabled value="0" >
 						<div class="tishi">手续费：<span class="sxf0"><?php  echo $sys['trxsxf'];?></span>%</div>
 					</div>
 					<div class="mask_lis">
@@ -746,7 +746,7 @@
 						<div class="tishi">手续费：<span class="sxf0"><?php  echo $sys['trxsxf'];?></span>%</div>
 					</div>
 					<div class="mask_lis">
-						<p>预获金额(CNY)</p>
+						<p>预付金额(CNY)</p>
 						<input type="number" disabled value="0" style="padding: 5px 10px;width: 100%;" class="mairu_Money">
 						<!-- <div class="tishi">预扣手续费<span style="color:#9f2332;">0</span>UES</div> -->
 					</div>

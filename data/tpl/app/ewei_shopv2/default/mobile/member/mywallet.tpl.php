@@ -112,6 +112,7 @@
         <a href="javascript:;" class="tabarActive">钱包</a>
         <a href="javascript:;" onclick="location.href='<?php  echo mobileurl('member/investmentjilu',array('type'=>4))?>'">提币记录</a>
         <a href="javascript:;" onclick="location.href='<?php  echo mobileurl('member/investmentjilu',array('type'=>3))?>'">转币记录</a>
+        <a href="javascript:;" onclick="location.href='<?php  echo mobileurl('member/investmentjilu',array('type'=>3))?>'">C2C记录</a>
       </div>
 
       <!-- 复投账户 -->
@@ -175,13 +176,13 @@
   $('.yijianfutou0').click(function () {
     console.log('点击了复投账户的一键复投');
     // return false;
-    
+
   })
- 
+
   // 点击复投账户的棋牌娱乐
   $('.qipaiyule').click(function () {
     console.log('点击了棋牌娱乐');
-    
+
   })
 
   // 点击复投账户伸缩盒子

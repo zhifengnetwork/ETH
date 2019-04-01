@@ -220,13 +220,14 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 
 				if($result){    //如果挂卖成功，冻结挂卖的TRX币
 					m('member')->setCredit($openid,'credit2',-$_GPC['trx2']);
+					$money2 = $member['credit2']-$_GPC['trx2'];
+					$data_member_array_log = array('uniacid'=>12,'openid'=>$openid,'type'=>5,'title'=>"C2C交易减少".$_GPC['trx2'],'money'=>$member['credit2'],'money1'=>$_GPC['trx2'],'money2'=>$money2,'RMB'=>$_GPC['money'],'typec2c'=>$type,'createtime'=>time());
+					pdo_insert("ewei_shop_member_log",$data_member_array_log);
 				}
 				show_json(1,'挂卖成功');
 			}else{
 				show_json(1,'挂卖成功');
 			}
-
-
 		}
 	}
 
@@ -527,14 +528,16 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 				if(!$member['zfbfile'] && !$member['wxfile'] && (!$member['bankid'] || !$member['bankname'] || !$member['bank'])){
 					show_json(-1,"请上传您的收款信息");
 				}
-				if($member['credit2']<$sell['trx']){
-					show_json(-1,"您的ETH不足，请尽快投资！");
-				}
+				// if($member['credit2']<$sell['trx']){
+				// 	show_json(-1,"您的ETH不足，请尽快投资！");
+				// }
 				$ETH = $sell['credit22']+$sell['trx'];
 				//给抢单人充币
 				pdo_update("guamai",array('status'=>2,'endtime'=>time()),array('uniacid'=>$_W['uniacid'],'id'=>$id));
 				pdo_update("ewei_shop_member",array("credit2"=>$ETH),array("openid"=>$sell['openid2']));
 				com('sms')->send_zhangjun2($sell['mobile2'], $id,"对方已确认收款并放币,请注意查看.");
+				$data_member_array_log = array('uniacid'=>12,'openid'=>$sell['openid2'],'type'=>5,'title'=>"C2C交易增加".$sell['trx'],'money'=>$ETH,'money1'=>$sell['trx'],'money2'=>$sell['credit22'],'RMB'=>$sell['money'],'typec2c'=>$sell['type'],'createtime'=>time());
+				pdo_insert("ewei_shop_member_log",$data_member_array_log);
 				show_json(1,"订单完成");
 
 			}else if($type==2){			//买入订单抢单人点击确认收款
@@ -558,6 +561,13 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 				pdo_update("ewei_shop_member",array("credit2"=>$credit2),array("openid"=>$sell['openid2']));
 				com('sms')->send_zhangjun2($sell['mobile'], $id,"对方已确认收款并放币,请注意查看.");
 
+				//加币记录
+				$money1 = $sell['trx']-$sell['sxf0'];
+				$data_member_log = array('uniacid'=>12,'openid'=>$sell['openid'],'type'=>5,'title'=>"C2C交易添加".$money1,'money'=>$ETH,'money1'=>$money1,'money2'=>$sell['credit2'],'RMB'=>$sell['money'],'typec2c'=>$sell['type'],'createtime'=>time());
+				pdo_insert("ewei_shop_member_log",$data_member_log);
+				//减币记录
+				$data_member_array_log = array('uniacid'=>12,'openid'=>$sell['openid2'],'type'=>5,'title'=>"C2C交易减少".$sell['trx'],'money'=>$credit2,'money1'=>$sell['trx'],'money2'=>$sell['credit22'],'RMB'=>$sell['money'],'typec2c'=>$sell['type'],'createtime'=>time());
+				pdo_insert("ewei_shop_member_log",$data_member_array_log);
 				show_json(1,"订单完成");
 
 			}

@@ -145,6 +145,20 @@
 
 
     </div>
+    <div class="se_tank">
+        <span class="se_tank_span">收起</span>
+        <div class="se_title">
+          <span>申诉标题:</span>
+          <input class="text" name="text" type="text" />
+        </div>
+        <div class="se_tank_con">
+          <p>申诉内容:</p>
+          <textarea class="textarea"></textarea>
+        </div>
+        <div class="se_tank_btn">
+          <a><button class="button">确定</button></a>
+        </div>
+      </div>
   </div>
 
   <script type="text/javascript">
@@ -372,19 +386,19 @@
             <div>
                 <div class="info">
                   银行：
-                  <span id="codeText"><?php  echo $sell['bank'];?></span>
+                  <span id="codeText"><?php  echo $sell['bank2'];?></span>
                 </div>
                 <span class="copy" id="copy" data-clipboard-target="#codeText">复制</span>
               </div>
               <div>
                   <div class="info">户主：
-                <span id="codeText"><?php  echo $sell['bankname'];?> </span>
+                <span id="codeText"><?php  echo $sell['bankname2'];?> </span>
               </div>
                 <span class="copy" id="copy" data-clipboard-target="#codeText">复制</span>
             </div>
               <div>
                   <div class="info">卡号：
-                <span id="codeText"><?php  echo $sell['bankid'];?> </span>
+                <span id="codeText"><?php  echo $sell['bankid2'];?> </span>
               </div>
                 <span class="copy" id="copy" data-clipboard-target="#codeText">复制</span>
               </div>
@@ -424,33 +438,6 @@
 
   <script src="../addons/ewei_shopv2/static/js/dist/ajaxfileupload.js" type="text/javascript"></script>
   <script type="text/javascript">
-  $('.Btn_on').click(function () {
-    	$(".se_tank").css('height','13rem');
-    });
-    $(".se_tank_span").click(function(){
-    	$(".se_tank").css('height',0);
-    })
-    $(".button").click(function(){
-      let id = "<?php  echo $sell['id'];?>";
-      let text = $(".text").val();
-      let textarea = $(".textarea").val();
-      $.ajax({
-        type:'post',
-        url:"<?php  echo mobileurl('member/guamai/tab_con')?>",
-        data:{id:id,text:text,textarea:textarea},
-        dataType:'json',
-        success:function(data){
-          console.log(data);
-          if(data.status == 1){
-            alert(data.result.message);
-            // history.back(-1);
-            $(".se_tank").css('height',0);
-          }
-        },error:function(err){
-          console.log(err);
-        }
-      })
-    });
         $(function(){
             //点击按钮，复制二维码链接
             $(".copy").click(function(){
@@ -690,6 +677,20 @@
 
 
     </div>
+    <div class="se_tank">
+        <span class="se_tank_span">收起</span>
+        <div class="se_title">
+          <span>申诉标题:</span>
+          <input class="text" name="text" type="text" />
+        </div>
+        <div class="se_tank_con">
+          <p>申诉内容:</p>
+          <textarea class="textarea"></textarea>
+        </div>
+        <div class="se_tank_btn">
+          <a><button class="button">确定</button></a>
+        </div>
+      </div>
   </div>
 
   <script type="text/javascript">
@@ -956,6 +957,20 @@
 
 
     </div>
+    <div class="se_tank">
+        <span class="se_tank_span">收起</span>
+        <div class="se_title">
+          <span>申诉标题:</span>
+          <input class="text" name="text" type="text" />
+        </div>
+        <div class="se_tank_con">
+          <p>申诉内容:</p>
+          <textarea class="textarea"></textarea>
+        </div>
+        <div class="se_tank_btn">
+          <a><button class="button">确定</button></a>
+        </div>
+      </div>
   </div>
 
   <script src="../addons/ewei_shopv2/static/js/dist/ajaxfileupload.js" type="text/javascript"></script>
@@ -1064,22 +1079,29 @@
 <?php  } ?>
 <script>
 $('.Btn_on').click(function () {
+  $(".se_tank").css('height','13rem');
+});
+$(".se_tank_span").click(function(){
+  $(".se_tank").css('height',0);
+})
+$(".button").click(function(){
   let id = "<?php  echo $sell['id'];?>";
+  let text = $(".text").val();
+  let textarea = $(".textarea").val();
   $.ajax({
     type:'post',
     url:"<?php  echo mobileurl('member/guamai/tab_con')?>",
-    data:{id:id},
+    data:{id:id,text:text,textarea:textarea},
     dataType:'json',
     success:function(data){
       console.log(data);
       if(data.status == 1){
         alert(data.result.message);
-        history.back(-1);
+        // history.back(-1);
+        $(".se_tank").css('height',0);
       }
-
     },error:function(err){
       console.log(err);
-
     }
   })
 });
