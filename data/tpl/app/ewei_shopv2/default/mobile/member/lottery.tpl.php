@@ -181,6 +181,8 @@
    .advert_con{
 
     border: 1px solid #ccc;
+    width: 5.5rem;
+    
    
 
    }
@@ -189,7 +191,10 @@
 
   }
   select {
-  border:none
+  border:none;
+  width: 100%;
+ 
+
   }
 
 
