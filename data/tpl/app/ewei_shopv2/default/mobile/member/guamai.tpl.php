@@ -233,7 +233,7 @@
     	<!----飞机图标---->
     	<i><a href="<?php  echo mobileurl('member/guamai/number_order')?>"><img class="lj_plane" src="../addons/ewei_shopv2/static/images/zhifeng/plane.png" /></a></i>
       <!----加号图标----->
-      <i class="fui-header-rig icon icon-add4"></i>
+      <!-- <i class="fui-header-rig icon icon-add4"></i> -->
     </div>
   </div>
 
