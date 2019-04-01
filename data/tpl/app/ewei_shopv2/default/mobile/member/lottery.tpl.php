@@ -212,9 +212,9 @@
             <span style="width:2.8rem;display:inline-block;text-align: center">期号</span>    <span>开奖号</span>
             <br/>
 
-          <select name="">
+          <select name="" id="sel">
             <?php  if(is_array($sale)) { foreach($sale as $appeal) { ?>
-              <option value="0">
+              <option value="0" disabled>
                 <p class="item"> <i style="color:#bb2639"><?php  echo $appeal['time'];?></i></p>
                 <p><i style="color:#bb2639"><?php  echo $appeal['number'];?></i></p>
               </option>
@@ -729,6 +729,7 @@
     $('.maxNum').val('');
     $('.selectNum').removeClass('noClick');
   })
+  document.getElementById("sel")[0].selected=true
 
 </script>
 
