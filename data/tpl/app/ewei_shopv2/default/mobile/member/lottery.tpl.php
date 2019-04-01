@@ -229,8 +229,7 @@
           <select name="" id="sel">
             <?php  if(is_array($sale)) { foreach($sale as $appeal) { ?>
               <option value="0" disabled>
-                <p class="item"> <i style="color:#bb2639"><?php  echo $appeal['time'];?></i></p>
-                <p><i style="color:#bb2639"><?php  echo $appeal['number'];?></i></p>
+                <p class="item"> <i style="color:#bb2639"><?php  echo $appeal['time'];?></i></p>&nbsp;&nbsp;&nbsp; &nbsp;  <p><i style="color:#bb2639"><?php  echo $appeal['number'];?></i></p>
               </option>
             <?php  } } ?>
           </select>
