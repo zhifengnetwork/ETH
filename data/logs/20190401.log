@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+2019-04-01 12:15:06 SQL Error :
+=======
+<<<<<<< HEAD
 2019-04-01 10:06:53 SQL Error :
 ------------
 String:
@@ -37,6 +40,7 @@ SQL: <br/>selsect * from`ims_ewei_shop_lottery2_log`  order by id DESC limit 10<
 >>>>>>> b72aa552a570bf867ef6b7d2f0867ded194cda61
 
 2019-04-01 15:35:16 SQL Error :
+>>>>>>> fb9decd538923dbc4fd72058968aa847a54905ec
 ------------
 String:
 SQL: <br/>select id,couponid,openid,isparent,sendtime,price,merchid,isverify,addressid,isvirtualsend,virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2 <hr/>Params: <br/>array (
