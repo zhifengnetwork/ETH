@@ -297,7 +297,7 @@ class Index_EweiShopV2Page extends ComWebPage
 
 				//查出中奖的人数
 				$sale = pdo_fetch("select * from".tablename("ewei_shop_lottery2")."where uniacid=".$_W['uniacid']);
-
+				// dump($sale);die;
 				if(!$sale['number'] && !$sale['sum'] && !$sale['winner'])  show_json(-1,"请完善开奖信息");
 				// exit();
 
@@ -348,7 +348,8 @@ class Index_EweiShopV2Page extends ComWebPage
 				pdo_update("stakejilu",array('thigh'=>1,'endtime'=>time()),array('uniacid'=>$_W['uniacid'],'thigh'=>0));
 
 				pdo_update("ewei_shop_lottery2",array('price'=>0,'number'=>'','sum'=>0,'numberis'=>$sale['number'],'time'=>$sale['time']),array('uniacid'=>$_W['uniacid']));
-
+				$array_data = array('number'=>$sale['number'],'time'=>$sale['time'],'datetime'=>time());
+				pdo_insert("ewei_shop_lottery2_log",$array_data);
 				show_json(1,"开奖成功");
 
 			}
