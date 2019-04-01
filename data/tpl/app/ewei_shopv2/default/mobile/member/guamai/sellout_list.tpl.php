@@ -154,24 +154,6 @@
   <script>
     $('.Btn_on').click(function () {
     	$(".se_tank").css('height','13rem');
-      console.log(123);
-//    let id = "<?php  echo $sell['id'];?>";
-  //  $.ajax({
-  //    type:'post',
-  //    url:"<?php  echo mobileurl('member/guamai/tab_con')?>",
-  //    data:{id:id},
-  //    dataType:'json',
-  //    success:function(data){
-  //      console.log(data);
-  //      if(data.status == 1){
-  //        alert(data.result.message);
-  //        history.back(-1);
-  //      }
-  //    },error:function(err){
-  //      console.log(err);
-  //    }
-  //  })
-
     });
     $(".se_tank_span").click(function(){
     	$(".se_tank").css('height',0);

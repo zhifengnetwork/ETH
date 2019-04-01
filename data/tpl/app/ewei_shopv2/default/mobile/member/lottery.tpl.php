@@ -182,8 +182,8 @@
 
     border: 1px solid #ccc;
     width: 5.5rem;
-    
-   
+
+
 
    }
   .navIfo2{
@@ -193,7 +193,7 @@
   select {
   border:none;
   width: 100%;
- 
+
 
   }
 
@@ -223,13 +223,13 @@
 
         </a> -->
         <div class="advert_con" style="height: 2rem; top: 0px;">
-            <span style="width:2.5rem;display:inline-block;text-align: center">期号</span>    <span>开奖号</span>
+            &nbsp;<span style="width:2.5rem;display:inline-block;text-align: center">期号</span>&nbsp;&nbsp;<span>开奖号</span>
             <br/>
 
           <select name="" id="sel">
             <?php  if(is_array($sale)) { foreach($sale as $appeal) { ?>
               <option value="0" disabled>
-                <p class="item"> <i style="color:#bb2639"><?php  echo $appeal['time'];?></i></p>&nbsp;&nbsp;&nbsp; &nbsp;  <p><i style="color:#bb2639"><?php  echo $appeal['number'];?></i></p>
+                <p class="item"> <i style="color:#bb2639"><?php  echo $appeal['time'];?></i></p>&nbsp;&nbsp;&nbsp;  <p><i style="color:#bb2639"><?php  echo $appeal['number'];?></i></p>
               </option>
             <?php  } } ?>
           </select>

@@ -709,8 +709,8 @@
 			<div class="mask0_box hide">
 				<!-- 卖出 -->
 				<div class="mask0 hide">
+					<p>价格(CNY)</p>
 					<div class="mask_lis">
-						<p>价格(CNY)</p>
 						<input type="number" placeholder="请输入卖出的价格" class="maiChu_price">
 						<div class="tishi">参考价格：￥<span class="price_Min">{$start}</span>-￥<span class="price_Max">{$end}</span></div>
 					</div>
@@ -731,23 +731,27 @@
 				</div>
 
 				<!-- 买入 -->
-				<div class="mask1 ">
+				<div class="mask1">
 					<div class="mask1_pice">
 						<p>价格(CNY)</p>
 						<input type="number" placeholder="请输入买入的价格" class="maiRu_price">
 					</div>
 					<div class="tishi">参考价格：￥<span class="price_Min">{$start}</span>-￥<span class="price_Max">{$end}</span></div>
 
-					<p>买入数量</p>
+					<p>买入数量(ETH)</p>
 					<div class="mask1_lis">
 						<input type="number" placeholder="请输入购买的数量" class="buyNum">
 					</div>
 					<div class="mask_lis">
+							<p>预获币数(ETH)</p>
+						<input type="number" disabled value="0" class="getMoney0">
 						<div class="tishi">手续费：<span class="sxf0">{$sys['trxsxf']}</span>%</div>
 					</div>
-					<p>预获金额(CNY)</p>
-					<input type="number" disabled value="0" style="padding: 5px 10px;width: 100%;" class="mairu_Money">
-					<!-- <div class="tishi">预扣手续费<span style="color:#9f2332;">0</span>UES</div> -->
+					<div class="mask_lis">
+						<p>预获金额(CNY)</p>
+						<input type="number" disabled value="0" style="padding: 5px 10px;width: 100%;" class="mairu_Money">
+						<!-- <div class="tishi">预扣手续费<span style="color:#9f2332;">0</span>UES</div> -->
+					</div>
 					<div class="mask1_btn">确定买入</div>
 				</div>
 			</div>
@@ -963,10 +967,14 @@ $('.mask0_btn').click(function () {
       }
 
       if($('.buyNum').val() != '' && $('.maiRu_price').val() != ''){
-		let getMoney = ($('.buyNum').val()-$('.sxf0').html()*$('.buyNum').val()/100) * $('.maiRu_price').val();
+				let getMoney = muns * $('.maiRu_price').val();
+				let getMoney0 = Number($('.buyNum').val())-Number(sxf0);
+				// console.log();
         $('.mairu_Money').val(getMoney);
+				$('.getMoney0').val(getMoney0);
       } else {
         $('.mairu_Money').val('0');
+				$('.getMoney0').val('0');
       }
 
     })
@@ -984,11 +992,14 @@ $('.mask0_btn').click(function () {
 			// Number(sxf0) +
 			var muns =  Number($('.buyNum').val());
 			let getMoney = muns * $('.maiRu_price').val();
+			let getMoney0 = Number($('.buyNum').val())-Number(sxf0);
 			console.log($('.buyNum').val());
 			console.log($('.maiRu_price').val());
-			console.log(Number(sxf0) + Number($('.buyNum').val()));
+			console.log(Number($('.buyNum').val())-Number(sxf0));
 			$('.mairu_Money').val(getMoney);
+			$('.getMoney0').val(getMoney0);
 		} else {
+			$('.mairu_Money').val('0');
 			$('.getMoney0').val('0');
 		}
 	})
