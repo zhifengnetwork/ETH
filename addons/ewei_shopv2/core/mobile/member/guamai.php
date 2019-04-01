@@ -66,6 +66,8 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 					"type"=>$guamai['type'],
 					"appeal_name"=>$_W['mid'],
 					"stuas"=>0,
+					"text"=>$_GPC['text'],
+					"textarea"=>$_GPC['textarea'],
 					"createtime"=>time()
 				);
 				$guamai_appeal = pdo_insert("guamai_appeal",$data_appeal);

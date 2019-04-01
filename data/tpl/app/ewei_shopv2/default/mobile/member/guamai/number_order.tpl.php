@@ -733,7 +733,7 @@
 				<!-- 买入 -->
 				<div class="mask1 ">
 					<div class="mask1_pice">
-						<p>单价</p>
+						<p>价格(CNY)</p>
 						<input type="number" placeholder="请输入买入的价格" class="maiRu_price">
 					</div>
 					<div class="tishi">参考价格：￥<span class="price_Min"><?php  echo $start;?></span>-￥<span class="price_Max"><?php  echo $end;?></span></div>
@@ -742,10 +742,14 @@
 					<div class="mask1_lis">
 						<input type="number" placeholder="请输入购买的数量" class="buyNum">
 					</div>
+					<p>预获币数(ETH)</p>
+					<div class="mask1_lis">
+							<input type="number" disabled value="0" class="mairu_Money">
+					</div>
 					<div class="mask_lis">
 						<div class="tishi">手续费：<span class="sxf0"><?php  echo $sys['trxsxf'];?></span>%</div>
 					</div>
-					<p>交易总额</p>
+					<p>预获金额(CNY)</p>
 					<input type="number" disabled value="0" style="padding: 5px 10px;width: 100%;" class="mairu_Money">
 					<!-- <div class="tishi">预扣手续费<span style="color:#9f2332;">0</span>UES</div> -->
 					<div class="mask1_btn">确定买入</div>
@@ -1062,7 +1066,6 @@ $('.mask0_btn').click(function () {
 			}
 		})
 
-
 		//我的订单 状态切换
 		$(".tab_item>a").click(function(e){
 		   e.preventDefault();
@@ -1073,7 +1076,6 @@ $('.mask0_btn').click(function () {
 			 li.addClass("active").siblings().removeClass('active');
 			 //$('.my_order .tab_cont').eq(index).addClass('active').siblings().removeClass('active')
 		})
-
 	})
 
 	// 买入卖出

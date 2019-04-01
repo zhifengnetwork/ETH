@@ -91,6 +91,7 @@
 
     <div class='fui-content navbar'>
       <div class="txtInfo">
+        <p>订单编号：<?php  echo $sell['id'];?></p>
         <?php  if($op == 1) { ?>
         <p>挂卖人：<?php  echo $sell['mobile2'];?> </p>
         <?php  } else if($op == 0) { ?>
@@ -327,6 +328,7 @@
 
     <div class='fui-content navbar'>
       <div class="txtInfo">
+          <p>订单编号：<?php  echo $sell['id'];?></p>
         <?php  if($op == 1) { ?>
         <p>挂卖人：<?php  echo $sell['mobile2'];?> </p>
         <?php  } else if($op == 0) { ?>
@@ -357,24 +359,24 @@
         <div class="bankBox">
           <div class="bankBoxTie">*请前往当地银行打款</div>
           <div>
-              <div class="info">
-                银行：
-                <span><?php  echo $sell['bank'];?></span>
-              </div>  
-              <span class="copy" id="copy">复制</span>
+            <div class="info">
+              银行：
+              <span><?php  echo $sell['bank'];?></span>
             </div>
-            <div>
-                <div class="info">户主：
-              <span><?php  echo $sell['bankname'];?> </span> 
-            </div>
-              <span class="copy" id="copy">复制</span>
+            <span class="copy" id="copy">复制</span>
           </div>
-            <div>
-                <div class="info">卡号：
-              <span><?php  echo $sell['bankid'];?> </span> 
-            </div> 
-              <span class="copy" id="copy">复制</span>
-            </div>
+          <div>
+              <div class="info">户主：
+            <span><?php  echo $sell['bankname'];?> </span>
+          </div>
+            <span class="copy" id="copy">复制</span>
+          </div>
+          <div>
+              <div class="info">卡号：
+            <span><?php  echo $sell['bankid'];?> </span>
+          </div>
+            <span class="copy" id="copy">复制</span>
+          </div>
         </div>
 
         <div class="setImg">
@@ -399,7 +401,7 @@
 
     </div>
   </div>
-  
+
   <script src="../addons/ewei_shopv2/static/js/dist/ajaxfileupload.js" type="text/javascript"></script>
   <script type="text/javascript">
         $(function(){
@@ -594,6 +596,7 @@
 
     <div class='fui-content navbar'>
       <div class="txtInfo">
+          <p>订单编号：<?php  echo $sell['id'];?></p>
         <?php  if($op == 1) { ?>
         <p>挂卖人：<?php  echo $sell['mobile'];?> </p>
         <?php  } else if($op == 0) { ?>
@@ -733,7 +736,12 @@
       white-space: nowrap;
       width: 100%;
     }
+<<<<<<< HEAD
     .bankBox>div>.copy{
+=======
+
+    .bankBox>p>span{
+>>>>>>> 9c7cb75b8ab980193e897870adf7ffa249783e20
       color: #fff;
       background-color: #0a0;
       text-align: center;
@@ -796,6 +804,37 @@
     .disable{
       pointer-events: none;
     }
+    .bankBox {
+      padding: .5rem;
+      margin-top: .5rem;
+      border: 1px solid #666;
+      /* display: none; */
+    }
+
+    .bankBox>.bankBoxTie {
+      text-align: center;
+      color: red;
+    }
+
+    .bankBox>div {
+      font-size: .8rem;
+      display: flex;
+      justify-content:space-between;
+      padding-bottom: .2rem;
+      white-space: nowrap;
+    }
+    .bankBox>div>.info{
+      overflow: hidden;
+      white-space: nowrap;
+      width: 100%;
+    }
+    .bankBox>div>.copy{
+      color: #fff;
+      background-color: #0a0;
+      text-align: center;
+      padding: 0px 10px;
+      border-radius: .5rem;
+    }
   </style>
 
   <div class='fui-page  fui-page-current member-log-page'>
@@ -829,6 +868,7 @@
 
     <div class='fui-content navbar'>
       <div class="txtInfo">
+          <p>订单编号：<?php  echo $sell['id'];?></p>
         <?php  if($op == 1) { ?>
         <p>挂卖人：<?php  echo $sell['mobile'];?> </p>
         <?php  } else if($op == 0) { ?>
@@ -856,6 +896,7 @@
           <img src="<?php  echo $sell['wxfile'];?>" alt="" class="ewmImg wxewm">
           <img src="<?php  echo $sell['zfbfile'];?>" alt="" class="ewmImg zfbewm">
         </div>
+<<<<<<< HEAD
         <div class="bankBox">
             <div class="bankBoxTie">*请前往当地银行打款</div>
             <div>
@@ -879,6 +920,37 @@
               </div>
           </div>
 
+=======
+        <!-- <div class="bankBox">
+          <div class="bankBoxTie">*请前往当地银行打款</div>
+          <p>银行：<?php  echo $sell['bank'];?></p><span class="copy" id="copy">复制</span>
+          <p>户主：<?php  echo $sell['bankname'];?></p><span class="copy" id="copy">复制</span>
+          <p>卡号：<?php  echo $sell['bankid'];?></p><span class="copy" id="copy">复制</span>
+
+        </div> -->
+        <div class="bankBox">
+          <div class="bankBoxTie">*请前往当地银行打款</div>
+          <div>
+            <div class="info">
+              银行：
+              <span><?php  echo $sell['bank'];?></span>
+            </div>
+            <span class="copy" id="copy">复制</span>
+          </div>
+          <div>
+              <div class="info">户主：
+            <span><?php  echo $sell['bankname'];?> </span>
+          </div>
+            <span class="copy" id="copy">复制</span>
+          </div>
+          <div>
+              <div class="info">卡号：
+            <span><?php  echo $sell['bankid'];?> </span>
+          </div>
+            <span class="copy" id="copy">复制</span>
+          </div>
+        </div>
+>>>>>>> 9c7cb75b8ab980193e897870adf7ffa249783e20
         <div class="setImg">
           <p>上传凭证：</p>
           <div class="setImgBox">
@@ -904,6 +976,7 @@
 
   <script src="../addons/ewei_shopv2/static/js/dist/ajaxfileupload.js" type="text/javascript"></script>
   <script type="text/javascript">
+<<<<<<< HEAD
           $(function(){
     //点击按钮，复制二维码链接
 	$(".copy").click(function(){
@@ -925,6 +998,24 @@
              alert("复制成功");
  })
  })
+=======
+  $(function(){
+    //点击按钮，复制二维码链接
+    $(".copy").click(function(){
+      let val = $(this).prev('.info').children('span').text()
+      // console.log(val)
+      //实例化clipboard
+      var clipboard = new ClipboardJS('#copy');
+      clipboard.on("success", function(val){
+          console.log(val);
+      });
+      clipboard.on("error", function(val){
+          console.log(val);
+      });
+      alert("复制成功");
+    })
+  })
+>>>>>>> 9c7cb75b8ab980193e897870adf7ffa249783e20
     // 提交js
     $('.buyBtn').click(function () {
       $(this).addClass('disable');

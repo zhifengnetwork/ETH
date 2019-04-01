@@ -178,6 +178,24 @@
     position: absolute;
     width: 100%;
   }
+   .advert_con{
+
+    border: 1px solid #ccc;
+    width: 5.5rem;
+    
+   
+
+   }
+  .navIfo2{
+   height: 2.1rem
+
+  }
+  select {
+  border:none;
+  width: 100%;
+ 
+
+  }
 
 
 </style>
@@ -205,11 +223,12 @@
 
         </a> -->
         <div class="advert_con" style="height: 2rem; top: 0px;">
-            期号    开奖号码
+            <span style="width:2.5rem;display:inline-block;text-align: center">期号</span>    <span>开奖号</span>
+            <br/>
 
-          <select name="">
+          <select name="" id="sel">
             {loop $sale $appeal}
-              <option value="0">
+              <option value="0" disabled>
                 <p class="item"> <i style="color:#bb2639">{$appeal['time']}</i></p>
                 <p><i style="color:#bb2639">{$appeal['number']}</i></p>
               </option>
@@ -724,6 +743,7 @@
     $('.maxNum').val('');
     $('.selectNum').removeClass('noClick');
   })
+  document.getElementById("sel")[0].selected=true
 
 </script>
 
