@@ -391,7 +391,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 			// $mobile = substr($_GPC['openid'],-11);
 			// dump($openid);
 			$guamai = pdo_fetchall("select * from".tablename("guamai")." where status = 1 and openid2='".$openid."'");
-
+			// dump($type);die;
 			if($guamai){
 				$guamai_nums = count($guamai);
 			}
@@ -408,9 +408,9 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 				if(!$member['zfbfile'] && !$member['wxfile'] && (!$member['bankid'] || !$member['bankname'] || !$member['bank'])){
 					show_json(-2,"请上传您的收款信息");
 				}
-				if($member['credit2']<$sell['trx']){
-					show_json(-1,"您的ETH不足，请尽快投资！");
-				}
+				// if($member['credit2']<$sell['trx']){
+				// 	show_json(-1,"您的ETH不足，请尽快投资！");
+				// }
 
 
 				// exit();

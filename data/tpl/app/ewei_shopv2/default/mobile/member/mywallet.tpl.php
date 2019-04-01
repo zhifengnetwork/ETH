@@ -112,7 +112,7 @@
         <a href="javascript:;" class="tabarActive">钱包</a>
         <a href="javascript:;" onclick="location.href='<?php  echo mobileurl('member/investmentjilu',array('type'=>4))?>'">提币记录</a>
         <a href="javascript:;" onclick="location.href='<?php  echo mobileurl('member/investmentjilu',array('type'=>3))?>'">转币记录</a>
-        <a href="javascript:;" onclick="location.href='<?php  echo mobileurl('member/investmentjilu',array('type'=>3))?>'">C2C记录</a>
+        <a href="javascript:;" onclick="location.href='<?php  echo mobileurl('member/investmentjilu/c2clog')?>&type=5'">C2C记录</a>
       </div>
 
       <!-- 复投账户 -->
