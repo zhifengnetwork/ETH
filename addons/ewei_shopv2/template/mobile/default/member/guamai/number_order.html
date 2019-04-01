@@ -212,17 +212,18 @@
 	}
 
 	.mask1>.mask1_lis {
-		display: flex;
+		/*display: flex;*/
 		background-color: #fff;
 		color: #000;
-		padding: 5px 10px;
-		align-items: center;
+		/*padding: 5px 10px;*/
+		/*align-items: center;*/
 	}
 
 	.mask1>.mask1_lis>.buyNum {
-		border: 0;
+		padding: 5px 10px;
+		width: 100%;
+		/*border: 0;*/
 		outline-style: none;
-		width: 70%;
 	}
 
 	.mask1>.mask1_lis>.allBuy {
@@ -236,7 +237,7 @@
 	.mask1>p {
 		padding: 5px 0;
 	}
-
+	.mask_lis_p{    padding: 5px 0;}
 	.mask1>.mask_tit {
 		margin-top: 10px;
 		font-size: 16px;
@@ -245,18 +246,18 @@
 	}
 
 	.mask1>.mask1_pice {
-		display: flex;
+		/*display: flex;*/
 	}
 
 	.mask1>.mask1_pice>p {
-		width: 20%;
-		text-align: center;
+		/*width: 20%;
+		text-align: center;*/
 	}
 
 	.maiRu_price {
 		padding: 5px 10px;
-		width: 80%;
-		border: 0;
+		width: 100%;
+		/*border: 0;*/
 		outline-style: none;
 	}
 
@@ -284,7 +285,8 @@
 		width: 100%;
 		padding: 5px 10px;
 	}
-
+	.mask_lis_input{width: 100%;
+		padding: 5px 10px;}
 	.tishi {
 		text-align: right;
 		color: #888;
@@ -292,14 +294,14 @@
 		padding: 3px 0;
 		border-bottom: 1px solid #666;
 	}
-
+	
 	.mask0_btn {
 		width: 100%;
 		text-align: center;
 		height: 30px;
 		line-height: 30px;
 		background-color: #0a0;
-		margin: 20px 0;
+		margin: 10px 0;
 	}
 	/*-------我的申诉-------*/
 	.main {
@@ -711,12 +713,12 @@
 						<div class="tishi">参考价格：￥<span class="price_Min">{$start}</span>-￥<span class="price_Max">{$end}</span></div>
 					</div>
 					<div class="mask_lis">
-						<p>数量(ETH)</p>
+						<p class="mask_lis_p">数量(ETH)</p>
 						<input type="number" placeholder="请输入卖出的数量" class="maiChu_Num">
 					</div>
 					<div class="mask_lis">
 						<p>预获金额(CNY)</p>
-						<input type="number" disabled value="0" class="getMoney0">
+						<input class="mask_lis_input" type="number" disabled value="0" class="getMoney0">
 						<div class="tishi">手续费：<span class="sxf0">{$sys['trxsxf']}</span>%</div>
 					</div>
 					<div class="mask_lis">
@@ -740,7 +742,7 @@
 					</div>
 					<div class="mask_lis">
 							<p>预获币数(ETH)</p>
-						<input type="number" disabled value="0" class="getMoney0">
+						<input class="mask_lis_input" type="number" disabled value="0" class="getMoney0">
 						<div class="tishi">手续费：<span class="sxf0">{$sys['trxsxf']}</span>%</div>
 					</div>
 					<div class="mask_lis">
