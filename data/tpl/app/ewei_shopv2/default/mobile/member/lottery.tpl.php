@@ -178,6 +178,10 @@
     position: absolute;
     width: 100%;
   }
+  .navIfo2{
+   height: 2.1rem
+
+  }
 
 
 </style>
@@ -205,7 +209,8 @@
 
         </a> -->
         <div class="advert_con" style="height: 2rem; top: 0px;">
-            期号    开奖号码
+            <span style="width:2.8rem;display:inline-block;text-align: center">期号</span>    <span>开奖号</span>
+            <br/>
 
           <select name="">
             <?php  if(is_array($sale)) { foreach($sale as $appeal) { ?>
