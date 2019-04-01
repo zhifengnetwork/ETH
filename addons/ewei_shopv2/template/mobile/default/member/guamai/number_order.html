@@ -482,16 +482,16 @@
 				  <div class="tab_cut">
 						<ul>
 							<li class="tab_item active">
-								<a href=""  >未交易</a>
+								<a href=""  data-id="0">未交易</a>
 							</li>
 							<li class="tab_item">
-								<a href=""  >交易中</a>
+								<a href=""  data-id="1">交易中</a>
 							</li>
 							<li class="tab_item">
-								<a href=""  >交易完成</a>
+								<a href=""  data-id="2">交易完成</a>
 							</li>
 							<li class="tab_item">
-								<a href=""  >交易失败</a>
+								<a href=""  data-id="3">交易失败</a>
 							</li>
 						</ul>
 					</div>
@@ -499,7 +499,7 @@
 				<div class="tab_con  active " style="padding:0" >
 					<div class="my_order" id="load"style="left: 0%;transition-duration: 0.3s;">
 				<!-- 未交易 -->
-					<div class="tab_cont undone ">
+					<div class="tab_cont undone">
 						{loop $guamai $winn}
 						{if $winn['status'] == '0'}
 						<div class="order_list">
@@ -539,7 +539,7 @@
 
 					</div>
 				<!-- 交易中 -->
-					<div class="tab_cont  trading ">
+					<div class="tab_cont trading">
 							{loop $guamai $winn}
 							{if $winn['status'] == '1'}
 							<div class="order_list">
@@ -585,7 +585,7 @@
 							{/loop}
 						</div>
 				<!-- 交易完成 -->
-					<div class="tab_cont  achieve ">
+					<div class="tab_cont achieve">
 							{loop $guamai $winn}
 							{if $winn['status'] == '2'}
 							<div class="order_list">
@@ -630,7 +630,7 @@
 
 					</div>
 				<!-- 交易失败 -->
-					<div class="tab_cont defeated ">
+					<div class="tab_cont defeated">
 							{loop $guamai $winn}
 							{if $winn['status'] == '3'}
 							<div class="order_list">
@@ -766,6 +766,7 @@
 							}
 		          // list.push({ele:document.getElementById(id),time:timeStamp});
 							list.push({ele:id,time:timeStamp});
+							console.log(list)
 		        }
 		        function go(){
 		          for (var i = 0; i < list.length; i++) {
@@ -805,11 +806,11 @@
 //            hour = "0"+ hour;
 //          }
             return "倒计时："+min + ":" +sec;
-          }
-					else{
-　　　　　　　　//若否，就是已经到截止时间了
-            return "已截止！"
-          }
+						}
+						else{
+	　　　　　　　　//若否，就是已经到截止时间了
+							return "已截止！"
+						}
         }
       }();
       //倒计时位置，时间戳
@@ -854,10 +855,8 @@ $('.button').click(function () {
 				alert(data.result.message);
 				location.reload();
 			}
-
 		},error:function(err){
 			console.log(err);
-
 		}
 	})
 
@@ -1035,7 +1034,6 @@ $('.mask0_btn').click(function () {
 
         },error:function(err){
           console.log(err);
-
         }
       })
 
@@ -1064,18 +1062,16 @@ $('.mask0_btn').click(function () {
 			}
 		})
 
-
 		//我的订单 状态切换
 		$(".tab_item>a").click(function(e){
 		   e.preventDefault();
+			 let data = $(this).attr('data-id')
 			 let li = $(this).parent();
 			 let index = li.index();
-			//  $("#load").load(location.href+" #load");
-			 $('.my_order').css('left',-index+'00%');
+			 $('.my_order').css('left',-index+'00%');//状态切换
 			 li.addClass("active").siblings().removeClass('active');
 			 //$('.my_order .tab_cont').eq(index).addClass('active').siblings().removeClass('active')
 		})
-
 	})
 
 	// 买入卖出
