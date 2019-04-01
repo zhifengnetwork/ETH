@@ -457,7 +457,7 @@
 
 		<div class="title">ETH/CNY</div>
 		<div class="fui-header-right" data-type="0">
-			<i class="fui-header-right icon icon-add4"></i>
+			<!-- <i class="fui-header-right icon icon-add4"></i> -->
 		</div>
 	</div>
 

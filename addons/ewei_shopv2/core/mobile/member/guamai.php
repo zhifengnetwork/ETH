@@ -400,8 +400,13 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 				{
 					show_json(-1,"您还有订单尚未处理或还在交易中,请先进行交易！");
 				}
+
 				//判断该用户是否有足够的币进行抢单
 				$member = m('member')->getMember($_W['openid'], true);
+				//判断该会员是否上传收款信息
+				if(!$member['zfbfile'] && !$member['wxfile'] && (!$member['bankid'] || !$member['bankname'] || !$member['bank'])){
+					show_json(-2,"请上传您的收款信息");
+				}
 				if($member['credit2']<$sell['trx']){
 					show_json(-1,"您的ETH不足，请尽快投资！");
 				}
