@@ -41,10 +41,10 @@
 </style>
 <div class='page-header'><span><img src="../addons/ewei_shopv2/static/images/font_31.png">当前位置： <span class="text-primary">福彩3D</span></span></div>
 
- 
+
 
     <div class="page-content">
-            
+
         <div class="form-group shezhi">
             <a href="javascript:;">3D福彩设置</a>
             <a href="{php echo weburl('sale/contract')}">游戏规则</a>
@@ -76,8 +76,8 @@
                     <span class="input-group-addon">中奖人平分投资额度</span>
                     <input type="number" name="data[winner]"  value="{$sale['winner']}" class="form-control winner" />
                 </div>
-                
-                <?php  
+
+                <?php
                     for($i=1;$i<=10;$i++){
                 ?>
                      <div class='input-group fixmore-input-group'>
@@ -85,10 +85,10 @@
                         <input type="investment{$i}" name="data[winner]"  value="<?php echo $investment['investment'.$i];?>" class="form-control investment{$i}" />
                     </div>
 
-                <?php    
+                <?php
                     }
                 ?>
-                
+
              </div>
              <button class="quedingBtn"> 确认</button>
 
@@ -109,7 +109,7 @@
 
     </div>
 
- 
+
 
 <script language='javascript'>
                 $('.quedingBtn').click(function () {
@@ -117,14 +117,14 @@
                     let price = $('.price').val();
                     let winner = $('.winner').val();
                     // console.log(number.length);
-                    
+
                     if( number == '' || number.length == 3){
-                        
+
                     }else{
                         alert('开奖号只可为空或者三位数字');
                         return
                     }
-                   
+
                     $.ajax({
                         type:'post',
                         url:"{php  echo weburl('sale/lottery')}",
@@ -155,15 +155,15 @@
                                 alert(data.result.message);
                                 location.reload()
                             }
-                            
+
                         },error:function(err){
                             console.log(err);
-                            
+
                         }
                     })
                 })
 
-                $('.quedingBtn2').click(function () { 
+                $('.quedingBtn2').click(function () {
                     let number = $('.number').val();
                     let price = $('.price').val();
                     let sum = $('.sum').val();
@@ -179,8 +179,8 @@
                         alert('押注总金额为0时不能开奖');
                         return
                     }
-                    
-                   
+
+
                     $.ajax({
                         type:'post',
                         url:"{php echo weburl('sale/lotteryis')}",
@@ -195,15 +195,15 @@
                                 alert(data.result.message);
                                 location.reload()
                             }
-                            
+
                         },error:function(err){
                             console.log(err);
-                            
+
                         }
                     })
                 })
 
-  
+
 
                 $(function () {
 
@@ -223,15 +223,15 @@
 
                     })
 
-                   
+
 
 
 
                 })
 
-         
 
-            
+
+
 
 	function addConsumeItem(){
 

@@ -341,7 +341,7 @@
           </div>
           <% /if %> -->
           <% if val.status == 0 %>
-          <div class="mairu" data-id="<% val.id %>"
+          <div class="maiChu_btn" data-id="<% val.id %>"
             <% if val.self == 1 %> onclick="alert('不能买入自己发放的账单')"
             <% else if val.self3 == 1 %> onclick="alert('该账单正在交易中')"
             <% else %> data-flag = '0' <% /if %> >买入</div>
@@ -398,6 +398,7 @@
 
   <!-- js -->
   <script type="text/javascript">
+<<<<<<< HEAD
   // 买入
 
   $('.container').on('click','.mairu',function (e) {
@@ -453,6 +454,9 @@
           })
       }
   })
+=======
+
+>>>>>>> b72aa552a570bf867ef6b7d2f0867ded194cda61
   $('.container').on('click','.maiChu_btn',function (e) {
       if($(this).data('flag') == 0){
           e.stopPropagation();

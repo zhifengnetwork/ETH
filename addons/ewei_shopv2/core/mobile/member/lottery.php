@@ -19,8 +19,10 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 		global $_W;
 		global $_GPC;
 		$type = $_GPC['type'];
-		$sale = pdo_fetch("select price,numberis,time from".tablename("ewei_shop_lottery2")."where uniacid=".$_W['uniacid']);
-
+		// $sale = pdo_fetch("select price,numberis,time from".tablename("ewei_shop_lottery2")."where uniacid=".$_W['uniacid']);
+		// select * from table_name limit 0,10
+		$sale = pdo_fetchall("select * from".tablename('ewei_shop_lottery2_log')."  order by id DESC limit 10");
+		// dump($sale);
 		include $this->template();
 	}
 
