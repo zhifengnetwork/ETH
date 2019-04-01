@@ -294,7 +294,7 @@
 		padding: 3px 0;
 		border-bottom: 1px solid #666;
 	}
-	
+
 	.mask0_btn {
 		width: 100%;
 		text-align: center;
@@ -692,7 +692,7 @@
 						<div class="wtf_item">
 							{loop $guamai_appeal $appeal}
 							<div class="wtf_item1">
-								<a href="{php echo mobileurl('member/guamai/guamai_appeal_list')}?id={$appeal['id']}">
+								<a href="{php echo mobileurl('member/guamai/guamai_appeal_list')}&id={$appeal['id']}">
 									<p>{$appeal['text']}</p>
 									<p>{$appeal['createtime']}</p>
 								</a>

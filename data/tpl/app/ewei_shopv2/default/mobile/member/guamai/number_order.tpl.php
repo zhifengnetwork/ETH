@@ -294,7 +294,7 @@
 		padding: 3px 0;
 		border-bottom: 1px solid #666;
 	}
-	
+
 	.mask0_btn {
 		width: 100%;
 		text-align: center;
@@ -692,9 +692,8 @@
 						<div class="wtf_item">
 							<?php  if(is_array($guamai_appeal)) { foreach($guamai_appeal as $appeal) { ?>
 							<div class="wtf_item1">
-								<a href="<?php  echo mobileurl('member/guamai/guamai_appeal_list')?>?id=<?php  echo $appeal['id'];?>">
+								<a href="<?php  echo mobileurl('member/guamai/guamai_appeal_list')?>&id=<?php  echo $appeal['id'];?>">
 									<p><?php  echo $appeal['text'];?></p>
-
 									<p><?php  echo $appeal['createtime'];?></p>
 								</a>
 							</div>

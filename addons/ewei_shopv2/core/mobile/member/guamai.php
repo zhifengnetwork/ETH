@@ -80,7 +80,18 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 	//申诉详情
 	public function guamai_appeal_list()
 	{
-
+		global $_W;
+		global $_GPC;
+		$user_id = $_GPC['mid'];
+		$id = $_GPC['id'];
+		$users = pdo_fetch("select * from".tablename("ewei_shop_member")." where id='$user_id'");
+		$guamai_appeal = pdo_fetch("select g.order_id,g.text,g.textarea,g.stuas,m.* from".tablename("guamai_appeal").' g left join '.tablename('guamai').'  m ON m.id=g.order_id'." where g.id='$id'");
+		if($users['openid']==$guamai_appeal['openid']){
+			$guamai_appeal['openid2'] =substr($guamai_appeal['openid2'],-11);
+		}else{
+			$guamai_appeal['openid2'] =substr($guamai_appeal['openid'],-11);
+		}
+		// dump($guamai_appeal['openid2']);
 		include $this->template();
 	}
 

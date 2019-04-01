@@ -75,32 +75,38 @@
     </div>
     <div class='fui-content navbar'>
       <div class="txtInfo">
-        <?php  if($op == 1) { ?>
-        <p>挂卖人：<?php  echo $sell['mobile'];?> </p>
-        <?php  } else if($op == 0) { ?>
-        <p>挂买人：<?php  echo $sell['mobile2'];?> </p>
+        <p>申诉问题：<?php  echo $guamai_appeal['order_id'];?></p>
+        <p>申诉原因：<?php  echo $guamai_appeal['text'];?> </p>
+        <p>申诉订单：<?php  echo $guamai_appeal['textarea'];?> </p>
+        <p>申诉人：<?php  echo $users['mobile'];?> </p>
+        <?php  if($guamai_appeal['openid'] == $users['openid']) { ?>
+        <p>被申诉人：<?php  echo $guamai_appeal['openid2'];?> </p>
+        <?php  } else { ?>
+        <p>被申诉人：<?php  echo $guamai_appeal['openid2'];?> </p>
         <?php  } ?>
-        <p>挂卖单价：<?php  echo $sell['price'];?> </p>
-        <p>挂卖数量：<?php  echo $sell['trx'];?> </p>
-        <p>待收款：<?php  echo $sell['money'];?> </p>
-        <?php  if($op == 1) { ?>
-        <p style="margin-top:10px">付款人：<?php  echo $sell['mobile2'];?> </p>
-        <?php  } else if($op == 0) { ?>
-        <p style="margin-top:10px">收款人：<?php  echo $sell['mobile'];?> </p>
+        <p>ETH数量：<?php  echo $guamai_appeal['trx'];?> </p>
+        <p>CNY数量：<?php  echo $guamai_appeal['money'];?> </p>
+        <?php  if($guamai_appeal['stuas'] == 0) { ?>
+        <p>是否审核：申诉中 </p>
+        <?php  } else if($guamai_appeal['stuas'] == 1) { ?>
+        <p>是否审核：申诉成功 </p>
+        <?php  } else if($guamai_appeal['stuas'] == 2) { ?>
+        <p>是否审核：申诉失败 </p>
+        <?php  } else if($guamai_appeal['stuas'] == 3) { ?>
+        <p>是否审核：申诉无效 </p>
         <?php  } ?>
         <div class="zfBox">
         </div>
         <div class="setImg">
           <p>支付凭证：</p>
           <div class="setImgBox">
-            <?php  if($sell['file'] == '') { ?>
+            <?php  if($guamai_appeal['file'] == '') { ?>
             <span style="height:6rem">未上传支付方式</span>
             <?php  } else { ?>
-            <img src="<?php  echo $sell['file'];?>" alt="" class="pic">
+            <img src="<?php  echo $guamai_appeal['file'];?>" alt="" class="pic">
             <?php  } ?>
           </div>
         </div>
-        <!-- <div class="Btn_on">申诉</div> -->
       </div>
     </div>
   </div>
