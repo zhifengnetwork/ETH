@@ -43,7 +43,7 @@ class Crontab_EweiShopV2Page
 			$updeta_order = pdo_update("guamai",array("status"=>3),array("openid"=>$val['openid'],"id"=>$val['id']));
 			if($updeta_order){
 				pdo_update("ewei_shop_member",array("credit2"=>$users['credit2']),array("openid"=>$val['openid']));
-				pdo_update("ewei_shop_member",array("credit2"=>$users2['credit2']),array("openid"=>$val['openid2']));
+				// pdo_update("ewei_shop_member",array("credit2"=>$users2['credit2']),array("openid"=>$val['openid2']));
 				echo('执行成功-----'.$data);
 			}else{
 				echo('执行失败-----'.$data);
