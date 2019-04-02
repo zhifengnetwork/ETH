@@ -63,7 +63,7 @@
       border-radius: .5rem;
       margin: 1rem auto 0;
     }
-    .se_tank{width: 100%;height: 0rem;background: #0a181f;position: absolute;bottom: 2.45rem;transition: all 1s;}
+    /*.se_tank{width: 100%;height: 20rem;background: #0a181f;position: absolute;bottom: 2.45rem;transition: all 1s;}
     .se_title{margin-top: 2.5rem;margin-left: 0.3rem;}
     .se_title span{font-size: 0.7rem;color: #fff;}
     .se_title input{width: 70%;height: 1.5rem;border: none;outline: none;border-radius: 0.2rem;padding-left: 0.2rem;}
@@ -80,10 +80,10 @@
 	
 	.uploadWrap p{font-size: 0.3rem;color: #fff;text-align: center;line-height: 0.8rem;}
 	.imageEchoBox{width: 100%;height: 5rem;margin: 0 auto;background: #f5f5f5;border-radius: 0.2rem;position: relative;}
-	
+	ul li{list-style: none;}
 	.imageEchoBox span{width: 100%;font-size: 0.24rem;color: #000;position: absolute;top: 105%;left: 0;display: none;background: #f5f5f5;border-radius: 0.09rem;line-height: 0.6rem;}
-	
-	.imageEchoBox img{ position: absolute; top: 50%;left: 50%;transform: translate(-50%,-50%);max-width: 100%;max-height: 100%;}
+	.imageEchoBox ul li{float: left;width: 25%;line-height: 5rem;height: 5rem;background: #f5f5f5;}
+	.imageEchoBox img{ position: absolute; top: 50%;left: 50%;transform: translate(-50%,-50%); max-width: 100%;max-height: 100%;}
 	
 	.uploadFile{border-radius: 0.2rem;width: 100% !important;height: 1.4rem;line-height: 1.4rem;position: absolute;top: 110%;left: 0%;opacity: 0;z-index: 10;}
 	.uploadFile2{border-radius: 0.2rem; width: 100%;height:1.4rem;font-size: 0.23rem; position: absolute;top: 110%;left: 0%;color: #000;background: #f5f5f5;text-align: center;line-height: 1.4rem;}
@@ -92,7 +92,7 @@
 	.decideToSell p{letter-spacing: 0.02rem; font-size: 0.3rem; background: #f5f5f5;color: #000;padding: 0.2rem 0;text-align: center;border-radius: 0.1rem;display: block;}
 
 	.popover_box span{font-size: 0.3rem;}
-	.popover_box{width: 80%;margin: 0 auto;border-radius: 0.2rem;padding-top: 0.5rem;}
+	.popover_box{width: 80%;margin: 0 auto;border-radius: 0.2rem;padding-top: 0.5rem;}*/
 </style>
 
   <div class='fui-page  fui-page-current member-log-page'>
@@ -152,7 +152,7 @@
       </div>
     </div>
 
-    <div class="se_tank">
+    <!--<div class="se_tank">
     	<span class="se_tank_span">X</span>
     	<div class="se_title">
     		<span>申诉标题:</span>
@@ -163,124 +163,115 @@
     		<textarea class="textarea"></textarea>
     	</div>
     	<div class="popover_box clearfix">
-				<!-- '创建一个image对象'，给canvas绘制使用 -->
-				<canvas id="canvas" style="display: none;"></canvas>
-				<div class="imageEchoBox">
+			<!-- '创建一个image对象'，给canvas绘制使用 -->
+			<canvas id="canvas" style="display: none;"></canvas>
+			<div class="imageEchoBox">
 				<span class="tipsText" style="font-size: 0.2rem !important;">请点击“选择图片”上传二维码。</span>
-				<!--回显的图片-->
-				<img class="preViewImg" style="display: none;" src="" onerror="javascript:this.src='../addons/ewei_shopv2/static/images/zhifeng/loading-2.gif'" />
+				<!--渲染图片-->
+				<ul class="upImgUl"></ul>
 				<!--上传图片 tyle='file'-->
 				<a class="uploadFile2" href=" ">选择图片</a>
-				<input class="uploadFile" type="file" onchange="UpLoad(this,1)" name="file" id="" value="1" accept="image/*" />
+				<input class="uploadFile" type="file" onchange="UpLoad(this)" name="file" id="" value="" accept="image/*" multiple />
 			</div>
 		</div>
     	<div class="se_tank_btn">
     		<a><button class="button">确定</button></a>
     	</div>
     	
-    </div>
+    </div>-->
   </div>
-  <script>
-/*上传图片*/
-			function UpLoad(e) {
-				console.log(444);
-				/*保存 点击对应的this*/
-				var that = $(e);
-				if(e.files[0]) {
-					/* 出现加载图片，加载图片是回显图片的位置 */
-					that.siblings(".preViewImg").show();
-					/* 提示文字，隐藏 */
-					that.siblings(".tipsText").hide();
-					/*file上传图片*/
-					var f = e.files[0];
-					fileType = f.type;
-					if(/image\/\w+/.test(fileType)) {
-						var fileReader = new FileReader();
-						fileReader.readAsDataURL(f);
-						fileReader.onload = function(event) {
-							var result = event.target.result; //返回的dataURL 
-							var image = new Image();
-							image.src = result;
-							//若图片大小大于1M，压缩后再上传，否则直接上传  
-							if(f.size > 1024 * 1024) {
-								image.onload = function() {
-									//创建一个image对象，给canvas绘制使用
-									var canvas = document.getElementById("canvas");
-									canvas.width = image.width;
-									canvas.height = image.height; //计算等比缩小后图片宽高   
-									var ctx = canvas.getContext('2d');
-									ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
-									var newImageData = canvas.toDataURL(fileType, 0.8); //重新生成图片
-									/* 图片 回显*/
-									// that.siblings(".preViewImg").attr("src", newImageData);
-
-									$("#canvas").hide();
-
-									/*图片 回显 */
-									$.ajax({
-										url: '/index/index/upload',
-										type: 'post',
-										dataType: 'json',
-										data: {
-											dataImg: image.src
-										},
-										success: function(msg) {
-											if(msg.code == 200) {
-												$('#qrcode_addr').val(msg.imgUrl);
-												$('.text').html('成功');
-												// console.log(msg);
-												layer.msg(msg.msg)
-											} else {
-												$('.text').html('失败');
-												layer.msg(msg.msg)
-												return false;
-											}
-										}
-									});
-									/*ajax=> 回显图片*/
-									that.siblings(".preViewImg").attr("src", result);
-								}
-							} else {
-								//创建一个image对象，给canvas绘制使用 
-								image.onload = function() {
-									/*图片 回显 */
-									$.ajax({
-										url: '/index/index/upload',
-										type: 'post',
-										dataType: 'json',
-										data: {
-											dataImg: image.src
-										},
-										success: function(msg) {
-											if(msg.code == 200) {
-												$('#qrcode_addr').val(msg.imgUrl);
-												$('.text').html('成功');
-												// console.log(msg);
-												layer.msg(msg.msg)
-											} else {
-												$('.text').html('失败');
-												layer.msg(msg.msg)
-												return false;
-											}
-										}
-									});
-									/*ajax=> 回显图片*/
-									that.siblings(".preViewImg").attr("src", result);
-								}
+  <!--<script>
+  	/*存储base64路径=>后台*/
+  	var upImgArr = [];
+  	/*记录上传图片的张数=>ajax（puah路径完成）*/
+  	var countN = null;
+	/*上传图片*/
+	function UpLoad(e) {
+		/*保存 点击对应的this*/
+		var that = $(e);
+		console.log('多张图片！',e.files);
+		/*初始化*/
+		upImgArr = [];
+		if(e.files) {
+			/* 提示文字，隐藏 */
+			that.siblings(".tipsText").hide();
+			var f = e.files;
+			console.log(8989,f);
+			if(f.length > 4){
+				alert('上传图片不能超过4张!');
+				return;
+			}
+			/*判断什么时候ajax（puah路径完成）*/
+			countN = f.length;
+			/*循环得出图片路径*/
+			for(var i=0;i<f.length;i++){
+				fileType = f[i]['type'];
+				if(/image\/\w+/.test(fileType)) {
+					var fileReader = new FileReader();
+					fileReader.readAsDataURL(f[i]);
+					fileReader.onload = function(event) {
+						var result = event.target.result; //返回的dataURL 
+						var image = new Image();
+						image.src = result;
+						//若图片大小大于1M，压缩后再上传，否则直接上传  
+						if(f.size > 1024 * 1024) {
+							image.onload = function() {
+								//创建一个image对象，给canvas绘制使用
+								var canvas = document.getElementById("canvas");
+								canvas.width = image.width;
+								canvas.height = image.height; //计算等比缩小后图片宽高   
+								var ctx = canvas.getContext('2d');
+								ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
+								var newImageData = canvas.toDataURL(fileType, 0.8); //重新生成图片
+								$("#canvas").hide();
+								/*把路径丢进公共的数组里=>后台*/
+								upImgArr.push(newImageData);
+								
+								/*调用ajax请求函数*/
+								upImgAjax();
+	
 							}
-							/*ajax=> 回显图片*/
-							// that.siblings(".preViewImg").attr("src", result);
-
+						} else {
+							//创建一个image对象，给canvas绘制使用 
+							image.onload = function() {
+//								console.log(456,result);
+								upImgArr.push(result);
+								/*调用ajax请求函数*/
+								upImgAjax();
+							
+							}
 						}
-					} else {
-						alert("请选择图片");
+						
 					}
 				} else {
-					console.log('取消选择图片！');
+					alert("请选择图片");
 				}
+				
+				
 			}
+		} else {
+			console.log('取消选择图片！');
+		}
+	}
+	/*上传图片ajax*/
+	function upImgAjax(){
+		console.log(upImgArr);
+		/*判断数组push完成*/
+		if(countN == upImgArr.length){
+			console.log('数组push完成，可以ajax！');
+			/*创建标签*/
+			var strImg = '';
+			
+			for(var j=0;j<upImgArr.length;j++){
+				strImg += '<li><img src="'+ upImgArr[j] +'" /> </li>';
+			}
+			/*渲染图片*/
+			$('.upImgUl').html(strImg);
+//			
+		}
+	}
 </script>
-
+-->
 
   <script>
     $('.Btn_on').click(function () {

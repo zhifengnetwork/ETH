@@ -13,7 +13,12 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		parent::__construct();
 		$this->member = m('member')->getInfo($_W['openid']);
 	}
-
+	
+	
+	public function appeal(){
+		
+		include $this->template();
+	}
 	//我的订单
 	public function number_order(){
 		date_default_timezone_set('PRC');
