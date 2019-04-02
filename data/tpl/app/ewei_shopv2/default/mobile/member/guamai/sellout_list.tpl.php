@@ -77,23 +77,24 @@
 
 	.tipsText{line-height: 0.3rem;}
 	.renderingRrpa{padding-top: 0.88rem;box-sizing: border-box;}
-	
+
 	.uploadWrap p{font-size: 0.3rem;color: #fff;text-align: center;line-height: 0.8rem;}
 	.imageEchoBox{width: 100%;height: 5rem;margin: 0 auto;background: #f5f5f5;border-radius: 0.2rem;position: relative;}
-	
+
 	.imageEchoBox span{width: 100%;font-size: 0.24rem;color: #000;position: absolute;top: 105%;left: 0;display: none;background: #f5f5f5;border-radius: 0.09rem;line-height: 0.6rem;}
-	
+
 	.imageEchoBox img{ position: absolute; top: 50%;left: 50%;transform: translate(-50%,-50%);max-width: 100%;max-height: 100%;}
-	
+
 	.uploadFile{border-radius: 0.2rem;width: 100% !important;height: 1.4rem;line-height: 1.4rem;position: absolute;top: 110%;left: 0%;opacity: 0;z-index: 10;}
 	.uploadFile2{border-radius: 0.2rem; width: 100%;height:1.4rem;font-size: 0.23rem; position: absolute;top: 110%;left: 0%;color: #000;background: #f5f5f5;text-align: center;line-height: 1.4rem;}
-	
+
 	.decideToSell{width: 100%;margin: 0 auto;margin-bottom: 1rem;}
 	.decideToSell p{letter-spacing: 0.02rem; font-size: 0.3rem; background: #f5f5f5;color: #000;padding: 0.2rem 0;text-align: center;border-radius: 0.1rem;display: block;}
 
 	.popover_box span{font-size: 0.3rem;}
 	.popover_box{width: 80%;margin: 0 auto;border-radius: 0.2rem;padding-top: 0.5rem;}
 </style>
+
 
   <div class='fui-page  fui-page-current member-log-page'>
     <div class="fui-header">
@@ -177,13 +178,15 @@
     	<div class="se_tank_btn">
     		<a><button class="button">确定</button></a>
     	</div>
-    	
+
     </div>
   </div>
   <script>
 /*上传图片*/
 			function UpLoad(e) {
-				console.log(444);
+
+
+        //console.log("");
 				/*保存 点击对应的this*/
 				var that = $(e);
 				if(e.files[0]) {
@@ -198,16 +201,16 @@
 						var fileReader = new FileReader();
 						fileReader.readAsDataURL(f);
 						fileReader.onload = function(event) {
-							var result = event.target.result; //返回的dataURL 
+							var result = event.target.result; //返回的dataURL
 							var image = new Image();
 							image.src = result;
-							//若图片大小大于1M，压缩后再上传，否则直接上传  
+							//若图片大小大于1M，压缩后再上传，否则直接上传
 							if(f.size > 1024 * 1024) {
 								image.onload = function() {
 									//创建一个image对象，给canvas绘制使用
 									var canvas = document.getElementById("canvas");
 									canvas.width = image.width;
-									canvas.height = image.height; //计算等比缩小后图片宽高   
+									canvas.height = image.height; //计算等比缩小后图片宽高
 									var ctx = canvas.getContext('2d');
 									ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
 									var newImageData = canvas.toDataURL(fileType, 0.8); //重新生成图片
@@ -241,7 +244,7 @@
 									that.siblings(".preViewImg").attr("src", result);
 								}
 							} else {
-								//创建一个image对象，给canvas绘制使用 
+								//创建一个image对象，给canvas绘制使用
 								image.onload = function() {
 									/*图片 回显 */
 									$.ajax({
@@ -284,6 +287,9 @@
 
   <script>
     $('.Btn_on').click(function () {
+      var aa = "<?php  echo tpl_form_field_multi_image('multi-image');?>";
+        alert(aa);
+        //var aa = 	"<?php  echo tpl_form_field_multi_image('multi-image');?>";
     	$(".se_tank").css('height','20rem');
     });
     $(".se_tank_span").click(function(){

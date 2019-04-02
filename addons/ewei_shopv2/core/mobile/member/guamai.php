@@ -14,6 +14,36 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		$this->member = m('member')->getInfo($_W['openid']);
 	}
 
+	public function uploadImg($base64){
+		header("content-type:text/html;charset=utf-8");
+		$base64_image = str_replace(' ', '+', $base64);
+		//post的数据里面，加号会被替换为空格，需要重新替换回来，如果不是post的数据，则注释掉这一行
+		if (preg_match('/^(data:\s*image\/(\w+);base64,)/', $base64_image, $result)){
+		//匹配成功
+		if($result[2] == 'jpeg'){
+		$image_name = uniqid().'.jpg';
+		//纯粹是看jpeg不爽才替换的
+		}else{
+		$image_name = uniqid().'.'.$result[2];
+		}
+		$image_file = "./uploads/".date('Ymd',time()).'/';
+		if (!file_exists($image_file)) {
+
+		mkdir($image_file,0755,true);
+		}
+		$image_url = "./uploads/".date('Ymd',time()).'/'."{$image_name}";
+		$res_url = "/uploads/".date('Ymd',time()).'/'."{$image_name}";
+		//服务器文件存储路径
+		if (file_put_contents($image_url, base64_decode(str_replace($result[1], '', $base64_image)))){
+		return json(['code'=>200, 'msg'=>'上传成功', 'imgUrl'=>$res_url]);
+		}else{
+		return json(['code'=>0, 'msg'=>'上传失败']);
+
+		}
+		}else{
+		return json(['code'=>0, 'msg'=>'上传失败..']);
+		}
+		}
 	//我的订单
 	public function number_order(){
 		date_default_timezone_set('PRC');
@@ -28,7 +58,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		$end = $sys['trxprice']*(1+0.1);
 		$member = m('member')->getMember($_W['openid'], true);
 		//用户买入,卖出订单
-		$guamai = pdo_fetchall("select * from".tablename("guamai")."where openid='".$openid."' or openid2='".$openid."' order by status desc");
+		$guamai = pdo_fetchall("select * from".tablename("guamai")."where openid='".$openid."' or openid2='".$openid."' order by createtime desc");
 		$time = time();
 		foreach ($guamai as $key=>$val){
 			// var_dump($val);nickname2
@@ -50,7 +80,8 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 	public function tab_con(){
 		global $_W;
 		global $_GPC;
-
+		$image = tpl_form_field_multi_image('image','1111');
+		dump($image);die;
 		if($_W['ispost']){
 			$id = $_GPC['id'];
 			$guamai = pdo_fetch("select * from".tablename("guamai")."where id='".$id."'");

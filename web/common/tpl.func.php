@@ -378,9 +378,10 @@ function tpl_form_field_image($name, $value = '', $default = '', $options = arra
 	return $s;
 }
 
-
-function tpl_form_field_multi_image($name, $value = array(), $options = array()) {
+// $name, $value = array(), $options = array()
+function tpl_form_field_multi_image() {
 	global $_W;
+	load()->func('tpl');
 	$options['multiple'] = true;
 	$options['direct'] = false;
 	$options['fileSizeLimit'] = intval($GLOBALS['_W']['setting']['upload']['image']['limit']) * 1024;
@@ -1107,7 +1108,7 @@ function tpl_ueditor($id, $value = '', $options = array()) {
 				});
 				return btn;
 			}, 19);
-			
+
 			UE.registerUI('myinsertvideo',function(editor,uiName){
 				editor.registerCommand(uiName, {
 					execCommand:function(){
@@ -1287,7 +1288,7 @@ function tpl_edit_sms($name, $value, $uniacid, $url, $num) {
 function tpl_coupon_colors($name, $value = 'Color082') {
 	load()->model('activity');
 	$options = activity_coupon_colors();
-	
+
 	empty($name) && ($name = 'coupon_color');
 	if (!defined('TPL_INIT_COUPON_COLOR')) {
 		$html = '
