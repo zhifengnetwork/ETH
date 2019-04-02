@@ -438,7 +438,7 @@
         $.ajax({
           type:'post',
           url:"{php echo mobileurl('member/guamai/sellout')}",
-          data:{id:"{$sell['id']}",mobile:"{$sell['mobile']}",file:$('#avatar').val(),type:1,op:1},
+          data:{id:"{$sell['id']}",mobile:"{$sell['mobile']}",file:$('#avatar').val(),type:0,op:1},
           dataType:'json',
           success:function(data){
             console.log(data);
@@ -946,7 +946,7 @@
         $.ajax({
           type:'post',
           url:"{php echo mobileurl('member/guamai/sellout')}",
-          data:{id:"{$sell['id']}",mobile:"{$sell['mobile']}",file:$('#avatar').val(),type:2,op:1},
+          data:{id:"{$sell['id']}",mobile:"{$sell['mobile']}",file:$('#avatar').val(),type:1,op:1},
           dataType:'json',
           success:function(data){
             console.log(data);
