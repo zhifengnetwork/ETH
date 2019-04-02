@@ -63,36 +63,6 @@
       border-radius: .5rem;
       margin: 1rem auto 0;
     }
-    /*.se_tank{width: 100%;height: 20rem;background: #0a181f;position: absolute;bottom: 2.45rem;transition: all 1s;}
-    .se_title{margin-top: 2.5rem;margin-left: 0.3rem;}
-    .se_title span{font-size: 0.7rem;color: #fff;}
-    .se_title input{width: 70%;height: 1.5rem;border: none;outline: none;border-radius: 0.2rem;padding-left: 0.2rem;}
-	.se_tank h2{font-size: 0.8rem;color: #fff;font-weight: inherit;line-height: 2.5rem;}
-	.se_tank_span{position: absolute;top: 5%;right: 5%;color: #fff;font-size: 0.8rem;}
-	.se_tank_con{margin-top: 0.7rem;margin-left: 0.3rem;}
-	.se_tank_con textarea{border-radius: 0.2rem; width: 70%;height: 5rem;resize: none;border: none;padding: 0.3rem;font-size: 0.65rem;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
-	.se_tank_con p{font-size: 0.7rem;color: #fff;display: inline-block;vertical-align:top;}
-	.se_tank_btn{width: 68.5%;height: 3.5rem;line-height: 2.5rem;margin-left: 22%;}
-	.se_tank_btn button{width: 100%;height: 1.6rem;background: #0a0;border: none;color: #fff;border-radius: 0.2rem;}
-
-	.tipsText{line-height: 0.3rem;}
-	.renderingRrpa{padding-top: 0.88rem;box-sizing: border-box;}
-
-	.uploadWrap p{font-size: 0.3rem;color: #fff;text-align: center;line-height: 0.8rem;}
-	.imageEchoBox{width: 100%;height: 5rem;margin: 0 auto;background: #f5f5f5;border-radius: 0.2rem;position: relative;}
-	ul li{list-style: none;}
-	.imageEchoBox span{width: 100%;font-size: 0.24rem;color: #000;position: absolute;top: 105%;left: 0;display: none;background: #f5f5f5;border-radius: 0.09rem;line-height: 0.6rem;}
-	.imageEchoBox ul li{float: left;width: 25%;line-height: 5rem;height: 5rem;background: #f5f5f5;}
-	.imageEchoBox img{ position: absolute; top: 50%;left: 50%;transform: translate(-50%,-50%); max-width: 100%;max-height: 100%;}
-
-	.uploadFile{border-radius: 0.2rem;width: 100% !important;height: 1.4rem;line-height: 1.4rem;position: absolute;top: 110%;left: 0%;opacity: 0;z-index: 10;}
-	.uploadFile2{border-radius: 0.2rem; width: 100%;height:1.4rem;font-size: 0.23rem; position: absolute;top: 110%;left: 0%;color: #000;background: #f5f5f5;text-align: center;line-height: 1.4rem;}
-
-	.decideToSell{width: 100%;margin: 0 auto;margin-bottom: 1rem;}
-	.decideToSell p{letter-spacing: 0.02rem; font-size: 0.3rem; background: #f5f5f5;color: #000;padding: 0.2rem 0;text-align: center;border-radius: 0.1rem;display: block;}
-
-	.popover_box span{font-size: 0.3rem;}
-	.popover_box{width: 80%;margin: 0 auto;border-radius: 0.2rem;padding-top: 0.5rem;}*/
 </style>
 
   <div class='fui-page  fui-page-current member-log-page'>
@@ -123,6 +93,7 @@
     </div>
     <div class='fui-content navbar'>
       <div class="txtInfo">
+          <p>订单号：<?php  echo $sell['id'];?> </p>
         <?php  if($op == 1) { ?>
         <p>挂卖人：<?php  echo $sell['mobile'];?> </p>
         <?php  } else if($op == 0) { ?>
@@ -251,6 +222,7 @@
 
     <div class='fui-content navbar'>
       <div class="txtInfo">
+          <p>订单号：<?php  echo $sell['id'];?> </p>
         <p>挂卖人：<?php  echo $sell['mobile'];?> </p>
         <p>挂卖单价：<?php  echo $sell['price'];?> </p>
         <p>挂卖数量：<?php  echo $sell['trx'];?> </p>
@@ -375,6 +347,7 @@
     </div>
     <div class='fui-content navbar'>
       <div class="txtInfo">
+          <p>订单号：<?php  echo $sell['id'];?> </p>
         <?php  if($op == 1) { ?>
         <p>挂卖人：<?php  echo $sell['mobile'];?> </p>
         <?php  } else if($op == 0) { ?>
@@ -400,6 +373,13 @@
             <?php  } ?>
           </div>
         </div>
+        <?php  if($sell['file'] == '') { ?>
+
+        <?php  } else { ?>
+        <a href="<?php  echo mobileurl('member/guamai/appeal')?>&id=<?php  echo $sell['id'];?>">
+          <div class="Btn_on">申诉</div>
+        </a>
+        <?php  } ?>
         <!-- <div class="Btn_on">申诉</div> -->
       </div>
     </div>

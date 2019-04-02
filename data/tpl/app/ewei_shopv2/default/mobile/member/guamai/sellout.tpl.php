@@ -91,6 +91,7 @@
 
     <div class='fui-content navbar'>
       <div class="txtInfo">
+        <p>订单号：<?php  echo $sell['id'];?> </p>
         <?php  if($op == 1) { ?>
         <p>挂卖人：<?php  echo $sell['mobile2'];?> </p>
         <?php  } else if($op == 0) { ?>
@@ -329,6 +330,7 @@
 
     <div class='fui-content navbar'>
       <div class="txtInfo">
+          <p>订单号：<?php  echo $sell['id'];?> </p>
         <?php  if($op == 1) { ?>
         <p>挂卖人：<?php  echo $sell['mobile2'];?> </p>
         <?php  } else if($op == 0) { ?>
@@ -599,6 +601,7 @@
 
     <div class='fui-content navbar'>
       <div class="txtInfo">
+        <p>订单号：<?php  echo $sell['id'];?> </p>
         <?php  if($op == 1) { ?>
         <p>挂卖人：<?php  echo $sell['mobile'];?> </p>
         <?php  } else if($op == 0) { ?>
@@ -832,6 +835,7 @@
 
     <div class='fui-content navbar'>
       <div class="txtInfo">
+        <p>订单号：<?php  echo $sell['id'];?> </p>
         <?php  if($op == 1) { ?>
         <p>挂卖人：<?php  echo $sell['mobile'];?> </p>
         <?php  } else if($op == 0) { ?>
