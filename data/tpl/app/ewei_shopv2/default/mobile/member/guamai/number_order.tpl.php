@@ -294,7 +294,7 @@
 		padding: 3px 0;
 		border-bottom: 1px solid #666;
 	}
-	
+
 	.mask0_btn {
 		width: 100%;
 		text-align: center;
@@ -457,7 +457,7 @@
 
 		<div class="title">ETH/CNY</div>
 		<div class="fui-header-right" data-type="0">
-			<i class="fui-header-right icon icon-add4"></i>
+			<!-- <i class="fui-header-right icon icon-add4"></i> -->
 		</div>
 	</div>
 
@@ -690,16 +690,12 @@
 				<div class="tab_con">
 					<div class="wtf_top">
 						<div class="wtf_item">
-								<?php  if(is_array($guamai_appeal)) { foreach($guamai_appeal as $appeal) { ?>
-							<div class="wtf_item1" onclick="window.location.href = ''">
-								<?php  if($appeal['stuas'] == 0) { ?>
-								<p>该订单“<?php  echo $appeal['order_id'];?>”,在进行审核。</p>
-								<?php  } else if($appeal['stuas'] == 1) { ?>
-								<p>该订单“<?php  echo $appeal['order_id'];?>”,审核通过，并对该账号进行处罚。</p>
-								<?php  } else if($appeal['stuas'] == 2) { ?>
-								<p>该订单“<?php  echo $appeal['order_id'];?>”,该申诉失效。</p>
-								<?php  } ?>
-								<p><?php  echo $appeal['createtime'];?></p>
+							<?php  if(is_array($guamai_appeal)) { foreach($guamai_appeal as $appeal) { ?>
+							<div class="wtf_item1">
+								<a href="<?php  echo mobileurl('member/guamai/guamai_appeal_list')?>&id=<?php  echo $appeal['id'];?>">
+									<p><?php  echo $appeal['text'];?></p>
+									<p><?php  echo $appeal['createtime'];?></p>
+								</a>
 							</div>
 							<?php  } } ?>
 						</div>
@@ -722,7 +718,7 @@
 					</div>
 					<div class="mask_lis">
 						<p>预获金额(CNY)</p>
-						<input class="mask_lis_input" type="number" disabled value="0" class="getMoney0">
+						<input class="mask_lis_input getMoney0" type="number" disabled value="0" >
 						<div class="tishi">手续费：<span class="sxf0"><?php  echo $sys['trxsxf'];?></span>%</div>
 					</div>
 					<div class="mask_lis">
@@ -746,11 +742,11 @@
 					</div>
 					<div class="mask_lis">
 							<p>预获币数(ETH)</p>
-						<input class="mask_lis_input" type="number" disabled value="0" class="getMoney0">
+						<input class="mask_lis_input getMoney0" type="number" disabled value="0">
 						<div class="tishi">手续费：<span class="sxf0"><?php  echo $sys['trxsxf'];?></span>%</div>
 					</div>
 					<div class="mask_lis">
-						<p>预获金额(CNY)</p>
+						<p>预付金额(CNY)</p>
 						<input type="number" disabled value="0" style="padding: 5px 10px;width: 100%;" class="mairu_Money">
 						<!-- <div class="tishi">预扣手续费<span style="color:#9f2332;">0</span>UES</div> -->
 					</div>
