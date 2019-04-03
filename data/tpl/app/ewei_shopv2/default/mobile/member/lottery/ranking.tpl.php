@@ -17,7 +17,6 @@
   #tit span{
 
   	display: inline-block;
-
   	height: 1.5rem;
   	line-height: 1.5rem;
   	/*border: 1px solid green;*/
@@ -127,6 +126,15 @@
   }
   .good-item .lis:nth-child(2) p:nth-child(3){
   	color: green;
+
+  }
+  .fui-content{
+
+    width: 100%;
+    overflow-x:hidden;
+    overflow-y:auto;
+
+
 
   }
 </style>
