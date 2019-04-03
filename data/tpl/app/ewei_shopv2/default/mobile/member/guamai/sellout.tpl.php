@@ -91,7 +91,7 @@
 
     <div class='fui-content navbar'>
       <div class="txtInfo">
-        <p>订单编号：<?php  echo $sell['id'];?></p>
+        <p>订单号：<?php  echo $sell['id'];?> </p>
         <?php  if($op == 1) { ?>
         <p>挂卖人：<?php  echo $sell['mobile2'];?> </p>
         <?php  } else if($op == 0) { ?>
@@ -125,7 +125,9 @@
         </div>
 
         <div class="buyBtn">确定收款</div>
-        <div class="Btn_on">申诉</div>
+        <a href="<?php  echo mobileurl('member/guamai/appeal')?>&id=<?php  echo $sell['id'];?>">
+          <div class="Btn_on">申诉</div>
+        </a>
 
 
       </div>
@@ -328,7 +330,7 @@
 
     <div class='fui-content navbar'>
       <div class="txtInfo">
-          <p>订单编号：<?php  echo $sell['id'];?></p>
+          <p>订单号：<?php  echo $sell['id'];?> </p>
         <?php  if($op == 1) { ?>
         <p>挂卖人：<?php  echo $sell['mobile2'];?> </p>
         <?php  } else if($op == 0) { ?>
@@ -357,28 +359,51 @@
           <img src="<?php  echo $sell['zfbfile2'];?>" alt="" class="ewmImg zfbewm">
         </div>
         <div class="bankBox">
+<<<<<<< HEAD
           <div class="bankBoxTie">*请前往当地银行打款</div>
           <div>
-            <div class="info">
-              银行：
-              <span><?php  echo $sell['bank'];?></span>
+              <div class="info">
+                银行：
+                <span><?php  echo $sell['bank'];?></span>
+              </div>
+              <span class="copy" id="copy">复制</span>
             </div>
-            <span class="copy" id="copy">复制</span>
+            <div>
+                <div class="info">户主：
+              <span><?php  echo $sell['bankname'];?> </span>
+            </div>
+              <span class="copy" id="copy">复制</span>
           </div>
-          <div>
-              <div class="info">户主：
-            <span><?php  echo $sell['bankname'];?> </span>
-          </div>
-            <span class="copy" id="copy">复制</span>
-          </div>
-          <div>
-              <div class="info">卡号：
-            <span><?php  echo $sell['bankid'];?> </span>
-          </div>
-            <span class="copy" id="copy">复制</span>
-          </div>
+            <div>
+                <div class="info">卡号：
+              <span><?php  echo $sell['bankid'];?> </span>
+            </div>
+              <span class="copy" id="copy">复制</span>
+            </div>
         </div>
-
+=======
+            <div class="bankBoxTie">*请前往当地银行打款</div>
+            <div>
+                <div class="info">
+                  银行：
+                  <span id="codeText"><?php  echo $sell['bank2'];?></span>
+                </div>
+                <span class="copy" id="copy" data-clipboard-target="#codeText">复制</span>
+              </div>
+              <div>
+                  <div class="info">户主：
+                <span id="codeText"><?php  echo $sell['bankname2'];?> </span>
+              </div>
+                <span class="copy" id="copy" data-clipboard-target="#codeText">复制</span>
+            </div>
+              <div>
+                  <div class="info">卡号：
+                <span id="codeText"><?php  echo $sell['bankid2'];?> </span>
+              </div>
+                <span class="copy" id="copy" data-clipboard-target="#codeText">复制</span>
+              </div>
+          </div>
+>>>>>>> f97f30030299f929a01534208ff4b2187395a1f8
         <div class="setImg">
           <p>上传凭证：</p>
           <div class="setImgBox">
@@ -388,37 +413,62 @@
             <input  type="hidden" id="avatar"/>
           </div>
         </div>
-
         <?php  if($sell['file'] == '') { ?>
         <div class="buyBtn">确定</div>
         <?php  } else { ?>
         <div class="buyBtn">确定更改</div>
         <?php  } ?>
-
       </div>
+<<<<<<< HEAD
       <div class="Btn_on">申诉</div>
-
-
+<<<<<<< HEAD
+=======
+    </div>
+    <div class="se_tank">
+      <span class="se_tank_span">收起</span>
+      <div class="se_title">
+        <span>申诉标题:</span>
+        <input class="text" name="text" type="text" />
+      </div>
+      <div class="se_tank_con">
+        <p>申诉内容:</p>
+        <textarea class="textarea"></textarea>
+      </div>
+      <div class="se_tank_btn">
+        <a><button class="button">确定</button></a>
+      </div>
+>>>>>>> f97f30030299f929a01534208ff4b2187395a1f8
+=======
+      <a href="<?php  echo mobileurl('member/guamai/appeal')?>&id=<?php  echo $sell['id'];?>">
+        <div class="Btn_on">申诉</div>
+      </a>
+>>>>>>> 58c5a18db8565df63916ab707967788866e20736
     </div>
   </div>
 
   <script src="../addons/ewei_shopv2/static/js/dist/ajaxfileupload.js" type="text/javascript"></script>
   <script type="text/javascript">
         $(function(){
-    //点击按钮，复制二维码链接
-	$(".copy").click(function(){
-             let val = $(this).prev('.info').children('span').text();
+            //点击按钮，复制二维码链接
+            $(".copy").click(function(){
+    console.log(1111);
+             let val = $(this).prev('.info').children('#codeText').text();
+             let text = $('#codeText').text()
              //实例化clipboard
-             var clipboard = new ClipboardJS('#copy');
-             clipboard.on("success", function(val){
-                 console.log(val);
+             var clipboard = new ClipboardJS('#copy',{
+               text:function(){
+                 return val
+               }
+             })
+             clipboard.on("success", function(e){
+                 console.log(e);
              });
-             clipboard.on("error", function(val){
-                 console.log(val);
+             clipboard.on("error", function(e){
+                 console.log(e);
              });
              alert("复制成功");
  })
- })
+        })
     // 提交js
     $('.buyBtn').click(function () {
       $(this).addClass('disable');
@@ -435,7 +485,7 @@
         $.ajax({
           type:'post',
           url:"<?php  echo mobileurl('member/guamai/sellout')?>",
-          data:{id:"<?php  echo $sell['id'];?>",mobile:"<?php  echo $sell['mobile'];?>",file:$('#avatar').val(),type:1,op:1},
+          data:{id:"<?php  echo $sell['id'];?>",mobile:"<?php  echo $sell['mobile'];?>",file:$('#avatar').val(),type:0,op:1},
           dataType:'json',
           success:function(data){
             console.log(data);
@@ -596,7 +646,7 @@
 
     <div class='fui-content navbar'>
       <div class="txtInfo">
-          <p>订单编号：<?php  echo $sell['id'];?></p>
+        <p>订单号：<?php  echo $sell['id'];?> </p>
         <?php  if($op == 1) { ?>
         <p>挂卖人：<?php  echo $sell['mobile'];?> </p>
         <?php  } else if($op == 0) { ?>
@@ -628,15 +678,15 @@
             <?php  } ?>
           </div>
         </div>
-
         <div class="buyBtn">确定收款</div>
+<<<<<<< HEAD
         <div class="Btn_on">申诉</div>
-
-
+=======
+        <a href="<?php  echo mobileurl('member/guamai/appeal')?>&id=<?php  echo $sell['id'];?>">
+          <div class="Btn_on">申诉</div>
+        </a>
+>>>>>>> 58c5a18db8565df63916ab707967788866e20736
       </div>
-
-
-
     </div>
   </div>
 
@@ -741,7 +791,7 @@
 =======
 
     .bankBox>p>span{
->>>>>>> 9c7cb75b8ab980193e897870adf7ffa249783e20
+>>>>>>> f97f30030299f929a01534208ff4b2187395a1f8
       color: #fff;
       background-color: #0a0;
       text-align: center;
@@ -804,37 +854,6 @@
     .disable{
       pointer-events: none;
     }
-    .bankBox {
-      padding: .5rem;
-      margin-top: .5rem;
-      border: 1px solid #666;
-      /* display: none; */
-    }
-
-    .bankBox>.bankBoxTie {
-      text-align: center;
-      color: red;
-    }
-
-    .bankBox>div {
-      font-size: .8rem;
-      display: flex;
-      justify-content:space-between;
-      padding-bottom: .2rem;
-      white-space: nowrap;
-    }
-    .bankBox>div>.info{
-      overflow: hidden;
-      white-space: nowrap;
-      width: 100%;
-    }
-    .bankBox>div>.copy{
-      color: #fff;
-      background-color: #0a0;
-      text-align: center;
-      padding: 0px 10px;
-      border-radius: .5rem;
-    }
   </style>
 
   <div class='fui-page  fui-page-current member-log-page'>
@@ -868,7 +887,7 @@
 
     <div class='fui-content navbar'>
       <div class="txtInfo">
-          <p>订单编号：<?php  echo $sell['id'];?></p>
+        <p>订单号：<?php  echo $sell['id'];?> </p>
         <?php  if($op == 1) { ?>
         <p>挂卖人：<?php  echo $sell['mobile'];?> </p>
         <?php  } else if($op == 0) { ?>
@@ -896,61 +915,29 @@
           <img src="<?php  echo $sell['wxfile'];?>" alt="" class="ewmImg wxewm">
           <img src="<?php  echo $sell['zfbfile'];?>" alt="" class="ewmImg zfbewm">
         </div>
-<<<<<<< HEAD
         <div class="bankBox">
             <div class="bankBoxTie">*请前往当地银行打款</div>
             <div>
                 <div class="info">
                   银行：
                   <span id="codeText"><?php  echo $sell['bank'];?></span>
-                </div>  
+                </div>
                 <span class="copy" id="copy" data-clipboard-target="#codeText">复制</span>
               </div>
               <div>
                   <div class="info">户主：
-                <span id="codeText"><?php  echo $sell['bankname'];?> </span> 
+                <span id="codeText"><?php  echo $sell['bankname'];?> </span>
               </div>
                 <span class="copy" id="copy" data-clipboard-target="#codeText">复制</span>
             </div>
               <div>
                   <div class="info">卡号：
-                <span id="codeText"><?php  echo $sell['bankid'];?> </span> 
-              </div> 
+                <span id="codeText"><?php  echo $sell['bankid'];?> </span>
+              </div>
                 <span class="copy" id="copy" data-clipboard-target="#codeText">复制</span>
               </div>
           </div>
 
-=======
-        <!-- <div class="bankBox">
-          <div class="bankBoxTie">*请前往当地银行打款</div>
-          <p>银行：<?php  echo $sell['bank'];?></p><span class="copy" id="copy">复制</span>
-          <p>户主：<?php  echo $sell['bankname'];?></p><span class="copy" id="copy">复制</span>
-          <p>卡号：<?php  echo $sell['bankid'];?></p><span class="copy" id="copy">复制</span>
-
-        </div> -->
-        <div class="bankBox">
-          <div class="bankBoxTie">*请前往当地银行打款</div>
-          <div>
-            <div class="info">
-              银行：
-              <span><?php  echo $sell['bank'];?></span>
-            </div>
-            <span class="copy" id="copy">复制</span>
-          </div>
-          <div>
-              <div class="info">户主：
-            <span><?php  echo $sell['bankname'];?> </span>
-          </div>
-            <span class="copy" id="copy">复制</span>
-          </div>
-          <div>
-              <div class="info">卡号：
-            <span><?php  echo $sell['bankid'];?> </span>
-          </div>
-            <span class="copy" id="copy">复制</span>
-          </div>
-        </div>
->>>>>>> 9c7cb75b8ab980193e897870adf7ffa249783e20
         <div class="setImg">
           <p>上传凭证：</p>
           <div class="setImgBox">
@@ -968,7 +955,9 @@
         <?php  } ?>
 
       </div>
-      <div class="Btn_on">申诉</div>
+      <a href="<?php  echo mobileurl('member/guamai/appeal')?>&id=<?php  echo $sell['id'];?>">
+        <div class="Btn_on">申诉</div>
+      </a>
 
 
     </div>
@@ -976,13 +965,12 @@
 
   <script src="../addons/ewei_shopv2/static/js/dist/ajaxfileupload.js" type="text/javascript"></script>
   <script type="text/javascript">
-<<<<<<< HEAD
           $(function(){
-    //点击按钮，复制二维码链接
+    //点击按钮，复制当前text
 	$(".copy").click(function(){
+    console.log(1111);
              let val = $(this).prev('.info').children('#codeText').text();
              let text = $('#codeText').text()
-             console.log(val)
              //实例化clipboard
              var clipboard = new ClipboardJS('#copy',{
                text:function(){
@@ -998,24 +986,6 @@
              alert("复制成功");
  })
  })
-=======
-  $(function(){
-    //点击按钮，复制二维码链接
-    $(".copy").click(function(){
-      let val = $(this).prev('.info').children('span').text()
-      // console.log(val)
-      //实例化clipboard
-      var clipboard = new ClipboardJS('#copy');
-      clipboard.on("success", function(val){
-          console.log(val);
-      });
-      clipboard.on("error", function(val){
-          console.log(val);
-      });
-      alert("复制成功");
-    })
-  })
->>>>>>> 9c7cb75b8ab980193e897870adf7ffa249783e20
     // 提交js
     $('.buyBtn').click(function () {
       $(this).addClass('disable');
@@ -1032,7 +1002,7 @@
         $.ajax({
           type:'post',
           url:"<?php  echo mobileurl('member/guamai/sellout')?>",
-          data:{id:"<?php  echo $sell['id'];?>",mobile:"<?php  echo $sell['mobile'];?>",file:$('#avatar').val(),type:2,op:1},
+          data:{id:"<?php  echo $sell['id'];?>",mobile:"<?php  echo $sell['mobile'];?>",file:$('#avatar').val(),type:1,op:1},
           dataType:'json',
           success:function(data){
             console.log(data);
@@ -1097,27 +1067,5 @@
     })
   </script>
 <?php  } ?>
-<script>
-$('.Btn_on').click(function () {
-  let id = "<?php  echo $sell['id'];?>";
-  $.ajax({
-    type:'post',
-    url:"<?php  echo mobileurl('member/guamai/tab_con')?>",
-    data:{id:id},
-    dataType:'json',
-    success:function(data){
-      console.log(data);
-      if(data.status == 1){
-        alert(data.result.message);
-        history.back(-1);
-      }
-
-    },error:function(err){
-      console.log(err);
-
-    }
-  })
-});
-</script>
 <?php  $this->footerMenus()?>
 <?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('_footer', TEMPLATE_INCLUDEPATH)) : (include template('_footer', TEMPLATE_INCLUDEPATH));?>

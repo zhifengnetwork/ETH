@@ -75,6 +75,9 @@
 	.tab_header .hide {
 		display: none;
 	}
+	.mask0_box{
+		padding-top: 2.5rem;
+	}
 	/* 买入 卖出按钮样式 */
 
 	.buying {
@@ -97,6 +100,7 @@
 		color: #fff;
 		font-size: 0.7rem;
 		touch-action: pan-x;
+		background: #071a21;
 	}
 
 	.pay-tt.active {
@@ -147,7 +151,7 @@
 
 
 	/*---tab切换---*/
-	.box_nav{position: fixed;width: 100%;height: 2rem;background: #0a181f;max-width: 750px}
+	.box_nav{width: 100%;height: 2rem;background: #0a181f;max-width: 750px;position: absolute;z-index: 1;}
 	.box_nav ul li {
 		width: 33%;
 		float: left;
@@ -158,7 +162,12 @@
 	}
 	/*------tab切换里面的内容------*/
 	.tab_header {
-		width: 100%
+		height: 100%;
+		width: 100%;
+		padding-top: 2rem;
+		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
 	}
 	.tab_con1_one {
 		line-height: 2rem;
@@ -185,18 +194,28 @@
 	}
 
 	.tab_content {
+		width: 100%;
 		color: #fff;
-		padding: 2rem 0 0.5rem 0;
+		padding: 0 0 0.5rem 0;
 		box-sizing: border-box;
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 		overflow: hidden;
+		touch-action: pan-x;
 	}
 	.tab_content .tab_con{
+		width:100%;
+		/* position: absolute; */
 		display: none;
-		padding: .5rem .2rem 0 .2rem;
+		/* padding: .5rem; */
 		}
-
+  .advertising{
+		width:100%;
+		position: absolute;
+		display: none;
+		padding: .5rem;
+		background: #071a21;
+	}
 	.tab_content .tab_con.active{
 		display: block;
 	}
@@ -212,17 +231,18 @@
 	}
 
 	.mask1>.mask1_lis {
-		display: flex;
-		background-color: #fff;
 		color: #000;
-		padding: 5px 10px;
-		align-items: center;
 	}
 
 	.mask1>.mask1_lis>.buyNum {
-		border: 0;
+		width: 100%;
 		outline-style: none;
-		width: 70%;
+		border:0;
+		height: 1.4rem;
+    padding-left: 5px;
+		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
 	}
 
 	.mask1>.mask1_lis>.allBuy {
@@ -236,7 +256,7 @@
 	.mask1>p {
 		padding: 5px 0;
 	}
-
+	.mask_lis_p{    padding: 5px 0;}
 	.mask1>.mask_tit {
 		margin-top: 10px;
 		font-size: 16px;
@@ -245,19 +265,20 @@
 	}
 
 	.mask1>.mask1_pice {
-		display: flex;
+		/*display: flex;*/
 	}
 
 	.mask1>.mask1_pice>p {
-		width: 20%;
-		text-align: center;
+		/*width: 20%;
+		text-align: center;*/
 	}
 
 	.maiRu_price {
-		padding: 5px 10px;
-		width: 80%;
-		border: 0;
+		width: 100%;
 		outline-style: none;
+		border:0;
+		height: 1.4rem;
+    padding-left: 5px;
 	}
 
 	.mask1 {
@@ -282,9 +303,21 @@
 
 	.mask0>.mask_lis>input {
 		width: 100%;
-		padding: 5px 10px;
+		padding-left: 5px ;
+		height: 1.4rem;
+		border:0;
+		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
 	}
-
+	.mask_lis_input{
+		width: 100%;
+		border: 0;
+		padding: 5px 10px;
+		/* box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box; */
+		}
 	.tishi {
 		text-align: right;
 		color: #888;
@@ -299,7 +332,7 @@
 		height: 30px;
 		line-height: 30px;
 		background-color: #0a0;
-		margin: 20px 0;
+		margin: 10px 0;
 	}
 	/*-------我的申诉-------*/
 	.main {
@@ -395,9 +428,17 @@
 
 	/* 我的订单 tab */
 	.tab_cut{
+		/* position: absolute; */
 		width: 100%;
 		padding: 0.3rem;
+		/* touch-action: pan-x; */
+	}
+	.tab_box{
+		position: absolute;
+		width: 100%;
 		touch-action: pan-x;
+		background: #071a21;
+		z-index: 1;
 	}
   .tab_cut>ul{
 		display: flex;
@@ -455,7 +496,7 @@
 
 		<div class="title">ETH/CNY</div>
 		<div class="fui-header-right" data-type="0">
-			<i class="fui-header-right icon icon-add4"></i>
+			<!-- <i class="fui-header-right icon icon-add4"></i> -->
 		</div>
 	</div>
 
@@ -479,6 +520,7 @@
 			<!--这个是要显示的内容部分-->
 			<div class="tab_content">
 					<!-- tab切换内容   未交易 交易中  交易完成  交易失败-->
+					<div class="tab_box">
 				  <div class="tab_cut">
 						<ul>
 							<li class="tab_item active">
@@ -495,8 +537,9 @@
 							</li>
 						</ul>
 					</div>
+				</div>
 				<!--------我的订单---------->
-				<div class="tab_con  active " style="padding:0" >
+				<div class="tab_con  active "  style="padding-top: 2.6rem">
 					<div class="my_order" id="load"style="left: 0%;transition-duration: 0.3s;">
 				<!-- 未交易 -->
 					<div class="tab_cont undone">
@@ -678,7 +721,7 @@
 				</div>
 			</div>
 				<!--------发布广告----------->
-				<div class="tab_con ">
+				<div class="tab_con advertising  ">
 					<div class="buying">
 						<a class="pay-tt active">买入ETH</a>
 						<a class="pay-tt">卖出ETH</a>
@@ -688,16 +731,12 @@
 				<div class="tab_con">
 					<div class="wtf_top">
 						<div class="wtf_item">
-								<?php  if(is_array($guamai_appeal)) { foreach($guamai_appeal as $appeal) { ?>
-							<div class="wtf_item1" onclick="window.location.href = ''">
-								<?php  if($appeal['stuas'] == 0) { ?>
-								<p>该订单“<?php  echo $appeal['order_id'];?>”,在进行审核。</p>
-								<?php  } else if($appeal['stuas'] == 1) { ?>
-								<p>该订单“<?php  echo $appeal['order_id'];?>”,审核通过，并对该账号进行处罚。</p>
-								<?php  } else if($appeal['stuas'] == 2) { ?>
-								<p>该订单“<?php  echo $appeal['order_id'];?>”,该申诉失效。</p>
-								<?php  } ?>
-								<p><?php  echo $appeal['createtime'];?></p>
+							<?php  if(is_array($guamai_appeal)) { foreach($guamai_appeal as $appeal) { ?>
+							<div class="wtf_item1">
+								<a href="<?php  echo mobileurl('member/guamai/guamai_appeal_list')?>&id=<?php  echo $appeal['id'];?>">
+									<p><?php  echo $appeal['text'];?></p>
+									<p><?php  echo $appeal['createtime'];?></p>
+								</a>
 							</div>
 							<?php  } } ?>
 						</div>
@@ -709,18 +748,18 @@
 			<div class="mask0_box hide">
 				<!-- 卖出 -->
 				<div class="mask0 hide">
+					<p>价格(CNY)</p>
 					<div class="mask_lis">
-						<p>价格(CNY)</p>
 						<input type="number" placeholder="请输入卖出的价格" class="maiChu_price">
 						<div class="tishi">参考价格：￥<span class="price_Min"><?php  echo $start;?></span>-￥<span class="price_Max"><?php  echo $end;?></span></div>
 					</div>
 					<div class="mask_lis">
-						<p>数量(ETH)</p>
-						<input type="number" placeholder="请输入卖出的数量" class="maiChu_Num">
+						<p class="mask_lis_p">数量(ETH)</p>
+						<input type="number"  placeholder="请输入卖出的数量" class="maiChu_Num">
 					</div>
 					<div class="mask_lis">
 						<p>预获金额(CNY)</p>
-						<input type="number" disabled value="0" class="getMoney0">
+						<input class="mask_lis_input getMoney0"  type="number" disabled value="0" >
 						<div class="tishi">手续费：<span class="sxf0"><?php  echo $sys['trxsxf'];?></span>%</div>
 					</div>
 					<div class="mask_lis">
@@ -731,23 +770,27 @@
 				</div>
 
 				<!-- 买入 -->
-				<div class="mask1 ">
+				<div class="mask1">
 					<div class="mask1_pice">
 						<p>价格(CNY)</p>
-						<input type="number" placeholder="请输入买入的价格" class="maiRu_price">
+						<input type="number" min="0" placeholder="请输入买入的价格" class="maiRu_price">
 					</div>
 					<div class="tishi">参考价格：￥<span class="price_Min"><?php  echo $start;?></span>-￥<span class="price_Max"><?php  echo $end;?></span></div>
 
-					<p>买入数量</p>
+					<p class="mask_lis_p">买入数量(ETH)</p>
 					<div class="mask1_lis">
-						<input type="number" placeholder="请输入购买的数量" class="buyNum">
+						<input type="number " min="0" placeholder="请输入购买的数量" class="buyNum ">
 					</div>
 					<div class="mask_lis">
+							<p>预获币数(ETH)</p>
+						<input class="mask_lis_input getMoney0" type="number" disabled  value="0">
 						<div class="tishi">手续费：<span class="sxf0"><?php  echo $sys['trxsxf'];?></span>%</div>
 					</div>
-					<p>预获金额(CNY)</p>
-					<input type="number" disabled value="0" style="padding: 5px 10px;width: 100%;" class="mairu_Money">
-					<!-- <div class="tishi">预扣手续费<span style="color:#9f2332;">0</span>UES</div> -->
+					<div class="mask_lis">
+						<p>预付金额(CNY)</p>
+						<input type="number" disabled value="0" style="padding: 5px 10px;width: 100%;" class="mairu_Money">
+						<!-- <div class="tishi">预扣手续费<span style="color:#9f2332;">0</span>UES</div> -->
+					</div>
 					<div class="mask1_btn">确定买入</div>
 				</div>
 			</div>
@@ -829,6 +872,22 @@
 
 </div>
 <script type="text/javascript">
+   //maiChu_Num,buyNum 获得焦点 
+	 $('.buyNum,.maiChu_Num').focus(function(){
+		var advertising = $('.advertising').prop("scrollHeight")+$('.fui-header').prop("scrollHeight")+$('.box_nav').prop("scrollHeight");
+	 	var scrollHeight = $('.box').prop("scrollHeight");
+		var _this_ = $(this).offset().top-advertising;
+   $('.box').animate({scrollTop:_this_}, 400);
+	 }).blur(function(){
+		$('.box').animate({scrollTop:0}, 400);
+	 })
+   //input获得焦点 tab隐藏
+	  $('.mask0 input,.mask1 input').focus(function(){
+			$('.fui-navbar').hide();
+		})
+		.blur(function(){
+			$('.fui-navbar').show();
+		})
 // 申诉原因
 $('.button').click(function () {
 	let textarea = $('.textarea').val();
@@ -922,11 +981,11 @@ $('.mask0_btn').click(function () {
       }
 
       if($('.maiChu_Num').val() != '' && $('.maiChu_price').val() != ''){
-        let getMoney = $('.maiChu_Num').val() * $('.maiChu_price').val();
-        let num = $('.maiChu_Num').val();
+        let getMoney =  Number($('.maiChu_Num').val()) *  Number($('.maiChu_price').val());
+        let num =  $('.maiChu_Num').val();
         $('.getMoney0').val(getMoney);
         setTrx = Number(num) + Number($('.sxf0').html());
-        $('.setTrx0').val(setTrx);
+        $('.setTrx0').val(Number(setTrx).toFixed(8));
       } else {
         $('.getMoney0').val('0');
         $('.setTrx0').val("0");
@@ -935,19 +994,25 @@ $('.mask0_btn').click(function () {
     })
     // 监听卖出数量的input变化
     $('.maiChu_Num').bind('input onpropertychange',function () {
-      let r = /^[1-9]+[0-9]*]*$/;
-      if(!r.test($('.maiChu_Num').val())){
-        alert('卖出数量必须为大于0的整数');
-        $('.maiChu_Num').val('');
-        return false;
-      }
+      // let r = /^[1-9]+[0-9]*]*$/;
+      // if(!r.test($('.maiChu_Num').val())){
+      //   alert('卖出数量必须为大于0的整数');
+      //   $('.maiChu_Num').val('');
+      //   return false;
+      // }
 
       if($('.maiChu_price').val() != '' && $('.maiChu_Num').val() != ''){
-        let getMoney = $('.maiChu_Num').val() * $('.maiChu_price').val();
+				// 000
+				console.log(Number($('.maiChu_Num').val()));
+				console.log(Number($('.maiChu_price').val()));
+
+				// 000
+        let getMoney = Number($('.maiChu_Num').val())*Number($('.maiChu_price').val());
+				// console.log(Number(getMoney).toFixed(4));
         let num = $('.maiChu_Num').val();
-        $('.getMoney0').val(getMoney);
+        $('.getMoney0').val(Number(getMoney).toFixed(8));
         setTrx = Number(num) + Number($('.sxf0').html()*num/100);
-        $('.setTrx0').val(setTrx);
+        $('.setTrx0').val(Number(setTrx).toFixed(8));
       } else {
         $('.getMoney0').val('0');
         $('.setTrx0').val("0");
@@ -957,38 +1022,46 @@ $('.mask0_btn').click(function () {
     // 监听买入价格的input变化
     $('.maiRu_price').bind('input onpropertychange',function () {
       if($('.maiRu_price').val() < 0){
-        alert('卖出价格必须大于0');
+        alert('买入价格必须大于0');
         $('.maiRu_price').val('');
         return false;
       }
 
       if($('.buyNum').val() != '' && $('.maiRu_price').val() != ''){
-		let getMoney = ($('.buyNum').val()-$('.sxf0').html()*$('.buyNum').val()/100) * $('.maiRu_price').val();
-        $('.mairu_Money').val(getMoney);
+				let getMoney = muns * $('.maiRu_price').val();
+				let getMoney0 = Number($('.buyNum').val())-Number(sxf0);
+				// console.log();
+        $('.mairu_Money').val(Number(getMoney).toFixed(8));
+				$('.getMoney0').val(Number(getMoney0).toFixed(8));
       } else {
         $('.mairu_Money').val('0');
+				$('.getMoney0').val('0');
       }
 
     })
     // 监听买入数量的input变化
     $('.buyNum').bind('input onpropertychange',function () {
-      let r = /^[1-9]+[0-9]*]*$/;
-      if(!r.test($('.buyNum').val())){
-        alert('卖出数量必须为大于0的整数');
-        $('.buyNum').val('');
-        return false;
-      }
+      // let r = /^[1-9]+[0-9]*]*$/;
+      // if(!r.test($('.buyNum').val())){
+      //   alert('卖出数量必须为大于0的整数');
+      //   $('.buyNum').val('');
+      //   return false;
+      // }
 
     if($('.maiRu_price').val() != '' && $('.buyNum').val() != ''){
 			var sxf0 = $('.sxf0').html()*$('.buyNum').val()/100;
 			// Number(sxf0) +
 			var muns =  Number($('.buyNum').val());
 			let getMoney = muns * $('.maiRu_price').val();
-			console.log($('.buyNum').val());
-			console.log($('.maiRu_price').val());
-			console.log(Number(sxf0) + Number($('.buyNum').val()));
-			$('.mairu_Money').val(getMoney);
+			let getMoney0 = Number($('.buyNum').val())-Number(sxf0);
+			// console.log($('.buyNum').val());
+			// console.log($('.maiRu_price').val());
+			// console.log(Number($('.buyNum').val())-Number(sxf0));
+
+			$('.mairu_Money').val(Number(getMoney).toFixed(8));
+			$('.getMoney0').val(Number(getMoney0).toFixed(8));
 		} else {
+			$('.mairu_Money').val('0');
 			$('.getMoney0').val('0');
 		}
 	})
@@ -1048,7 +1121,7 @@ $('.mask0_btn').click(function () {
 			$(this).addClass("on").siblings().removeClass("on");
 			//内容切换
 			 $(".tab_content .tab_con").eq(index).addClass("active").siblings().removeClass("active");
-			// $(".tab_content .tab_con").eq(index).show().siblings().hide();
+
 		//买入卖出切换
 		if(index == 0){
 			$('.tab_cut').show()

@@ -1,6 +1,119 @@
+<<<<<<< HEAD
 2019-04-03 18:01:48 SQL Error :
+=======
+2019-04-03 13:49:59 SQL Error :
+>>>>>>> 57a870a223f7963b7989049988b6821fa68db8ad
 ------------
 String:
 SQL: <br/>select id,couponid,openid,isparent,sendtime,price,merchid,isverify,addressid,isvirtualsend,virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2 <hr/>Params: <br/>array (
 )<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/task/order/receive.php; line: 23; <br />
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+2019-04-03 16:47:52 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_guamai_appeal`where id= i<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'i' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-04-03 16:47:52 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_guamai`where id= <hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 115; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-04-03 16:48:09 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_guamai_appeal`where id= i<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'i' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-04-03 16:48:09 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_guamai`where id= <hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 115; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-04-03 16:48:38 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_guamai_appeal`where id= i<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'i' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 113; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-04-03 16:48:38 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_guamai`where id= <hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 115; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-04-03 17:00:15 SQL Error :
+------------
+String:
+SQL: <br/>UPDATE `ims_guamai_appeal` SET  WHERE `id` =  :__id_1<hr/>Params: <br/>array (
+  ':__id_1' => '34',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id` =  '34'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 278; <br />file: /framework/function/pdo.func.php; line: 66; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 131; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-04-03 17:00:29 SQL Error :
+------------
+String:
+SQL: <br/>UPDATE `ims_guamai_appeal` SET  WHERE `id` =  :__id_1<hr/>Params: <br/>array (
+  ':__id_1' => '34',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id` =  '34'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 278; <br />file: /framework/function/pdo.func.php; line: 66; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 131; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-04-03 17:00:54 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_guamai_appeal`where id= i<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'i' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 114; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-04-03 17:00:54 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_guamai`where id= <hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 116; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-04-03 17:02:29 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_guamai_appeal`where id= i<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'i' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 114; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-04-03 17:02:29 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_guamai`where id= <hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 116; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-04-03 17:02:59 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_guamai_appeal`where id= i<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'i' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 114; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-04-03 17:02:59 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_guamai`where id= <hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 116; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-04-03 17:03:28 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_guamai_appeal`where id= i<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'i' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 114; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+
+2019-04-03 17:03:28 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_guamai`where id= <hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/web/sale/index.php; line: 116; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 34; <br />file: /web/source/site/entry.ctrl.php; line: 81; <br />file: /web/index.php; line: 201; <br />
+=======
+2019-04-03 15:50:06 SQL Error :
+------------
+String:
+SQL: <br/>select id,couponid,openid,isparent,sendtime,price,merchid,isverify,addressid,isvirtualsend,virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2 <hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/task/order/receive.php; line: 23; <br />
+>>>>>>> 3b79a40b5fd618cac1d83ade88921a97f4dcd444
+
+>>>>>>> 57a870a223f7963b7989049988b6821fa68db8ad

@@ -108,22 +108,33 @@ class Index_EweiShopV2Page extends ComWebPage
 	{
 		global $_W;
 		global $_GPC;
+		$id = $_GPC['id'];
 		if(!empty($_GPC['id']))
 		{
 			$guamai_appeal = pdo_fetch('select * from '.tablename('guamai_appeal')."where id= ".$_GPC['id']);
-			if($guamai_appeal){
-				if($_GPC['type'] == 1)
-				{
-					$data = array("stuas"=>1);
-				}else if($_GPC['type'] == -1){
-					$data = array("stuas"=>1);
-				}
-			}
-			$list = pdo_update("guamai_appeal",$data,array('id'=>$guamai_appeal['id']));
-			if($list)
-			show_json(1,"操作成功");
+			$guamai_appeal['files']=json_decode($guamai_appeal['files']);
+			$guamai = pdo_fetch('select * from '.tablename('guamai')."where id= ".$guamai_appeal['order_id']);
+			// dump($guamai_appeal);die;
 		}
+		if ($_W['ispost'])
+		{
+			if($_GPC['type'] == 1){
+				// $user_id = $guamai_appeal['appeal_name'];
+				// $user = pdo_fetch('select id,openid,credit2 from '.tablename('ewei_shop_member')."where id= ".$user_id);
+				$data = array('stuas'=>1);
+			}else{
+				$data = array('stuas'=>2);
+			}
+			// dump($guamai_appeal['id']);die;
+			$appral_log = pdo_update("guamai_appeal",$data,array('id'=>$id));
+			if($appral_log){
+				show_json(1,"申诉成功");
+			}else{
+				show_json(1,"申诉失败");
 
+			}
+		}
+		include $this->template();
 	}
 
 	//TRX资产
@@ -347,7 +358,7 @@ class Index_EweiShopV2Page extends ComWebPage
 				//修改这次的所有的押注记录
 				pdo_update("stakejilu",array('thigh'=>1,'endtime'=>time()),array('uniacid'=>$_W['uniacid'],'thigh'=>0));
 
-				pdo_update("ewei_shop_lottery2",array('price'=>0,'number'=>'','sum'=>0,'numberis'=>$sale['number'],'time'=>$sale['time']),array('uniacid'=>$_W['uniacid']));
+				pdo_update("ewei_shop_lottery2",array('number'=>'','sum'=>0,'numberis'=>$sale['number'],'time'=>''),array('uniacid'=>$_W['uniacid']));
 				$array_data = array('number'=>$sale['number'],'time'=>$sale['time'],'datetime'=>time());
 				pdo_insert("ewei_shop_lottery2_log",$array_data);
 				show_json(1,"开奖成功");

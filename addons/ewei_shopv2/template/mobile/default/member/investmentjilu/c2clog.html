@@ -1,0 +1,51 @@
+{template '_header'}
+<style>
+    .goods-item {
+        margin: 10px;
+        border-bottom: 1px solid #ccc;
+        padding: .2rem 1rem;
+        background-color: #363a45;
+        color: #fff;
+    }
+    .fui-list-group{
+        margin-top: 0;
+    }
+    .fui-tab{
+        margin-bottom: 1px;;
+    }
+    .sty1{
+      margin-top: 53px;
+    }
+</style>
+
+<div class='fui-page  fui-page-current member-log-page'>
+
+    <div class="fui-header">
+
+        <div class="fui-header-left">
+
+            <a class="back"></a>
+
+        </div>
+
+        <div class="title">c2c交易记录</div>
+
+    </div>
+    <div class="sty1">
+    {loop $list $log}
+    <div class=" goods-item">
+      <div class="time">c2c交易时间：<span>{$log['createtime']}</span></div>
+      <div class="lis">
+        <p>ETH数量：{$log['title']}</p>
+        <p>交易金额：{$log['RMB']}</p>
+      </div>
+    </div>
+    {/loop}
+  </div>
+
+  </div>
+
+
+  {php $this->footerMenus()}
+
+{template '_footer'}

@@ -49,6 +49,18 @@ class Investmentjilu_EweiShopV2Page extends MobileLoginPage
 			show_json(1,$data);
 
 		}
+		if($type == 5){
+			$list =  pdo_fetchall("select g.*,m.nickname from".tablename("ewei_shop_member_log")."g left join".tablename("ewei_shop_member")."m on g.openid=m.openid"." where g.uniacid=:uniacid and g.openid=:openid and g.type=5 order by g.createtime desc".' LIMIT ' . (($pindex - 1) * $psize) . ',' . $psize,array(':uniacid'=>$_W['uniacid'],':openid'=>$_W['openid']));
+			foreach ($list as $key=>$val) {
+				$list[$key]['createtime'] = date("Y-m-d H:i:s",$val['createtime']);
+			}
+			$total = pdo_fetchcolumn("select count(g.id) from".tablename("ewei_shop_member_log")."g left join".tablename("ewei_shop_member")."m on g.openid=m.openid"." where g.uniacid=:uniacid and g.openid=:openid and g.type=5 order by g.createtime desc",array(':uniacid'=>$_W['uniacid'],':openid'=>$_W['openid']));
+
+			$data = array('status'=>1,"result"=>array('list' => $list, 'total' => $total, 'pagesize' => $psize));
+
+			// dump($list);die;
+			show_json(1,$data);
+		}
 
 		foreach ($list as $key=>$val) {
 			$list[$key]['createtime'] = date("Y-m-d H:i:s",$val['createtime']);
@@ -59,6 +71,27 @@ class Investmentjilu_EweiShopV2Page extends MobileLoginPage
 		$data = array('status'=>1,"result"=>array('list' => $list, 'total' => $total, 'pagesize' => $psize));
 
 		show_json(1,$data);
+	}
+	public function c2clog()
+	{
+		global $_W;
+		global $_GPC;
+
+		$type = $_GPC['type'];
+		$pindex = max(1, intval($_GPC['page']));
+		$psize = 10;
+		$openid = $_W['openid'];
+		if($type == 5){
+			$list =  pdo_fetchall("select g.*,m.nickname from".tablename("ewei_shop_member_log")."g left join".tablename("ewei_shop_member")."m on g.openid=m.openid"." where g.uniacid=:uniacid and g.openid=:openid and g.type=5 order by g.createtime desc".' LIMIT ' . (($pindex - 1) * $psize) . ',' . $psize,array(':uniacid'=>$_W['uniacid'],':openid'=>$_W['openid']));
+			foreach ($list as $key=>$val) {
+				$list[$key]['createtime'] = date("Y-m-d H:i:s",$val['createtime']);
+			}
+			// $total = pdo_fetchcolumn("select count(g.id) from".tablename("ewei_shop_member_log")."g left join".tablename("ewei_shop_member")."m on g.openid=m.openid"." where g.uniacid=:uniacid and g.openid=:openid and g.type=5 order by g.createtime desc",array(':uniacid'=>$_W['uniacid'],':openid'=>$_W['openid']));
+
+			// $data = array('status'=>1,"result"=>array('list' => $list, 'total' => $total, 'pagesize' => $psize));
+		}
+		// dump($list);die;
+		include $this->template();
 	}
 
 }

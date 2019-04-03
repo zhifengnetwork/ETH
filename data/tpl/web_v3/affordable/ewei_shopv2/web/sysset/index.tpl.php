@@ -36,41 +36,6 @@
 
             <div class="form-group">
 
-                <label class="col-lg control-label">3D海报</label>
-
-                <div class="col-sm-9 col-xs-12">
-
-                    <?php if(cv('sysset.shop.edit')) { ?>
-
-                    <?php  echo tpl_form_field_image2('data[signimg]', $data['signimg'])?>
-
-                    <span class='help-block'>3D海报，建议尺寸640*640</span>
-
-                    <?php  } else { ?>
-
-                    <input type="hidden" name="data[signimg]" value="<?php  echo $data['signimg'];?>"/>
-
-                    <?php  if(!empty($data['signimg'])) { ?>
-
-                    <a href='<?php  echo tomedia($data['signimg'])?>' target='_blank'>
-
-                    <img src="<?php  echo tomedia($data['signimg'])?>" style='width:100px;border:1px solid #ccc;padding:1px' />
-
-                    </a>
-
-                    <?php  } ?>
-
-                    <?php  } ?>
-
-
-
-                </div>
-
-            </div>
-
-
-            <div class="form-group">
-
                 <label class="col-lg control-label">商城LOGO</label>
 
                 <div class="col-sm-9 col-xs-12">
