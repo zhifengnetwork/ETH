@@ -513,7 +513,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 					m('member')->setCredit($_W['openid'],'credit2',-$sell['trx']);
 					$result = pdo_update("guamai",array('status'=>1,'openid2'=>$_W['openid'],'createtime'=>time(),'apple_time'=>$apple_time),array('uniacid'=>$_W['uniacid'],'id'=>$id));
 					// dump($sell['mobile']);die;
-					com('sms')->send_zhangjun2($sell['mobile'], $id,"卖出订单被抢单！");
+					com('sms')->send_zhangjun2($sell['mobile'], $_GPC['id'],"订单已被抢单成功！请在有效时间内及时查看");
 
 					show_json(1,"抢单成功");
 				}
