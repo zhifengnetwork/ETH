@@ -928,7 +928,7 @@ $('.mask0_btn').click(function () {
         let num = $('.maiChu_Num').val();
         $('.getMoney0').val(getMoney);
         setTrx = Number(num) + Number($('.sxf0').html());
-        $('.setTrx0').val(Number(setTrx));
+        $('.setTrx0').val(Number(setTrx).toFixed(4));
       } else {
         $('.getMoney0').val('0');
         $('.setTrx0').val("0");
@@ -949,7 +949,7 @@ $('.mask0_btn').click(function () {
         let num = $('.maiChu_Num').val();
         $('.getMoney0').val(getMoney);
         setTrx = Number(num) + Number($('.sxf0').html()*num/100);
-        $('.setTrx0').val(Number(setTrx));
+        $('.setTrx0').val(Number(setTrx).toFixed(4));
       } else {
         $('.getMoney0').val('0');
         $('.setTrx0').val("0");
@@ -968,8 +968,8 @@ $('.mask0_btn').click(function () {
 				let getMoney = muns * $('.maiRu_price').val();
 				let getMoney0 = Number($('.buyNum').val())-Number(sxf0);
 				// console.log();
-        $('.mairu_Money').val(Number(getMoney));
-				$('.getMoney0').val(Number(getMoney0));
+        $('.mairu_Money').val(Number(getMoney).toFixed(4));
+				$('.getMoney0').val(Number(getMoney0).toFixed(4));
       } else {
         $('.mairu_Money').val('0');
 				$('.getMoney0').val('0');
@@ -994,8 +994,9 @@ $('.mask0_btn').click(function () {
 			console.log($('.buyNum').val());
 			console.log($('.maiRu_price').val());
 			console.log(Number($('.buyNum').val())-Number(sxf0));
-			$('.mairu_Money').val(Number(getMoney));
-			$('.getMoney0').val(Number(getMoney0));
+
+			$('.mairu_Money').val(Number(getMoney).toFixed(4));
+			$('.getMoney0').val(Number(getMoney0).toFixed(4));
 		} else {
 			$('.mairu_Money').val('0');
 			$('.getMoney0').val('0');
