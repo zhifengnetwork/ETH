@@ -100,6 +100,7 @@
 		color: #fff;
 		font-size: 0.7rem;
 		touch-action: pan-x;
+		background: #071a21;
 	}
 
 	.pay-tt.active {
@@ -213,6 +214,7 @@
 		position: absolute;
 		display: none;
 		padding: .5rem;
+		background: #071a21;
 	}
 	.tab_content .tab_con.active{
 		display: block;
@@ -272,9 +274,7 @@
 	}
 
 	.maiRu_price {
-		padding: 5px 10px;
 		width: 100%;
-		/*border: 0;*/
 		outline-style: none;
 		border:0;
 		height: 1.4rem;
@@ -437,6 +437,8 @@
 		position: absolute;
 		width: 100%;
 		touch-action: pan-x;
+		background: #071a21;
+		z-index: 1;
 	}
   .tab_cut>ul{
 		display: flex;
@@ -753,11 +755,11 @@
 					</div>
 					<div class="mask_lis">
 						<p class="mask_lis_p">数量(ETH)</p>
-						<input type="number" placeholder="请输入卖出的数量" class="maiChu_Num">
+						<input type="number"  placeholder="请输入卖出的数量" class="maiChu_Num">
 					</div>
 					<div class="mask_lis">
 						<p>预获金额(CNY)</p>
-						<input class="mask_lis_input getMoney0" type="number" disabled value="0" >
+						<input class="mask_lis_input getMoney0"  type="number" disabled value="0" >
 						<div class="tishi">手续费：<span class="sxf0"><?php  echo $sys['trxsxf'];?></span>%</div>
 					</div>
 					<div class="mask_lis">
@@ -771,17 +773,17 @@
 				<div class="mask1">
 					<div class="mask1_pice">
 						<p>价格(CNY)</p>
-						<input type="number" placeholder="请输入买入的价格" class="maiRu_price">
+						<input type="number" min="0" placeholder="请输入买入的价格" class="maiRu_price">
 					</div>
 					<div class="tishi">参考价格：￥<span class="price_Min"><?php  echo $start;?></span>-￥<span class="price_Max"><?php  echo $end;?></span></div>
 
 					<p>买入数量(ETH)</p>
 					<div class="mask1_lis">
-						<input type="number " placeholder="请输入购买的数量" class="buyNum ">
+						<input type="number " min="0" placeholder="请输入购买的数量" class="buyNum ">
 					</div>
 					<div class="mask_lis">
 							<p>预获币数(ETH)</p>
-						<input class="mask_lis_input getMoney0" type="number" disabled value="0">
+						<input class="mask_lis_input getMoney0" type="number" disabled  value="0">
 						<div class="tishi">手续费：<span class="sxf0"><?php  echo $sys['trxsxf'];?></span>%</div>
 					</div>
 					<div class="mask_lis">
@@ -870,6 +872,22 @@
 
 </div>
 <script type="text/javascript">
+   //maiChu_Num,buyNum 获得焦点 
+	 $('.buyNum,.maiChu_Num').focus(function(){
+		//  let top = $(this).offset().top;
+		//  let top1 = $('.mask1').offset().top;
+		//  $('body').animate({'scrollTop':50},100)
+		//  $(".mask0_box").scrollTop(top);
+		// $('.mask0_box').scroll()
+		this.scrollIntoView()
+	 })
+   //input获得焦点 tab隐藏
+	  $('.mask0 input,.mask1 input').focus(function(){
+			$('.fui-navbar').hide();
+		})
+		.blur(function(){
+			$('.fui-navbar').show();
+		})
 // 申诉原因
 $('.button').click(function () {
 	let textarea = $('.textarea').val();

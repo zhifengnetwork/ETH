@@ -10,7 +10,6 @@
         <?php  if(is_h5app()) { ?>
         <link rel="stylesheet" type="text/css" href="../addons/ewei_shopv2/template/mobile/default/static/css/h5app.css?v=2.0.3">
         <?php  } ?>
-
         <link rel="stylesheet" type="text/css" href="<?php  echo EWEI_SHOPV2_LOCAL?>static/fonts/iconfont.css?v=2017070719">
         <!--<link rel="stylesheet" href="//at.alicdn.com/t/font_82607_e93d131lklr6n7b9.css">-->
         <script src="./resource/js/lib/jquery-1.11.1.min.js"></script>
