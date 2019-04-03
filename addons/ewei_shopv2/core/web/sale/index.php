@@ -358,7 +358,7 @@ class Index_EweiShopV2Page extends ComWebPage
 				//修改这次的所有的押注记录
 				pdo_update("stakejilu",array('thigh'=>1,'endtime'=>time()),array('uniacid'=>$_W['uniacid'],'thigh'=>0));
 
-				pdo_update("ewei_shop_lottery2",array('number'=>'','sum'=>0,'numberis'=>$sale['number'],'time'=>''),array('uniacid'=>$_W['uniacid']));
+				pdo_update("ewei_shop_lottery2",array('number'=>'','sum'=>0,'sums'=>$sale['sum'],'numberis'=>$sale['number'],'time'=>''),array('uniacid'=>$_W['uniacid']));
 				$array_data = array('number'=>$sale['number'],'time'=>$sale['time'],'datetime'=>time());
 				pdo_insert("ewei_shop_lottery2_log",$array_data);
 				show_json(1,"开奖成功");

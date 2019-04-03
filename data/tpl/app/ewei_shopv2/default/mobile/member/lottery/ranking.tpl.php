@@ -17,13 +17,13 @@
   #tit span{
 
   	display: inline-block;
-  
+
   	height: 1.5rem;
   	line-height: 1.5rem;
   	/*border: 1px solid green;*/
   	text-align: center;
     flex:1;
-  
+
 
   }
   .select{
@@ -148,13 +148,19 @@
     </div>
 
     <?php  if($investment == '') { ?>
+    <p style="text-align: center;font-size: 1rem;font-weight: 600;position: absolute;
+    top: 81px;
+    left: 18px;">今日投资总额: <?php  echo $sale['sum'];?></p>
     <p style="color: #f7f7f7;text-align: center;font-size: 1rem;font-weight: 600;position: absolute;
     top: 111px;
-    left: 18px;">投资总额: <?php  echo $sale['sum'];?></p>
+    right: 18px;">昨日投资总额: <?php  echo $sale['sums'];?></p>
     <?php  } else { ?>
+    <p style="text-align: center;font-size: 1rem;font-weight: 600;position: absolute;
+    top: 81px;
+    left: 18px;">今日投资总额: <?php  echo $sale['sum'];?></p>
     <p style="color: #f7f7f7;text-align: center;font-size: 1rem;font-weight: 600;position: absolute;
     top: 111px;
-    left: 18px;">投资总额: <?php  echo $sale['sum'];?></p>
+    right: 18px;">昨日投资总额: <?php  echo $sale['sums'];?></p>
     <?php  } ?>
 
 
@@ -166,7 +172,7 @@
 
     <div id="wrap">
         <div id="tit">
-            <span class="select">今日投资排名</span><span>明日投资数据</span><span>中奖名单</span>
+            <span class="select">今日投资排名</span><span>昨日投资数据</span><span>中奖名单</span>
         </div>
         <div id="con">
           <div class="show" >
@@ -193,28 +199,48 @@
 
           </div>
 
-          <div style="display: none;" class="getprice show">
-              <div class="getprice good-item">
-                  <?php  if(is_array($winning)) { foreach($winning as $winn) { ?>
-                <div class="lis">
 
-                    <p>时间：<?php  echo $winn['createtime'];?></p>
-                    <p>中奖号：<?php  echo $winn['number'];?></p>
-                    <p>中奖注数：<?php  echo $winn['stakesum'];?>股</p>
-
-                </div><div class="lis">
-                    <p>中奖人昵称：<?php  echo $winn['openid'];?></p>
-                    <p>中奖金额：<?php  echo $winn['money'];?></p>
-                    <p>投注中奖</p>
-                </div>
-                <?php  } } ?>
-              </div>
-          </div>
 
          <!-- 3 -->
          <div style="display: none;" class="getprice show">
-          3
+             <!--data 头部-->
+             <div class="headertitle lis">
+                <p style="margin-left: 17px;"><span>排名</span><span>ID</span><span>昵称</span><span>预计获奖</span><span style="font-size: .6rem;">昨日投资金额<br/>(ETH)</span></p>
+
+              </div>
+              <!--data list -->
+              <div class="data_listWrap">
+                    <?php  if(is_array($t_investment)) { foreach($t_investment as $val1) { ?>
+                      <p class="data_listBox" style="font-size:.6rem">
+                        <span class="data_listBox_term">第<?php  echo $val1['type'];?>名</span>
+                        <span class="data_listBox_term">
+                          <?php  echo $val1['id'];?>
+                        </span>
+                        <span class="data_listBox_term"><?php  echo $val1['nickname'];?></span>
+                        <span class="data_listBox_term"><?php  echo $val1['yuji'];?> <span>(<?php  echo $val1['bfb'];?>%)</span> </span>
+                        <span class="data_listBox_term"><?php  echo $val1['moneys'];?></span>
+                      </p>
+                    <?php  } } ?>
+              </div>
          </div>
+
+         <div style="display: none;" class="getprice show">
+            <div class="getprice good-item">
+                <?php  if(is_array($winning)) { foreach($winning as $winn) { ?>
+              <div class="lis">
+
+                  <p>时间：<?php  echo $winn['createtime'];?></p>
+                  <p>中奖号：<?php  echo $winn['number'];?></p>
+                  <p>中奖注数：<?php  echo $winn['stakesum'];?>股</p>
+
+              </div><div class="lis">
+                  <p>中奖人昵称：<?php  echo $winn['openid'];?></p>
+                  <p>中奖金额：<?php  echo $winn['money'];?></p>
+                  <p>投注中奖</p>
+              </div>
+              <?php  } } ?>
+            </div>
+        </div>
 
 
 
