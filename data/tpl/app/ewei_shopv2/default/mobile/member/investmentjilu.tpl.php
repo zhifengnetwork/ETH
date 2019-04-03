@@ -62,41 +62,6 @@
         <div class='infinite-loading'><span class='fui-preloader'></span><span class='text'> 正在加载...</span></div>
 
     </div>
-    <script id="tpl_maichu" type="text/html">
-        <ul>
-        <% each list as val %>
-          <li class="lis">
-            <p style="color: #fff;">挂卖编号：<% val.id %> </p>
-            <div class="lis_lie lis_lie0">
-              <p>挂单人:  <% val.nickname %>　
-                <% if val.zfbfile==1 %> <i class="icon icon-alipay"></i> <% /if %>
-                <% if val.wxfile==1 %> <i class="icon icon-wechat1"></i> <% /if %>
-                <% if val.bank==1 %> <i class="icon icon-vipcard"></i> <% /if %>
-              </p>
-              <span>￥<% val.price %> </span>
-            </div>
-            <% if val.openid2 != '' %>
-            <p style="color:#c2a378">抢单人：<% val.nickname2 %></p>
-            <% /if %>
-            <div class="lis_lie lis_lie1">挂单数量 <% val.trx %></div>
-            <!-- <div class="lis_lie lis_lie2">限额 2800.0-2800.0 UES</div> -->
-            <!-- <% if val.status == 0 %>
-            <div class="maiRu_btn" data-id='<% val.id %>' <% if val.self == 1 %> onclick="alert('不能买入自己发放的账单')"<% else if val.self3 == 1 %> onclick="alert('该账单正在交易中')"<% else %> onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<% val.id %>&op=1'"<% /if %>>买入
-            </div>
-            <% /if %> -->
-            <% if val.status == 0 %>
-            <div class="maiChu_btn" data-id="<% val.id %>"
-              <% if val.self == 1 %> onclick="alert('不能买入自己发放的账单')"
-              <% else if val.self3 == 1 %> onclick="alert('该账单正在交易中')"
-              <% else %> data-flag = '0' <% /if %> >买入</div>
-            <% /if %>
-            <% if val.status == 1 %>
-            <div class="maiRu_btn" data-id='<% val.id %>' style="background-color: #a02332;" <% if val.self == 1 %> onclick="alert('不能买入自己发放的账单')"<% else if val.self3 == 1 %> onclick="alert('该账单正在交易中')"<% else %> onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<% val.id %>&op=1'"<% /if %>>交易中</div>
-            <% /if %>
-          </li>
-        <% /each %>
-        </ul>
-    </script>
 
 
 
