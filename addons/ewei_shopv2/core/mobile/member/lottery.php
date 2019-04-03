@@ -231,7 +231,7 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 		global $_GPC;
 
 		$sale = pdo_fetch("select * from".tablename("ewei_shop_lottery2")."where id=1");
-		dump($sale);
+
 		//昨天开始时间
 		$t_start = mktime(0,0,0,date('m'),date('d')-1,date('Y'));
 		//昨天结束时间
@@ -240,8 +240,8 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 		$start = mktime(0,0,0,date('m'),date('d'),date('Y'));
 		$end = mktime(0,0,0,date('m'),date('d')+1,date('Y'))-1;
 		//查出昨日投资前10名
-		$t_investment = pdo_fetchall("select m.id,l.openid,m.avatar,m.nickname,m.mobile,sum(l.money) as moneys from ".tablename("stakejilu")." l left join ".tablename("ewei_shop_member")." m on l.openid=m.openid "." where l.uniacid=".$_W['uniacid']." and l.createtime>'$t_start' and l.createtime<'$t_end' group by l.openid order by moneys desc limit 0,10");
-
+		$t_investment = pdo_fetchall("select m.id,l.openid,m.avatar,m.nickname,m.mobile,sum(l.money) as moneys from ".tablename("stakejilu")." l left join ".tablename("ewei_shop_member")." m on l.openid=m.openid "." where l.uniacid=".$_W['uniacid']." and l.createtime>='$t_start' and l.createtime<='$t_end' group by l.openid order by moneys desc limit 0,10");
+		// dump($t_investment);
 		//查出今日投资的前10名
 		$investment = pdo_fetchall("select m.id,l.openid,m.avatar,m.nickname,m.mobile,sum(l.money) as moneys from ".tablename("stakejilu")." l left join ".tablename("ewei_shop_member")." m on l.openid=m.openid "." where l.uniacid=".$_W['uniacid']." and l.createtime>'$start' and l.createtime<'$end' group by l.openid order by moneys desc limit 0,10");
 		// dump($investment);
