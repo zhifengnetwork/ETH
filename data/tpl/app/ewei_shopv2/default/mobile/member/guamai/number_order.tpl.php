@@ -163,7 +163,7 @@
 	/*------tab切换里面的内容------*/
 	.tab_header {
 		height: 100%;
-		width: 100%; 	
+		width: 100%;
 		padding-top: 2rem;
 		box-sizing: border-box;
 		-webkit-box-sizing: border-box;
@@ -981,11 +981,11 @@ $('.mask0_btn').click(function () {
       }
 
       if($('.maiChu_Num').val() != '' && $('.maiChu_price').val() != ''){
-        let getMoney = $('.maiChu_Num').val() * $('.maiChu_price').val();
-        let num = $('.maiChu_Num').val();
+        let getMoney =  Number($('.maiChu_Num').val()) *  Number($('.maiChu_price').val());
+        let num =  $('.maiChu_Num').val();
         $('.getMoney0').val(getMoney);
         setTrx = Number(num) + Number($('.sxf0').html());
-        $('.setTrx0').val(Number(setTrx).toFixed(4));
+        $('.setTrx0').val(Number(setTrx).toFixed(8));
       } else {
         $('.getMoney0').val('0');
         $('.setTrx0').val("0");
@@ -994,19 +994,25 @@ $('.mask0_btn').click(function () {
     })
     // 监听卖出数量的input变化
     $('.maiChu_Num').bind('input onpropertychange',function () {
-      let r = /^[1-9]+[0-9]*]*$/;
-      if(!r.test($('.maiChu_Num').val())){
-        alert('卖出数量必须为大于0的整数');
-        $('.maiChu_Num').val('');
-        return false;
-      }
+      // let r = /^[1-9]+[0-9]*]*$/;
+      // if(!r.test($('.maiChu_Num').val())){
+      //   alert('卖出数量必须为大于0的整数');
+      //   $('.maiChu_Num').val('');
+      //   return false;
+      // }
 
       if($('.maiChu_price').val() != '' && $('.maiChu_Num').val() != ''){
-        let getMoney = $('.maiChu_Num').val() * $('.maiChu_price').val();
+				// 000
+				console.log(Number($('.maiChu_Num').val()));
+				console.log(Number($('.maiChu_price').val()));
+
+				// 000
+        let getMoney = Number($('.maiChu_Num').val())*Number($('.maiChu_price').val());
+				// console.log(Number(getMoney).toFixed(4));
         let num = $('.maiChu_Num').val();
-        $('.getMoney0').val(getMoney);
+        $('.getMoney0').val(Number(getMoney).toFixed(8));
         setTrx = Number(num) + Number($('.sxf0').html()*num/100);
-        $('.setTrx0').val(Number(setTrx).toFixed(4));
+        $('.setTrx0').val(Number(setTrx).toFixed(8));
       } else {
         $('.getMoney0').val('0');
         $('.setTrx0').val("0");
@@ -1016,7 +1022,7 @@ $('.mask0_btn').click(function () {
     // 监听买入价格的input变化
     $('.maiRu_price').bind('input onpropertychange',function () {
       if($('.maiRu_price').val() < 0){
-        alert('卖出价格必须大于0');
+        alert('买入价格必须大于0');
         $('.maiRu_price').val('');
         return false;
       }
@@ -1025,8 +1031,8 @@ $('.mask0_btn').click(function () {
 				let getMoney = muns * $('.maiRu_price').val();
 				let getMoney0 = Number($('.buyNum').val())-Number(sxf0);
 				// console.log();
-        $('.mairu_Money').val(Number(getMoney).toFixed(4));
-				$('.getMoney0').val(Number(getMoney0).toFixed(4));
+        $('.mairu_Money').val(Number(getMoney).toFixed(8));
+				$('.getMoney0').val(Number(getMoney0).toFixed(8));
       } else {
         $('.mairu_Money').val('0');
 				$('.getMoney0').val('0');
@@ -1035,12 +1041,12 @@ $('.mask0_btn').click(function () {
     })
     // 监听买入数量的input变化
     $('.buyNum').bind('input onpropertychange',function () {
-      let r = /^[1-9]+[0-9]*]*$/;
-      if(!r.test($('.buyNum').val())){
-        alert('卖出数量必须为大于0的整数');
-        $('.buyNum').val('');
-        return false;
-      }
+      // let r = /^[1-9]+[0-9]*]*$/;
+      // if(!r.test($('.buyNum').val())){
+      //   alert('卖出数量必须为大于0的整数');
+      //   $('.buyNum').val('');
+      //   return false;
+      // }
 
     if($('.maiRu_price').val() != '' && $('.buyNum').val() != ''){
 			var sxf0 = $('.sxf0').html()*$('.buyNum').val()/100;
@@ -1048,12 +1054,12 @@ $('.mask0_btn').click(function () {
 			var muns =  Number($('.buyNum').val());
 			let getMoney = muns * $('.maiRu_price').val();
 			let getMoney0 = Number($('.buyNum').val())-Number(sxf0);
-			console.log($('.buyNum').val());
-			console.log($('.maiRu_price').val());
-			console.log(Number($('.buyNum').val())-Number(sxf0));
+			// console.log($('.buyNum').val());
+			// console.log($('.maiRu_price').val());
+			// console.log(Number($('.buyNum').val())-Number(sxf0));
 
-			$('.mairu_Money').val(Number(getMoney).toFixed(4));
-			$('.getMoney0').val(Number(getMoney0).toFixed(4));
+			$('.mairu_Money').val(Number(getMoney).toFixed(8));
+			$('.getMoney0').val(Number(getMoney0).toFixed(8));
 		} else {
 			$('.mairu_Money').val('0');
 			$('.getMoney0').val('0');
@@ -1115,7 +1121,7 @@ $('.mask0_btn').click(function () {
 			$(this).addClass("on").siblings().removeClass("on");
 			//内容切换
 			 $(".tab_content .tab_con").eq(index).addClass("active").siblings().removeClass("active");
-		
+
 		//买入卖出切换
 		if(index == 0){
 			$('.tab_cut').show()

@@ -181,7 +181,7 @@
    .advert_con{
 
     border: 1px solid #ccc;
-    width: 5.5rem;
+    /* width: 6rem; */
 
 
 
@@ -314,11 +314,11 @@
       <div class="mask0_box">
          <p>自由账户：<span class="TRX"></span></p>
          <p>复投账户：<span class="futou"></span></p>
-         <p>代下注金额：<span class="mask0_money"></span></p>
+         <p>下注金额：<span class="mask0_money"></span></p>
          <p>下注总数：<span class="mask0_zhushu"></span>注</p>
          <p>
            <span>支付方式：</span>
-           <select name="mask0_box_select" id="mask0_box_select" aria-placeholder="请选择支付方式">
+           <select name="mask0_box_select" id="mask0_box_select" aria-placeholder="请选择支付方式" style="border: 1px solid black">
               <option value="0">请选择支付方式</option>
               <option value="1">自由账户支付</option>
               <option value="2">复投余额支付</option>
@@ -415,7 +415,7 @@
   $('.foot_btn').click(function () {
 
     if($('.price').html() == 0 && $('.listBox').text() != ''){
-      alert('当前股票单价为0,不可加注');
+      alert('当前彩票单价为0,不可加注');
       return;
     }
 
@@ -429,8 +429,9 @@
       beishu += Number($(this).val())
     })
     let moneyAll = beishu * $('.price').html();
-    $('.mask0_money').html(moneyAll);
-    $('.mask0_zhushu').html($('.listBox > .lis').length);
+    let mask0_zhushu = moneyAll/$('.price').html();
+    $('.mask0_money').html(Number(moneyAll).toFixed(6));
+    $('.mask0_zhushu').html(Number(mask0_zhushu).toFixed(0));
 
     $.ajax({
       type:'post',
