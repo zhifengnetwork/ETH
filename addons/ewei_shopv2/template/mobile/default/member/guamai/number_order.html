@@ -926,6 +926,8 @@ $('.mask0_btn').click(function () {
         let num = $('.maiChu_Num').val();
         $('.getMoney0').val(getMoney);
         setTrx = Number(num) + Number($('.sxf0').html());
+				var setTrx2 = setTrx.toFiexd(2);
+				console.log(setTrx2)
         $('.setTrx0').val(setTrx);
       } else {
         $('.getMoney0').val('0');

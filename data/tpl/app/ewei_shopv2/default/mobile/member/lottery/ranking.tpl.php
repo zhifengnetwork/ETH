@@ -8,16 +8,22 @@
 
     display: none;
   }
+  #tit{
+
+    display: flex;
+
+  }
 
   #tit span{
 
   	display: inline-block;
-  	width: 29%;
+  
   	height: 1.5rem;
   	line-height: 1.5rem;
   	/*border: 1px solid green;*/
   	text-align: center;
-  	margin-left: 14%;
+    flex:1;
+  
 
   }
   .select{
@@ -160,7 +166,7 @@
 
     <div id="wrap">
         <div id="tit">
-            <span class="select">投资排名</span><span>中奖名单</span>
+            <span class="select">今日投资排名</span><span>明日投资数据</span><span>中奖名单</span>
         </div>
         <div id="con">
           <div class="show" >
@@ -204,6 +210,15 @@
                 <?php  } } ?>
               </div>
           </div>
+
+         <!-- 3 -->
+         <div style="display: none;" class="getprice show">
+          3
+         </div>
+
+
+
+
         </div>
 </div>
 
