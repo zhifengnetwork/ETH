@@ -65,7 +65,7 @@
 				<span class="tipsText" style="font-size: 0.2rem !important;">请点击“选择图片”上传二维码。</span>
 				<!--渲染图片-->
 				<ul class="upImgUl">
-
+       
 				</ul>
 				<!--上传图片 tyle='file'-->
 				<a class="uploadFile2" href=" ">选择图片</a>
@@ -90,7 +90,7 @@
 		var that = $(e);
 		console.log('多张图片！',e.files);
 		/*初始化*/
-		upImgArr = [];
+		//upImgArr = [];
 		if(e.files) {
 			/* 提示文字，隐藏 */
 			that.siblings(".tipsText").hide();
@@ -167,6 +167,7 @@
 					/*创建标签*/
 					var strImg = '';
 					$('.files').val(data.result);
+					console.log(data.result)
 					for(var j=0;j<data.result.length;j++){
 						strImg += '<li><img src="../attachment/'+ data.result[j] +'" /> </li>';
 					}
