@@ -162,7 +162,7 @@
 	/*------tab切换里面的内容------*/
 	.tab_header {
 		height: 100%;
-		width: 100%; 	
+		width: 100%;
 		padding-top: 2rem;
 		box-sizing: border-box;
 		-webkit-box-sizing: border-box;
@@ -963,8 +963,8 @@ $('.mask0_btn').click(function () {
       }
 
       if($('.maiChu_Num').val() != '' && $('.maiChu_price').val() != ''){
-        let getMoney = $('.maiChu_Num').val() * $('.maiChu_price').val();
-        let num = $('.maiChu_Num').val();
+        let getMoney =  Number($('.maiChu_Num').val()) *  Number($('.maiChu_price').val());
+        let num =  $('.maiChu_Num').val();
         $('.getMoney0').val(getMoney);
         setTrx = Number(num) + Number($('.sxf0').html());
         $('.setTrx0').val(Number(setTrx).toFixed(4));
@@ -984,9 +984,15 @@ $('.mask0_btn').click(function () {
       }
 
       if($('.maiChu_price').val() != '' && $('.maiChu_Num').val() != ''){
-        let getMoney = $('.maiChu_Num').val() * $('.maiChu_price').val();
+				// 000
+				console.log(Number($('.maiChu_Num').val()));
+				console.log(Number($('.maiChu_price').val()));
+
+				// 000
+        let getMoney = Number($('.maiChu_Num').val())*Number($('.maiChu_price').val());
+				console.log(Number(getMoney).toFixed(4));
         let num = $('.maiChu_Num').val();
-        $('.getMoney0').val(getMoney);
+        $('.getMoney0').val(Number(getMoney).toFixed(4));
         setTrx = Number(num) + Number($('.sxf0').html()*num/100);
         $('.setTrx0').val(Number(setTrx).toFixed(4));
       } else {
@@ -1097,7 +1103,7 @@ $('.mask0_btn').click(function () {
 			$(this).addClass("on").siblings().removeClass("on");
 			//内容切换
 			 $(".tab_content .tab_con").eq(index).addClass("active").siblings().removeClass("active");
-		
+
 		//买入卖出切换
 		if(index == 0){
 			$('.tab_cut').show()
