@@ -108,22 +108,22 @@ class Index_EweiShopV2Page extends ComWebPage
 	{
 		global $_W;
 		global $_GPC;
-		if(!empty($_GPC['id']))
-		{
-			$guamai_appeal = pdo_fetch('select * from '.tablename('guamai_appeal')."where id= ".$_GPC['id']);
-			if($guamai_appeal){
-				if($_GPC['type'] == 1)
-				{
-					$data = array("stuas"=>1);
-				}else if($_GPC['type'] == -1){
-					$data = array("stuas"=>1);
-				}
-			}
-			$list = pdo_update("guamai_appeal",$data,array('id'=>$guamai_appeal['id']));
-			if($list)
-			show_json(1,"操作成功");
-		}
-
+		// if(!empty($_GPC['id']))
+		// {
+		// 	$guamai_appeal = pdo_fetch('select * from '.tablename('guamai_appeal')."where id= ".$_GPC['id']);
+		// 	if($guamai_appeal){
+		// 		if($_GPC['type'] == 1)
+		// 		{
+		// 			$data = array("stuas"=>1);
+		// 		}else if($_GPC['type'] == -1){
+		// 			$data = array("stuas"=>1);
+		// 		}
+		// 	}
+		// 	$list = pdo_update("guamai_appeal",$data,array('id'=>$guamai_appeal['id']));
+		// 	if($list)
+		// 	show_json(1,"操作成功");
+		// }
+include $this->template();
 	}
 
 	//TRX资产
