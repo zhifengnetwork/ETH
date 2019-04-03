@@ -1,17 +1,4 @@
 <?php defined('IN_IA') or exit('Access Denied');?><?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('_header', TEMPLATE_INCLUDEPATH)) : (include template('_header', TEMPLATE_INCLUDEPATH));?>
-<style>
-.se_tank{width: 100%;height: 0rem;background: #0a181f;position: absolute;bottom: 2.45rem;transition: all 1s;}
-.se_title{margin-top: 2.5rem;margin-left: 0.3rem;}
-.se_title span{font-size: 0.7rem;color: #fff;}
-.se_title input{width: 70%;height: 1.5rem;border: none;outline: none;border-radius: 0.2rem;padding-left: 0.2rem;}
-.se_tank h2{font-size: 0.8rem;color: #fff;font-weight: inherit;line-height: 2.5rem;}
-.se_tank_span{position: absolute;top: 5%;right: 5%;color: #fff;font-size: 0.8rem;}
-.se_tank_con{margin-top: 0.7rem;margin-left: 0.3rem;}
-.se_tank_con textarea{border-radius: 0.2rem; width: 70%;height: 5rem;resize: none;border: none;padding: 0.3rem;font-size: 0.65rem;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
-.se_tank_con p{font-size: 0.7rem;color: #fff;display: inline-block;vertical-align:top;}
-.se_tank_btn{width: 68.5%;height: 3.5rem;line-height: 2.5rem;margin-left: 22%;}
-.se_tank_btn button{width: 100%;height: 1.6rem;background: #0a0;border: none;color: #fff;border-radius: 0.2rem;}
-</style>
 <?php  if($op ==0 && $type==2) { ?>   <!-- 卖出订单   挂卖人进入 -->
 <!-- 收钱 卖出 -->
 <style>
@@ -104,6 +91,7 @@
 
     <div class='fui-content navbar'>
       <div class="txtInfo">
+        <p>订单号：<?php  echo $sell['id'];?> </p>
         <?php  if($op == 1) { ?>
         <p>挂卖人：<?php  echo $sell['mobile2'];?> </p>
         <?php  } else if($op == 0) { ?>
@@ -137,7 +125,9 @@
         </div>
 
         <div class="buyBtn">确定收款</div>
-        <div class="Btn_on">申诉</div>
+        <a href="<?php  echo mobileurl('member/guamai/appeal')?>&id=<?php  echo $sell['id'];?>">
+          <div class="Btn_on">申诉</div>
+        </a>
 
 
       </div>
@@ -145,20 +135,6 @@
 
 
     </div>
-    <div class="se_tank">
-        <span class="se_tank_span">收起</span>
-        <div class="se_title">
-          <span>申诉标题:</span>
-          <input class="text" name="text" type="text" />
-        </div>
-        <div class="se_tank_con">
-          <p>申诉内容:</p>
-          <textarea class="textarea"></textarea>
-        </div>
-        <div class="se_tank_btn">
-          <a><button class="button">确定</button></a>
-        </div>
-      </div>
   </div>
 
   <script type="text/javascript">
@@ -354,6 +330,7 @@
 
     <div class='fui-content navbar'>
       <div class="txtInfo">
+          <p>订单号：<?php  echo $sell['id'];?> </p>
         <?php  if($op == 1) { ?>
         <p>挂卖人：<?php  echo $sell['mobile2'];?> </p>
         <?php  } else if($op == 0) { ?>
@@ -442,6 +419,7 @@
         <div class="buyBtn">确定更改</div>
         <?php  } ?>
       </div>
+<<<<<<< HEAD
       <div class="Btn_on">申诉</div>
 <<<<<<< HEAD
 =======
@@ -460,6 +438,11 @@
         <a><button class="button">确定</button></a>
       </div>
 >>>>>>> f97f30030299f929a01534208ff4b2187395a1f8
+=======
+      <a href="<?php  echo mobileurl('member/guamai/appeal')?>&id=<?php  echo $sell['id'];?>">
+        <div class="Btn_on">申诉</div>
+      </a>
+>>>>>>> 58c5a18db8565df63916ab707967788866e20736
     </div>
   </div>
 
@@ -502,7 +485,7 @@
         $.ajax({
           type:'post',
           url:"<?php  echo mobileurl('member/guamai/sellout')?>",
-          data:{id:"<?php  echo $sell['id'];?>",mobile:"<?php  echo $sell['mobile'];?>",file:$('#avatar').val(),type:1,op:1},
+          data:{id:"<?php  echo $sell['id'];?>",mobile:"<?php  echo $sell['mobile'];?>",file:$('#avatar').val(),type:0,op:1},
           dataType:'json',
           success:function(data){
             console.log(data);
@@ -663,6 +646,7 @@
 
     <div class='fui-content navbar'>
       <div class="txtInfo">
+        <p>订单号：<?php  echo $sell['id'];?> </p>
         <?php  if($op == 1) { ?>
         <p>挂卖人：<?php  echo $sell['mobile'];?> </p>
         <?php  } else if($op == 0) { ?>
@@ -695,23 +679,15 @@
           </div>
         </div>
         <div class="buyBtn">确定收款</div>
+<<<<<<< HEAD
         <div class="Btn_on">申诉</div>
+=======
+        <a href="<?php  echo mobileurl('member/guamai/appeal')?>&id=<?php  echo $sell['id'];?>">
+          <div class="Btn_on">申诉</div>
+        </a>
+>>>>>>> 58c5a18db8565df63916ab707967788866e20736
       </div>
     </div>
-    <div class="se_tank">
-        <span class="se_tank_span">收起</span>
-        <div class="se_title">
-          <span>申诉标题:</span>
-          <input class="text" name="text" type="text" />
-        </div>
-        <div class="se_tank_con">
-          <p>申诉内容:</p>
-          <textarea class="textarea"></textarea>
-        </div>
-        <div class="se_tank_btn">
-          <a><button class="button">确定</button></a>
-        </div>
-      </div>
   </div>
 
   <script type="text/javascript">
@@ -911,6 +887,7 @@
 
     <div class='fui-content navbar'>
       <div class="txtInfo">
+        <p>订单号：<?php  echo $sell['id'];?> </p>
         <?php  if($op == 1) { ?>
         <p>挂卖人：<?php  echo $sell['mobile'];?> </p>
         <?php  } else if($op == 0) { ?>
@@ -978,24 +955,12 @@
         <?php  } ?>
 
       </div>
-      <div class="Btn_on">申诉</div>
+      <a href="<?php  echo mobileurl('member/guamai/appeal')?>&id=<?php  echo $sell['id'];?>">
+        <div class="Btn_on">申诉</div>
+      </a>
 
 
     </div>
-    <div class="se_tank">
-        <span class="se_tank_span">收起</span>
-        <div class="se_title">
-          <span>申诉标题:</span>
-          <input class="text" name="text" type="text" />
-        </div>
-        <div class="se_tank_con">
-          <p>申诉内容:</p>
-          <textarea class="textarea"></textarea>
-        </div>
-        <div class="se_tank_btn">
-          <a><button class="button">确定</button></a>
-        </div>
-      </div>
   </div>
 
   <script src="../addons/ewei_shopv2/static/js/dist/ajaxfileupload.js" type="text/javascript"></script>
@@ -1037,7 +1002,7 @@
         $.ajax({
           type:'post',
           url:"<?php  echo mobileurl('member/guamai/sellout')?>",
-          data:{id:"<?php  echo $sell['id'];?>",mobile:"<?php  echo $sell['mobile'];?>",file:$('#avatar').val(),type:2,op:1},
+          data:{id:"<?php  echo $sell['id'];?>",mobile:"<?php  echo $sell['mobile'];?>",file:$('#avatar').val(),type:1,op:1},
           dataType:'json',
           success:function(data){
             console.log(data);
@@ -1102,34 +1067,5 @@
     })
   </script>
 <?php  } ?>
-<script>
-$('.Btn_on').click(function () {
-  $(".se_tank").css('height','13rem');
-});
-$(".se_tank_span").click(function(){
-  $(".se_tank").css('height',0);
-})
-$(".button").click(function(){
-  let id = "<?php  echo $sell['id'];?>";
-  let text = $(".text").val();
-  let textarea = $(".textarea").val();
-  $.ajax({
-    type:'post',
-    url:"<?php  echo mobileurl('member/guamai/tab_con')?>",
-    data:{id:id,text:text,textarea:textarea},
-    dataType:'json',
-    success:function(data){
-      console.log(data);
-      if(data.status == 1){
-        alert(data.result.message);
-        // history.back(-1);
-        $(".se_tank").css('height',0);
-      }
-    },error:function(err){
-      console.log(err);
-    }
-  })
-});
-</script>
 <?php  $this->footerMenus()?>
 <?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('_footer', TEMPLATE_INCLUDEPATH)) : (include template('_footer', TEMPLATE_INCLUDEPATH));?>

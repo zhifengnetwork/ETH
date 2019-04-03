@@ -80,7 +80,7 @@
         <p>申诉订单：<?php  echo $guamai_appeal['textarea'];?> </p>
         <p>申诉人：<?php  echo $users['mobile'];?> </p>
         <?php  if($guamai_appeal['openid'] == $users['openid']) { ?>
-        <p>被申诉人：<?php  echo $guamai_appeal['openid2'];?> </p>
+        <p>被申诉人：<?php  echo $guamai_appeal['openid'];?> </p>
         <?php  } else { ?>
         <p>被申诉人：<?php  echo $guamai_appeal['openid2'];?> </p>
         <?php  } ?>

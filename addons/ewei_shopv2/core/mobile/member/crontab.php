@@ -26,23 +26,26 @@ class Crontab_EweiShopV2Page
 				continue;
 			}
 			$openid = $val['openid'];
+			$openid2 = $val['openid2'];
 			$users = pdo_fetch("select id,openid,credit2 from".tablename("ewei_shop_member")." where openid='".$openid."'");
+			$users2 = pdo_fetch("select id,openid,credit2 from".tablename("ewei_shop_member")." where openid='".$openid2."'");
 			if(empty($users)){
 				continue;
 			}
 			$appeal_money = $val['trx'];
 			if($val['type'] == 1){
 				$appeal_money = $val['trx2'];
+			}else if($val['type']==0){
+				$appeal_money2 = $val['trx'];
 			}
-
 			$users['credit2'] = $users['credit2'] + $appeal_money;
+			$users2['credit2'] = $users2['credit2'] + $appeal_money2;
 			$updeta_order = pdo_update("guamai",array("status"=>3),array("openid"=>$val['openid'],"id"=>$val['id']));
 			if($updeta_order){
-				$result = pdo_update("ewei_shop_member",array("credit2"=>$users['credit2']),array("openid"=>$val['openid']));
-
+				pdo_update("ewei_shop_member",array("credit2"=>$users['credit2']),array("openid"=>$val['openid']));
+				// pdo_update("ewei_shop_member",array("credit2"=>$users2['credit2']),array("openid"=>$val['openid2']));
 				echo('执行成功-----'.$data);
 			}else{
-
 				echo('执行失败-----'.$data);
 				continue;
 			}
