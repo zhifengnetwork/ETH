@@ -1,9 +1,15 @@
+<<<<<<< HEAD
+2019-04-03 18:01:48 SQL Error :
+=======
 2019-04-03 13:49:59 SQL Error :
+>>>>>>> 57a870a223f7963b7989049988b6821fa68db8ad
 ------------
 String:
 SQL: <br/>select id,couponid,openid,isparent,sendtime,price,merchid,isverify,addressid,isvirtualsend,virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2 <hr/>Params: <br/>array (
 )<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/task/order/receive.php; line: 23; <br />
 
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 2019-04-03 16:47:52 SQL Error :
 ------------
@@ -110,3 +116,4 @@ SQL: <br/>select id,couponid,openid,isparent,sendtime,price,merchid,isverify,add
 )<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/task/order/receive.php; line: 23; <br />
 >>>>>>> 3b79a40b5fd618cac1d83ade88921a97f4dcd444
 
+>>>>>>> 57a870a223f7963b7989049988b6821fa68db8ad
