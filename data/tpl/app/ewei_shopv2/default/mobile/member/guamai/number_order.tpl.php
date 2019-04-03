@@ -147,7 +147,7 @@
 
 
 	/*---tab切换---*/
-	.box_nav{position: fixed;width: 100%;height: 2rem;background: #0a181f;max-width: 750px;z-index:100;}
+	.box_nav{width: 100%;height: 2rem;background: #0a181f;max-width: 750px;position: absolute;z-index: 1;}
 	.box_nav ul li {
 		width: 33%;
 		float: left;
@@ -158,7 +158,11 @@
 	}
 	/*------tab切换里面的内容------*/
 	.tab_header {
-		width: 100%
+		width: 100%;
+		padding-top: 2rem;
+		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
 	}
 	.tab_con1_one {
 		line-height: 2rem;
@@ -186,7 +190,7 @@
 
 	.tab_content {
 		color: #fff;
-		padding: 2rem 0 0.5rem 0;
+		padding: 0 0 0.5rem 0;
 		box-sizing: border-box;
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
@@ -212,18 +216,18 @@
 	}
 
 	.mask1>.mask1_lis {
-		/*display: flex;*/
-		background-color: #fff;
 		color: #000;
-		/*padding: 5px 10px;*/
-		/*align-items: center;*/
 	}
 
 	.mask1>.mask1_lis>.buyNum {
-		padding: 5px 10px;
 		width: 100%;
-		/*border: 0;*/
 		outline-style: none;
+		border:0;
+		height: 1.4rem;
+    padding-left: 5px;
+		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
 	}
 
 	.mask1>.mask1_lis>.allBuy {
@@ -259,6 +263,9 @@
 		width: 100%;
 		/*border: 0;*/
 		outline-style: none;
+		border:0;
+		height: 1.4rem;
+    padding-left: 5px;
 	}
 
 	.mask1 {
@@ -283,10 +290,21 @@
 
 	.mask0>.mask_lis>input {
 		width: 100%;
-		padding: 5px 10px;
+		padding-left: 5px ;
+		height: 1.4rem;
+		border:0;
+		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
 	}
-	.mask_lis_input{width: 100%;
-		padding: 5px 10px;}
+	.mask_lis_input{
+		width: 100%;
+		border: 0;
+		padding: 5px 10px;
+		/* box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box; */
+		}
 	.tishi {
 		text-align: right;
 		color: #888;
@@ -738,7 +756,7 @@
 
 					<p>买入数量(ETH)</p>
 					<div class="mask1_lis">
-						<input type="number" placeholder="请输入购买的数量" class="buyNum">
+						<input type="number " placeholder="请输入购买的数量" class="buyNum ">
 					</div>
 					<div class="mask_lis">
 							<p>预获币数(ETH)</p>
