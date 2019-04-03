@@ -181,7 +181,7 @@
    .advert_con{
 
     border: 1px solid #ccc;
-    /* width: 6rem; */
+    width: 6rem;
 
 
 

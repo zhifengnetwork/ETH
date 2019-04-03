@@ -577,8 +577,9 @@ class Index_EweiShopV2Page extends ComWebPage
 
 		global $_W;
 		global $_GPC;
-		$data = pdo_fetch("select * from ".tablename("ewei_shop_lottery2")."where uniacid=".$_W['uniacid']);
+		$data = pdo_fetch("select * from ".tablename("ewei_shop_lottery2")."where id=1");
 		if ($_W['ispost']) {
+
 
 			$content = m('common')->html_images($_GPC['content']);
 			pdo_update("ewei_shop_lottery2",array('contract'=>$content),array('uniacid'=>$_W['uniacid']));
