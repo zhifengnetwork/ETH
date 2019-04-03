@@ -153,14 +153,14 @@
     left: 18px;">今日投资总额: <?php  echo $sale['sum'];?></p>
     <p style="color: #f7f7f7;text-align: center;font-size: 1rem;font-weight: 600;position: absolute;
     top: 111px;
-    right: 18px;">昨日投资总额: <?php  echo $sale['sums'];?></p>
+    right: 18px;">上次投资总额: <?php  echo $sale['sums'];?></p>
     <?php  } else { ?>
     <p style="text-align: center;font-size: 1rem;font-weight: 600;position: absolute;
     top: 81px;
     left: 18px;">今日投资总额: <?php  echo $sale['sum'];?></p>
     <p style="color: #f7f7f7;text-align: center;font-size: 1rem;font-weight: 600;position: absolute;
     top: 111px;
-    right: 18px;">昨日投资总额: <?php  echo $sale['sums'];?></p>
+    right: 18px;">上次投资总额: <?php  echo $sale['sums'];?></p>
     <?php  } ?>
 
 
