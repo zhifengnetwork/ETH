@@ -5,7 +5,7 @@
 	<form  action="<?php  echo weburl('sale/contract')?>" method="post" class="form-horizontal form-validate">
     <div class=" region-goods-right col-sm-10">
         <div class="">
-            123123
+            <?php  echo tpl_ueditor('content',$data['contract'])?>
         </div>
         <div class="form-group" style="background:#fff">
             <label class="col-lg control-label"></label>
@@ -14,7 +14,7 @@
             </div>
         </div>
     </div>
-	</form>
+</form>
 </div>
 
 <?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('_footer', TEMPLATE_INCLUDEPATH)) : (include template('_footer', TEMPLATE_INCLUDEPATH));?>
