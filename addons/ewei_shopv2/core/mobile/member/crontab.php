@@ -11,8 +11,7 @@ class Crontab_EweiShopV2Page
 	// }
 
 	//订单倒计时
-	public function main()
-	{
+	public function main(){
 
 		$data = date('Y-m-d H:i:s',time());
 		$guamai = pdo_fetchall("select * from".tablename("guamai")." where status=1");
