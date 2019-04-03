@@ -359,29 +359,6 @@
           <img src="<?php  echo $sell['zfbfile2'];?>" alt="" class="ewmImg zfbewm">
         </div>
         <div class="bankBox">
-<<<<<<< HEAD
-          <div class="bankBoxTie">*请前往当地银行打款</div>
-          <div>
-              <div class="info">
-                银行：
-                <span><?php  echo $sell['bank'];?></span>
-              </div>
-              <span class="copy" id="copy">复制</span>
-            </div>
-            <div>
-                <div class="info">户主：
-              <span><?php  echo $sell['bankname'];?> </span>
-            </div>
-              <span class="copy" id="copy">复制</span>
-          </div>
-            <div>
-                <div class="info">卡号：
-              <span><?php  echo $sell['bankid'];?> </span>
-            </div>
-              <span class="copy" id="copy">复制</span>
-            </div>
-        </div>
-=======
             <div class="bankBoxTie">*请前往当地银行打款</div>
             <div>
                 <div class="info">
@@ -403,7 +380,6 @@
                 <span class="copy" id="copy" data-clipboard-target="#codeText">复制</span>
               </div>
           </div>
->>>>>>> f97f30030299f929a01534208ff4b2187395a1f8
         <div class="setImg">
           <p>上传凭证：</p>
           <div class="setImgBox">
@@ -419,30 +395,9 @@
         <div class="buyBtn">确定更改</div>
         <?php  } ?>
       </div>
-<<<<<<< HEAD
-      <div class="Btn_on">申诉</div>
-<<<<<<< HEAD
-=======
-    </div>
-    <div class="se_tank">
-      <span class="se_tank_span">收起</span>
-      <div class="se_title">
-        <span>申诉标题:</span>
-        <input class="text" name="text" type="text" />
-      </div>
-      <div class="se_tank_con">
-        <p>申诉内容:</p>
-        <textarea class="textarea"></textarea>
-      </div>
-      <div class="se_tank_btn">
-        <a><button class="button">确定</button></a>
-      </div>
->>>>>>> f97f30030299f929a01534208ff4b2187395a1f8
-=======
       <a href="<?php  echo mobileurl('member/guamai/appeal')?>&id=<?php  echo $sell['id'];?>">
         <div class="Btn_on">申诉</div>
       </a>
->>>>>>> 58c5a18db8565df63916ab707967788866e20736
     </div>
   </div>
 
@@ -679,13 +634,9 @@
           </div>
         </div>
         <div class="buyBtn">确定收款</div>
-<<<<<<< HEAD
-        <div class="Btn_on">申诉</div>
-=======
         <a href="<?php  echo mobileurl('member/guamai/appeal')?>&id=<?php  echo $sell['id'];?>">
           <div class="Btn_on">申诉</div>
         </a>
->>>>>>> 58c5a18db8565df63916ab707967788866e20736
       </div>
     </div>
   </div>
@@ -786,12 +737,8 @@
       white-space: nowrap;
       width: 100%;
     }
-<<<<<<< HEAD
-    .bankBox>div>.copy{
-=======
 
     .bankBox>p>span{
->>>>>>> f97f30030299f929a01534208ff4b2187395a1f8
       color: #fff;
       background-color: #0a0;
       text-align: center;
