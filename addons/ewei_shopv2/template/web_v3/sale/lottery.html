@@ -199,7 +199,8 @@
                         data:{
                            type:'1',
                             number: number,
-                            time: time
+                            time: time,
+                            price:price
                         },
                         dataType:'json',
                         success:function(data){

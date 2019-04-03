@@ -170,7 +170,7 @@
 					<span> <?php  echo $member['nickname'];?> </span>
 
 					<span>会员ID：<?php  echo $member['id'];?></span>
-					
+
 					<?php  if($huiyuanlevel['levelname1'] == '') { ?>
 						<span> 会员等级: 暂无 </span>
 					<?php  } else { ?>
@@ -287,7 +287,7 @@
 			</div>
 			<div class="list_right icon icon-right"></div>
 		</a>
-		
+
 		<!-- <a href="javascript:;" class="lis" >
 			<div class="lis_left">
 				<img src="../addons/ewei_shopv2/static/images/gonggao2.png" alt="">
@@ -355,7 +355,7 @@
 			<div class="mask1_box_btn">
 				<button class="mask1_btn1 mask1_btn">不退出</button>
 				<button class="mask1_btn0 mask1_btn">退出</butt>
-				
+
 			</div>
 		</div>
 	</div>
@@ -415,14 +415,14 @@
 	})
 
 	$('.lis').click(function (event) {
-		
+
 		if("<?php  echo $member['type'];?>" == 2){
 			alert('该账号已锁户！');
 			return false;
 		}
 	})
 	$('.headerCon').click(function (event) {
-		
+
 		if("<?php  echo $member['type'];?>" == 2){
 			alert('该账号已锁户！');
 			return false;
@@ -440,7 +440,7 @@
 	})
 	$('.mask1_btn0').click(function () {
 		let money = $('.ketuiMoney').html();
-		
+
 		$.ajax({
 			url:"<?php  echo mobileUrl('member/index/out')?>",
 			data:{
