@@ -173,7 +173,7 @@
 				<a class="uploadFile2" href=" ">选择图片</a>
 				<input class="uploadFile" type="file" onchange="UpLoad(this,1)" name="file" id="" value="1" accept="image/*" />
 			</div>
-		</div>
+	  	</div>
     	<div class="se_tank_btn">
     		<a><button class="button">确定</button></a>
     	</div>
@@ -213,9 +213,7 @@
 									var newImageData = canvas.toDataURL(fileType, 0.8); //重新生成图片
 									/* 图片 回显*/
 									// that.siblings(".preViewImg").attr("src", newImageData);
-
 									$("#canvas").hide();
-
 									/*图片 回显 */
 									$.ajax({
 										url: '/index/index/upload',
