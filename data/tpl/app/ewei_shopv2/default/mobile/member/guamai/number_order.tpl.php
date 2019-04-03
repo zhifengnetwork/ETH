@@ -75,6 +75,9 @@
 	.tab_header .hide {
 		display: none;
 	}
+	.mask0_box{
+		padding-top: 2.5rem;
+	}
 	/* 买入 卖出按钮样式 */
 
 	.buying {
@@ -158,7 +161,8 @@
 	}
 	/*------tab切换里面的内容------*/
 	.tab_header {
-		width: 100%;
+		height: 100%;
+		width: 100%; 	
 		padding-top: 2rem;
 		box-sizing: border-box;
 		-webkit-box-sizing: border-box;
@@ -189,18 +193,27 @@
 	}
 
 	.tab_content {
+		width: 100%;
 		color: #fff;
 		padding: 0 0 0.5rem 0;
 		box-sizing: border-box;
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 		overflow: hidden;
+		touch-action: pan-x;
 	}
 	.tab_content .tab_con{
+		width:100%;
+		/* position: absolute; */
 		display: none;
-		padding: .5rem .2rem 0 .2rem;
+		/* padding: .5rem; */
 		}
-
+  .advertising{
+		width:100%;
+		position: absolute;
+		display: none;
+		padding: .5rem;
+	}
 	.tab_content .tab_con.active{
 		display: block;
 	}
@@ -415,8 +428,14 @@
 
 	/* 我的订单 tab */
 	.tab_cut{
+		/* position: absolute; */
 		width: 100%;
 		padding: 0.3rem;
+		/* touch-action: pan-x; */
+	}
+	.tab_box{
+		position: absolute;
+		width: 100%;
 		touch-action: pan-x;
 	}
   .tab_cut>ul{
@@ -499,6 +518,7 @@
 			<!--这个是要显示的内容部分-->
 			<div class="tab_content">
 					<!-- tab切换内容   未交易 交易中  交易完成  交易失败-->
+					<div class="tab_box">
 				  <div class="tab_cut">
 						<ul>
 							<li class="tab_item active">
@@ -515,8 +535,9 @@
 							</li>
 						</ul>
 					</div>
+				</div>
 				<!--------我的订单---------->
-				<div class="tab_con  active " style="padding:0" >
+				<div class="tab_con  active "  style="padding-top: 2.6rem">
 					<div class="my_order" id="load"style="left: 0%;transition-duration: 0.3s;">
 				<!-- 未交易 -->
 					<div class="tab_cont undone">
@@ -698,7 +719,7 @@
 				</div>
 			</div>
 				<!--------发布广告----------->
-				<div class="tab_con ">
+				<div class="tab_con advertising  ">
 					<div class="buying">
 						<a class="pay-tt active">买入ETH</a>
 						<a class="pay-tt">卖出ETH</a>
@@ -1076,7 +1097,7 @@ $('.mask0_btn').click(function () {
 			$(this).addClass("on").siblings().removeClass("on");
 			//内容切换
 			 $(".tab_content .tab_con").eq(index).addClass("active").siblings().removeClass("active");
-			// $(".tab_content .tab_con").eq(index).show().siblings().hide();
+		
 		//买入卖出切换
 		if(index == 0){
 			$('.tab_cut').show()
