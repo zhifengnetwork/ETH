@@ -777,7 +777,7 @@
 					</div>
 					<div class="tishi">参考价格：￥<span class="price_Min"><?php  echo $start;?></span>-￥<span class="price_Max"><?php  echo $end;?></span></div>
 
-					<p>买入数量(ETH)</p>
+					<p class="mask_lis_p">买入数量(ETH)</p>
 					<div class="mask1_lis">
 						<input type="number " min="0" placeholder="请输入购买的数量" class="buyNum ">
 					</div>
@@ -874,12 +874,12 @@
 <script type="text/javascript">
    //maiChu_Num,buyNum 获得焦点 
 	 $('.buyNum,.maiChu_Num').focus(function(){
-		//  let top = $(this).offset().top;
-		//  let top1 = $('.mask1').offset().top;
-		//  $('body').animate({'scrollTop':50},100)
-		//  $(".mask0_box").scrollTop(top);
-		// $('.mask0_box').scroll()
-		this.scrollIntoView()
+		var advertising = $('.advertising').prop("scrollHeight")+$('.fui-header').prop("scrollHeight")+$('.box_nav').prop("scrollHeight");
+	 	var scrollHeight = $('.box').prop("scrollHeight");
+		var _this_ = $(this).offset().top-advertising;
+   $('.box').animate({scrollTop:_this_}, 400);
+	 }).blur(function(){
+		$('.box').animate({scrollTop:0}, 400);
 	 })
    //input获得焦点 tab隐藏
 	  $('.mask0 input,.mask1 input').focus(function(){
