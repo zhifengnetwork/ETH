@@ -227,7 +227,7 @@
             <br/>
 
           <select name="" id="sel">
-            {loop $sale $appeal}
+            {loop $sale1 $appeal}
               <option value="0" disabled>
                 <p class="item"> <i style="color:#bb2639">{$appeal['time']}</i></p>&nbsp;&nbsp;&nbsp;  <p><i style="color:#bb2639">{$appeal['number']}</i></p>
               </option>
@@ -415,7 +415,7 @@
   $('.foot_btn').click(function () {
 
     if($('.price').html() == 0 && $('.listBox').text() != ''){
-      alert('当前股票单价为0,不可加注');
+      alert('当前彩票单价为0,不可加注');
       return;
     }
 
