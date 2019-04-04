@@ -35,7 +35,7 @@
             <div class='fui-cell-title'>
 
                 <div class='fui-cell-info' style='color:#999'>
-                当前可交易金额: ￥<span id='current'>{$member['credit2']}</span> 
+                当前可交易金额: ￥<span id='current'>{$member['credit2']}</span>
                 <!-- <a id='btn-all' class='text-primary external' href='#'>全部提现</a> -->
                 </div>
 
@@ -80,9 +80,14 @@
 
         </div>
 
-        <a id='btn-next' style="" class='btn btn-success block disabled '>确定转帐</a>
+        <a id='btn-next' class='btn btn-success block disabled '>确定转帐</a>
+
+        <div style="margin: 5px; color: brown">
+          <p style="padding-left:0.1rem;">提示:转账前请提前与对方沟通,一旦转出将无法追回,请谨慎操作!!!</p>
+        </div>
 
     </div>
+
 
 </div>
 
@@ -92,7 +97,7 @@
 
     $("#money").bind('input propertychange',function () {
       // console.log($('#money').attr('flag'));
-      
+
       let id = $('#id').val();
       let current = Number("{$member['credit2']}");
       let money = Number($(this).val());
@@ -104,27 +109,27 @@
         return;
       }
 
-      
-      if(money == '' || money == 0){
-        $('.charge-group').fadeOut();
-        $('#deductionmoney').html('0');
-        $('#realmoney').html('0');
-        $('#btn-next').addClass('disabled');
-        FoxUI.toast.show('请输入交易金额！');
-        return
-      }
+
+      // if(money > 0){
+      //   $('.charge-group').fadeOut();
+      //   $('#deductionmoney').html('0');
+      //   $('#realmoney').html('0');
+      //   $('#btn-next').addClass('disabled');
+      //   FoxUI.toast.show('请输入交易金额！');
+      //   return
+      // }
       if(money > 0 && money < current){
         let deductionmoney = money * sxf / 100;
         let realmoney = money - deductionmoney;
-        $('#deductionmoney').html(deductionmoney.toFixed(2));
-        $('#realmoney').html(realmoney.toFixed(2));
+        $('#deductionmoney').html(deductionmoney.toFixed(6));
+        $('#realmoney').html(realmoney.toFixed(6));
         $('.charge-group').fadeIn();
       }
       if($('#money').attr('flag') == 'true'){
         $('#btn-next').removeClass('disabled');
       }
 
-      
+
     })
 
     $('#id').blur(function () {
@@ -149,13 +154,13 @@
               $('#btn-next').removeClass('disabled');
             }
           }
-          
+
         },error:function(err){
           console.log(err);
-          
+
         }
       })
-      
+
     })
 
     $('#btn-next').click(function () {
@@ -180,10 +185,10 @@
           }
         },error:function(err){
           console.log(err);
-          
+
         }
       })
-      
+
     })
 
     // $("#money").blur(function(){
@@ -191,7 +196,7 @@
     //    var money = $("#money").val();
 
     //    console.log(money);
-    
+
     //     $("#btn-next").attr("style","");
 
     // });

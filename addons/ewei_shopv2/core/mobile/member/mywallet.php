@@ -1,19 +1,19 @@
 <?php
-if (!(defined('IN_IA'))) 
+if (!(defined('IN_IA')))
 {
 	exit('Access Denied');
 }
-class Mywallet_EweiShopV2Page extends MobileLoginPage 
+class Mywallet_EweiShopV2Page extends MobileLoginPage
 {
-	public function main() 
+	public function main()
 	{
 		global $_W;
 		global $_GPC;
-		
+
 		$this->diypage('member');
 
 		$member = m('member')->getMember($_W['openid'], true);
-		
+
 		include $this->template();
 	}
 
@@ -49,31 +49,31 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 
 	public function zhuangzhangis(){
 		global $_W;
-        global $_GPC;
+		global $_GPC;
 
-        $money = $_GPC['money'];
-        $moneysxf = $_GPC['moneysxf'];
-        $mid = $_GPC['id'];
+		$money = $_GPC['money'];
+		$moneysxf = $_GPC['moneysxf'];
+		$mid = $_GPC['id'];
 
-        $member = m('member')->getMember($_W['openid'], true);
-        $member2 = pdo_fetch("select * from ".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and id='$mid'");
+		$member = m('member')->getMember($_W['openid'], true);
+		$member2 = pdo_fetch("select * from ".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and id='$mid'");
 
-        if(!$money) show_json(0,"请输入转账金额");
-        if(!$mid) show_json(0,"请输入转账人id");
-        if($member['credit2']<$money) show_json(0,"您输入的转账金额过大，账户余额不足");
-        // show_json($mid);
-        if($member2['openid'] == $_W['openid']) show_json(0,"不能对自己进行转账");
+		if(!$money) show_json(0,"请输入转账金额");
+		if(!$mid) show_json(0,"请输入转账人id");
+		if($member['credit2']<$money) show_json(0,"您输入的转账金额过大，账户余额不足");
+		// show_json($mid);
+		if($member2['openid'] == $_W['openid']) show_json(0,"不能对自己进行转账");
 
-        $data = array('uniacid'=>$_W['uniacid'],'openid'=>$_W['openid'],'openid2'=>$member2['openid'],'money'=>$money,'money2'=>$moneysxf,'createtime'=>time());
+		$data = array('uniacid'=>$_W['uniacid'],'openid'=>$_W['openid'],'openid2'=>$member2['openid'],'money'=>$money,'money2'=>$moneysxf,'createtime'=>time());
 
-        //添加转账记录
-        pdo_insert("ewei_zhuanzhang",$data);
+		//添加转账记录
+		pdo_insert("ewei_zhuanzhang",$data);
 
-        //向对方账户打钱
-        m('member')->setCredit($member2['openid'],'credit2',$money-$moneysxf);
-        //自己扣钱
-        m('member')->setCredit($member['openid'],'credit2',-$money);
-        show_json(1,"转账成功");
+		//向对方账户打钱
+		m('member')->setCredit($member2['openid'],'credit2',$money-$moneysxf);
+		//自己扣钱
+		m('member')->setCredit($member['openid'],'credit2',-$money);
+		show_json(1,"转账成功");
 	}
 
 	public function futou(){
@@ -109,16 +109,16 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 
 			if($money>$member['credit2']) show_json(0,"您自由账户余额不足");
 
-			$data['status'] = 1;$data['title'] = "自由账户一键复投"; 
+			$data['status'] = 1;$data['title'] = "自由账户一键复投";
 
-			m('member')->setCredit($_W['openid'],'credit2',-$money);   
+			m('member')->setCredit($_W['openid'],'credit2',-$money);
 
 
 		}else if($type == 4){
 
 			if($money>$member['credit4']) show_json(0,"您复投账户余额不足");
 
-			$data['status'] = 2;$data['title'] = "复投账户一键复投"; 
+			$data['status'] = 2;$data['title'] = "复投账户一键复投";
 
 			m('member')->setCredit($_W['openid'],'credit4',-$money);
 
@@ -132,9 +132,9 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 		}
 
 		$result = pdo_insert("ewei_shop_member_log",$data);
-		
+
 		if($result) show_json(1,"一键复投成功");
-		
+
 	}
 
 	//倒计时
