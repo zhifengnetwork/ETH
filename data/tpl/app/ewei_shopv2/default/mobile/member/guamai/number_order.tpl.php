@@ -735,8 +735,8 @@
 							<div class="wtf_item1">
 								<a href="<?php  echo mobileurl('member/guamai/guamai_appeal_list')?>&id=<?php  echo $appeal['id'];?>">
 									<p><?php  echo $appeal['text'];?></p>
-									<p><?php  echo $appeal['createtime'];?></p>
 								</a>
+								<p><?php  echo $appeal['createtime'];?></p>
 							</div>
 							<?php  } } ?>
 						</div>
@@ -872,7 +872,7 @@
 
 </div>
 <script type="text/javascript">
-   //maiChu_Num,buyNum 获得焦点 
+   //maiChu_Num,buyNum 获得焦点
 	 $('.buyNum,.maiChu_Num').focus(function(){
 		var advertising = $('.advertising').prop("scrollHeight")+$('.fui-header').prop("scrollHeight")+$('.box_nav').prop("scrollHeight");
 	 	var scrollHeight = $('.box').prop("scrollHeight");
