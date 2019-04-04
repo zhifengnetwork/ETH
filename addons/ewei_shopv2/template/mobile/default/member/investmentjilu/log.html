@@ -1,0 +1,83 @@
+{template '_header'}
+<style>
+    .goods-item {
+        margin: 10px;
+        border-bottom: 1px solid #ccc;
+        padding: .2rem 1rem;
+        background-color: #363a45;
+        color: #fff;
+    }
+    .fui-list-group{
+        margin-top: 0;
+    }
+    .fui-tab{
+        margin-bottom: 1px;;
+    }
+    .sty1{
+      margin-top: 39px;
+      height: 100%;
+      overflow: auto;
+      padding-bottom: 97px;
+    }
+</style>
+
+<div class='fui-page  fui-page-current member-log-page'>
+
+    <div class="fui-header">
+
+        <div class="fui-header-left">
+
+            <a class="back"></a>
+
+        </div>
+
+        <div class="title">总记录</div>
+
+    </div>
+    <div class="sty1">
+      {loop $list $log}
+      <div class=" goods-item">
+        <div class="time">时间：<span>{$log['createtime']}</span></div>
+        <div class="lis">
+          <p>描述：{$log['title']}</p>
+          {if $log['typec2c']==""}
+            {if $log['money']==""}
+            {else}
+            <p>金额：{$log['money']}</p>
+            {/if}
+            {if $log['type']==4}
+            <p>实到金额：{$log['realmoney']}</p>
+            <p>手续费：{$log['charge']}</p>
+            {/if}
+          {else}
+            {if $log['typec2c'] == 1}
+            <p>类型：卖出</p>
+            {else}
+            <p>类型：买入</p>
+            {/if}
+          {/if}
+        </div>
+      </div>
+      {/loop}
+
+      {loop $zhuanzhang $logs}
+      <div class=" goods-item">
+        <div class="time">时间：<span>{$logs['createtime']}</span></div>
+        <div class="lis">
+          <p>描述：转币</p>
+          <p>转币人：{$logs['openid']}</p>
+          <p>得币人：{$logs['openid2']}</p>
+          <p>数量：{$logs['money']}</p>
+          <p>手续费：{$logs['money2']}</p>
+          <p>时间：{$logs['createtime']}</p>
+        </div>
+      </div>
+      {/loop}
+  </div>
+
+  </div>
+
+
+  {php $this->footerMenus()}
+
+{template '_footer'}

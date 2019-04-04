@@ -86,10 +86,32 @@ class Investmentjilu_EweiShopV2Page extends MobileLoginPage
 			foreach ($list as $key=>$val) {
 				$list[$key]['createtime'] = date("Y-m-d H:i:s",$val['createtime']);
 			}
-			// $total = pdo_fetchcolumn("select count(g.id) from".tablename("ewei_shop_member_log")."g left join".tablename("ewei_shop_member")."m on g.openid=m.openid"." where g.uniacid=:uniacid and g.openid=:openid and g.type=5 order by g.createtime desc",array(':uniacid'=>$_W['uniacid'],':openid'=>$_W['openid']));
-
-			// $data = array('status'=>1,"result"=>array('list' => $list, 'total' => $total, 'pagesize' => $psize));
 		}
+		include $this->template();
+	}
+
+	public function log()
+	{
+		global $_W;
+		global $_GPC;
+
+		$type = $_GPC['type'];
+		$pindex = max(1, intval($_GPC['page']));
+		$psize = 10;
+		$openid = $_W['openid'];
+		if($type == 6){
+			$list =  pdo_fetchall("select g.*,m.nickname from".tablename("ewei_shop_member_log")."g left join".tablename("ewei_shop_member")."m on g.openid=m.openid"." where g.uniacid=:uniacid and g.openid=:openid order by g.createtime desc".' LIMIT ' . (($pindex - 1) * $psize) . ',' . $psize,array(':uniacid'=>$_W['uniacid'],':openid'=>$_W['openid']));
+			$zhuanzhang = pdo_fetchall("select g.*,m.nickname from".tablename("ewei_zhuanzhang")."g left join".tablename("ewei_shop_member")."m on g.openid=m.openid"." where g.uniacid=:uniacid and g.openid=:openid order by g.createtime desc".' LIMIT ' . (($pindex - 1) * $psize) . ',' . $psize,array(':uniacid'=>$_W['uniacid'],':openid'=>$_W['openid']));
+			foreach($zhuanzhang as $k=>$v){
+				$zhuanzhang[$k]['openid'] = substr($v['openid'],-11);
+				$zhuanzhang[$k]['openid2'] = substr($v['openid2'],-11);
+				$zhuanzhang[$k]['createtime'] = date("Y-m-d",$v['createtime']);
+			}
+			foreach ($list as $key=>$val) {
+				$list[$key]['createtime'] = date("Y-m-d",$val['createtime']);
+			}
+		}
+		// dump($zhuanzhang);
 		// dump($list);die;
 		include $this->template();
 	}
