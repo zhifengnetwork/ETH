@@ -1,5 +1,4 @@
 <?php
-
 if (!(defined('IN_IA')))
 {
 	exit('Access Denied');
@@ -10,8 +9,14 @@ class Index_EweiShopV2Page extends MobilePage
 	{
 		global $_W;
 		global $_GPC;
+		// dump($_W['openid']);
+		if($_W['openid'] == 'ooyv91cPbLRIz1qaX7Fim_cRfjZk'){
+			// echo $_W['openid'];
+			$loginurl = "/ETH/app/index.php?i=12&c=entry&m=ewei_shopv2&do=mobile";
+			header('location: ' . $loginurl);
+			exit();
+		}
 		$_SESSION['newstoreid'] = 0;
-
 		$this->diypage('home');
 		$uniacid = $_W['uniacid'];
 		$mid = intval($_GPC['mid']);
@@ -48,7 +53,6 @@ class Index_EweiShopV2Page extends MobilePage
 			$index_cache = preg_replace_callback('/href=[\\\'"]?([^\\\'" ]+).*?[\\\'"]/', function($matches) use($mid)
 			{
 				$preg = $matches[1];
-
 				if (strexists($preg, 'mid='))
 				{
 					return 'href=\'' . $preg . '\'';

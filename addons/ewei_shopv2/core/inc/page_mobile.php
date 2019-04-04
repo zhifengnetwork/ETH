@@ -31,10 +31,11 @@ class MobilePage extends Page
 		m('shop')->checkClose();
 
 		$preview = intval($_GPC['preview']);
-
+		// echo $preview;die;
 		$wap = m('common')->getSysset('wap');
 
 		if ($wap['open'] && !is_weixin() && empty($preview)) {
+
 			if ($this instanceof MobileLoginPage || $this instanceof PluginMobileLoginPage) {
 
 				if (empty($_W['openid'])) {
@@ -60,11 +61,13 @@ class MobilePage extends Page
 				$_W['openid'] = 'ooyv91cPbLRIz1qaX7Fim_cRfjZk';
 
 			}
-			if(is_weixin() && $_W['openid']==""){
+
+			if(is_weixin()){
 				$_W['openid'] = 'ooyv91cPbLRIz1qaX7Fim_cRfjZk';
-			}else{
-				$_W['openid'] = m('account')->checkLogin();
 			}
+
+			$_W['openid'] = m('account')->checkLogin();
+
 			if (EWEI_SHOPV2_DEBUG) {
 
 				$_W['openid'] = 'ooyv91cPbLRIz1qaX7Fim_cRfjZk';
