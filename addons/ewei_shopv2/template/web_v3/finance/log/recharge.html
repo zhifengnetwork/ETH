@@ -252,7 +252,7 @@
 
                       <img src="{$row['url']}" style="width:100px;hight:100px;">
 
-                    </td> 
+                    </td>
 
                     <td style="text-align: center;">
 
@@ -281,7 +281,7 @@
                     <td style="text-align: center;">
 
                          {if $row['status']==0}
-                            <a  class='btn btn-op btn-primary' data-toggle='ajaxPost' data-confirm="确认拒绝提现申请?" href="{php echo webUrl('finance/log/apply',array('id' => $row['id'],'type'=>1));}">
+                            <a  class='btn btn-op btn-primary' data-toggle='ajaxPost' data-confirm="确认同意提现申请?" href="{php echo webUrl('finance/log/apply',array('id' => $row['id'],'type'=>1));}">
 
                                 <span data-toggle="tooltip" data-placement="top" title="" data-original-title="同意">
 
