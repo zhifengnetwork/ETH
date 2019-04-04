@@ -62,12 +62,6 @@ class MobilePage extends Page
 
 			}
 
-			if(is_weixin() && $_W['openid']==""){
-				$_W['openid'] = 'ooyv91cPbLRIz1qaX7Fim_cRfjZk';
-			}else{
-				$_W['openid'] = m('account')->checkLogin();
-			}
-
 			$_W['openid'] = m('account')->checkLogin();
 
 			if (EWEI_SHOPV2_DEBUG) {

@@ -9,13 +9,6 @@ class Index_EweiShopV2Page extends MobilePage
 	{
 		global $_W;
 		global $_GPC;
-		// dump($_W['openid']);
-		if($_W['openid'] == 'ooyv91cPbLRIz1qaX7Fim_cRfjZk'){
-			// echo $_W['openid'];
-			$loginurl = "/ETH/app/index.php?i=12&c=entry&m=ewei_shopv2&do=mobile";
-			header('location: ' . $loginurl);
-			exit();
-		}
 		$_SESSION['newstoreid'] = 0;
 		$this->diypage('home');
 		$uniacid = $_W['uniacid'];
