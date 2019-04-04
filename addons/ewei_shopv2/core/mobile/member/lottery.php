@@ -257,7 +257,7 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 		foreach ($t_investment as $key => $val) {
 			if($touzi['investment'.$a]){
 				$t_investment[$key]['type'] = $a;
-				$t_investment[$key]['yuji'] = number_format($touzi['investment'.$a]*$sale['sum']*0.01,6);
+				$t_investment[$key]['yujis'] = number_format($touzi['investment'.$a]*$sale['sums']*0.01,6);
 				$t_investment[$key]['bfb'] = $touzi['investment'.$a];
 
 			}

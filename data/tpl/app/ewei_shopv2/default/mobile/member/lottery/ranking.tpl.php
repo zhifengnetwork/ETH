@@ -158,11 +158,11 @@
     <?php  if($sale['sum'] == '') { ?>
     <p style="text-align: center; color: #f7f7f7; font-size: 1rem;font-weight: 600;position: absolute;
     top: 81px;
-    left: 18px;">今日投资总额: <?php  echo $sale['sum'];?></p>
+    left: 18px;">今日投资总额: <?php  echo $sale['sums'];?></p>
     <?php  } else { ?>
     <p style="text-align: center; color: #f7f7f7; font-size: 1rem;font-weight: 600;position: absolute;
     top: 81px;
-    left: 18px;">今日投资总额: <?php  echo $sale['sums'];?></p>
+    left: 18px;">今日投资总额: <?php  echo $sale['sum'];?></p>
     <?php  } ?>
 
 
@@ -193,12 +193,14 @@
                             <?php  echo $val['id'];?>
                           </span>
                           <span class="data_listBox_term"><?php  echo $val['nickname'];?></span>
+                          <?php  if($sale['sum'] == '') { ?>
+                          <?php  } else { ?>
+                          <?php  } ?>
                           <span class="data_listBox_term"><?php  echo $val['yuji'];?> <span>(<?php  echo $val['bfb'];?>%)</span> </span>
                           <span class="data_listBox_term"><?php  echo $val['moneys'];?></span>
                         </p>
                       <?php  } } ?>
                 </div>
-
           </div>
 
 

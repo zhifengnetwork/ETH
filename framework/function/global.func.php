@@ -372,11 +372,11 @@ function pagination($total, $pageIndex, $pageSize = 15, $url = '', $context = ar
 	if ($context['ajaxcallback']) {
 		$context['isajax'] = true;
 	}
-	
+
 	if ($context['callbackfuncname']) {
 		$callbackfunc = $context['callbackfuncname'];
 	}
-	
+
 	$pdata['tcount'] = $total;
 	$pdata['tpage'] = (empty($pageSize) || $pageSize < 0) ? 1 : ceil($total / $pageSize);
 	if ($pdata['tpage'] <= 1) {
@@ -1075,7 +1075,7 @@ function strip_emoji($nickname) {
 	$clean_text = preg_replace($regexMisc, '', $clean_text);
 		$regexDingbats = '/[\x{2700}-\x{27BF}]/u';
 	$clean_text = preg_replace($regexDingbats, '', $clean_text);
-	
+
 	$clean_text = str_replace("'",'',$clean_text);
 	$clean_text = str_replace('"','',$clean_text);
 	$clean_text = str_replace('“','',$clean_text);
@@ -1107,7 +1107,7 @@ function emoji_unicode_encode($string) {
 function getglobal($key) {
 	global $_W;
 	$key = explode('/', $key);
-	
+
 	$v = &$_W;
 	foreach ($key as $k) {
 		if (!isset($v[$k])) {

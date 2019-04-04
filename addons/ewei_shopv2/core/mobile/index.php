@@ -1,4 +1,5 @@
 <?php
+
 if (!(defined('IN_IA')))
 {
 	exit('Access Denied');
@@ -10,6 +11,7 @@ class Index_EweiShopV2Page extends MobilePage
 		global $_W;
 		global $_GPC;
 		$_SESSION['newstoreid'] = 0;
+
 		$this->diypage('home');
 		$uniacid = $_W['uniacid'];
 		$mid = intval($_GPC['mid']);
@@ -46,6 +48,7 @@ class Index_EweiShopV2Page extends MobilePage
 			$index_cache = preg_replace_callback('/href=[\\\'"]?([^\\\'" ]+).*?[\\\'"]/', function($matches) use($mid)
 			{
 				$preg = $matches[1];
+
 				if (strexists($preg, 'mid='))
 				{
 					return 'href=\'' . $preg . '\'';

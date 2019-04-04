@@ -39,35 +39,33 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		global $_GPC;
 		header("content-type:text/html;charset=utf-8");
 		$base64_image = str_replace(' ', '+', $base64);
-
 		//post的数据里面，加号会被替换为空格，需要重新替换回来，如果不是post的数据，则注释掉这一行
 		if (preg_match('/^(data:\s*image\/(\w+);base64,)/', $base64_image, $result)){
-			//匹配成功
-			if($result[2] == 'jpeg'){
-				$image_name = uniqid().'.jpg';
-				//纯粹是看jpeg不爽才替换的
-			}else{
-				$image_name = uniqid().'.'.$result[2];
-			}
-			load()->func('file');
-			$path = 'images/uploads/' . date('Ymd',time());
+		//匹配成功
+		if($result[2] == 'jpeg'){
+		$image_name = uniqid().'.jpg';
+		//纯粹是看jpeg不爽才替换的
+		}else{
+		$image_name = uniqid().'.'.$result[2];
+		}
+		load()->func('file');
+		$path = 'images/uploads/' . date('Ymd',time());
+		if (!(is_dir(ATTACHMENT_ROOT . $path)))
+		{
+			mkdirs(ATTACHMENT_ROOT . $path);
+		}
 
-			if (!(is_dir(ATTACHMENT_ROOT . $path)))
-			{
-				mkdirs(ATTACHMENT_ROOT . $path,0777);
-			}
-
-			$image_url = ATTACHMENT_ROOT."images/uploads/".date('Ymd',time()).'/'."{$image_name}";
-			$res_url = ATTACHMENT_ROOT."images/uploads/".date('Ymd',time()).'/'."{$image_name}";
-			//服务器文件存储路径
-			if (file_put_contents($image_url, base64_decode(str_replace($result[1], '', $base64_image)))){
-				$res_url = "images/uploads/".date('Ymd',time()).'/'."{$image_name}";
-				// dump($res_url);
-			// show_json('res_url',$res_url);
-					return $res_url;
-			}else{
-				show_json(1,'上传失败');
-			}
+		$image_url = ATTACHMENT_ROOT."images/uploads/".date('Ymd',time()).'/'."{$image_name}";
+		$res_url = ATTACHMENT_ROOT."images/uploads/".date('Ymd',time()).'/'."{$image_name}";
+		//服务器文件存储路径
+		if (file_put_contents($image_url, base64_decode(str_replace($result[1], '', $base64_image)))){
+			$res_url = "images/uploads/".date('Ymd',time()).'/'."{$image_name}";
+		// dump($res_url);
+		// show_json('res_url',$res_url);
+				return $res_url;
+		}else{
+			show_json(1,'上传失败');
+		}
 		}else{
 			show_json(1,'上传失败');
 		}

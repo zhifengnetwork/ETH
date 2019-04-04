@@ -158,11 +158,11 @@
     {if $sale['sum'] == ''}
     <p style="text-align: center; color: #f7f7f7; font-size: 1rem;font-weight: 600;position: absolute;
     top: 81px;
-    left: 18px;">今日投资总额: {$sale['sum']}</p>
+    left: 18px;">今日投资总额: {$sale['sums']}</p>
     {else}
     <p style="text-align: center; color: #f7f7f7; font-size: 1rem;font-weight: 600;position: absolute;
     top: 81px;
-    left: 18px;">今日投资总额: {$sale['sums']}</p>
+    left: 18px;">今日投资总额: {$sale['sum']}</p>
     {/if}
 
 
@@ -193,12 +193,14 @@
                             {$val['id']}
                           </span>
                           <span class="data_listBox_term">{$val['nickname']}</span>
+                          {if $sale['sum'] == ''}
+                          {else}
+                          {/if}
                           <span class="data_listBox_term">{$val['yuji']} <span>({$val['bfb']}%)</span> </span>
                           <span class="data_listBox_term">{$val['moneys']}</span>
                         </p>
                       {/loop}
                 </div>
-
           </div>
 
 

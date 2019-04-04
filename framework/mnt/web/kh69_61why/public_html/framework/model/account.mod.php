@@ -45,7 +45,7 @@ function uni_owned($uid = 0) {
 			$uniaccounts = pdo_fetchall("SELECT * FROM " . tablename('uni_account') . " WHERE uniacid IN (" . implode(',', array_keys($uniacids)) . ") ORDER BY `uniacid` DESC", array(), 'uniacid');
 		}
 	}
-	
+
 	return $uniaccounts;
 }
 
@@ -362,8 +362,8 @@ function uni_setting_load($name = '', $uniacid = 0) {
 	if (empty($unisetting)) {
 		$unisetting = pdo_get('uni_settings', array('uniacid' => $uniacid));
 		if (!empty($unisetting)) {
-			$serialize = array('site_info', 'stat', 'oauth', 'passport', 'uc', 'notify', 
-								'creditnames', 'default_message', 'creditbehaviors', 'shortcuts', 'payment', 
+			$serialize = array('site_info', 'stat', 'oauth', 'passport', 'uc', 'notify',
+								'creditnames', 'default_message', 'creditbehaviors', 'shortcuts', 'payment',
 								'recharge', 'tplnotice', 'mcplugin');
 			foreach ($unisetting as $key => &$row) {
 				if (in_array($key, $serialize) && !empty($row)) {
@@ -787,7 +787,7 @@ function account_txweibo_login($username, $password, $verify = '') {
 	$response = ihttp_request($loginui);
 	preg_match('/login_sig:"(.*?)"/', $response['content'], $match);
 	$loginsign = $match[1];
-	
+
 	$checkloginurl = 'http://check.ptlogin2.qq.com/check?uin='.$username.'&appid=46000101&r='.TIMESTAMP;
 	$response = ihttp_request($checkloginurl);
 	$cookie = implode('; ', $response['headers']['Set-Cookie']);
