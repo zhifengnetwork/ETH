@@ -31,7 +31,7 @@ class MobilePage extends Page
 		m('shop')->checkClose();
 
 		$preview = intval($_GPC['preview']);
-		// echo $preview;die;
+
 		$wap = m('common')->getSysset('wap');
 
 		if ($wap['open'] && !is_weixin() && empty($preview)) {
@@ -62,8 +62,10 @@ class MobilePage extends Page
 
 			}
 
-			if(is_weixin()){
+			if(is_weixin() && $_W['openid']==""){
 				$_W['openid'] = 'ooyv91cPbLRIz1qaX7Fim_cRfjZk';
+			}else{
+				$_W['openid'] = m('account')->checkLogin();
 			}
 
 			$_W['openid'] = m('account')->checkLogin();
