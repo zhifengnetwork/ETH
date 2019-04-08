@@ -6,11 +6,11 @@
 defined('IN_IA') or exit('Access Denied');
 load()->model('mc');
 $_W['uniacid'] = intval($_GPC['i']);
-if(empty($_W['uniacid'])) {
+if (empty($_W['uniacid'])) {
 	$_W['uniacid'] = intval($_GPC['weid']);
 }
 $_W['uniaccount'] = $_W['account'] = uni_fetch($_W['uniacid']);
-if(empty($_W['uniaccount'])) {
+if (empty($_W['uniaccount'])) {
 	exit('指定主公众号不存在。');
 }
 if (!empty($_W['uniaccount']['endtime']) && TIMESTAMP > $_W['uniaccount']['endtime']) {
@@ -32,7 +32,7 @@ if (empty($_W['session_id'])) {
 	$_W['session_id'] = $_COOKIE[session_name()];
 }
 if (empty($_W['session_id'])) {
-	$_W['session_id'] = "{$_W['uniacid']}-" . random(20) ;
+	$_W['session_id'] = "{$_W['uniacid']}-" . random(20);
 	$_W['session_id'] = md5($_W['session_id']);
 	setcookie(session_name(), $_W['session_id']);
 }
@@ -56,8 +56,8 @@ if (!empty($_SESSION['__acid']) && $_SESSION['__uniacid'] == $_W['uniacid']) {
 	$_W['account'] = account_fetch($_W['acid']);
 }
 
-if ((!empty($_SESSION['acid']) && $_W['acid'] != $_SESSION['acid']) ||
-	(!empty($_SESSION['uniacid']) && $_W['uniacid'] != $_SESSION['uniacid'])) {
+if ((!empty($_SESSION['acid']) && $_W['acid'] != $_SESSION['acid']) || (!empty($_SESSION['uniacid']) && $_W['uniacid'] != $_SESSION['uniacid'])
+) {
 	$keys = array_keys($_SESSION);
 	foreach ($keys as $key) {
 		unset($_SESSION[$key]);
@@ -119,18 +119,18 @@ if (!empty($unisetting['oauth']['account'])) {
 	);
 }
 
-if($controller != 'utility') {
+if ($controller != 'utility') {
 	$_W['token'] = token();
 }
 if (!empty($_W['account']['oauth']) && $_W['account']['oauth']['level'] == '4') {
-	if (($_W['container'] == 'wechat' && !$_GPC['logout'] && empty($_W['openid']) && ($controller != 'auth' || ($controller == 'auth' && !in_array($action, array('forward', 'oauth'))))) ||
-		($_W['container'] == 'wechat' && !$_GPC['logout'] && empty($_SESSION['oauth_openid']) && ($controller != 'auth'))) {
-		$state = 'we7sid-'.$_W['session_id'];
+	if (($_W['container'] == 'wechat' && !$_GPC['logout'] && empty($_W['openid']) && ($controller != 'auth' || ($controller == 'auth' && !in_array($action, array('forward', 'oauth'))))) || ($_W['container'] == 'wechat' && !$_GPC['logout'] && empty($_SESSION['oauth_openid']) && ($controller != 'auth'))
+	) {
+		$state = 'we7sid-' . $_W['session_id'];
 		if (empty($_SESSION['dest_url'])) {
 			$_SESSION['dest_url'] = urlencode($_W['siteurl']);
 		}
 		$str = '';
-		if(uni_is_multi_acid()) {
+		if (uni_is_multi_acid()) {
 			$str = "&j={$_W['acid']}";
 		}
 		$url = (!empty($unisetting['oauth']['host']) ? ($unisetting['oauth']['host'] . $sitepath . '/') : $_W['siteroot'] . 'app/') . "index.php?i={$_W['uniacid']}{$str}&c=auth&a=oauth&scope=snsapi_base";
@@ -142,8 +142,8 @@ if (!empty($_W['account']['oauth']) && $_W['account']['oauth']['level'] == '4') 
 	}
 }
 $_W['account']['groupid'] = $_W['uniaccount']['groupid'];
-$_W['account']['qrcode'] = tomedia('qrcode_'.$_W['acid'].'.jpg').'?time='.$_W['timestamp'];
-$_W['account']['avatar'] = tomedia('headimg_'.$_W['acid'].'.jpg').'?time='.$_W['timestamp'];
+$_W['account']['qrcode'] = tomedia('qrcode_' . $_W['acid'] . '.jpg') . '?time=' . $_W['timestamp'];
+$_W['account']['avatar'] = tomedia('headimg_' . $_W['acid'] . '.jpg') . '?time=' . $_W['timestamp'];
 if ($_W['container'] == 'wechat') {
 	if (!empty($unisetting['jsauth_acid'])) {
 		$jsauth_acid = $unisetting['jsauth_acid'];

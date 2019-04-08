@@ -6,12 +6,13 @@
 defined('IN_IA') or exit('Access Denied');
 
 
-function ver_compare($version1, $version2) {
+function ver_compare($version1, $version2)
+{
 	$version1 = str_replace('.', '', $version1);
 	$version2 = str_replace('.', '', $version2);
 	$oldLength = istrlen($version1);
 	$newLength = istrlen($version2);
-	if(is_numeric($version1) && is_numeric($version2)) {
+	if (is_numeric($version1) && is_numeric($version2)) {
 		if ($oldLength > $newLength) {
 			$version2 .= str_repeat('0', $oldLength - $newLength);
 		}
@@ -25,7 +26,8 @@ function ver_compare($version1, $version2) {
 }
 
 
-function istripslashes($var) {
+function istripslashes($var)
+{
 	if (is_array($var)) {
 		foreach ($var as $key => $value) {
 			$var[stripslashes($key)] = istripslashes($value);
@@ -37,7 +39,8 @@ function istripslashes($var) {
 }
 
 
-function ihtmlspecialchars($var) {
+function ihtmlspecialchars($var)
+{
 	if (is_array($var)) {
 		foreach ($var as $key => $value) {
 			$var[htmlspecialchars($key)] = ihtmlspecialchars($value);
@@ -49,7 +52,8 @@ function ihtmlspecialchars($var) {
 }
 
 
-function isetcookie($key, $value, $expire = 0, $httponly = false) {
+function isetcookie($key, $value, $expire = 0, $httponly = false)
+{
 	global $_W;
 	$expire = $expire != 0 ? (TIMESTAMP + $expire) : 0;
 	$secure = $_SERVER['SERVER_PORT'] == 443 ? 1 : 0;
@@ -57,15 +61,16 @@ function isetcookie($key, $value, $expire = 0, $httponly = false) {
 }
 
 
-function getip() {
+function getip()
+{
 	static $ip = '';
 	$ip = $_SERVER['REMOTE_ADDR'];
-	if(isset($_SERVER['HTTP_CDN_SRC_IP'])) {
+	if (isset($_SERVER['HTTP_CDN_SRC_IP'])) {
 		$ip = $_SERVER['HTTP_CDN_SRC_IP'];
 	} elseif (isset($_SERVER['HTTP_CLIENT_IP']) && preg_match('/^([0-9]{1,3}\.){3}[0-9]{1,3}$/', $_SERVER['HTTP_CLIENT_IP'])) {
 		$ip = $_SERVER['HTTP_CLIENT_IP'];
-	} elseif(isset($_SERVER['HTTP_X_FORWARDED_FOR']) AND preg_match_all('#\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}#s', $_SERVER['HTTP_X_FORWARDED_FOR'], $matches)) {
-		foreach ($matches[0] AS $xip) {
+	} elseif (isset($_SERVER['HTTP_X_FORWARDED_FOR']) and preg_match_all('#\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}#s', $_SERVER['HTTP_X_FORWARDED_FOR'], $matches)) {
+		foreach ($matches[0] as $xip) {
 			if (!preg_match('#^(10|172\.16|192\.168)\.#', $xip)) {
 				$ip = $xip;
 				break;
@@ -76,16 +81,17 @@ function getip() {
 }
 
 
-function token($specialadd = '') {
+function token($specialadd = '')
+{
 	global $_W;
-	if(!defined('IN_MOBILE')) {
+	if (!defined('IN_MOBILE')) {
 		return substr(md5($_W['config']['setting']['authkey'] . $specialadd), 8, 8);
 	} else {
-		if(!empty($_SESSION['token'])) {
+		if (!empty($_SESSION['token'])) {
 			$count  = count($_SESSION['token']) - 5;
 			asort($_SESSION['token']);
-			foreach($_SESSION['token'] as $k => $v) {
-				if(TIMESTAMP - $v > 300 || $count > 0) {
+			foreach ($_SESSION['token'] as $k => $v) {
+				if (TIMESTAMP - $v > 300 || $count > 0) {
 					unset($_SESSION['token'][$k]);
 					$count--;
 				}
@@ -98,7 +104,8 @@ function token($specialadd = '') {
 }
 
 
-function random($length, $numeric = FALSE) {
+function random($length, $numeric = FALSE)
+{
 	$seed = base_convert(md5(microtime() . $_SERVER['DOCUMENT_ROOT']), 16, $numeric ? 10 : 35);
 	$seed = $numeric ? (str_replace('0', '', $seed) . '012340567890') : ($seed . 'zZ' . strtoupper($seed));
 	if ($numeric) {
@@ -109,23 +116,25 @@ function random($length, $numeric = FALSE) {
 	}
 	$max = strlen($seed) - 1;
 	for ($i = 0; $i < $length; $i++) {
-		$hash .= $seed{mt_rand(0, $max)};
+		$hash .= $seed{
+			mt_rand(0, $max)};
 	}
 	return $hash;
 }
 
 
-function checksubmit($var = 'submit', $allowget = false) {
+function checksubmit($var = 'submit', $allowget = false)
+{
 	global $_W, $_GPC;
 	if (empty($_GPC[$var])) {
 		return FALSE;
 	}
-	if(defined('IN_SYS')) {
+	if (defined('IN_SYS')) {
 		if ($allowget || (($_W['ispost'] && !empty($_W['token']) && $_W['token'] == $_GPC['token']) && (empty($_SERVER['HTTP_REFERER']) || preg_replace("/https?:\/\/([^\:\/]+).*/i", "\\1", $_SERVER['HTTP_REFERER']) == preg_replace("/([^\:]+).*/", "\\1", $_SERVER['HTTP_HOST'])))) {
 			return TRUE;
 		}
 	} else {
-		if(empty($_W['isajax']) && empty($_SESSION['token'][$_GPC['token']])) {
+		if (empty($_W['isajax']) && empty($_SESSION['token'][$_GPC['token']])) {
 			exit("<script type=\"text/javascript\">history.go(-1);</script>");
 		} else {
 			unset($_SESSION['token'][$_GPC['token']]);
@@ -135,7 +144,8 @@ function checksubmit($var = 'submit', $allowget = false) {
 	return FALSE;
 }
 
-function checkcaptcha($code) {
+function checkcaptcha($code)
+{
 	global $_W, $_GPC;
 	session_start();
 	$codehash = md5(strtolower($code) . $_W['config']['setting']['authkey']);
@@ -149,21 +159,23 @@ function checkcaptcha($code) {
 	return $return;
 }
 
-function tablename($table) {
-	if(empty($GLOBALS['_W']['config']['db']['master'])) {
+function tablename($table)
+{
+	if (empty($GLOBALS['_W']['config']['db']['master'])) {
 		return "`{$GLOBALS['_W']['config']['db']['tablepre']}{$table}`";
 	}
 	return "`{$GLOBALS['_W']['config']['db']['master']['tablepre']}{$table}`";
 }
 
 
-function array_elements($keys, $src, $default = FALSE) {
+function array_elements($keys, $src, $default = FALSE)
+{
 	$return = array();
-	if(!is_array($keys)) {
+	if (!is_array($keys)) {
 		$keys = array($keys);
 	}
-	foreach($keys as $key) {
-		if(isset($src[$key])) {
+	foreach ($keys as $key) {
+		if (isset($src[$key])) {
 			$return[$key] = $src[$key];
 		} else {
 			$return[$key] = $default;
@@ -173,29 +185,31 @@ function array_elements($keys, $src, $default = FALSE) {
 }
 
 
-function iarray_sort($array, $keys, $type='asc'){
+function iarray_sort($array, $keys, $type = 'asc')
+{
 	$keysvalue = $new_array = array();
-	foreach ($array as $k => $v){
+	foreach ($array as $k => $v) {
 		$keysvalue[$k] = $v[$keys];
 	}
-	if($type == 'asc'){
+	if ($type == 'asc') {
 		asort($keysvalue);
-	}else{
+	} else {
 		arsort($keysvalue);
 	}
 	reset($keysvalue);
-	foreach ($keysvalue as $k => $v){
+	foreach ($keysvalue as $k => $v) {
 		$new_array[$k] = $array[$k];
 	}
 	return $new_array;
 }
 
 
-function range_limit($num, $downline, $upline, $returnNear = true) {
+function range_limit($num, $downline, $upline, $returnNear = true)
+{
 	$num = intval($num);
 	$downline = intval($downline);
 	$upline = intval($upline);
-	if($num < $downline){
+	if ($num < $downline) {
 		return empty($returnNear) ? false : $downline;
 	} elseif ($num > $upline) {
 		return empty($returnNear) ? false : $upline;
@@ -205,15 +219,16 @@ function range_limit($num, $downline, $upline, $returnNear = true) {
 }
 
 
-function ijson_encode($value, $options = 0) {
+function ijson_encode($value, $options = 0)
+{
 	if (empty($value)) {
 		return false;
 	}
 	if (version_compare(PHP_VERSION, '5.4.0', '<') && $options == JSON_UNESCAPED_UNICODE) {
 		$str = json_encode($value);
-		$json_str = preg_replace_callback("#\\\u([0-9a-f]{4})#i", function($matchs){
+		$json_str = preg_replace_callback("#\\\u([0-9a-f]{4})#i", function ($matchs) {
 			return iconv('UCS-2BE', 'UTF-8', pack('H4', $matchs[1]));
-			}, $str);
+		}, $str);
 	} else {
 		$json_str = json_encode($value, $options);
 	}
@@ -221,12 +236,14 @@ function ijson_encode($value, $options = 0) {
 }
 
 
-function iserializer($value) {
+function iserializer($value)
+{
 	return serialize($value);
 }
 
 
-function iunserializer($value) {
+function iunserializer($value)
+{
 	if (empty($value)) {
 		return '';
 	}
@@ -235,8 +252,8 @@ function iunserializer($value) {
 	}
 	$result = unserialize($value);
 	if ($result === false) {
-		$temp = preg_replace_callback('!s:(\d+):"(.*?)";!s', function ($matchs){
-			return 's:'.strlen($matchs[2]).':"'.$matchs[2].'";';
+		$temp = preg_replace_callback('!s:(\d+):"(.*?)";!s', function ($matchs) {
+			return 's:' . strlen($matchs[2]) . ':"' . $matchs[2] . '";';
 		}, $value);
 		return unserialize($temp);
 	}
@@ -244,15 +261,17 @@ function iunserializer($value) {
 }
 
 
-function is_base64($str){
-	if(!is_string($str)){
+function is_base64($str)
+{
+	if (!is_string($str)) {
 		return false;
 	}
 	return $str == base64_encode(base64_decode($str));
 }
 
 
-function is_serialized($data, $strict = true) {
+function is_serialized($data, $strict = true)
+{
 	if (!is_string($data)) {
 		return false;
 	}
@@ -274,16 +293,16 @@ function is_serialized($data, $strict = true) {
 	} else {
 		$semicolon = strpos($data, ';');
 		$brace = strpos($data, '}');
-				if (false === $semicolon && false === $brace)
+		if (false === $semicolon && false === $brace)
 			return false;
-				if (false !== $semicolon && $semicolon < 3)
+		if (false !== $semicolon && $semicolon < 3)
 			return false;
 		if (false !== $brace && $brace < 4)
 			return false;
 	}
 	$token = $data[0];
 	switch ($token) {
-		case 's' :
+		case 's':
 			if ($strict) {
 				if ('"' !== substr($data, -2, 1)) {
 					return false;
@@ -291,12 +310,12 @@ function is_serialized($data, $strict = true) {
 			} elseif (false === strpos($data, '"')) {
 				return false;
 			}
-				case 'a' :
-		case 'O' :
+		case 'a':
+		case 'O':
 			return (bool)preg_match("/^{$token}:[0-9]+:/s", $data);
-		case 'b' :
-		case 'i' :
-		case 'd' :
+		case 'b':
+		case 'i':
+		case 'd':
 			$end = $strict ? '$' : '';
 			return (bool)preg_match("/^{$token}:[0-9.E-]+;$end/", $data);
 	}
@@ -304,7 +323,8 @@ function is_serialized($data, $strict = true) {
 }
 
 
-function wurl($segment, $params = array()) {
+function wurl($segment, $params = array())
+{
 	list($controller, $action, $do) = explode('/', $segment);
 	$url = './index.php?';
 	if (!empty($controller)) {
@@ -324,7 +344,8 @@ function wurl($segment, $params = array()) {
 }
 
 
-function murl($segment, $params = array(), $noredirect = true, $addhost = false) {
+function murl($segment, $params = array(), $noredirect = true, $addhost = false)
+{
 	global $_W;
 	list($controller, $action, $do) = explode('/', $segment);
 	if (!empty($addhost)) {
@@ -333,7 +354,7 @@ function murl($segment, $params = array(), $noredirect = true, $addhost = false)
 		$url = './';
 	}
 	$str = '';
-	if(uni_is_multi_acid()) {
+	if (uni_is_multi_acid()) {
 		$str = "&j={$_W['acid']}";
 	}
 	$url .= "index.php?i={$_W['uniacid']}{$str}&";
@@ -350,14 +371,15 @@ function murl($segment, $params = array(), $noredirect = true, $addhost = false)
 		$queryString = http_build_query($params, '', '&');
 		$url .= $queryString;
 		if ($noredirect === false) {
-						$url .= '&wxref=mp.weixin.qq.com#wechat_redirect';
+			$url .= '&wxref=mp.weixin.qq.com#wechat_redirect';
 		}
 	}
 	return $url;
 }
 
 
-function pagination($total, $pageIndex, $pageSize = 15, $url = '', $context = array('before' => 5, 'after' => 4, 'ajaxcallback' => '', 'callbackfuncname' => '')) {
+function pagination($total, $pageIndex, $pageSize = 15, $url = '', $context = array('before' => 5, 'after' => 4, 'ajaxcallback' => '', 'callbackfuncname' => ''))
+{
 	global $_W;
 	$pdata = array(
 		'tcount' => 0,
@@ -395,10 +417,10 @@ function pagination($total, $pageIndex, $pageSize = 15, $url = '', $context = ar
 		if (empty($url)) {
 			$url = $_W['script_name'] . '?' . http_build_query($_GET);
 		}
-		$pdata['faa'] = 'href="javascript:;" page="' . $pdata['findex'] . '" '. ($callbackfunc ? 'onclick="'.$callbackfunc.'(\'' . $url . '\', \'' . $pdata['findex'] . '\', this);return false;"' : '');
-		$pdata['paa'] = 'href="javascript:;" page="' . $pdata['pindex'] . '" '. ($callbackfunc ? 'onclick="'.$callbackfunc.'(\'' . $url . '\', \'' . $pdata['pindex'] . '\', this);return false;"' : '');
-		$pdata['naa'] = 'href="javascript:;" page="' . $pdata['nindex'] . '" '. ($callbackfunc ? 'onclick="'.$callbackfunc.'(\'' . $url . '\', \'' . $pdata['nindex'] . '\', this);return false;"' : '');
-		$pdata['laa'] = 'href="javascript:;" page="' . $pdata['lindex'] . '" '. ($callbackfunc ? 'onclick="'.$callbackfunc.'(\'' . $url . '\', \'' . $pdata['lindex'] . '\', this);return false;"' : '');
+		$pdata['faa'] = 'href="javascript:;" page="' . $pdata['findex'] . '" ' . ($callbackfunc ? 'onclick="' . $callbackfunc . '(\'' . $url . '\', \'' . $pdata['findex'] . '\', this);return false;"' : '');
+		$pdata['paa'] = 'href="javascript:;" page="' . $pdata['pindex'] . '" ' . ($callbackfunc ? 'onclick="' . $callbackfunc . '(\'' . $url . '\', \'' . $pdata['pindex'] . '\', this);return false;"' : '');
+		$pdata['naa'] = 'href="javascript:;" page="' . $pdata['nindex'] . '" ' . ($callbackfunc ? 'onclick="' . $callbackfunc . '(\'' . $url . '\', \'' . $pdata['nindex'] . '\', this);return false;"' : '');
+		$pdata['laa'] = 'href="javascript:;" page="' . $pdata['lindex'] . '" ' . ($callbackfunc ? 'onclick="' . $callbackfunc . '(\'' . $url . '\', \'' . $pdata['lindex'] . '\', this);return false;"' : '');
 	} else {
 		if ($url) {
 			$pdata['faa'] = 'href="?' . str_replace('*', $pdata['findex'], $url) . '"';
@@ -422,7 +444,7 @@ function pagination($total, $pageIndex, $pageSize = 15, $url = '', $context = ar
 		$html .= "<li><a {$pdata['faa']} class=\"pager-nav\">首页</a></li>";
 		$html .= "<li><a {$pdata['paa']} class=\"pager-nav\">&laquo;上一页</a></li>";
 	}
-		if (!$context['before'] && $context['before'] != 0) {
+	if (!$context['before'] && $context['before'] != 0) {
 		$context['before'] = 5;
 	}
 	if (!$context['after'] && $context['after'] != 0) {
@@ -439,7 +461,7 @@ function pagination($total, $pageIndex, $pageSize = 15, $url = '', $context = ar
 		}
 		for ($i = $range['start']; $i <= $range['end']; $i++) {
 			if ($context['isajax']) {
-				$aa = 'href="javascript:;" page="' . $i . '" '. ($callbackfunc ? 'onclick="'.$callbackfunc.'(\'' . $url . '\', \'' . $i . '\', this);return false;"' : '');
+				$aa = 'href="javascript:;" page="' . $i . '" ' . ($callbackfunc ? 'onclick="' . $callbackfunc . '(\'' . $url . '\', \'' . $i . '\', this);return false;"' : '');
 			} else {
 				if ($url) {
 					$aa = 'href="?' . str_replace('*', $i, $url) . '"';
@@ -461,7 +483,8 @@ function pagination($total, $pageIndex, $pageSize = 15, $url = '', $context = ar
 }
 
 
-function tomedia($src, $local_path = false){
+function tomedia($src, $local_path = false)
+{
 	global $_W;
 	if (empty($src)) {
 		return '';
@@ -472,7 +495,7 @@ function tomedia($src, $local_path = false){
 	if (strexists($src, 'addons/')) {
 		return $_W['siteroot'] . substr($src, strpos($src, 'addons/'));
 	}
-		if (strexists($src, $_W['siteroot']) && !strexists($src, '/addons/')) {
+	if (strexists($src, $_W['siteroot']) && !strexists($src, '/addons/')) {
 		$urls = parse_url($src);
 		$src = $t = substr($urls['path'], strpos($urls['path'], 'images'));
 	}
@@ -493,7 +516,8 @@ function tomedia($src, $local_path = false){
 }
 
 
-function error($errno, $message = '') {
+function error($errno, $message = '')
+{
 	return array(
 		'errno' => $errno,
 		'message' => $message,
@@ -501,7 +525,8 @@ function error($errno, $message = '') {
 }
 
 
-function is_error($data) {
+function is_error($data)
+{
 	if (empty($data) || !is_array($data) || !array_key_exists('errno', $data) || (array_key_exists('errno', $data) && $data['errno'] == 0)) {
 		return false;
 	} else {
@@ -510,7 +535,8 @@ function is_error($data) {
 }
 
 
-function referer($default = '') {
+function referer($default = '')
+{
 	global $_GPC, $_W;
 	$_W['referer'] = !empty($_GPC['referer']) ? $_GPC['referer'] : $_SERVER['HTTP_REFERER'];;
 	$_W['referer'] = substr($_W['referer'], -1) == '?' ? substr($_W['referer'], 0, -1) : $_W['referer'];
@@ -531,12 +557,14 @@ function referer($default = '') {
 }
 
 
-function strexists($string, $find) {
+function strexists($string, $find)
+{
 	return !(strpos($string, $find) === FALSE);
 }
 
 
-function cutstr($string, $length, $havedot = false, $charset = '') {
+function cutstr($string, $length, $havedot = false, $charset = '')
+{
 	global $_W;
 	if (empty($charset)) {
 		$charset = $_W['charset'];
@@ -630,7 +658,8 @@ function cutstr($string, $length, $havedot = false, $charset = '') {
 }
 
 
-function istrlen($string, $charset = '') {
+function istrlen($string, $charset = '')
+{
 	global $_W;
 	if (empty($charset)) {
 		$charset = $_W['charset'];
@@ -672,7 +701,6 @@ function istrlen($string, $charset = '') {
 					$n++;
 				}
 			}
-
 		} else {
 
 			while ($n < $strlen) {
@@ -685,7 +713,6 @@ function istrlen($string, $charset = '') {
 					$noc++;
 				}
 			}
-
 		}
 
 		return $noc;
@@ -693,28 +720,30 @@ function istrlen($string, $charset = '') {
 }
 
 
-function emotion($message = '', $size = '24px') {
+function emotion($message = '', $size = '24px')
+{
 	$emotions = array(
-		"/::)","/::~","/::B","/::|","/:8-)","/::<","/::$","/::X","/::Z","/::'(",
-		"/::-|","/::@","/::P","/::D","/::O","/::(","/::+","/:--b","/::Q","/::T",
-		"/:,@P","/:,@-D","/::d","/:,@o","/::g","/:|-)","/::!","/::L","/::>","/::,@",
-		"/:,@f","/::-S","/:?","/:,@x","/:,@@","/::8","/:,@!","/:!!!","/:xx","/:bye",
-		"/:wipe","/:dig","/:handclap","/:&-(","/:B-)","/:<@","/:@>","/::-O","/:>-|",
-		"/:P-(","/::'|","/:X-)","/::*","/:@x","/:8*","/:pd","/:<W>","/:beer","/:basketb",
-		"/:oo","/:coffee","/:eat","/:pig","/:rose","/:fade","/:showlove","/:heart",
-		"/:break","/:cake","/:li","/:bome","/:kn","/:footb","/:ladybug","/:shit","/:moon",
-		"/:sun","/:gift","/:hug","/:strong","/:weak","/:share","/:v","/:@)","/:jj","/:@@",
-		"/:bad","/:lvu","/:no","/:ok","/:love","/:<L>","/:jump","/:shake","/:<O>","/:circle",
-		"/:kotow","/:turn","/:skip","/:oY","/:#-0","/:hiphot","/:kiss","/:<&","/:&>"
+		"/::)", "/::~", "/::B", "/::|", "/:8-)", "/::<", "/::$", "/::X", "/::Z", "/::'(",
+		"/::-|", "/::@", "/::P", "/::D", "/::O", "/::(", "/::+", "/:--b", "/::Q", "/::T",
+		"/:,@P", "/:,@-D", "/::d", "/:,@o", "/::g", "/:|-)", "/::!", "/::L", "/::>", "/::,@",
+		"/:,@f", "/::-S", "/:?", "/:,@x", "/:,@@", "/::8", "/:,@!", "/:!!!", "/:xx", "/:bye",
+		"/:wipe", "/:dig", "/:handclap", "/:&-(", "/:B-)", "/:<@", "/:@>", "/::-O", "/:>-|",
+		"/:P-(", "/::'|", "/:X-)", "/::*", "/:@x", "/:8*", "/:pd", "/:<W>", "/:beer", "/:basketb",
+		"/:oo", "/:coffee", "/:eat", "/:pig", "/:rose", "/:fade", "/:showlove", "/:heart",
+		"/:break", "/:cake", "/:li", "/:bome", "/:kn", "/:footb", "/:ladybug", "/:shit", "/:moon",
+		"/:sun", "/:gift", "/:hug", "/:strong", "/:weak", "/:share", "/:v", "/:@)", "/:jj", "/:@@",
+		"/:bad", "/:lvu", "/:no", "/:ok", "/:love", "/:<L>", "/:jump", "/:shake", "/:<O>", "/:circle",
+		"/:kotow", "/:turn", "/:skip", "/:oY", "/:#-0", "/:hiphot", "/:kiss", "/:<&", "/:&>"
 	);
 	foreach ($emotions as $index => $emotion) {
-		$message = str_replace($emotion, '<img style="width:'.$size.';vertical-align:middle;" src="http://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/'.$index.'.gif" />', $message);
+		$message = str_replace($emotion, '<img style="width:' . $size . ';vertical-align:middle;" src="http://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/' . $index . '.gif" />', $message);
 	}
 	return $message;
 }
 
 
-function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
+function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0)
+{
 	$ckey_length = 4;
 	$key = md5($key != '' ? $key : $GLOBALS['_W']['config']['setting']['authkey']);
 	$keya = md5(substr($key, 0, 16));
@@ -760,16 +789,16 @@ function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
 	} else {
 		return $keyc . str_replace('=', '', base64_encode($result));
 	}
-
 }
 
 
-function sizecount($size) {
-	if($size >= 1073741824) {
+function sizecount($size)
+{
+	if ($size >= 1073741824) {
 		$size = round($size / 1073741824 * 100) / 100 . ' GB';
-	} elseif($size >= 1048576) {
+	} elseif ($size >= 1048576) {
 		$size = round($size / 1048576 * 100) / 100 . ' MB';
-	} elseif($size >= 1024) {
+	} elseif ($size >= 1024) {
 		$size = round($size / 1024 * 100) / 100 . ' KB';
 	} else {
 		$size = $size . ' Bytes';
@@ -778,23 +807,25 @@ function sizecount($size) {
 }
 
 
-function bytecount($str) {
-	if (strtolower($str[strlen($str) -1]) == 'b') {
+function bytecount($str)
+{
+	if (strtolower($str[strlen($str) - 1]) == 'b') {
 		$str = substr($str, 0, -1);
 	}
-	if(strtolower($str[strlen($str) -1]) == 'k') {
+	if (strtolower($str[strlen($str) - 1]) == 'k') {
 		return floatval($str) * 1024;
 	}
-	if(strtolower($str[strlen($str) -1]) == 'm') {
+	if (strtolower($str[strlen($str) - 1]) == 'm') {
 		return floatval($str) * 1048576;
 	}
-	if(strtolower($str[strlen($str) -1]) == 'g') {
+	if (strtolower($str[strlen($str) - 1]) == 'g') {
 		return floatval($str) * 1073741824;
 	}
 }
 
 
-function array2xml($arr, $level = 1) {
+function array2xml($arr, $level = 1)
+{
 	$s = $level == 1 ? "<xml>" : '';
 	foreach ($arr as $tagname => $value) {
 		if (is_numeric($tagname)) {
@@ -811,13 +842,14 @@ function array2xml($arr, $level = 1) {
 	return $level == 1 ? $s . "</xml>" : $s;
 }
 
-function xml2array($xml) {
+function xml2array($xml)
+{
 	if (empty($xml)) {
 		return array();
 	}
 	$result = array();
 	$xmlobj = isimplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA);
-	if($xmlobj instanceof SimpleXMLElement) {
+	if ($xmlobj instanceof SimpleXMLElement) {
 		$result = json_decode(json_encode($xmlobj), true);
 		if (is_array($result)) {
 			return $result;
@@ -829,22 +861,23 @@ function xml2array($xml) {
 	}
 }
 
-function scriptname() {
+function scriptname()
+{
 	global $_W;
 	$_W['script_name'] = basename($_SERVER['SCRIPT_FILENAME']);
-	if(basename($_SERVER['SCRIPT_NAME']) === $_W['script_name']) {
+	if (basename($_SERVER['SCRIPT_NAME']) === $_W['script_name']) {
 		$_W['script_name'] = $_SERVER['SCRIPT_NAME'];
 	} else {
-		if(basename($_SERVER['PHP_SELF']) === $_W['script_name']) {
+		if (basename($_SERVER['PHP_SELF']) === $_W['script_name']) {
 			$_W['script_name'] = $_SERVER['PHP_SELF'];
 		} else {
-			if(isset($_SERVER['ORIG_SCRIPT_NAME']) && basename($_SERVER['ORIG_SCRIPT_NAME']) === $_W['script_name']) {
+			if (isset($_SERVER['ORIG_SCRIPT_NAME']) && basename($_SERVER['ORIG_SCRIPT_NAME']) === $_W['script_name']) {
 				$_W['script_name'] = $_SERVER['ORIG_SCRIPT_NAME'];
 			} else {
-				if(($pos = strpos($_SERVER['PHP_SELF'], '/' . $scriptName)) !== false) {
+				if (($pos = strpos($_SERVER['PHP_SELF'], '/' . $scriptName)) !== false) {
 					$_W['script_name'] = substr($_SERVER['SCRIPT_NAME'], 0, $pos) . '/' . $_W['script_name'];
 				} else {
-					if(isset($_SERVER['DOCUMENT_ROOT']) && strpos($_SERVER['SCRIPT_FILENAME'], $_SERVER['DOCUMENT_ROOT']) === 0) {
+					if (isset($_SERVER['DOCUMENT_ROOT']) && strpos($_SERVER['SCRIPT_FILENAME'], $_SERVER['DOCUMENT_ROOT']) === 0) {
 						$_W['script_name'] = str_replace('\\', '/', str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['SCRIPT_FILENAME']));
 					} else {
 						$_W['script_name'] = 'unknown';
@@ -857,25 +890,27 @@ function scriptname() {
 }
 
 
-function utf8_bytes($cp) {
-	if ($cp > 0x10000){
-				return	chr(0xF0 | (($cp & 0x1C0000) >> 18)).
-		chr(0x80 | (($cp & 0x3F000) >> 12)).
-		chr(0x80 | (($cp & 0xFC0) >> 6)).
-		chr(0x80 | ($cp & 0x3F));
-	}else if ($cp > 0x800){
-				return	chr(0xE0 | (($cp & 0xF000) >> 12)).
-		chr(0x80 | (($cp & 0xFC0) >> 6)).
-		chr(0x80 | ($cp & 0x3F));
-	}else if ($cp > 0x80){
-				return	chr(0xC0 | (($cp & 0x7C0) >> 6)).
-		chr(0x80 | ($cp & 0x3F));
-	}else{
-				return chr($cp);
+function utf8_bytes($cp)
+{
+	if ($cp > 0x10000) {
+		return	chr(0xF0 | (($cp & 0x1C0000) >> 18)) .
+			chr(0x80 | (($cp & 0x3F000) >> 12)) .
+			chr(0x80 | (($cp & 0xFC0) >> 6)) .
+			chr(0x80 | ($cp & 0x3F));
+	} else if ($cp > 0x800) {
+		return	chr(0xE0 | (($cp & 0xF000) >> 12)) .
+			chr(0x80 | (($cp & 0xFC0) >> 6)) .
+			chr(0x80 | ($cp & 0x3F));
+	} else if ($cp > 0x80) {
+		return	chr(0xC0 | (($cp & 0x7C0) >> 6)) .
+			chr(0x80 | ($cp & 0x3F));
+	} else {
+		return chr($cp);
 	}
 }
 
-function media2local($media_id, $all = false){
+function media2local($media_id, $all = false)
+{
 	global $_W;
 	load()->model('material');
 	$data = material_get($media_id);
@@ -890,7 +925,8 @@ function media2local($media_id, $all = false){
 	}
 }
 
-function aes_decode($message, $encodingaeskey = '', $appid = '') {
+function aes_decode($message, $encodingaeskey = '', $appid = '')
+{
 	$key = base64_decode($encodingaeskey . '=');
 
 	$ciphertext_dec = base64_decode($message);
@@ -922,7 +958,8 @@ function aes_decode($message, $encodingaeskey = '', $appid = '') {
 	return $content;
 }
 
-function aes_encode($message, $encodingaeskey = '', $appid = '') {
+function aes_encode($message, $encodingaeskey = '', $appid = '')
+{
 	$key = base64_decode($encodingaeskey . '=');
 	$text = random(16) . pack("N", strlen($message)) . $message . $appid;
 
@@ -932,26 +969,27 @@ function aes_encode($message, $encodingaeskey = '', $appid = '') {
 
 	$block_size = 32;
 	$text_length = strlen($text);
-		$amount_to_pad = $block_size - ($text_length % $block_size);
+	$amount_to_pad = $block_size - ($text_length % $block_size);
 	if ($amount_to_pad == 0) {
 		$amount_to_pad = $block_size;
 	}
-		$pad_chr = chr($amount_to_pad);
+	$pad_chr = chr($amount_to_pad);
 	$tmp = '';
 	for ($index = 0; $index < $amount_to_pad; $index++) {
 		$tmp .= $pad_chr;
 	}
 	$text = $text . $tmp;
 	mcrypt_generic_init($module, $key, $iv);
-		$encrypted = mcrypt_generic($module, $text);
+	$encrypted = mcrypt_generic($module, $text);
 	mcrypt_generic_deinit($module);
 	mcrypt_module_close($module);
-		$encrypt_msg = base64_encode($encrypted);
+	$encrypt_msg = base64_encode($encrypted);
 	return $encrypt_msg;
 }
 
 
-function aes_pkcs7_decode($encrypt_data, $key, $iv = false) {
+function aes_pkcs7_decode($encrypt_data, $key, $iv = false)
+{
 	require_once IA_ROOT . '/framework/library/pkcs7/pkcs7Encoder.php';
 	$encrypt_data = base64_decode($encrypt_data);
 	if (!empty($iv)) {
@@ -966,7 +1004,8 @@ function aes_pkcs7_decode($encrypt_data, $key, $iv = false) {
 }
 
 
-function isimplexml_load_string($string, $class_name = 'SimpleXMLElement', $options = 0, $ns = '', $is_prefix = false) {
+function isimplexml_load_string($string, $class_name = 'SimpleXMLElement', $options = 0, $ns = '', $is_prefix = false)
+{
 	libxml_disable_entity_loader(true);
 	if (preg_match('/(\<\!DOCTYPE|\<\!ENTITY)/i', $string)) {
 		return false;
@@ -974,17 +1013,19 @@ function isimplexml_load_string($string, $class_name = 'SimpleXMLElement', $opti
 	return simplexml_load_string($string, $class_name, $options, $ns, $is_prefix);
 }
 
-function ihtml_entity_decode($str) {
+function ihtml_entity_decode($str)
+{
 	$str = str_replace('&nbsp;', '#nbsp;', $str);
 	return str_replace('#nbsp;', '&nbsp;', html_entity_decode(urldecode($str)));
 }
 
-function iarray_change_key_case($array, $case = CASE_LOWER){
-	if (!is_array($array) || empty($array)){
+function iarray_change_key_case($array, $case = CASE_LOWER)
+{
+	if (!is_array($array) || empty($array)) {
 		return array();
 	}
 	$array = array_change_key_case($array, $case);
-	foreach ($array as $key => $value){
+	foreach ($array as $key => $value) {
 		if (empty($value) && is_array($value)) {
 			$array[$key] = '';
 		}
@@ -995,7 +1036,8 @@ function iarray_change_key_case($array, $case = CASE_LOWER){
 	return $array;
 }
 
-function strip_gpc($values, $type = 'g') {
+function strip_gpc($values, $type = 'g')
+{
 	$filter = array(
 		'g' => "'|(and|or)\\b.+?(>|<|=|in|like)|\\/\\*.+?\\*\\/|<\\s*script\\b|\\bEXEC\\b|UNION.+?SELECT|UPDATE.+?SET|INSERT\\s+INTO.+?VALUES|(SELECT|DELETE).+?FROM|(CREATE|ALTER|DROP|TRUNCATE)\\s+(TABLE|DATABASE)",
 		'p' => "\\b(and|or)\\b.{1,6}?(=|>|<|\\bin\\b|\\blike\\b)|\\/\\*.+?\\*\\/|<\\s*script\\b|\\bEXEC\\b|UNION.+?SELECT|UPDATE.+?SET|INSERT\\s+INTO.+?VALUES|(SELECT|DELETE).+?FROM|(CREATE|ALTER|DROP|TRUNCATE)\\s+(TABLE|DATABASE)",
@@ -1004,12 +1046,12 @@ function strip_gpc($values, $type = 'g') {
 	if (!isset($values)) {
 		return '';
 	}
-	if(is_array($values)) {
-		foreach($values as $key => $val) {
+	if (is_array($values)) {
+		foreach ($values as $key => $val) {
 			$values[addslashes($key)] = strip_gpc($val, $type);
 		}
 	} else {
-		if (preg_match("/".$filter[$type]."/is", $values, $match) == 1) {
+		if (preg_match("/" . $filter[$type] . "/is", $values, $match) == 1) {
 			$values = '';
 		}
 	}
@@ -1017,7 +1059,8 @@ function strip_gpc($values, $type = 'g') {
 }
 
 
-function parse_path($path) {
+function parse_path($path)
+{
 	$danger_char = array('../', '{php', '<?php', '<%', '<?');
 	foreach ($danger_char as $char) {
 		if (strexists($path, $char)) {
@@ -1028,13 +1071,14 @@ function parse_path($path) {
 }
 
 
-function dir_size($dir) {
+function dir_size($dir)
+{
 	$size = 0;
-	if(is_dir($dir)) {
+	if (is_dir($dir)) {
 		$handle = opendir($dir);
 		while (false !== ($entry = readdir($handle))) {
-			if($entry != '.' && $entry != '..') {
-				if(is_dir("{$dir}/{$entry}")) {
+			if ($entry != '.' && $entry != '..') {
+				if (is_dir("{$dir}/{$entry}")) {
 					$size += dir_size("{$dir}/{$entry}");
 				} else {
 					$size += filesize("{$dir}/{$entry}");
@@ -1047,11 +1091,12 @@ function dir_size($dir) {
 }
 
 
-function get_first_pinyin($str) {
+function get_first_pinyin($str)
+{
 	static $pinyin;
 	$first_char = '';
 	$str = trim($str);
-	if(empty($str)) {
+	if (empty($str)) {
 		return $first_char;
 	}
 	if (empty($pinyin)) {
@@ -1063,32 +1108,34 @@ function get_first_pinyin($str) {
 }
 
 
-function strip_emoji($nickname) {
+function strip_emoji($nickname)
+{
 	$clean_text = "";
-		$regexEmoticons = '/[\x{1F600}-\x{1F64F}]/u';
+	$regexEmoticons = '/[\x{1F600}-\x{1F64F}]/u';
 	$clean_text = preg_replace($regexEmoticons, '', $nickname);
-		$regexSymbols = '/[\x{1F300}-\x{1F5FF}]/u';
+	$regexSymbols = '/[\x{1F300}-\x{1F5FF}]/u';
 	$clean_text = preg_replace($regexSymbols, '', $clean_text);
-		$regexTransport = '/[\x{1F680}-\x{1F6FF}]/u';
+	$regexTransport = '/[\x{1F680}-\x{1F6FF}]/u';
 	$clean_text = preg_replace($regexTransport, '', $clean_text);
-		$regexMisc = '/[\x{2600}-\x{26FF}]/u';
+	$regexMisc = '/[\x{2600}-\x{26FF}]/u';
 	$clean_text = preg_replace($regexMisc, '', $clean_text);
-		$regexDingbats = '/[\x{2700}-\x{27BF}]/u';
+	$regexDingbats = '/[\x{2700}-\x{27BF}]/u';
 	$clean_text = preg_replace($regexDingbats, '', $clean_text);
 
-	$clean_text = str_replace("'",'',$clean_text);
-	$clean_text = str_replace('"','',$clean_text);
-	$clean_text = str_replace('“','',$clean_text);
-	$clean_text = str_replace('゛','',$clean_text);
-	$search = array(" ","　","\n","\r","\t");
-	$replace = array("","","","","");
+	$clean_text = str_replace("'", '', $clean_text);
+	$clean_text = str_replace('"', '', $clean_text);
+	$clean_text = str_replace('“', '', $clean_text);
+	$clean_text = str_replace('゛', '', $clean_text);
+	$search = array(" ", "　", "\n", "\r", "\t");
+	$replace = array("", "", "", "", "");
 	return str_replace($search, $replace, $clean_text);
 }
 
 
-function emoji_unicode_decode($string) {
+function emoji_unicode_decode($string)
+{
 	preg_match_all('/\[U\+(\\w{4,})\]/i', $string, $match);
-	if(!empty($match[1])) {
+	if (!empty($match[1])) {
 		foreach ($match[1] as $emojiUSB) {
 			$string = str_ireplace("[U+{$emojiUSB}]", utf8_bytes(hexdec($emojiUSB)), $string);
 		}
@@ -1096,15 +1143,19 @@ function emoji_unicode_decode($string) {
 	return $string;
 }
 
-function emoji_unicode_encode($string) {
+function emoji_unicode_encode($string)
+{
 	$ranges = array(
-		'\\\\ud83c[\\\\udf00-\\\\udfff]', 		'\\\\ud83d[\\\\udc00-\\\\ude4f]', 		'\\\\ud83d[\\\\ude80-\\\\udeff]'  	);
+		'\\\\ud83c[\\\\udf00-\\\\udfff]', 		'\\\\ud83d[\\\\udc00-\\\\ude4f]', 		'\\\\ud83d[\\\\ude80-\\\\udeff]'
+	);
 	preg_match_all('/' . implode('|', $ranges) . '/i', $string, $match);
-	print_r($match);exit;
+	print_r($match);
+	exit;
 }
 
 
-function getglobal($key) {
+function getglobal($key)
+{
 	global $_W;
 	$key = explode('/', $key);
 

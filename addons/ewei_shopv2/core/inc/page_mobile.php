@@ -3,7 +3,6 @@
 if (!defined('IN_IA')) {
 
 	exit('Access Denied');
-
 }
 
 
@@ -37,48 +36,26 @@ class MobilePage extends Page
 		if ($wap['open'] && !is_weixin() && empty($preview)) {
 
 			if ($this instanceof MobileLoginPage || $this instanceof PluginMobileLoginPage) {
-
 				if (empty($_W['openid'])) {
 
 					$_W['openid'] = m('account')->checkLogin();
-
 				}
-
-			}
-
-			else {
-
+			} else {
 				$_W['openid'] = m('account')->checkOpenid();
-
 			}
+		} else {
+			if ($this instanceof MobileLoginPage || $this instanceof PluginMobileLoginPage) {
+				if (empty($_W['openid'])) {
 
+					$_W['openid'] = m('account')->checkLogin();
+				}
+			} else {
+				$_W['openid'] = m('account')->checkOpenid();
+			}
 		}
-
-		else {
-
-			if ($preview && !is_weixin()) {
-
-				$_W['openid'] = 'ooyv91cPbLRIz1qaX7Fim_cRfjZk';
-
-			}
-
-			$_W['openid'] = m('account')->checkLogin();
-
-			if (EWEI_SHOPV2_DEBUG) {
-
-				$_W['openid'] = 'ooyv91cPbLRIz1qaX7Fim_cRfjZk';
-
-			}
-
-		}
-
-
-		// var_dump($a);exit();
 		$member = m('member')->checkMember();
+
 		$url = mobileUrl('account/login');
-		// header("location:$url");
-		// if(!$member)
-		// var_dump($member);exit();
 
 		$_W['mid'] = !empty($member) ? $member['id'] : '';
 
@@ -89,11 +66,8 @@ class MobilePage extends Page
 		$merch_data = m('common')->getPluginset('merch');
 
 		if (!empty($_GPC['merchid']) && $merch_plugin && $merch_data['is_openmerch']) {
-
 			$this->merch_user = pdo_fetch('select * from ' . tablename('ewei_shop_merch_user') . ' where id=:id limit 1', array(':id' => intval($_GPC['merchid'])));
-
 		}
-
 	}
 
 
@@ -109,7 +83,6 @@ class MobilePage extends Page
 		if (is_h5app() || !is_weixin()) {
 
 			return NULL;
-
 		}
 
 
@@ -129,19 +102,14 @@ class MobilePage extends Page
 			if ($merch && p('merch')) {
 
 				$diypagedata = p('merch')->getSet('diypage', $merch);
-
-			}
-
-			else {
+			} else {
 
 				$diypagedata = m('common')->getPluginset('diypage');
-
 			}
 
 
 
 			$diyfollowbar = $diypagedata['followbar'];
-
 		}
 
 
@@ -149,7 +117,6 @@ class MobilePage extends Page
 		if ($diypage) {
 
 			$diyfollowbar['params']['isopen'] = 1;
-
 		}
 
 
@@ -169,7 +136,6 @@ class MobilePage extends Page
 				if (!empty($_SESSION[EWEI_SHOPV2_PREFIX . '_shareid']) && ($_SESSION[EWEI_SHOPV2_PREFIX . '_shareid'] == $mid)) {
 
 					$mid = $_SESSION[EWEI_SHOPV2_PREFIX . '_shareid'];
-
 				}
 
 
@@ -185,9 +151,7 @@ class MobilePage extends Page
 					$friend = true;
 
 					$followbar['share_member'] = array('id' => $member['id'], 'nickname' => $member['nickname'], 'realname' => $member['realname'], 'avatar' => $member['avatar']);
-
 				}
-
 			}
 
 
@@ -215,27 +179,16 @@ class MobilePage extends Page
 							$diyfollowbar['text'] = str_replace('[邀请人]', '<span style="color:' . $diyfollowbar['style']['highlight'] . ';">' . $followbar['share_member']['nickname'] . '</span>', $diyfollowbar['text']);
 
 							$diyfollowbar['text'] = str_replace('[访问者]', '<span style="color:' . $diyfollowbar['style']['highlight'] . ';">' . $touser['nickname'] . '</span>', $diyfollowbar['text']);
-
-						}
-
-						else {
+						} else {
 
 							$diyfollowbar['text'] = '来自好友<span class="text-danger">' . $followbar['share_member']['nickname'] . '</span>的推荐<br>' . '关注公众号，享专属服务';
-
 						}
-
-					}
-
-					else if (!empty($diyfollowbar['params']['defaulttext'])) {
+					} else if (!empty($diyfollowbar['params']['defaulttext'])) {
 
 						$diyfollowbar['text'] = str_replace('[商城名称]', '<span style="color:' . $diyfollowbar['style']['highlight'] . ';">' . $set['shop']['name'] . '</span>', $diyfollowbar['params']['defaulttext']);
-
-					}
-
-					else {
+					} else {
 
 						$diyfollowbar['text'] = '欢迎进入<span class="text-danger">' . $set['shop']['name'] . '</span><br>' . '关注公众号，享专属服务';
-
 					}
 
 
@@ -247,17 +200,12 @@ class MobilePage extends Page
 					if (($diyfollowbar['params']['icontype'] == 1) && !empty($followbar['share_member'])) {
 
 						$diyfollowbar['logo'] = tomedia($followbar['share_member']['avatar']);
-
-					}
-
-					else {
+					} else {
 
 						if (($diyfollowbar['params']['icontype'] == 3) && !empty($diyfollowbar['params']['iconurl'])) {
 
 							$diyfollowbar['logo'] = tomedia($diyfollowbar['params']['iconurl']);
-
 						}
-
 					}
 
 
@@ -267,31 +215,18 @@ class MobilePage extends Page
 						if (empty($diyfollowbar['params']['btnlinktype'])) {
 
 							$diyfollowbar['link'] = $set['share']['followurl'];
-
-						}
-
-						else {
+						} else {
 
 							$diyfollowbar['link'] = $diyfollowbar['params']['btnlink'];
-
 						}
-
-					}
-
-					else if (empty($diyfollowbar['params']['qrcodetype'])) {
+					} else if (empty($diyfollowbar['params']['qrcodetype'])) {
 
 						$diyfollowbar['qrcode'] = tomedia($set['share']['followqrcode']);
-
-					}
-
-					else {
+					} else {
 
 						$diyfollowbar['qrcode'] = tomedia($diyfollowbar['params']['qrcodeurl']);
-
 					}
-
 				}
-
 			}
 
 
@@ -299,17 +234,11 @@ class MobilePage extends Page
 			if ($showdiyfollowbar) {
 
 				include $this->template('diypage/followbar');
-
-			}
-
-			else {
+			} else {
 
 				include $this->template('_followbar');
-
 			}
-
 		}
-
 	}
 
 
@@ -325,7 +254,6 @@ class MobilePage extends Page
 		if (is_h5app() || !is_weixin()) {
 
 			return NULL;
-
 		}
 
 
@@ -339,7 +267,6 @@ class MobilePage extends Page
 		if (!$cmember_plugin) {
 
 			return NULL;
-
 		}
 
 
@@ -353,7 +280,6 @@ class MobilePage extends Page
 		if (!$followed) {
 
 			return NULL;
-
 		}
 
 
@@ -365,7 +291,6 @@ class MobilePage extends Page
 		if (!empty($check)) {
 
 			return NULL;
-
 		}
 
 
@@ -377,13 +302,9 @@ class MobilePage extends Page
 		if (!empty($data['become_goodsid'])) {
 
 			$goods = pdo_fetch('select id,title,thumb from ' . tablename('ewei_shop_goods') . ' where id=:id and uniacid=:uniacid limit 1 ', array(':id' => $data['become_goodsid'], ':uniacid' => $_W['uniacid']));
-
-		}
-
-		else {
+		} else {
 
 			return NULL;
-
 		}
 
 
@@ -391,7 +312,6 @@ class MobilePage extends Page
 		$buy_member_url = mobileUrl('goods/detail', array('id' => $goods['id'], 'mid' => $mid));
 
 		include $this->template('cmember/_memberbar');
-
 	}
 
 
@@ -421,17 +341,11 @@ class MobilePage extends Page
 				if (($member['isagent'] == 1) && ($member['status'] == 1)) {
 
 					$commission = array('url' => mobileUrl('commission'), 'text' => empty($_W['shopset']['commission']['texts']['center']) ? '分销中心' : $_W['shopset']['commission']['texts']['center']);
-
-				}
-
-				else {
+				} else {
 
 					$commission = array('url' => mobileUrl('commission/register'), 'text' => empty($_W['shopset']['commission']['texts']['become']) ? '成为分销商' : $_W['shopset']['commission']['texts']['become']);
-
 				}
-
 			}
-
 		}
 
 
@@ -445,7 +359,6 @@ class MobilePage extends Page
 		if (($controller == 'member') || ($controller == 'cart') || ($controller == 'order') || ($controller == 'goods')) {
 
 			$controller = 'shop';
-
 		}
 
 
@@ -459,7 +372,6 @@ class MobilePage extends Page
 			if (!empty($_GPC['merchid']) && (($_W['routes'] == 'shop.category') || ($_W['routes'] == 'goods'))) {
 
 				$pageid = 'merch';
-
 			}
 
 
@@ -477,14 +389,9 @@ class MobilePage extends Page
 					if (!is_weixin() || is_h5app()) {
 
 						$diymenuid = $merchdata['menu']['shop_wap'];
-
 					}
-
 				}
-
-			}
-
-			else {
+			} else {
 
 				$diypagedata = m('common')->getPluginset('diypage');
 
@@ -497,13 +404,9 @@ class MobilePage extends Page
 					if (!is_weixin() || is_h5app()) {
 
 						$diymenuid = $diypagedata['menu'][$pageid . '_wap'];
-
 					}
-
 				}
-
 			}
-
 		}
 
 
@@ -523,9 +426,7 @@ class MobilePage extends Page
 				$diymenu = json_decode($menu, true);
 
 				$showdiymenu = true;
-
 			}
-
 		}
 
 
@@ -533,85 +434,46 @@ class MobilePage extends Page
 		if ($showdiymenu) {
 
 			include $this->template('diypage/menu');
-
-		}
-
-		else {
+		} else {
 
 			if (($controller == 'commission') && ($routes[1] != 'myshop')) {
 
 				include $this->template('commission/_menu');
-
-			}
-
-			else if ($controller == 'creditshop') {
+			} else if ($controller == 'creditshop') {
 
 				include $this->template('creditshop/_menu');
-
-			}
-
-			else if ($controller == 'groups') {
+			} else if ($controller == 'groups') {
 
 				include $this->template('groups/_groups_footer');
-
-			}
-
-			else if ($controller == 'merch') {
+			} else if ($controller == 'merch') {
 
 				include $this->template('merch/_menu');
-
-			}
-
-			else if ($controller == 'mr') {
+			} else if ($controller == 'mr') {
 
 				include $this->template('mr/_menu');
-
-			}
-
-			else if ($controller == 'newmr') {
+			} else if ($controller == 'newmr') {
 
 				include $this->template('newmr/_menu');
-
-			}
-
-			else if ($controller == 'sign') {
+			} else if ($controller == 'sign') {
 
 				include $this->template('sign/_menu');
-
-			}
-
-			else if ($controller == 'sns') {
+			} else if ($controller == 'sns') {
 
 				include $this->template('sns/_menu');
-
-			}
-
-			else if ($controller == 'seckill') {
+			} else if ($controller == 'seckill') {
 
 				include $this->template('seckill/_menu');
-
-			}
-
-			else if ($controller == 'mmanage') {
+			} else if ($controller == 'mmanage') {
 
 				include $this->template('mmanage/_menu');
-
-			}
-
-			else if ($ismerch) {
+			} else if ($ismerch) {
 
 				include $this->template('merch/_menu');
-
-			}
-
-			else {
+			} else {
 
 				include $this->template('_menu');
-
 			}
-
 		}
-
 	}
 
 
@@ -657,13 +519,9 @@ class MobilePage extends Page
 							$myshop = $plugin_commission->getShop($member['id']);
 
 							$_W['shopshare'] = array('title' => $myshop['name'], 'imgUrl' => tomedia($myshop['logo']), 'desc' => $myshop['desc'], 'link' => mobileUrl('commission/myshop', array('mid' => $member['id']), true));
-
-						}
-
-						else {
+						} else {
 
 							$_W['shopshare']['link'] = empty($_W['shopset']['share']['url']) ? mobileUrl('', array('mid' => $member['id']), true) : $_W['shopset']['share']['url'];
-
 						}
 
 
@@ -671,12 +529,8 @@ class MobilePage extends Page
 						if (empty($set['become_reg']) && (empty($member['realname']) || empty($member['mobile']))) {
 
 							$trigger = true;
-
 						}
-
-					}
-
-					else {
+					} else {
 
 						if (!empty($_GPC['mid'])) {
 
@@ -689,37 +543,23 @@ class MobilePage extends Page
 									$myshop = $plugin_commission->getShop($_GPC['mid']);
 
 									$_W['shopshare'] = array('title' => $myshop['name'], 'imgUrl' => tomedia($myshop['logo']), 'desc' => $myshop['desc'], 'link' => mobileUrl('commission/myshop', array('mid' => $member['id']), true));
-
-								}
-
-								else {
+								} else {
 
 									$_W['shopshare']['link'] = empty($_W['shopset']['share']['url']) ? mobileUrl('', array('mid' => $_GPC['mid']), true) : $_W['shopset']['share']['url'];
-
 								}
-
-							}
-
-							else {
+							} else {
 
 								$_W['shopshare']['link'] = empty($_W['shopset']['share']['url']) ? mobileUrl('', array('mid' => $_GPC['mid']), true) : $_W['shopset']['share']['url'];
-
 							}
-
 						}
-
 					}
-
 				}
-
 			}
-
 		}
 
 
 
 		return $trigger;
-
 	}
 
 
@@ -735,7 +575,6 @@ class MobilePage extends Page
 		if (empty($type) || !p('diypage')) {
 
 			return false;
-
 		}
 
 
@@ -747,19 +586,14 @@ class MobilePage extends Page
 			if (!p('merch')) {
 
 				return false;
-
 			}
 
 
 
 			$diypagedata = p('merch')->getSet('diypage', $merch);
-
-		}
-
-		else {
+		} else {
 
 			$diypagedata = m('common')->getPluginset('diypage');
-
 		}
 
 
@@ -799,21 +633,17 @@ class MobilePage extends Page
 									$diyitem_search = $diyitem;
 
 									unset($diyitems[$diyitemid]);
-
 								}
-
 							}
 
 
 
 							unset($diyitem);
-
 						}
 
 
 
 						unset($diyitem);
-
 					}
 
 
@@ -825,7 +655,6 @@ class MobilePage extends Page
 					if ($type == 'home') {
 
 						$cpinfos = com('coupon')->getInfo();
-
 					}
 
 
@@ -833,13 +662,9 @@ class MobilePage extends Page
 					include $this->template('diypage');
 
 					exit();
-
 				}
-
 			}
-
 		}
-
 	}
 
 
@@ -855,7 +680,6 @@ class MobilePage extends Page
 		if (!p('diypage') || $diy) {
 
 			return NULL;
-
 		}
 
 
@@ -865,19 +689,14 @@ class MobilePage extends Page
 			if (!p('merch')) {
 
 				return false;
-
 			}
 
 
 
 			$diypagedata = p('merch')->getSet('diypage', $merch);
-
-		}
-
-		else {
+		} else {
 
 			$diypagedata = m('common')->getPluginset('diypage');
-
 		}
 
 
@@ -889,15 +708,12 @@ class MobilePage extends Page
 			if (!$diylayer['params']['isopen'] && $v) {
 
 				return NULL;
-
 			}
 
 
 
 			include $this->template('diypage/layer');
-
 		}
-
 	}
 
 
@@ -913,7 +729,6 @@ class MobilePage extends Page
 		if (!p('diypage') || $diy) {
 
 			return NULL;
-
 		}
 
 
@@ -923,19 +738,14 @@ class MobilePage extends Page
 			if (!p('merch')) {
 
 				return false;
-
 			}
 
 
 
 			$diypagedata = p('merch')->getSet('diypage', $merch);
-
-		}
-
-		else {
+		} else {
 
 			$diypagedata = m('common')->getPluginset('diypage');
-
 		}
 
 
@@ -947,15 +757,12 @@ class MobilePage extends Page
 			if (!$diygotop['params']['isopen'] && $v) {
 
 				return NULL;
-
 			}
 
 
 
 			include $this->template('diypage/gotop');
-
 		}
-
 	}
 
 
@@ -973,7 +780,6 @@ class MobilePage extends Page
 		if (!p('diypage')) {
 
 			return NULL;
-
 		}
 
 
@@ -985,7 +791,6 @@ class MobilePage extends Page
 		if (empty($danmu) || (!$diy && empty($danmu['params']['isopen']))) {
 
 			return NULL;
-
 		}
 
 
@@ -1005,25 +810,16 @@ class MobilePage extends Page
 			if ($randend <= $randstart) {
 
 				$randend = $randend + rand(100, 999);
-
 			}
-
-		}
-
-		else if ($danmu['params']['datatype'] == 1) {
+		} else if ($danmu['params']['datatype'] == 1) {
 
 			$danmu['data'] = pdo_fetchall('SELECT m.nickname, m.avatar as imgurl, o.createtime as time FROM' . tablename('ewei_shop_order') . ' o LEFT JOIN ' . tablename('ewei_shop_member') . ' m ON m.openid=o.openid WHERE o.uniacid=:uniacid AND m.nickname!=\'\' AND m.avatar!=\'\' ORDER BY o.createtime DESC LIMIT 10', array(':uniacid' => $_W['uniacid']));
-
-		}
-
-		else {
+		} else {
 
 			if ($danmu['params']['datatype'] == 2) {
 
 				$danmu['data'] = set_medias($danmu['data'], 'imgurl');
-
 			}
-
 		}
 
 
@@ -1031,7 +827,6 @@ class MobilePage extends Page
 		if (empty($danmu['data']) || !is_array($danmu['data'])) {
 
 			return NULL;
-
 		}
 
 
@@ -1043,31 +838,21 @@ class MobilePage extends Page
 				$time = rand($randstart, $randend);
 
 				$danmu['data'][$index]['time'] = p('diypage')->getDanmuTime($time);
-
-			}
-
-			else if ($danmu['params']['datatype'] == 1) {
+			} else if ($danmu['params']['datatype'] == 1) {
 
 				$danmu['data'][$index]['time'] = p('diypage')->getDanmuTime(time() - $item['time']);
-
-			}
-
-			else {
+			} else {
 
 				if ($danmu['params']['datatype'] == 2) {
 
 					$danmu['data'][$index]['time'] = p('diypage')->getDanmuTime($danmu['data'][$index]['time']);
-
 				}
-
 			}
-
 		}
 
 
 
 		include $this->template('diypage/danmu');
-
 	}
 
 
@@ -1085,7 +870,6 @@ class MobilePage extends Page
 		if (!p('live')) {
 
 			return NULL;
-
 		}
 
 
@@ -1093,7 +877,6 @@ class MobilePage extends Page
 		if (strexists($_W['routes'], 'live')) {
 
 			return false;
-
 		}
 
 
@@ -1105,7 +888,6 @@ class MobilePage extends Page
 		if (empty($liveid)) {
 
 			return NULL;
-
 		}
 
 
@@ -1117,13 +899,11 @@ class MobilePage extends Page
 		if (!$living) {
 
 			return NULL;
-
 		}
 
 
 
 		include $this->template('live/backliving');
-
 	}
 
 
@@ -1143,7 +923,6 @@ class MobilePage extends Page
 		if (!is_mobile()) {
 
 			$currenturl = $_W['siteroot'] . 'app/index.php?' . $_SERVER['QUERY_STRING'];
-
 		}
 
 
@@ -1153,12 +932,5 @@ class MobilePage extends Page
 		$shopname = $shop['name'];
 
 		include $this->template('_wapqrcode');
-
 	}
-
 }
-
-
-
-?>
-
