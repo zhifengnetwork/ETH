@@ -8,7 +8,10 @@
         margin-top: 0;
     }
 </style>
-<div class="page-header"><img src="../addons/ewei_shopv2/static/images/font_31.png">当前位置：<span class="text-primary">一键复投记录</span></div>
+<div class="page-header">
+<span>投资金额总额:<?php  echo $money['money_ETH_1'];?></span>　　　　　　　　
+<span>投资ETH总额:<?php  echo $money['credit'];?></span>　　　　　　　
+<img src="../addons/ewei_shopv2/static/images/font_31.png">当前位置：<span class="text-primary">一键复投记录</span></div>
 
 <div class="page-content">
 
@@ -34,7 +37,7 @@
 
             <div class="input-group">
 
-   
+
                 <!-- <span class="input-group-select">
 
                     <select name="groupid" class="form-control" style="width:110px;float: right;"  >
@@ -136,9 +139,9 @@
 
                     <!-- <th style='width:180px;'>提现方式</th> -->
 
-                    <th >投资时间</th>  
+                    <th >投资时间</th>
 
-                    <th >复投类型</th>  
+                    <th >复投类型</th>
 
                     <th style='width:100px;'>状态</th>
 
@@ -203,7 +206,7 @@
 
                     <!-- <td><?php  echo $row['money'];?><br/><?php  echo $row['realmoney'];?><br/><?php  echo $row['deductionmoney'];?></td> -->
                     <td><?php  echo $row['money'];?></td>
-                    
+
                     <td><?php  echo $row['credit'];?></td>
                     <!-- <td><?php  if((float)$row['sendmoney'] != 0) { ?><?php  echo $row['sendmoney'];?><?php  } else { ?>-<?php  } ?></td> -->
 
@@ -269,7 +272,7 @@
                        <?php  echo $row['title'];?>
                     </td>
 
-                    
+
 
 
 

@@ -1,0 +1,48 @@
+2019-04-08 22:33:36 SQL Error :
+------------
+String:
+SQL: <br/>select g.*,m.nickname from`ims_ewei_shop_member_log`g left join`ims_ewei_shop_member`m on g.openid=m.openid where g.uniacid=12 and g.openid=wap_user_12_18228178860 order by g.createtime desc<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'wap_user_12_18228178860' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/investmentjilu.php; line: 102; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 13; <br />file: /app/index.php; line: 121; <br />
+
+2019-04-08 22:33:36 SQL Error :
+------------
+String:
+SQL: <br/>select g.*,m.nickname from`ims_ewei_zhuanzhang`g left join`ims_ewei_shop_member`m on g.openid=m.openid where g.uniacid=12 and g.openid=wap_user_12_18228178860 order by g.createtime desc<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'wap_user_12_18228178860' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/investmentjilu.php; line: 103; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 13; <br />file: /app/index.php; line: 121; <br />
+
+2019-04-08 22:34:36 SQL Error :
+------------
+String:
+SQL: <br/>select g.*,m.nickname from`ims_ewei_shop_member_log`g left join`ims_ewei_shop_member`m on g.openid=m.openid where g.openid=wap_user_12_18228178860 order by g.createtime desc<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'wap_user_12_18228178860' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/investmentjilu.php; line: 101; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 13; <br />file: /app/index.php; line: 121; <br />
+
+2019-04-08 22:35:49 SQL Error :
+------------
+String:
+SQL: <br/>select g.*,m.nickname from`ims_ewei_shop_member_log`g left join`ims_ewei_shop_member`m on g.openid=m.openidwhere g.openid='wap_user_12_18228178860' order by g.createtime desc<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'g.openid='wap_user_12_18228178860' order by g.createtime desc' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/investmentjilu.php; line: 101; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 13; <br />file: /app/index.php; line: 121; <br />
+
+2019-04-08 22:35:54 SQL Error :
+------------
+String:
+SQL: <br/>select g.*,m.nickname from`ims_ewei_shop_member_log`g left join`ims_ewei_shop_member`m on g.openid=m.openidwhere g.openid='wap_user_12_18228178860' order by g.createtime desc<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'g.openid='wap_user_12_18228178860' order by g.createtime desc' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/investmentjilu.php; line: 101; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 13; <br />file: /app/index.php; line: 121; <br />
+
+2019-04-08 22:37:14 SQL Error :
+------------
+String:
+SQL: <br/>select g.*,m.nickname from`ims_ewei_zhuanzhang`g left join`ims_ewei_shop_member`m on g.openid=m.openid where g.openid=wap_user_12_18228178860 order by g.createtime desc<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'wap_user_12_18228178860' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/investmentjilu.php; line: 102; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 13; <br />file: /app/index.php; line: 121; <br />
+
+2019-04-08 22:38:49 SQL Error :
+------------
+String:
+SQL: <br/>select g.*,m.nickname from`ims_ewei_zhuanzhang`g left join`ims_ewei_shop_member`m on g.openid=m.openid where g.openid=wap_user_12_18228178860 order by g.createtime desc<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'wap_user_12_18228178860' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/investmentjilu.php; line: 102; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 13; <br />file: /app/index.php; line: 121; <br />
+
+2019-04-08 22:39:09 SQL Error :
+------------
+String:
+SQL: <br/>select g.*,m.nickname from`ims_ewei_zhuanzhang`g left join`ims_ewei_shop_member`m on g.openid=m.openid where g.openid=wap_user_12_18228178860 order by g.createtime desc<hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Unknown column 'wap_user_12_18228178860' in 'where clause'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/mobile/member/investmentjilu.php; line: 102; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 13; <br />file: /app/index.php; line: 121; <br />
+

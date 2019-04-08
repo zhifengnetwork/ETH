@@ -8,7 +8,11 @@
         margin-top: 0;
     }
 </style>
-<div class="page-header"><img src="../addons/ewei_shopv2/static/images/font_31.png">当前位置：<span class="text-primary">投资申请记录</span></div>
+
+<div class="page-header">
+<span>投资金额总额:<?php  echo $money['money_ETH_1'];?></span>　　　　　　　　
+<span>投资ETH总额:<?php  echo $money['credit'];?></span>　　　　　　　　
+<img src="../addons/ewei_shopv2/static/images/font_31.png">当前位置：<span class="text-primary">投资申请记录</span></div>
 
 <div class="page-content">
 
