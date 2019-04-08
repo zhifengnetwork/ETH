@@ -1,4 +1,4 @@
-{template '_header'}
+<?php defined('IN_IA') or exit('Access Denied');?><?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('_header', TEMPLATE_INCLUDEPATH)) : (include template('_header', TEMPLATE_INCLUDEPATH));?>
 
 <style>
 
@@ -79,7 +79,7 @@
 
             <span class="pull-left">
 
-                {php echo tpl_daterange('time', array('sm'=>true, 'placeholder'=>'注册时间'),true);}
+                <?php  echo tpl_daterange('time', array('sm'=>true, 'placeholder'=>'注册时间'),true);?>
 
             </span>
 
@@ -89,7 +89,7 @@
 
 
 
-                <input type="text" class="form-control " name="realname" value="{$_GPC['realname']}" placeholder="可搜索昵称/姓名/手机号/ID">
+                <input type="text" class="form-control " name="realname" value="<?php  echo $_GPC['realname'];?>" placeholder="可搜索昵称/姓名/手机号/ID">
 
                 <span class="input-group-btn">
 
@@ -105,11 +105,11 @@
 
                         <!--<option value=''>关注</option>-->
 
-                        <!--<option value='0' {if $_GPC['followed']=='0'}selected{/if}>未关注</option>-->
+                        <!--<option value='0' <?php  if($_GPC['followed']=='0') { ?>selected<?php  } ?>>未关注</option>-->
 
-                        <!--<option value='1' {if $_GPC['followed']=='1'}selected{/if}>已关注</option>-->
+                        <!--<option value='1' <?php  if($_GPC['followed']=='1') { ?>selected<?php  } ?>>已关注</option>-->
 
-                        <!--<option value='2' {if $_GPC['followed']=='2'}selected{/if}>取消关注</option>-->
+                        <!--<option value='2' <?php  if($_GPC['followed']=='2') { ?>selected<?php  } ?>>取消关注</option>-->
 
                     <!--</select>-->
 
@@ -121,11 +121,11 @@
 
                         <option value=''>等级</option>
 
-                        {loop $levels $level}
+                        <?php  if(is_array($levels)) { foreach($levels as $level) { ?>
 
-                            <option value="{$level['id']}" {if $_GPC['level']==$level['id']}selected{/if}>{$level['levelname']}</option>
+                            <option value="<?php  echo $level['id'];?>" <?php  if($_GPC['level']==$level['id']) { ?>selected<?php  } ?>><?php  echo $level['levelname'];?></option>
 
-                        {/loop}
+                        <?php  } } ?>
 
                     </select>
 
@@ -139,11 +139,11 @@
 
                         <!--<option value=''>分组</option>-->
 
-                        <!--{loop $groups $group}-->
+                        <?php  if(is_array($groups)) { foreach($groups as $group) { ?>
 
-                            <!--<option value="{$group['id']}" {if $_GPC['groupid']==$group['id']}selected{/if}>{$group['groupname']}</option>-->
+                            <!--<option value="<?php  echo $group['id'];?>" <?php  if($_GPC['groupid']==$group['id']) { ?>selected<?php  } ?>><?php  echo $group['groupname'];?></option>-->
 
-                        <!--{/loop}-->
+                        <?php  } } ?>
 
                     <!--</select>-->
 
@@ -157,9 +157,9 @@
 
                         <!--<option value=''>黑名单</option>-->
 
-                        <!--<option value='0' {if $_GPC['isblack']=='0'}selected{/if}>否</option>-->
+                        <!--<option value='0' <?php  if($_GPC['isblack']=='0') { ?>selected<?php  } ?>>否</option>-->
 
-                        <!--<option value='1' {if $_GPC['isblack']=='1'}selected{/if}>是</option>-->
+                        <!--<option value='1' <?php  if($_GPC['isblack']=='1') { ?>selected<?php  } ?>>是</option>-->
 
                     <!--</select>-->
 
@@ -173,7 +173,7 @@
 
 
 
-    {if empty($list)}
+    <?php  if(empty($list)) { ?>
 
         <div class="panel panel-default">
 
@@ -181,7 +181,7 @@
 
         </div>
 
-    {else}
+    <?php  } else { ?>
 
         <div class="row">
 
@@ -193,31 +193,31 @@
 
                     <div class="btn-group">
 
-                        {ifp 'member.list.edit'}
+                        <?php if(cv('member.list.edit')) { ?>
 
-                        <!--<button class="btn btn-default btn-sm btn-operation" type="button" data-toggle='batch' data-href="{php echo webUrl('member/list/setblack',array('isblack'=>1))}">-->
+                        <!--<button class="btn btn-default btn-sm btn-operation" type="button" data-toggle='batch' data-href="<?php  echo webUrl('member/list/setblack',array('isblack'=>1))?>">-->
 
                             <!--<i class="icow icow-heimingdan2"></i>设置黑名单-->
 
                         <!--</button>-->
 
-                        <!--<button class="btn btn-default btn-sm btn-operation" type="button" data-toggle='batch' data-href="{php echo webUrl('member/list/setblack',array('isblack'=>0))}">-->
+                        <!--<button class="btn btn-default btn-sm btn-operation" type="button" data-toggle='batch' data-href="<?php  echo webUrl('member/list/setblack',array('isblack'=>0))?>">-->
 
                             <!--<i class="icow icow-yongxinyonghu"></i> 取消黑名单-->
 
                         <!--</button>-->
 
-                        {/if}
+                        <?php  } ?>
 
-                        {ifp 'member.list.delete'}
+                        <?php if(cv('member.list.delete')) { ?>
 
-                        <button class="btn btn-default btn-sm btn-operation" type="button" data-toggle='batch-remove' data-confirm="确认要删除?" data-href="{php echo webUrl('member/list/delete')}">
+                        <button class="btn btn-default btn-sm btn-operation" type="button" data-toggle='batch-remove' data-confirm="确认要删除?" data-href="<?php  echo webUrl('member/list/delete')?>">
 
                             <i class="icow icow-shanchu1"></i> 批量删除
 
                         </button>
 
-                        {/if}
+                        <?php  } ?>
 
                         <!--<button class="btn btn-default btn-sm btn-operation" type="button" data-toggle='batch-group'> <i class="icow icow-fenzuqunfa"></i>修改分组</button>-->
 
@@ -251,99 +251,95 @@
 
                     <tbody>
 
-                        {loop $list $row}
+                        <?php  if(is_array($list)) { foreach($list as $row) { ?>
 
                         <tr>
 
                             <td style="position: relative; ">
 
-                                <input type='checkbox' value="{$row['id']}" class="checkone"/></td>
+                                <input type='checkbox' value="<?php  echo $row['id'];?>" class="checkone"/></td>
 
                             <td style="overflow: visible">
 
-                                <div rel="pop" style="display: flex"  data-content=" <span>ID: </span>{$row['id']} </br>
+                                <div rel="pop" style="display: flex"  data-content=" <span>ID: </span><?php  echo $row['id'];?> </br>
 
-                                <span>推荐人：</span> {if empty($row['agentid'])}
+                                <span>推荐人：</span> <?php  if(empty($row['agentid'])) { ?>
 
-                                  {if $row['isagent']==1}
+                                  <?php  if($row['isagent']==1) { ?>
 
                                       总店
 
-                                      {else}
+                                      <?php  } else { ?>
 
                                      暂无
 
-                                      {/if}
+                                      <?php  } ?>
 
-                                {else}
+                                <?php  } else { ?>
 
 
 
-                                {if !empty($row['agentavatar'])}
+                                <?php  if(!empty($row['agentavatar'])) { ?>
 
-                                 <img src='{$_W['attachurl']}{$row['agentavatar']}' style='width:20px;height:20px;padding1px;border:1px solid #ccc' />
+                                 <img src='<?php  echo $_W['attachurl'];?><?php  echo $row['agentavatar'];?>' style='width:20px;height:20px;padding1px;border:1px solid #ccc' />
 
-                               {/if}
+                               <?php  } ?>
 
-                               [{$row['agentid']}]{if empty($row['agentnickname'])}未更新{else}{$row['agentnickname']}{/if}
+                               [<?php  echo $row['agentid'];?>]<?php  if(empty($row['agentnickname'])) { ?>未更新<?php  } else { ?><?php  echo $row['agentnickname'];?><?php  } ?>
 
-                               {/if}
+                               <?php  } ?>
 
                                <br/>
 
-                                 <span>真实姓名：</span> {if empty($row['realname'])}未填写{else}{$row['realname']}{/if}
+                                 <span>真实姓名：</span> <?php  if(empty($row['realname'])) { ?>未填写<?php  } else { ?><?php  echo $row['realname'];?><?php  } ?>
 
                                 <br/>
 
-                               <span>手机号：</span>{if !empty($row['mobileverify'])}{$row['mobile']}{else}未绑定{/if} <br/>
+                               <span>手机号：</span><?php  if(!empty($row['mobileverify'])) { ?><?php  echo $row['mobile'];?><?php  } else { ?>未绑定<?php  } ?> <br/>
 
-                               <span>是否关注：</span>{if empty($row['followed'])}
+                               <span>是否关注：</span><?php  if(empty($row['followed'])) { ?>
 
-
-                            {if empty($row['unfollowtime'])}
+                            <?php  if(empty($row['unfollowtime'])) { ?>
 
                                 <i>未关注</>
 
-                            {else}
+                            <?php  } else { ?>
 
                                 <i>取消关注</i>
 
-                            {/if}
+                            <?php  } ?>
 
-                        {else}
+                        <?php  } else { ?>
 
                             <i>已关注</i>
 
-                        {/if}
-                         <br/>
-                                <span>退出机制:</span>  {if $row['type']==2}退出机制{else}正常{/if}<br/>
-                               <span>状态:</span>  {if $row['isblack']==1}黑名单{else}正常{/if} ">
+                        <?php  } ?> <br/>
+
+                               <span>状态:</span>  <?php  if($row['isblack']==1) { ?>黑名单<?php  } else { ?>正常<?php  } ?> ">
 
 
 
-
-
-                                   <img class="img-40" src="{php echo tomedia($row['avatar'])}" style='border-radius:50%;border:1px solid #efefef;' onerror="this.src='../addons/ewei_shopv2/static/images/noface.png'" />
+                                   <img class="img-40" src="<?php  echo tomedia($row['avatar'])?>" style='border-radius:50%;border:1px solid #efefef;' onerror="this.src='../addons/ewei_shopv2/static/images/noface.png'" />
 
                                    <span style="display: flex;flex-direction: column;justify-content: center;align-items: flex-start;padding-left: 5px">
 
                                        <span class="nickname">
 
-                                           {if strexists($row['openid'],'sns_wa')}<i class="icow icow-xiaochengxu" style="color: #7586db;vertical-align: middle;" data-toggle="tooltip" data-placement="top" title="" data-original-title="来源: 小程序"></i>{/if}
+                                           <?php  if(strexists($row['openid'],'sns_wa')) { ?><i class="icow icow-xiaochengxu" style="color: #7586db;vertical-align: middle;" data-toggle="tooltip" data-placement="top" title="" data-original-title="来源: 小程序"></i><?php  } ?>
 
-                                           {if strexists($row['openid'],'sns_qq')||strexists($row['openid'],'sns_wx')||strexists($row['openid'],'wap_user')}<i class="icow icow-app" style="color: #44abf7;vertical-align: top;" data-toggle="tooltip" data-placement="bottom" data-original-title="来源: 全网通({if strexists($row['openid'],'wap_user')}手机号注册{else}APP{/if})"></i>{/if}
+                                           <?php  if(strexists($row['openid'],'sns_qq')||strexists($row['openid'],'sns_wx')||strexists($row['openid'],'wap_user')) { ?><i class="icow icow-app" style="color: #44abf7;vertical-align: top;" data-toggle="tooltip" data-placement="bottom" data-original-title="来源: 全网通(<?php  if(strexists($row['openid'],'wap_user')) { ?>手机号注册<?php  } else { ?>APP<?php  } ?>)"></i><?php  } ?>
 
 
 
-                                           {if empty($row['nickname'])}未更新{else}{$row['nickname']}{/if}
+                                           <?php  if(empty($row['nickname'])) { ?>未更新<?php  } else { ?><?php  echo $row['nickname'];?><?php  } ?>
 
                                        </span>
 
-                                       {if $row['isblack']==1}
+                                       <?php  if($row['isblack']==1) { ?>
 
                                             <span class="text-danger">黑名单<i class="icow icow-heimingdan1"style="color: #db2228;margin-left: 2px;font-size: 13px;"></i></span>
 
-                                       {/if}
+                                       <?php  } ?>
 
                                    </span>
 
@@ -354,17 +350,17 @@
                             </td>
 
 
-                            <td>{php echo date("Y-m-d",$row['createtime'])}<br/>{php echo date("H:i:s",$row['createtime'])}</td>
+                            <td><?php  echo date("Y-m-d",$row['createtime'])?><br/><?php  echo date("H:i:s",$row['createtime'])?></td>
 
                             <td>
-                                <span >ETH币:  <span style="color: #5097d3">{php echo price_format($row['credit1'],2)}</span> </span>
+                                <span >ETH币:  <span style="color: #5097d3"><?php  echo price_format($row['credit1'],2)?></span> </span>
 
-                                <br/><span>余额: <span class="text-warning">{php echo price_format($row['credit2'],2)} </span></span>
+                                <br/><span>余额: <span class="text-warning"><?php  echo price_format($row['credit2'],2)?> </span></span>
 
-                                <br/><span>复投账户: <span class="text-futou">{php echo price_format($row['credit4'],4)} </span></span>
+                                <br/><span>复投账户: <span class="text-futou"><?php  echo price_format($row['credit4'],4)?> </span></span>
                             </td>
 
-                            <td><span style="color: #5097d3">{php echo price_format($row['monthyeji'],2)}</span></td>
+                            <td><span style="color: #5097d3"><?php  echo price_format($row['monthyeji'],2)?></span></td>
 
 
 
@@ -374,9 +370,9 @@
 
                                  <div class="btn-group">
 
-                                        {ifp 'member.list.detail'}
+                                        <?php if(cv('member.list.detail')) { ?>
 
-                                        <a class="btn  btn-op btn-operation" href="{php echo webUrl('member/list/detail',array('id' => $row['id']));}" title="">
+                                        <a class="btn  btn-op btn-operation" href="<?php  echo webUrl('member/list/detail',array('id' => $row['id']));?>" title="">
 
                                             <span data-toggle="tooltip" data-placement="top" title="" data-original-title="会员详情">
 
@@ -386,13 +382,13 @@
 
                                         </a>
 
-                                        {/if}
+                                        <?php  } ?>
 
-                                        <!-- {ifp 'order.list'}
+                                        <!-- <?php if(cv('order.list')) { ?>
 
 
 
-                                            <a class="btn  btn-op btn-operation" href="{php echo webUrl('order/list', array('searchfield'=>'member','keyword'=>$row['nickname']))}"
+                                            <a class="btn  btn-op btn-operation" href="<?php  echo webUrl('order/list', array('searchfield'=>'member','keyword'=>$row['nickname']))?>"
 
                                                title=''>
 
@@ -404,13 +400,13 @@
 
                                             </a>
 
-                                        {/if} -->
+                                        <?php  } ?> -->
 
-                                        {ifp 'finance.recharge.credit1'}
+                                        <?php if(cv('finance.recharge.credit1')) { ?>
 
                                        <a class="btn  btn-op btn-operation" data-toggle="ajaxModal"
 
-                                               href="{php echo webUrl('finance/recharge', array('type'=>'credit1','id'=>$row['id']))}"
+                                               href="<?php  echo webUrl('finance/recharge', array('type'=>'credit1','id'=>$row['id']))?>"
 
                                                title=''>
 
@@ -422,11 +418,11 @@
 
                                        </a>
 
-                                        {/if}
+                                        <?php  } ?>
 
-                                        {ifp 'member.list.delete'}
+                                        <?php if(cv('member.list.delete')) { ?>
 
-                                        <a class="btn btn-op btn-operation" data-toggle='ajaxRemove' href="{php echo webUrl('member/list/delete',array('id' => $row['id']));}" data-confirm="确定要删除该会员吗？">
+                                        <a class="btn btn-op btn-operation" data-toggle='ajaxRemove' href="<?php  echo webUrl('member/list/delete',array('id' => $row['id']));?>" data-confirm="确定要删除该会员吗？">
 
                                              <span data-toggle="tooltip" data-placement="top" title="" data-original-title="删除会员">
 
@@ -436,7 +432,7 @@
 
                                         </a>
 
-                                        {/if}
+                                        <?php  } ?>
 
                                 </div>
 
@@ -447,7 +443,7 @@
 
 
 
-                        {/loop}
+                        <?php  } } ?>
 
                     </tbody>
 
@@ -461,31 +457,31 @@
 
                            <!--  <div class="btn-group">
 
-                                {ifp 'member.list.edit'}
+                                <?php if(cv('member.list.edit')) { ?>
 
-                                <button class="btn btn-default btn-sm btn-operation" type="button" data-toggle='batch' data-href="{php echo webUrl('member/list/setblack',array('isblack'=>1))}">
+                                <button class="btn btn-default btn-sm btn-operation" type="button" data-toggle='batch' data-href="<?php  echo webUrl('member/list/setblack',array('isblack'=>1))?>">
 
                                     <i class="icow icow-heimingdan2"></i>设置黑名单
 
                                 </button>
 
-                                <button class="btn btn-default btn-sm btn-operation" type="button" data-toggle='batch' data-href="{php echo webUrl('member/list/setblack',array('isblack'=>0))}">
+                                <button class="btn btn-default btn-sm btn-operation" type="button" data-toggle='batch' data-href="<?php  echo webUrl('member/list/setblack',array('isblack'=>0))?>">
 
                                     <i class="icow icow-yongxinyonghu"></i> 取消黑名单
 
                                 </button>
 
-                                {/if}
+                                <?php  } ?>
 
-                                {ifp 'member.list.delete'}
+                                <?php if(cv('member.list.delete')) { ?>
 
-                                <button class="btn btn-default btn-sm btn-operation" type="button" data-toggle='batch-remove' data-confirm="确认要删除?" data-href="{php echo webUrl('member/list/delete')}">
+                                <button class="btn btn-default btn-sm btn-operation" type="button" data-toggle='batch-remove' data-confirm="确认要删除?" data-href="<?php  echo webUrl('member/list/delete')?>">
 
                                     <i class="icow icow-shanchu1"></i> 批量删除
 
                                 </button>
 
-                                {/if}
+                                <?php  } ?>
 
                                 <button class="btn btn-default btn-sm btn-operation" type="button" data-toggle='batch-group'> <i class="icow icow-fenzuqunfa"></i>修改分组</button>
 
@@ -497,7 +493,7 @@
 
                         <td colspan="3" style="text-align: right">
 
-                            {$pager}
+                            <?php  echo $pager;?>
 
                         </td>
 
@@ -511,7 +507,7 @@
 
         </div>
 
-    {/if}
+    <?php  } ?>
 
 </div>
 
@@ -529,7 +525,7 @@
 
                 <button data-dismiss="modal" class="close" type="button">×</button>
 
-                <h4 class="modal-title">{if !empty($group['id'])}编辑{else}添加{/if}会员分组</h4>
+                <h4 class="modal-title"><?php  if(!empty($group['id'])) { ?>编辑<?php  } else { ?>添加<?php  } ?>会员分组</h4>
 
             </div>
 
@@ -545,13 +541,13 @@
 
                         <select name="batch-level" class="form-control">
 
-                            <option value="0">{$default_levelname}</option>
+                            <option value="0"><?php  echo $default_levelname;?></option>
 
-                            {loop $levels $level}
+                            <?php  if(is_array($levels)) { foreach($levels as $level) { ?>
 
-                                <option value="{$level['id']}">{$level['levelname']}</option>
+                                <option value="<?php  echo $level['id'];?>"><?php  echo $level['levelname'];?></option>
 
-                            {/loop}
+                            <?php  } } ?>
 
                         </select>
 
@@ -571,11 +567,11 @@
 
                             <option value="0">无分组</option>
 
-                            {loop $groups $group}
+                            <?php  if(is_array($groups)) { foreach($groups as $group) { ?>
 
-                                <option value="{$group['id']}">{$group['groupname']}</option>
+                                <option value="<?php  echo $group['id'];?>"><?php  echo $group['groupname'];?></option>
 
-                            {/loop}
+                            <?php  } } ?>
 
                         </select>
 
@@ -605,7 +601,7 @@
 
 <script language="javascript">
 
-    {if $opencommission}
+    <?php  if($opencommission) { ?>
 
     require(['bootstrap'], function () {
 
@@ -653,7 +649,7 @@
 
     });
 
-    {/if}
+    <?php  } ?>
 
 
 
@@ -753,6 +749,6 @@
 
 </script>
 
-{template '_footer'}
+<?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('_footer', TEMPLATE_INCLUDEPATH)) : (include template('_footer', TEMPLATE_INCLUDEPATH));?>
 
 <!--6Z2S5bKb5piT6IGU5LqS5Yqo572R57uc56eR5oqA5pyJ6ZmQ5YWs5Y+454mI5p2D5omA5pyJ-->

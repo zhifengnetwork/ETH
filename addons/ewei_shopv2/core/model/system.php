@@ -12,10 +12,10 @@ class System_EweiShopV2Model
 	}
 
 	/**
-     * 获取 全部菜单带路由
-     * @param bool $full 是否返回长URL
-     * @return array
-     */
+	 * 获取 全部菜单带路由
+	 * @param bool $full 是否返回长URL
+	 * @return array
+	 */
 	public function getMenu($full = false)
 	{
 		global $_W;
@@ -28,14 +28,11 @@ class System_EweiShopV2Model
 
 		if ($this->merch) {
 			$allmenus = $this->pluginMenu('merch', 'manage_menu');
-		}
-		else {
+		} else {
 			if (!$_W['isplugin'] && ($routes[0] == 'system')) {
 				$allmenus = $this->systemMenu();
-			}
-			else {
+			} else {
 				$allmenus = $this->shopMenu();
-
 			}
 		}
 
@@ -65,8 +62,7 @@ class System_EweiShopV2Model
 						if (!p($key)) {
 							continue;
 						}
-					}
-					else {
+					} else {
 						if ($val['plugincom'] == 2) {
 							if (!com($key)) {
 								continue;
@@ -98,8 +94,7 @@ class System_EweiShopV2Model
 						if ($this->verifyParam($val) && !empty($_GPC['r'])) {
 							$menu_item['active'] = 1;
 						}
-					}
-					else {
+					} else {
 						if (($key == 'plugins') && $isplugin && !$this->merch) {
 							$menu_item['active'] = 1;
 						}
@@ -121,8 +116,7 @@ class System_EweiShopV2Model
 					$return_submenu['subtitle'] = m('plugin')->getName($top);
 					$return_submenu['plugin'] = $top;
 					$return_submenu['route'] = $top;
-				}
-				else {
+				} else {
 					$return_submenu['subtitle'] = $submenu['subtitle'];
 
 					if ($submenu['main']) {
@@ -184,8 +178,7 @@ class System_EweiShopV2Model
 								if ((($child['extend'] . '.add') == $route) || (($child['extend'] . '.edit') == $route) || ($child['extend'] == $route)) {
 									$extend = true;
 								}
-							}
-							else {
+							} else {
 								if (!empty($child['extends']) && is_array($child['extends'])) {
 									if (in_array($route, $child['extends']) || in_array($route . '.add', $child['extends']) || in_array($route . '.edit', $child['extends'])) {
 										$extend = true;
@@ -195,8 +188,7 @@ class System_EweiShopV2Model
 
 							if ($child['route_in'] && strexists($route, $return_menu_child['route'])) {
 								$return_menu_child['active'] = 1;
-							}
-							else {
+							} else {
 								if (($return_menu_child['route'] == $route) || $addedit || $extend) {
 									if ($this->verifyParam($child)) {
 										$return_menu_child['active'] = 1;
@@ -215,12 +207,11 @@ class System_EweiShopV2Model
 							$return_submenu['items'][] = $return_menu_child;
 							unset($return_submenu_default);
 							unset($route_second);
-						}
-						else {
+						} else {
 							$return_menu_child = array(
 								'title' => $child['title'],
 								'items' => array()
-								);
+							);
 
 							foreach ($child['items'] as $ii => $three) {
 								if ($this->merch && $three['hidemerch']) {
@@ -241,17 +232,14 @@ class System_EweiShopV2Model
 									if (!empty($child['route'])) {
 										if (!empty($three['route_ns'])) {
 											$return_submenu_three['route'] = $top . '.' . $three['route'];
-										}
-										else {
+										} else {
 											$return_submenu_three['route'] = $top . '.' . $child['route'] . '.' . $three['route'];
 										}
-									}
-									else {
+									} else {
 										$return_submenu_three['route'] = $top . '.' . $three['route'];
 										$route_second = $three['route'];
 									}
-								}
-								else {
+								} else {
 									$return_submenu_three['route'] = $return_submenu_default;
 								}
 
@@ -277,8 +265,7 @@ class System_EweiShopV2Model
 									if ((($three['extend'] . '.add') == $route) || (($three['extend'] . '.edit') == $route) || ($three['extend'] == $route)) {
 										$extend = true;
 									}
-								}
-								else {
+								} else {
 									if (!empty($three['extends']) && is_array($three['extends'])) {
 										if (in_array($route, $three['extends']) || in_array($route . '.add', $three['extends']) || in_array($route . '.edit', $three['extends'])) {
 											$extend = true;
@@ -289,8 +276,7 @@ class System_EweiShopV2Model
 								if ($three['route_in'] && strexists($route, $return_submenu_three['route'])) {
 									$return_menu_child['active'] = 1;
 									$return_submenu_three['active'] = 1;
-								}
-								else {
+								} else {
 									if (($return_submenu_three['route'] == $route) || $addedit || $extend) {
 										if ($this->verifyParam($three)) {
 											$return_menu_child['active'] = 1;
@@ -303,8 +289,7 @@ class System_EweiShopV2Model
 									if ($child['extend'] == $route) {
 										$return_menu_child['active'] = 1;
 									}
-								}
-								else {
+								} else {
 									if (is_array($child['extends'])) {
 										if (in_array($route, $child['extends'])) {
 											$return_menu_child['active'] = 1;
@@ -341,10 +326,10 @@ class System_EweiShopV2Model
 	}
 
 	/**
-     * 获取 全部菜单带路由
-     * @param bool $full 是否返回长URL
-     * @return array
-     */
+	 * 获取 全部菜单带路由
+	 * @param bool $full 是否返回长URL
+	 * @return array
+	 */
 	public function getSubMenus($full = false, $plugin = false)
 	{
 		$return_submenu = array();
@@ -355,8 +340,7 @@ class System_EweiShopV2Model
 			if ($plugin) {
 				$allmenus = array_merge($allmenus, $this->allPluginMenu());
 			}
-		}
-		else {
+		} else {
 			$allmenus = $this->pluginMenu('merch', 'manage_menu');
 		}
 
@@ -374,8 +358,7 @@ class System_EweiShopV2Model
 					}
 
 					$return_submenu[] = $return_submenu_item;
-				}
-				else {
+				} else {
 					foreach ($item['items'] as $i => $child) {
 						if (empty($child['items'])) {
 							$return_submenu_default = $key;
@@ -399,8 +382,7 @@ class System_EweiShopV2Model
 							}
 
 							$return_submenu[] = $return_submenu_child;
-						}
-						else {
+						} else {
 							foreach ($child['items'] as $ii => $three) {
 								$return_submenu_default = $key;
 
@@ -421,12 +403,10 @@ class System_EweiShopV2Model
 								if (!empty($three['route'])) {
 									if (!empty($child['route'])) {
 										$return_submenu_three['route'] = $key . '.' . $child['route'] . '.' . $three['route'];
-									}
-									else {
+									} else {
 										$return_submenu_three['route'] = $key . '.' . $three['route'];
 									}
-								}
-								else {
+								} else {
 									$return_submenu_three['route'] = $return_submenu_default;
 								}
 
@@ -457,17 +437,16 @@ class System_EweiShopV2Model
 	}
 
 	/**
-     * 获取 主商城菜单
-     * @return array
-     */
+	 * 获取 主商城菜单
+	 * @return array
+	 */
 	public function getShopMenu()
 	{
 		$return_menu = array();
 
 		if (!$this->merch) {
 			$menus = $this->shopMenu();
-		}
-		else {
+		} else {
 			$menus = $this->pluginMenu('merch', 'manage_menu');
 		}
 
@@ -475,7 +454,7 @@ class System_EweiShopV2Model
 			$menu_item = array(
 				'title' => $val['subtitle'],
 				'items' => array()
-				);
+			);
 
 			if ($key == 'diypage') {
 				$menu_item['title'] = m('plugin')->getName('diypage');
@@ -495,18 +474,15 @@ class System_EweiShopV2Model
 				if (empty($child['items'])) {
 					$menu_item_child = array('title' => $child['title'], 'route' => empty($child['route']) ? $child_route_default : $child['route']);
 
-					if (!empty($child['param'])) {
-					}
+					if (!empty($child['param'])) { }
 
 					$menu_item_child['url'] = webUrl($menu_item_child['route'], !empty($menu_item_child['param']) && is_array($menu_item_child['param']) ? $menu_item_child['param'] : array());
 					$menu_item['items'][] = $menu_item_child;
-				}
-				else {
+				} else {
 					foreach ($child['items'] as $three) {
 						$menu_item_three = array('title' => $three['title'], 'route' => empty($three['route']) ? $child_route_default : $child_route_default . '.' . $three['route']);
 
-						if (!empty($three['param'])) {
-						}
+						if (!empty($three['param'])) { }
 
 						$menu_item_three['url'] = webUrl($menu_item_three['route'], !empty($menu_item_three['param']) && is_array($menu_item_three['param']) ? $menu_item_three['param'] : array());
 						$menu_item['items'][] = $menu_item_three;
@@ -521,91 +497,92 @@ class System_EweiShopV2Model
 	}
 
 	/**
-     * 定义 商城 菜单
-     * @return array
-     */
+	 * 定义 商城 菜单
+	 * @return array
+	 */
 	protected function shopMenu()
 	{
 		return array(
-	'shop'       => array(
-		'title'    => '店铺',
-		'subtitle' => '店铺首页',
-		'icon'     => 'store',
-		'items'    => array(
-			array(
-				'title' => '首页',
-				'route' => '',
-				'items' => array(
-					array('title' => '幻灯片', 'route' => 'adv', 'desc' => '店铺首页幻灯片管理'),
-					// array('title' => '导航图标', 'route' => 'nav', 'desc' => '店铺首页导航图标管理'),
-					// array('title' => '广告', 'route' => 'banner', 'desc' => '店铺首页广告管理'),
-					// array('title' => '魔方推荐', 'route' => 'cube', 'desc' => '店铺首页魔方推荐管理'),
-					// array('title' => '商品推荐', 'route' => 'recommand', 'desc' => '店铺首页商品推荐管理'),
-					// array('title' => '排版设置', 'route' => 'sort', 'desc' => '店铺首页排版设置')
-					)
-				),
-			// array(
-			// 	'title' => '商城',
-			// 	'items' => array(
-			// 		array('title' => '配送方式', 'route' => 'dispatch', 'desc' => '店铺配送方式管理'),
+			'shop'       => array(
+				'title'    => '店铺',
+				'subtitle' => '店铺首页',
+				'icon'     => 'store',
+				'items'    => array(
+					array(
+						'title' => '首页',
+						'route' => '',
+						'items' => array(
+							array('title' => '幻灯片', 'route' => 'adv', 'desc' => '店铺首页幻灯片管理'),
+							// array('title' => '导航图标', 'route' => 'nav', 'desc' => '店铺首页导航图标管理'),
+							// array('title' => '广告', 'route' => 'banner', 'desc' => '店铺首页广告管理'),
+							// array('title' => '魔方推荐', 'route' => 'cube', 'desc' => '店铺首页魔方推荐管理'),
+							// array('title' => '商品推荐', 'route' => 'recommand', 'desc' => '店铺首页商品推荐管理'),
+							// array('title' => '排版设置', 'route' => 'sort', 'desc' => '店铺首页排版设置')
+						)
+					),
+					// array(
+					// 	'title' => '商城',
+					// 	'items' => array(
+					// 		array('title' => '配送方式', 'route' => 'dispatch', 'desc' => '店铺配送方式管理'),
 					array('title' => '公告管理', 'route' => 'notice', 'desc' => '店铺公告管理'),
-			// 		array('title' => '评价管理', 'route' => 'comment', 'desc' => '店铺商品评价管理'),
-			// 		array('title' => '退货地址', 'route' => 'refundaddress', 'desc' => '店铺退货地址管理')
-			// 		)
-			// 	),
-			// array('title' => m('plugin')->getName('diypage'), 'route' => 'diypage', 'top' => true)
-			)
-		),
-// 	'goods'      => array(
-// 		'title'    => '商品',
-// 		'subtitle' => '商品管理',
-// 		'icon'     => 'goods',
-// 		'items'    => array(
-// 		    array(
-// 		        'title'=>'商品管理',
-// 		        'route'=>'',
-// 		        'items'=>array(
-// 		            array('title' => '出售中' ,'desc' => '出售中商品管理', 'extend' => 'goods.sale'),
-// 		            array('title' => '已售罄', 'route' => 'out', 'desc' => '已售罄/无库存商品管理'),
-// 		            array('title' => '仓库中', 'route' => 'stock', 'desc' => '仓库中商品管理'),
-// 		            array('title' => '回收站', 'route' => 'cycle', 'desc' => '回收站/已删除商品管理'),
-// 		            array('title' => '待审核', 'route' => 'verify', 'desc' => '多商户待审核商品管理'),
-// 		            array('title' => '商品分类', 'route' => 'category'),
-// //		            array('title' => '商品组', 'route' => 'group'),
-// //		            array('title' => '标签管理', 'route' => 'label', 'extend' => 'goods.label.style'),
-// 		        )
-// 		    ),
-// //			array(
-// //				'title' => '虚拟卡密',
-// //				'route' => 'virtual',
-// //				'items' => array(
-// //					array('title' => '虚拟卡密', 'route' => 'temp', 'extend' => 'goods.virtual.data'),
-// //					array('title' => '卡密分类', 'route' => 'category')
-// //					)
-// //				)
-// 			)
-// 		),
-	'member'     => array(
-		'title'    => '会员',
-		'subtitle' => '会员管理',
-		'icon'     => 'member',
-	    'items'    => array(
-	        array(
-	            'title'=>'会员管理',
-	            'route'=>'',
-	            'items'=>array(
-	                  array('title' => '会员列表', 'route' => 'list', 'route_in' => true),
-		           // array('title' => '会员等级', 'route' => 'level'),
-//		           array('title' => '会员分组', 'route' => 'group'),
-//		           array('title' => '排行榜设置', 'route' => 'rank', 'desc' => '会员积分/消费排行榜设置'),
-//		           array(
-//		               'title'   => '微信会员卡',
-//		               'route'   => 'card',
-//		               'extends' => array('member.card.post', 'member.card.activationset')
-//		           )
-	            )
-	        ),
-	       /*  array(
+					// 		array('title' => '评价管理', 'route' => 'comment', 'desc' => '店铺商品评价管理'),
+					// 		array('title' => '退货地址', 'route' => 'refundaddress', 'desc' => '店铺退货地址管理')
+					// 		)
+					// 	),
+					// array('title' => m('plugin')->getName('diypage'), 'route' => 'diypage', 'top' => true)
+				)
+			),
+			// 	'goods'      => array(
+			// 		'title'    => '商品',
+			// 		'subtitle' => '商品管理',
+			// 		'icon'     => 'goods',
+			// 		'items'    => array(
+			// 		    array(
+			// 		        'title'=>'商品管理',
+			// 		        'route'=>'',
+			// 		        'items'=>array(
+			// 		            array('title' => '出售中' ,'desc' => '出售中商品管理', 'extend' => 'goods.sale'),
+			// 		            array('title' => '已售罄', 'route' => 'out', 'desc' => '已售罄/无库存商品管理'),
+			// 		            array('title' => '仓库中', 'route' => 'stock', 'desc' => '仓库中商品管理'),
+			// 		            array('title' => '回收站', 'route' => 'cycle', 'desc' => '回收站/已删除商品管理'),
+			// 		            array('title' => '待审核', 'route' => 'verify', 'desc' => '多商户待审核商品管理'),
+			// 		            array('title' => '商品分类', 'route' => 'category'),
+			// //		            array('title' => '商品组', 'route' => 'group'),
+			// //		            array('title' => '标签管理', 'route' => 'label', 'extend' => 'goods.label.style'),
+			// 		        )
+			// 		    ),
+			// //			array(
+			// //				'title' => '虚拟卡密',
+			// //				'route' => 'virtual',
+			// //				'items' => array(
+			// //					array('title' => '虚拟卡密', 'route' => 'temp', 'extend' => 'goods.virtual.data'),
+			// //					array('title' => '卡密分类', 'route' => 'category')
+			// //					)
+			// //				)
+			// 			)
+			// 		),
+			'member'     => array(
+				'title'    => '会员',
+				'subtitle' => '会员管理',
+				'icon'     => 'member',
+				'items'    => array(
+					array(
+						'title' => '会员管理',
+						'route' => '',
+						'items' => array(
+							array('title' => '会员列表', 'route' => 'list', 'route_in' => true),
+							array('title' => '退出机制会员列表', 'route' => 'quit_list', 'route_in' => true),
+							// array('title' => '会员等级', 'route' => 'level'),
+							//		           array('title' => '会员分组', 'route' => 'group'),
+							//		           array('title' => '排行榜设置', 'route' => 'rank', 'desc' => '会员积分/消费排行榜设置'),
+							//		           array(
+							//		               'title'   => '微信会员卡',
+							//		               'route'   => 'card',
+							//		               'extends' => array('member.card.post', 'member.card.activationset')
+							//		           )
+						)
+					),
+					/*  array(
 	            'title' => '虚拟卡密',
 	            'route' => 'virtual',
 	            'items' => array(
@@ -613,8 +590,8 @@ class System_EweiShopV2Model
 	                array('title' => '卡密分类', 'route' => 'category')
 	            )
 	        ) */
-	    )
-		/* 'items'    => array(
+				)
+				/* 'items'    => array(
 			'title'=>'会员管理',
 		    'route'=>'',
 		    'items'=>array(
@@ -624,300 +601,300 @@ class System_EweiShopV2Model
 		       )
 		    )
 			) */
-		),
-// 	'order'      => array(
-// 		'title'    => '订单',
-// 		'subtitle' => '订单管理',
-// 		'icon'     => 'order',
-// 		'items'    => array(
-//     		    array(
-//     		        'title'=>'订单管理',
-//     		        'route'=>'list',
-//     		        'items'=>array(
-//     		                    array('title' => '待发货', 'route' => 'status1', 'desc' => '待发货订单管理'),
-//                     			array('title' => '待收货', 'route' => 'status2', 'desc' => '待收货订单管理'),
-//                     			array('title' => '待审核', 'route' => 'status0', 'desc' => '待付款订单管理'),
-//                     			array('title' => '已完成', 'route' => 'status3', 'desc' => '已完成订单管理'),
-//                     			array('title' => '已关闭', 'route' => 'status_1', 'desc' => '已关闭订单管理'),
+			),
+			// 	'order'      => array(
+			// 		'title'    => '订单',
+			// 		'subtitle' => '订单管理',
+			// 		'icon'     => 'order',
+			// 		'items'    => array(
+			//     		    array(
+			//     		        'title'=>'订单管理',
+			//     		        'route'=>'list',
+			//     		        'items'=>array(
+			//     		                    array('title' => '待发货', 'route' => 'status1', 'desc' => '待发货订单管理'),
+			//                     			array('title' => '待收货', 'route' => 'status2', 'desc' => '待收货订单管理'),
+			//                     			array('title' => '待审核', 'route' => 'status0', 'desc' => '待付款订单管理'),
+			//                     			array('title' => '已完成', 'route' => 'status3', 'desc' => '已完成订单管理'),
+			//                     			array('title' => '已关闭', 'route' => 'status_1', 'desc' => '已关闭订单管理'),
 
-//     		           ),
-//     		        ),
-// //			array(
-// //				'title' => '维权',
-// //				'route' => 'list',
-// //				'items' => array(
-// //					array('title' => '维权申请', 'route' => 'status4', 'desc' => '维权申请管理'),
-// //					array('title' => '维权完成', 'route' => 'status5', 'desc' => '维权完成管理')
-// //					)
-// //				),
-// //			array(
-// //				'title' => '工具',
-// //				'items' => array(
-// //					array('title' => '自定义导出', 'route' => 'export', 'desc' => '订单自定义导出'),
-// //					array('title' => '批量发货', 'route' => 'batchsend', 'desc' => '订单批量发货')
-// //					)
-// //				)
-// 			)
-// 		),
-	// 'store'      => array(
-	// 	'title'    => '门店',
-	// 	'subtitle' => '门店',
-	// 	'icon'     => 'mendianguanli',
-	// 	'items'    => array(
-	// 		array(
-	// 			'title' => '门店管理',
-	// 			'items' => array(
-	// 				array(
-	// 					'title'   => '门店管理',
-	// 					'route'   => '',
-	// 					'extends' => array('store.diypage.settings', 'store.diypage.page', 'store.goods', 'store.goods.goodsoption')
-	// 					),
-	// 				array('title' => '店员管理', 'route' => 'saler'),
-	// 				array('title' => '关键词设置', 'route' => 'set')
-	// 				)
-	// 			),
-	// 		array(
-	// 			'title' => '门店商品管理',
-	// 			'items' => array(
-	// 				array(
-	// 					'title'   => '记次时商品管理',
-	// 					'route'   => 'verifygoods',
-	// 					'extends' => array('store.verifygoods.detail', 'store.verifygoods.verifygoodslog')
-	// 					)
-	// 				)
-	// 			),
-	// 		array('title' => '记次时商品统计', 'route' => 'verify.log')
-	// 		)
-	// 	),
-	'sale'       => array(
-		'title'    => '3D设置',
-		'subtitle' => '营销设置',
-		'icon'     => 'yingxiao',
-		'items'    => array(
-			array(
-				'title' => '基本功能',
-				'items' => array(
-					array('title' => 'ETH资产', 'route' => 'enough', 'desc' => 'ETH价格', 'keywords' => '营销'),
-					array('title' => '卖出记录', 'route' => 'sellout', 'desc' => '卖出记录', 'keywords' => '营销'),
-					array('title' => '买入记录', 'route' => 'purchase', 'desc' => '买入记录', 'keywords' => '营销'),
-					array('title' => '福彩3D', 'route' => 'lottery', 'desc' => '彩票', 'keywords' => '营销'),
-					array('title' => '彩票押注记录', 'route' => 'stakejilu', 'desc' => '彩票', 'keywords' => '营销'),
-					array('title' => '中奖记录', 'route' => 'winningrecord', 'desc' => '彩票', 'keywords' => '营销'),
-					array('title' => 'ETC申诉', 'route' => 'appeal', 'desc' => 'ETC申诉', 'keywords' => '营销'),
-					// array('title' => '满额包邮', 'route' => 'enoughfree', 'desc' => '满额包邮设置', 'keywords' => '营销'),
-					// array('title' => '抵扣设置', 'route' => 'deduct', 'desc' => '抵扣设置', 'keywords' => '营销'),
-					// array('title' => '充值优惠', 'route' => 'recharge', 'desc' => '充值优惠设置', 'keywords' => '营销'),
-					// array('title' => '积分优惠', 'route' => 'credit1', 'desc' => '积分优惠设置', 'keywords' => '营销'),
-//					array('title' => '套餐管理', 'route' => 'package', 'keywords' => '营销'),
-//					array('title' => '赠品管理', 'route' => 'gift', 'keywords' => '营销'),
-//					array('title' => '全返管理', 'route' => 'fullback', 'keywords' => '营销'),
-//					array('title' => '找人代付', 'route' => 'peerpay', 'keywords' => '营销')
-					)
-				),
-			// array(
-			// 	'title'     => '优惠券',
-			// 	'route'     => 'coupon',
-			// 	'plugincom' => 2,
-			// 	'items'     => array(
-			// 		array('title' => '全部优惠券'),
-			// 		array('title' => '手动发送', 'route' => 'sendcoupon', 'desc' => '手动发送优惠券'),
+			//     		           ),
+			//     		        ),
+			// //			array(
+			// //				'title' => '维权',
+			// //				'route' => 'list',
+			// //				'items' => array(
+			// //					array('title' => '维权申请', 'route' => 'status4', 'desc' => '维权申请管理'),
+			// //					array('title' => '维权完成', 'route' => 'status5', 'desc' => '维权完成管理')
+			// //					)
+			// //				),
+			// //			array(
+			// //				'title' => '工具',
+			// //				'items' => array(
+			// //					array('title' => '自定义导出', 'route' => 'export', 'desc' => '订单自定义导出'),
+			// //					array('title' => '批量发货', 'route' => 'batchsend', 'desc' => '订单批量发货')
+			// //					)
+			// //				)
+			// 			)
+			// 		),
+			// 'store'      => array(
+			// 	'title'    => '门店',
+			// 	'subtitle' => '门店',
+			// 	'icon'     => 'mendianguanli',
+			// 	'items'    => array(
 			// 		array(
-			// 			'title'   => '购物送券',
-			// 			'route'   => 'sendtask',
-			// 			'extends' => array('sale.coupon.goodssend', 'sale.coupon.usesendtask', 'sale.coupon.goodssend.add', 'sale.coupon.usesendtask.add')
+			// 			'title' => '门店管理',
+			// 			'items' => array(
+			// 				array(
+			// 					'title'   => '门店管理',
+			// 					'route'   => '',
+			// 					'extends' => array('store.diypage.settings', 'store.diypage.page', 'store.goods', 'store.goods.goodsoption')
+			// 					),
+			// 				array('title' => '店员管理', 'route' => 'saler'),
+			// 				array('title' => '关键词设置', 'route' => 'set')
+			// 				)
 			// 			),
-			// 		array('title' => '发放记录', 'route' => 'log', 'desc' => '优惠券发放记录'),
-			// 		array('title' => '分类管理', 'route' => 'category', 'desc' => '优惠券分类管理'),
-			// 		array('title' => '其他设置', 'route' => 'set', 'desc' => '优惠券设置')
+			// 		array(
+			// 			'title' => '门店商品管理',
+			// 			'items' => array(
+			// 				array(
+			// 					'title'   => '记次时商品管理',
+			// 					'route'   => 'verifygoods',
+			// 					'extends' => array('store.verifygoods.detail', 'store.verifygoods.verifygoodslog')
+			// 					)
+			// 				)
+			// 			),
+			// 		array('title' => '记次时商品统计', 'route' => 'verify.log')
 			// 		)
 			// 	),
-//			array(
-//				'title'     => '微信卡券',
-//				'plugincom' => 2,D
-//				'items'     => array(
-//					array('title' => '卡券管理', 'route' => 'wxcard')
-//					)
-//				),
-//			array(
-//				'title' => '其他工具',
-//				'items' => array(
-//					array('title' => '关注回复', 'route' => 'virtual')
-//					)
-//				)
-			)
-		),
-	'finance'    => array(
-		'title'    => '财务',
-		'subtitle' => '财务管理',
-		'icon'     => '31',
-		'items'    => array(
-			array(
-				'title' => '财务',
-				'route' => 'log',
-				'items' => array(
-					array('title' => '提现申请', 'route' => 'recharge'),
-					array('title' => '一键复投记录', 'route' => 'turnout'),
-					array('title' => '投资申请', 'route' => 'withdraw'),
-					array('title' => '转账记录', 'route' => 'zhuanzhang'),
-					array('title' => '奖励明细', 'route' => 'commission'),
-					array('title' => '积分释放记录', 'route' => 'hongbao')
-					// array('title' => '投资申请','route' => 'apply')
-					)
-				),
-//			array(
-//				'title' => '明细',
-//				'route' => 'credit',
-//				'items' => array(
-//					array('title' => '积分明细', 'route' => 'credit1'),
-//					array('title' => '余额明细', 'route' => 'credit2')
-//					)
-//				),
-//			array(
-//				'title' => '对账单',
-//				'items' => array(
-//					array('title' => '下载对账单', 'route' => 'downloadbill')
-//					)
-//				)
-			)
-		),
-	// 'statistics' => array(
-	// 	'title'    => '数据',
-	// 	'subtitle' => '数据统计',
-	// 	'icon'     => 'statistics',
-	// 	'items'    => array(
-	// 		array(
-	// 			'title' => '销售统计',
-	// 			'items' => array(
-	// 				array('title' => '销售统计', 'route' => 'sale'),
-	// 				array('title' => '销售指标', 'route' => 'sale_analysis'),
-	// 				array('title' => '订单统计', 'route' => 'order')
-	// 				)
-	// 			),
-	// 		array(
-	// 			'title' => '商品统计',
-	// 			'items' => array(
-	// 				array('title' => '销售明细', 'route' => 'goods'),
-	// 				array('title' => '销售排行', 'route' => 'goods_rank'),
-	// 				array('title' => '销售转化率', 'route' => 'goods_trans')
-	// 				)
-	// 			),
-	// 		array(
-	// 			'title' => '会员统计',
-	// 			'items' => array(
-	// 				array('title' => '消费排行', 'route' => 'member_cost'),
-	// 				array('title' => '增长趋势', 'route' => 'member_increase')
-	// 				)
-	// 			)
-	// 		)
-	// 	),
-	'plugins'    => array('title' => '奖励设置', 'subtitle' => '应用管理', 'icon' => 'plugins'),
-	'sysset'     => array(
-		'title'    => '设置',
-		'subtitle' => '商城设置',
-		'icon'     => 'sysset',
-		'items'    => array(
-			array(
-				'title' => '商城',
-				'items' => array(
-					array('title' => '基础设置', 'route' => 'shop'),
-					// array('title' => '关注及分享', 'route' => 'follow'),
-					// array('title' => '商城状态', 'route' => 'close'),
-					// array('title' => '模板设置', 'route' => 'templat'),
-					array('title' => '全网通设置', 'route' => 'wap')
-					)
-				),
-			// array(
-			// 	'title' => '交易',
-			// 	'items' => array(
+			'sale'       => array(
+				'title'    => '3D设置',
+				'subtitle' => '营销设置',
+				'icon'     => 'yingxiao',
+				'items'    => array(
+					array(
+						'title' => '基本功能',
+						'items' => array(
+							array('title' => 'ETH资产', 'route' => 'enough', 'desc' => 'ETH价格', 'keywords' => '营销'),
+							array('title' => '卖出记录', 'route' => 'sellout', 'desc' => '卖出记录', 'keywords' => '营销'),
+							array('title' => '买入记录', 'route' => 'purchase', 'desc' => '买入记录', 'keywords' => '营销'),
+							array('title' => '福彩3D', 'route' => 'lottery', 'desc' => '彩票', 'keywords' => '营销'),
+							array('title' => '彩票押注记录', 'route' => 'stakejilu', 'desc' => '彩票', 'keywords' => '营销'),
+							array('title' => '中奖记录', 'route' => 'winningrecord', 'desc' => '彩票', 'keywords' => '营销'),
+							array('title' => 'ETC申诉', 'route' => 'appeal', 'desc' => 'ETC申诉', 'keywords' => '营销'),
+							// array('title' => '满额包邮', 'route' => 'enoughfree', 'desc' => '满额包邮设置', 'keywords' => '营销'),
+							// array('title' => '抵扣设置', 'route' => 'deduct', 'desc' => '抵扣设置', 'keywords' => '营销'),
+							// array('title' => '充值优惠', 'route' => 'recharge', 'desc' => '充值优惠设置', 'keywords' => '营销'),
+							// array('title' => '积分优惠', 'route' => 'credit1', 'desc' => '积分优惠设置', 'keywords' => '营销'),
+							//					array('title' => '套餐管理', 'route' => 'package', 'keywords' => '营销'),
+							//					array('title' => '赠品管理', 'route' => 'gift', 'keywords' => '营销'),
+							//					array('title' => '全返管理', 'route' => 'fullback', 'keywords' => '营销'),
+							//					array('title' => '找人代付', 'route' => 'peerpay', 'keywords' => '营销')
+						)
+					),
+					// array(
+					// 	'title'     => '优惠券',
+					// 	'route'     => 'coupon',
+					// 	'plugincom' => 2,
+					// 	'items'     => array(
+					// 		array('title' => '全部优惠券'),
+					// 		array('title' => '手动发送', 'route' => 'sendcoupon', 'desc' => '手动发送优惠券'),
+					// 		array(
+					// 			'title'   => '购物送券',
+					// 			'route'   => 'sendtask',
+					// 			'extends' => array('sale.coupon.goodssend', 'sale.coupon.usesendtask', 'sale.coupon.goodssend.add', 'sale.coupon.usesendtask.add')
+					// 			),
+					// 		array('title' => '发放记录', 'route' => 'log', 'desc' => '优惠券发放记录'),
+					// 		array('title' => '分类管理', 'route' => 'category', 'desc' => '优惠券分类管理'),
+					// 		array('title' => '其他设置', 'route' => 'set', 'desc' => '优惠券设置')
+					// 		)
+					// 	),
+					//			array(
+					//				'title'     => '微信卡券',
+					//				'plugincom' => 2,D
+					//				'items'     => array(
+					//					array('title' => '卡券管理', 'route' => 'wxcard')
+					//					)
+					//				),
+					//			array(
+					//				'title' => '其他工具',
+					//				'items' => array(
+					//					array('title' => '关注回复', 'route' => 'virtual')
+					//					)
+					//				)
+				)
+			),
+			'finance'    => array(
+				'title'    => '财务',
+				'subtitle' => '财务管理',
+				'icon'     => '31',
+				'items'    => array(
+					array(
+						'title' => '财务',
+						'route' => 'log',
+						'items' => array(
+							array('title' => '提现申请', 'route' => 'recharge'),
+							array('title' => '一键复投记录', 'route' => 'turnout'),
+							array('title' => '投资申请', 'route' => 'withdraw'),
+							array('title' => '转账记录', 'route' => 'zhuanzhang'),
+							array('title' => '奖励明细', 'route' => 'commission'),
+							array('title' => '积分释放记录', 'route' => 'hongbao')
+							// array('title' => '投资申请','route' => 'apply')
+						)
+					),
+					//			array(
+					//				'title' => '明细',
+					//				'route' => 'credit',
+					//				'items' => array(
+					//					array('title' => '积分明细', 'route' => 'credit1'),
+					//					array('title' => '余额明细', 'route' => 'credit2')
+					//					)
+					//				),
+					//			array(
+					//				'title' => '对账单',
+					//				'items' => array(
+					//					array('title' => '下载对账单', 'route' => 'downloadbill')
+					//					)
+					//				)
+				)
+			),
+			// 'statistics' => array(
+			// 	'title'    => '数据',
+			// 	'subtitle' => '数据统计',
+			// 	'icon'     => 'statistics',
+			// 	'items'    => array(
+			// 		array(
+			// 			'title' => '销售统计',
+			// 			'items' => array(
+			// 				array('title' => '销售统计', 'route' => 'sale'),
+			// 				array('title' => '销售指标', 'route' => 'sale_analysis'),
+			// 				array('title' => '订单统计', 'route' => 'order')
+			// 				)
+			// 			),
+			// 		array(
+			// 			'title' => '商品统计',
+			// 			'items' => array(
+			// 				array('title' => '销售明细', 'route' => 'goods'),
+			// 				array('title' => '销售排行', 'route' => 'goods_rank'),
+			// 				array('title' => '销售转化率', 'route' => 'goods_trans')
+			// 				)
+			// 			),
+			// 		array(
+			// 			'title' => '会员统计',
+			// 			'items' => array(
+			// 				array('title' => '消费排行', 'route' => 'member_cost'),
+			// 				array('title' => '增长趋势', 'route' => 'member_increase')
+			// 				)
+			// 			)
+			// 		)
+			// 	),
+			'plugins'    => array('title' => '奖励设置', 'subtitle' => '应用管理', 'icon' => 'plugins'),
+			'sysset'     => array(
+				'title'    => '设置',
+				'subtitle' => '商城设置',
+				'icon'     => 'sysset',
+				'items'    => array(
+					array(
+						'title' => '商城',
+						'items' => array(
+							array('title' => '基础设置', 'route' => 'shop'),
+							// array('title' => '关注及分享', 'route' => 'follow'),
+							// array('title' => '商城状态', 'route' => 'close'),
+							// array('title' => '模板设置', 'route' => 'templat'),
+							array('title' => '全网通设置', 'route' => 'wap')
+						)
+					),
+					// array(
+					// 	'title' => '交易',
+					// 	'items' => array(
 					array('title' => '交易设置', 'route' => 'trade'),
 
-			// 		array('title' => '支付设置', 'route' => 'payset'),
-			// 		array('title' => '支付管理', 'route' => 'payment')
-			// 		)
-			// 	),
-//			array(
-//				'title' => '消息推送',
-//				'items' => array(
-//					array('title' => '消息提醒', 'route' => 'notice'),
-//					array('title' => '自定义消息库', 'route' => 'tmessage'),
-//					array('title' => '微信模板库', 'route' => 'weixintemplate', 'extend' => 'sysset.weixintemplate.post')
-//					)
-//				),
-			array(
-				'title' => '短信配置',
-				'route' => 'sms',
-				'items' => array(
-					array('title' => '短信消息库', 'route' => 'temp'),
-					array('title' => '短信接口设置', 'route' => 'set')
-					)
-				),
-//			array(
-//				'title' => '小票打印机',
-//				'route' => 'printer',
-//				'items' => array(
-//					array(
-//						'title'   => '打印机管理',
-//						'route'   => 'printer_list',
-//						'extends' => array('sysset.printer.printer_add')
-//						),
-//					array('title' => '打印机模板库'),
-//					array('title' => '打印设置', 'route' => 'set')
-//					)
-//				),
-// 			array(
-// 				'title' => '其他',
-// 				'items' => array(
-// 					array('title' => '会员设置', 'route' => 'member'),
-// //					array('title' => '分类层级', 'route' => 'category'),
-// 					array('title' => '联系方式', 'route' => 'contact'),
-// 					array('title' => '地址库设置', 'route' => 'area'),
-// 					array('title' => '物流信息接口', 'route' => 'express')
-// 					)
-// 				),
-//			array(
-//				'title' => '工具',
-//				'items' => array(
-//					array('title' => '七牛存储', 'route' => 'qiniu'),
-//					array('title' => '商品价格修复', 'route' => 'goodsprice'),
-//					array('title' => '快捷导航管理', 'route' => 'funbar')
-//					)
-//				),
-			array(
-				'title' => '入口',
-				'route' => 'cover',
-				'items' => array(
-					array('title' => '商城入口', 'route' => 'shop'),
-					array('title' => '会员中心入口', 'route' => 'member'),
-					// array('title' => '订单入口', 'route' => 'order'),
-					// array('title' => '收藏入口', 'route' => 'favorite'),
-					// array('title' => '购物车入口', 'route' => 'cart'),
-					// array('title' => '优惠券入口', 'route' => 'coupon')
+					// 		array('title' => '支付设置', 'route' => 'payset'),
+					// 		array('title' => '支付管理', 'route' => 'payment')
+					// 		)
+					// 	),
+					//			array(
+					//				'title' => '消息推送',
+					//				'items' => array(
+					//					array('title' => '消息提醒', 'route' => 'notice'),
+					//					array('title' => '自定义消息库', 'route' => 'tmessage'),
+					//					array('title' => '微信模板库', 'route' => 'weixintemplate', 'extend' => 'sysset.weixintemplate.post')
+					//					)
+					//				),
+					array(
+						'title' => '短信配置',
+						'route' => 'sms',
+						'items' => array(
+							array('title' => '短信消息库', 'route' => 'temp'),
+							array('title' => '短信接口设置', 'route' => 'set')
+						)
+					),
+					//			array(
+					//				'title' => '小票打印机',
+					//				'route' => 'printer',
+					//				'items' => array(
+					//					array(
+					//						'title'   => '打印机管理',
+					//						'route'   => 'printer_list',
+					//						'extends' => array('sysset.printer.printer_add')
+					//						),
+					//					array('title' => '打印机模板库'),
+					//					array('title' => '打印设置', 'route' => 'set')
+					//					)
+					//				),
+					// 			array(
+					// 				'title' => '其他',
+					// 				'items' => array(
+					// 					array('title' => '会员设置', 'route' => 'member'),
+					// //					array('title' => '分类层级', 'route' => 'category'),
+					// 					array('title' => '联系方式', 'route' => 'contact'),
+					// 					array('title' => '地址库设置', 'route' => 'area'),
+					// 					array('title' => '物流信息接口', 'route' => 'express')
+					// 					)
+					// 				),
+					//			array(
+					//				'title' => '工具',
+					//				'items' => array(
+					//					array('title' => '七牛存储', 'route' => 'qiniu'),
+					//					array('title' => '商品价格修复', 'route' => 'goodsprice'),
+					//					array('title' => '快捷导航管理', 'route' => 'funbar')
+					//					)
+					//				),
+					array(
+						'title' => '入口',
+						'route' => 'cover',
+						'items' => array(
+							array('title' => '商城入口', 'route' => 'shop'),
+							array('title' => '会员中心入口', 'route' => 'member'),
+							// array('title' => '订单入口', 'route' => 'order'),
+							// array('title' => '收藏入口', 'route' => 'favorite'),
+							// array('title' => '购物车入口', 'route' => 'cart'),
+							// array('title' => '优惠券入口', 'route' => 'coupon')
+						)
 					)
 				)
 			)
-		)
-	);
+		);
 	}
 
 	/**
-     * 获取 系统管理 菜单
-     * @return array
-     */
+	 * 获取 系统管理 菜单
+	 * @return array
+	 */
 	protected function systemMenu()
 	{
 		return array(
-	'plugin'    => array(
-		'title'    => '应用',
-		'subtitle' => '应用管理',
-		'icon'     => 'plugins',
-		'items'    => array(
-//			array('title' => '应用信息'),
-//			array('title' => '组件信息', 'route' => 'coms'),
-			array('title' => '公众号权限', 'route' => 'perm')
-			//array('title' => '应用中心', 'route' => 'apps'),
-			// array(
-				// 'title' => '应用授权管理',
-				// 'items' => array(
+			'plugin'    => array(
+				'title'    => '应用',
+				'subtitle' => '应用管理',
+				'icon'     => 'plugins',
+				'items'    => array(
+					//			array('title' => '应用信息'),
+					//			array('title' => '组件信息', 'route' => 'coms'),
+					array('title' => '公众号权限', 'route' => 'perm')
+					//array('title' => '应用中心', 'route' => 'apps'),
+					// array(
+					// 'title' => '应用授权管理',
+					// 'items' => array(
 					// array('title' => '幻灯片管理', 'route' => 'pluginadv'),
 					// array('title' => '授权应用管理', 'route' => 'pluginmanage'),
 					// array('title' => '授权套餐管理', 'route' => 'pluginpackage'),
@@ -925,126 +902,126 @@ class System_EweiShopV2Model
 					// array('title' => '系统授权管理', 'route' => 'plugingrant'),
 					// array('title' => '授权代理管理', 'route' => 'pluginsetting')
 					// )
-				// )
-			)
-		),
-	'copyright' => array(
-		'title'    => '版权',
-		'subtitle' => '版权设置',
-		'icon'     => 'banquan',
-		'items'    => array(
-			array('title' => '手机端'),
-			array('title' => '管理端', 'route' => 'manage'),
-			array(
-				'title' => '公告管理',
-				'items' => array(
-					array('title' => '公告管理', 'route' => 'notice')
+					// )
+				)
+			),
+			'copyright' => array(
+				'title'    => '版权',
+				'subtitle' => '版权设置',
+				'icon'     => 'banquan',
+				'items'    => array(
+					array('title' => '手机端'),
+					array('title' => '管理端', 'route' => 'manage'),
+					array(
+						'title' => '公告管理',
+						'items' => array(
+							array('title' => '公告管理', 'route' => 'notice')
+						)
 					)
 				)
-			)
-		),
-	'data'      => array(
-		'title'    => '数据',
-		'subtitle' => '数据管理',
-		'icon'     => 'statistics',
-		'items'    => array(
-			// array('title' => '数据清理'),
-			// array('title' => '数据转移', 'route' => 'transfer'),
-			// array('title' => '数据下载', 'route' => 'backup'),
-			array(
-				'title' => '计划任务',
-				'items' => array(
-					array('title' => '计划任务', 'route' => 'task')
-					)
-				),
-			array(
-				'title' => '工具',
-				'items' => array(
-					array('title' => '七牛存储', 'route' => 'qiniu')
-					)
-				)
-			)
-		),
-	'site'      => array(
-		'title'    => '网站',
-		'subtitle' => '网站设置',
-		'icon'     => 'wangzhan',
-		'items'    => array(
-			array(
-				'title' => '网站',
-				'items' => array(
-					array('title' => '基本设置'),
-					array('title' => '幻灯片', 'route' => 'banner'),
-					array('title' => '案例分类', 'route' => 'casecategory'),
-					array('title' => '案例', 'route' => 'case'),
-					array('title' => '友情链接', 'route' => 'link')
-					)
-				),
-			array(
-				'title' => '文章',
-				'items' => array(
-					array('title' => '文章分类', 'route' => 'category'),
-					array('title' => '文章管理', 'route' => 'article')
-					)
-				),
-			array(
-				'title' => '内容',
-				'items' => array(
-					array('title' => '内容分类', 'route' => 'companycategory'),
-					array('title' => '内容管理', 'route' => 'companyarticle')
-					)
-				),
-			array(
-				'title' => '留言板',
-				'items' => array(
-					array('title' => '留言内容', 'route' => 'guestbook')
-					)
-				),
-			array(
-				'title' => '设置',
-				'items' => array(
-					array('title' => '基础设置', 'route' => 'setting')
+			),
+			'data'      => array(
+				'title'    => '数据',
+				'subtitle' => '数据管理',
+				'icon'     => 'statistics',
+				'items'    => array(
+					// array('title' => '数据清理'),
+					// array('title' => '数据转移', 'route' => 'transfer'),
+					// array('title' => '数据下载', 'route' => 'backup'),
+					array(
+						'title' => '计划任务',
+						'items' => array(
+							array('title' => '计划任务', 'route' => 'task')
+						)
+					),
+					array(
+						'title' => '工具',
+						'items' => array(
+							array('title' => '七牛存储', 'route' => 'qiniu')
+						)
 					)
 				)
+			),
+			'site'      => array(
+				'title'    => '网站',
+				'subtitle' => '网站设置',
+				'icon'     => 'wangzhan',
+				'items'    => array(
+					array(
+						'title' => '网站',
+						'items' => array(
+							array('title' => '基本设置'),
+							array('title' => '幻灯片', 'route' => 'banner'),
+							array('title' => '案例分类', 'route' => 'casecategory'),
+							array('title' => '案例', 'route' => 'case'),
+							array('title' => '友情链接', 'route' => 'link')
+						)
+					),
+					array(
+						'title' => '文章',
+						'items' => array(
+							array('title' => '文章分类', 'route' => 'category'),
+							array('title' => '文章管理', 'route' => 'article')
+						)
+					),
+					array(
+						'title' => '内容',
+						'items' => array(
+							array('title' => '内容分类', 'route' => 'companycategory'),
+							array('title' => '内容管理', 'route' => 'companyarticle')
+						)
+					),
+					array(
+						'title' => '留言板',
+						'items' => array(
+							array('title' => '留言内容', 'route' => 'guestbook')
+						)
+					),
+					array(
+						'title' => '设置',
+						'items' => array(
+							array('title' => '基础设置', 'route' => 'setting')
+						)
+					)
+				)
+			),
+			'auth'      => array(
+				'title'    => '授权',
+				'subtitle' => '授权管理',
+				'icon'     => 'iconfont-shouquan',
+				'items'    => array(
+					array('title' => '授权管理'),
+					array('title' => '系统更新', 'route' => 'upgrade'),
+				)
 			)
-		),
-	'auth'      => array(
-		'title'    => '授权',
-		'subtitle' => '授权管理',
-		'icon'     => 'iconfont-shouquan',
-		'items'    => array(
-			array('title' => '授权管理'),
-			array('title' => '系统更新', 'route' => 'upgrade'),
-			)
-		)
-	);
+		);
 	}
 
 	/**
-     * 获取 其他 菜单
-     * @return array
-     */
+	 * 获取 其他 菜单
+	 * @return array
+	 */
 	protected function otherMenu()
 	{
 		return array(
-	'perm' => array(
-		'title'    => '权限',
-		'subtitle' => '权限系统',
-		'icon'     => 'store',
-		'items'    => array(
-			array('title' => '角色管理', 'route' => 'role'),
-			array('title' => '操作员管理', 'route' => 'user'),
-			array('title' => '操作日志', 'route' => 'log')
+			'perm' => array(
+				'title'    => '权限',
+				'subtitle' => '权限系统',
+				'icon'     => 'store',
+				'items'    => array(
+					array('title' => '角色管理', 'route' => 'role'),
+					array('title' => '操作员管理', 'route' => 'user'),
+					array('title' => '操作日志', 'route' => 'log')
+				)
 			)
-		)
-	);
+		);
 	}
 
 	/**
-     * 获取 插件 菜单
-     * @param array $plugin 要获取的插件标识
-     * @return array
-     */
+	 * 获取 插件 菜单
+	 * @param array $plugin 要获取的插件标识
+	 * @return array
+	 */
 	protected function pluginMenu($plugin = array(), $key = 'menu')
 	{
 		if (empty($plugin)) {
@@ -1056,19 +1033,19 @@ class System_EweiShopV2Model
 	}
 
 	/**
-     * 获取 全部插件 菜单
-     * @return array
-     */
+	 * 获取 全部插件 菜单
+	 * @return array
+	 */
 	protected function allPluginMenu()
 	{
 		return array();
 	}
 
 	/**
-     * 判断二级、三级带参的Active状态
-     * @param array $item
-     * @return bool
-     */
+	 * 判断二级、三级带参的Active状态
+	 * @param array $item
+	 * @return bool
+	 */
 	protected function verifyParam($item = array())
 	{
 		global $_GPC;
@@ -1090,8 +1067,8 @@ class System_EweiShopV2Model
 	}
 
 	/**
-     * 初始化右侧顶部菜单
-     */
+	 * 初始化右侧顶部菜单
+	 */
 	protected function initRightMenu($routes)
 	{
 		global $_W;
@@ -1100,14 +1077,13 @@ class System_EweiShopV2Model
 			'menu_title' => '',
 			'menu_items' => array(),
 			'logout'     => ''
-			);
+		);
 
 		if ($this->merch) {
 			$return_arr['menu_title'] = $_W['merch_username'] . '//' . $_W['uniaccount']['username'];
 			$return_arr['menu_items'][] = array('text' => '修改密码', 'href' => merchUrl('updatepassword'));
 			$return_arr['logout'] = merchUrl('quit');
-		}
-		else {
+		} else {
 			$return_arr['menu_title'] = $_W['uniaccount']['name'];
 			if (($_W['role'] == 'founder') && ($routes[0] != 'system')) {
 				$return_arr['system'] = 1;
@@ -1115,8 +1091,7 @@ class System_EweiShopV2Model
 
 			if ($routes[0] == 'system') {
 				$return_arr['menu_items'][] = array('text' => '返回商城', 'href' => webUrl());
-			}
-			else {
+			} else {
 				$return_arr['menu_items'][] = array('text' => '切换公众号', 'href' => webUrl('sysset/account'));
 				if (($_W['role'] == 'manager') || ($_W['role'] == 'founder')) {
 					$return_arr['menu_items'][] = array('text' => '编辑公众号', 'href' => './index.php?c=account&a=post&uniacid=' . $_W['uniacid'] . '&acid=' . $_W['acid'], 'blank' => 'true');
@@ -1136,7 +1111,6 @@ class System_EweiShopV2Model
 					/* $return_arr['menu_items'][] = array('text' => '应用中心', 'href' => webUrl('system/plugin/apps')); */
 					$return_arr['menu_items'][] = 'line';
 					$return_arr['menu_items'][] = array('text' => '系统更新', 'href' => './index.php?c=site&a=entry&m=ewei_shopv2&do=web&r=system.auth.upgrade');
-
 				}
 
 				$return_arr['menu_items'][] = array('text' => '修改密码', 'href' => './index.php?c=user&a=profile&', 'blank' => true);
@@ -1149,9 +1123,9 @@ class System_EweiShopV2Model
 	}
 
 	/**
-     * 获取后台数据
-     * @return array
-     */
+	 * 获取后台数据
+	 * @return array
+	 */
 	public function init()
 	{
 		global $_W;
@@ -1170,7 +1144,7 @@ class System_EweiShopV2Model
 			'routes'      => $routes,
 			'funbar'      => array('open' => intval($_W['shopset']['shop']['funbar'])),
 			'right_menu'  => $this->initRightMenu($routes)
-			);
+		);
 
 		if ($this->cv('order.list.status1')) {
 			$arr['order1'] = $this->getOrderTotal(1);
@@ -1194,8 +1168,7 @@ class System_EweiShopV2Model
 			if ($this->cv('shop.comment')) {
 				$arr['comment'] = pdo_fetchcolumn('SELECT COUNT(1) FROM ' . tablename('ewei_shop_order_comment') . ' WHERE (`checked`=1 OR replychecked=1) AND deleted=0 AND uniacid=:uniacid', array(':uniacid' => $_W['uniacid']));
 			}
-		}
-		else {
+		} else {
 			$arr['notice'] = 'none';
 
 			if ($this->cv('shop.comment')) {
@@ -1208,8 +1181,7 @@ class System_EweiShopV2Model
 			if (!empty($funbardata['datas']) && !is_array($funbardata['datas'])) {
 				if (strexists($funbardata['datas'], '{"')) {
 					$funbardata['datas'] = json_decode($funbardata['datas'], true);
-				}
-				else {
+				} else {
 					$funbardata['datas'] = unserialize($funbardata['datas']);
 				}
 			}
@@ -1221,8 +1193,7 @@ class System_EweiShopV2Model
 
 		if (!$this->merch) {
 			$history_url = htmlspecialchars_decode($_GPC['history_url']);
-		}
-		else {
+		} else {
 			$history_url = htmlspecialchars_decode($_GPC['merch_history_url']);
 		}
 
@@ -1248,8 +1219,7 @@ class System_EweiShopV2Model
 			}
 
 			$total = pdo_fetchcolumn('SELECT COUNT(1) FROM ' . tablename('ewei_shop_order') . ' WHERE ' . $condition, $params);
-		}
-		else {
+		} else {
 			if ($status == 4) {
 				$condition = 'uniacid = :uniacid and isparent=0 and ismr=0 and refundstate>0 and refundid<>0 and deleted=0';
 				$params = array(':uniacid' => $_W['uniacid']);
@@ -1295,8 +1265,8 @@ class System_EweiShopV2Model
 	}
 
 	/**
-     * 处理历史记录
-     */
+	 * 处理历史记录
+	 */
 	public function history_url()
 	{
 		global $_W;
@@ -1304,15 +1274,13 @@ class System_EweiShopV2Model
 
 		if (!$this->merch) {
 			$history_url = $_GPC['history_url'];
-		}
-		else {
+		} else {
 			$history_url = $_GPC['merch_history_url'];
 		}
 
 		if (empty($history_url)) {
 			$history_url = array();
-		}
-		else {
+		} else {
 			$history_url = htmlspecialchars_decode($history_url);
 			$history_url = json_decode($history_url, true);
 		}
@@ -1350,7 +1318,7 @@ class System_EweiShopV2Model
 		if ($thispage) {
 			$thispage_item = array(
 				array('title' => $thispage['title'], 'url' => $thispage['url'])
-				);
+			);
 			$history_url = array_merge($thispage_item, $history_url);
 
 			if (10 < count($history_url)) {
@@ -1362,8 +1330,8 @@ class System_EweiShopV2Model
 	}
 
 	/**
-     * 设置用户版本
-     */
+	 * 设置用户版本
+	 */
 	public function set_version($type = 0)
 	{
 		global $_W;
@@ -1371,8 +1339,7 @@ class System_EweiShopV2Model
 
 		if ($type == 1) {
 			$uid = $_W['merchuid'];
-		}
-		else {
+		} else {
 			if ($type == 2) {
 				$uid = $_W['newstoreuid'];
 			}
@@ -1386,5 +1353,3 @@ class System_EweiShopV2Model
 if (!defined('IN_IA')) {
 	exit('Access Denied');
 }
-
-?>
