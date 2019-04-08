@@ -87,9 +87,9 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 				$t = time();
 				$start = mktime(19, 59, 59, date("m", $t), date("d", $t), date("Y", $t));
 
-				// if ($t >= $start) {
-				// 	show_json(-1, "下注失败!每日下注时间为下午20点前.");
-				// }
+				if ($t >= $start) {
+					show_json(-1, "下注失败!每日下注时间为下午20点前.");
+				}
 				// $end = mktime(23,59,59,date("m",$t),date("d",$t),date("Y",$t));
 				$member = m('member')->getMember($_W['openid'], true);
 
