@@ -186,7 +186,7 @@
 
                     <th style='width:100px;'>状态</th>
 
-                   
+
 
                 </tr>
 
@@ -230,7 +230,7 @@
 
                         <a  href="<?php  echo webUrl('member/list/detail',array('id' => $row['mid']));?>" target='_blank'>
 
-                            <img class="radius50" src='<?php  echo tomedia($row['m2avatar'])?>' style='width:30px;height:30px;padding1px;border:1px solid #ccc' / onerror="this.src='../addons/ewei_shopv2/static/images/noface.png'"> 
+                            <img class="radius50" src='<?php  echo tomedia($row['m2avatar'])?>' style='width:30px;height:30px;padding1px;border:1px solid #ccc' / onerror="this.src='../addons/ewei_shopv2/static/images/noface.png'">
                             <?php  if(!$row['m2nickname']) { ?>暂无<?php  } else { ?><?php  echo $row['m2nickname'];?><?php  } ?>
 
                         </a>
@@ -251,7 +251,7 @@
 
                     <!-- 卖出手续费 -->
                     <td><?php  echo $row['trx2']-$row['trx'];?></td>
-                    
+
                     <!-- 卖出时间 -->
                     <td  class="style">
                         <?php  echo date("Y-m-d H:i:s",$row['createtime']);?>
@@ -260,11 +260,13 @@
                     <!-- 购买时间  -->
                     <td  class="style">
                         <?php  if($row['endtime']) { ?>  <?php  echo date("Y-m-d H:i:s",$row['endtime']);?><?php  } ?>
-                    </td> 
+                    </td>
 
                     <!-- 打款凭证 -->
                     <td style="">
-                         <img src="<?php  echo $row['file'];?>" style="width:100px;hight:100px;">
+                         <a href='<?php  echo $row['file'];?>'>
+                            <img src="<?php  echo $row['file'];?>" style="width:100px;hight:100px;">
+                        </a>
                     </td>
 
                     <!-- 状态 -->
@@ -288,7 +290,7 @@
                         <?php  } ?>
                     </td>
 
-                    
+
 
                 </tr>
 
