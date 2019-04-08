@@ -16,7 +16,7 @@
         <?php  } else { ?>
         <img src="<?php  echo EWEI_SHOPV2_LOCAL?>static/icon/shouye0.png" alt="" width="16">
         <?php  } ?>
-        
+
 
         <span class="label">首页</span>
 

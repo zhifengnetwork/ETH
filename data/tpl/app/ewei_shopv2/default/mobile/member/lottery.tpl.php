@@ -306,7 +306,7 @@
 
       <div class="cont_foot">
         <!-- <div class="cont_foot_left">金额:<span class="money">0</span>RTX</div> -->
-        <div>单价:<span class="price"><?php  echo $sale['price'];?></span>/股</div>
+        <div>单价:<span class="price"><?php  echo $sale['price'];?></span>/注</div>
         <div class="foot_btn">确定</div>
       </div>
     </div>

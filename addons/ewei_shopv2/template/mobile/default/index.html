@@ -491,11 +491,11 @@
               url:"{php echo mobileurl('index/homeinfo')}",
               dataType: 'json',
               success:function(data){
-                $('#touzimoney').html(data.touzimoney);
-                $('#shouyimoneysum').html(data.shouyimoneysum);
-                $('#shouyimoney').html(data.shouyimoney);
-                $('#money').html(data.money);
-                $('#xiaji').html(data.xiaji);
+                $('#touzimoney').html(data.data.touzimoney);
+                $('#shouyimoneysum').html(data.data.shouyimoneysum);
+                $('#shouyimoney').html(data.data.shouyimoney);
+                $('#money').html(data.data.money);
+                $('#xiaji').html(data.data.xiaji);
               },err:function(err){
                  console.log(err);
               }

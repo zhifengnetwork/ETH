@@ -109,10 +109,36 @@ class Index_EweiShopV2Page extends MobilePage
 
 		$arr4 = m('common')->memberxiaji($ass, $id);
 
-		$data = array('status' => 1, 'touzimoney' => number_format($arr1['money'], 6), 'shouyimoneysum' => number_format($arr2['money'] + $arr2['money2'] + $jifensum['money'] + $jifensum['money2'], 6), 'shouyimoney' => number_format($arr3['money'] + $arr3['money2'] + $jifen['money'] + $jifen['money2'], 6), 'money' => number_format($memberis['credit2'] + $memberis['credit4'], 6), 'xiaji' => count($arr4));
+		$data = array('status' => 1, 'msg' => '获取成功', 'data' => array('touzimoney' => number_format($arr1['money'], 6), 'shouyimoneysum' => number_format($arr2['money'] + $arr2['money2'] + $jifensum['money'] + $jifensum['money2'], 6), 'shouyimoney' => number_format($arr3['money'] + $arr3['money2'] + $jifen['money'] + $jifen['money2'], 6), 'money' => number_format($memberis['credit2'] + $memberis['credit4'], 6), 'xiaji' => count($arr4)));
 
 		echo json_encode($data);
 	}
+
+	public function xiaji()
+	{
+		global $_W;
+		global $_GPC;
+		$id = $_GPC['id'];
+		//团队下级
+		$ass = pdo_fetchall('select * from ' . tablename('ewei_shop_member') . ' where uniacid = ' . $_W['uniacid']);
+
+		$arr4 = m('common')->memberxiaji($ass, $id);
+		foreach ($arr4 as $key => $val) {
+			dump($val['id']);
+		}
+
+		die;
+		if ($arr4) {
+			$msg = "获取成功";
+			$status = 1;
+		} else {
+			$msg = "获取失败";
+			$status = 0;
+		}
+		$data = array('status' => $status, 'msg' => $msg, 'data' => $arr4);
+		echo json_encode($data);
+	}
+
 
 	public function lunbo()
 	{
@@ -130,7 +156,47 @@ class Index_EweiShopV2Page extends MobilePage
 		if ($_W['ispost']) {
 
 			$slide = pdo_fetchall("select * from " . tablename("ewei_shop_adv") . "where uniacid=" . $_W['uniacid'] . " and enabled='1' ");
-			$data = array('status' => 1, 'list' => $slide);
+			if ($slide) {
+				$msg = "获取成功";
+				$status = 1;
+			} else {
+				$msg = "获取失败";
+				$status = 0;
+			}
+			$data = array('status' => $status, 'msg' => $msg, 'data' => $slide);
+			echo json_encode($data);
+		}
+	}
+	/**
+	 *资产记录api
+	 */
+	public function total_investment()
+	{
+		global $_W;
+		global $_GPC;
+		$type = $_GPC['type'];
+		// $openid = $_W['openid'];
+		$openid = $_GPC['openid'];
+		if ($_W['ispost']) {
+			if ($type == 1) {
+				$list =  pdo_fetchall("select g.openid,g.type,g.title,g.createtime,g.money,g.money1,g.money2,g.RMB,g.typec2c,m.nickname from" . tablename("ewei_shop_member_log") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.openid='$openid' and g.type='$type' order by g.createtime desc");
+			} else if ($type == 3) {
+				$list =  pdo_fetchall("select g.*,m.nickname from" . tablename("ewei_zhuanzhang") . "g left join" . tablename("ewei_shop_member") . "m on g.openid2=m.openid" . " where g.openid='$openid' order by g.createtime desc");
+			} else {
+				$list =  pdo_fetchall("select g.openid,g.type,g.title,g.createtime,g.money,g.money1,g.money2,g.RMB,g.typec2c,m.nickname from" . tablename("ewei_shop_member_log") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.openid='$openid' order by g.createtime desc");
+			}
+			foreach ($list as $key => $val) {
+				$list[$key]['createtime'] = date("Y-m-d H:i:s", $val['createtime']);
+			}
+			if ($list) {
+				$msg = "获取成功";
+				$status = 1;
+			} else {
+				$msg = "获取失败";
+				$status = 0;
+			}
+
+			$data = array('status' => $status, 'msg' => $msg, 'data' => $list);
 			echo json_encode($data);
 		}
 	}

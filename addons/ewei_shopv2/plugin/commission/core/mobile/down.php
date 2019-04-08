@@ -3,7 +3,6 @@
 if (!defined('IN_IA')) {
 
 	exit('Access Denied');
-
 }
 
 
@@ -37,7 +36,6 @@ class Down_EweiShopV2Page extends CommissionMobileLoginPage
 		if ((2 <= $this->set['level']) && (0 < $levelcount1)) {
 
 			$level2 = pdo_fetchcolumn('select count(*) from ' . tablename('ewei_shop_member') . ' where agentid in( ' . implode(',', array_keys($member['level1_agentids'])) . ') and uniacid=:uniacid limit 1', array(':uniacid' => $_W['uniacid']));
-
 		}
 
 
@@ -45,7 +43,6 @@ class Down_EweiShopV2Page extends CommissionMobileLoginPage
 		if ((3 <= $this->set['level']) && (0 < $levelcount2)) {
 
 			$level3 = pdo_fetchcolumn('select count(*) from ' . tablename('ewei_shop_member') . ' where agentid in( ' . implode(',', array_keys($member['level2_agentids'])) . ') and uniacid=:uniacid limit 1', array(':uniacid' => $_W['uniacid']));
-
 		}
 
 
@@ -53,22 +50,22 @@ class Down_EweiShopV2Page extends CommissionMobileLoginPage
 		$total = $level1 + $level2 + $level3;
 
 		include $this->template();
-
 	}
 
 
 
-	public function digui($members,$mid){
+	public function digui($members, $mid)
+	{
 
 		global $_W;
 
 		global $_GPC;
 
-		$Teams = array();//最终结果
+		$Teams = array(); //最终结果
 
-		$op=1;
+		$op = 1;
 
-		$mids = array($mid);//第一次执行时候的用户id
+		$mids = array($mid); //第一次执行时候的用户id
 
 		do {
 
@@ -80,39 +77,34 @@ class Down_EweiShopV2Page extends CommissionMobileLoginPage
 
 				foreach ($members as $key => $valuetwo) {
 
-					if($valuetwo['agentid'] == $valueone){
+					if ($valuetwo['agentid'] == $valueone) {
 
-						$Teams[]=array('id' => $valuetwo['id'],'type'=>$op);//找到我的下级立即添加到最终结果中
+						$Teams[] = array('id' => $valuetwo['id'], 'type' => $op); //找到我的下级立即添加到最终结果中
 
-						$othermids[] = $valuetwo['id'];//将我的下级id保存起来用来下轮循环他的下级
+						$othermids[] = $valuetwo['id']; //将我的下级id保存起来用来下轮循环他的下级
 
 
 
-						$state=true;
-
+						$state = true;
 					}
-
 				}
-
 			}
 
-			$op = $op+1;
+			$op = $op + 1;
 
-			$mids=$othermids;//foreach中找到的我的下级集合,用来下次循环
+			$mids = $othermids; //foreach中找到的我的下级集合,用来下次循环
 
-		} while ($state==true);
+		} while ($state == true);
 
 
 
 		return $Teams;
-
-
-
 	}
 
 
 
-	public function xiaji($agentid,$op,$data=''){
+	public function xiaji($agentid, $op, $data = '')
+	{
 
 		global $_W;
 
@@ -124,44 +116,37 @@ class Down_EweiShopV2Page extends CommissionMobileLoginPage
 
 		$data = array();  //结果集
 
-		$id = array($agentid);//第一次循环的id
+		$id = array($agentid); //第一次循环的id
 
-		do{
+		do {
 
 			$mids = array();   //下次循环的id
 
 			$state = false;    //判断循环是否终止
 
-			foreach ($id as $val){
+			foreach ($id as $val) {
 
-				$result = pdo_fetchall("select * from".tablename("ewei_shop_member") ."where uniacid=:uniacid and agentid=:agentid and agentlevel>0",array(':uniacid'=>$_W['uniacid'],':agentid'=>$val));
+				$result = pdo_fetchall("select * from" . tablename("ewei_shop_member") . "where uniacid=:uniacid and agentid=:agentid and agentlevel>0", array(':uniacid' => $_W['uniacid'], ':agentid' => $val));
 
-				if($result){
+				if ($result) {
 
-					foreach ($result as $key=>$item){
+					foreach ($result as $key => $item) {
 
-						$data[] = array('id'=>$item['id'],'type'=>$op);
+						$data[] = array('id' => $item['id'], 'type' => $op);
 
 						$mids[] = $item['id'];
 
 						$state = true;
-
 					}
-
 				}
-
 			}
 
 			$id = $mids;   //下级循环的id组
 
-			$op = $op+1;
-
-
-
-		}while($state==true);
+			$op = $op + 1;
+		} while ($state == true);
 
 		return $data;
-
 	}
 
 
@@ -194,24 +179,22 @@ class Down_EweiShopV2Page extends CommissionMobileLoginPage
 
 		$ass = pdo_fetchall('select * from ' . tablename('ewei_shop_member') . ' where uniacid = ' . $_W['uniacid']);
 
-		$arr = $this->digui($ass,$member['id']);
+		$arr = $this->digui($ass, $member['id']);
 
 
 
 		// show_json($arr);
 
-		foreach($arr as $key=>$val){
+		foreach ($arr as $key => $val) {
 
-			$ids .= $val['id'].",";
-
+			$ids .= $val['id'] . ",";
 		}
 
-		$ids_1 = substr($ids,0,-1);
+		$ids_1 = substr($ids, 0, -1);
 
-		if($ids_1){
+		if ($ids_1) {
 
 			$condition = "and id in ($ids_1)";
-			
 		}
 
 
@@ -221,23 +204,21 @@ class Down_EweiShopV2Page extends CommissionMobileLoginPage
 
 		foreach ($list as &$row) {
 
-			foreach ($arr as $key=>$val){    //给每个会员附加代数
+			foreach ($arr as $key => $val) {    //给每个会员附加代数
 
-				if($row['id']==$val['id']){
+				if ($row['id'] == $val['id']) {
 
 					$row['type'] = $val['type'];
-
 				}
-
 			}
 
 
 
 			//给每个会员加入等级
 
-			$level = pdo_fetch("select levelname from".tablename("ewei_shop_member_level")."where uniacid=:uniacid and id=:id",array(':uniacid'=>$_W['uniacid'],':id'=>$row['level']));
+			$level = pdo_fetch("select levelname from" . tablename("ewei_shop_member_level") . "where uniacid=:uniacid and id=:id", array(':uniacid' => $_W['uniacid'], ':id' => $row['level']));
 
-//			var_dump($level);
+			//			var_dump($level);
 
 			$row['level'] = $level['levelname'];
 
@@ -252,7 +233,6 @@ class Down_EweiShopV2Page extends CommissionMobileLoginPage
 				$row['agentcount'] = $info['agentcount'];
 
 				$row['agenttime'] = date('Y-m-d H:i', $row['agenttime']);
-
 			}
 
 			$total_level = pdo_fetchcolumn('select count(*) from ' . tablename('ewei_shop_member') . ' where agentid=:agentid and uniacid=:uniacid limit 1', array(':agentid' => $member['id'], ':uniacid' => $_W['uniacid']));
@@ -266,7 +246,6 @@ class Down_EweiShopV2Page extends CommissionMobileLoginPage
 			$row['moneycount'] = number_format(floatval($moneycount), 2);
 
 			$row['createtime'] = date('Y-m-d H:i', $row['createtime']);
-
 		}
 
 
@@ -275,19 +254,12 @@ class Down_EweiShopV2Page extends CommissionMobileLoginPage
 
 		//根据代数升序
 
-		$type = array_column($list,'type');
+		$type = array_column($list, 'type');
 
-		array_multisort($type,SORT_ASC,$list);
+		array_multisort($type, SORT_ASC, $list);
 
 
 
-		show_json(1, array('list' => $list, 'total' => $total_level,'sum'=>count($arr), 'pagesize' => $psize));
-
+		show_json(1, array('list' => $list, 'total' => $total_level, 'sum' => count($arr), 'pagesize' => $psize));
 	}
-
 }
-
-
-
-?>
-
