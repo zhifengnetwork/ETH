@@ -230,7 +230,7 @@
 			<div class="list_right icon icon-right"></div>
 		</a>
 		<a class="lis"
-			href="<?php  if(!empty($member['mobileverify'])) { ?><?php  echo mobileUrl('member/changepwd')?><?php  } else { ?><?php  echo mobileUrl('member/changepwd')?><?php  } ?>">
+			href="<?php  echo mobileUrl('member/changepwd')?>">
 			<div class="lis_left">
 				<img src="../addons/ewei_shopv2/static/images/mima.png" alt="">
 				<span>修改密码</span>
