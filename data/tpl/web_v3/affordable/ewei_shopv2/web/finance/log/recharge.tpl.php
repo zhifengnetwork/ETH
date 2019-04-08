@@ -248,10 +248,10 @@
 
                     </td>
 
-                     <td style="text-align: center;" class="style">
-
-                      <img src="<?php  echo $row['url'];?>" style="width:100px;hight:100px;">
-
+                    <td style="text-align: center;" class="style">
+                    <a href="<?php  echo $row['url'];?>">
+                        <img src="<?php  echo $row['url'];?>" style="width:100px;hight:100px;">
+                    </a>
                     </td>
 
                     <td style="text-align: center;">

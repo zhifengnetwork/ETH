@@ -64,7 +64,8 @@
           <p>交易类型: 交易失败 </p><br>
           <?php  } ?>
           <p>凭   证:<br>
-            <img src="$guamai['file']" alt="">
+          <?php  echo $guamai['file'];?>
+            <img src="<?php  echo $guamai['file'];?>" alt="">
           </p><br>
           <p>申诉时间: <?php  echo date('Y-m-d H:i',$guamai_appeal['createtime'])?></p><br>
         </div>

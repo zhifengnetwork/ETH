@@ -67,5 +67,3 @@ class Share_EweiShopV2Page extends CommissionMobilePage
 		include $this->template();
 	}
 }
-
-?>

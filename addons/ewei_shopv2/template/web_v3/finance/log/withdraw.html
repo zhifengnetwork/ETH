@@ -219,7 +219,7 @@
 
                     <!-- <td>{$row['money']}<br/>{$row['realmoney']}<br/>{$row['deductionmoney']}</td> -->
                     <td>{$row['money']}</td>
-                    
+
                     <td>{$row['credit']}</td>
                     <!-- <td>{if (float)$row['sendmoney'] != 0}{$row['sendmoney']}{else}-{/if}</td> -->
 
@@ -282,7 +282,9 @@
                     <td>{php echo date('Y-m-d',$row['createtime'])}<br/>{php echo date('H:i',$row['createtime'])}</td>
 
                     <td>
-                        <img src="{$row['url']}" style="width:100px;hight:100px;">
+                        <a href="{$row['url']}">
+                            <img src="{$row['url']}" style="width:100px;hight:100px;">
+                        </a>
                     </td>
 
                     <td>

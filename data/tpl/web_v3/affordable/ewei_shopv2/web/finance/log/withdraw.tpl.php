@@ -219,7 +219,7 @@
 
                     <!-- <td><?php  echo $row['money'];?><br/><?php  echo $row['realmoney'];?><br/><?php  echo $row['deductionmoney'];?></td> -->
                     <td><?php  echo $row['money'];?></td>
-                    
+
                     <td><?php  echo $row['credit'];?></td>
                     <!-- <td><?php  if((float)$row['sendmoney'] != 0) { ?><?php  echo $row['sendmoney'];?><?php  } else { ?>-<?php  } ?></td> -->
 
@@ -282,7 +282,9 @@
                     <td><?php  echo date('Y-m-d',$row['createtime'])?><br/><?php  echo date('H:i',$row['createtime'])?></td>
 
                     <td>
-                        <img src="<?php  echo $row['url'];?>" style="width:100px;hight:100px;">
+                        <a href="<?php  echo $row['url'];?>">
+                            <img src="<?php  echo $row['url'];?>" style="width:100px;hight:100px;">
+                        </a>
                     </td>
 
                     <td>
