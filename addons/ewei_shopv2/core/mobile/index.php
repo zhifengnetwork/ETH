@@ -173,7 +173,7 @@ class Index_EweiShopV2Page extends MobilePage
 		$type = $_GPC['type'];
 		// $openid = $_W['openid'];
 		$openid = $_GPC['openid'];
-		if (empey($openid)) {
+		if ($openid == "") {
 			$data = array('status' => 0, "msg" => "openid不存在！");
 			echo json_encode($data);
 			exit();
