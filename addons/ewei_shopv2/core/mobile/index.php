@@ -73,6 +73,12 @@ class Index_EweiShopV2Page extends MobilePage
 		global $_W;
 		global $_GPC;
 		$id = $_GPC['id'];
+		if ($_W['openid'] == "") {
+			$_GPC['openid'] = $_GPC['openid'];
+		} else {
+			$_GPC['openid'] = $_W['openid'];
+		}
+
 		if ($_GPC['openid']) {
 			$member = m('member')->getMember($_GPC['openid'], true);
 			$id = $member['id'];

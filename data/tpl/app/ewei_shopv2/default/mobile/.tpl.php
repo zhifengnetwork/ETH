@@ -491,6 +491,7 @@
               url:"<?php  echo mobileurl('index/homeinfo')?>",
               dataType: 'json',
               success:function(data){
+                console.log(data);
                 $('#touzimoney').html(data.data.touzimoney);
                 $('#shouyimoneysum').html(data.data.shouyimoneysum);
                 $('#shouyimoney').html(data.data.shouyimoney);
