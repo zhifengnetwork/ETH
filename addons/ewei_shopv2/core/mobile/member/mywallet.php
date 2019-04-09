@@ -114,6 +114,7 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 			if ($money > $member['credit2']) show_json(0, "您自由账户余额不足");
 
 			$data['status'] = 1;
+			$data['payment'] = 1;
 			$data['title'] = "自由账户一键复投";
 
 			m('member')->setCredit($_W['openid'], 'credit2', -$money);
@@ -122,6 +123,7 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 			if ($money > $member['credit4']) show_json(0, "您复投账户余额不足");
 
 			$data['status'] = 2;
+			$data['payment'] = 2;
 			$data['title'] = "复投账户一键复投";
 
 			m('member')->setCredit($_W['openid'], 'credit4', -$money);

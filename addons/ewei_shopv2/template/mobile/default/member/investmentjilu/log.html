@@ -49,7 +49,11 @@
           {/if}
           {/if}
           {if $log['after_money']!=null}
-          <p>当前可用余额：{$log['after_money']}</p>
+          {if $log['payment'] == 1 }
+          <p>自由账户可用余额：{$log['after_money']}</p>
+          {else if $log['payment'] == 2 }
+          <p>复投账户可用余额：{$log['after_money']}</p>
+          {/if}
           {/if}
           <p>描述：{$log['title']}</p>
           {if $log['typec2c']==""}

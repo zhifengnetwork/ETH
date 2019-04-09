@@ -99,6 +99,7 @@ class Withdraw_EweiShopV2Page extends MobileLoginPage
 		$apply['openid'] = $_W['openid'];
 		$apply['title'] = 'ETH提现余额';
 		$apply['type'] = 4;
+		$apply['payment'] = 1;
 		$apply['createtime'] = time();
 		$apply['status'] = 0;
 		$apply['money'] = $money;

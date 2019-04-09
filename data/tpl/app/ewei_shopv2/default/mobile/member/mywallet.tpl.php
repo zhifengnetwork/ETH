@@ -124,7 +124,7 @@
         </a>
         <div class="futou_bottom">
           <a class="yijianfutou0" href="<?php  echo mobileurl('member/mywallet/futou',array('type'=>4))?>">一键复投</a>
-          <a class="qipaiyule" href="<?php  echo mobileUrl('member/qipai')?>">3D</a>
+          <a class="qipaiyule" href="<?php  echo mobileUrl('member/qipai')?>">棋牌娱乐</a>
         </div>
       </div>
 

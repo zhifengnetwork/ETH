@@ -102,7 +102,7 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 				$list = $_GPC['list'];
 				// show_json($list);
 
-				if ($payment == 1) {  //TRX支付
+				if ($payment == 1) {  //ETH支付
 
 					if ($member['credit2'] < $money)  show_json(-1, "您的自由账户余额不足");
 					//扣除该会员的下注金额
@@ -123,6 +123,7 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 					'money' => $money,
 					'type' => 7,
 					'title' => $title,
+					'payment' => $payment,
 					'front_money' => $front_money,
 					'after_money' => $front_money - $money,
 					'createtime' => time()
