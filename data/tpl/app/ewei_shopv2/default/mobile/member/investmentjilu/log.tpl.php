@@ -48,13 +48,7 @@
           <p>手续费：<?php  echo $log['shouxufei'];?></p>
           <?php  } ?>
           <?php  } ?>
-          <?php  if($log['after_money']!=null) { ?>
-          <?php  if($log['payment'] == 1 ) { ?>
-          <p>自由账户可用余额：<?php  echo $log['after_money'];?></p>
-          <?php  } else if($log['payment'] == 2 ) { ?>
-          <p>复投账户可用余额：<?php  echo $log['after_money'];?></p>
-          <?php  } ?>
-          <?php  } ?>
+
           <p>描述：<?php  echo $log['title'];?></p>
           <?php  if($log['typec2c']=="") { ?>
 
@@ -68,6 +62,13 @@
             <?php  } else { ?>
             <p>类型：买入</p>
             <?php  } ?>
+          <?php  } ?>
+          <?php  if($log['after_money']!=null) { ?>
+          <?php  if($log['payment'] == 1 ) { ?>
+          <p>自由账户可用余额：<?php  echo $log['after_money'];?></p>
+          <?php  } else if($log['payment'] == 2 ) { ?>
+          <p>复投账户可用余额：<?php  echo $log['after_money'];?></p>
+          <?php  } ?>
           <?php  } ?>
         </div>
       </div>
