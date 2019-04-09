@@ -52,7 +52,7 @@ class Index_EweiShopV2Page extends MobilePage
 			}
 			m('account')->setLogin($member);
 			// $list
-			show_json(1, $member['id']);
+			show_json(1, $member);
 		}
 		$set = $this->getWapSet();
 		$backurl = '';
