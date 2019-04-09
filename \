@@ -1,0 +1,6 @@
+/data/config.php
+.vscode
+.project
+.idea
+addons/ewei_shopv2/data/qrcode/*
+attachment/images/*
