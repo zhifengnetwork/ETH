@@ -39,12 +39,21 @@
       <div class=" goods-item">
         <div class="time">时间：<span><?php  echo $log['createtime'];?></span></div>
         <div class="lis">
+          <?php  if($log['money']!=null) { ?>
+          <p>交易金额：<?php  echo $log['money'];?></p>
+          <?php  } ?>
+          <?php  if($log['typec2c'] == 1) { ?>
+          <?php  if($log['shouxufei'] == 0) { ?>
+          <?php  } else { ?>
+          <p>手续费：<?php  echo $log['shouxufei'];?></p>
+          <?php  } ?>
+          <?php  } ?>
+          <?php  if($log['after_money']!=null) { ?>
+          <p>当前可用余额：<?php  echo $log['after_money'];?></p>
+          <?php  } ?>
           <p>描述：<?php  echo $log['title'];?></p>
           <?php  if($log['typec2c']=="") { ?>
-            <?php  if($log['money']=="") { ?>
-            <?php  } else { ?>
-            <p>金额：<?php  echo $log['money'];?></p>
-            <?php  } ?>
+
             <?php  if($log['type']==4) { ?>
             <p>实到金额：<?php  echo $log['realmoney'];?></p>
             <p>手续费：<?php  echo $log['charge'];?></p>

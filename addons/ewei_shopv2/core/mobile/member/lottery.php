@@ -108,12 +108,14 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 					//扣除该会员的下注金额
 					m('member')->setCredit($_W['openid'], 'credit2', -$money);
 					$title = "自由账户进行下注减少" . $money;
+					$front_money = $member['credit2'];
 				} else if ($payment == 2) {  //复投账户支付
 
 					if ($member['credit4'] < $money)  show_json(-1, "您的复投账户余额");
 					//扣除该会员的下注金额
 					m('member')->setCredit($_W['openid'], 'credit4', -$money);
 					$title = "复投账户进行下注减少" . $money;
+					$front_money = $member['credit4'];
 				}
 				$arr_log = array(
 					'uniacid' => 12,
@@ -121,6 +123,8 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 					'money' => $money,
 					'type' => 7,
 					'title' => $title,
+					'front_money' => $front_money,
+					'after_money' => $front_money - $money,
 					'createtime' => time()
 				);
 				pdo_insert("ewei_shop_member_log", $arr_log);

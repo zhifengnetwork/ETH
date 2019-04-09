@@ -106,6 +106,7 @@ class Investmentjilu_EweiShopV2Page extends MobileLoginPage
 			$zhuanzhang[$k]['createtime'] = date("Y-m-d", $v['createtime']);
 		}
 		foreach ($list as $key => $val) {
+			$list[$key]['shouxufei'] = $val['money1'] - $val['money'];
 			$list[$key]['createtime'] = date("Y-m-d", $val['createtime']);
 		}
 		// dump($zhuanzhang);
