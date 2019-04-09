@@ -124,22 +124,27 @@ class Index_EweiShopV2Page extends MobilePage
 	{
 		global $_W;
 		global $_GPC;
-		$id = $_GPC['id'];
-		//团队下级
-		$ass = pdo_fetchall('select * from ' . tablename('ewei_shop_member') . ' where uniacid = ' . $_W['uniacid']);
-
-		$arr4 = m('common')->memberxiaji($ass, $id);
-		foreach ($arr4 as $key => $val) {
-			dump($val['id']);
+		$id = $_GPC['user_id'];
+		if (empty($id)) {
+			$data = array('status' => 0, "msg" => "请上传会员的id");
+			echo json_encode($data);
+			exit();
 		}
-
-		die;
-		if ($arr4) {
+		//团队下级
+		$ass = pdo_fetchall('select * from ' . tablename('ewei_shop_member') . ' where uniacid = 12');
+		// dump($ass);
+		// die;
+		$arr4 = m('common')->memberxiaji($ass, $id);
+		$users = [];
+		foreach ($arr4 as $key => $val) {
+			$users[] = pdo_fetch("select openid,id,mobile,nickname from" . tablename("ewei_shop_member") . "where id ='" . $val['id'] . "'");
+		}
+		if ($users) {
 			$msg = "获取成功";
 		} else {
 			$msg = "获取失败";
 		}
-		$data = array('status' => 1, 'msg' => $msg, 'data' => $arr4);
+		$data = array('status' => 1, 'msg' => $msg, 'data' => $users);
 		echo json_encode($data);
 	}
 
@@ -153,8 +158,8 @@ class Index_EweiShopV2Page extends MobilePage
 		// 	$memberis = pdo_fetch("select * from ".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and id='$id'");
 		// 	$_W['openid'] = $memberis['openid'];
 		// }else{
-		// 	$data = array('status'=>0,"fail"=>"请上传会员的id");
-		// 	echo json_encode($data);exit();
+		// $data = array('status'=>0,"fail"=>"请上传会员的id");
+		// echo json_encode($data);exit();
 		// }
 
 		if ($_W['ispost']) {
@@ -298,5 +303,46 @@ class Index_EweiShopV2Page extends MobilePage
 		$url = trim($_GPC['url']);
 		require IA_ROOT . '/framework/library/qrcode/phpqrcode.php';
 		QRcode::png($url, false, QR_ECLEVEL_L, 16, 1);
+	}
+
+	public function record()
+	{
+		global $_W;
+		global $_GPC;
+		$type = $_GPC['type'];
+		if (empty($type)) {
+			$data = array('status' => 0, "msg" => "请传入类型！！！");
+			echo json_encode($data);
+			exit();
+		}
+		if ($type == 4) {		//积分记录
+
+			$list =  pdo_fetchall("select g.*,m.nickname from" . tablename("ewei_shop_receive_hongbao") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.uniacid=:uniacid  and g.openid=:openid order by g.time desc", array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
+
+			foreach ($list as $key => $val) {
+				$list[$key]['createtime'] = date("Y-m-d H:i:s", $val['time']);
+			}
+
+			$count =  pdo_fetch("select sum(g.money) as money,sum(g.money2) as money2 from" . tablename("ewei_shop_receive_hongbao") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.uniacid=:uniacid  and g.openid=:openid", array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
+
+			if (!$count['money'] && !$count['money2']) {
+				$summoeny = 0;
+			} else {
+				$summoeny = $count['money'] + $count['money2'];
+			}
+
+			$data = array('status' => 1, 'msg' => '获取成功', 'data' => array('list' => $list, 'money' => $summoeny));
+		} else {
+			$list =  pdo_fetchall("select g.*,m.nickname from" . tablename("ewei_shop_order_goods1") . "g left join" . tablename("ewei_shop_member") . "m on g.openid2=m.openid" . " where g.uniacid=:uniacid and g.type='$type' and g.openid=:openid order by g.createtime desc", array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
+
+			foreach ($list as $key => $val) {
+				$list[$key]['createtime'] = date("Y-m-d H:i:s", $val['createtime']);
+			}
+
+			$count =  pdo_fetch("select sum(g.money) as money,sum(g.money2) as money2 from" . tablename("ewei_shop_order_goods1") . "g left join" . tablename("ewei_shop_member") . "m on g.openid2=m.openid" . " where g.uniacid=:uniacid and g.type='$type' and g.openid=:openid", array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
+
+			$data = array('status' => 1, 'msg' => '获取成功', 'data' => array('list' => $list, 'money' => $count['money'] + $count['money2']));
+		}
+		echo json_encode($data);
 	}
 }
