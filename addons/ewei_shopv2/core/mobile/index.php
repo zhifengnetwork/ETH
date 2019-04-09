@@ -130,12 +130,10 @@ class Index_EweiShopV2Page extends MobilePage
 		die;
 		if ($arr4) {
 			$msg = "获取成功";
-			$status = 1;
 		} else {
 			$msg = "获取失败";
-			$status = 0;
 		}
-		$data = array('status' => $status, 'msg' => $msg, 'data' => $arr4);
+		$data = array('status' => 1, 'msg' => $msg, 'data' => $arr4);
 		echo json_encode($data);
 	}
 
@@ -158,12 +156,10 @@ class Index_EweiShopV2Page extends MobilePage
 			$slide = pdo_fetchall("select * from " . tablename("ewei_shop_adv") . "where uniacid=" . $_W['uniacid'] . " and enabled='1' ");
 			if ($slide) {
 				$msg = "获取成功";
-				$status = 1;
 			} else {
 				$msg = "获取失败";
-				$status = 0;
 			}
-			$data = array('status' => $status, 'msg' => $msg, 'data' => $slide);
+			$data = array('status' => 1, 'msg' => $msg, 'data' => $slide);
 			echo json_encode($data);
 		}
 	}
@@ -177,6 +173,11 @@ class Index_EweiShopV2Page extends MobilePage
 		$type = $_GPC['type'];
 		// $openid = $_W['openid'];
 		$openid = $_GPC['openid'];
+		if (empey($openid)) {
+			$data = array('status' => 0, "msg" => "openid不存在！");
+			echo json_encode($data);
+			exit();
+		}
 		if ($_W['ispost']) {
 			if ($type == 1) {
 				$list =  pdo_fetchall("select g.openid,g.type,g.title,g.createtime,g.money,g.front_money,g.after_money,g.money1,g.money2,g.RMB,g.typec2c,m.nickname from" . tablename("ewei_shop_member_log") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.openid='$openid' and g.type='$type' order by g.createtime desc");
@@ -190,13 +191,11 @@ class Index_EweiShopV2Page extends MobilePage
 			}
 			if ($list) {
 				$msg = "获取成功";
-				$status = 1;
 			} else {
 				$msg = "获取失败";
-				$status = 0;
 			}
 
-			$data = array('status' => $status, 'msg' => $msg, 'data' => $list);
+			$data = array('status' => 1, 'msg' => $msg, 'data' => $list);
 			echo json_encode($data);
 		}
 	}
@@ -223,7 +222,7 @@ class Index_EweiShopV2Page extends MobilePage
 
 			$member = pdo_fetch("select * from " . tablename("ewei_shop_member") . "where uniacid=" . $_W['uniacid'] . " and id='$id'");
 			if (!$member) {
-				$data = array('status' => 0, "fail" => "该会员不存在！");
+				$data = array('status' => 0, "msg" => "该会员不存在！");
 				echo json_encode($data);
 				exit();
 			}
