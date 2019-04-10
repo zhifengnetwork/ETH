@@ -72,6 +72,7 @@ class Perm_EweiShopV2ComModel extends ComModel
 	}
 	protected function perm_sale()
 	{
+		return array('text' => '3D设置', 'enough' => array('text' => 'ETH资产', 'main' => '查看'), 'sellout' => array('text' => '卖出记录', 'main' => '查看'), 'purchase' => array('text' => '买入记录', 'main' => '查看'), 'lottery' => array('text' => '福彩3D', 'main' => '查看'), 'stakejilu' => array('text' => '彩票押注记录', 'main' => '查看'), 'winningrecord' => array('text' => '中奖记录', 'main' => '查看'), 'appeal' => array('text' => 'ETC申诉', 'main' => '查看'));
 		// $array = array('text' => '营销', 'coupon' => ($this->isopen('coupon', true) && $this->is_perm_plugin('coupon', true) ? array('text' => '优惠券管理', 'view' => '浏览', 'add' => '添加-log', 'edit' => '修改-log', 'delete' => '删除-log', 'send' => '发放-log', 'set' => '修改设置-log', 'xxx' => array('displayorder' => 'edit'), 'category' => array('text' => '优惠券分类', 'main' => '查看', 'edit' => '修改-log'), 'log' => array('text' => '优惠券记录', 'main' => '查看', 'export' => '导出记录')) : array()), 'wxcard' => array('text' => '微信卡券管理', 'view' => '浏览', 'add' => '添加', 'edit' => '修改', 'stock' => '修改库存', 'qrcode' => '下载推送二维码', 'delete' => '删除', 'set' => '修改设置-log'), 'virtual' => array('text' => '关注回复', 'view' => '浏览', 'edit' => '修改-log'), 'package' => array('text' => '套餐管理', 'view' => '浏览', 'add' => '添加-log', 'edit' => '修改-log', 'delete1' => '彻底删除-log', 'xxx' => array('status' => 'edit', 'change' => 'edit')), 'gift' => array('text' => '赠品管理', 'view' => '浏览', 'add' => '添加-log', 'edit' => '修改-log', 'delete1' => '彻底删除-log', 'xxx' => array('status' => 'edit', 'change' => 'edit')), 'fullback' => array('text' => '全返管理', 'view' => '浏览', 'add' => '添加-log', 'edit' => '修改-log', 'delete1' => '彻底删除-log', 'xxx' => array('status' => 'edit', 'change' => 'edit')), 'peerpay' => array('text' => '找人代付', 'main' => '查看', 'edit' => '编辑'));
 		// if ($this->isopen('sale', true) && $this->is_perm_plugin('sale', true)) {
 		// 	$sale = array('deduct' => '修改抵扣设置-log', 'enough' => '修改满额立减-log', 'enoughfree' => '修改满额包邮-log', 'recharge' => '修改充值优惠设置-log', 'credit1' => '积分优惠优惠设置-log');
@@ -85,7 +86,7 @@ class Perm_EweiShopV2ComModel extends ComModel
 	}
 	protected function perm_statistics()
 	{
-		return array('text' => '3D设置', 'enough' => array('text' => 'ETH资产', 'main' => '查看'), 'sellout' => array('text' => '卖出记录', 'main' => '查看'), 'purchase' => array('text' => '买入记录', 'main' => '查看'), 'lottery' => array('text' => '福彩3D', 'main' => '查看'), 'stakejilu' => array('text' => '彩票押注记录', 'main' => '查看'), 'winningrecord' => array('text' => '中奖记录', 'main' => '查看'), 'appeal' => array('text' => 'ETC申诉', 'main' => '查看'), 'member_increase' => array('text' => '会员增长趋势', 'main' => '查看'));
+		// return array('text' => '3D设置', 'enough' => array('text' => 'ETH资产', 'main' => '查看'), 'sellout' => array('text' => '卖出记录', 'main' => '查看'), 'purchase' => array('text' => '买入记录', 'main' => '查看'), 'lottery' => array('text' => '福彩3D', 'main' => '查看'), 'stakejilu' => array('text' => '彩票押注记录', 'main' => '查看'), 'winningrecord' => array('text' => '中奖记录', 'main' => '查看'), 'appeal' => array('text' => 'ETC申诉', 'main' => '查看'), 'member_increase' => array('text' => '会员增长趋势', 'main' => '查看'));
 	}
 	protected function perm_order()
 	{

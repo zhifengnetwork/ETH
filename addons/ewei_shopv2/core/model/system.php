@@ -669,10 +669,11 @@ class System_EweiShopV2Model
 			'sale'       => array(
 				'title'    => '3D设置',
 				'subtitle' => '营销设置',
-				'icon'     => 'yingxiao',
+				'icon'     => 'sale',
 				'items'    => array(
 					array(
 						'title' => '基本功能',
+						'route' => '',
 						'items' => array(
 							array('title' => 'ETH资产', 'route' => 'enough', 'desc' => 'ETH价格', 'keywords' => '营销'),
 							array('title' => '卖出记录', 'route' => 'sellout', 'desc' => '卖出记录', 'keywords' => '营销'),
@@ -691,36 +692,36 @@ class System_EweiShopV2Model
 							//					array('title' => '找人代付', 'route' => 'peerpay', 'keywords' => '营销')
 						)
 					),
+					array(
+						'title'     => '优惠券',
+						'route'     => 'coupon',
+						'plugincom' => 2,
+						'items'     => array(
+							array('title' => '全部优惠券'),
+							array('title' => '手动发送', 'route' => 'sendcoupon', 'desc' => '手动发送优惠券'),
+							array(
+								'title'   => '购物送券',
+								'route'   => 'sendtask',
+								'extends' => array('sale.coupon.goodssend', 'sale.coupon.usesendtask', 'sale.coupon.goodssend.add', 'sale.coupon.usesendtask.add')
+							),
+							array('title' => '发放记录', 'route' => 'log', 'desc' => '优惠券发放记录'),
+							array('title' => '分类管理', 'route' => 'category', 'desc' => '优惠券分类管理'),
+							array('title' => '其他设置', 'route' => 'set', 'desc' => '优惠券设置')
+						)
+					)
 					// array(
-					// 	'title'     => '优惠券',
-					// 	'route'     => 'coupon',
-					// 	'plugincom' => 2,
+					// 	'title'     => '微信卡券',
+					// 	'plugincom' => 2,D
 					// 	'items'     => array(
-					// 		array('title' => '全部优惠券'),
-					// 		array('title' => '手动发送', 'route' => 'sendcoupon', 'desc' => '手动发送优惠券'),
-					// 		array(
-					// 			'title'   => '购物送券',
-					// 			'route'   => 'sendtask',
-					// 			'extends' => array('sale.coupon.goodssend', 'sale.coupon.usesendtask', 'sale.coupon.goodssend.add', 'sale.coupon.usesendtask.add')
-					// 			),
-					// 		array('title' => '发放记录', 'route' => 'log', 'desc' => '优惠券发放记录'),
-					// 		array('title' => '分类管理', 'route' => 'category', 'desc' => '优惠券分类管理'),
-					// 		array('title' => '其他设置', 'route' => 'set', 'desc' => '优惠券设置')
+					// 		array('title' => '卡券管理', 'route' => 'wxcard')
 					// 		)
 					// 	),
-					//			array(
-					//				'title'     => '微信卡券',
-					//				'plugincom' => 2,D
-					//				'items'     => array(
-					//					array('title' => '卡券管理', 'route' => 'wxcard')
-					//					)
-					//				),
-					//			array(
-					//				'title' => '其他工具',
-					//				'items' => array(
-					//					array('title' => '关注回复', 'route' => 'virtual')
-					//					)
-					//				)
+					// array(
+					// 	'title' => '其他工具',
+					// 	'items' => array(
+					// 		array('title' => '关注回复', 'route' => 'virtual')
+					// 		)
+					// 	)
 				)
 			),
 			'finance'    => array(
