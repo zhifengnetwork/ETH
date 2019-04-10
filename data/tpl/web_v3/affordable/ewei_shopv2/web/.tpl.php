@@ -28,7 +28,7 @@
         margin-top:10px;
         /*opacity: .5;*/
         text-align: center;
-        
+
     }
     .pic-li li img{
         width: 90%;
@@ -114,9 +114,9 @@
 
                     <?php  } ?>
 
-                    
+
                             <!-- tuichu  -->
-                        
+
                 </ul>
 
                 <div class="wb-header-flex"></div>
@@ -125,7 +125,7 @@
 
                         <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" title="导航"><?php  echo $system['right_menu']['menu_title'];?>
                             <!-- <span></span> 小箭头图标-->
-                            <img src="../addons/ewei_shopv2/static/images/jiantou.png">     
+                            <img src="../addons/ewei_shopv2/static/images/jiantou.png">
                         </a>
 
                         <ul class="dropdown-menu">
@@ -237,7 +237,7 @@
         <?php  if(!$no_right) { ?>
 
             <div class="wb-panel in">
-                
+
                 <div class="panel-group" id="panel-accordion">
 
                     <?php if(cv('order.list.status1|order.list.status4')) { ?>
@@ -655,7 +655,7 @@
 
                                         <h5 class="finance_total">-</h5>
 
-                                        <p>待审核提现</p>
+                                        <p>点击进入审核体现列表</p>
 
                                     </div>
 
@@ -796,7 +796,7 @@
 
                         <h5><i><img src="../addons/ewei_shopv2/static/images/rukou.png"  style="width: 23px"></i>入口</h5>
 
-                       
+
 
                     </div>
 
@@ -850,8 +850,8 @@
 
                             </div>
 
-                         
-                            
+
+
 
                         </div>
 

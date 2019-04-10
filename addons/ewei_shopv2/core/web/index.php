@@ -20,8 +20,7 @@ class Index_EweiShopV2Page extends WebPage
 		$merch_data = m('common')->getPluginset('merch');
 		if ($merch_plugin && $merch_data['is_openmerch']) {
 			$is_openmerch = 1;
-		}
-		else {
+		} else {
 			$is_openmerch = 0;
 		}
 
@@ -34,16 +33,13 @@ class Index_EweiShopV2Page extends WebPage
 		$ordercol = 6;
 		if (cv('goods') && cv('order')) {
 			$ordercol = 6;
-		}
-		else {
+		} else {
 			if (cv('goods') && !cv('order')) {
 				$ordercol = 12;
-			}
-			else {
+			} else {
 				if (cv('order') && !cv('goods')) {
 					$ordercol = 12;
-				}
-				else {
+				} else {
 					$ordercol = 0;
 				}
 			}
@@ -86,8 +82,7 @@ class Index_EweiShopV2Page extends WebPage
 
 		if (empty($history)) {
 			$history = array();
-		}
-		else {
+		} else {
 			$history = htmlspecialchars_decode($history);
 			$history = json_decode($history, true);
 		}
@@ -108,9 +103,9 @@ class Index_EweiShopV2Page extends WebPage
 								}
 
 								$list[$top] = array(
-	'title' => $title,
-	'items' => array()
-	);
+									'title' => $title,
+									'items' => array()
+								);
 							}
 
 							if (strexists($submenu_item['title'], $keyword)) {
@@ -129,8 +124,7 @@ class Index_EweiShopV2Page extends WebPage
 
 			if (empty($history)) {
 				$history_new = array($keyword);
-			}
-			else {
+			} else {
 				$history_new = $history;
 
 				foreach ($history_new as $index => $key) {
@@ -160,8 +154,7 @@ class Index_EweiShopV2Page extends WebPage
 
 			if (empty($type)) {
 				isetcookie('history_url', '', -7 * 86400);
-			}
-			else {
+			} else {
 				isetcookie('history_search', '', -7 * 86400);
 			}
 		}
@@ -181,8 +174,7 @@ class Index_EweiShopV2Page extends WebPage
 		if (empty($set)) {
 			$data['uid'] = $_W['uid'];
 			pdo_insert('ewei_shop_version', $data);
-		}
-		else {
+		} else {
 			pdo_update('ewei_shop_version', $data, array('id' => $set['id']));
 		}
 
@@ -199,5 +191,3 @@ class Index_EweiShopV2Page extends WebPage
 		exit();
 	}
 }
-
-?>

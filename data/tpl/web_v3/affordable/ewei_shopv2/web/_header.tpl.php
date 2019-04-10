@@ -7,7 +7,7 @@
 <?php  $sysmenus = m('system')->getMenu(true)?>
 
 <div class="wb-nav  erji" >
-    
+
     <!-- 二级导航 -->
 
     <?php  if(!$no_left && !empty($sysmenus['submenu']['items'])) { ?>
@@ -39,18 +39,18 @@
             <div class="logo <?php  if(!empty($system['foldnav'])) { ?>small<?php  } ?>" data-toggle="tooltip" data-placement="bottom" title="返回首页">
 
                 <?php  if(!empty($copyright) && !empty($copyright['logo'])) { ?>
-                    
+
                         <img class='logo-img' src="<?php  echo tomedia($copyright['logo'])?>" onerror="this.src='../addons/ewei_shopv2/static/images/webv3logo.png'"/>
                         <h4>海生信息</h4>
                 <?php  } else { ?>
                     <img class='logo-img' src='../addons/ewei_shopv2/static/images/webv3logo.png'/>
                     <h4>海生信息</h4>
-                    
+
                 <?php  } ?>
 
             </div>
         </a>
-        
+
 
         <ul>
 
@@ -83,11 +83,11 @@
                     <?php  } else { ?>
                      <!-- 系统管理页面头部 -->
                      <?php  if($sysmenu['text']!="授权") { ?>
-                         <li class="shezhi <?php  if($sysmenu['active']) { ?>active<?php  } ?>"> 
+                         <li class="shezhi <?php  if($sysmenu['active']) { ?>active<?php  } ?>">
                             <a href="<?php echo empty($sysmenu['index'])? webUrl($sysmenu['route']): webUrl($sysmenu['route']. '.'. $sysmenu['index'])?>">
-                            
+
                                 <?php  if($sysmenu['route']=='plugins') { ?>
-                                
+
                                 <span class=""></span>
                                 <?php  } else { ?>
                                     <?php  if(!empty($sysmenu['icon'])) { ?>
@@ -103,14 +103,14 @@
                     </li>
 
                 <?php  } ?>
-               
+
 
 
             <?php  } } ?>
-           
- 
-           
-        </ul> 
+
+
+
+        </ul>
          <!-- <div class="log-out" data-href="<?php  echo $system['right_menu']['logout'];?> " data-toggle="tooltip" data-placement="bottom" title="退出"> -->
           <div class="log-out" data-href="./index.php?c=user&a=logout&" data-toggle="tooltip" data-placement="bottom" title="退出">
                 <a href="javascript:;">
@@ -181,11 +181,11 @@
                 <a href="js:;" id="quxiao">取 消</a>
             </div>
         </div>
-    </div> 
+    </div>
 
 
 
-   
+
 
     <div class="wb-container <?php  if(!empty($system['foldpanel'])) { ?>right-panel<?php  } ?>">
 <script type="text/javascript">
@@ -212,11 +212,11 @@
             $('.input-group-select select').find("option").prop("selected",false);
 
             if(xianshi.prop('checked')){
-                
+
                 opXianshi.prop("selected",true);
                 // console.log('显示',$('.input-group-select select').find("option:selected").text());
             }else if(yincang.prop('checked')){
-                
+
                 opYincang.prop("selected",true);
                 // console.log('隐藏',$('.input-group-select select').find("option:selected").text());
 
@@ -229,7 +229,7 @@
         //     console.log('header');
         //     $(this).next('ul').fadeIn();
         // })
-        
+
     })
 
     $('.log-out').on('click',() => {
