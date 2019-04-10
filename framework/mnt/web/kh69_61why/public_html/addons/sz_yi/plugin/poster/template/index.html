@@ -11,24 +11,24 @@
     }
    #poster .bg { position:absolute;width:100%;z-index:0}
    #poster .drag[type=img] img,#poster .drag[type=thumb] img { width:100%;height:100%; }
-   {ife 'poster' $item} 
+   {ife 'poster' $item}
    #poster .drag { position: absolute; width:80px;height:80px; border:1px solid #000; }
    {else}
    #poster .drag { position: absolute; width:80px;height:80px; }
    {/if}
-    
+
     #poster .drag[type=nickname] { width:80px;height:40px; font-size:16px; font-family: 黑体;}
     #poster .drag img {position:absolute;z-index:0;width:100%; }
-    
+
     #poster .rRightDown,.rLeftDown,.rLeftUp,.rRightUp,.rRight,.rLeft,.rUp,.rDown{
             position:absolute;
             width:7px;
             height:7px;
             z-index:1;
             font-size:0;
-    }    
- 
-    {ife 'poster' $item} 
+    }
+
+    {ife 'poster' $item}
        #poster .rRightDown,.rLeftDown,.rLeftUp,.rRightUp,.rRight,.rLeft,.rUp,.rDown{
               background:#C00;
        }
@@ -40,10 +40,10 @@
     .rLeftDown{left:-4px;bottom:-4px;}
     .rRightUp{right:-4px;top:-4px;}
     .rRightDown{right:-4px;bottom:-4px;}
-       {ife 'poster' $item} 
-            .rRightDown{background-color:#00F;}   
+       {ife 'poster' $item}
+            .rRightDown{background-color:#00F;}
        {/if}
-    
+
     .rLeftUp{left:-4px;top:-4px;}
     .rRight{right:-4px;top:50%;margin-top:-4px;}
     .rLeft{left:-4px;top:50%;margin-top:-4px;}
@@ -61,9 +61,9 @@
                 海报设置
             </div>
             <div class='panel-body'>
-    
-                
-                
+
+
+
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 海报名称</label>
                     <div class="col-sm-9 col-xs-12">
@@ -81,16 +81,16 @@
                         <label class="radio-inline">
                             <input type="radio" name="type" value="1" {if $item['type']==1}checked{/if} /> 商城海报
                         </label>
-                    
+
                         <label class="radio-inline">
                             <input type="radio" name="type" value="2" {if $item['type']==2}checked{/if} /> 小店海报
                         </label>
-                      
+
                         <label class="radio-inline">
                             <input type="radio" name="type" value="3" {if $item['type']==3}checked{/if} /> 商品海报
                         </label>
-                           
-                        <label class="radio-inline"> 
+
+                        <label class="radio-inline">
                             <input type="radio" name="type" value="4" {if $item['type']==4}checked{/if} /> 关注海报
                         </label>
                             {else}
@@ -101,9 +101,9 @@
                                 {if $item['type']==4}关注海报{/if}
                             </div>
                         {/if}
-                    </div> 
-                </div> 
-                
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 生成二维码关键词</label>
                     <div class="col-sm-9 col-xs-12">
@@ -115,7 +115,7 @@
                         {/if}
                     </div>
                 </div>
-              
+
                  <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">是否默认</label>
                     <div class="col-sm-9 col-xs-12">
@@ -130,7 +130,7 @@
                             {else}
                             <div class='form-control-static'>{if $item['isdefault']==1}是{else}否{/if}</div>
                         {/if}
-                    </div> 
+                    </div>
                 </div>
                      <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 海报设计</label>
@@ -144,11 +144,11 @@
                                           {/if}
                                           {if !empty($data)}
                                           {loop $data $key $d}
-                                       
+
                                           <div class="drag" type="{$d['type']}" index="{php echo $key+1}" style="zindex:{php echo $key+1};left:{$d['left']};top:{$d['top']};
-                                               width:{$d['width']};height:{$d['height']}" 
+                                               width:{$d['width']};height:{$d['height']}"
                                                src="{$d['src']}" size="{$d['size']}" color="{$d['color']}"
-                                               > 
+                                               >
                                                {if $d['type']=='qr'}
                                                  <img src="../addons/sz_yi/plugin/poster/static/images/qr.jpg" />
                                                {elseif $d['type']=='head'}
@@ -156,20 +156,20 @@
                                                 {elseif $d['type']=='img' || $d['type']=='thumb'}
                                                   <img src="{php echo empty($d['src'])?'../addons/sz_yi/plugin/poster/static/images/img.jpg':tomedia($d['src'])}" />
                                                 {elseif $d['type']=='nickname'}
-                                                   <div class=text style="font-size:{$d['size']};color:{$d['color']}">昵称</div> 
+                                                   <div class=text style="font-size:{$d['size']};color:{$d['color']}">昵称</div>
                                                {elseif $d['type']=='title'}
-                                                   <div class=text style="font-size:{$d['size']};color:{$d['color']}">商品名称</div> 
+                                                   <div class=text style="font-size:{$d['size']};color:{$d['color']}">商品名称</div>
                                                    {elseif $d['type']=='marketprice'}
-                                                   <div class=text style="font-size:{$d['size']};color:{$d['color']}">商品现价</div> 
+                                                   <div class=text style="font-size:{$d['size']};color:{$d['color']}">商品现价</div>
                                                    {elseif $d['type']=='productprice'}
-                                                   <div class=text style="font-size:{$d['size']};color:{$d['color']}">商品原价</div> 
+                                                   <div class=text style="font-size:{$d['size']};color:{$d['color']}">商品原价</div>
                                                 {/if}
                                               <div class="rRightDown"> </div><div class="rLeftDown"> </div><div class="rRightUp"> </div><div class="rLeftUp"> </div><div class="rRight"> </div><div class="rLeft"> </div><div class="rUp"> </div><div class="rDown"></div>
                                           </div>
-                                          {/loop} 
+                                          {/loop}
                                           {/if}
                                         </div>
-                                        
+
                                     </td>
                                     <td valign='top'>
                                         {ife 'poster' $item}
@@ -181,8 +181,8 @@
                                                        {php echo tpl_form_field_image('bg',$item['bg'])}
                                                        <span class='help-block'>背景图片尺寸: 640 * 1008</span>
                                                     </div>
-                                                
-                                                    
+
+
                                                 </div>
                                                     <div class="form-group">
                                                         <label class="col-xs-12 col-sm-3 col-md-3 control-label">海报元素</label>
@@ -192,10 +192,10 @@
                                                              <button class='btn btn-default btn-com' type='button' data-type='qr'  style="margin-bottom: 4px">二维码</button>
                                                              <button class='btn btn-default btn-com' type='button' data-type='img'  style="margin-bottom: 4px">图片</button>
                                                              <span id="goodsparams" style="display:none">
-                                                                  <button class='btn btn-default btn-com' type='button' data-type='title' >商品名称</button>    
-                                                                  <button class='btn btn-default btn-com' type='button' data-type='thumb' >商品图片</button>    
-                                                                  <button class='btn btn-default btn-com' type='button' data-type='marketprice' >商品现价</button>    
-                                                                  <button class='btn btn-default btn-com' type='button' data-type='productprice' >商品原价</button>    
+                                                                  <button class='btn btn-default btn-com' type='button' data-type='title' >商品名称</button>
+                                                                  <button class='btn btn-default btn-com' type='button' data-type='thumb' >商品图片</button>
+                                                                  <button class='btn btn-default btn-com' type='button' data-type='marketprice' >商品现价</button>
+                                                                  <button class='btn btn-default btn-com' type='button' data-type='productprice' >商品原价</button>
                                                              </span>
                                                         </div>
                                                     </div>
@@ -212,17 +212,17 @@
                                                                  <option value='6'>6</option>
                                                              </select>
                                                         </div>
-                                                    
+
                                                     </div>
                                                   </div>
-                                                  
+
                                                   <div id='nameset' style='display:none'>
                                                    <div class="form-group">
                                                         <label class="col-xs-12 col-sm-3 col-md-3 control-label">昵称颜色</label>
                                                          <div class="col-sm-9 col-xs-12 wid100">
                                                               {php echo tpl_form_field_color('color')}
                                                         </div>
-                                                    
+
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="col-xs-12 col-sm-3 col-md-3 control-label">昵称大小</label>
@@ -240,7 +240,7 @@
                                                               {php echo tpl_form_field_image('img')}
                                                         </div>
                                                     </div>
-                                       
+
                                           </div>
                                    </div>
                                         {/if}
@@ -249,18 +249,18 @@
                         </table>
                     </div>
                      </div>
-                       
+
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">生成等待文字</label>
                     <div class="col-sm-9 col-xs-12">
                               {ife 'poster' $item}
-                          
+
 							  <textarea name="waittext" class="form-control"  >{$item['waittext']}</textarea>
                        <span class="help-block">例如：您的专属海报正在拼命生成中，请等待片刻...</span>
                             {else}
                             <div class='form-control-static'>{if empty($item['waittext'])}未填写{$item['waittext']}{/if}</div>
                         {/if}
-                  
+
                     </div>
                 </div>
 <!--                <div class="form-group">
@@ -275,16 +275,16 @@
                     </div>
                 </div>-->
             </div>
-       
+
             <div class="panel-heading type4" style="{if $item['type']!=4}display:none{/if}">
                生成设置
-            </div>  
-                <div class='panel-body type4' style="{if $item['type']!=4}display:none{/if}"> 
+            </div>
+                <div class='panel-body type4' style="{if $item['type']!=4}display:none{/if}">
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">开放权限</label>
                     <div class="col-sm-9 col-xs-12">
                            {ife 'poster' $item}
-                          
+
                         <label class="radio-inline">
                             <input type="radio" name="isopen" value="1" {if $item['isopen']==1}checked{/if} /> 允许
                         </label>
@@ -295,7 +295,7 @@
                       {else}
                       <div class='form-control-static'>{if $item['isopen']==1}所有人{else}分销商{/if}</div>
                       {/if}
-                    </div> 
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">未开放时候的提示</label>
@@ -310,7 +310,7 @@
                 </div>
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">未开放时候的说明连接</label>
-                    <div class="col-sm-9 col-xs-12"> 
+                    <div class="col-sm-9 col-xs-12">
                           {ife 'poster' $item}
                         <input type="text" name="openurl" class="form-control" value="{$item['openurl']}" />
                             {else}
@@ -321,7 +321,7 @@
             </div>
             <div class="panel-heading type4" style="{if $item['type']!=4}display:none{/if}">
                 推送设置
-            </div> 
+            </div>
             <div class='panel-body type4' style="{if $item['type']!=4}display:none{/if}">
                   <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">推送标题</label>
@@ -334,7 +334,7 @@
                         {/if}
                     </div>
                 </div>
-                 <div class="form-group"> 
+                 <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">推送封面</label>
                     <div class="col-sm-9 col-xs-12">
                             {ife 'poster' $item}
@@ -357,7 +357,7 @@
                             <div class='form-control-static'>{$item['respdesc']}</div>
                         {/if}
                     </div>
-                </div> 
+                </div>
                  <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">推送链接</label>
                     <div class="col-sm-9 col-xs-12">
@@ -369,12 +369,12 @@
                     </div>
                 </div>
             </div>
-           
+
              <div class="panel-heading type4" style="{if $item['type']!=4}display:none{/if}">
                 奖励设置
             </div>
             <div class='panel-body type4' style="{if $item['type']!=4}display:none{/if}">
-                
+
                  <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">推荐人获得</label>
                      <div class="col-sm-9 col-xs-12">
@@ -408,7 +408,7 @@
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">关注者获得</label>
                      <div class="col-sm-9 col-xs-12">
                            {ife 'poster' $item}
-                           
+
                         <div class="input-group">
                             <input type="text" name="subcredit" class="form-control" value="{$item['subcredit']}" />
                             <div class="input-group-addon">积分</div>
@@ -424,7 +424,7 @@
     		        <input type="text" name="subcouponnum" class="form-control" value="{$item['subcouponnum']}" />
                             <div class="input-group-addon">张</div>
                               {/if}
-							  
+
                         </div>
                               {else}
                             <div class='form-control-static'>
@@ -442,7 +442,7 @@
                         <label class="radio-inline">
                             <input type="radio" name="paytype" value="0" {if empty($item['paytype'])}checked{/if} /> 余额
                         </label>
-                        
+
                         <label class="radio-inline">
                             <input type="radio" name="paytype" value="1" {if $item['paytype']==1}checked{/if} /> 微信钱包
                         </label>
@@ -450,13 +450,13 @@
                         {else}
                         <div class='form-control-static'>{if empty($item['paytype'])}余额{else}微信钱包{/if}</div>
                         {/if}
-                    </div> 
+                    </div>
                 </div>
             </div>
        <div class="panel-heading type4" style="{if $item['type']!=4}display:none{/if}">
                 通知设置
             </div>
-            
+
            <div class='panel-body type4' style="{if $item['type']!=4}display:none{/if}">
               <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">通知模板消息ID（任务处理通知）</label>
@@ -468,8 +468,8 @@
                           <div class='form-control-static'>{$item['templateid']}</div>
                        {/if}
                     </div>
-              </div> 
-               
+              </div>
+
               <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">推荐者通知</label>
                     <div class="col-sm-9 col-xs-12">
@@ -481,7 +481,7 @@
                        <div class='form-control-static'>{$item['subtext']}</div>
                        {/if}
                     </div>
-              </div> 
+              </div>
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">关注者通知</label>
                     <div class="col-sm-9 col-xs-12">
@@ -493,8 +493,8 @@
                        <div class='form-control-static'>{$item['entrytext']}</div>
                        {/if}
                     </div>
-              </div> 
-     
+              </div>
+
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">关注者现金奖励入账描述</label>
                     <div class="col-sm-9 col-xs-12">
@@ -506,8 +506,8 @@
                        <div class='form-control-static'>{$item['subpaycontent']}</div>
                        {/if}
                     </div>
-                </div> 
-                          
+                </div>
+
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">推荐者现金奖励入账描述</label>
                     <div class="col-sm-9 col-xs-12">
@@ -519,7 +519,7 @@
                        <div class='form-control-static'>{$item['recpaycontent']}</div>
                        {/if}
                     </div>
-                </div> 
+                </div>
             </div>
 			{if p('commission')}
             <div class="panel-heading type4" style="{if $item['type']!=4}display:none{/if}">
@@ -540,8 +540,8 @@
                       {else}
                         <div class='form-control-static'>{if $item['bedown']==1}是{else}否{/if}</div>
                       {/if}
-                      
-                    </div> 
+
+                    </div>
                 </div>
               <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">扫码关注成为分销商</label>
@@ -557,15 +557,15 @@
                        {else}
                         <div class='form-control-static'>{if $item['beagent']==1}是{else}否{/if}</div>
                       {/if}
-                    </div> 
+                    </div>
                 </div>
-          
-                    
-                    
+
+
+
             </div>
 			{/if}
             <div class="panel-body">
-                       
+
             <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
                     <div class="col-sm-9 col-xs-12">
@@ -578,10 +578,10 @@
                     </div>
             </div>
             </div>
-   
+
         </div>
- 
-    </form> 
+
+    </form>
 </div>
 
   {if $plugin_coupon}
@@ -590,8 +590,8 @@
                                 <div class="modal-content">
                                     <div class="modal-header"><button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button><h3>选择优惠券</h3></div>
                                     <div class="modal-body" >
-                                        <div class="row"> 
-                                            <div class="input-group"> 
+                                        <div class="row">
+                                            <div class="input-group">
                                                 <input type="text" class="form-control" name="keyword" value="" id="search-kwd-goods" placeholder="请输入优惠券名称" />
                                                 <span class='input-group-btn'><button type="button" class="btn btn-default" onclick="search_coupons();">搜索</button></span>
                                             </div>
@@ -603,9 +603,9 @@
 
       </div>
 </div>
-				{/if}		
+				{/if}
 
-				
+
 <script language='javascript'>
     $('form').submit(function(){
         if($(':input[name=title]').isEmpty()){
@@ -621,9 +621,9 @@
             return false;
         }
         if($(':radio[name=type]:checked').val()=='4'){
-            
+
              if($(':radio[name=paytype]:checked').val()=='1'){
-              
+
                 var recmoney = parseFloat($(':input[name=recmoney]').val());
                 if( recmoney>0 ){
                         if(recmoney<1){
@@ -657,14 +657,14 @@
             data.push(d);
         });
         $(':input[name=data]').val( JSON.stringify(data));
-    
+
         return true;
     });
-        
+
         function bindEvents(obj){
-            
+
               var index = obj.attr('index');
-              
+
                  var rs = new Resize(obj, { Max: true, mxContainer: "#poster" });
             rs.Set($(".rRightDown",obj), "right-down");
             rs.Set($(".rLeftDown",obj), "left-down");
@@ -673,7 +673,7 @@
             rs.Set($(".rRight",obj), "right");
             rs.Set($(".rLeft",obj), "left");
             rs.Set($(".rUp",obj), "up");
-            rs.Set($(".rDown",obj), "down"); 
+            rs.Set($(".rDown",obj), "down");
             rs.Scale = true;
             var type = obj.attr('type');
             if(type=='nickname' || type=='img' || type=='title' || type=='marketprice' || type=='productprice'){
@@ -683,30 +683,30 @@
             $('.drag .remove').unbind('click').click(function(){
                 $(this).parent().remove();
             })
-        
+
          $.contextMenu({
                 selector: '.drag[index=' + index + ']',
                 callback: function(key, options) {
                     var index = parseInt($(this).attr('zindex'));
-                    
+
                     if(key=='next'){
                         var nextdiv = $(this).next('.drag');
                         if(nextdiv.length>0 ){
-                           nextdiv.insertBefore($(this));  
+                           nextdiv.insertBefore($(this));
                         }
                     } else if(key=='prev'){
                         var prevdiv = $(this).prev('.drag');
                         if(prevdiv.length>0 ){
-                           $(this).insertBefore(prevdiv);  
-                        } 
+                           $(this).insertBefore(prevdiv);
+                        }
                     } else if(key=='last'){
                         var len = $('.drag').length;
                          if(index >=len-1){
                             return;
-                        } 
+                        }
                         var last = $('#poster .drag:last');
                         if(last.length>0){
-                           $(this).insertAfter(last);  
+                           $(this).insertAfter(last);
                         }
                     }else if(key=='first'){
                         var index = $(this).index();
@@ -715,7 +715,7 @@
                         }
                         var first = $('#poster .drag:first');
                         if(first.length>0){
-                           $(this).insertBefore(first);  
+                           $(this).insertBefore(first);
                         }
                     }else if(key=='delete'){
                        $(this).remove();
@@ -723,7 +723,7 @@
                     var n =1 ;
                     $('.drag').each(function(){
                         $(this).css("z-index",n);
-                        n++; 
+                        n++;
                     })
                 },
                 items: {
@@ -737,9 +737,9 @@
             obj.unbind('click').click(function(){
                 bind($(this));
             })
-            
-              
-              
+
+
+
         }
    var imgsettimer = 0 ;
    var nametimer = 0;
@@ -748,7 +748,7 @@
              $("#goodsparams").hide();
              $(".type4").hide();
              if(type=='4'){
-                 $(".type4").show();    
+                 $(".type4").show();
              } else if(type=='3'){
                     $("#goodsparams").show();
              }
@@ -757,10 +757,10 @@
            clearInterval(imgsettimer);
            clearInterval(nametimer);
            clearInterval(bgtimer);
-           
+
          }
          function getImgUrl(val){
-       
+
               if(val.indexOf('http://')==-1){
                   val = "{$imgroot}" + val;
               }
@@ -777,54 +777,54 @@
                    var input = imgset.find('input');
                    var img = imgset.find('img');
                    if(typeof(src)!='undefined' && src!=''){
-                       input.val(src); 
+                       input.val(src);
                        img.attr('src',getImgUrl(src));
                   }
-                   
+
                    imgsettimer = setInterval(function(){
                        if(input.val()!=src && input.val()!=''){
                            var url = getImgUrl(input.val());
-                         
+
                            obj.attr('src',input.val()).find('img').attr('src',url);
                        }
                    },10);
-                   
+
              } else if(type=='nickname' || type=='title' || type=='marketprice' || type=='productprice'){
-       
+
                   nameset.show();
                   var color = obj.attr('color') || "#000";
                   var size = obj.attr('size') || "16";
                   var input = nameset.find('input:first');
                   var namesize = nameset.find('#namesize');
                   var picker = nameset.find('.sp-preview-inner');
-                  input.val(color); namesize.val(size.replace("px",""));  
+                  input.val(color); namesize.val(size.replace("px",""));
                   picker.css( {'background-color':color,'font-size':size});
-                      
+
                   nametimer = setInterval(function(){
                        obj.attr('color',input.val()).find('.text').css('color',input.val());
                        obj.attr('size',namesize.val() +"px").find('.text').css('font-size',namesize.val() +"px");
                    },10);
-                   
+
              } else if(type=='qr'){
                  qrset.show();
                  var size = obj.attr('size') || "3";
                  var sel = qrset.find('#qrsize');
                  sel.val(size);
                  sel.unbind('change').change(function(){
-                      obj.attr('size',sel.val()) 
+                      obj.attr('size',sel.val())
                  });
-             }  
+             }
          }
-         
+
     $(function(){
         {if !empty($item['id'])}
-               {ife 'poster' $item} 
+               {ife 'poster' $item}
           $('.drag').each(function(){
               bindEvents($(this));
           })
           {/if}
         {/if}
-            
+
             $(':radio[name=type]').click(function(){
                 var type = $(this).val();
                 bindType(type);
@@ -836,27 +836,27 @@
                  var bg = $(':input[name=bg]').val();
                  if(oldbg!=bg){
                  	  bg = getImgUrl(bg);
-                       
+
                       $('#poster .bg').remove();
                       var bgh = $("<img src='" + bg + "' class='bg' />");
                        var first = $('#poster .drag:first');
                         if(first.length>0){
-                           bgh.insertBefore(first);  
+                           bgh.insertBefore(first);
                         } else{
-                           $('#poster').append(bgh);      
+                           $('#poster').append(bgh);
                         }
-                       
+
                       oldbg = bg;
                  }
             },10);
         })
-           
+
         $('.btn-com').click(function(){
-            
+
            var imgset = $('#imgset'), nameset = $("#nameset"),qrset = $('#qrset');
            imgset.hide(),nameset.hide(),qrset.hide();
            clearTimers();
-      
+
             if($('#poster img').length<=0){
                 //alert('请选择背景图片!');
                 //return;
@@ -870,7 +870,7 @@
                 img = '<img src="../addons/sz_yi/plugin/poster/static/images/head.jpg" />';
             }else  if(type=='img' || type=='thumb'){
                 img = '<img src="../addons/sz_yi/plugin/poster/static/images/img.jpg" />';
-            } 
+            }
             else if(type=='nickname'){
                 img = '<div class=text>昵称</div>';
             }  else if(type=='title'){
@@ -882,19 +882,19 @@
             }
             var index = $('#poster .drag').length+1;
             var obj = $('<div class="drag" type="' + type +'" index="' + index +'" style="z-index:' + index+'">' + img+'<div class="rRightDown"> </div><div class="rLeftDown"> </div><div class="rRightUp"> </div><div class="rLeftUp"> </div><div class="rRight"> </div><div class="rLeft"> </div><div class="rUp"> </div><div class="rDown"></div></div>');
-            
+
             $('#poster').append(obj);
-            
+
             bindEvents(obj);
-            
+
         });
-    
+
          $('.drag').click(function(){
              bind($(this))     ;
          })
-        
+
     })
-	
+
 		{if $plugin_coupon}
 		var currentCouponType = null;
 		function selectCoupon(type){
@@ -912,14 +912,14 @@
     }
     function select_coupon(o) {
 
-		
+
          $(":input[name=" + currentCouponType + "couponid]").val(o.id);
          $("."+currentCouponType + "group").find('button').html( "[" + o.id + "]" + o.couponname );
          $("#modal-module-menus-coupon .close").click();
-		 
+
     }
 {/if}
-	
+
     </script>
 {elseif $operation == 'display'}
 
@@ -967,7 +967,7 @@
                 海报管理 (总数: {$total})
             </div>
          <div class='panel-body'>
-   
+
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -992,18 +992,18 @@
                             <label class='label label-warning'>商品</label>
                             {elseif $row['type']==4}
                             <label class='label label-danger'>关注</label>
-                         
+
                             {/if}
                         </td>
                         <td>{if $row['type']!=4}{$row['times']}{else}--{/if}</td>
                         <td>{if $row['type']==4}{$row['follows']}{else}--{/if}</td>
                             <td>
                                    {if $row['isdefault']==1}
-                                   <i class='fa fa-check' style='color:green'></i> 
+                                   <i class='fa fa-check' style='color:green'></i>
                           {/if}
                         </td>
                         <td>
-                        
+
                                 {ifp 'poster.log'}
 				 {if $row['type']==4}
 				<a class='btn btn-default' href="{php echo $this->createPluginWebUrl('poster/log', array('id' => $row['id']))}"  title='关注记录'><i class='fa fa-qrcode'></i></a>
@@ -1011,11 +1011,11 @@
 				<a class='btn btn-default' href="{php echo $this->createPluginWebUrl('poster/scan', array('id' => $row['id']))}"  title='扫描记录'><i class='fa fa-qrcode'></i></a>
 				{/if}
                             {/if}
-							
+
                                 {ifp 'poster.edit|poster.view'}<a class='btn btn-default' href="{php echo $this->createPluginWebUrl('poster', array('op' => 'post', 'id' => $row['id']))}" title='编辑'><i class='fa fa-edit'></i></a>{/if}
                                 {ifp 'poster.setdefault'}<a class='btn btn-default' href="{php echo $this->createPluginWebUrl('poster', array('op' => 'setdefault', 'id' => $row['id']))}"  title='设置默认' onclick="return confirm('确认设置此海报为默认海报吗？');return false;"><i class='fa fa-check'></i></a>{/if}
                                 {ifp 'poster.delete'}<a class='btn btn-default'  href="{php echo $this->createPluginWebUrl('poster', array('op' => 'delete', 'id' => $row['id']))}"  title='删除' onclick="return confirm('确认删除此海报吗？');return false;"><i class='fa fa-remove'></i></a></td>{/if}
-                         
+
 
                     </tr>
                     {/loop}
@@ -1034,9 +1034,9 @@
             </table>
   {$pager}
          </div>
-      
+
      </div>
-         </form> 
+         </form>
          </div>
 {/if}
 </div>

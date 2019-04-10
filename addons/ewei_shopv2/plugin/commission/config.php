@@ -3,7 +3,6 @@
 if (!defined('IN_IA')) {
 
 	exit('Access Denied');
-
 }
 
 
@@ -28,7 +27,7 @@ return array(
 
 			array('title' => '会员管理', 'route' => 'agent'),
 
-//			array('title' => '增长趋势统计', 'route' => 'increase'),
+			//			array('title' => '增长趋势统计', 'route' => 'increase'),
 
 			array('title' => '动态等级', 'route' => 'level'),
 
@@ -38,81 +37,76 @@ return array(
 
 			array('title' => '资源包', 'route' => 'ziyuan'),
 
-//			array('title' => '分销订单', 'route' => 'statistics.order'),
+			//			array('title' => '分销订单', 'route' => 'statistics.order'),
 
-//			array('title' => '分销商统计', 'route' => 'statistics.agent'),
+			//			array('title' => '分销商统计', 'route' => 'statistics.agent'),
 
-//			array('title' => '分销关系', 'route' => 'statistics.user'),
+			//			array('title' => '分销关系', 'route' => 'statistics.user'),
 
-//			array(
+			//			array(
 
-//				'title' => '提现申请',
+			//				'title' => '提现申请',
 
-//				'route' => 'apply',
+			//				'route' => 'apply',
 
-//				'items' => array(
+			//				'items' => array(
 
-//					array(
+			//					array(
 
-//						'title' => '待审核',
+			//						'title' => '待审核',
 
-//						'param' => array('status' => 1)
+			//						'param' => array('status' => 1)
 
-//						),
+			//						),
 
-//					array(
+			//					array(
 
-//						'title' => '待打款',
+			//						'title' => '待打款',
 
-//						'param' => array('status' => 2)
+			//						'param' => array('status' => 2)
 
-//						),
+			//						),
 
-//					array(
+			//					array(
 
-//						'title' => '已打款',
+			//						'title' => '已打款',
 
-//						'param' => array('status' => 3)
+			//						'param' => array('status' => 3)
 
-//						),
+			//						),
 
-//					array(
+			//					array(
 
-//						'title' => '无效',
+			//						'title' => '无效',
 
-//						'param' => array('status' => -1)
+			//						'param' => array('status' => -1)
 
-//						)
+			//						)
 
-//					)
+			//					)
 
-//				),
+			//				),
 
-// 			array(
+			// 			array(
 
-// 				'title' => '设置',
+			// 				'title' => '设置',
 
-// 				'items' => array(
+			// 				'items' => array(
 
-// //					array('title' => '排行版设置', 'route' => 'rank'),
+			// //					array('title' => '排行版设置', 'route' => 'rank'),
 
-// //					array('title' => '通知设置', 'route' => 'notice'),
+			// //					array('title' => '通知设置', 'route' => 'notice'),
 
-// //					array('title' => '入口设置', 'route' => 'cover'),
+			// //					array('title' => '入口设置', 'route' => 'cover'),
 
-// 					array('title' => '基础设置', 'route' => 'set')
+			// 					array('title' => '基础设置', 'route' => 'set')
 
-// 					)
+			// 					)
 
-// 				)
-
-			)
+			// 				)
 
 		)
 
-	);
+	)
 
-
-
-?>
-
+);

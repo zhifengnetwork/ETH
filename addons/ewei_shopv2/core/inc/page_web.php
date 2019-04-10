@@ -36,21 +36,23 @@ class WebPage extends Page
 						}
 					}
 				}
-			}
-			else {
+			} else {
 				if (strexists($_W['routes'], 'edit')) {
 					if (!cv($_W['routes'])) {
 						$view = str_replace('edit', 'view', $_W['routes']);
 						$perm_view = cv($view);
 					}
-				}
-				else {
-					$main = $_W['routes'] . '.main';
+				} else {
+
+					if ($_W['routes'] == 'sale') {
+						$main = $_W['routes'] . '.enough';
+					} else {
+						$main = $_W['routes'] . '.main';
+					}
 					$perm_main = cv($main);
 					if (!$perm_main && in_array($main, $perm_type_value)) {
 						$this->message('你没有相应的权限查看');
-					}
-					else {
+					} else {
 						if (!$perm && in_array($_W['routes'], $perm_type_value)) {
 							$this->message('你没有相应的权限查看');
 						}
@@ -92,13 +94,11 @@ class WebPage extends Page
 
 		if ($_W['plugin']) {
 			include $this->template($_W['plugin'] . '/tabs');
-		}
-		else if ($_W['controller'] == 'system') {
+		} else if ($_W['controller'] == 'system') {
 			$routes = explode('.', $_W['routes']);
 			$tabs = $routes[0] . (isset($routes[1]) ? '/' . $routes[1] : '') . '/tabs';
 			include $this->template($tabs);
-		}
-		else {
+		} else {
 			include $this->template($_W['controller'] . '/tabs');
 		}
 	}
@@ -110,8 +110,7 @@ class WebPage extends Page
 		if (!empty($funbardata['datas']) && !is_array($funbardata['datas'])) {
 			if (strexists($funbardata['datas'], '{"')) {
 				$funbardata['datas'] = json_decode($funbardata['datas'], true);
-			}
-			else {
+			} else {
 				$funbardata['datas'] = unserialize($funbardata['datas']);
 			}
 		}
@@ -119,5 +118,3 @@ class WebPage extends Page
 		include $this->template('funbar');
 	}
 }
-
-?>
