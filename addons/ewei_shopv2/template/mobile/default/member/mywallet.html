@@ -131,7 +131,9 @@
     <div class='fui-content navbar' >
       <div class="tabar">
         <a href="javascript:;" class="tabarActive">钱包</a>
-        {if $member['type']==2}{else}
+        {if $member['type']==2}
+        <a href="javascript:;" onclick="location.href='{php echo mobileurl('member/investmentjilu',array('type'=>4))}'">提币记录</a>
+        {else}
 
         <a href="javascript:;" onclick="location.href='{php echo mobileurl('member/investmentjilu/log',array('type'=>6))}'">总记录</a>
         <a href="javascript:;" onclick="location.href='{php echo mobileurl('member/investmentjilu',array('type'=>4))}'">提币记录</a>
@@ -142,6 +144,8 @@
 
 
       <!-- 复投账户 -->
+      {if $member['type']==2}
+       {else}
       <div class="futou" data-type="guan">
         <a href="javascript:;" class="futou_top">
           <span>复投账户</span>
@@ -152,6 +156,7 @@
           <a class="qipaiyule" href="{php echo mobileUrl('member/qipai')}">棋牌娱乐</a>
         </div>
       </div>
+      {/if}
 
       <!-- 自由钱包 -->
       <div class="qianbao" data-type="guan">
@@ -160,11 +165,15 @@
           <span>{$member['credit2']}</span>
         </a>
         <div class="qianbao_bottom">
+        {if $member['type']==2}
+        <a class="" href="{php echo mobileUrl('member/withdraw')}">提现</a>
+        {else}
           <a class="yijianfutou0" href="{php echo mobileurl('member/mywallet/futou',array('type'=>2))}">一键复投</a>
-          <a class="" href="{php echo mobileUrl('member/withdraw')}">提现</a>
+
           <a class="qipaiyule" href="{php echo mobileUrl('member/guamai')}">C2C</a>
           <a class="qipaiyule" href="{php echo mobileUrl('member/qipai')}">棋牌娱乐</a>
           <a class="" href="{php echo mobileurl('member/mywallet/zhuangzhang')}">互转</a>
+        {/if}
         </div>
       </div>
 

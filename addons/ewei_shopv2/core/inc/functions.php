@@ -4,6 +4,22 @@ if (!defined('IN_IA')) {
 	exit('Access Denied');
 }
 
+if (!function_exists('pre')) {
+	function pre($data = '')
+	{
+		echo '<pre>';
+		print_r($data);
+	}
+}
+
+if (!function_exists('pred')) {
+	function pred($data = '')
+	{
+		echo '<pre>';
+		print_r($data);die;
+	}
+}
+
 if (!function_exists('m')) {
 	function m($name = '')
 	{
