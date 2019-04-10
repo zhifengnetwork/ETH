@@ -928,14 +928,14 @@ if (!function_exists('mobileUrl')) {
 
 		$query = array_merge(array('do' => 'mobile'), $query);
 		$query = array_merge(array('m' => 'ewei_shopv2'), $query);
-
+        
 		if (empty($query['mid'])) {
 			$mid = intval($_GPC['mid']);
 
 			if (!empty($mid)) {
 				$query['mid'] = $mid;
 			}
-
+			
 			if (!empty($_W['openid']) && !is_weixin() && !is_h5app()) {
 				$myid = m('member')->getMid();
 
@@ -970,9 +970,9 @@ if (!function_exists('mobileUrl')) {
 		}
 
 		if ($full) {
+			
 			return $_W['siteroot'] . 'app/' . substr(murl('entry', $query, true), 2);
 		}
-
 		return murl('entry', $query, true);
 	}
 }
