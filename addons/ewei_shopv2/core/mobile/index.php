@@ -67,20 +67,31 @@ class Index_EweiShopV2Page extends MobilePage
 		$cpinfos = com('coupon')->getInfo();
 
 		if($q){
-			$menu['index']['url'] = empty($_GPC['merchid']) ? mobileUrl() : mobileUrl('merch');
+
+			$data = [];
+			if($_W['openid']){
+				$data = $this->homeinfo($q);
+				$data = $data['data'];
+			}
+			
+			// $menu['index']['url'] = empty($_GPC['merchid']) ? mobileUrl() : mobileUrl('merch');
+			$menu['index']['title'] = '首页';
 			$menu['index']['img'] =  ( $_W['routes']=='' ||  $_W['routes']=='shop' ||  $_W['routes']=='commission.myshop' ) ? MODULE_URL . 'static/icon/shouye1.png' : MODULE_URL . 'static/icon/shouye0.png';
 			
-			$menu['qipai']['url'] = mobileUrl('member/qipai');
+			// $menu['qipai']['url'] = mobileUrl('member/qipai');
+			$menu['qipai']['title'] = '棋牌娱乐';
 			$menu['qipai']['img'] = $_W['routes'] =='member.qipai' ? MODULE_URL . 'static/icon/qipaiyule1.png' : MODULE_URL . 'static/icon/qipaiyule0.png';
 
-			$menu['guamai']['url'] = mobileUrl('member/guamai');
+			// $menu['guamai']['url'] = mobileUrl('member/guamai');
+			$menu['guamai']['title'] = 'C2C';
 			$menu['guamai']['img'] = $_W['routes'] =='member.guamai' ? MODULE_URL . 'static/icon/C2C1.png' : MODULE_URL . 'static/icon/C2C0.png';
 
-			$menu['member']['url'] = mobileUrl('member/member');
+			// $menu['member']['url'] = mobileUrl('member/member');
+			$menu['member']['title'] = '我的';
 			$menu['member']['img'] = $_W['routes'] =='member' ? MODULE_URL . 'static/icon/wode1.png' : MODULE_URL . 'static/icon/wode0.png';
 			
-			$data = $this->homeinfo($q);
-			show_json(1,['slide'=>$slide,'data'=>$data['data'],'notice'=>$notice,'menu'=>$menu]);
+			
+			show_json(1,['slide'=>$slide,'data'=>$data,'notice'=>$notice,'menu'=>$menu]);
 		}
 
 		include $this->template();
