@@ -15,7 +15,7 @@ class Index_EweiShopV2Page extends MobilePage
 		$mid = intval($_GPC['mid']);
 		$index_cache = $this->getpage();
 		$q = $_GPC['q'];
-
+		
 		$member = m('member')->getMember($_W['openid'], true);
 
 		$sys = pdo_fetch("select give from " . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
