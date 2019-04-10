@@ -142,6 +142,8 @@
 
 
       <!-- 复投账户 -->
+      <?php  if($member['type']==2) { ?>
+       <?php  } else { ?>
       <div class="futou" data-type="guan">
         <a href="javascript:;" class="futou_top">
           <span>复投账户</span>
@@ -152,6 +154,7 @@
           <a class="qipaiyule" href="<?php  echo mobileUrl('member/qipai')?>">棋牌娱乐</a>
         </div>
       </div>
+      <?php  } ?>
 
       <!-- 自由钱包 -->
       <div class="qianbao" data-type="guan">
@@ -160,11 +163,15 @@
           <span><?php  echo $member['credit2'];?></span>
         </a>
         <div class="qianbao_bottom">
+        <?php  if($member['type']==2) { ?>
+        <a class="" href="<?php  echo mobileUrl('member/withdraw')?>">提现</a>
+        <?php  } else { ?>
           <a class="yijianfutou0" href="<?php  echo mobileurl('member/mywallet/futou',array('type'=>2))?>">一键复投</a>
-          <a class="" href="<?php  echo mobileUrl('member/withdraw')?>">提现</a>
+
           <a class="qipaiyule" href="<?php  echo mobileUrl('member/guamai')?>">C2C</a>
           <a class="qipaiyule" href="<?php  echo mobileUrl('member/qipai')?>">棋牌娱乐</a>
           <a class="" href="<?php  echo mobileurl('member/mywallet/zhuangzhang')?>">互转</a>
+        <?php  } ?>
         </div>
       </div>
 
