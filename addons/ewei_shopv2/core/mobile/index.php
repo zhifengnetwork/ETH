@@ -14,6 +14,7 @@ class Index_EweiShopV2Page extends MobilePage
 		$uniacid = $_W['uniacid'];
 		$mid = intval($_GPC['mid']);
 		$index_cache = $this->getpage();
+		$q = $_GPC['q'];
 
 		$member = m('member')->getMember($_W['openid'], true);
 
@@ -64,11 +65,29 @@ class Index_EweiShopV2Page extends MobilePage
 		}
 		$shop_data = m('common')->getSysset('shop');
 		$cpinfos = com('coupon')->getInfo();
+
+		if($q){
+			$menu['index']['url'] = empty($_GPC['merchid']) ? mobileUrl() : mobileUrl('merch');
+			$menu['index']['img'] =  ( $_W['routes']=='' ||  $_W['routes']=='shop' ||  $_W['routes']=='commission.myshop' ) ? MODULE_URL . 'static/icon/shouye1.png' : MODULE_URL . 'static/icon/shouye0.png';
+			
+			$menu['qipai']['url'] = mobileUrl('member/qipai');
+			$menu['qipai']['img'] = $_W['routes'] =='member.qipai' ? MODULE_URL . 'static/icon/qipaiyule1.png' : MODULE_URL . 'static/icon/qipaiyule0.png';
+
+			$menu['guamai']['url'] = mobileUrl('member/guamai');
+			$menu['guamai']['img'] = $_W['routes'] =='member.guamai' ? MODULE_URL . 'static/icon/C2C1.png' : MODULE_URL . 'static/icon/C2C0.png';
+
+			$menu['member']['url'] = mobileUrl('member/member');
+			$menu['member']['img'] = $_W['routes'] =='member' ? MODULE_URL . 'static/icon/wode1.png' : MODULE_URL . 'static/icon/wode0.png';
+			
+			$data = $this->homeinfo($q);
+			show_json(1,['slide'=>$slide,'data'=>$data['data'],'notice'=>$notice,'menu'=>$menu]);
+		}
+
 		include $this->template();
 	}
 
 	//首页信息
-	public function homeinfo()
+	public function homeinfo($q='')
 	{
 		global $_W;
 		global $_GPC;
@@ -116,7 +135,9 @@ class Index_EweiShopV2Page extends MobilePage
 		$arr4 = m('common')->memberxiaji($ass, $id);
 
 		$data = array('status' => 1, 'msg' => '获取成功', 'data' => array('touzimoney' => number_format($arr1['money'], 6), 'shouyimoneysum' => number_format($arr2['money'] + $arr2['money2'] + $jifensum['money'] + $jifensum['money2'], 6), 'shouyimoney' => number_format($arr3['money'] + $arr3['money2'] + $jifen['money'] + $jifen['money2'], 6), 'money' => number_format($memberis['credit2'] + $memberis['credit4'], 6), 'xiaji' => count($arr4)));
-
+		if($q){
+			return $data;
+		}
 		echo json_encode($data);
 	}
 
