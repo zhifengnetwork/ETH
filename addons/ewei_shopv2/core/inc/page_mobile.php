@@ -27,7 +27,7 @@ class MobilePage extends Page
 
 		global $_GPC;
         
-		if(empty($_W) && !empty($_GPC['openid'])){
+		if(empty($_W['openid']) && !empty($_GPC['openid'])){
 			$_W['openid'] = $_GPC['openid'];//接口访问  传opendi;
 		}
 		m('shop')->checkClose();
