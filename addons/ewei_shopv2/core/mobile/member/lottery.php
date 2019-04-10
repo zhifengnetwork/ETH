@@ -61,9 +61,7 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 				$kn = substr($kn, 0, -1);
 			}
 		}
-
-
-		show_json(1, array('list' => $yes));
+		echo show_json(1, array('list' => $yes));
 	}
 
 	//下注
@@ -71,7 +69,7 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 	{
 		global $_W;
 		global $_GPC;
-
+		
 		if ($_W['ispost']) {
 
 			$type = $_GPC['type'];
