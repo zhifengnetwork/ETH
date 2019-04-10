@@ -1,15 +1,15 @@
 {template '_header'}
 
 <style>
-  
- 
+
+
   .tabar{
     display: flex;
     justify-content: space-between;
     background-color: #33394C;
     margin-top: 5px;
     margin-bottom: .5rem;
-   
+
   }
   .tabar > a{
     flex: 1;
@@ -22,7 +22,7 @@
     color: white;
     /* border-bottom: 3px solid #04a5e7; */
     background: #2F4577;
-    
+
   }
 
   .futou{
@@ -88,7 +88,7 @@
     align-items: center;
     padding: 0 1rem;
     font-size: .9rem;
-    
+
   }
   .qianbao_bottom{
     display: flex;
@@ -101,7 +101,7 @@
 
   }
   .qianbao_bottom > a{
-    
+
     height: 30px;
     line-height: 30px;
     text-align: center;
@@ -112,8 +112,8 @@
     border-radius: .2rem
 
   }
-  
-  
+
+
 
 
 </style>
@@ -131,11 +131,15 @@
     <div class='fui-content navbar' >
       <div class="tabar">
         <a href="javascript:;" class="tabarActive">钱包</a>
+        {if $member['type']==2}{else}
+
         <a href="javascript:;" onclick="location.href='{php echo mobileurl('member/investmentjilu/log',array('type'=>6))}'">总记录</a>
         <a href="javascript:;" onclick="location.href='{php echo mobileurl('member/investmentjilu',array('type'=>4))}'">提币记录</a>
         <a href="javascript:;" onclick="location.href='{php echo mobileurl('member/investmentjilu',array('type'=>3))}'">转币记录</a>
         <a href="javascript:;" onclick="location.href='{php echo mobileurl('member/investmentjilu/c2clog')}&type=5'">C2C记录</a>
+        {/if}
       </div>
+
 
       <!-- 复投账户 -->
       <div class="futou" data-type="guan">
@@ -156,10 +160,10 @@
           <span>{$member['credit2']}</span>
         </a>
         <div class="qianbao_bottom">
-          <a class="" href="{php echo mobileurl('member/mywallet/futou',array('type'=>2))}">一键复投</a>
+          <a class="yijianfutou0" href="{php echo mobileurl('member/mywallet/futou',array('type'=>2))}">一键复投</a>
           <a class="" href="{php echo mobileUrl('member/withdraw')}">提现</a>
-          <a class="" href="{php echo mobileUrl('member/guamai')}">C2C</a>
-          <a class="" href="{php echo mobileUrl('member/qipai')}">棋牌娱乐</a>
+          <a class="qipaiyule" href="{php echo mobileUrl('member/guamai')}">C2C</a>
+          <a class="qipaiyule" href="{php echo mobileUrl('member/qipai')}">棋牌娱乐</a>
           <a class="" href="{php echo mobileurl('member/mywallet/zhuangzhang')}">互转</a>
         </div>
       </div>
@@ -196,6 +200,10 @@
 
   // 点击复投账户的一键复投
   $('.yijianfutou0').click(function () {
+    if("{$member['type']}" == 2){
+			alert('该账号已锁户！');
+			return false;
+		}
     console.log('点击了复投账户的一键复投');
     // return false;
 
@@ -203,6 +211,10 @@
 
   // 点击复投账户的棋牌娱乐
   $('.qipaiyule').click(function () {
+    if("{$member['type']}" == 2){
+			alert('该账号已锁户！');
+			return false;
+		}
     console.log('点击了棋牌娱乐');
 
   })
