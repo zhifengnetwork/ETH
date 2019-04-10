@@ -692,23 +692,23 @@ class System_EweiShopV2Model
 							//					array('title' => '找人代付', 'route' => 'peerpay', 'keywords' => '营销')
 						)
 					),
-					array(
-						'title'     => '优惠券',
-						'route'     => 'coupon',
-						'plugincom' => 2,
-						'items'     => array(
-							array('title' => '全部优惠券'),
-							array('title' => '手动发送', 'route' => 'sendcoupon', 'desc' => '手动发送优惠券'),
-							array(
-								'title'   => '购物送券',
-								'route'   => 'sendtask',
-								'extends' => array('sale.coupon.goodssend', 'sale.coupon.usesendtask', 'sale.coupon.goodssend.add', 'sale.coupon.usesendtask.add')
-							),
-							array('title' => '发放记录', 'route' => 'log', 'desc' => '优惠券发放记录'),
-							array('title' => '分类管理', 'route' => 'category', 'desc' => '优惠券分类管理'),
-							array('title' => '其他设置', 'route' => 'set', 'desc' => '优惠券设置')
-						)
-					)
+					// array(
+					// 	'title'     => '优惠券',
+					// 	'route'     => 'coupon',
+					// 	'plugincom' => 2,
+					// 	'items'     => array(
+					// 		array('title' => '全部优惠券'),
+					// 		array('title' => '手动发送', 'route' => 'sendcoupon', 'desc' => '手动发送优惠券'),
+					// 		array(
+					// 			'title'   => '购物送券',
+					// 			'route'   => 'sendtask',
+					// 			'extends' => array('sale.coupon.goodssend', 'sale.coupon.usesendtask', 'sale.coupon.goodssend.add', 'sale.coupon.usesendtask.add')
+					// 		),
+					// 		array('title' => '发放记录', 'route' => 'log', 'desc' => '优惠券发放记录'),
+					// 		array('title' => '分类管理', 'route' => 'category', 'desc' => '优惠券分类管理'),
+					// 		array('title' => '其他设置', 'route' => 'set', 'desc' => '优惠券设置')
+					// 	)
+					// )
 					// array(
 					// 	'title'     => '微信卡券',
 					// 	'plugincom' => 2,D
