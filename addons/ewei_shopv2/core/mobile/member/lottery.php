@@ -61,7 +61,7 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 				$kn = substr($kn, 0, -1);
 			}
 		}
-		echo show_json(1, array('list' => $yes));
+		show_json(1, array('list' => $yes));
 	}
 
 	//下注
