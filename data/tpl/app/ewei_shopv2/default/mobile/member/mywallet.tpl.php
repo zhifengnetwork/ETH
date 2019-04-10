@@ -131,7 +131,9 @@
     <div class='fui-content navbar' >
       <div class="tabar">
         <a href="javascript:;" class="tabarActive">钱包</a>
-        <?php  if($member['type']==2) { ?><?php  } else { ?>
+        <?php  if($member['type']==2) { ?>
+        <a href="javascript:;" onclick="location.href='<?php  echo mobileurl('member/investmentjilu',array('type'=>4))?>'">提币记录</a>
+        <?php  } else { ?>
 
         <a href="javascript:;" onclick="location.href='<?php  echo mobileurl('member/investmentjilu/log',array('type'=>6))?>'">总记录</a>
         <a href="javascript:;" onclick="location.href='<?php  echo mobileurl('member/investmentjilu',array('type'=>4))?>'">提币记录</a>
