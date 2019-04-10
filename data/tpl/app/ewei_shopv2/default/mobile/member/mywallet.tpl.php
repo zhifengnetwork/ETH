@@ -169,7 +169,7 @@
         <a class="" href="<?php  echo mobileUrl('member/withdraw')?>">提现</a>
         <?php  } else { ?>
           <a class="yijianfutou0" href="<?php  echo mobileurl('member/mywallet/futou',array('type'=>2))?>">一键复投</a>
-
+          <a class="" href="<?php  echo mobileUrl('member/withdraw')?>">提现</a>
           <a class="qipaiyule" href="<?php  echo mobileUrl('member/guamai')?>">C2C</a>
           <a class="qipaiyule" href="<?php  echo mobileUrl('member/qipai')?>">棋牌娱乐</a>
           <a class="" href="<?php  echo mobileurl('member/mywallet/zhuangzhang')?>">互转</a>
