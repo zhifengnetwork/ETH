@@ -67,7 +67,7 @@ class Integralrelease_EweiShopV2Page extends MobilePage
             }
         } else {
 
-            echo "积分释放为每日00:01:00" . "<br/>";
+            echo "积分释放为每日00:01:00\n";
         }
     }
 }
