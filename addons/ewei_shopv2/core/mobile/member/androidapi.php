@@ -1564,5 +1564,115 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		returnJson($data);
 	}
 
+	public function payment()
+	{
+		global $_W;
+		global $_GPC;
+
+		$list = pdo_fetch("select * from " . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
+		$data = array('zfb' => $list['zfb'], 'zfbfile' => $list['zfbfile'], 'wx' => $list['wx'], 'weixinfile' => $list['weixinfile'], 'yhk' => $list['yhk'], 'yhkfile' => $list['yhkfile'], 'add' => $list['add']);
+		returnJson(1, array('list' => $data));
+	}
+
+
+	public function wechat_complete1()
+	{
+		global $_W;
+		global $_GPC;
+
+
+		$money = $_GPC['money'];
+		$url = $_GPC['url'];
+		$member = m('member')->getMember($_W['openid'], true);
+		$sys = pdo_fetch("select *from " . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
+
+		if (empty($url)) returnJson(-1, "请输入您要投资的数量");
+		if (empty($url)) returnJson(-1, "请上传到您的支付凭证");
+
+		if (($member['credit1'] + $money) > $sys['bibi']) returnJson(-1, "您的投资已超过上限");
+
+
+		$data = array('uniacid' => $_W['uniacid'], 'openid' => $_W['openid'], 'type' => 1, 'title' => '资产投资', 'status' => 0, 'money' => $money, 'credit' => $money, 'createtime' => time(), 'url' => $url);
+
+
+		$result = pdo_insert("ewei_shop_member_log", $data);
+
+		// if($member['type']==0){
+		// 	pdo_update("ewei_shop_member"," type='1' ",array('openid'=>$_W['openid'],'uniacid'=>$_W['uniacid']));
+		// }
+
+		if ($result) {
+			returnJson([]);
+		}
+	}
+
+	public function xiaji_get_list()
+	{
+		
+		global $_W;
+		global $_GPC;
+
+		require EWEI_SHOPV2_PLUGIN . 'commission/core/model.php';
+		$commission = new CommissionModel;
+		
+		$openid = $_W['openid'];
+		$member = $commission->getInfo($openid);
+		$total_level = 0;
+		$level = intval($_GPC['level']);
+		((3 < $level) || ($level <= 0)) && ($level = 1);
+		$condition = '';
+		$pindex = max(1, intval($_GPC['page']));
+		$psize = 10;
+		$ass = pdo_fetchall('select * from ' . tablename('ewei_shop_member') . ' where uniacid = ' . $_W['uniacid']);
+		$arr = $this->digui($ass, $member['id']);
+
+		// show_json($arr);
+		
+		foreach ($arr as $key => $val) {
+			$ids .= $val['id'] . ",";
+		}
+
+		$ids_1 = substr($ids, 0, -1);
+		if ($ids_1) {
+			$condition = "and id in ($ids_1)";
+		}
+		$list = pdo_fetchall('select * from ' . tablename('ewei_shop_member') . ' where uniacid = ' . $_W['uniacid'] . ' ' . $condition . '  ORDER BY isagent desc,id desc limit ' . (($pindex - 1) * $psize) . ',' . $psize);
+
+		foreach ($list as &$row) {
+			foreach ($arr as $key => $val) {    //给每个会员附加代数
+				if ($row['id'] == $val['id']) {
+					$row['type'] = $val['type'];
+				}
+			}
+			//给每个会员加入等级
+			$level = pdo_fetch("select levelname from" . tablename("ewei_shop_member_level") . "where uniacid=:uniacid and id=:id", array(':uniacid' => $_W['uniacid'], ':id' => $row['level']));
+			//			var_dump($level);
+
+			$row['level'] = $level['levelname'];
+			if ($member['isagent'] && $member['status']) {
+				$info = $commission->getInfo($row['openid'], array('total'));
+				$row['commission_total'] = $info['commission_total'];
+				$row['agentcount'] = $info['agentcount'];
+				$row['agenttime'] = date('Y-m-d H:i', $row['agenttime']);
+			}
+
+			$total_level = pdo_fetchcolumn('select count(*) from ' . tablename('ewei_shop_member') . ' where agentid=:agentid and uniacid=:uniacid limit 1', array(':agentid' => $member['id'], ':uniacid' => $_W['uniacid']));
+			$ordercount = pdo_fetchcolumn('select count(id) from ' . tablename('ewei_shop_order') . ' where openid=:openid and uniacid=:uniacid limit 1', array(':uniacid' => $_W['uniacid'], ':openid' => $row['openid']));
+			$row['ordercount'] = number_format(intval($ordercount), 0);
+			$moneycount = pdo_fetchcolumn('select sum(og.realprice) from ' . tablename('ewei_shop_order_goods') . ' og ' . ' left join ' . tablename('ewei_shop_order') . ' o on og.orderid=o.id where o.openid=:openid  and o.status>=1 and o.uniacid=:uniacid limit 1', array(':uniacid' => $_W['uniacid'], ':openid' => $row['openid']));
+			$row['moneycount'] = number_format(floatval($moneycount), 2);
+			$row['createtime'] = date('Y-m-d H:i', $row['createtime']);
+		}
+
+		unset($row);
+
+		//根据代数升序
+
+		$type = array_column($list, 'type');
+		array_multisort($type, SORT_ASC, $list);
+
+		returnJson(array('list' => $list, 'total' => $total_level, 'sum' => count($arr), 'pagesize' => $psize));
+	}
+
 }
 ?>
