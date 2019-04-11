@@ -24,9 +24,6 @@ class Integralrelease_EweiShopV2Page extends MobilePage
 
             //可以进行积分释放的会员
             $ass = pdo_fetchall("select openid,credit1,credit2,credit4,type from " . tablename("ewei_shop_member") . " where uniacid=:uniacid and type='1' ", array(':uniacid' => $_W['uniacid']));
-
-
-            // var_dump($ass);exit();
             foreach ($ass as $key => $value) {
                 $credit = 0;
                 $receive_hongbao = pdo_fetchall("select * from" . tablename("ewei_shop_receive_hongbao") . "where openid='" . $value['openid'] . "'");
@@ -38,13 +35,14 @@ class Integralrelease_EweiShopV2Page extends MobilePage
                 $arr = pdo_fetch("select * from " . tablename("ewei_shop_receive_hongbao") . "where openid=:openid and time>=$start and time<=$end  and uniacid=:uniacid", array(':openid' => $value['openid'], ':uniacid' => $_W['uniacid']));
                 // var_dump($arr);
 
-                if ($arr && $value['credit1']) {  //无日志的情况下给会员释放积分
+                if (!$arr && $value['credit1']) {  //无日志的情况下给会员释放积分
                     $openid = $value['openid'];
                     //获取该会员最高的投资倍率
                     $arr1 = m('member')->getMember($openid, true);
 
                     //最高倍率相应的释放比例
                     $result  = pdo_fetch("select * from" . tablename("ewei_shop_commission_level4") . "where uniacid=" . $_W['uniacid'] . " and start<=" . $arr1['credit1'] . " and end>=" . $arr1['credit1']);
+                    // dump($result['multiple']);
                     //释放的比例
                     $proportion = $result['commission1'] + $result['commission2'];
 
@@ -52,6 +50,9 @@ class Integralrelease_EweiShopV2Page extends MobilePage
                     $money_propor = $result['multiple'] * $value['credit1'];
 
                     if ($credit >= $money_propor) {
+                        // dump('111111---' . $credit);
+                        // dump('222222---' . $money_propor);
+                        // continue;
                         pdo_update("ewei_shop_member", " suoding='1' ", array('openid' => $openid));
                         continue;
                     }
