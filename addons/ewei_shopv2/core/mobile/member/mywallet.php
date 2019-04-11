@@ -12,7 +12,7 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 		$this->diypage('member');
 
 		$member = m('member')->getMember($_W['openid'], true);
-		
+
 		include $this->template();
 	}
 
@@ -94,7 +94,6 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 	{
 		global $_W;
 		global $_GPC;
-
 		$money = $_GPC['money'];
 
 		$type = $_GPC['type'];
@@ -107,7 +106,7 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 
 		if (($member['credit1'] + $money) > $sys['bibi']) show_json(0, "您的投资已超过上限");
 
-		$data = array('uniacid' => $_W['uniacid'], 'openid' => $_W['openid'], 'type' => 2, 'money' => $money, 'credit' => $money, 'createtime' => time(), 'section' => $ass['id'], 'front_money' => $member['credit4']);
+		$data = array('uniacid' => $_W['uniacid'], 'openid' => $_W['openid'], 'type' => 1, 'money' => $money, 'credit' => $money, 'createtime' => time(), 'section' => $ass['id']);
 		// show_json($data);
 		if ($type == 2) {  //自由账户一键复投
 
@@ -116,7 +115,8 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 			$data['status'] = 1;
 			$data['payment'] = 1;
 			$data['title'] = "自由账户一键复投";
-
+			$data['front_money'] = $member['credit2'];
+			$data['after_money'] = $member['credit2'] - $money;
 			m('member')->setCredit($_W['openid'], 'credit2', -$money);
 		} else if ($type == 4) {
 
@@ -125,13 +125,16 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 			$data['status'] = 2;
 			$data['payment'] = 2;
 			$data['title'] = "复投账户一键复投";
+			$data['front_money'] = $member['credit4'];
+			$data['after_money'] = $member['credit4'] - $money;
+
 
 			m('member')->setCredit($_W['openid'], 'credit4', -$money);
 		}
 		// show_json($data);
 		//向投资余额打款
 		m('member')->setCredit($_W['openid'], 'credit1', $money);
-		$data['after_money'] = $member[' credit4 '] - $money;
+
 		if ($member['type'] == 0) {
 			pdo_update("ewei_shop_member", " type='1' ", array('openid' => $_W['openid'], 'uniacid' => $_W['uniacid']));
 		}
