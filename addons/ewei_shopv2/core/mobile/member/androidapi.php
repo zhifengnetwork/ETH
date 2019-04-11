@@ -1950,7 +1950,9 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		global $_GPC;
 
 		$money = $_GPC['money'];
-		$moneysxf = $_GPC['moneysxf'];
+		// $moneysxf = $_GPC['moneysxf'];
+		$ass = pdo_fetch("select zhuanzhangsxf from " . tablename("ewei_shop_sysset") . " where uniacid=:uniacid ", array(':uniacid' => $_W['uniacid']));
+		$moneysxf = $ass['zhuanzhangsxf'];
 		$mid = $_GPC['id'];
 
 		$member = m('member')->getMember($_W['openid'], true);
@@ -1974,6 +1976,30 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		returnJson([], "转账成功");
 	}
 
+	public function money_log()
+	{
+		global $_W;
+		global $_GPC;
+
+		$type = $_GPC['type'];
+		$pindex = max(1, intval($_GPC['page']));
+		$psize = 10;
+		$openid = $_W['openid'];
+		$list =  pdo_fetchall("select g.*,m.nickname from" . tablename("ewei_shop_member_log") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.openid='$openid' order by g.createtime desc");
+		$zhuanzhang = pdo_fetchall("select g.*,m.nickname from" . tablename("ewei_zhuanzhang") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.openid=$openid order by g.createtime desc");
+		foreach ($zhuanzhang as $k => $v) {
+			$zhuanzhang[$k]['openid'] = substr($v['openid'], -11);
+			$zhuanzhang[$k]['openid2'] = substr($v['openid2'], -11);
+			$zhuanzhang[$k]['createtime'] = date("Y-m-d", $v['createtime']);
+		}
+		foreach ($list as $key => $val) {
+			$list[$key]['shouxufei'] = $val['money1'] - $val['money'];
+			$list[$key]['createtime'] = date("Y-m-d", $val['createtime']);
+		}
+		returnJson(['list'=>$list,'zhuanzhang'=>$zhuanzhang]);
+	}
+
+	
 
 }
 ?>
