@@ -27,9 +27,7 @@ class MobilePage extends Page
 
 		global $_GPC;
         
-		if(empty($_W['openid']) && !empty($_GPC['openid'])){
-			$_W['openid'] = $_GPC['openid'];//接口访问  传opendi;
-		}
+		
 		m('shop')->checkClose();
 
 		$preview = intval($_GPC['preview']);
@@ -56,6 +54,15 @@ class MobilePage extends Page
 					$_W['openid'] = m('account')->checkOpenid();
 				}
 			}
+		}else{
+			$userid  = $_GPC['userid'];
+			if($userid){
+				$memberis = pdo_fetch("select * from ".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and id='$userid'");
+				$_W['openid'] = empty($memberis['openid'])?returnJson([],-1,"没有该用户"):$memberis['openid'];
+			}else{
+				returnJson([],-1, "用户ID不能为空");
+			}
+
 		}
 		
 		$member = m('member')->checkMember();

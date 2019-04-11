@@ -475,78 +475,6 @@ class Androidapi_EweiShopV2Page extends MobilePage
 	//投资明细
 
 
-	//3d彩票
-	//下注
-	public function caipiaobets(){
-		global $_W;
-		global $_GPC;
-
-		$id = $_GPC['id'];
-
-
-		if($id){
-			$memberis = pdo_fetch("select * from ".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and id='$id'");
-			$_W['openid'] = $memberis['openid'];
-		}else{
-			$data = array('status'=>0,"fail"=>"请上传会员的id");
-			echo json_encode($data);exit();
-		}
-
-		if($_W['ispost']){
-
-			$type = $_GPC['type'];
-
-			if($type == 1){    //确认信息
-
-				$member = m('member')->getMember($_W['openid'], true);
-
-				$data = array('credit1'=>$member['credit1'],'credit4'=>$member['credit4']);
-
-				echo json_encode(array('status'=>1,"list"=>$data));exit();
-
-				show_json(1,array('list'=>$data));
-
-			}else if($type == 2){  //下注
-
-				$member = m('member')->getMember($_W['openid'], true);
-
-				$sale = pdo_fetch("select * from".tablename("ewei_shop_lottery2")."where uniacid=".$_W['uniacid']);
-
-				$payment = $_GPC['payment'];
-
-				$money = $_GPC['money'];
-
-				$list = json_decode($_POST['list'],true);
-
-
-				if($payment == 1){  //TRX支付
-
-					if($member['credit1']<$money)  show_json(-1,"您的TRX币不足");
-					//扣除该会员的下注金额
-					m('member')->setCredit($_W['openid'],'credit1',-$money);
-
-				}else if($payment == 2){  //复投账户支付
-
-					if($member['credit4']<$money)  show_json(-1,"您的复投账户余额");
-					//扣除该会员的下注金额
-					m('member')->setCredit($_W['openid'],'credit4',-$money);
-
-				}
-
-				foreach ($list as $key => $val) {
-					$number = $val['number'];
-					$data = array('uniacid'=>$_W['uniacid'],'openid'=>$_W['openid'],'number'=>$number,'multiple'=>$val['multiple'],'money'=>$val['multiple']*$sale['price'],'createtime'=>time());
-					// show_json($data);
-					pdo_insert("stakejilu",$data);
-				}
-				// show_json($list);
-				pdo_update("ewei_shop_lottery2",array('sum'=>$sale['sum']+$money),array('uniacid'=>$_W['uniacid']));
-				$data = array('status'=>1,"success"=>"下注成功");
-				echo json_encode($data);exit();
-			}
-		}
-	}
-
 	//投资排行
 	public function fucairanking(){
 		global $_W;
@@ -591,7 +519,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 
 	}
 
-	//一键包号
+	//一键包号 3D彩票
 	public function numberis(){
 		//测试
 		global $_W;
@@ -634,7 +562,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 	}
 
 
-    //下注
+    //下注 3D彩票
 	public function bets()
 	{
 		global $_W;
@@ -647,14 +575,13 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				$member = m('member')->getMember($_W['openid'], true);
 
 				$data = array('credit2' => $member['credit2'], 'credit4' => $member['credit4']);
-
-				show_json(1, array('list' => $data));
+				returnJson(['list' => $data],'ok',1);
 			} else if ($type == 2) {  //下注
 				$t = time();
 				$start = mktime(19, 59, 59, date("m", $t), date("d", $t), date("Y", $t));
 
 				if ($t >= $start) {
-					show_json(-1, "下注失败!每日下注时间为下午20点前.");
+					returnJson([], "下注失败!每日下注时间为下午20点前.",0);
 				}
 				// $end = mktime(23,59,59,date("m",$t),date("d",$t),date("Y",$t));
 				$member = m('member')->getMember($_W['openid'], true);
@@ -663,21 +590,31 @@ class Androidapi_EweiShopV2Page extends MobilePage
 
 				$payment = $_GPC['payment'];
 
-				$money = $_GPC['money'];
+				$money   = $_GPC['money'];
 
-				$list = $_GPC['list'];
+				$list    = $_GPC['list'];
+
+				if(empty($list)){
+					  returnJson([], "下注失败!下注号码不能为空.",0);
+				}
+				if($money < 0){
+					returnJson([], "下注失败!金额必须大于0.",0);
+				}
+				if($payment < 1){
+					returnJson([], "下注失败!请选择支付方式.",0);
+			    }
 				// show_json($list);
 
 				if ($payment == 1) {  //ETH支付
 
-					if ($member['credit2'] < $money)  returnJson([],-1, "您的自由账户余额不足");
+					if ($member['credit2'] < $money)  returnJson([], "您的自由账户余额不足",0);
 					//扣除该会员的下注金额
 					m('member')->setCredit($_W['openid'], 'credit2', -$money);
 					$title = "自由账户进行下注减少" . $money;
 					$front_money = $member['credit2'];
 				} else if ($payment == 2) {  //复投账户支付
 
-					if ($member['credit4'] < $money)  returnJson([],-1, "您的复投账户余额");
+					if ($member['credit4'] < $money)  returnJson([], "您的复投账户余额不足",0);
 					//扣除该会员的下注金额
 					m('member')->setCredit($_W['openid'], 'credit4', -$money);
 					$title = "复投账户进行下注减少" . $money;
@@ -697,22 +634,16 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				pdo_insert("ewei_shop_member_log", $arr_log);
 
 				foreach ($list as $key => $val) {
-
 					$number = $val['0'];
 					$data = array('uniacid' => $_W['uniacid'], 'openid' => $_W['openid'], 'number' => "$number", 'multiple' => $val['1'], 'money' => $val['1'] * $sale['price'], 'createtime' => time());
 					pdo_insert("stakejilu", $data);
 				}
 
 				pdo_update("ewei_shop_lottery2", array('sum' => $sale['sum'] + $money), array('uniacid' => $_W['uniacid']));
-				returnJson([],1, "下注成功");
+				returnJson([], "下注成功",1);
 			}
 	}
 
-
-
-
-
-	
 
 
 	//游戏规则介绍
