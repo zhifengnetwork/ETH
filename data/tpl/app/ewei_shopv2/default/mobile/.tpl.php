@@ -390,7 +390,7 @@
 
       <ul class="uls">
         <div class="lis">
-          <a  href="window.location.href='<?php  echo mobileUrl('member/investmentjilu',array('type'=>1))?>'">
+          <a  href="<?php  echo mobileUrl('member/investmentjilu',array('type'=>1))?>">
             <img src="<?php  echo EWEI_SHOPV2_LOCAL?>static/icon/touzhi.png" alt="">
             <span>投资总额</span>
             <span id="touzimoney"></span>
