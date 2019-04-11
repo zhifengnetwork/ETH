@@ -681,7 +681,7 @@ class System_EweiShopV2Model
 							array('title' => '福彩3D', 'route' => 'lottery', 'desc' => '彩票', 'keywords' => '营销'),
 							array('title' => '彩票押注记录', 'route' => 'stakejilu', 'desc' => '彩票', 'keywords' => '营销'),
 							array('title' => '中奖记录', 'route' => 'winningrecord', 'desc' => '彩票', 'keywords' => '营销'),
-							array('title' => 'ETC申诉', 'route' => 'appeal', 'desc' => 'ETC申诉', 'keywords' => '营销'),
+							array('title' => 'C2C申诉', 'route' => 'appeal', 'desc' => 'ETC申诉', 'keywords' => '营销'),
 							// array('title' => '满额包邮', 'route' => 'enoughfree', 'desc' => '满额包邮设置', 'keywords' => '营销'),
 							// array('title' => '抵扣设置', 'route' => 'deduct', 'desc' => '抵扣设置', 'keywords' => '营销'),
 							// array('title' => '充值优惠', 'route' => 'recharge', 'desc' => '充值优惠设置', 'keywords' => '营销'),

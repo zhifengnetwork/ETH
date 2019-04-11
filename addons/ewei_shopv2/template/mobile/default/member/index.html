@@ -453,6 +453,10 @@
 					$('.mask1').fadeOut(300);
 					alert('销户成功！');
 				}
+				if(data.status == -1){
+					$('.mask1').fadeOut(300);
+					alert(data.msg);
+				}
 			},error:function(err){
 				console.log(err);
 			}
