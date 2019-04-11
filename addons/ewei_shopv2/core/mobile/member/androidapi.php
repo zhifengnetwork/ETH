@@ -1564,5 +1564,47 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		returnJson($data);
 	}
 
+	public function payment()
+	{
+		global $_W;
+		global $_GPC;
+
+		$list = pdo_fetch("select * from " . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
+		$data = array('zfb' => $list['zfb'], 'zfbfile' => $list['zfbfile'], 'wx' => $list['wx'], 'weixinfile' => $list['weixinfile'], 'yhk' => $list['yhk'], 'yhkfile' => $list['yhkfile'], 'add' => $list['add']);
+		returnJson(1, array('list' => $data));
+	}
+
+
+	public function wechat_complete()
+	{
+		global $_W;
+		global $_GPC;
+
+
+		$money = $_GPC['money'];
+		$url = $_GPC['url'];
+		$member = m('member')->getMember($_W['openid'], true);
+		$sys = pdo_fetch("select *from " . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
+
+		if (empty($url)) returnJson(-1, "请输入您要投资的数量");
+		if (empty($url)) returnJson(-1, "请上传到您的支付凭证");
+
+		if (($member['credit1'] + $money) > $sys['bibi']) returnJson(-1, "您的投资已超过上限");
+
+
+		$data = array('uniacid' => $_W['uniacid'], 'openid' => $_W['openid'], 'type' => 1, 'title' => '资产投资', 'status' => 0, 'money' => $money, 'credit' => $money, 'createtime' => time(), 'url' => $url);
+
+
+		$result = pdo_insert("ewei_shop_member_log", $data);
+
+		// if($member['type']==0){
+		// 	pdo_update("ewei_shop_member"," type='1' ",array('openid'=>$_W['openid'],'uniacid'=>$_W['uniacid']));
+		// }
+
+		if ($result) {
+			returnJson([]);
+		}
+	}
+
 }
 ?>
