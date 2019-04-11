@@ -1999,7 +1999,79 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		returnJson(['list'=>$list,'zhuanzhang'=>$zhuanzhang]);
 	}
 
+	public function pay_management() 
+	{
+		global $_W;
+		global $_GPC;
+		$member = m('member')->getMember($_W['openid'], true);
+		$data['bankid'] = $member['bankid'];
+		$data['bankname'] = $member['bankname'];
+		$data['bank'] = $member['bank'];
+		$data['zfbfile'] = $member['zfbfile'];
+		$data['wxfile'] = $member['wxfile'];
+		returnJson($data);
+	}
+
+	public function pay_submit(){
+		global $_W;
+		global $_GPC;
+		if($_GPC['adress'])  $data['walletaddress'] = $_GPC['adress'];
+		if($_GPC['url'])  $data['walletcode'] = $_GPC['url'];
+		if($_GPC['zfbfile'])  $data['zfbfile'] = $_GPC['zfbfile'];
+		if($_GPC['wxfile'])  $data['wxfile'] = $_GPC['wxfile'];
+		if($_GPC['bankid'])  $data['bankid'] = $_GPC['bankid'];
+		if($_GPC['bankname'])  $data['bankname'] = $_GPC['bankname'];
+		if($_GPC['bank'])  $data['bank'] = $_GPC['bank'];
 	
+		// show_json($data);
+		$result = pdo_update("ewei_shop_member",$data,array('openid'=>$_W['openid'],'uniacid'=>$_W['uniacid']));
+
+		if($result){
+			returnJson([]);
+		}else{
+			returnJson([],'失败',-1);
+		}
+	}
+
+	public function article_getlist()
+	{
+		global $_W;
+		global $_GPC;
+		$page = intval($_GPC['page']);
+		$article_sys = pdo_fetch('select * from' . tablename('ewei_shop_article_sys') . 'where uniacid=:uniacid', array(':uniacid' => $_W['uniacid']));
+		$article_sys['article_image'] = tomedia($article_sys['article_image']);
+		$pindex = max(1, $page);
+		$psize = (empty($article_sys['article_shownum']) ? '20' : $article_sys['article_shownum']);
+
+		if ($article_sys['article_temp'] == 0) {
+			$articles = pdo_fetchall('SELECT a.id, a.article_title, a.resp_img, a.article_rule_credit, a.article_rule_money, a.resp_desc, a.article_category FROM ' . tablename('ewei_shop_article') . ' a left join ' . tablename('ewei_shop_article_category') . ' c on c.id=a.article_category  WHERE a.article_state=1 and article_visit=0 and c.isshow=1 and a.uniacid= :uniacid order by a.displayorder desc, a.article_date desc LIMIT ' . (($pindex - 1) * $psize) . ',' . $psize, array(':uniacid' => $_W['uniacid']));
+		}
+		else if ($article_sys['article_temp'] == 1) {
+			$articles = pdo_fetchall('SELECT distinct article_date_v FROM ' . tablename('ewei_shop_article') . ' a left join ' . tablename('ewei_shop_article_category') . ' c on c.id=a.article_category WHERE a.article_state=1 and article_visit=0 and c.isshow=1 and a.uniacid=:uniacid order by a.article_date_v desc limit ' . (($pindex - 1) * $psize) . ',' . $psize, array(':uniacid' => $_W['uniacid']), 'article_date_v');
+
+			foreach ($articles as &$a) {
+				$a['articles'] = pdo_fetchall('SELECT id,article_title,article_date_v,resp_img,resp_desc,article_date_v,resp_desc,article_category FROM ' . tablename('ewei_shop_article') . ' WHERE article_state=1 and article_visit=0 and uniacid=:uniacid and article_date_v=:article_date_v order by article_date desc ', array(':uniacid' => $_W['uniacid'], ':article_date_v' => $a['article_date_v']));
+			}
+
+			unset($a);
+		}
+		else {
+			if ($article_sys['article_temp'] == 2) {
+				$cate = intval($_GPC['cateid']);
+				$where = ' and article_visit=0';
+
+				if (0 < $cate) {
+					$where = ' and article_category=' . $cate . ' ';
+				}
+
+				$articles = pdo_fetchall('SELECT a.id, a.article_title, a.resp_img, a.article_rule_credit, a.article_rule_money, a.article_author, a.article_date_v, a.resp_desc, a.article_category FROM ' . tablename('ewei_shop_article') . ' a left join ' . tablename('ewei_shop_article_category') . ' c on c.id=a.article_category WHERE a.article_state=1 and c.isshow=1 and a.uniacid=:uniacid ' . $where . ' order by a.displayorder desc, a.article_date_v desc limit ' . (($pindex - 1) * $psize) . ',' . $psize, array(':uniacid' => $_W['uniacid']));
+			}
+		}
+		
+		if (!empty($articles)) {
+			returnJson($articles);
+		}
+	}
 
 }
 ?>
