@@ -481,7 +481,7 @@
       type:'2',
       list:[]    //下注的列表和倍数的数组
     }
-
+ 
     $('.lis').each(function () {
       let num = '';
       $(this).children('.lis_num_box').each(function () {
@@ -496,18 +496,21 @@
       arr.push(beishu);
       // console.log(arr);
       data.list.push(arr);
+      
     })
-    // console.log(data.list);
+    
     $.ajax({
       type:'post',
       url:"{php echo mobileurl('member/lottery/bets') }",
       data:data,
       dataType:'json',
       success:function(data){
-        console.log(data);
+       
         if(data.status == -1){
+          console.log(data);
           alert(data.result.message);
         }else if(data.status == 1){
+          console.log(data);
           alert('下注成功！');
           // window.open("http://www.jb51.net");
           window.location.href="{php echo mobileurl('member/lottery/stakejilu')}";
