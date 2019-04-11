@@ -109,7 +109,6 @@ class Index_EweiShopV2Page extends MobilePage
 			$menu['member']['title'] = '我的';
 			$menu['member']['img'] = $_W['routes'] =='member' ? MODULE_URL . 'static/icon/wode1.png' : MODULE_URL . 'static/icon/wode0.png';
 			
-			
 			returnJson(['slide'=>$slide,'data'=>$data,'notice'=>$notice,'menu'=>$menu]);
 		}
 
