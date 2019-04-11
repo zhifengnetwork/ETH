@@ -23,11 +23,16 @@ class Integralrelease_EweiShopV2Page extends MobilePage
         if ($beginToday) {
 
             //可以进行积分释放的会员
-            $ass = pdo_fetchall("select openid,credit1,type from " . tablename("ewei_shop_member") . " where uniacid=:uniacid and type='1' ", array(':uniacid' => $_W['uniacid']));
+            $ass = pdo_fetchall("select openid,credit1,credit2,credit4,type from " . tablename("ewei_shop_member") . " where uniacid=:uniacid and type='1' ", array(':uniacid' => $_W['uniacid']));
 
 
             // var_dump($ass);exit();
             foreach ($ass as $key => $value) {
+                $credit = 0;
+                $receive_hongbao = pdo_fetchall("select * from" . tablename("ewei_shop_receive_hongbao") . "where openid='" . $value['openid'] . "'");
+                foreach ($receive_hongbao as $k => $val) {
+                    $credit += $val['money'] + $val['money2'];
+                }
                 //向积分释放表中查询该会员今天是否已经释放
                 $arr = pdo_fetch("select * from " . tablename("ewei_shop_receive_hongbao") . "where openid=:openid and time>=$start and time<=$end  and uniacid=:uniacid", array(':openid' => $value['openid'], ':uniacid' => $_W['uniacid']));
                 // var_dump($arr);
@@ -39,9 +44,15 @@ class Integralrelease_EweiShopV2Page extends MobilePage
 
                     //最高倍率相应的释放比例
                     $result  = pdo_fetch("select * from" . tablename("ewei_shop_commission_level4") . "where uniacid=" . $_W['uniacid'] . " and start<=" . $arr1['credit1'] . " and end>=" . $arr1['credit1']);
-
                     //释放的比例
                     $proportion = $result['commission1'] + $result['commission2'];
+
+                    //收益总币数
+                    $money_propor = $result['multiple'] * $value['credit1'];
+
+                    if ($credit > $money_propor) {
+                        continue;
+                    }
                     if (!$proportion) $proportion = 0.3;
                     //静态账户获得金额
                     $money = round($proportion * $value['credit1'] * 0.8 * 0.01, 6);
