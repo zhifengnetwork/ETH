@@ -1429,7 +1429,140 @@ class Androidapi_EweiShopV2Page extends MobilePage
         }
     }
 
+	public function investment_record()
+	{
+		global $_W;
+		global $_GPC;
 
+		$type = $_GPC['type'];
+		if ($type == 1) $type2 = 2;
+		$pindex = max(1, intval($_GPC['page']));
+		$psize = 10;
+		$openid = $_W['openid'];
+		$list =  pdo_fetchall("select g.*,m.nickname from" . tablename("ewei_shop_member_log") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.uniacid=:uniacid and g.type='$type' and g.openid=:openid order by g.createtime desc" . ' LIMIT ' . (($pindex - 1) * $psize) . ',' . $psize, array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
+		// dump($openid);
+		// dump($list);die;
+		if ($type == 3) { //查询转币记录
+
+			$list =  pdo_fetchall("select g.*,m.nickname from" . tablename("ewei_zhuanzhang") . "g left join" . tablename("ewei_shop_member") . "m on g.openid2=m.openid" . " where g.uniacid=:uniacid and g.openid=:openid order by g.createtime desc" . ' LIMIT ' . (($pindex - 1) * $psize) . ',' . $psize, array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
+
+			foreach ($list as $key => $val) {
+				$list[$key]['createtime'] = date("Y-m-d H:i:s", $val['createtime']);
+			}
+
+			$total = pdo_fetchcolumn("select count(g.id) from" . tablename("ewei_zhuanzhang") . "g left join" . tablename("ewei_shop_member") . "m on g.openid2=m.openid" . " where g.uniacid=:uniacid and g.openid=:openid order by g.createtime desc", array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
+
+			$data = array('status' => 1, "result" => array('list' => $list, 'total' => $total, 'pagesize' => $psize));
+
+			returnJson($data);
+		}
+		if ($type == 5) {
+			$list =  pdo_fetchall("select g.*,m.nickname from" . tablename("ewei_shop_member_log") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.uniacid=:uniacid and g.openid=:openid and g.type=5 order by g.createtime desc" . ' LIMIT ' . (($pindex - 1) * $psize) . ',' . $psize, array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
+			foreach ($list as $key => $val) {
+				$list[$key]['createtime'] = date("Y-m-d H:i:s", $val['createtime']);
+			}
+			$total = pdo_fetchcolumn("select count(g.id) from" . tablename("ewei_shop_member_log") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.uniacid=:uniacid and g.openid=:openid and g.type=5 order by g.createtime desc", array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
+
+			$data = array('status' => 1, "result" => array('list' => $list, 'total' => $total, 'pagesize' => $psize));
+
+			// dump($list);die;
+			returnJson($data);
+		}
+
+		foreach ($list as $key => $val) {
+			$list[$key]['createtime'] = date("Y-m-d H:i:s", $val['createtime']);
+		}
+
+		$total = pdo_fetchcolumn("select count(g.id) from" . tablename("ewei_shop_member_log") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.uniacid=:uniacid and g.type='$type' and g.openid=:openid order by g.createtime desc", array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
+
+		$data = array('status' => 1, "result" => array('list' => $list, 'total' => $total, 'pagesize' => $psize));
+
+		returnJson($data);
+	}
+
+	public function income_record()
+	{
+		global $_W;
+		global $_GPC;
+		$type = $_GPC['type'];
+		
+		if ($type == 4) {		//积分记录
+
+			$list =  pdo_fetchall("select g.*,m.nickname from" . tablename("ewei_shop_receive_hongbao") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.uniacid=:uniacid  and g.openid=:openid order by g.time desc", array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
+
+			foreach ($list as $key => $val) {
+				$list[$key]['createtime'] = date("Y-m-d H:i:s", $val['time']);
+			}
+
+			$count =  pdo_fetch("select sum(g.money) as money,sum(g.money2) as money2 from" . tablename("ewei_shop_receive_hongbao") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.uniacid=:uniacid  and g.openid=:openid", array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
+
+			if (!$count['money'] && !$count['money2']) {
+				$summoeny = 0;
+			} else {
+				$summoeny = $count['money'] + $count['money2'];
+			}
+
+			$data = array('list' => $list, 'money' => $summoeny);
+
+			returnJson($data);
+		}
+
+		$list =  pdo_fetchall("select g.*,m.nickname from" . tablename("ewei_shop_order_goods1") . "g left join" . tablename("ewei_shop_member") . "m on g.openid2=m.openid" . " where g.uniacid=:uniacid and g.type='$type' and g.openid=:openid order by g.createtime desc", array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
+
+		foreach ($list as $key => $val) {
+			$list[$key]['createtime'] = date("Y-m-d H:i:s", $val['createtime']);
+		}
+
+		$count =  pdo_fetch("select sum(g.money) as money,sum(g.money2) as money2 from" . tablename("ewei_shop_order_goods1") . "g left join" . tablename("ewei_shop_member") . "m on g.openid2=m.openid" . " where g.uniacid=:uniacid and g.type='$type' and g.openid=:openid", array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
+
+		$data = array('list' => $list, 'money' => $count['money'] + $count['money2']);
+
+		returnJson($data);
+	}
+
+	public function today_record(){
+		global $_W;
+		global $_GPC;
+		$type = $_GPC['type'];
+
+		//今日开始时间和结束时间戳
+		$start = mktime(0, 0, 0, date('m'), date('d'), date('Y'));
+		$end = mktime(0, 0, 0, date('m'), date('d') + 1, date('Y')) - 1;
+
+
+		if ($type == 4) {		//积分记录
+
+			$list =  pdo_fetchall("select g.*,m.nickname from" . tablename("ewei_shop_receive_hongbao") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.uniacid=:uniacid and g.time>=$start and g.time<=$end and g.openid=:openid order by g.time desc", array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
+
+			foreach ($list as $key => $val) {
+				$list[$key]['createtime'] = date("Y-m-d H:i:s", $val['time']);
+			}
+
+			$count =  pdo_fetch("select sum(g.money) as money,sum(g.money2) as money2 from" . tablename("ewei_shop_receive_hongbao") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.uniacid=:uniacid and g.time>=$start and g.time<=$end  and g.openid=:openid", array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
+
+			if (!$count['money'] && !$count['money2']) {
+				$summoeny = 0;
+			} else {
+				$summoeny = $count['money'] + $count['money2'];
+			}
+
+			$data = array('list' => $list, 'money' => $summoeny);
+
+			returnJson($data);
+		}
+
+		$list =  pdo_fetchall("select g.*,m.nickname from" . tablename("ewei_shop_order_goods1") . "g left join" . tablename("ewei_shop_member") . "m on g.openid2=m.openid" . " where g.uniacid=:uniacid and g.createtime>=$start and g.createtime<=$end and g.type='$type' and g.openid=:openid order by g.createtime desc", array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
+
+		foreach ($list as $key => $val) {
+			$list[$key]['createtime'] = date("Y-m-d H:i:s", $val['createtime']);
+		}
+
+		$count =  pdo_fetch("select sum(g.money) as money,sum(g.money2) as money2  from" . tablename("ewei_shop_order_goods1") . "g left join" . tablename("ewei_shop_member") . "m on g.openid2=m.openid" . " where g.uniacid=:uniacid and g.createtime>=$start and g.createtime<=$end and g.type='$type' and g.openid=:openid", array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
+
+		$data = array('list' => $list, 'money' => $count['money'] + $count['money2']);
+
+		returnJson($data);
+	}
 
 }
 ?>
