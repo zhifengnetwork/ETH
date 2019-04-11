@@ -260,6 +260,6 @@ class Down_EweiShopV2Page extends CommissionMobileLoginPage
 
 
 
-		useJson(array('list' => $list, 'total' => $total_level, 'sum' => count($arr), 'pagesize' => $psize));
+		show_json(1,array('list' => $list, 'total' => $total_level, 'sum' => count($arr), 'pagesize' => $psize));
 	}
 }

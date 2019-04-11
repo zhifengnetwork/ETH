@@ -68,8 +68,7 @@ class Investmentjilu_EweiShopV2Page extends MobileLoginPage
 		$total = pdo_fetchcolumn("select count(g.id) from" . tablename("ewei_shop_member_log") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.uniacid=:uniacid and g.type='$type' and g.openid=:openid order by g.createtime desc", array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
 
 		$data = array('status' => 1, "result" => array('list' => $list, 'total' => $total, 'pagesize' => $psize));
-
-		useJson($data);
+		show_json(1, $data);
 	}
 	public function c2clog()
 	{
@@ -87,7 +86,7 @@ class Investmentjilu_EweiShopV2Page extends MobileLoginPage
 			}
 		}
 		if($GPC['q']){
-			useJson($list);
+			show_json(1, $list);
 		}
 		include $this->template();
 	}
@@ -114,9 +113,6 @@ class Investmentjilu_EweiShopV2Page extends MobileLoginPage
 		}
 		// dump($zhuanzhang);
 		// dump($list);die;
-		if($GPC['q']){
-			useJson(['zhuanzhang'=>$zhuanzhang,'list'=>$list]);
-		}
 		include $this->template();
 	}
 }

@@ -12,9 +12,7 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 		$this->diypage('member');
 
 		$member = m('member')->getMember($_W['openid'], true);
-		if($_GPC['q']){
-			// useJson($member);
-		}
+		
 		include $this->template();
 	}
 
