@@ -132,13 +132,26 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 			m('member')->setCredit($_W['openid'], 'credit4', -$money);
 		}
 		// show_json($data);
-		//向投资余额打款
-		m('member')->setCredit($_W['openid'], 'credit1', $money);
-
-		if ($member['type'] == 0) {
-			pdo_update("ewei_shop_member", " type='1' ", array('openid' => $_W['openid'], 'uniacid' => $_W['uniacid']));
+		$credit = 0;
+		$receive_hongbao = pdo_fetchall("select * from" . tablename("ewei_shop_receive_hongbao") . "where openid='" . $_W['openid'] . "'");
+		foreach ($receive_hongbao as $k => $val) {
+			$credit += $val['money'] + $val['money2'];
 		}
+		//最高倍率相应的释放比例
+		$result  = pdo_fetch("select * from" . tablename("ewei_shop_commission_level4") . "where uniacid=" . $_W['uniacid'] . " and start<=" . $member['credit1'] . " and end>=" . $member['credit1']);
+		//释放的比例
+		$money_propor = $result['multiple'] * $member['credit1'];
+		if ($credit > $money_propor) {
+			pdo_update("ewei_shop_member", " credit1=' $money' ", array('openid' => $_W['openid'], 'uniacid' => $_W['uniacid']));
+			pdo_delete("ewei_shop_receive_hongbao", array('openid' => $_W['openid']));
+		} else {
+			//向投资余额打款
+			m('member')->setCredit($_W['openid'], 'credit1', $money);
 
+			if ($member['type'] == 0) {
+				pdo_update("ewei_shop_member", " type='1' ", array('openid' => $_W['openid'], 'uniacid' => $_W['uniacid']));
+			}
+		}
 		$result = pdo_insert("ewei_shop_member_log", $data);
 
 		if ($result) show_json(1, "一键复投成功");

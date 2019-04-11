@@ -498,8 +498,7 @@
       data.list.push(arr);
       
     })
-    console.log(data.list);
-    exit;
+    // console.log(data.list);
     $.ajax({
       type:'post',
       url:"<?php  echo mobileurl('member/lottery/bets') ?>",
