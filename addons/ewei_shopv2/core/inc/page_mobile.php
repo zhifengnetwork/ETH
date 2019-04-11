@@ -26,21 +26,21 @@ class MobilePage extends Page
 		global $_W;
 
 		global $_GPC;
-        
-		if(empty($_W['openid']) && !empty($_GPC['openid'])){
-			$_W['openid'] = $_GPC['openid'];//接口访问  传opendi;
+
+		if (empty($_W['openid']) && !empty($_GPC['openid'])) {
+			$_W['openid'] = $_GPC['openid']; //接口访问  传opendi;
 		}
 		m('shop')->checkClose();
 
 		$preview = intval($_GPC['preview']);
 
 		$wap = m('common')->getSysset('wap');
-		if(!$_GPC['q']){
+		if (!$_GPC['q']) {
 			if ($wap['open'] && !is_weixin() && empty($preview)) {
 
 				if ($this instanceof MobileLoginPage || $this instanceof PluginMobileLoginPage) {
 					if (empty($_W['openid'])) {
-	
+
 						$_W['openid'] = m('account')->checkLogin();
 					}
 				} else {
@@ -49,7 +49,7 @@ class MobilePage extends Page
 			} else {
 				if ($this instanceof MobileLoginPage || $this instanceof PluginMobileLoginPage) {
 					if (empty($_W['openid'])) {
-	
+
 						$_W['openid'] = m('account')->checkLogin();
 					}
 				} else {
@@ -57,7 +57,7 @@ class MobilePage extends Page
 				}
 			}
 		}
-		
+
 		$member = m('member')->checkMember();
 
 		$url = mobileUrl('account/login');
@@ -69,7 +69,7 @@ class MobilePage extends Page
 		$merch_plugin = p('merch');
 
 		$merch_data = m('common')->getPluginset('merch');
-		
+
 		if (!empty($_GPC['merchid']) && $merch_plugin && $merch_data['is_openmerch']) {
 			$this->merch_user = pdo_fetch('select * from ' . tablename('ewei_shop_merch_user') . ' where id=:id limit 1', array(':id' => intval($_GPC['merchid'])));
 		}

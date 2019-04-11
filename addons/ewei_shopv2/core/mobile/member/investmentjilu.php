@@ -85,7 +85,7 @@ class Investmentjilu_EweiShopV2Page extends MobileLoginPage
 				$list[$key]['createtime'] = date("Y-m-d H:i:s", $val['createtime']);
 			}
 		}
-		if($GPC['q']){
+		if ($GPC['q']) {
 			show_json(1, $list);
 		}
 		include $this->template();

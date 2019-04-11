@@ -12,7 +12,7 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 		$this->diypage('member');
 
 		$member = m('member')->getMember($_W['openid'], true);
-		
+
 		include $this->template();
 	}
 
@@ -107,7 +107,7 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 
 		if (($member['credit1'] + $money) > $sys['bibi']) show_json(0, "您的投资已超过上限");
 
-		$data = array('uniacid' => $_W['uniacid'], 'openid' => $_W['openid'], 'type' => 2, 'money' => $money, 'credit' => $money, 'createtime' => time(), 'section' => $ass['id'], 'front_money' => $member['credit4']);
+		$data = array('uniacid' => $_W['uniacid'], 'openid' => $_W['openid'], 'type' => 1, 'money' => $money, 'credit' => $money, 'createtime' => time(), 'section' => $ass['id'], 'front_money' => $member['credit4']);
 		// show_json($data);
 		if ($type == 2) {  //自由账户一键复投
 
