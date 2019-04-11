@@ -635,6 +635,18 @@ class Androidapi_EweiShopV2Page extends MobilePage
 	}
 
 
+	public function aaa(){
+		echo 'sadfhashfsadfa';
+		echo 'sadfhashfsadfa';
+		echo 'sadfhashfsadfa';
+		echo 'sadfhashfsadfa';
+		echo 'sadfhashfsadfa';
+		echo 'sadfhashfsadfa';
+		echo 'sadfhashfsadfa';
+		echo 'sadfhashfsadfa';
+		echo 'sadfhashfsadfa';
+		echo 'sadfhashfsadfa';
+	}
 	//游戏规则介绍
 	public function fucairule(){
 		global $_W;
