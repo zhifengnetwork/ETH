@@ -1514,3 +1514,9 @@ String:
 SQL: <br/>select `name` from `ims_ewei_shop_plugin` where `identity` = 'live' and isv2 = 1 and status = 1 <hr/>Params: <br/>array (
 )<hr/>SQL Error: <br/>Table 'hskj.ims_ewei_shop_plugin' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/live/core/model.php; line: 54; <br />file: /addons/ewei_shopv2/core/inc/plugin_model.php; line: 10; <br />file: /addons/ewei_shopv2/core/inc/functions.php; line: 159; <br />file: /data/tpl/app/ewei_shopv2/default/mobile/_footer.tpl.php; line: 53; <br />file: /data/tpl/app/ewei_shopv2/default/account/login.tpl.php; line: 170; <br />file: /addons/ewei_shopv2/core/mobile/account/index.php; line: 65; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 13; <br />file: /app/index.php; line: 121; <br />
 
+2019-04-11 12:24:29 SQL Error :
+------------
+String:
+SQL: <br/>select id,couponid,openid,isparent,sendtime,price,merchid,isverify,addressid,isvirtualsend,virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2 <hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/task/order/receive.php; line: 23; <br />
+

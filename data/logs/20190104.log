@@ -1,8 +1,0 @@
-2019-01-04 18:43:56 SQL Error :
-------------
-String:
-SQL: <br/>select max(downcount),* from `ims_ewei_shop_commission_level`where uniacid=:uniacid and downcount<= :downcount <hr/>Params: <br/>array (
-  ':uniacid' => 12,
-  ':downcount' => 6,
-)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '* from `ims_ewei_shop_commission_level`where uniacid='12' and downcount<= '6'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/commission/core/model.php; line: 1350; <br />file: /addons/ewei_shopv2/core/mobile/account/index.php; line: 150; <br />file: /addons/ewei_shopv2/core/mobile/account/index.php; line: 64; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
-
