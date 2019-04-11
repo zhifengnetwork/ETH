@@ -1,4 +1,5 @@
 data/config.php
+data/logs/*
 .vscode
 .project
 .idea
