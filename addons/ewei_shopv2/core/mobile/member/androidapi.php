@@ -1876,5 +1876,104 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		returnJson(['member'=>$member,'huiyuanlevel'=>$huiyuanlevel,'money'=>$money,'money2'=>$money2,'money4'=>money4,'arr'=>$arr,'arr2'=>$arr2]);
 	}
 
+	public function my_wallet(){
+		global $_W;
+		global $_GPC;
+
+		$this->diypage('member');
+
+		$member = m('member')->getMember($_W['openid'], true);
+		returnJson($member);
+	}
+
+	public function submit()
+	{
+		global $_W;
+		global $_GPC;
+		$set = $_W['shopset']['trade'];
+
+		if (empty($set['withdraw'])) {
+			returnJson([], '系统未开启提现!',-1);
+		}
+		$set_array = array();
+
+		//判断该会员是否绑定钱包地址和二维码
+		$member = m('member')->getMember($_W['openid'], true);
+		if (!$member['walletcode'] || !$member['walletaddress']) {
+			returnJson([], '请完善您的资料!',-1);
+		}
+
+		$money = floatval($_GPC['money']);
+		if (!floor($money / $set['withdrawmoney']))  returnJson([], "提现的金额必须是" . $set['withdrawmoney'] . "的倍数",-1);
+		$credit = m('member')->getCredit($_W['openid'], 'credit2');
+
+		$apply = array();
+		$type_array = array();
+
+		$realmoney = $money;
+
+		if (!(empty($set_array['charge']))) {
+			$money_array = m('member')->getCalculateMoney($money, $set_array);
+			if ($money_array['flag']) {
+				$realmoney = $money_array['realmoney'];
+				$deductionmoney = $money_array['deductionmoney'];
+			}
+		}
+
+		m('member')->setCredit($_W['openid'], 'credit2', -$money, array(0, $_W['shopset']['set'][''] . '余额提现预扣除: ' . $money . ',实际到账金额:' . $realmoney . ',手续费金额:' . $deductionmoney));
+		$logno = m('common')->createNO('member_log', 'logno', 'RW');
+		$apply['uniacid'] = $_W['uniacid'];
+		$apply['logno'] = $logno;
+		$apply['openid'] = $_W['openid'];
+		$apply['title'] = 'ETH提现余额';
+		$apply['type'] = 4;
+		$apply['payment'] = 1;
+		$apply['createtime'] = time();
+		$apply['status'] = 0;
+		$apply['money'] = $money;
+		$apply['front_money'] = $member['credit2'];
+		$apply['after_money'] = $member['credit2'] - $money;
+		$apply['add'] = $member['walletaddress'];
+		$apply['url'] = $member['walletcode'];
+		$apply['realmoney'] = $_GPC['realmoney'];
+		$apply['charge'] = $_GPC['charge'];
+		// show_json($apply);
+		pdo_insert('ewei_shop_member_log', $apply);
+		$logid = pdo_insertid();
+		m('notice')->sendMemberLogMessage($logid);
+		returnJson([]);
+	}
+
+	public function zhuangzhangis()
+	{
+		global $_W;
+		global $_GPC;
+
+		$money = $_GPC['money'];
+		$moneysxf = $_GPC['moneysxf'];
+		$mid = $_GPC['id'];
+
+		$member = m('member')->getMember($_W['openid'], true);
+		$member2 = pdo_fetch("select * from " . tablename("ewei_shop_member") . "where uniacid=" . $_W['uniacid'] . " and id='$mid'");
+
+		if (!$money) returnJson([], "请输入转账金额",-1);
+		if (!$mid) returnJson([], "请输入转账人id",-1);
+		if ($member['credit2'] < $money) returnJson([], "您输入的转账金额过大，账户余额不足",-1);
+		// returnJson([]mid);
+		if ($member2['openid'] == $_W['openid']) returnJson([], "不能对自己进行转账",-1);
+
+		$data = array('uniacid' => $_W['uniacid'], 'openid' => $_W['openid'], 'openid2' => $member2['openid'], 'money' => $money, 'money2' => $moneysxf, 'createtime' => time());
+
+		//添加转账记录
+		pdo_insert("ewei_zhuanzhang", $data);
+
+		//向对方账户打钱
+		m('member')->setCredit($member2['openid'], 'credit2', $money - $moneysxf);
+		//自己扣钱
+		m('member')->setCredit($member['openid'], 'credit2', -$money);
+		returnJson([], "转账成功");
+	}
+
+
 }
 ?>
