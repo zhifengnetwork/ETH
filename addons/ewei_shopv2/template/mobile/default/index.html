@@ -390,7 +390,7 @@
 
       <ul class="uls">
         <div class="lis">
-          <a  onclick="window.location.href='{php echo mobileUrl('member/investmentjilu',array('type'=>1))}'">
+          <a  href="window.location.href='{php echo mobileUrl('member/investmentjilu',array('type'=>1))}'">
             <img src="{php echo EWEI_SHOPV2_LOCAL}static/icon/touzhi.png" alt="">
             <span>投资总额</span>
             <span id="touzimoney"></span>
@@ -441,6 +441,11 @@
     <script type="text/javascript">
       $('.lis > a').click(function () {
         if("{$member['type']}" == 2 && !$(this).hasClass('chujin')){
+          alert('该账号已锁户！');
+          return false;
+        }
+
+        if("{$member['suoding']}" == 1 && !$(this).hasClass('chujin')){
           alert('该账号已锁户！');
           return false;
         }

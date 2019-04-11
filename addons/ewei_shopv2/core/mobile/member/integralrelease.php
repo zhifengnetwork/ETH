@@ -33,11 +33,12 @@ class Integralrelease_EweiShopV2Page extends MobilePage
                 foreach ($receive_hongbao as $k => $val) {
                     $credit += $val['money'] + $val['money2'];
                 }
+
                 //向积分释放表中查询该会员今天是否已经释放
                 $arr = pdo_fetch("select * from " . tablename("ewei_shop_receive_hongbao") . "where openid=:openid and time>=$start and time<=$end  and uniacid=:uniacid", array(':openid' => $value['openid'], ':uniacid' => $_W['uniacid']));
                 // var_dump($arr);
 
-                if (!$arr && $value['credit1']) {  //无日志的情况下给会员释放积分
+                if ($arr && $value['credit1']) {  //无日志的情况下给会员释放积分
                     $openid = $value['openid'];
                     //获取该会员最高的投资倍率
                     $arr1 = m('member')->getMember($openid, true);
@@ -50,7 +51,8 @@ class Integralrelease_EweiShopV2Page extends MobilePage
                     //收益总币数
                     $money_propor = $result['multiple'] * $value['credit1'];
 
-                    if ($credit > $money_propor) {
+                    if ($credit >= $money_propor) {
+                        pdo_update("ewei_shop_member", " suoding='1' ", array('openid' => $openid));
                         continue;
                     }
                     if (!$proportion) $proportion = 0.3;
