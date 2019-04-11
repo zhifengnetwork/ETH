@@ -69,7 +69,7 @@ class Investmentjilu_EweiShopV2Page extends MobileLoginPage
 
 		$data = array('status' => 1, "result" => array('list' => $list, 'total' => $total, 'pagesize' => $psize));
 
-		show_json(1, $data);
+		useJson($data);
 	}
 	public function c2clog()
 	{
@@ -85,6 +85,9 @@ class Investmentjilu_EweiShopV2Page extends MobileLoginPage
 			foreach ($list as $key => $val) {
 				$list[$key]['createtime'] = date("Y-m-d H:i:s", $val['createtime']);
 			}
+		}
+		if($GPC['q']){
+			useJson($list);
 		}
 		include $this->template();
 	}
@@ -111,6 +114,9 @@ class Investmentjilu_EweiShopV2Page extends MobileLoginPage
 		}
 		// dump($zhuanzhang);
 		// dump($list);die;
+		if($GPC['q']){
+			useJson(['zhuanzhang'=>$zhuanzhang,'list'=>$list]);
+		}
 		include $this->template();
 	}
 }

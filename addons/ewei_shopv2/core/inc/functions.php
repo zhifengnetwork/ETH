@@ -20,6 +20,22 @@ if (!function_exists('pred')) {
 	}
 }
 
+if (!function_exists('returnJson')) {
+	function returnJson($data, $message = 'ok', $code = 1)
+	{
+		header("Content-Type:text/html; charset=utf-8");
+		header('Access-Control-Allow-Origin: *');
+		header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+		header('Access-Control-Allow-Methods: GET, POST, PUT');
+		$result = array();
+		$result['status'] = $code;
+		$result['msg'] = $message;
+		$result['data'] = $data;
+		$json = json_encode($result,JSON_UNESCAPED_UNICODE);
+		exit($json);
+	}
+}
+
 if (!function_exists('m')) {
 	function m($name = '')
 	{

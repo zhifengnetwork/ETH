@@ -19,7 +19,9 @@ class Qipai_EweiShopV2Page extends MobileLoginPage
         global $_W;
         global $_GPC;
         $member = m('member')->getMember($_W['openid'], true);
-        
+        if($GPC['q']){
+            useJson($member);
+        }
         include $this->template();
     }
 
