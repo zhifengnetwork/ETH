@@ -68,11 +68,30 @@ class Index_EweiShopV2Page extends MobilePage
 
 		if($q){
 
-			$data = [];
+			
+
 			if($_W['openid']){
 				$data = $this->homeinfo($q);
 				$data = $data['data'];
 			}
+
+			$data['touziimg'] = MODULE_URL . 'static/icon/touzhi.png';
+			$data['touzititle'] = '投资总额';
+
+			$data['shouyisumimg'] = MODULE_URL . 'static/icon/zhongshouyi.png';
+			$data['shouyisumtitle'] = '总收益';
+
+			$data['shouyiimg'] = MODULE_URL . 'static/icon/jinri.png';
+			$data['shouyititle'] = '今日收益';
+
+			$data['moneyimg'] = MODULE_URL . 'static/icon/qianbao.png';
+			$data['moneytitle'] = '钱包余额';
+
+			$data['jihuoimg'] = MODULE_URL . 'static/icon/jihuo.png';
+			$data['jihuotitle'] = '激活账户';
+
+			$data['xiajiimg'] = MODULE_URL . 'static/icon/tuandui.png';
+			$data['xiajititle'] = '团队';
 			
 			// $menu['index']['url'] = empty($_GPC['merchid']) ? mobileUrl() : mobileUrl('merch');
 			$menu['index']['title'] = '首页';
@@ -90,8 +109,7 @@ class Index_EweiShopV2Page extends MobilePage
 			$menu['member']['title'] = '我的';
 			$menu['member']['img'] = $_W['routes'] =='member' ? MODULE_URL . 'static/icon/wode1.png' : MODULE_URL . 'static/icon/wode0.png';
 			
-			
-			show_json(1,['slide'=>$slide,'data'=>$data,'notice'=>$notice,'menu'=>$menu]);
+			returnJson(['slide'=>$slide,'data'=>$data,'notice'=>$notice,'menu'=>$menu]);
 		}
 
 		include $this->template();

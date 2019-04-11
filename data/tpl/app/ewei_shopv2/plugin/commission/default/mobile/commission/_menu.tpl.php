@@ -22,13 +22,13 @@
 
     </a>
 
-    <!-- <?php  if($member['type'] == 2) { ?>
+    <?php  if($member['type'] == 2) { ?>
     <a href="javascript:;" class="external nav-item <?php  if($_W['routes']=='member.lottery') { ?>active<?php  } ?>" onclick="alert('该账号已锁户')"
         id="menucart">
         <span class="icon icon-browser"></span>
         <span class="label">3D</span>
     </a>
-    <?php  } else { ?> -->
+    <?php  } else { ?>
     <a href="<?php  echo mobileUrl('member/qipai')?>" class="external nav-item <?php  if($_W['routes']=='member.qipai') { ?>active<?php  } ?>" id="menucart">
     <!-- <a href="<?php  echo mobileUrl('member/lottery')?>" class="external nav-item <?php  if($_W['routes']=='member.lottery') { ?>active<?php  } ?>" id="menucart"> -->
         <!-- <span class="icon icon-browser"></span> -->
@@ -39,7 +39,7 @@
         <?php  } ?>
         <span class="label">棋牌娱乐</span>
     </a>
-    <!-- <?php  } ?> -->
+<?php  } ?>
 
 
     <!-- <?php  if($member['type'] == 2) { ?>

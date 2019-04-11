@@ -629,10 +629,90 @@ class Androidapi_EweiShopV2Page extends MobilePage
 
 		}
 
-
-		show_json(1,array('list'=>$yes));
+		returnJson(['list' => $yes],'获取成功',1);
 
 	}
+
+
+    //下注
+	public function bets()
+	{
+		global $_W;
+		global $_GPC;
+
+			$type = $_GPC['type'];
+
+			if ($type == 1) {    //确认信息
+
+				$member = m('member')->getMember($_W['openid'], true);
+
+				$data = array('credit2' => $member['credit2'], 'credit4' => $member['credit4']);
+
+				show_json(1, array('list' => $data));
+			} else if ($type == 2) {  //下注
+				$t = time();
+				$start = mktime(19, 59, 59, date("m", $t), date("d", $t), date("Y", $t));
+
+				if ($t >= $start) {
+					show_json(-1, "下注失败!每日下注时间为下午20点前.");
+				}
+				// $end = mktime(23,59,59,date("m",$t),date("d",$t),date("Y",$t));
+				$member = m('member')->getMember($_W['openid'], true);
+
+				$sale = pdo_fetch("select * from" . tablename("ewei_shop_lottery2") . "where uniacid=" . $_W['uniacid']);
+
+				$payment = $_GPC['payment'];
+
+				$money = $_GPC['money'];
+
+				$list = $_GPC['list'];
+				// show_json($list);
+
+				if ($payment == 1) {  //ETH支付
+
+					if ($member['credit2'] < $money)  returnJson([],-1, "您的自由账户余额不足");
+					//扣除该会员的下注金额
+					m('member')->setCredit($_W['openid'], 'credit2', -$money);
+					$title = "自由账户进行下注减少" . $money;
+					$front_money = $member['credit2'];
+				} else if ($payment == 2) {  //复投账户支付
+
+					if ($member['credit4'] < $money)  returnJson([],-1, "您的复投账户余额");
+					//扣除该会员的下注金额
+					m('member')->setCredit($_W['openid'], 'credit4', -$money);
+					$title = "复投账户进行下注减少" . $money;
+					$front_money = $member['credit4'];
+				}
+				$arr_log = array(
+					'uniacid' => 12,
+					'openid' => $_W['openid'],
+					'money' => $money,
+					'type' => 7,
+					'title' => $title,
+					'payment' => $payment,
+					'front_money' => $front_money,
+					'after_money' => $front_money - $money,
+					'createtime' => time()
+				);
+				pdo_insert("ewei_shop_member_log", $arr_log);
+
+				foreach ($list as $key => $val) {
+
+					$number = $val['0'];
+					$data = array('uniacid' => $_W['uniacid'], 'openid' => $_W['openid'], 'number' => "$number", 'multiple' => $val['1'], 'money' => $val['1'] * $sale['price'], 'createtime' => time());
+					pdo_insert("stakejilu", $data);
+				}
+
+				pdo_update("ewei_shop_lottery2", array('sum' => $sale['sum'] + $money), array('uniacid' => $_W['uniacid']));
+				returnJson([],1, "下注成功");
+			}
+	}
+
+
+
+
+
+	
 
 
 	//游戏规则介绍
@@ -682,6 +762,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$total = pdo_fetchcolumn('SELECT count(og.id) FROM '.$tablename.$where, $params);
 
 		$data = array('status'=>1,"result"=>array('list' => $list, 'total' => $total, 'pagesize' => $psize));
+		
 		echo json_encode($data);exit();
 
 	}

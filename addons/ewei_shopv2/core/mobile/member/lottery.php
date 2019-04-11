@@ -62,6 +62,8 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 				$kn = substr($kn, 0, -1);
 			}
 		}
+
+		$this->relust();
 		show_json(1, array('list' => $yes));
 	}
 
@@ -176,6 +178,7 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 			$list[$key]['createtime'] = date("Y-m-d H:i:s", $val['createtime']);
 		}
 		$total = pdo_fetchcolumn('SELECT count(og.id) FROM ' . $tablename . $where, $params);
+		
 
 		show_json(1, array('list' => $list, 'total' => $total, 'pagesize' => $psize));
 	}

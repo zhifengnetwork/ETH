@@ -205,7 +205,7 @@ class Recharge_EweiShopV2Page extends MobileLoginPage
 
 		$list = pdo_fetch("select * from " . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
 		$data = array('zfb' => $list['zfb'], 'zfbfile' => $list['zfbfile'], 'wx' => $list['wx'], 'weixinfile' => $list['weixinfile'], 'yhk' => $list['yhk'], 'yhkfile' => $list['yhkfile'], 'add' => $list['add']);
-		show_json(1, $data);
+		show_json(1, array('list' => $data));
 	}
 
 	public function wechat_complete()
@@ -235,7 +235,6 @@ class Recharge_EweiShopV2Page extends MobileLoginPage
 		// }
 
 		if ($result) {
-
 			show_json(1);
 		}
 	}

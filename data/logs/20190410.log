@@ -113,3 +113,135 @@ String:
 SQL: <br/>select id,couponid,openid,isparent,sendtime,price,merchid,isverify,addressid,isvirtualsend,virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2 <hr/>Params: <br/>array (
 )<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'virtual,dispatchtype from `ims_ewei_shop_order` where uniacid=12 and status=2' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/task/order/receive.php; line: 23; <br />
 
+2019-04-10 21:06:43 SQL Error :
+------------
+String:
+SQL: <br/>select `name` from `ims_ewei_shop_plugin` where `identity` = 'live' and isv2 = 1 and status = 1 <hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Table 'hskj.ims_ewei_shop_plugin' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/live/core/model.php; line: 54; <br />file: /addons/ewei_shopv2/core/inc/plugin_model.php; line: 10; <br />file: /addons/ewei_shopv2/core/inc/functions.php; line: 143; <br />file: /data/tpl/app/ewei_shopv2/default/mobile/_footer.tpl.php; line: 53; <br />file: /data/tpl/app/ewei_shopv2/default/account/login.tpl.php; line: 170; <br />file: /addons/ewei_shopv2/core/mobile/account/index.php; line: 65; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 13; <br />file: /app/index.php; line: 121; <br />
+
+2019-04-10 21:06:46 SQL Error :
+------------
+String:
+SQL: <br/>select `name` from `ims_ewei_shop_plugin` where `identity` = 'live' and isv2 = 1 and status = 1 <hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Table 'hskj.ims_ewei_shop_plugin' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/live/core/model.php; line: 54; <br />file: /addons/ewei_shopv2/core/inc/plugin_model.php; line: 10; <br />file: /addons/ewei_shopv2/core/inc/functions.php; line: 143; <br />file: /data/tpl/app/ewei_shopv2/default/mobile/_footer.tpl.php; line: 53; <br />file: /data/tpl/app/ewei_shopv2/default/account/login.tpl.php; line: 170; <br />file: /addons/ewei_shopv2/core/mobile/account/index.php; line: 65; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 13; <br />file: /app/index.php; line: 121; <br />
+
+2019-04-10 21:06:54 SQL Error :
+------------
+String:
+SQL: <br/>select * from `ims_ewei_shop_goods` where uniacid = 12 and isstatustime > 0 and deleted = 0 and status < 2 <hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Table 'hskj.ims_ewei_shop_goods' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/ewei_shopv2/core/task/goods/status.php; line: 19; <br />
+
+2019-04-10 21:07:19 SQL Error :
+------------
+String:
+SQL: <br/>select `name` from `ims_ewei_shop_plugin` where `identity` = 'live' and isv2 = 1 and status = 1 <hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Table 'hskj.ims_ewei_shop_plugin' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/live/core/model.php; line: 54; <br />file: /addons/ewei_shopv2/core/inc/plugin_model.php; line: 10; <br />file: /addons/ewei_shopv2/core/inc/functions.php; line: 143; <br />file: /data/tpl/app/ewei_shopv2/default/mobile/_footer.tpl.php; line: 53; <br />file: /data/tpl/app/ewei_shopv2/default/mobile/member/investmentjilu.tpl.php; line: 127; <br />file: /addons/ewei_shopv2/core/mobile/member/investmentjilu.php; line: 22; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 13; <br />file: /app/index.php; line: 121; <br />
+
+2019-04-10 21:07:47 SQL Error :
+------------
+String:
+SQL: <br/>select `name` from `ims_ewei_shop_plugin` where `identity` = 'live' and isv2 = 1 and status = 1 <hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Table 'hskj.ims_ewei_shop_plugin' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/live/core/model.php; line: 54; <br />file: /addons/ewei_shopv2/core/inc/plugin_model.php; line: 10; <br />file: /addons/ewei_shopv2/core/inc/functions.php; line: 143; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 128; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 13; <br />file: /app/index.php; line: 121; <br />
+
+2019-04-10 21:07:47 SQL Error :
+------------
+String:
+SQL: <br/>select `name` from `ims_ewei_shop_plugin` where `identity` = 'live' and isv2 = 1 and status = 1 <hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Table 'hskj.ims_ewei_shop_plugin' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/live/core/model.php; line: 54; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 130; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 13; <br />file: /app/index.php; line: 121; <br />
+
+2019-04-10 21:07:47 SQL Error :
+------------
+String:
+SQL: <br/>select  COUNT(1)  from `ims_ewei_shop_verifygoods`   vg
+                 inner join `ims_ewei_shop_order_goods` og on vg.ordergoodsid = og.id
+                 left  join `ims_ewei_shop_order` o on vg.orderid = o.id
+                 left  join `ims_ewei_shop_order_refund` orf on o.refundid = orf.id
+                 inner join `ims_ewei_shop_goods` g on og.goodsid = g.id
+                 left  join `ims_ewei_shop_goods_cards` c on c.id = g.cardid
+                 where   vg.uniacid=:uniacid and vg.openid=:openid and vg.invalid =0   order by vg.starttime desc<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':openid' => 'wap_user_12_13286971460',
+)<hr/>SQL Error: <br/>Table 'hskj.ims_ewei_shop_goods' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 140; <br />file: /framework/function/pdo.func.php; line: 36; <br />file: /addons/ewei_shopv2/core/model/verifygoods.php; line: 69; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 153; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 13; <br />file: /app/index.php; line: 121; <br />
+
+2019-04-10 21:07:47 SQL Error :
+------------
+String:
+SQL: <br/>SELECT id, uid, username, status FROM`ims_ewei_shop_perm_user`WHERE openid=:openid AND uniacid=:uniacid AND status=1 LIMIT 1<hr/>Params: <br/>array (
+  ':openid' => 'wap_user_12_13286971460',
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Table 'hskj.ims_ewei_shop_perm_user' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 202; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 13; <br />file: /app/index.php; line: 121; <br />
+
+2019-04-10 21:09:25 SQL Error :
+------------
+String:
+SQL: <br/>select `name` from `ims_ewei_shop_plugin` where `identity` = 'live' and isv2 = 1 and status = 1 <hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Table 'hskj.ims_ewei_shop_plugin' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/live/core/model.php; line: 54; <br />file: /addons/ewei_shopv2/core/inc/plugin_model.php; line: 10; <br />file: /addons/ewei_shopv2/core/inc/functions.php; line: 143; <br />file: /data/tpl/app/ewei_shopv2/default/mobile/_footer.tpl.php; line: 53; <br />file: /data/tpl/app/ewei_shopv2/default/account/login.tpl.php; line: 170; <br />file: /addons/ewei_shopv2/core/mobile/account/index.php; line: 65; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 13; <br />file: /app/index.php; line: 121; <br />
+
+2019-04-10 21:09:37 SQL Error :
+------------
+String:
+SQL: <br/>select `name` from `ims_ewei_shop_plugin` where `identity` = 'live' and isv2 = 1 and status = 1 <hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Table 'hskj.ims_ewei_shop_plugin' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/live/core/model.php; line: 54; <br />file: /addons/ewei_shopv2/core/inc/plugin_model.php; line: 10; <br />file: /addons/ewei_shopv2/core/inc/functions.php; line: 143; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 128; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 13; <br />file: /app/index.php; line: 121; <br />
+
+2019-04-10 21:09:37 SQL Error :
+------------
+String:
+SQL: <br/>select `name` from `ims_ewei_shop_plugin` where `identity` = 'live' and isv2 = 1 and status = 1 <hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Table 'hskj.ims_ewei_shop_plugin' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/live/core/model.php; line: 54; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 130; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 13; <br />file: /app/index.php; line: 121; <br />
+
+2019-04-10 21:09:37 SQL Error :
+------------
+String:
+SQL: <br/>select  COUNT(1)  from `ims_ewei_shop_verifygoods`   vg
+                 inner join `ims_ewei_shop_order_goods` og on vg.ordergoodsid = og.id
+                 left  join `ims_ewei_shop_order` o on vg.orderid = o.id
+                 left  join `ims_ewei_shop_order_refund` orf on o.refundid = orf.id
+                 inner join `ims_ewei_shop_goods` g on og.goodsid = g.id
+                 left  join `ims_ewei_shop_goods_cards` c on c.id = g.cardid
+                 where   vg.uniacid=:uniacid and vg.openid=:openid and vg.invalid =0   order by vg.starttime desc<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':openid' => 'wap_user_12_13286971460',
+)<hr/>SQL Error: <br/>Table 'hskj.ims_ewei_shop_goods' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 140; <br />file: /framework/function/pdo.func.php; line: 36; <br />file: /addons/ewei_shopv2/core/model/verifygoods.php; line: 69; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 153; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 13; <br />file: /app/index.php; line: 121; <br />
+
+2019-04-10 21:09:38 SQL Error :
+------------
+String:
+SQL: <br/>SELECT id, uid, username, status FROM`ims_ewei_shop_perm_user`WHERE openid=:openid AND uniacid=:uniacid AND status=1 LIMIT 1<hr/>Params: <br/>array (
+  ':openid' => 'wap_user_12_13286971460',
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Table 'hskj.ims_ewei_shop_perm_user' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 202; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 13; <br />file: /app/index.php; line: 121; <br />
+
+2019-04-10 21:10:32 SQL Error :
+------------
+String:
+SQL: <br/>select `name` from `ims_ewei_shop_plugin` where `identity` = 'live' and isv2 = 1 and status = 1 <hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Table 'hskj.ims_ewei_shop_plugin' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/live/core/model.php; line: 54; <br />file: /addons/ewei_shopv2/core/inc/plugin_model.php; line: 10; <br />file: /addons/ewei_shopv2/core/inc/functions.php; line: 143; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 128; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 13; <br />file: /app/index.php; line: 121; <br />
+
+2019-04-10 21:10:32 SQL Error :
+------------
+String:
+SQL: <br/>select `name` from `ims_ewei_shop_plugin` where `identity` = 'live' and isv2 = 1 and status = 1 <hr/>Params: <br/>array (
+)<hr/>SQL Error: <br/>Table 'hskj.ims_ewei_shop_plugin' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/plugin/live/core/model.php; line: 54; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 130; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 13; <br />file: /app/index.php; line: 121; <br />
+
+2019-04-10 21:10:32 SQL Error :
+------------
+String:
+SQL: <br/>select  COUNT(1)  from `ims_ewei_shop_verifygoods`   vg
+                 inner join `ims_ewei_shop_order_goods` og on vg.ordergoodsid = og.id
+                 left  join `ims_ewei_shop_order` o on vg.orderid = o.id
+                 left  join `ims_ewei_shop_order_refund` orf on o.refundid = orf.id
+                 inner join `ims_ewei_shop_goods` g on og.goodsid = g.id
+                 left  join `ims_ewei_shop_goods_cards` c on c.id = g.cardid
+                 where   vg.uniacid=:uniacid and vg.openid=:openid and vg.invalid =0   order by vg.starttime desc<hr/>Params: <br/>array (
+  ':uniacid' => 12,
+  ':openid' => 'wap_user_12_13286971460',
+)<hr/>SQL Error: <br/>Table 'hskj.ims_ewei_shop_goods' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 140; <br />file: /framework/function/pdo.func.php; line: 36; <br />file: /addons/ewei_shopv2/core/model/verifygoods.php; line: 69; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 153; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 13; <br />file: /app/index.php; line: 121; <br />
+
+2019-04-10 21:10:32 SQL Error :
+------------
+String:
+SQL: <br/>SELECT id, uid, username, status FROM`ims_ewei_shop_perm_user`WHERE openid=:openid AND uniacid=:uniacid AND status=1 LIMIT 1<hr/>Params: <br/>array (
+  ':openid' => 'wap_user_12_13286971460',
+  ':uniacid' => 12,
+)<hr/>SQL Error: <br/>Table 'hskj.ims_ewei_shop_perm_user' doesn't exist<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/ewei_shopv2/core/mobile/member/index.php; line: 202; <br />file: /addons/ewei_shopv2/core/model/route.php; line: 202; <br />file: /addons/ewei_shopv2/site.php; line: 38; <br />file: /app/source/entry/site.ctrl.php; line: 13; <br />file: /app/index.php; line: 121; <br />
+
