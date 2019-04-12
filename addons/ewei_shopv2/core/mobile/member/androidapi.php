@@ -2197,6 +2197,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		if (empty($_W['openid'])) {
 			returnJson(array(), "openid不能为空", 0);
 		}
+		
 		$time = time();
 		$user = pdo_fetch("select openid,createtime from" . tablename("ewei_shop_member") . "where openid='" . $_W['openid'] . "'");
 		$time_one = $user['createtime'] + '2592000';
