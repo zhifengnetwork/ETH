@@ -644,6 +644,8 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		}
 	}
 
+
+
 	//游戏规则介绍
 	public function fucairule()
 	{
@@ -659,6 +661,15 @@ class Androidapi_EweiShopV2Page extends MobilePage
 	{
 		global $_W;
 		global $_GPC;
+
+		$id = $_GPC['id'];
+		if($id){
+			$memberis = pdo_fetch("select * from ".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and id='$id'");
+			$_W['openid'] = $memberis['openid'];
+		}else{
+			$data = array('status'=>0,"fail"=>"请上传会员的id");
+			echo json_encode($data);exit();
+		}
 
 		$pindex = max(1, intval($_GPC['page']));
 		$psize = 10;
@@ -692,6 +703,15 @@ class Androidapi_EweiShopV2Page extends MobilePage
 	{
 		global $_W;
 		global $_GPC;
+
+		$id = $_GPC['id'];
+		if($id){
+			$memberis = pdo_fetch("select * from ".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and id='$id'");
+			$_W['openid'] = $memberis['openid'];
+		}else{
+			$data = array('status'=>0,"fail"=>"请上传会员的id");
+			echo json_decode($data);
+		}
 
 		$pindex = max(1, intval($_GPC['page']));
 		$psize = 10;
@@ -727,48 +747,36 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		global $_GPC;
 		$type   = empty($_GPC['type']) ? 1 : $_GPC['type'];
 		$pindex = max(1, intval($_GPC['page']));
-		$psize  = 10;
+		$psize = 10;
 		$openid = $_W['openid'];
+		$status = $_GPC['status'];
+		if(empty($status)){
+			$data = array('status'=>0,"fail"=>"请上传订单状态");
+			echo json_encode($data);exit();
+		}
+
 		$select = 'SELECT g.id,g.openid,g.openid2,g.money,g.createtime,g.type,g.price,g.trx,g.status,m.nickname,m.zfbfile,m.wxfile,m.bankid,m.bankname,m.bank,m2.nickname as nickname2 FROM ';
-		$tablename = tablename('guamai') . ' g left join ' . tablename('ewei_shop_member') . ' m ON m.openid=g.openid left join' . tablename('ewei_shop_member') . ' m2 ON m2.openid=g.openid2';
-		$where = ' WHERE g.uniacid=:uniacid AND g.type=:type AND (g.status=0) ';
+		$tablename = tablename('guamai').' g left join '.tablename('ewei_shop_member').' m ON m.openid=g.openid left join'.tablename('ewei_shop_member').' m2 ON m2.openid=g.openid2';
+		$where = " WHERE g.uniacid=:uniacid AND g.type=:type AND (g.status='$status') ";
 		$where .= " ORDER BY g.status = '1' DESC,g.openid = '$openid' DESC,g.openid2 = '$openid' DESC,g.createtime DESC ";
 		$limit = ' LIMIT ' . (($pindex - 1) * $psize) . ',' . $psize;
 
 		$params[':uniacid'] = $_W['uniacid'];
-		$params[':type']    = $type; //我卖出的订单 应该挂在买入的下面
+		$params[':type'] = $type;
 
-		$list  = pdo_fetchall($select . $tablename . $where . $limit, $params);
-		$total = pdo_fetchcolumn('SELECT count(g.id) FROM ' . $tablename . $where, $params);
+		$list = pdo_fetchall($select.$tablename.$where.$limit,$params);
+		$total = pdo_fetchcolumn('SELECT count(g.id) FROM '.$tablename.$where, $params);
 		// show_json(111);
 
-		foreach ($list as $key => $val) {
-			$list[$key]['createtime'] = date("Y-m-d H:i:s", $val['createtime']);
-			if ($val['zfbfile']) $list[$key]['zfbfile'] = 1;
-			if ($val['wxfile']) $list[$key]['wxfile'] = 1;
-			if ($val['bankid'] && $val['bankname'] && $val['bank']) $list[$key]['bank'] = 1;
+		foreach ($list as $key=>$val) {
+			$list[$key]['createtime'] = date("Y-m-d H:i:s",$val['createtime']);
+			if($val['zfbfile']) $list[$key]['zfbfile'] = 1;
+			if($val['wxfile']) $list[$key]['wxfile'] = 1;
+			if($val['bankid'] && $val['bankname'] && $val['bank']) $list[$key]['bank'] = 1;
 			//判断该信息是否是自己发布的（未交易时）
-			if ($val['openid'] == $_W['openid'] && $val['status'] == 0) $list[$key]['self'] = 1;
-			else  $list[$key]['self'] = 0;
+			if($val['openid']==$_W['openid'] && $val['status']==0)$list[$key]['self'] = 1; else  $list[$key]['self'] = 0;
 			//交易中
-			if (($val['openid2'] != $_W['openid'] && $val['openid'] != $_W['openid']) && $val['status'] == 1) $list[$key]['self3'] = 1;
-			else  $list[$key]['self3'] = 0;
-
-			//判断该数据是否是自己的
-			if (($val['openid2'] == $_W['openid'] || $val['openid'] == $_W['openid']) && $val['status'] == 1 && $val['type'] == 1) {
-				if ($key != 0) {
-					// array_unshift($list,$list[$key]);
-					// unset($list[$key+1]);
-				}
-			}
-
-			//判断该数据是否是自己的
-			if (($val['openid2'] == $_W['openid'] || $val['openid'] == $_W['openid']) && $val['status'] == 1 && $val['type'] == 0) {
-				if ($key != 0) {
-					// $key = 0;
-					// $item[] = $key+1;
-				}
-			}
+			if(($val['openid2']!=$_W['openid'] && $val['openid']!=$_W['openid']) && $val['status']==1)$list[$key]['self3'] = 1; else  $list[$key]['self3'] = 0;
 		}
 
 		$data = array('list' => $list, 'total' => $total, 'pagesize' => $psize);
@@ -780,12 +788,13 @@ class Androidapi_EweiShopV2Page extends MobilePage
 	{
 		global $_W;
 		global $_GPC;
-		$openid = $_W['openid'];
+		$type = 0;
+
 		//价格基础TRX价格  以及手续费
-		$sys = pdo_fetch("select trxprice,trxsxf from" . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
-		$sys['trxsxf'] = round($sys['trxsxf'], 2);
-		$start  = $sys['trxprice'] * (1 - 0.1);
-		$end    = $sys['trxprice'] * (1 + 0.1);
+		$sys = pdo_fetch("select trxprice,trxsxf from".tablename("ewei_shop_sysset")."where uniacid=".$_W['uniacid']);
+		$start = $sys['trxprice']*(1-0.1);
+		$end = $sys['trxprice']*(1+0.1);
+		$data = array('start'=>$start,'end'=>$end);
 		$member = m('member')->getMember($_W['openid'], true);
 		//用户买入,卖出订单
 		$guamai = pdo_fetchall("select * from" . tablename("guamai") . "where openid='" . $openid . "' or openid2='" . $openid . "' order by createtime desc");
@@ -1227,61 +1236,110 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		}
 	}
 
+	public function verifycode()
+	{
+		global $_W;
+		global $_GPC;
+		$set = m('common')->getSysset(array('shop', 'wap'));
+		$set['wap']['color'] = ((empty($set['wap']['color']) ? '#fff' : $set['wap']['color']));
+		
+		$mobile = trim($_GPC['mobile']);
+		$temp = trim($_GPC['temp']);
+		$imgcode = trim($_GPC['imgcode']);
+		if( !$mobile || !$temp ){
+			returnJson(array(),'参数错误！','-1');
+		}
+		
+		$member = pdo_fetch('select id,openid,mobile,pwd,salt from ' . tablename('ewei_shop_member') . ' where mobile=:mobile and mobileverify=1 and uniacid=:uniacid limit 1', array(':mobile' => $mobile, ':uniacid' => $_W['uniacid']));
+		if (($temp == 'sms_forget') && empty($member)) {
+			returnJson(array(),'此手机号未注册','-1');
+		}
+		if (($temp == 'sms_reg') && !(empty($member))) {
+			returnJson(array(),'此手机号已注册，请直接登录','-1');
+		}
+
+		$res = pdo_fetch('select exprie_time from ' . tablename('phone_auth') . ' where phone=:phone order by id DESC limit 1', array(':phone' => $mobile));
+		if( $res['exprie_time'] > time() ){
+			returnJson(array(),'请求频繁请稍后重试','-1');
+		}
+
+		$sms_id = $set['wap'][$temp];
+		if (empty($sms_id)) {
+			returnJson(array(),'短信发送失败(NOSMSID)','-1');
+		}
+		
+		$code = random(5, true);
+
+		$data['phone'] = $mobile;
+		$data['auth_code'] = $code;
+		$data['start_time'] = time();
+		$data['exprie_time'] = time() +60;
+
+		pdo_insert("phone_auth", $data);
+
+		$ret = com('sms')->send_zhangjun($mobile, $code);
+		
+		returnJson(array());
+	}
+
+	public function phoneAuth($phone, $auth_code)
+    {	
+		$res = pdo_fetch('select exprie_time from ' . tablename('phone_auth') . ' where phone='. $phone .' and auth_code= ' . $auth_code .' order by id DESC limit 1');
+        if ($res) {
+			if ($res['exprie_time'] >= time()) { // 还在有效期就可以验证
+                return true;
+            } else {
+                return '-1';
+            }
+        }
+        return false;
+	}
+	
+	public function get_mobile(){
+		global $_W;
+		$member = m('member')->getMember($_W['openid'], true);
+		returnJson($member['mobile']);
+	}
+
 	//修改密码
 	public function cahngepwd()
 	{
 		global $_W;
 		global $_GPC;
-		$id = $_GPC['id'];
-		if ($id) {
-			$memberis = pdo_fetch("select * from " . tablename("ewei_shop_member") . "where uniacid=" . $_W['uniacid'] . " and id='$id'");
-			$_W['openid'] = $memberis['openid'];
-		} else {
-			$data = array('status' => 0, "fail" => "请上传会员的id");
-			echo json_encode($data);
-			exit();
+		
+		$mobile = $_GPC['mobile'];
+		$code = $_GPC['code'];
+		$pwd = trim($_GPC['pwd']);
+
+		if(!$mobile || !$code || !$pwd){
+			returnJson(array(),'参数错误！','-1');
 		}
-		$member = m('member')->getMember($_W['openid'], true);
-		$wapset = m('common')->getSysset('wap');
-
-		// show_json(111);
-		if ($_W['ispost']) {
-				$mobile = trim($_GPC['mobile']);
-				$verifycode = trim($_GPC['verifycode']);
-				$pwd = trim($_GPC['pwd']);
-
-				@session_start();
-				$key = '__ewei_shopv2_member_verifycodesession_' . $_W['uniacid'] . '_' . $mobile;
-				if ($_GPC['code'] && ($_GPC['code'] != $verifycode)) {
-					show_json(0, '验证码错误或已过期!');
-				} else if (!$_GPC['code']) {
-					if (!(isset($_SESSION[$key])) || ($_SESSION[$key] !== $verifycode) || !(isset($_SESSION['verifycodesendtime'])) || (($_SESSION['verifycodesendtime'] + 600) < time())) {
-							show_json(0, '验证码错误或已过期!');
-						}
-				}
-
-				$member = pdo_fetch('select id,openid,mobile,pwd,salt,credit1,credit2, createtime from ' . tablename('ewei_shop_member') . ' where mobile=:mobile and uniacid=:uniacid and mobileverify=1 limit 1', array(':mobile' => $mobile, ':uniacid' => $_W['uniacid']));
-				$salt = ((empty($member) ? '' : $member['salt']));
-				if (empty($salt)) {
-						$salt = random(16);
-						while (1) {
-								$count = pdo_fetchcolumn('select count(*) from ' . tablename('ewei_shop_member') . ' where salt=:salt limit 1', array(':salt' => $salt));
-								if ($count <= 0) {
-										break;
-									}
-								$salt = random(16);
-							}
+		
+		if( $this->phoneAuth($mobile,$code) === '-1' ){
+			returnJson(array(),'验证码已过期！','-1');
+		}else if( !$this->phoneAuth($mobile,$code) ){
+			returnJson(array(),'验证码错误！','-1');
+		}
+		
+		$member = pdo_fetch('select id,openid,mobile,pwd,salt,credit1,credit2, createtime from ' . tablename('ewei_shop_member') . ' where mobile=:mobile and uniacid=:uniacid and mobileverify=1 limit 1', array(':mobile' => $mobile, ':uniacid' => $_W['uniacid']));
+		$salt = ((empty($member) ? '' : $member['salt']));
+		if (empty($salt)){
+				$salt = random(16);
+				while (1)
+				{
+					$count = pdo_fetchcolumn('select count(*) from ' . tablename('ewei_shop_member') . ' where salt=:salt limit 1', array(':salt' => $salt));
+					if ($count <= 0)
+					{
+						break;
 					}
-				pdo_update('ewei_shop_member', array('mobile' => $mobile, 'pwd' => md5($pwd . $salt), 'salt' => $salt, 'mobileverify' => 1), array('id' => $id, 'uniacid' => $_W['uniacid']));
-				unset($_SESSION[$key]);
-				echo json_encode(array('status' => 1, 'success' => '修改密码成功'));
-			}
-		$sendtime = $_SESSION['verifycodesendtime'];
-		if (empty($sendtime) || (($sendtime + 60) < time())) {
-				$endtime = 0;
-			} else {
-				$endtime = 60 - time() - $sendtime;
-			}
+					$salt = random(16);
+				}
+		}
+		
+
+		pdo_update('ewei_shop_member', array('mobile' => $mobile, 'pwd' => md5($pwd . $salt), 'salt' => $salt, 'mobileverify' => 1), array('id' => $id, 'uniacid' => $_W['uniacid']));
+		returnJson(array());
+
 	}
 
 	public function kefu()
