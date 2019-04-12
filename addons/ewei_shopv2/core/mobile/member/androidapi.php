@@ -2141,7 +2141,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		// show_json($data);
 		$result = pdo_update("ewei_shop_member", $data, array('openid' => $_W['openid'], 'uniacid' => $_W['uniacid']));
 
-		if ($result) {
+		if ($result !== false) {
 			returnJson(array());
 		} else {
 			returnJson(array(), '失败', -1);
