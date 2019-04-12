@@ -148,7 +148,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		$id = $_GPC['id'];
 		$users = pdo_fetch("select * from" . tablename("ewei_shop_member") . " where id='$user_id'");
 		$guamai_appeal = pdo_fetch("select g.*,m.* from" . tablename("guamai_appeal") . ' g left join ' . tablename('guamai') . '  m ON m.id=g.order_id' . " where g.id='$id'");
-		dump($guamai_appeal);
+		// dump($guamai_appeal);
 		if ($users['openid'] == $guamai_appeal['openid']) {
 			$guamai_appeal['openid2'] = substr($guamai_appeal['openid2'], -11);
 		} else {

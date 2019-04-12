@@ -269,7 +269,7 @@
 			<div class="list_right icon icon-right"></div>
 		</a>
 
-	<?php  if($member['type'] != 2) { ?>
+	<?php  if($member['type'] != 2 && $member['suoding'] != 1) { ?>
 		<a href="javascript:;" class="lis tuichujizhi">
 			<div class="lis_left">
 				<img src="../addons/ewei_shopv2/static/images/jizhi.png" alt="">
@@ -415,14 +415,14 @@
 
 	$('.lis').click(function (event) {
 
-		if("<?php  echo $member['type'];?>" == 2){
+		if("<?php  echo $member['type'];?>" == 2 || "<?php  echo $member['suoding'];?>" == 1){
 			alert('该账号已锁户！');
 			return false;
 		}
 	})
 	$('.headerCon').click(function (event) {
 
-		if("<?php  echo $member['type'];?>" == 2){
+		if("<?php  echo $member['type'];?>" == 2 || "<?php  echo $member['suoding'];?>" == 1){
 			alert('该账号已锁户！');
 			return false;
 		}
@@ -452,6 +452,10 @@
 				if(data.status == 1){
 					$('.mask1').fadeOut(300);
 					alert('销户成功！');
+				}
+				if(data.status == -1){
+					$('.mask1').fadeOut(300);
+					alert(data.msg);
 				}
 			},error:function(err){
 				console.log(err);

@@ -134,11 +134,14 @@
         <?php  if($member['type']==2) { ?>
         <a href="javascript:;" onclick="location.href='<?php  echo mobileurl('member/investmentjilu',array('type'=>4))?>'">提币记录</a>
         <?php  } else { ?>
-
+        <?php  if($member['suoding']==1) { ?>
         <a href="javascript:;" onclick="location.href='<?php  echo mobileurl('member/investmentjilu/log',array('type'=>6))?>'">总记录</a>
+        <?php  } else { ?>
+         <a href="javascript:;" onclick="location.href='<?php  echo mobileurl('member/investmentjilu/log',array('type'=>6))?>'">总记录</a>
         <a href="javascript:;" onclick="location.href='<?php  echo mobileurl('member/investmentjilu',array('type'=>4))?>'">提币记录</a>
         <a href="javascript:;" onclick="location.href='<?php  echo mobileurl('member/investmentjilu',array('type'=>3))?>'">转币记录</a>
         <a href="javascript:;" onclick="location.href='<?php  echo mobileurl('member/investmentjilu/c2clog')?>&type=5'">C2C记录</a>
+        <?php  } ?>
         <?php  } ?>
       </div>
 
@@ -152,8 +155,12 @@
           <span><?php  echo $member['credit4'];?></span>
         </a>
         <div class="futou_bottom">
+        <?php  if($member['suoding']==1) { ?>
+          <a class="yijianfutou0" href="<?php  echo mobileurl('member/mywallet/futou',array('type'=>4))?>">一键复投</a>
+          <?php  } else { ?>
           <a class="yijianfutou0" href="<?php  echo mobileurl('member/mywallet/futou',array('type'=>4))?>">一键复投</a>
           <a class="qipaiyule" href="<?php  echo mobileUrl('member/qipai')?>">棋牌娱乐</a>
+          <?php  } ?>
         </div>
       </div>
       <?php  } ?>
@@ -168,11 +175,16 @@
         <?php  if($member['type']==2) { ?>
         <a class="" href="<?php  echo mobileUrl('member/withdraw')?>">提现</a>
         <?php  } else { ?>
+          <?php  if($member['suoding']==1) { ?>
+          <a class="yijianfutou0" href="<?php  echo mobileurl('member/mywallet/futou',array('type'=>2))?>">一键复投</a>
+          <a class="" href="<?php  echo mobileUrl('member/withdraw')?>">提现</a>
+          <?php  } else { ?>
           <a class="yijianfutou0" href="<?php  echo mobileurl('member/mywallet/futou',array('type'=>2))?>">一键复投</a>
           <a class="" href="<?php  echo mobileUrl('member/withdraw')?>">提现</a>
           <a class="qipaiyule" href="<?php  echo mobileUrl('member/guamai')?>">C2C</a>
           <a class="qipaiyule" href="<?php  echo mobileUrl('member/qipai')?>">棋牌娱乐</a>
           <a class="" href="<?php  echo mobileurl('member/mywallet/zhuangzhang')?>">互转</a>
+          <?php  } ?>
         <?php  } ?>
         </div>
       </div>

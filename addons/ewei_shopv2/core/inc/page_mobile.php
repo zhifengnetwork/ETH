@@ -58,9 +58,13 @@ class MobilePage extends Page
 			$userid  = $_GPC['userid'];
 			if($userid){
 				$memberis = pdo_fetch("select * from ".tablename("ewei_shop_member")." where uniacid=".$_W['uniacid']." and id='$userid'");
+<<<<<<< HEAD
 				$_W['openid'] = empty($memberis['openid'])?returnJson([],-1,"没有该用户"):$memberis['openid'];
+=======
+				$_W['openid'] = empty($memberis['openid'])?returnJson(array(),"没有该用户",-1):$memberis['openid'];
+>>>>>>> 2f083567c3cc883cae0584a30afa5b68224cdf13
 			}else{
-				returnJson([],-1, "用户ID不能为空");
+				returnJson(array(), "用户ID不能为空",-1);
 			}
 
 		}

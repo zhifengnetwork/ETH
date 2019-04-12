@@ -77,5 +77,3 @@ class Index_EweiShopV2Page extends CommissionMobileLoginPage
 		include $this->template();
 	}
 }
-
-?>

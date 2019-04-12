@@ -1,287 +1,316 @@
 {template '_header'}
 
-<link rel="stylesheet" type="text/css" href="../addons/ewei_shopv2/template/mobile/default/static/css/coupon-new.css?v=2017030302">
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="../addons/ewei_shopv2/template/mobile/default/static/css/coupon-new.css?v=2017030302"
+/>
 <style type="text/css">
-	
-   .box{
-    padding:1px 0%;background: white;display: none;
-   }
-   .box li{
-    position: relative;margin:20px 0;list-style: none;
-   }
-   .box li img{
-    width: 40px;vertical-align: middle;
-   }
-   .box .bank img,.box .zfb img,.box .wx img{
-   	width: 70%;
-   }
-   .box li input{
+  .box {
+    padding: 1px 0%;
+    background: white;
+    display: none;
+  }
+
+  .box li {
+    position: relative;
+    margin: 20px 0;
+    list-style: none;
+  }
+
+  .box li img {
+    width: 40px;
+    vertical-align: middle;
+  }
+
+  .box .bank img,
+  .box .zfb img,
+  .box .wx img {
+    width: 70%;
+  }
+
+  .box li input {
     position: absolute;
-    right:0;top:10px;
-   }
-   .bank,.zfb,.wx{
-   	display: none;text-align: center;
-   }
-   #bank,#zfb,#wx{
-   	display: none;
-   }
-   .skadress{
-   	display: none
-   }
-   .qbadress{
-		display: flex;
-		-webkit-display:flex;
-	    margin: 0 0 0px 0;
-	    padding: 10px 3%;
-	    background: white;
-	}
-	.qbadress .fui-content-title{
-		width: 3.85rem
-	}
-	.qbadress .fui-content-box{
-		flex:3;
-	}
-	.fui-content-title:nth-of-type(1){
-		line-height: 8rem
-	}
-	.fui-content-title:nth-of-type(2){
-		line-height: 39px;
-	}
-	.fui-content-box input{
-		height: 39px;
-	    width: 100%;
-	    display: block;
-	    padding: 0px;
-	    margin: 0px;
-	    border: 0px;
-	    float: left;
-	    font-size: 0.7rem;
-	    border-bottom: 1px solid #ccc;
-	}
-	.images{
-		text-align: center;
-	}
-	.images img{
-		width: 8rem;height:8rem;
-	}
-	#imgFile0{
-		position:absolute;width:8rem;height:8rem;-webkit-tap-highlight-color: transparent;filter:alpha(Opacity=0); opacity: 0;    left: 15%;cursor: pointer;z-index: 999;
-	}
-	.btn-sub{
-		width: 90%;position: relative;/*bottom:10%;*/left:5%;
-	}
-	.fui-content .fui-cell-group .erweima{
-		display: none;
-	}
-	.erweima img{
-		width: 8rem;
-    	height: 8rem;
-	}
+    right: 0;
+    top: 10px;
+  }
+
+  .bank,
+  .zfb,
+  .wx {
+    display: none;
+    text-align: center;
+  }
+
+  #bank,
+  #zfb,
+  #wx {
+    display: none;
+  }
+
+  .skadress {
+    display: none;
+  }
+
+  .qbadress {
+    display: flex;
+    -webkit-display: flex;
+    margin: 0 0 0px 0;
+    padding: 10px 3%;
+    background: white;
+  }
+
+  .qbadress .fui-content-title {
+    width: 3.85rem;
+  }
+
+  .qbadress .fui-content-box {
+    flex: 3;
+  }
+
+  .fui-content-title:nth-of-type(1) {
+    line-height: 8rem;
+  }
+
+  .fui-content-title:nth-of-type(2) {
+    line-height: 39px;
+  }
+
+  .fui-content-box input {
+    height: 39px;
+    width: 100%;
+    display: block;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    float: left;
+    font-size: 0.7rem;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .images {
+    text-align: center;
+  }
+
+  .images img {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  #imgFile0 {
+    position: absolute;
+    width: 8rem;
+    height: 8rem;
+    -webkit-tap-highlight-color: transparent;
+    filter: alpha(Opacity=0);
+    opacity: 0;
+    left: 15%;
+    cursor: pointer;
+    z-index: 999;
+  }
+
+  .btn-sub {
+    width: 90%;
+    position: relative;
+    /*bottom:10%;*/
+    left: 5%;
+  }
+
+  .fui-content .fui-cell-group .erweima {
+    display: none;
+  }
+
+  .erweima img {
+    width: 8rem;
+    height: 8rem;
+  }
 </style>
-<div class='fui-page fui-page-current'>
-
-    <div class="fui-header">
-
-		<div class="fui-header-left">
-
-			<a class="back"></a>
-
-		</div>
-
-		<div class="title">投资购买</div> 
-
-		<div class="fui-header-right">&nbsp;</div>
-
+<div class="fui-page fui-page-current">
+  <div class="fui-header">
+    <div class="fui-header-left">
+      <a class="back"></a>
     </div>
 
-    <div class='fui-content navbar' >
+    <div class="title">投资购买</div>
 
-		<input type="hidden" id="logid" value="{$logid}" />
+    <div class="fui-header-right">&nbsp;</div>
+  </div>
 
-		<input type="hidden" id="couponid" value="" />
+  <div class="fui-content navbar">
+    <input type="hidden" id="logid" value="{$logid}" />
 
-		<div class='fui-cell-group'>
+    <input type="hidden" id="couponid" value="" />
 
-			<div class='fui-cell'>
+    <div class="fui-cell-group">
+      <div class="fui-cell">
+        <div class="fui-cell-label">当前投资额</div>
 
-				<div class='fui-cell-label'>当前投资额</div>
+        <div class="fui-cell-info">
+          {php echo number_format($member['credit1'],2)}
+        </div>
+      </div>
 
-				<div class='fui-cell-info'>{php echo number_format($member['credit1'],2)}</div>
+      <div class="fui-cell">
+        <div class="fui-cell-label">
+          {if $member['type']==0}激活投资{else if
+          $member['type']==1}追加投资{/if}
+        </div>
 
-			</div>
+        <div class="fui-cell-info">
+          <input
+            type="number"
+            class="fui-input"
+            id="money"
+            value="{$_GPC['money']}"
+          />
+        </div>
+      </div>
 
-			<div class='fui-cell'>
+      <div class="fui-cell">
+        账户投资上限：{$sys['bibi']}<br />
 
-				<div class='fui-cell-label'>{if $member['type']==0}激活投资{else if $member['type']==1}追加投资{/if}</div>
+        当前最多可投资：{php echo $sys['bibi']-$member['credit1']}
+      </div>
 
-				<div class='fui-cell-info'><input type='number' class='fui-input' id='money' value="{$_GPC['money']}"></div>
+      <div class="fui-cell erweima">
+        <div class="fui-cell-label">二维码</div>
 
-			</div>
+        <div class="fui-cell-info" style="text-align: center;">
+          <img
+            id="erweima"
+            src="../addons/ewei_shopv2/template/mobile/default/static/images/wx.png"
+          />
+        </div>
+        <!-- <li id="wx">
 
-			<div class='fui-cell'>
 
-				账户投资上限：{$sys['bibi']}<br>
-
-				当前最多可投资：{php echo $sys['bibi']-$member['credit1']}
-
-			</div>
-
-			<div class='fui-cell erweima'>
-
-				<div class='fui-cell-label'>二维码</div>
-
-				<div class='fui-cell-info' style="text-align: center;">
-					<img id="erweima" src="../addons/ewei_shopv2/template/mobile/default/static/images/wx.png">  
-				</div>
-				<!-- <li id="wx">
-		              
-		           
 		            <div class="wx">
 		            	<img src="">
-		            </div>  
+		            </div>
 		        </li> -->
-			</div>
-			
-			<div class='fui-cell skadress' style="display: none">
+      </div>
 
-				<div class='fui-cell-label'>收款地址</div>
+      <div class="fui-cell skadress" style="display: none">
+        <div class="fui-cell-label">收款地址</div>
 
-				<div class='fui-cell-info'><input type='text' class='fui-input' id='skaddress' value="{$_GPC['address']}"></div>
+        <div class="fui-cell-info">
+          <input
+            type="text"
+            class="fui-input"
+            id="skaddress"
+            value="{$_GPC['address']}"
+          />
+        </div>
+      </div>
+    </div>
 
-			</div>
+    <div class="fui-cell-group">
+      {if com('coupon')}
 
-		</div>
+      <div class="fui-cell" id="coupondiv" style="display:none">
+        <div class="fui-cell-label" style="width:auto">优惠券</div>
 
-		<div class='fui-cell-group'>
+        <div class="fui-cell-info"></div>
 
-			{if com('coupon')}
+        <div class="fui-cell-remark">
+          <div class="badge" style="display:none">0</div>
 
-			<div class='fui-cell' id='coupondiv' style='display:none'>
+          <span class="text">无可用</span>
+        </div>
+      </div>
 
-				<div class='fui-cell-label' style='width:auto'>优惠券</div>
+      {/if}
+    </div>
 
-				<div class='fui-cell-info'></div>
-
-				<div class='fui-cell-remark'>
-
-					<div class='badge' style='display:none'>0</div>
-
-					<span class='text'>无可用</span>
-
-				</div>
-
-			</div>
-
-			{/if}
-
-		</div>
-
-
-<div class="box">
- <!-- 
+    <div class="box">
+      <!--
     <ul>
         <li id="bank">
-            <img src="../addons/ewei_shopv2/template/mobile/default/static/images/qianbao.png">  
-            <span>银行卡</span>  
+            <img src="../addons/ewei_shopv2/template/mobile/default/static/images/qianbao.png">
+            <span>银行卡</span>
             <div class="bank" >
             	<img src="">
             </div>
         </li>
 
         <li id="zfb">
-            <img src="../addons/ewei_shopv2/template/mobile/default/static/images/zfb.png">    
-            <span>支付宝</span> 
+            <img src="../addons/ewei_shopv2/template/mobile/default/static/images/zfb.png">
+            <span>支付宝</span>
             <div class="zfb">
             	<img src="">
-            </div> 
+            </div>
         </li>
 
-        
+
     </ul> -->
-    <div class="qbadress">
-	    <div class="fui-content-title" >
+      <div class="qbadress">
+        <div class="fui-content-title">
+          支付凭证
+        </div>
+        <div class="fui-content-box">
+          <div class="pic">
+            <div class="plus" style="position:relative">
+              <i class="fa fa-plus" style="position:absolute;"></i>
+              <input type="file" name="imgFile0" id="imgFile0" />
+            </div>
+            <div class="images">
+              <!-- <img  src="{$member['walletcode']}" /> -->
+              <img src="../addons/ewei_shopv2/static/images/upload.png" />
+              <!-- upload.png为默认图片 -->
+            </div>
+            <!-- input无图时为空 -->
+            <input type="hidden" value="" id="avatar" />
+          </div>
+        </div>
+      </div>
 
-	    			支付凭证
-		</div>
-		<div class="fui-content-box">
-		    <div class="pic">
-				<div class="plus" style="position:relative">
-					<i class="fa fa-plus" style="position:absolute;"></i>
-					<input type="file" name='imgFile0' id='imgFile0' />
-				</div>
-				<div class="images">
-					<!-- <img  src="{$member['walletcode']}" /> -->
-					<img  src="../addons/ewei_shopv2/static/images/upload.png"  />
-					<!-- upload.png为默认图片 -->
+      <div class="qbadress">
+        <button class="btn btn-default btn-sub">确定购买</button>
+      </div>
+    </div>
 
-				</div>
-				<!-- input无图时为空 -->
-				<input  type="hidden"  value=""  id="avatar"/>
-			</div>
-		</div>
-	</div>
+    {if !empty($acts)}
 
-	<div class="qbadress">
-		<button class="btn btn-default btn-sub" >确定购买</button>
-	</div>
-</div>
+    <div class="fui-cell-group">
+      <div class="fui-according expanded">
+        <div class="fui-according-header">
+          <div class="text">
+            充值活动 充值满
+            <span class="text-danger">{$acts[0]['enough']}</span> 元立即送
+            <span class="text-danger">{$acts[0]['give']}</span> 元
+          </div>
 
-{if !empty($acts)}
+          {if count($acts)>1}<span class="remark">更多</span>{/if}
+        </div>
 
-		<div class='fui-cell-group'>
+        {if count($acts)>1}
 
-			<div class='fui-according expanded'>
+        <div class="fui-according-content">
+          <div class="content-block" style="padding: 0 0.5rem;">
+            <div class="fui-cell-group" style="margin-top: 0;">
+              {loop $acts $key $enough} {if $key>0}
 
-				<div class='fui-according-header'>
+              <div class="fui-cell" style="">
+                <div class="fui-cell-text">
+                  充值满
+                  <span class="text-danger">{$enough['enough']}</span> 元立即送
+                  <span class="text-danger">{$enough['give']}</span> 元
+                </div>
+              </div>
 
-					<div class="text">充值活动 
+              {/if} {/loop}
+            </div>
+          </div>
+        </div>
 
-						充值满 <span class='text-danger'>{$acts[0]['enough']}</span> 元立即送 <span class='text-danger'>{$acts[0]['give']}</span> 元
+        {/if}
+      </div>
+    </div>
 
-					</div>
+    {/if}
 
-					{if count($acts)>1}<span class="remark">更多</span>{/if}
-
-				</div>
-
-				{if count($acts)>1}
-
-				<div class='fui-according-content'>
-
-					<div class='content-block' style="padding: 0 0.5rem;">
-
-						<div class="fui-cell-group" style="margin-top: 0;">
-
-							{loop $acts $key $enough}
-
-								{if $key>0}
-
-								<div class="fui-cell" style="">
-
-									<div class="fui-cell-text">充值满 <span class='text-danger'>{$enough['enough']}</span> 元立即送 <span class='text-danger'>{$enough['give']}</span> 元</div>
-
-								</div>
-
-								{/if}
-
-							{/loop}
-
-						</div>
-
-					</div>
-
-				</div>
-
-				{/if}
-
-			</div>
-
-		</div>
-
-{/if}
-
-		<a id='btn-next' class='btn btn-success block disabled'>付款</a>
-<!-- 
+    <a id="btn-next" class="btn btn-success block disabled">付款</a>
+    <!--
 		{if $wechat['success'] || $payinfo['wechat']}
 
 		<a id='btn-wechat' class='btn btn-success block btn-pay ' style='display:none'>微信支付</a>
@@ -294,113 +323,103 @@
 
 		{/if} -->
 
+    <script type="text/javascript">
+      require(["core"], function(core) {
+        /*图片上传*/
+        $("#imgFile0").change(function() {
+          // core.loading('正在上传');
 
-<script type="text/javascript">
-	require(['core'], function( core) {
-		/*图片上传*/
-			$('#imgFile0').change(function() {
-				// core.loading('正在上传');
+          var comment = $(this).closest(".comment_main");
+          var ogid = comment.data("ogid");
 
-				var comment =$(this).closest('.comment_main');
-				var ogid = comment.data('ogid');
+          $.ajaxFileUpload({
+            url: core.getUrl("util/uploader"),
+            data: {
+              file: "imgFile0"
+            },
+            secureuri: false,
+            fileElementId: "imgFile0",
+            dataType: "json",
+            success: function(res, status) {
+              var src2 = $(".images img").prop("src");
+              console.log(res.url);
+              if (res.url == undefined) {
+                return false;
+              }
+              // core.removeLoading();
+              //var obj = $(tpl('tpl_img', res));
+              var obj = document.createElement("img");
+              obj.src = res.url;
+              obj.style.width = "8rem";
+              obj.style.height = "8rem";
 
-				$.ajaxFileUpload({
-					url: core.getUrl('util/uploader'),
-					data: {file: "imgFile0"},
-					secureuri: false,
-					fileElementId: 'imgFile0',
-					dataType: 'json',
-					success: function(res, status) {
-						var src2 = $('.images img').prop('src');
-						console.log(res.url);
-						if(res.url == undefined){
-							return false;
-						}
-						// core.removeLoading();
-						//var obj = $(tpl('tpl_img', res));
-						var obj = document.createElement('img');
-						obj.src=res.url;
-						obj.style.width='8rem';
-						obj.style.height='8rem';
+              $(".images").html(" ");
+              $(".images").append(obj);
+              $("#avatar").val(res.url);
+            },
+            error: function(data, status, e) {
+              // core.removeLoading();
+              core.tip.show("上传失败!");
+            }
+          });
+        });
+        /*图片上传*/
 
-						$('.images').html(' ');
-						$('.images').append(obj);
-						$('#avatar').val(res.url);
+        // $('.btn-sub').click(function(){
+        // 	// var adress = $('#ad').val();
+        // 	var url = $('#avatar').val();
+        // 	console.log($('.images img').prop('src'));
+        // 	// if($('#ad').isEmpty()){
+        // 	// 	core.tip.show('请填写钱包地址！');
+        // 	// 	return false;
+        // 	// }
+        // 	if($('#avatar').isEmpty()){
+        // 		core.tip.show('请上传钱包二维码！');
+        // 		return false;
+        // 	}
+        // 	$.ajax({
+        // 		url:"{php echo mobileUrl('member/recharge/submit')}",
+        // 		type:'post',
+        // 		data:{url:url},
+        // 		dataType:'json',
+        // 		success:function(data){
+        // 			if(data.status == 1){
+        // 				core.tip.show('上传成功');
+        // 				setTimeout(function(){
+        // 					window.location.href="{php echo mobileUrl('member/assets')}";
+        // 				},1000)
+        // 			}
+        // 		},error:function(e){
+        // 			console.log(e)
+        // 		}
+        // 	})
+        // })
+      });
+      $("#btn-next").click(function() {
+        $(".box").css("display", "block");
+        $(".skadress").css("display", "flex");
+      });
+      $(".box").on("click", "li", function() {
+        $(".box div").css("display", "none");
+        var $this = $(this);
+        let id = $this.prop("id");
 
-					}, error: function(data, status, e) {
-						// core.removeLoading();
-						core.tip.show('上传失败!');
-					}
-				});
-			});
-		/*图片上传*/
+        $("." + id + "").show();
+      });
+    </script>
+  </div>
 
-		// $('.btn-sub').click(function(){
-		// 	// var adress = $('#ad').val();
-		// 	var url = $('#avatar').val();
-		// 	console.log($('.images img').prop('src'));
-		// 	// if($('#ad').isEmpty()){
-		// 	// 	core.tip.show('请填写钱包地址！');
-		// 	// 	return false;
-		// 	// }
-		// 	if($('#avatar').isEmpty()){
-		// 		core.tip.show('请上传钱包二维码！');
-		// 		return false;
-		// 	}
-		// 	$.ajax({
-		// 		url:"{php echo mobileUrl('member/recharge/submit')}",
-		// 		type:'post',
-		// 		data:{url:url},
-		// 		dataType:'json',
-		// 		success:function(data){
-		// 			if(data.status == 1){
-		// 				core.tip.show('上传成功');
-		// 				setTimeout(function(){
-		// 					window.location.href="{php echo mobileUrl('member/assets')}";
-		// 				},1000)
-		// 			}
-		// 		},error:function(e){
-		// 			console.log(e)
-		// 		}
-		// 	})
-		// })
-	})
-	$('#btn-next').click(function(){
-		$('.box').css('display','block');
-		$('.skadress').css('display','flex')
-	});
-	$('.box').on('click','li',function(){
-		$('.box div').css('display','none');
-		var $this = $(this);
-		let id = $this.prop('id');
+  {template 'order/pay/wechat_jie'}
 
-		$('.'+id+'').show();
-	})
-</script>
+  <script language="javascript">
+    require(["biz/member/recharge"], function(modal) {
+      modal.init({
+        minimumcharge: "{php echo intval($wechat['success'])}",
+        wechat: "{php echo intval($wechat['success'])}",
+        alipay: "{php echo intval($alipay['success'])}"
+      });
+    });
+  </script>
+</div>
 
-
-		
-
-
-
-    </div>
-
-	{template 'order/pay/wechat_jie'}
-
-	<script language='javascript'>
-
-		require(['biz/member/recharge'], function (modal) {
-
-			modal.init({minimumcharge: {php echo $minimumcharge},wechat: {php echo intval($wechat['success'])},alipay:{php echo intval($alipay['success'])}});
-
-	});
-
-</script>
-
-</div> 
-
-
-
-{template 'sale/coupon/util/picker'}
-
-{template '_footer'}
+{template 'sale/coupon/util/picker'} {template '_footer'}

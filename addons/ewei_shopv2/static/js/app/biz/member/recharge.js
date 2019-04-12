@@ -1,4 +1,4 @@
-define(['core', 'tpl'], function(core, tpl) {
+define(['core', 'tpl'], function (core, tpl) {
 	var modal = {
 		minimumcharge: 0,
 		wechat: 0,
@@ -6,65 +6,66 @@ define(['core', 'tpl'], function(core, tpl) {
 		couponid: 0,
 		coupons: []
 	};
-	modal.init = function(params) {
+	modal.init = function (params) {
 		modal.minimumcharge = params.minimumcharge;
 		modal.wechat = params.wechat;
 		modal.alipay = params.alipay;
 		window.couponid = modal.couponid;
-		$('#money').bind('input propertychange', function() {
+		$('#money').bind('input propertychange', function () {
 			modal.hideCoupon();
 			$('#btn-next').addClass('disabled').show(), $('.btn-pay').hide();
 			if ($(this).isNumber() && !$(this).isEmpty() && parseFloat($(this).val()) > 0) {
 				$('#btn-next').removeClass('disabled')
 			}
 		});
-		$('#btn-next').click(function() {
+		$('#btn-next').click(function () {
 			// FoxUI.toast.show('最低投资金额为' + modal.minimumcharge + '元!');
 			var money = $.trim($('#money').val());
 
 			core.json('member/recharge/payment', {
-					type:1
-				}, function(pay_json) {
-					console.log(pay_json);
-					// if(pay_json.result.wx == 1){
-						$('.erweima').css('display','flex')
-					// }
-					// if(pay_json.result.zfb == 1){
-					// 	$('#zfb').css('display','block')
-					// }
-					// if(pay_json.result.yhk == 1){
-					// 	$('#bank').css('display','block')
-					// }	
+				type: 1
+			}, function (pay_json) {
+				console.log(pay_json);
+				// if(pay_json.result.wx == 1){
+				$('.erweima').css('display', 'flex')
+				// }
+				// if(pay_json.result.zfb == 1){
+				// 	$('#zfb').css('display','block')
+				// }
+				// if(pay_json.result.yhk == 1){
+				// 	$('#bank').css('display','block')
+				// }
 
-					// $('.bank img').attr('src','../attachment/'+pay_json.result.yhkfile+'');
-					// $('.zfb img').attr('src','../attachment/'+pay_json.result.zfbfile+'');
-					$('.erweima img').attr('src','../attachment/'+pay_json.result.weixinfile+'');
-					$('#skaddress').attr('value',pay_json.result.add);
-					// exit();
-					$('#btn-next').remove();
+				// $('.bank img').attr('src','../attachment/'+pay_json.result.yhkfile+'');
+				// $('.zfb img').attr('src','../attachment/'+pay_json.result.zfbfile+'');
+				$('.erweima img').attr('src', '../attachment/' + pay_json.result.weixinfile + '');
+				$('#skaddress').attr('value', pay_json.result.add);
+				// exit();
+				$('#btn-next').remove();
 			}, true, true)
 		});
-		$('.btn-sub').click(function() {
-			if($('#avatar').isEmpty()){
+		$('.btn-sub').click(function () {
+			if ($('#avatar').isEmpty()) {
 				core.tip.show('请上传支付凭证！');
 				return false;
 			}
 			var money = $.trim($('#money').val());
 			var url = $('#avatar').val();
 			core.json('member/recharge/wechat_complete', {
-					money:money,url:url
-				}, function(pay_json) {
-					// console.log(pay_json);exit();
-					if (pay_json.status.type == -1) {
-						FoxUI.toast.show('投资区间在'+pay_json.status.start+'到'+pay_json.status.end+'之间');
-						return false;
-					}
-					if (pay_json.status == 1) {
-						
-						FoxUI.toast.show('投资成功!');
-						location.href = core.getUrl('member/investmentjilu');
-						// return
-					}
+				money: money,
+				url: url
+			}, function (pay_json) {
+				// console.log(pay_json);exit();
+				if (pay_json.status.type == -1) {
+					FoxUI.toast.show('投资区间在' + pay_json.status.start + '到' + pay_json.status.end + '之间');
+					return false;
+				}
+				if (pay_json.status == 1) {
+
+					FoxUI.toast.show('投资成功!');
+					location.href = core.getUrl('member/investmentjilu&type=1');
+					// return
+				}
 			}, true, true)
 
 			var showpay = false;
@@ -92,7 +93,7 @@ define(['core', 'tpl'], function(core, tpl) {
 			core.json('sale/coupon/util/query', {
 				money: money,
 				type: 1
-			}, function(rjson) {
+			}, function (rjson) {
 				if (rjson.status != 1) {
 					$('#btn-sub').removeAttr('submit');
 					core.tip.show(rjson.result);
@@ -101,17 +102,17 @@ define(['core', 'tpl'], function(core, tpl) {
 				if (rjson.result.coupons.length > 0) {
 					$('#coupondiv').show().find('.badge').html(rjson.result.coupons.length).show();
 					$('#coupondiv').find('.text').hide();
-					$('#coupondiv').click(function() {
-						require(['biz/sale/coupon/picker'], function(picker) {
+					$('#coupondiv').click(function () {
+						require(['biz/sale/coupon/picker'], function (picker) {
 							picker.show({
 								couponid: modal.couponid,
 								coupons: rjson.result.coupons,
-								onCancel: function() {
+								onCancel: function () {
 									window.couponid = modal.couponid = 0;
 									$('#coupondiv').find('.fui-cell-label').html('优惠券');
 									$('#coupondiv').find('.fui-cell-info').html('')
 								},
-								onSelected: function(data) {
+								onSelected: function (data) {
 									$('#coupondiv').find('.fui-cell-label').html('已选择');
 									$('#coupondiv').find('.fui-cell-info').html(data.couponame);
 									window.couponid = modal.couponid = data.couponid
@@ -136,7 +137,7 @@ define(['core', 'tpl'], function(core, tpl) {
 				}
 			}, true, true)
 		});
-		$(document).on('click', '#btn-wechat', function() {
+		$(document).on('click', '#btn-wechat', function () {
 			if ($('.btn-pay').attr('submit')) {
 				return
 			}
@@ -154,7 +155,7 @@ define(['core', 'tpl'], function(core, tpl) {
 				type: 'wechat',
 				money: money,
 				couponid: modal.couponid
-			}, function(rjson) {
+			}, function (rjson) {
 				if (rjson.status != 1) {
 					$('.btn-pay').removeAttr('submit');
 					FoxUI.toast.show(rjson.result.message);
@@ -166,7 +167,7 @@ define(['core', 'tpl'], function(core, tpl) {
 				}
 				var wechat = rjson.result.wechat;
 				if (wechat.weixin) {
-					function onBridgeReady() {
+					function onBridgeReady() {
 						WeixinJSBridge.invoke('getBrandWCPayRequest', {
 							'appId': wechat.appid ? wechat.appid : wechat.appId,
 							'timeStamp': wechat.timeStamp,
@@ -174,12 +175,12 @@ define(['core', 'tpl'], function(core, tpl) {
 							'package': wechat.package,
 							'signType': wechat.signType,
 							'paySign': wechat.paySign
-						}, function(res) {
+						}, function (res) {
 							if (res.err_msg == 'get_brand_wcpay_request:ok') {
-								var sub = setInterval(function() {
+								var sub = setInterval(function () {
 									core.json('member/recharge/wechat_complete', {
 										logid: rjson.result.logid
-									}, function(pay_json) {
+									}, function (pay_json) {
 										if (pay_json.status == 1) {
 											clearInterval(sub);
 											FoxUI.toast.show('充值成功!');
@@ -197,18 +198,18 @@ define(['core', 'tpl'], function(core, tpl) {
 									money: money,
 									couponid: modal.couponid,
 									jie: 1
-								}, function(wechat_jie) {
+								}, function (wechat_jie) {
 									modal.payWechatJie(wechat_jie.result, money)
 								}, false, true)
 							}
 						})
 					}
-					if  (typeof WeixinJSBridge  ==  "undefined") {
-						if ( document.addEventListener ) {
-							document.addEventListener('WeixinJSBridgeReady',  onBridgeReady,  false)
-						} else  if  (document.attachEvent) {
-							document.attachEvent('WeixinJSBridgeReady',  onBridgeReady);
-							document.attachEvent('onWeixinJSBridgeReady',  onBridgeReady)
+					if (typeof WeixinJSBridge == "undefined") {
+						if (document.addEventListener) {
+							document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false)
+						} else if (document.attachEvent) {
+							document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+							document.attachEvent('onWeixinJSBridgeReady', onBridgeReady)
 						}
 					} else {
 						onBridgeReady()
@@ -219,7 +220,7 @@ define(['core', 'tpl'], function(core, tpl) {
 				}
 			}, true, true)
 		});
-		$(document).on('click', '#btn-alipay', function() {
+		$(document).on('click', '#btn-alipay', function () {
 			if ($('.btn-pay').attr('submit') && !core.ish5app()) {
 				return
 			}
@@ -237,7 +238,7 @@ define(['core', 'tpl'], function(core, tpl) {
 				type: 'alipay',
 				money: money,
 				couponid: modal.couponid
-			}, function(rjson) {
+			}, function (rjson) {
 				if (rjson.status != 1) {
 					$('.btn-pay').removeAttr('submit');
 					FoxUI.toast.show(rjson.result.message);
@@ -255,35 +256,35 @@ define(['core', 'tpl'], function(core, tpl) {
 			}, true, true)
 		})
 	};
-	modal.payWechatJie = function(res, money) {
+	modal.payWechatJie = function (res, money) {
 		var img = core.getUrl('index/qr', {
 			url: res.wechat.code_url
 		});
 		$('#qrmoney').text(money);
-		$('#btnWeixinJieCancel').unbind('click').click(function() {
+		$('#btnWeixinJieCancel').unbind('click').click(function () {
 			$('.btn-pay').removeAttr('submit');
 			clearInterval(settime);
 			$('.order-weixinpay-hidden').hide()
 		});
 		$('.order-weixinpay-hidden').show();
-		var settime = setInterval(function() {
+		var settime = setInterval(function () {
 			core.json('member/recharge/wechat_complete', {
 				logid: res.logid
-			}, function(pay_json) {
+			}, function (pay_json) {
 				if (pay_json.status == 1) {
 					location.href = core.getUrl('member');
 					return
 				}
 			}, false, true)
 		}, 1000);
-		$('.verify-pop').find('.close').unbind('click').click(function() {
+		$('.verify-pop').find('.close').unbind('click').click(function () {
 			$('.order-weixinpay-hidden').hide();
 			$('.btn-pay').removeAttr('submit');
 			clearInterval(settime)
 		});
 		$('.verify-pop').find('.qrimg').attr('src', img).show()
 	};
-	modal.hideCoupon = function() {
+	modal.hideCoupon = function () {
 		$('#coupondiv').hide();
 		$('#coupondiv').find('.badge').html('0').hide();
 		$('#coupondiv').find('.text').show()
