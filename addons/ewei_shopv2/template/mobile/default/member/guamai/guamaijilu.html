@@ -118,9 +118,9 @@
     </div>
 
     <div class="title">C2C订单</div>
-    <div class="fui-header-right">
+    <!-- <div class="fui-header-right">
       <i class="icon icon-add4"></i>
-    </div>
+    </div> -->
   </div>
 
   <div class='fui-content navbar'>
