@@ -767,11 +767,6 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$psize = 10;
 		$openid = $_W['openid'];
 		$status = $_GPC['status'];
-		if(empty($status)){
-			$data = array('status'=>0,"fail"=>"请上传订单状态");
-			echo json_encode($data);exit();
-		}
-
 		$select = 'SELECT g.id,g.openid,g.openid2,g.money,g.createtime,g.type,g.price,g.trx,g.status,m.nickname,m.zfbfile,m.wxfile,m.bankid,m.bankname,m.bank,m2.nickname as nickname2 FROM ';
 		$tablename = tablename('guamai').' g left join '.tablename('ewei_shop_member').' m ON m.openid=g.openid left join'.tablename('ewei_shop_member').' m2 ON m2.openid=g.openid2';
 		$where = " WHERE g.uniacid=:uniacid AND g.type=:type AND (g.status='$status') ";
@@ -781,7 +776,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$params[':uniacid'] = $_W['uniacid'];
 		$params[':type'] = $type;
 
-		$list = pdo_fetchall($select.$tablename.$where.$limit,$params);
+		$list  = pdo_fetchall($select.$tablename.$where.$limit,$params);
 		$total = pdo_fetchcolumn('SELECT count(g.id) FROM '.$tablename.$where, $params);
 		// show_json(111);
 
