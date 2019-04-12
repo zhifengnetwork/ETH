@@ -151,8 +151,10 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		// dump($guamai_appeal);
 		if ($users['openid'] == $guamai_appeal['openid']) {
 			$guamai_appeal['openid2'] = substr($guamai_appeal['openid2'], -11);
+			$guamai_appeal['type1']   = 0;
 		} else {
 			$guamai_appeal['openid2'] = substr($guamai_appeal['openid'], -11);
+			$guamai_appeal['type1']   = 0;
 		}
 		// dump($guamai_appeal['openid2']);
 		include $this->template();

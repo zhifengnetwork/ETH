@@ -652,6 +652,23 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		returnJson($data['contract'], "获取记录成功",1);
 	}
 
+	//3D首页开奖号 首页信息
+	public function indexedit(){
+		global $_W;
+		global $_GPC;
+
+		$sale = pdo_fetch("select price,numberis,time from" . tablename("ewei_shop_lottery2") . "where uniacid=" . $_W['uniacid']);
+		// select * from table_name limit 0,10
+		$sale1 = pdo_fetchall("select * from" . tablename('ewei_shop_lottery2_log') . "  order by id DESC limit 10");
+
+		$data = [
+			'price' => $sale['price'],
+			'sale1' => $sale1,
+		];
+		returnJson($data, "首页信息成功",1);
+
+	}
+
 	//3D押注记录
 	public function stakejiluis(){
 		global $_W;
@@ -857,7 +874,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			
 		}
         /***
-		 * 点击卖出或者买入按钮
+		 * c2c首页点击卖出或者买入按钮
 		 */
 
 		public function sellout()
@@ -867,7 +884,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			//参数  id  type 
 			//该订单的信息
 			$id = $_GPC['id']; //订单ID
-			$op = $_GPC['op']; //判断角色进入订单的显示状态 1
+			$op = $_GPC['op']; //特殊参数
 			$openid = $_W['openid'];
 			$sell = pdo_fetch("select g.*,m.nickname,m.mobile,m.zfbfile,m.wxfile,m.bankid,m.bankname,m.bank,m2.nickname as nickname2,m2.mobile as mobile2,m2.zfbfile as zfbfile2,m2.wxfile as wxfile2,m2.bankid as bankid2,m2.bankname as bankname2,m2.bank as bank2 from" . tablename('guamai') . ' g left join ' . tablename('ewei_shop_member') . ' m ON m.openid=g.openid left join ' . tablename('ewei_shop_member') . ' m2 ON m2.openid=g.openid2 ' . " where g.uniacid=" . $_W['uniacid'] . " and g.id='$id'");
 			// dump($sell);
@@ -924,7 +941,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 					if ($result) returnJson([],"抢单成功",1);
 				}
 			} else if ($type == 1) {  //卖出
-				if ($op == 1) {	//买入订单  挂单人付钱
+				if ($op == 1) {
 					// dump($op);die;
 					$result = pdo_update("guamai", array('file' => $_GPC['file']), array('uniacid' => $_W['uniacid'], 'id' => $id));
 
@@ -963,15 +980,17 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			
 		}
 
+		/***
+		 * 
+		 * 订单详情
+		 */
+
 		public function guamaiedit(){
 			global $_W;
 			global $_GPC;
 			//参数  id  type 
 			//该订单的信息
 			$id = $_GPC['id']; //订单ID
-			$op = $_GPC['op']; //买入订单  挂单人付钱  
-			// 卖出订单   挂卖人进入
-			//$op ==0 && $type==2 卖出订单  挂卖人进入  收钱 卖出
 			$openid = $_W['openid'];
 			$sell = pdo_fetch("select g.*,m.nickname,m.mobile,m.zfbfile,m.wxfile,m.bankid,m.bankname,m.bank,m2.nickname as nickname2,m2.mobile as mobile2,m2.zfbfile as zfbfile2,m2.wxfile as wxfile2,m2.bankid as bankid2,m2.bankname as bankname2,m2.bank as bank2 from" . tablename('guamai') . ' g left join ' . tablename('ewei_shop_member') . ' m ON m.openid=g.openid left join ' . tablename('ewei_shop_member') . ' m2 ON m2.openid=g.openid2 ' . " where g.uniacid=" . $_W['uniacid'] . " and g.id='$id'");
 			// dump($sell);
@@ -994,6 +1013,61 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			returnJson(['list' => $sell], "获取订单详情成功",1);
 
 		}
+
+		//申诉详情
+		public function guamai_appeal_list()
+		{
+			global $_W;
+			global $_GPC;
+			$id      = $_GPC['id'];
+			$user_id = $_GPC['userid'];
+			$users = pdo_fetch("select * from" . tablename("ewei_shop_member") . " where id='$user_id'");
+			$guamai_appeal = pdo_fetch("select g.*,m.* from" . tablename("guamai_appeal") . ' g left join ' . tablename('guamai') . '  m ON m.id=g.order_id' . " where g.id='$id'");
+			// dump($guamai_appeal);
+			if ($users['openid'] == $guamai_appeal['openid']) {
+				$guamai_appeal['openid2'] = substr($guamai_appeal['openid2'], -11);
+				$guamai_appeal['type1']   = "0";
+			} else {
+				$guamai_appeal['openid2'] = substr($guamai_appeal['openid'], -11);
+				$guamai_appeal['type1']   = "1";
+			}
+			$guamai_appeal['mobile'] = $users['mobile']; 
+			returnJson(['list' => $guamai_appeal], "获取申诉详情成功",1);
+		}
+
+		
+		//我的申诉
+		public function guamai_appeal_add()
+		{
+				global $_W;
+				global $_GPC;
+				$id    = $_GPC['id'];//订单号
+				$hello = json_encode(explode(',', $_GPC['files']));
+				$guamai = pdo_fetch("select * from" . tablename("guamai") . "where id='" . $id . "'");
+				$appeal = pdo_fetch("select * from" . tablename("guamai_appeal") . "where stuas=0 and order_id='" . $id . "' and appeal_name='" . $_W['mid'] . "'");
+				if ($appeal) {
+					returnJson(array(),'您还有一条为审核的申诉,请稍后再试!!!',0);
+				} else {
+					$data_appeal = array(
+						"openid"      => $guamai['openid'],
+						"openid2"     => $guamai['openid2'],
+						"order_id"    => $id,
+						"file"        => $guamai['file'],
+						"files"       => $hello,
+						"type"        => $guamai['type'],
+						"appeal_name" => $_W['mid'],
+						"stuas"       => 0,
+						"text"        => $_GPC['text'],
+						"textarea"    => $_GPC['textarea'],
+						"createtime"  => time()
+					);
+					$guamai_appeal = pdo_insert("guamai_appeal", $data_appeal);
+					$guamai_appeal?returnJson(array(), "申诉成功",1):returnJson(array(), "申诉失败",0);
+			  }
+		}
+
+
+
 
 
 
