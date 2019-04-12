@@ -2076,5 +2076,51 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		}
 	}
 
+	public function out()
+	{
+		global $_W;
+		global $_GPC;
+
+		$money = $_GPC['money'];
+		if (empty($_W['openid'])) {
+			returnJson([], "openid不能为空", 0);
+		}
+		$time = time();
+		$user = pdo_fetch("select openid,createtime from" . tablename("ewei_shop_member") . "where openid='" . $_W['openid'] . "'");
+		$time_one = $user['createtime'] + '2592000';
+		if ($time > $time_one) {
+			returnJson([], "账户已注册满一个月不能进行退出机制！", -1);
+		}
+		// $money_receive = 0;
+		// $receive = pdo_fetchall("select * from" . tablename("ewei_shop_receive_hongbao") . "where openid='" . $_W['openid'] . "'");
+		// foreach ($receive as $key => $val) {
+		// 	$money_receive += $val['money'] + $val['money2'];
+		// }
+		// if ($money_receive > $money) {
+		// 	returnJson([], "当前收益超出投资币数不能进行退出机制！", -1);
+		// }
+		m('member')->setCredit($_W['openid'], 'credit2', $money);
+
+		pdo_update("ewei_shop_member", array('type' => 2, 'credit5' => $money, 'agentlevel' => 0, 'agentlevel2' => 0, 'agentlevel3' => 0), array('openid' => $_W['openid'], 'uniacid' => $_W['uniacid']));
+
+		returnJson([]);
+	}
+
+	public function download_app()
+	{
+		$data['androidurl'] = '';
+		$data['iosurl'] = '';
+
+		returnJson($data);
+	}
+
+	public function kefu_link()
+	{
+		$data['qqurl'] = '';
+		$data['wechaturl'] = '';
+
+		returnJson($data);
+	}
+
 }
 ?>
