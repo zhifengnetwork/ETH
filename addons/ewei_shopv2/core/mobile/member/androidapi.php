@@ -1883,7 +1883,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$this->diypage('member');
 
 		$member = m('member')->getMember($_W['openid'], true);
-		returnJson($member);
+		returnJson(['member'=>$member]);
 	}
 
 	public function submit()
@@ -2057,6 +2057,9 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		}
 		else {
 			if ($article_sys['article_temp'] == 2) {
+
+				$categorys = pdo_fetchall('SELECT * FROM ' . tablename('ewei_shop_article_category') . ' WHERE uniacid=:uniacid and isshow=1 order by displayorder desc ', array(':uniacid' => $_W['uniacid']));
+
 				$cate = intval($_GPC['cateid']);
 				$where = ' and article_visit=0';
 
@@ -2069,7 +2072,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		}
 		
 		if (!empty($articles)) {
-			returnJson($articles);
+			returnJson(['article_sys'=>$article_sys,'categorys'=>$categorys,'articles'=>$articles]);
 		}
 	}
 
