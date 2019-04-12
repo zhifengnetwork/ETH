@@ -625,19 +625,19 @@
 								<div class="order">
 									<p class="buy">
 										<?php  if($openid == $winn['openid2']) { ?>
-										<?php  if($winn['type'] == '0') { ?>
-										<span style="color:brown">卖出<b>ETH</b></span>
-										<?php  } ?>
-										<?php  if($winn['type'] == '1') { ?>
-										<span style="color:#0a0">买入<b>ETH</b></span>
-										<?php  } ?>
+												<?php  if($winn['type'] == '0') { ?>
+												<span style="color:brown">卖出<b>ETH</b></span>
+												<?php  } ?>
+												<?php  if($winn['type'] == '1') { ?>
+												<span style="color:#0a0">买入<b>ETH</b></span>
+												<?php  } ?>
 										<?php  } else { ?>
-										<?php  if($winn['type'] == '0') { ?>
-										<span style="color:#0a0">买入<b>ETH</b></span>
-										<?php  } ?>
-										<?php  if($winn['type'] == '1') { ?>
-										<span style="color:brown">卖出<b>ETH</b></span>
-										<?php  } ?>
+												<?php  if($winn['type'] == '0') { ?>
+												<span style="color:#0a0">买入<b>ETH</b></span>
+												<?php  } ?>
+												<?php  if($winn['type'] == '1') { ?>
+												<span style="color:brown">卖出<b>ETH</b></span>
+												<?php  } ?>
 										<?php  } ?>
 										<?php  if($winn['status'] == '0') { ?>
 										<span class="fn_cl" data-val="0"
