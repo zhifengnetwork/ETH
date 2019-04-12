@@ -212,9 +212,6 @@ class Recharge_EweiShopV2Page extends MobileLoginPage
 	{
 		global $_W;
 		global $_GPC;
-
-		dump($_GPC);
-		die;
 		$money = $_GPC['money'];
 		$url = $_GPC['url'];
 		$member = m('member')->getMember($_W['openid'], true);
