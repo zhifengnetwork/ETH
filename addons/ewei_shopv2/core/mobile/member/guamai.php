@@ -7,6 +7,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 	protected $member;
 	public function __construct()
 	{
+		
 		global $_W;
 		global $_GPC;
 		parent::__construct();
@@ -82,8 +83,8 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		//价格基础TRX价格  以及手续费
 		$sys = pdo_fetch("select trxprice,trxsxf from" . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
 		$sys['trxsxf'] = round($sys['trxsxf'], 2);
-		$start = $sys['trxprice'] * (1 - 0.1);
-		$end = $sys['trxprice'] * (1 + 0.1);
+		$start  = $sys['trxprice'] * (1 - 0.1);
+		$end    = $sys['trxprice'] * (1 + 0.1);
 		$member = m('member')->getMember($_W['openid'], true);
 		//用户买入,卖出订单
 		$guamai = pdo_fetchall("select * from" . tablename("guamai") . "where openid='" . $openid . "' or openid2='" . $openid . "' order by createtime desc");
@@ -162,7 +163,6 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		global $_W;
 		global $_GPC;
 		$type = 0;
-
 		//价格基础TRX价格  以及手续费
 		$sys = pdo_fetch("select trxprice,trxsxf from" . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
 		$start = $sys['trxprice'] * (1 - 0.1);
@@ -245,6 +245,9 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		// show_json($item);
 		$data = array('list' => $list);
 
+		var_dump($data);
+		exit;
+
 		show_json(1, array('list' => $list, 'total' => $total, 'pagesize' => $psize));
 	}
 
@@ -323,7 +326,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		$params[':uniacid'] = $_W['uniacid'];
 		$params[':type'] = $type;
 
-		$list = pdo_fetchall($select . $tablename . $where . $limit, $params);
+		$list  = pdo_fetchall($select . $tablename . $where . $limit, $params);
 		$total = pdo_fetchcolumn('SELECT count(g.id) FROM ' . $tablename . $where, $params);
 		// show_json(111);
 
@@ -379,9 +382,9 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		global $_W;
 		global $_GPC;
 		//该订单的信息
-		$id = $_GPC['id'];
+		$id     = $_GPC['id'];
 		$status = $_GPC['status'];
-		$op = $_GPC['op'];
+		$op     = $_GPC['op'];
 		$openid = $_W['openid'];
 		// dump($openid);
 		$sell = pdo_fetch("select g.*,m.nickname,m.mobile,m.zfbfile,m.wxfile,m.bankid,m.bankname,m.bank,m2.mobile as mobile2,m2.nickname as nickname2,m2.zfbfile as zfbfile2,m2.wxfile as wxfile2,m2.bankid as bankid2,m2.bankname as bankname2,m2.bank as bank2 from" . tablename('guamai') . ' g left join ' . tablename('ewei_shop_member') . ' m ON m.openid=g.openid left join ' . tablename('ewei_shop_member') . ' m2 ON m2.openid=g.openid2 ' . " where g.uniacid=" . $_W['uniacid'] . " and g.id='$id'");
