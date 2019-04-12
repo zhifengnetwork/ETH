@@ -4,13 +4,30 @@
 
     <div class="col-sm-9 col-xs-12">
 
-        <img class="radius50" src="<?php  echo $member['avatar'];?>" style='width:50px;height:50px;padding:1px;border:1px solid #ccc' onerror="this.src='../addons/ewei_shopv2/static/images/noface.png'"/>
+        <img class="radius50" src="<?php  echo $member['avatar'];?>" style='width:50px;height:50px;padding:1px;border:1px solid #ccc'
+            onerror="this.src='../addons/ewei_shopv2/static/images/noface.png'" />
 
-        <?php  if(strexists($member['openid'],'sns_wa')) { ?><i class="icow icow-xiaochengxu" style="color: #7586db;vertical-align: middle;" data-toggle="tooltip" data-placement="bottom" data-original-title="来源: 小程序"></i><?php  } ?>
+        <?php  if(strexists($member['openid'],'sns_wa')) { ?><i class="icow icow-xiaochengxu"
+            style="color: #7586db;vertical-align: middle;" data-toggle="tooltip" data-placement="bottom"
+            data-original-title="来源: 小程序"></i><?php  } ?>
 
-        <?php  if(strexists($member['openid'],'sns_qq')||strexists($member['openid'],'sns_wx')||strexists($member['openid'],'wap_user')) { ?><i class="icow icow-app" style="color: #44abf7;vertical-align: middle;" data-toggle="tooltip" data-placement="bottom" data-original-title="来源: 全网通(<?php  if(strexists($member['openid'],'wap_user')) { ?>手机号注册<?php  } else { ?>APP<?php  } ?>)"></i><?php  } ?>
+        <?php  if(strexists($member['openid'],'sns_qq')||strexists($member['openid'],'sns_wx')||strexists($member['openid'],'wap_user')) { ?><i
+            class="icow icow-app" style="color: #44abf7;vertical-align: middle;" data-toggle="tooltip"
+            data-placement="bottom"
+            data-original-title="来源: 全网通(<?php  if(strexists($member['openid'],'wap_user')) { ?>手机号注册<?php  } else { ?>APP<?php  } ?>)"></i><?php  } ?>
 
         <?php  echo $member['nickname'];?>
+
+    </div>
+
+</div>
+<div class="form-group">
+
+    <label class="col-lg control-label">ID</label>
+
+    <div class="col-sm-9 col-xs-12">
+
+        <div class="form-control-static js-clip text-primary" data-url='{$member[' openid']}'><?php  echo $member['id'];?></div>
 
     </div>
 
@@ -22,9 +39,9 @@
 
     <div class="col-sm-9 col-xs-12">
 
-        <div class="form-control-static js-clip text-primary" data-url='<?php  echo $member['openid'];?>'><?php  echo $member['openid'];?></div>
+        <div class="form-control-static js-clip text-primary" data-url='{$member[' openid']}'><?php  echo $member['openid'];?></div>
 
-</div>
+    </div>
 
 </div>
 
@@ -148,11 +165,11 @@
 
         <?php if(cv('member.list.edit')) { ?>
 
-            <?php  echo tpl_form_field_editor(array('name'=>'data[mobile]', 'value'=>$member['mobile']))?>
+        <?php  echo tpl_form_field_editor(array('name'=>'data[mobile]', 'value'=>$member['mobile']))?>
 
         <?php  } else { ?>
 
-            <div class='form-control-static'><?php  echo $member['mobile'];?></div>
+        <div class='form-control-static'><?php  echo $member['mobile'];?></div>
 
         <?php  } ?>
 
@@ -236,7 +253,9 @@
 
         <div class='form-control-static'><?php  echo $member['credit1'];?>
 
-            <a class="text-primary " data-toggle='ajaxModal' href="<?php  echo webUrl('finance/recharge', array('type'=>'credit1','id'=>$member['id']))?>" style="padding-left: 5px;">充值</a>
+            <a class="text-primary " data-toggle='ajaxModal'
+                href="<?php  echo webUrl('finance/recharge', array('type'=>'credit1','id'=>$member['id']))?>"
+                style="padding-left: 5px;">充值</a>
 
         </div>
 
@@ -256,7 +275,9 @@
 
             <?php if(cv('finance.recharge.credit2')) { ?>
 
-                <a class="text-primary " data-toggle='ajaxModal' href="<?php  echo webUrl('finance/recharge', array('type'=>'credit2','id'=>$member['id']))?>" style="padding-left: 5px;">充值</a>
+            <a class="text-primary " data-toggle='ajaxModal'
+                href="<?php  echo webUrl('finance/recharge', array('type'=>'credit2','id'=>$member['id']))?>"
+                style="padding-left: 5px;">充值</a>
 
             <?php  } ?>
 
@@ -264,7 +285,8 @@
 
     </div>
 
-</div> <div class="form-group">
+</div>
+<div class="form-group">
 
     <label class="col-lg control-label">注册时间</label>
 
@@ -366,13 +388,13 @@
 
 <?php  if($openbind) { ?>
 
-<div class="form-group-title">用户绑定  </div>
+<div class="form-group-title">用户绑定 </div>
 
-    <?php  if(!empty($_W['shopset']['wap']['open'])) { ?>
+<?php  if(!empty($_W['shopset']['wap']['open'])) { ?>
 
-        <div class="alert alert-danger">以下信息修改后会导致用户无法登录WAP端，如需更改请告知该用户！</div>
+<div class="alert alert-danger">以下信息修改后会导致用户无法登录WAP端，如需更改请告知该用户！</div>
 
-    <?php  } ?>
+<?php  } ?>
 
 
 
@@ -384,15 +406,15 @@
 
         <?php if(cv('member.list.edit')) { ?>
 
-            <?php  if(empty($member['mobileverify'])) { ?>
+        <?php  if(empty($member['mobileverify'])) { ?>
 
-                <?php  echo tpl_form_field_editor(array('name'=>'data[mobile]', 'value'=>$member['mobile']))?>
+        <?php  echo tpl_form_field_editor(array('name'=>'data[mobile]', 'value'=>$member['mobile']))?>
 
-            <?php  } else { ?>
+        <?php  } else { ?>
 
-                <input type="text" class="form-control" value="<?php  echo $member['mobile'];?>" disabled />
+        <input type="text" class="form-control" value="<?php  echo $member['mobile'];?>" disabled />
 
-            <?php  } ?>
+        <?php  } ?>
 
         <?php  } else { ?>
 
@@ -414,17 +436,13 @@
 
         <?php if(cv('member.list.edit')) { ?>
 
-            <label class="radio-inline"><input type="radio" value="1" name="data[mobileverify]" <?php  if($member['mobileverify']==1) { ?>checked disabled<?php  } else { ?><?php  } ?>>已绑定</label>
+        <label class="radio-inline"><input type="radio" value="1" name="data[mobileverify]" <?php  if($member['mobileverify']==1) { ?>checked disabled<?php  } else { ?><?php  } ?>>已绑定 </label> <label class="radio-inline"><input
+                type="radio" value="0" name="data[mobileverify]" <?php  if($member['mobileverify']==0) { ?>checked<?php  } else { ?> disabled
+                name="data[mobileverify]" <?php  } ?>>未绑定 </label> <?php  } else { ?> <div class="form-control-static"><?php  if(empty($member['mobileverify'])) { ?>未绑定<?php  } else { ?>已绑定<?php  } ?></div>
 
-            <label class="radio-inline" ><input type="radio" value="0" name="data[mobileverify]" <?php  if($member['mobileverify']==0) { ?>checked<?php  } else { ?> disabled name="data[mobileverify]"<?php  } ?>>未绑定</label>
+    <?php  } ?>
 
-        <?php  } else { ?>
-
-        <div class="form-control-static"><?php  if(empty($member['mobileverify'])) { ?>未绑定<?php  } else { ?>已绑定<?php  } ?></div>
-
-        <?php  } ?>
-
-    </div>
+</div>
 
 </div>
 
@@ -434,19 +452,19 @@
 
 <?php if(cv('member.list.edit')) { ?>
 
-    <div class="form-group">
+<div class="form-group">
 
-        <label class="col-lg control-label">用户密码</label>
+    <label class="col-lg control-label">用户密码</label>
 
-        <div class="col-sm-9 col-xs-12">
+    <div class="col-sm-9 col-xs-12">
 
-            <?php  echo tpl_form_field_editor(array('name'=>'data[pwd]', 'value'=>''))?>
+        <?php  echo tpl_form_field_editor(array('name'=>'data[pwd]', 'value'=>''))?>
 
-            <div class="form-control-static">密码留空则不修改</div>
-
-        </div>
+        <div class="form-control-static">密码留空则不修改</div>
 
     </div>
+
+</div>
 
 <?php  } ?>
 
@@ -458,56 +476,58 @@
 
 <?php  if($diyform_flag == 1) { ?>
 
-    <div class="form-group-title">自定义表单信息</div>
+<div class="form-group-title">自定义表单信息</div>
 
-    <?php  $datas = iunserializer($member['diymemberdata'])?>
+<?php  $datas = iunserializer($member['diymemberdata'])?>
 
-    <?php  if(is_array($fields)) { foreach($fields as $key => $value) { ?>
+<?php  if(is_array($fields)) { foreach($fields as $key => $value) { ?>
 
-    <div class="form-group">
+<div class="form-group">
 
-        <label class="col-lg control-label"><?php  echo $value['tp_name']?></label>
+    <label class="col-lg control-label"><?php  echo $value['tp_name']?></label>
 
-        <div class="col-sm-9 col-xs-12">
+    <div class="col-sm-9 col-xs-12">
 
-            <div class="form-control-static">
+        <div class="form-control-static">
 
-                <?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('diyform/diyform', TEMPLATE_INCLUDEPATH)) : (include template('diyform/diyform', TEMPLATE_INCLUDEPATH));?>
-
-            </div>
+            <?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('diyform/diyform', TEMPLATE_INCLUDEPATH)) : (include template('diyform/diyform', TEMPLATE_INCLUDEPATH));?>
 
         </div>
 
     </div>
 
-    <?php  } } ?>
+</div>
+
+<?php  } } ?>
 
 <?php  } ?>
 
 
 
 <script type="text/javascript">
-
     $(function () {
 
         $(".btn-maxcredit").unbind('click').click(function () {
 
             var val = $(this).val();
 
-            if(val==1){
+            if (val == 1) {
 
-                $(".maxcreditinput").css({'display':'inline-block'});
+                $(".maxcreditinput").css({
+                    'display': 'inline-block'
+                });
 
-            }else{
+            } else {
 
-                $(".maxcreditinput").css({'display':'none'});
+                $(".maxcreditinput").css({
+                    'display': 'none'
+                });
 
             }
 
         });
 
     })
-
 </script>
 
 <!--OTEzNzAyMDIzNTAzMjQyOTE0-->
