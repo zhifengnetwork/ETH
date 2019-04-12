@@ -24,6 +24,8 @@ class Qrcode_EweiShopV2Page extends CommissionMobileLoginPage
 
 		$mid = intval($_GPC['mid']);
 
+		$q = $_GPC['q'];
+
 		$openid = $_W['openid'];
 
 		$member = m('member')->getMember($openid);
@@ -33,7 +35,9 @@ class Qrcode_EweiShopV2Page extends CommissionMobileLoginPage
 		$can = false;
 
 		if (empty($member['isagent']) || empty($member['status'])) {
-
+			if($q){
+				returnJson([],'跳转到分销中心页面',-2);
+			}
 			header('location: ' . mobileUrl('commission/register'));
 
 			exit();
@@ -49,7 +53,9 @@ class Qrcode_EweiShopV2Page extends CommissionMobileLoginPage
 		$set = $this->set;
 
 		if (!empty($set['closed_qrcode']) && !intval($_GPC['goodsid'])) {
-
+			if($q){
+				returnJson([],'没有开启推广二维码！',-1);
+			}
 			$this->message('没有开启推广二维码!', mobileUrl('commission'), 'info');
 
 		}
@@ -59,7 +65,9 @@ class Qrcode_EweiShopV2Page extends CommissionMobileLoginPage
 		if (empty($set['become_reg'])) {
 
 			if (empty($member['realname'])) {
-
+				if($q){
+					returnJson([],'需要您完善资料才能继续操作!',-3);
+				}
 				$this->message('需要您完善资料才能继续操作!', mobileUrl('member/info', array('returnurl' => $returnurl)), 'info');
 
 			}
@@ -178,6 +186,32 @@ class Qrcode_EweiShopV2Page extends CommissionMobileLoginPage
 
 		}
 
+		if($q){
+			$p = p('poster');
+			$img = '';
+			if ($share_goods) {
+				if ($p) {
+					$img = $p->createCommissionPoster($openid, $goods['id']);
+				}
+
+				if (empty($img)) {
+					$img = $this->model->createGoodsImage($goods);
+				}
+			}else if (!empty($set['qrcode'])) {
+				if ($p) {
+					$img = $p->createCommissionPoster($openid, 0, 4);
+				}
+			}else {
+				if ($p) {
+					$img = $p->createCommissionPoster($openid);
+				}
+				if (empty($img)) {
+					$img = $this->model->createShopImage();
+				}
+
+			}
+			returnJson(array('img' => $img . '?t=' . TIMESTAMP));
+		}		
 
 
 		$set['qrcode_content'] = htmlspecialchars_decode($set['qrcode_content'], ENT_QUOTES);
