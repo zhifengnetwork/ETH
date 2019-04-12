@@ -1977,7 +1977,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 
 		$sys['kefufile'] =   tomedia( $sys['kefufile'] );
 		$sys['wxkffile'] =   tomedia( $sys['wxkffile'] );
-		returnJson(['member' => $member, 'huiyuanlevel' => $huiyuanlevel, 'money' => $money, 'money2' => $money2, 'money4' => money4, 'arr' => $arr, 'arr2' => $arr2]);
+		returnJson(['member' => $member, 'huiyuanlevel' => $huiyuanlevel, 'money' => $money, 'money2' => $money2, 'money4' => money4, 'arr' => $arr, 'arr2' => $arr2,'kefu'=>$sys]);
 	}
 
 	public function my_wallet()
