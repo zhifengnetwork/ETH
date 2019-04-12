@@ -1990,6 +1990,15 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		returnJson(['member' => $member]);
 	}
 
+	public function get_sxf(){
+		global $_W;
+		$set = $_W['shopset']['trade'];
+		$ass = pdo_fetch("select zhuanzhangsxf from " . tablename("ewei_shop_sysset") . " where uniacid=:uniacid ", array(':uniacid' => $_W['uniacid']));
+		$data['zhuanzhangsxf'] = $ass['zhuanzhangsxf'];
+		$data['withdrawsxf'] = $set['withdrawcharge'];
+		returnJson($data);
+	}
+
 	public function submit()
 	{
 		global $_W;
