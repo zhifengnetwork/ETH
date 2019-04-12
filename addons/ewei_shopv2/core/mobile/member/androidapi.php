@@ -1975,7 +1975,8 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			$roleuser = pdo_fetch('SELECT id, uid, username, status FROM' . tablename('ewei_shop_perm_user') . 'WHERE openid=:openid AND uniacid=:uniacid AND status=1 LIMIT 1', array(':openid' => $_W['openid'], ':uniacid' => $_W['uniacid']));
 		}
 
-
+		$sys['kefufile'] =   tomedia( $sys['kefufile'] );
+		$sys['wxkffile'] =   tomedia( $sys['wxkffile'] );
 		returnJson(['member' => $member, 'huiyuanlevel' => $huiyuanlevel, 'money' => $money, 'money2' => $money2, 'money4' => money4, 'arr' => $arr, 'arr2' => $arr2]);
 	}
 
