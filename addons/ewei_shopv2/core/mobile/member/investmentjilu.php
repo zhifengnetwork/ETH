@@ -102,7 +102,7 @@ class Investmentjilu_EweiShopV2Page extends MobileLoginPage
 		$psize = 10;
 		$openid = $_W['openid'];
 		$list =  pdo_fetchall("select g.*,m.nickname from" . tablename("ewei_shop_member_log") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.openid='$openid' order by g.createtime desc");
-		$zhuanzhang = pdo_fetchall("select g.*,m.nickname from" . tablename("ewei_zhuanzhang") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.openid=$openid order by g.createtime desc");
+		$zhuanzhang = pdo_fetchall("select g.*,m.nickname from" . tablename("ewei_zhuanzhang") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.openid='$openid' order by g.createtime desc");
 		foreach ($zhuanzhang as $k => $v) {
 			$zhuanzhang[$k]['openid'] = substr($v['openid'], -11);
 			$zhuanzhang[$k]['openid2'] = substr($v['openid2'], -11);
