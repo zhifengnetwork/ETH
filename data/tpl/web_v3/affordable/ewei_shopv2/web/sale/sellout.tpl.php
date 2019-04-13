@@ -209,15 +209,15 @@
 
                         <?php if(cv('member.list.detail')) { ?>
 
-                        <a  href="<?php  echo webUrl('member/list/detail',array('id' => $row['mid']));?>" target='_blank'>
+                        <a  href="<?php  echo webUrl('member/list/detail',array('id' => $row['m1id']));?>" target='_blank'>
 
-                            <img class="radius50" src='<?php  echo tomedia($row['m1avatar'])?>' style='width:30px;height:30px;padding1px;border:1px solid #ccc' / onerror="this.src='../addons/ewei_shopv2/static/images/noface.png'"> <?php  echo $row['m1nickname'];?>
+                            <img class="radius50" src="<?php  echo tomedia($row['m1avatar'])?>" style='width:30px;height:30px;padding:1px;border:1px solid #ccc' / onerror="this.src='../addons/ewei_shopv2/static/images/noface.png'"> <?php  echo $row['m1nickname'];?>
 
                         </a>
 
                         <?php  } else { ?>
 
-                        <img src='<?php  echo tomedia($row['avatar'])?>' style='width:30px;height:30px;padding1px;border:1px solid #ccc' /> <?php  echo $row['nickname'];?>
+                        <img src='<?php  echo tomedia($row['avatar'])?>' style='width:30px;height:30px;padding:1px;border:1px solid #ccc' /> <?php  echo $row['nickname'];?>
 
                         <?php  } ?>
 
@@ -228,16 +228,16 @@
 
                         <?php if(cv('member.list.detail')) { ?>
 
-                        <a  href="<?php  echo webUrl('member/list/detail',array('id' => $row['mid']));?>" target='_blank'>
+                        <a  href="<?php  echo webUrl('member/list/detail',array('id' => $row['m2id']));?>" target='_blank'>
 
-                            <img class="radius50" src='<?php  echo tomedia($row['m2avatar'])?>' style='width:30px;height:30px;padding1px;border:1px solid #ccc' / onerror="this.src='../addons/ewei_shopv2/static/images/noface.png'">
+                            <img class="radius50" src="<?php  echo tomedia($row['m2avatar'])?>" style='width:30px;height:30px;padding:1px;border:1px solid #ccc' / onerror="this.src='../addons/ewei_shopv2/static/images/noface.png'">
                             <?php  if(!$row['m2nickname']) { ?>暂无<?php  } else { ?><?php  echo $row['m2nickname'];?><?php  } ?>
 
                         </a>
 
                         <?php  } else { ?>
 
-                        <img src='<?php  echo tomedia($row['avatar'])?>' style='width:30px;height:30px;padding1px;border:1px solid #ccc' /> <?php  echo $row['nickname'];?>
+                        <img src='<?php  echo tomedia($row['avatar'])?>' style='width:30px;height:30px;padding:1px;border:1px solid #ccc' /> <?php  echo $row['nickname'];?>
 
                         <?php  } ?>
 
