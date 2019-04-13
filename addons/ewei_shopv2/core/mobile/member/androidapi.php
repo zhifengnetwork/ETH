@@ -479,43 +479,66 @@ class Androidapi_EweiShopV2Page extends MobilePage
 	public function fucairanking(){
 		global $_W;
 		global $_GPC;
-		$id = $_GPC['id'];
-		if($id){
-			$memberis = pdo_fetch("select * from ".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and id='$id'");
-			$_W['openid'] = $memberis['openid'];
-		}else{
-			$data = array('status'=>0,"fail"=>"请上传会员的id");
-			echo json_encode($data);exit();
-		}
-		$sale = pdo_fetch("select * from".tablename("ewei_shop_lottery2")."where uniacid=".$_W['uniacid']);
 
+		$sale = pdo_fetch("select * from" . tablename("ewei_shop_lottery2") . "where id=1");
+
+		//昨天开始时间
+		$t_start = mktime(0, 0, 0, date('m'), date('d') - 1, date('Y'));
+		//昨天结束时间
+		$t_end = mktime(23, 59, 59, date('m'), date('d') - 1, date('Y'));
 		//今日开始时间和结束时间戳
-        $start = mktime(0,0,0,date('m'),date('d'),date('Y'));
-        $end = mktime(0,0,0,date('m'),date('d')+1,date('Y'))-1;
-
+		$start = mktime(0, 0, 0, date('m'), date('d'), date('Y'));
+		$end = mktime(0, 0, 0, date('m'), date('d') + 1, date('Y')) - 1;
+		//查出昨日投资前10名
+		$t_investment = pdo_fetchall("select m.id,l.openid,m.avatar,m.nickname,m.mobile,sum(l.money) as moneys from " . tablename("stakejilu") . " l left join " . tablename("ewei_shop_member") . " m on l.openid=m.openid " . " where l.uniacid=" . $_W['uniacid'] . " and l.createtime>='$t_start' and l.createtime<='$t_end' group by l.openid order by moneys desc limit 0,10");
+		// dump($t_investment);
 		//查出今日投资的前10名
-		$investment = pdo_fetchall("select l.openid,m.avatar,m.nickname,m.mobile,sum(l.money) as moneys from ".tablename("stakejilu")." l left join ".tablename("ewei_shop_member")." m on l.openid=m.openid "." where l.uniacid=".$_W['uniacid']." and l.thigh=0 and l.createtime>'$start' and l.createtime<'$end' group by l.openid order by moneys desc limit 0,10");
-
-		// var_dump($investment);
-
+		$investment = pdo_fetchall("select m.id,l.openid,m.avatar,m.nickname,m.mobile,sum(l.money) as moneys from " . tablename("stakejilu") . " l left join " . tablename("ewei_shop_member") . " m on l.openid=m.openid " . " where l.uniacid=" . $_W['uniacid'] . " and l.createtime>'$start' and l.createtime<'$end' group by l.openid order by moneys desc limit 0,10");
+		// dump($investment);
+		$shop_lottery = pdo_fetchall("select number,numberis from " . tablename('ewei_shop_lottery2') . " where id=1");
+		$number = $shop_lottery[0]['numberis'];
+		$winning = pdo_fetchall("select * from " . tablename("winningrecord") . " where type = 1 ");
+        
 		//投资排名的中奖额度
 		$touzi = unserialize($sale['investment']);
 
+
+		$a = 1;
+		foreach ($t_investment as $key => $val) {
+			if ($touzi['investment' . $a]) {
+				$t_investment[$key]['type'] = $a;
+				$t_investment[$key]['yujis'] = number_format($touzi['investment' . $a] * $sale['sums'] * 0.01, 6);
+				$t_investment[$key]['bfb'] = $touzi['investment' . $a];
+			}
+			$a++;
+		}
+
 		$i = 1;
 		foreach ($investment as $key => $val) {
-
-			if($touzi['investment'.$i]){
-
+			if ($touzi['investment' . $i]) {
 				$investment[$key]['type'] = $i;
-				$investment[$key]['yuji'] = round($touzi['investment'.$i]*$sale['sum']*0.01,2);
-
+				$investment[$key]['yuji'] = number_format($touzi['investment' . $i] * $sale['sum'] * 0.01, 6);
+				$investment[$key]['bfb'] = $touzi['investment' . $i];
 			}
-
 			$i++;
 		}
-		$data = array('status'=>0,"list"=>$investment);
-		echo json_encode($data);exit();
-		// var_dump($investment);
+		foreach ($winning as $k => $v) {
+			$winning[$k]['createtime'] = date("Y-m-d H:i:s", $v['createtime']);
+			$winning[$k]['openid'] = substr_replace(substr($v['openid'], -11), '****', 3, 4);
+		}
+		
+		 if($sale['sum'] == 0){
+             $total =  $sale['sums'];    
+		 }else{
+			 $total =  $sale['sum']; 
+		 }
+		$data = [
+			'winning'  => $winning,
+			'total'    => $total,
+			'today'    => $investment,
+			'yestoday' => $t_investment,
+		];
+		returnJson($data, "获取数据成功",1);
 
 	}
 
@@ -556,8 +579,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			}
 
 		}
-
-
+		returnJson(array('list' => $yes), "获取成功",1);
 	}
 
 
@@ -732,7 +754,14 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		returnJson($data, "获取中奖记录成功",1);
 
 	}
-	//3d彩票
+
+
+
+	/***
+	 * 3d彩票 投资排行
+	 */
+
+	
 
 	//c2c
 	//挂卖中心
@@ -787,7 +816,6 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		
 		$data = array('list' => $list,'total' => $total,'pagesize' => $psize);
 		returnJson($data,'ok',1);
-		
 	}
 
     //订单中心
