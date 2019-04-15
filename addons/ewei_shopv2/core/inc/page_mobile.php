@@ -56,15 +56,17 @@ class MobilePage extends Page
 			}
 		}else{
 			$userid  = $_GPC['userid'];
-			if($userid){
-				$memberis = pdo_fetch("select * from ".tablename("ewei_shop_member")." where uniacid=".$_W['uniacid']." and id='$userid'");
-				$_W['openid'] = empty($memberis['openid'])?returnJson([],-1,"没有该用户"):$memberis['openid'];
-			}else{
-				if(!$_GPC['l']){
-					returnJson(array(), "用户ID不能为空",-1);
-				}
+			if(!$userid){
+				returnJson(array(), "用户ID不能为空",-1);
 			}
 
+			$res = base64_decode($userid);  #输出解密后的字符串
+			$res = json_decode($res,true);
+			
+			if(!$res){
+				returnJson(array(), "用户不存在",-1);
+			}
+			$_W['openid'] = $res['userid'];
 		}
 
 		$member = m('member')->checkMember();
