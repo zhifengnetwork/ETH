@@ -1450,68 +1450,6 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		returnJson(array());
 	}
 
-	public function cahngepwd()
-	{
-		global $_W;
-		global $_GPC;
-		$id = $_GPC['id'];
-		if($id){
-			$memberis = pdo_fetch("select * from ".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and id='$id'");
-			$_W['openid'] = $memberis['openid'];
-		}else{
-			$data = array('status'=>0,"fail"=>"请上传会员的id");
-			echo json_encode($data);exit();
-		}
-		$member = m('member')->getMember($_W['openid'], true);
-		$wapset = m('common')->getSysset('wap');
-
-		// show_json(111);
-		if ($_W['ispost'])
-		{
-			$mobile = trim($_GPC['mobile']);
-			$verifycode = trim($_GPC['verifycode']);
-			$pwd = trim($_GPC['pwd']);
-
-			if(!$mobile || !$code || !$pwd){
-				returnJson(array(),'参数错误！','-1');
-			}
-			
-			if( $this->phoneAuth($mobile,$code) === '-1' ){
-				returnJson(array(),'验证码已过期！','-1');
-			}else if( !$this->phoneAuth($mobile,$code) ){
-				returnJson(array(),'验证码错误！','-1');
-			}
-			
-			$member = pdo_fetch('select id,openid,mobile,pwd,salt,credit1,credit2, createtime from ' . tablename('ewei_shop_member') . ' where mobile=:mobile and uniacid=:uniacid and mobileverify=1 limit 1', array(':mobile' => $mobile, ':uniacid' => $_W['uniacid']));
-			$salt = ((empty($member) ? '' : $member['salt']));
-			if (empty($salt)){
-			{
-				$salt = random(16);
-				while (1)
-				{
-					$count = pdo_fetchcolumn('select count(*) from ' . tablename('ewei_shop_member') . ' where salt=:salt limit 1', array(':salt' => $salt));
-					if ($count <= 0)
-					{
-						break;
-					}
-					$salt = random(16);
-				}
-			}
-			pdo_update('ewei_shop_member', array('mobile' => $mobile, 'pwd' => md5($pwd . $salt), 'salt' => $salt, 'mobileverify' => 1), array('id' => $id, 'uniacid' => $_W['uniacid']));
-			echo json_encode(array('status'=>1,'success'=>'修改密码成功'));
-		}
-		$sendtime = $_SESSION['verifycodesendtime'];
-		if (empty($sendtime) || (($sendtime + 60) < time()))
-		{
-			$endtime = 0;
-		}
-		else
-		{
-			$endtime = 60 - time() - $sendtime;
-		}
-
-	}
-
 	public function kefu(){
 		global $_W;
 		$sys = pdo_fetch("select kefufile,wxkffile from".tablename("ewei_shop_sysset")."where uniacid=".$_W['uniacid']);
@@ -2436,7 +2374,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 
 		$member = pdo_fetch('select id,openid,mobile,pwd,salt,credit1,credit2, createtime from ' . tablename('ewei_shop_member') . ' where mobile=:mobile and uniacid=:uniacid and mobileverify=1 limit 1', array(':mobile' => $mobile, ':uniacid' => $_W['uniacid']));
 		
-		if($type=='upd_pwd'){
+		if($type=='sms_changepwd'){
 			$salt = ((empty($member) ? '' : $member['salt']));
 			if (empty($salt)){
 				$salt = random(16);
@@ -2452,7 +2390,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			}
 			pdo_update('ewei_shop_member', array('mobile' => $mobile, 'pwd' => md5($pwd . $salt), 'salt' => $salt, 'mobileverify' => 1), array('id' => $id, 'uniacid' => $_W['uniacid']));
 			returnJson(array());
-		}else if($type=='reg'){
+		}else if($type=='sms_reg'){
 			if (!(empty($member))) {
 				returnJson(array() ,'此手机号已注册, 请直接登录' ,-1);
 			}
@@ -2473,8 +2411,9 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				// $data['salt'] = 'eth';
 				$cany = json_encode($d);
 				$cany = base64_encode($cany);
+				$d['userid'] = $cany;
 				$d['mobile'] = $data['mobile'];
-				returnJson($member);
+				returnJson($d);
 			}
 			returnJson(array(),'注册失败！',-1);
 
