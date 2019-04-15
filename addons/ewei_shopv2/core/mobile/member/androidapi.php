@@ -912,8 +912,8 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			global $_GPC;
 			//参数  id  type 
 			//该订单的信息
-			$id = $_GPC['id']; //订单ID
-			$op = $_GPC['op']; //特殊参数
+			$id     = $_GPC['id']; //订单ID
+			$op     = $_GPC['op']; //特殊参数
 			$openid = $_W['openid'];
 			$sell = pdo_fetch("select g.*,m.nickname,m.mobile,m.zfbfile,m.wxfile,m.bankid,m.bankname,m.bank,m2.nickname as nickname2,m2.mobile as mobile2,m2.zfbfile as zfbfile2,m2.wxfile as wxfile2,m2.bankid as bankid2,m2.bankname as bankname2,m2.bank as bank2 from" . tablename('guamai') . ' g left join ' . tablename('ewei_shop_member') . ' m ON m.openid=g.openid left join ' . tablename('ewei_shop_member') . ' m2 ON m2.openid=g.openid2 ' . " where g.uniacid=" . $_W['uniacid'] . " and g.id='$id'");
 			// dump($sell);
@@ -982,13 +982,15 @@ class Androidapi_EweiShopV2Page extends MobilePage
 					$op = $_GPC['op'];
 					//判断该用户是否有足够的币进行抢单
 					$member = m('member')->getMember($_W['openid'], true);
-					$sell = pdo_fetch("select g.trx,m.mobile,m2.mobile as mobile2 from" . tablename("guamai") . ' g left join ' . tablename('ewei_shop_member') . ' m ON m.openid=g.openid ' . ' left join ' . tablename('ewei_shop_member') . ' m2 ON m2.openid=g.openid2 ' . " where g.uniacid=" . $_W['uniacid'] . " and g.id='$id' and g.type=0");
+					$sell   = pdo_fetch("select g.trx,m.mobile,m2.mobile as mobile2 from" . tablename("guamai") . ' g left join ' . tablename('ewei_shop_member') . ' m ON m.openid=g.openid ' . ' left join ' . tablename('ewei_shop_member') . ' m2 ON m2.openid=g.openid2 ' . " where g.uniacid=" . $_W['uniacid'] . " and g.id='$id' and g.type=0");
 					if ($guamai_nums >= 1) {
 						returnJson([],"您还有订单尚未处理或还在交易中,请先进行交易！",0);
 					}
 					if($sell['openid'] == $_W['openid']){
 						returnJson([],"不能卖出自己发放的账单", 0);
-				    }
+					}
+					returnJson(['openid' => $sell['openid'] , 'openid2' => $_W['openid']]);
+
 					//判断该会员是否上传收款信息
 					if (!$member['zfbfile'] && !$member['wxfile'] && (!$member['bankid'] || !$member['bankname'] || !$member['bank'])) {
 						returnJson([], "请上传您的收款信息",0);
