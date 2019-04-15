@@ -1440,20 +1440,19 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			$verifycode = trim($_GPC['verifycode']);
 			$pwd = trim($_GPC['pwd']);
 
-			@session_start();
-			$key = '__ewei_shopv2_member_verifycodesession_' . $_W['uniacid'] . '_' . $mobile;
-			if($_GPC['code'] && ($_GPC['code'] != $verifycode) ){
-				show_json(0, '验证码错误或已过期!');
-			}else if(!$_GPC['code']){
-				if (!(isset($_SESSION[$key])) || ($_SESSION[$key] !== $verifycode) || !(isset($_SESSION['verifycodesendtime'])) || (($_SESSION['verifycodesendtime'] + 600) < time()))
-				{
-					show_json(0, '验证码错误或已过期!');
-				}
+			if(!$mobile || !$code || !$pwd){
+				returnJson(array(),'参数错误！','-1');
 			}
-
+			
+			if( $this->phoneAuth($mobile,$code) === '-1' ){
+				returnJson(array(),'验证码已过期！','-1');
+			}else if( !$this->phoneAuth($mobile,$code) ){
+				returnJson(array(),'验证码错误！','-1');
+			}
+			
 			$member = pdo_fetch('select id,openid,mobile,pwd,salt,credit1,credit2, createtime from ' . tablename('ewei_shop_member') . ' where mobile=:mobile and uniacid=:uniacid and mobileverify=1 limit 1', array(':mobile' => $mobile, ':uniacid' => $_W['uniacid']));
 			$salt = ((empty($member) ? '' : $member['salt']));
-			if (empty($salt))
+			if (empty($salt)){
 			{
 				$salt = random(16);
 				while (1)
