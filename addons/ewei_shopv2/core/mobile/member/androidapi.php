@@ -768,7 +768,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 	public function guamairecordjilu(){
 		global $_W;
 		global $_GPC;
-		$type   = empty($_GPC['type'])?1:$_GPC['type'];
+		$type   = $_GPC['type'];
 		$pindex = max(1, intval($_GPC['page']));
 		$psize  = 10;
 		$openid = $_W['openid'];
