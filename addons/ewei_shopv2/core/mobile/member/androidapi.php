@@ -1466,7 +1466,6 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				}
 			}
 			pdo_update('ewei_shop_member', array('mobile' => $mobile, 'pwd' => md5($pwd . $salt), 'salt' => $salt, 'mobileverify' => 1), array('id' => $id, 'uniacid' => $_W['uniacid']));
-			unset($_SESSION[$key]);
 			echo json_encode(array('status'=>1,'success'=>'修改密码成功'));
 		}
 		$sendtime = $_SESSION['verifycodesendtime'];
@@ -2393,12 +2392,63 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$code = $_GPC['code'];
 		$pwd = $_GPC['pwd'];
 
-		if(!$type){
-			returnJson(array(),'参数错误！',-1);
+		if(!$mobile || !$code || !$pwd || !$type){
+			returnJson(array(),'参数错误！','-1');
+		}
+		
+		if( $this->phoneAuth($mobile,$code) === '-1' ){
+			returnJson(array(),'验证码已过期！','-1');
+		}else if( !$this->phoneAuth($mobile,$code) ){
+			returnJson(array(),'验证码错误！','-1');
 		}
 
+		$member = pdo_fetch('select id,openid,mobile,pwd,salt,credit1,credit2, createtime from ' . tablename('ewei_shop_member') . ' where mobile=:mobile and uniacid=:uniacid and mobileverify=1 limit 1', array(':mobile' => $mobile, ':uniacid' => $_W['uniacid']));
+		
+		if($type=='upd_pwd'){
+			$salt = ((empty($member) ? '' : $member['salt']));
+			if (empty($salt)){
+				$salt = random(16);
+				while (1)
+				{
+					$count = pdo_fetchcolumn('select count(*) from ' . tablename('ewei_shop_member') . ' where salt=:salt limit 1', array(':salt' => $salt));
+					if ($count <= 0)
+					{
+						break;
+					}
+					$salt = random(16);
+				}
+			}
+			pdo_update('ewei_shop_member', array('mobile' => $mobile, 'pwd' => md5($pwd . $salt), 'salt' => $salt, 'mobileverify' => 1), array('id' => $id, 'uniacid' => $_W['uniacid']));
+			returnJson(array());
+		}else if($type=='reg'){
+			if (!(empty($member))) {
+				returnJson(array() ,'此手机号已注册, 请直接登录' ,-1);
+			}
+			$salt = ((empty($member) ? '' : $member['salt']));
+			if (empty($salt)) {
+				$salt = m('account')->getSalt();
+			}
+			$openid = ((empty($member) ? '' : $member['openid']));
+			$nickname = ((empty($member) ? '' : $member['nickname']));
+			if (empty($openid)) {
+				$openid = 'wap_user_' . $_W['uniacid'] . '_' . $mobile;
+				$nickname = substr($mobile, 0, 3) . 'xxxx' . substr($mobile, 7, 4);
+			}
+			$data = array('uniacid' => $_W['uniacid'], 'mobile' => $mobile, 'nickname' => $nickname, 'openid' => $openid, 'pwd' => md5($pwd . $salt), 'salt' => $salt, 'createtime' => time(), 'mobileverify' => 1, 'comefrom' => 'mobile');
+			$res = pdo_insert('ewei_shop_member', $data);
+			if($res){
+				$d['userid'] = $data['openid'];
+				// $data['salt'] = 'eth';
+				$cany = json_encode($d);
+				$cany = base64_encode($cany);
+				$d['mobile'] = $data['mobile'];
+				returnJson($member);
+			}
+			returnJson(array(),'注册失败！',-1);
 
-
+		}else{
+			returnJson(array(),'参数错误！','-1');
+		}
 
 
 
