@@ -1136,7 +1136,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				m('member')->setCredit($sell['openid2'],'credit1',$sell['trx']);
 				returnJson([], "订单完成",1);
 
-			}else{			//买入订单抢单人点击确认收款
+			}else{	//买入订单抢单人点击确认收款
 
 				$sell = pdo_fetch("select g.*,m.mobile,m2.mobile as mobile2 from".tablename('guamai').' g left join '.tablename('ewei_shop_member').' m ON m.openid=g.openid left join '.tablename('ewei_shop_member').' m2 ON m2.openid=g.openid2 '." where g.uniacid=".$_W['uniacid']." and g.id='$id'");
 				// show_json($sell);
@@ -1150,6 +1150,39 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				returnJson([], "订单完成",1);
 			}
 
+	}
+
+
+	//c2c撤销订单
+	public function sellout_tab_con()
+	{
+		global $_W;
+		global $_GPC;
+		//该订单的信息
+		$id = $_GPC['id'];
+		$users = pdo_fetch("select id,openid,credit2 from" . tablename("ewei_shop_member") . " where openid='" . $openid . "'");
+		$sell = pdo_fetch("select g.*,m.openid,m.credit2 from" . tablename('guamai') . ' g left join ' . tablename('ewei_shop_member') . ' m ON m.openid=g.openid ' . " where g.id='$id'");
+		if (empty($sell)) return false;
+		// dump($sell);die;
+		if ($sell['status'] == 1) {
+			returnJson(array(),"该订单已经在进行中,不能进行撤销!!!",0);
+		}
+		if ($sell['type'] == 0) {
+			// $data = array("credit2"=>$sell['trx']+$sell['credit2']);
+			$updeta_order = pdo_update("guamai", array("status" => 3, "createtime" => time()), array("openid" => $sell['openid'], "id" => $sell['id']));
+			if ($updeta_order) {
+				returnJson(array(),"撤销成功",1);
+			}
+		} else {
+			$data = array("credit2" => $sell['trx2'] + $sell['credit2']);
+			$updeta_order = pdo_update("guamai", array("status" => 3, "createtime" => time()), array("openid" => $sell['openid'], "id" => $sell['id']));
+			if ($updeta_order) {
+				$result = pdo_update("ewei_shop_member", $data, array("openid" => $sell['openid']));
+				returnJson(array(),"撤销成功!",1);
+			} else {
+				returnJson(array(),"撤销失败!",1);
+			}
+		}
 	}
 	//c2c
 

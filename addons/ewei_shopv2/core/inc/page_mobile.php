@@ -55,18 +55,18 @@ class MobilePage extends Page
 				}
 			}
 		}else{
-			$userid  = $_GPC['userid'];
-			if(!$userid){
-				returnJson(array(), "用户ID不能为空",-1);
-			}
-
-			$res = base64_decode($userid);  #输出解密后的字符串
-			$res = json_decode($res,true);
-			
-			if(!$res){
-				returnJson(array(), "用户不存在",-1);
-			}
-			$_W['openid'] = $res['userid'];
+				$userid  = $_GPC['userid'];
+				if(!$userid){
+					returnJson(array(), "用户ID不能为空",-1);
+				}
+	
+				$res = base64_decode($userid);  #输出解密后的字符串
+				$res = json_decode($res,true);
+				
+				if(!$res){
+					returnJson(array(), "用户不存在",-1);
+				}
+				$_W['openid'] = $res['userid'];
 		}
 
 		$member = m('member')->checkMember();
@@ -100,7 +100,6 @@ class MobilePage extends Page
 
 			return NULL;
 		}
-
 
 
 		$openid = $_W['openid'];

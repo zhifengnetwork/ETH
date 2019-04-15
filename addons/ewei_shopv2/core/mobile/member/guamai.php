@@ -581,7 +581,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 			$id = $_GPC['selloutyes'];
 			$type = $_GPC['type'];
 
-			if ($type == 1) {			//卖出订单挂单人点击确认收款
+			if ($type == 1) {		     	//卖出订单挂单人点击确认收款
 				$sell = pdo_fetch("select g.*,m.mobile,m2.mobile as mobile2,m2.openid as openid2,m.credit2,m2.credit2 as credit22 from" . tablename('guamai') . ' g left join ' . tablename('ewei_shop_member') . ' m ON m.openid=g.openid left join ' . tablename('ewei_shop_member') . ' m2 ON m2.openid=g.openid2 ' . " where g.uniacid=" . $_W['uniacid'] . " and g.id='$id'");
 				// show_json($sell);
 				$credit2 = $sell['credit2'] - $sell['trx2'];
