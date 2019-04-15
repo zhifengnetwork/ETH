@@ -2275,7 +2275,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		}
 		
 		$data['userid'] = $member['openid'];
-		$data['salt'] = 'eth';
+		// $data['salt'] = 'eth';
 		$cany = json_encode($data);
 		$cany = base64_encode($cany);
 		unset($member['openid']);
