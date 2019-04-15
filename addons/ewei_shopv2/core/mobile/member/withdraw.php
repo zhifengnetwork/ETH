@@ -63,6 +63,9 @@ class Withdraw_EweiShopV2Page extends MobileLoginPage
 		global $_W;
 		global $_GPC;
 		$set = $_W['shopset']['trade'];
+		$withdrawcharge = $set['withdrawcharge']*0.01;
+		
+		$set = $_W['shopset']['trade'];
 
 		if (empty($set['withdraw'])) {
 			show_json(0, '系统未开启提现!');
@@ -74,24 +77,33 @@ class Withdraw_EweiShopV2Page extends MobileLoginPage
 		if (!$member['walletcode'] || !$member['walletaddress']) {
 			show_json(-1, '请完善您的资料!');
 		}
-
+		
 		$money = floatval($_GPC['money']);
-		if (!floor($money / $set['withdrawmoney']))  show_json(0, "提现的金额必须是" . $set['withdrawmoney'] . "的倍数");
+		// if (!floor($money / $set['withdrawmoney']))  show_json(0, "提现的金额必须是" . $set['withdrawmoney'] . "的倍数");
 		$credit = m('member')->getCredit($_W['openid'], 'credit2');
 
 		$apply = array();
 		$type_array = array();
 
 		$realmoney = $money;
-
+		// dump($_GPC);
+		// dump($withdrawcharge);die;
 		if (!(empty($set_array['charge']))) {
 			$money_array = m('member')->getCalculateMoney($money, $set_array);
+			
 			if ($money_array['flag']) {
 				$realmoney = $money_array['realmoney'];
 				$deductionmoney = $money_array['deductionmoney'];
 			}
 		}
-
+		if($_GPC['charge'] == 0){
+			$_GPC['charge'] = $withdrawcharge*$_GPC['money'];
+		}
+		if($_GPC['realmoney'] == 0){
+			$_GPC['realmoney'] = $_GPC['money'] - $_GPC['charge'];
+		}
+		// dump($_GPC);
+		// die;
 		m('member')->setCredit($_W['openid'], 'credit2', -$money, array(0, $_W['shopset']['set'][''] . '余额提现预扣除: ' . $money . ',实际到账金额:' . $realmoney . ',手续费金额:' . $deductionmoney));
 		$logno = m('common')->createNO('member_log', 'logno', 'RW');
 		$apply['uniacid'] = $_W['uniacid'];
@@ -109,6 +121,7 @@ class Withdraw_EweiShopV2Page extends MobileLoginPage
 		$apply['url'] = $member['walletcode'];
 		$apply['realmoney'] = $_GPC['realmoney'];
 		$apply['charge'] = $_GPC['charge'];
+		// dump($apply);die;
 		// show_json($apply);
 		pdo_insert('ewei_shop_member_log', $apply);
 		$logid = pdo_insertid();

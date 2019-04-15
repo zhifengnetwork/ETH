@@ -86,9 +86,9 @@
         <div class=" goods-item">
           <div class="time">提币时间：<span><% item.createtime %></span></div>
           <div>提币类型：<% item.title %></div>
-          <div>提币金额：<% item.money %> 元</div>
-          <div>实到金额：<% item.realmoney %> 元</div>
-          <div>手续费：<% item.charge %> 元</div>
+          <div>提币金额：<% item.money %> 个</div>
+          <div>实到金额：<% item.realmoney %> 个</div>
+          <div>手续费：<% item.charge %> 个</div>
         </div>
         <%/each%>
 
@@ -100,8 +100,8 @@
         <div class=" goods-item">
           <div class="time">转账时间：<span><% item.createtime %></span></div>
           <div>收款人：<% item.nickname %></div>
-          <div>收款金额：<% item.money %> 元</div>
-          <div>收款手续费：<% item.money2 %> 元</div>
+          <div>收款金额：<% item.money %> 个</div>
+          <div>收款手续费：<% item.money2 %> 个</div>
         </div>
         <%/each%>
 
