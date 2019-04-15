@@ -1316,7 +1316,108 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		}
 	}
 
+	public function verifycode()
+	{
+		global $_W;
+		global $_GPC;
+		$set = m('common')->getSysset(array('shop', 'wap'));
+		$set['wap']['color'] = ((empty($set['wap']['color']) ? '#fff' : $set['wap']['color']));
+		
+		$mobile = trim($_GPC['mobile']);
+		$temp = trim($_GPC['temp']);
+		$imgcode = trim($_GPC['imgcode']);
+		if( !$mobile || !$temp ){
+			returnJson(array(),'参数错误！','-1');
+		}
+		
+		$member = pdo_fetch('select id,openid,mobile,pwd,salt from ' . tablename('ewei_shop_member') . ' where mobile=:mobile and mobileverify=1 and uniacid=:uniacid limit 1', array(':mobile' => $mobile, ':uniacid' => $_W['uniacid']));
+		if (($temp == 'sms_forget') && empty($member)) {
+			returnJson(array(),'此手机号未注册','-1');
+		}
+		if (($temp == 'sms_reg') && !(empty($member))) {
+			returnJson(array(),'此手机号已注册，请直接登录','-1');
+		}
+
+		$res = pdo_fetch('select exprie_time from ' . tablename('phone_auth') . ' where phone=:phone order by id DESC limit 1', array(':phone' => $mobile));
+		if( $res['exprie_time'] > time() ){
+			returnJson(array(),'请求频繁请稍后重试','-1');
+		}
+
+		$sms_id = $set['wap'][$temp];
+		if (empty($sms_id)) {
+			returnJson(array(),'短信发送失败(NOSMSID)','-1');
+		}
+		
+		$code = random(5, true);
+
+		$data['phone'] = $mobile;
+		$data['auth_code'] = $code;
+		$data['start_time'] = time();
+		$data['exprie_time'] = time() +60;
+
+		pdo_insert("phone_auth", $data);
+
+		$ret = com('sms')->send_zhangjun($mobile, $code);
+		
+		returnJson(array());
+	}
+
+	public function phoneAuth($phone, $auth_code)
+    {	
+		$res = pdo_fetch('select exprie_time from ' . tablename('phone_auth') . ' where phone='. $phone .' and auth_code= ' . $auth_code .' order by id DESC limit 1');
+        if ($res) {
+			if ($res['exprie_time'] >= time()) { // 还在有效期就可以验证
+                return true;
+            } else {
+                return '-1';
+            }
+        }
+        return false;
+	}
+
+	public function get_mobile(){
+		global $_W;
+		$member = m('member')->getMember($_W['openid'], true);
+		returnJson($member['mobile']);
+	}
+
 	//修改密码
+	public function cahngepwd()
+	{
+		global $_W;
+		global $_GPC;
+		
+		$mobile = $_GPC['mobile'];
+		$code = $_GPC['code'];
+		$pwd = trim($_GPC['pwd']);
+		if(!$mobile || !$code || !$pwd){
+			returnJson(array(),'参数错误！','-1');
+		}
+		
+		if( $this->phoneAuth($mobile,$code) === '-1' ){
+			returnJson(array(),'验证码已过期！','-1');
+		}else if( !$this->phoneAuth($mobile,$code) ){
+			returnJson(array(),'验证码错误！','-1');
+		}
+		
+		$member = pdo_fetch('select id,openid,mobile,pwd,salt,credit1,credit2, createtime from ' . tablename('ewei_shop_member') . ' where mobile=:mobile and uniacid=:uniacid and mobileverify=1 limit 1', array(':mobile' => $mobile, ':uniacid' => $_W['uniacid']));
+		$salt = ((empty($member) ? '' : $member['salt']));
+		if (empty($salt)){
+			$salt = random(16);
+			while (1)
+			{
+				$count = pdo_fetchcolumn('select count(*) from ' . tablename('ewei_shop_member') . ' where salt=:salt limit 1', array(':salt' => $salt));
+				if ($count <= 0)
+				{
+					break;
+				}
+				$salt = random(16);
+			}
+		}
+		pdo_update('ewei_shop_member', array('mobile' => $mobile, 'pwd' => md5($pwd . $salt), 'salt' => $salt, 'mobileverify' => 1), array('id' => $id, 'uniacid' => $_W['uniacid']));
+		returnJson(array());
+	}
+
 	public function cahngepwd()
 	{
 		global $_W;
@@ -2283,7 +2384,25 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		unset($member['salt']);
 		$member['userid'] = $cany;
 		returnJson($member);
-		
+	}
+
+	public function reg_updpwd(){
+		global $_W;
+		global $_GPC;
+		$type = $_GPC['type'];
+		$mobile = $_GPC['mobile'];
+		$code = $_GPC['code'];
+		$pwd = $_GPC['pwd'];
+
+		if(!$type){
+			returnJson(array(),'参数错误！',-1);
+		}
+
+
+
+
+
+
 	}
 
 }
