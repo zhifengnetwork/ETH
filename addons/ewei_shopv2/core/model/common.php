@@ -96,32 +96,22 @@ class Common_EweiShopV2Model
     }
 
     //佣金打款
-    public function commission_dakuan($arr,$type,$id){ //$arr打款人信息  $type代数  $id订单id
+    public function commission_dakuan($arr,$type,$id,$user_openid){ //$arr打款人信息  $type代数  $id订单id
         global $_W;
-        global $_GPC;
+				global $_GPC;
+				
         if($arr['status']==1){  //达到分销打款的等级
-            $order = pdo_fetch("select price,orderid  from ".tablename("ewei_shop_order_goods")." where uniacid=:uniacid and  id=:id  ",array(':uniacid' => $_W['uniacid'],':id'=>$id));
-
-            $order1 = pdo_fetch("select id,openid  from ".tablename("ewei_shop_order")." where uniacid=:uniacid and  id=:id  ",array(':uniacid' => $_W['uniacid'],':id'=>$order['orderid']));
-
-            $money = $arr['level']["commission".$type]*$order['price']*0.01;    //代数现金
-
-            $jifen = $arr['level']["jifen".$type]*$order['price']*0.01;         //代数积分
-
-            if($money || $jifen){   //该代数的现金积分不为空
-                if($money){    //充值现金
-
-                    m('member')->setCredit($arr['data']['openid'],'credit2',$money);
-
-                }
-                if($money){    //充值积分
-
-                    m('member')->setCredit($arr['data']['openid'],'credit1',$jifen);
-
-                }
-
-                $data = array('orderid'=>$order1['id'],'price'=>$order['price'],'openid'=>$arr['data']['openid'],'openid2'=>$order1['openid'],'money'=>$money,'jifen'=>$jifen,'status'=>$type,'createtime'=>time(),'type'=>'1','uniacid'=>$_W['uniacid']);
-                
+						$order = pdo_fetch("select * from".tablename("ewei_shop_member_log")."where id='".$id."'");
+						$level_list = pdo_fetch("select id,type,levelname,commission1 from".tablename("ewei_shop_commission_level")."where type='".$type."'");
+						if($order['money']>=$arr['credit1']){
+							$jifen_money = $arr['credit1']*$level_list['commission1']*0.01;         //代数积分
+						}
+						if($order['money'] < $arr['credit1']){
+							$jifen_money = $order['money']*$level_list['commission1']*0.01; 
+						}
+            if($jifen_money){   //该代数的现金积分不为空
+              	m('member')->setCredit($arr['openid'],'credit2',$jifen_money);
+                $data = array('orderid'=>$order['id'],'price'=>$order['price'],'openid'=>$arr['openid'],'openid2'=>$user_openid,'money'=>$jifen_money,'jifen'=>$jifen_money,'status'=>$type,'createtime'=>time(),'type'=>'1','uniacid'=>$_W['uniacid']);
                 pdo_insert("ewei_shop_order_goods1",$data);
             }
         }
@@ -153,13 +143,14 @@ class Common_EweiShopV2Model
           //静态账户获得金额
         	$cmoney1 = round($money*$member['commission1']*0.01*0.8,6);
           //复投·账户获钱
-          $cmoney2 = round($money*$member['commission1']*0.01*0.2,6);
+					$cmoney2 = round($money*$member['commission1']*0.01*0.2,6);
+					$cmoney3 = $ $cmoney1 + $ $cmoney2;
         	$data = array('uniacid'=>$_W['uniacid'],'openid'=>$member['openid'],'openid2'=>$openid2,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'2','status'=>$status,'price'=>$money);
         	pdo_insert("ewei_shop_order_goods1",$data);
 
           //充值
-          m('member')->setCredit($member['openid'],'credit2',$cmoney1);
-          m('member')->setCredit($member['openid'],'credit4',$cmoney2);
+          m('member')->setCredit($member['openid'],'credit2',$cmoney3);
+          // m('member')->setCredit($member['openid'],'credit4',$cmoney2);
         }
 
     }
@@ -186,20 +177,20 @@ class Common_EweiShopV2Model
               //复投账户获得金额 
               $cmoney2 = round($money*$member['commission'.$type]*0.01*0.2,6);    
                     
-                   
+							$cmoney3 = $ $cmoney1 + $ $cmoney2;
        				$data = array('uniacid'=>$_W['uniacid'],'openid'=>$member['openid'],'openid2'=>$openid2,'money'=>$cmoney1 ,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'1','status'=>$type,'price'=>$money);
 
        				pdo_insert("ewei_shop_order_goods1",$data);
 
        				//充值
-       				m('member')->setCredit($member['openid'],'credit2',$cmoney1);
-              m('member')->setCredit($member['openid'],'credit4',$cmoney2);
+       				m('member')->setCredit($member['openid'],'credit2',$cmoney3);
+              // m('member')->setCredit($member['openid'],'credit4',$cmoney2);
 
        				//判断该上级是否有拿管理奖的资格
               $agentidis = pdo_fetch("select clickcount from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and id=:id",array(':id'=>$member['agentid']));
               if($agentidis['clickcount']>=5){
                   //当获得分销奖时，上级能得到一个管理奖
-                  $this->shangji1($member['agentid'],$member['openid'],$cmoney1+$cmoney2);
+                  $this->shangji1($member['agentid'],$member['openid'],$cmoney1+$cmoney2,$type);
               }
 
        			}else if($member['commission'.$type]){	//上级总投资小于下级的单笔投资(烧伤机制)
@@ -207,19 +198,19 @@ class Common_EweiShopV2Model
               $cmoney1 = round($money*$member['commission'.$type]*0.01*0.8,6);
               //复投账户获得金额 
               $cmoney2 = round($money*$member['commission'.$type]*0.01*0.2,6);    
-       				
+							$cmoney3 = $ $cmoney1 + $ $cmoney2;
        				$data = array('uniacid'=>$_W['uniacid'],'openid'=>$member['openid'],'openid2'=>$openid2,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'1','status'=>$type,'price'=>$money);
        				pdo_insert("ewei_shop_order_goods1",$data);
 
        			  //充值
-              m('member')->setCredit($member['openid'],'credit2',$cmoney1);
-              m('member')->setCredit($member['openid'],'credit4',$cmoney2);
+              m('member')->setCredit($member['openid'],'credit2',$cmoney3);
+              // m('member')->setCredit($member['openid'],'credit4',$cmoney2);
 
               //判断该上级是否有拿管理奖的资格
               $agentidis = pdo_fetch("select clickcount from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and id=:id",array(':id'=>$member['agentid']));
               if($agentidis['clickcount']>=5){
                   //当获得分销奖时，上级能得到一个管理奖
-                  $this->shangji1($member['agentid'],$member['openid'],$cmoney1+$cmoney2);
+                  $this->shangji1($member['agentid'],$member['openid'],$cmoney1+$cmoney2,$type);
               }
        				
 
@@ -240,22 +231,16 @@ class Common_EweiShopV2Model
          * */
         global $_W;
         global $_GPC;
-       
         //查询投资人id
         $member = pdo_fetch("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and openid= '$openid' ");
         $agentid = $member['agentid'];
-
-
         //一级分销
         for($i=1;$i<=1;$i++){
         	$list = $this->shangji($agentid,$member['openid'],$money,$i);
         	// return $list;
         	$agentid = $list;
         }
-   	
         return $list;
-
-
     }
 
     //领导奖所属人
@@ -277,13 +262,14 @@ class Common_EweiShopV2Model
 	       		//静态账户获得金额
             $cmoney1 = round($money*$member['commission1']*0.01*0.8,6);
             //复投·账户获钱
-            $cmoney2 = round($money*$member['commission1']*0.01*0.2,6);
+						$cmoney2 = round($money*$member['commission1']*0.01*0.2,6);
+						$cmoney3 = $cmoney1 + $$cmoney2;
 	       		$data = array('uniacid'=>$_W['uniacid'],'openid'=>$member['openid'],'openid2'=>$openid2,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'1','price'=>$money);
 	       		pdo_insert("ewei_shop_order_goods1",$data);
 
      				//充值
-     				m('member')->setCredit($member['openid'],'credit2',$cmoney1);
-            m('member')->setCredit($member['openid'],'credit4',$cmoney2);
+     				m('member')->setCredit($member['openid'],'credit2',$cmoney3);
+            // m('member')->setCredit($member['openid'],'credit4',$cmoney2);
 
 	       		//查看是否有同级领导收益
 	       		if($member2['type']==$member['type']){
@@ -495,11 +481,7 @@ class Common_EweiShopV2Model
 	       			
 	       		}
 	        }
-
 	        return $this->leaderdigui($member['agentid'],$openid2,$money,$type);
-	        
-
-    		
     	}else{
     		if($id==0){
     			return 1;
