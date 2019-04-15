@@ -304,12 +304,12 @@ class Index_EweiShopV2Page extends ComWebPage
 				$investment = pdo_fetchall("select openid,sum(money) as money from " . tablename("stakejilu") . "where uniacid=" . $_W['uniacid'] . " and thigh=0 and createtime>'$start' and createtime<'$end' group by openid order by money desc limit 0,10");
 
 				//给投注中奖的人打钱
-				$danprice = round(($sale['sum'] * $sale['winner'] * 0.01) / $listsum['multiple'], 2);    //单注的中奖金额
-
+				$danprice = round(($sale['sum'] * $sale['winner'] * 0.01) / $listsum['multiple'], 6);    //单注的中奖金额
+				
 				foreach ($list as $key => $val) {
 
 					$data = array('uniacid' => $_W['uniacid'], 'openid' => $val['openid'], 'numberid' => $val['id'], 'stakesum' => $val['multiple'], 'money' => $val['multiple'] * $danprice, 'createtime' => time(), 'type' => 1, 'number' => $sale['number']);
-
+					
 					pdo_insert("winningrecord", $data);
 
 					m('member')->setCredit($val['openid'], 'credit2', $val['multiple'] * $danprice);
