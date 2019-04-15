@@ -989,7 +989,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 					if($sell['openid'] == $_W['openid']){
 						returnJson([],"不能卖出自己发放的账单", 0);
 					}
-					returnJson(['openid' => $sell['openid'] , 'openid2' => $_W['openid']]);
+					// returnJson(['openid' => $sell['openid'] , 'openid2' => $_W['openid']]);
 
 					//判断该会员是否上传收款信息
 					if (!$member['zfbfile'] && !$member['wxfile'] && (!$member['bankid'] || !$member['bankname'] || !$member['bank'])) {
