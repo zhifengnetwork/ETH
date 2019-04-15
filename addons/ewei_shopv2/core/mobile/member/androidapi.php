@@ -774,12 +774,13 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$openid = $_W['openid'];
 		$select = 'SELECT g.id,g.openid,g.openid2,g.money,g.createtime,g.type,g.price,g.trx,g.status,m.nickname,m.zfbfile,m.wxfile,m.bankid,m.bankname,m.bank,m2.nickname as nickname2 FROM ';
 		$tablename = tablename('guamai') . ' g left join ' . tablename('ewei_shop_member') . ' m ON m.openid=g.openid left join' . tablename('ewei_shop_member') . ' m2 ON m2.openid=g.openid2';
-		$where = ' WHERE g.uniacid=:uniacid AND g.type=:type AND (g.status=0) ';
+		$where = ' WHERE g.uniacid=:uniacid  AND (g.status=0) ';
 		$where .= " ORDER BY g.status = '1' DESC,g.openid = '$openid' DESC,g.openid2 = '$openid' DESC,g.createtime DESC ";
 		$limit = ' LIMIT ' . (($pindex - 1) * $psize) . ',' . $psize;
 
 		$params[':uniacid'] = $_W['uniacid'];
-		$params[':type']    = $type; //我卖出的订单 应该挂在买入的下面
+		
+		//$params[':type']    = $type; //我卖出的订单 应该挂在买入的下面
 
 		$list  = pdo_fetchall($select . $tablename . $where . $limit, $params);
 		$total = pdo_fetchcolumn('SELECT count(g.id) FROM ' . $tablename . $where, $params);
