@@ -72,7 +72,7 @@ class MobilePage extends Page
 			$res = base64_decode($userid);  #输出解密后的字符串
 			$res = json_decode($res,true);
 			
-			if(!$res){
+			if(!$res['userid']){
 				returnJson(array(), "用户不存在",-1);
 			}
 			$_W['openid'] = $res['userid'];
