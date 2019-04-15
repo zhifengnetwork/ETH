@@ -1014,6 +1014,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		 */
 
 		public function guamaiedit(){
+			
 			global $_W;
 			global $_GPC;
 			//参数  id  type 
@@ -1036,9 +1037,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			} else if ($sell['openid2'] == $_W['openid']) {
 				$type = 2;
 			}
-			$sell['type'] = $type;
-
-			returnJson(['list' => $sell], "获取订单详情成功",1);
+			returnJson(['list' => $sell,'type_own' => $type], "获取订单详情成功",1);
 
 		}
 
