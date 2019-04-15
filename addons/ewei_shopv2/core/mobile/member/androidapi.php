@@ -2257,12 +2257,33 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		returnJson($data);
 	}
 
-	public function kefu_link()
+	public function login()
 	{
-		$data['qqurl'] = '';
-		$data['wechaturl'] = '';
+		global $_W;
+		global $_GPC;
+		
 
-		returnJson($data);
+		$mobile = trim($_GPC['mobile']);
+		$pwd = trim($_GPC['pwd']);
+		$member = pdo_fetch('select openid,mobile,pwd,salt from ' . tablename('ewei_shop_member') . ' where mobile=:mobile and mobileverify=1 and uniacid=:uniacid limit 1', array(':mobile' => $mobile, ':uniacid' => $_W['uniacid']));
+		if (empty($member)) {
+			returnJson('用户不存在',-1);
+		}
+		
+		if (md5($pwd . $member['salt']) !== $member['pwd']) {
+			returnJson('用户或密码错误',-1);
+		}
+		
+		$data['userid'] = $member['openid'];
+		$data['salt'] = 'eth';
+		$cany = json_encode($data);
+		$cany = base64_encode($cany);
+		unset($member['openid']);
+		unset($member['pwd']);
+		unset($member['salt']);
+		$member['userid'] = $cany;
+		returnJson($member);
+		
 	}
 
 }
