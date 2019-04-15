@@ -55,18 +55,27 @@ class MobilePage extends Page
 				}
 			}
 		}else{
-				$userid  = $_GPC['userid'];
-				if(!$userid){
-					returnJson(array(), "用户ID不能为空",-1);
-				}
-	
-				$res = base64_decode($userid);  #输出解密后的字符串
-				$res = json_decode($res,true);
-				
-				if(!$res){
-					returnJson(array(), "用户不存在",-1);
-				}
-				$_W['openid'] = $res['userid'];
+
+			//不需要传useridd的接口
+			$action_array[] = 'member.androidapi.login';
+			$action_array[] = 'member.androidapi.reg_updpwd';
+
+			if (in_array($_GPC['r'], $action_array)) {
+				return;
+			}
+			
+			$userid  = $_GPC['userid'];
+			if(!$userid){
+				returnJson(array(), "用户ID不能为空",-1);
+			}
+
+			$res = base64_decode($userid);  #输出解密后的字符串
+			$res = json_decode($res,true);
+			
+			if(!$res){
+				returnJson(array(), "用户不存在",-1);
+			}
+			$_W['openid'] = $res['userid'];
 		}
 
 		$member = m('member')->checkMember();
