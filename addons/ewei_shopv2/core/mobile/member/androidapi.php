@@ -939,6 +939,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			if ($guamai) {
 				$guamai_nums = count($guamai);
 			}
+			
 			// dump($type);die;
 			if ($type == 0) {   //买入
 				if ($guamai_nums >= 1) {
@@ -970,6 +971,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 					if ($result) returnJson([],"抢单成功",1);
 				}
 			} else if ($type == 1) {  //卖出
+				
 				if ($op == 1) {
 					// dump($op);die;
 					$result = pdo_update("guamai", array('file' => $_GPC['file']), array('uniacid' => $_W['uniacid'], 'id' => $id));
