@@ -74,7 +74,7 @@
             <p>充币类型：<% item.title %></p>
             <p>投资状态：<%if item.type==2 %>成功<%else%><%if item.status==1 %>成功<%else%>审核中<%/if%><%/if%></p>
           </div>
-          <div>充币金额：<span><% item.money %> XXX</span></div>
+          <div>充币金额：<span><% item.money %> ETH</span></div>
         </div>
         <%/each%>
 
