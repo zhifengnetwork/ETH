@@ -1527,62 +1527,39 @@ class Androidapi_EweiShopV2Page extends MobilePage
 	}
 
 
-	function new_file_upload($data='', $type = 'image') {
+	function new_file_upload() {
 		global $_W;
 		global $_GPC;
-		$data = $_GPC['file'] ? $_GPC['file'] : $data;
-		
-		if (empty($data)) {
-			returnJson(array(),'没有上传内容',-1);
+		load()->func('file');
+		$field = $_GPC['file'];
+		if (!(empty($_FILES[$field]['name']))) 
+		{
+			if (is_array($_FILES[$field]['name'])) 
+			{
+				$files = array();
+				foreach ($_FILES[$field]['name'] as $key => $name ) 
+				{
+					if (strrchr($name, '.') === false) 
+					{
+						$name = $name . '.jpg';
+					}
+					$file = array('name' => $name, 'type' => $_FILES[$field]['type'][$key], 'tmp_name' => $_FILES[$field]['tmp_name'][$key], 'error' => $_FILES[$field]['error'][$key], 'size' => $_FILES[$field]['size'][$key]);
+					$files[] = $this->upload($file);
+				}
+				returnJson($files);
+			}
+			else 
+			{
+				if (strrchr($_FILES[$field]['name'], '.') === false) 
+				{
+					$_FILES[$field]['name'] = $_FILES[$field]['name'] . '.jpg';
+				}
+				$result = $this->upload($_FILES[$field]);
+				returnJson($result);
+			}
 		}
 		
-
-		switch($type){
-	        case 'image/png':
-	            $ext='png';
-	            break;
-	        case 'image/jpeg';
-	            $ext='jpeg';
-	            break;
-	        case 'image/jpeg':
-	            $ext='jpg';
-	            break;
-	        case 'image/bmp':
-	            $ext='bmp';
-	            break;
-	        default:
-	            $ext='jpg';
-	    }
-		$setting = setting_load('upload');
-		$allowExt = array('gif', 'jpg', 'jpeg', 'bmp', 'png', 'ico');
-		$limit = $setting['upload']['image']['limit'];
-
-		$setting = $_W['setting']['upload'][$ext];
-		if (!empty($setting)) {
-			$allowExt = array_merge($setting['extentions'], $allowExt);
-		}
-		if (!in_array($ext, $allowExt)) {
-			returnJson(array(),'不允许上传此类文件',-1);
-		}
-		$img_content = str_replace('data:'.$type.';base64,','',$data);
-	    $img_content = base64_decode($img_content);
-		$result = array();
-		$uniacid = intval($_W['uniacid']);
-		$path = "images/{$uniacid}/" . date('Y/m/d');
-		mkdir(ATTACHMENT_ROOT . '/' . $path,0777);
-		echo 1;die;
-		$filename = file_random_name(ATTACHMENT_ROOT . '/' . $path, $ext);
-
-		$res = file_put_contents(ATTACHMENT_ROOT.'/'.$path.$filename,$img_content);
-
-		if(!$res){
-			returnJson(array(),'保存上传文件失败',-1);
-		}
-		$result['path'] = $path.$filename;
-		$result['success'] = true;
-		
-		returnJson($result);
-		return $result;
+		returnJson(array(),'请选择要上传的图片！',-1);
 	}
 
 
