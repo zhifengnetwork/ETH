@@ -246,6 +246,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			echo json_encode($data);exit();
 		}
 		$type = $_GPC['type'];
+		if(!$type) returnJson(array(),'参数错误！',-1);
 
 		if($type==4){		//积分记录
 
@@ -463,6 +464,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		}
 
 		$type = $_GPC['type'];
+		if(!$type) returnJson(array(),'参数错误！',-1);
 
 		$list =  pdo_fetchall("select g.*,m.nickname from".tablename("ewei_shop_member_log")."g left join".tablename("ewei_shop_member")."m on g.openid=m.openid"." where g.uniacid=:uniacid and g.type='$type' and g.openid=:openid order by g.createtime desc",array(':uniacid'=>$_W['uniacid'],':openid'=>$_W['openid']));
 
@@ -1813,7 +1815,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$member = m('member')->getMember($_W['openid'], true);
 		$sys = pdo_fetch("select *from " . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
 
-		if (empty($url)) returnJson(-1, "请输入您要投资的数量");
+		if (empty($money)) returnJson(-1, "请输入您要投资的数量");
 		if (empty($url)) returnJson(-1, "请上传到您的支付凭证");
 
 		if (($member['credit1'] + $money) > $sys['bibi']) returnJson(-1, "您的投资已超过上限");
@@ -2209,6 +2211,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		global $_GPC;
 
 		$type = $_GPC['type'];
+		if(!$type) returnJson(array(),'参数错误！',-1);
 		$pindex = max(1, intval($_GPC['page']));
 		$psize = 10;
 		$openid = $_W['openid'];
@@ -2495,6 +2498,8 @@ class Androidapi_EweiShopV2Page extends MobilePage
 
 
 			m('member')->setCredit($_W['openid'], 'credit4', -$money);
+		}else{
+			returnJson(array(),'参数错误！',-1);
 		}
 		// show_json($data);
 		if ($credit >= $money_propor) {
