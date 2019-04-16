@@ -26,7 +26,7 @@ class MobilePage extends Page
 		global $_W;
 
 		global $_GPC;
-        
+        echo 1;die;
 		
 		m('shop')->checkClose();
 
