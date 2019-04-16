@@ -1792,9 +1792,9 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		global $_GPC;
 
 		$sys = pdo_fetch("select bibi from " . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
-		
+		$member = m('member')->getMember($_W['openid'], true);
 		$list = pdo_fetch("select * from " . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
-		$data = array('zfb' => $list['zfb'], 'zfbfile' => $list['zfbfile'], 'wx' => $list['wx'], 'weixinfile' => $list['weixinfile'], 'yhk' => $list['yhk'], 'yhkfile' => $list['yhkfile'], 'add' => $list['add'],'bibi'=>$sys['bibi']);
+		$data = array('zfb' => $list['zfb'], 'zfbfile' => $list['zfbfile'], 'wx' => $list['wx'], 'weixinfile' => $list['weixinfile'], 'yhk' => $list['yhk'], 'yhkfile' => $list['yhkfile'], 'add' => $list['add'],'bibi'=>$sys['bibi'],'credit1'=>$member['credit1']);
 		returnJson(array('list' => $data));
 	}
 
@@ -2510,6 +2510,11 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		}
 		$result = pdo_insert("ewei_shop_member_log", $data);
 		if ($result) returnJson(array(),"一键复投成功",1);
+	}
+
+	public function fotou_info(){
+		$member = m('member')->getMember($_W['openid'], true);
+		returnJson(['credit1'=>$member['credit1'],'credit4'=>$member['credit4'],'credit2'=>$member['credit2']]);
 	}
 
 }
