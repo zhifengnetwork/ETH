@@ -2339,11 +2339,11 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$pwd = trim($_GPC['pwd']);
 		$member = pdo_fetch('select openid,mobile,pwd,salt from ' . tablename('ewei_shop_member') . ' where mobile=:mobile and mobileverify=1 and uniacid=:uniacid limit 1', array(':mobile' => $mobile, ':uniacid' => $_W['uniacid']));
 		if (empty($member)) {
-			returnJson('用户不存在',-1);
+			returnJson(array(),'用户不存在',-1);
 		}
 		
 		if (md5($pwd . $member['salt']) !== $member['pwd']) {
-			returnJson('用户或密码错误',-1);
+			returnJson(array(),'用户或密码错误',-1);
 		}
 		
 		$data['userid'] = $member['openid'];
