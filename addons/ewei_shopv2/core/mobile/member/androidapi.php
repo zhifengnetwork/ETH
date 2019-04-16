@@ -1795,11 +1795,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		
 		$list = pdo_fetch("select * from " . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
 		$data = array('zfb' => $list['zfb'], 'zfbfile' => $list['zfbfile'], 'wx' => $list['wx'], 'weixinfile' => $list['weixinfile'], 'yhk' => $list['yhk'], 'yhkfile' => $list['yhkfile'], 'add' => $list['add'],'bibi'=>$sys['bibi']);
-<<<<<<< HEAD
-		returnJson(1, array('list' => $data));
-=======
 		returnJson(array('list' => $data));
->>>>>>> 6615511eba9c59aa47b20cdd3d0140f00574455a
 	}
 
 
