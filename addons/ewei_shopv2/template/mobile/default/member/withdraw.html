@@ -56,7 +56,7 @@
 
                 <div class='fui-cell-label big' style='width:auto;'>￥</div>
 
-                <div class='fui-cell-info'><input type='number' class='fui-input' id='money' style='font-size:1.2rem;' ></div>
+                <div class='fui-cell-info'><input type='number' class='fui-input' id='money' style='font-size:1.2rem;'></div>
 
             </div>
 
@@ -175,7 +175,7 @@
             {/if} -->
 
 
-            <p style="font-size: .7rem;color: red;padding-left: 2rem;">*提现的金额只能是{$set['withdrawmoney']}的倍数</p>
+            <!-- <p style="font-size: .7rem;color: red;padding-left: 2rem;">*提现的金额只能是{$set['withdrawmoney']}的倍数</p> -->
 
 
             {if !empty($withdrawcharge)}
@@ -218,23 +218,15 @@
 
         $("#money").blur(function(){
 
-           var beisu = "{$set['withdrawmoney']}";
-
+        //    var beisu = "{$set['withdrawmoney']}";
+           var beisu = 1E-5;
            var money = $("#money").val();
-
-           console.log(beisu);
-           console.log(money);
-        //    if(!/^\d+$/.test(money/beisu)){
-
-        //        FoxUI.toast.show('提现的金额必须为'+beisu+'的倍数!');
-
-        //        $("#btn-next").attr("style","pointer-events:none");
-
-        //    }else{
-
-        //        $("#btn-next").attr("style","");
-
-        //    }
+           if(money>=beisu){
+            //    FoxUI.toast.show('提现的金额必须为'+beisu+'的倍数!');
+                $("#btn-next").attr("style","");
+            }else{  
+                $("#btn-next").attr("style","pointer-events:none");
+           }
 
            // alert(money);return false;
 

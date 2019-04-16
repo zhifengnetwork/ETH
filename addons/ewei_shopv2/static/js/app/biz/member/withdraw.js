@@ -8,7 +8,7 @@ define(['core', 'tpl'], function(core, tpl) {
             if (money <= 0) {
                 return false
             }
-            if (modal.min > 0) {
+            if (modal.min > 0) {    
                 if (money < modal.min) {
                     return false
                 }
@@ -18,13 +18,15 @@ define(['core', 'tpl'], function(core, tpl) {
             }
         }
         if (modal.withdrawcharge > 0 && money != 0) {
-            var deductionmoney = money / 100 * modal.withdrawcharge;
-            deductionmoney = Math.round(deductionmoney * 100) / 100;
+            var deductionmoney = money * modal.withdrawcharge / 100;
+            console.log(deductionmoney)
+            deductionmoney = Math.round(deductionmoney * 1E6) / 1E6;
+            console.log(deductionmoney)
             if (deductionmoney >= modal.withdrawbegin && deductionmoney <= modal.withdrawend) {
                 deductionmoney = 0
             }
             var realmoney = money - deductionmoney;
-            realmoney = Math.round(realmoney * 100) / 100;
+            realmoney = Math.round(realmoney * 1E6) / 1E6;
             $("#deductionmoney").html(deductionmoney);
             $("#realmoney").html(realmoney);
             $(".charge-group").show()
