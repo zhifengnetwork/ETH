@@ -698,6 +698,7 @@ class Log_EweiShopV2Page extends WebPage
 		}else{ //拒绝
 			//返钱
 			m('member')->setCredit($apply['openid'],'credit2',$apply['money']);
+			$data = array("uniacid"=>12,"openid"=>$apply["openid"],'type'=>8,"title"=>"提币失败退还","createtime"=>time(),"money"=>$apply['money']);
 			pdo_update('ewei_shop_member_log',['status' => '2'],['id' => $id]);
 		}
 		
