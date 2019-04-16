@@ -26,7 +26,6 @@ class MobilePage extends Page
 		global $_W;
 
 		global $_GPC;
-        echo 1;die;
 		
 		m('shop')->checkClose();
 
@@ -59,7 +58,6 @@ class MobilePage extends Page
 			
 			//不需要传useridd的接口
 			$action_array[] = 'member.androidapi.login';
-			$action_array[] = 'member.androidapi.reg_updpwd';
 			$action_array[] = 'member.androidapi.reg_updpwd';
 
 			if (in_array($_GPC['r'], $action_array) || !isset($_GPC['r']) ) {
