@@ -824,6 +824,10 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		global $_W;
 		global $_GPC;
 		$openid = $_W['openid'];
+		$status = $_GPC['status'];
+		if(!isset($status)){
+			returnJson([],'请传入订单状态',0);
+		}
 		//价格基础TRX价格  以及手续费
 		$sys = pdo_fetch("select trxprice,trxsxf from" . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
 		$sys['trxsxf'] = round($sys['trxsxf'], 2);
@@ -831,7 +835,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$end    = $sys['trxprice'] * (1 + 0.1);
 		$member = m('member')->getMember($_W['openid'], true);
 		//用户买入,卖出订单
-		$guamai = pdo_fetchall("select * from" . tablename("guamai") . "where openid='" . $openid . "' or openid2='" . $openid . "' order by createtime desc");
+		$guamai = pdo_fetchall("select * from" . tablename("guamai") . "where  status='".$status."' AND (openid='" . $openid . "' or openid2='" . $openid . "') order by createtime desc");
 		$time   = time();
 		foreach ($guamai as $key => $val) {
 			// var_dump($val);nickname2
