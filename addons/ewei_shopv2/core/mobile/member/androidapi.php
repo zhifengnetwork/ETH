@@ -2496,7 +2496,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 	
 	public function get_sxf(){
 		$set = $_W['shopset']['trade'];
-		$data = $ass = pdo_fetch("select zhuanzhangsxf from " . tablename("ewei_shop_sysset") . " where uniacid=:uniacid ", array(':uniacid' => $_W['uniacid']));
+		$data =  pdo_fetch("select zhuanzhangsxf from " . tablename("ewei_shop_sysset") . " where uniacid=:uniacid ", array(':uniacid' => $_W['uniacid']));
 		$data['withdrawsxf'] = $set['withdrawcharge'];
 		returnJson($data);
 	}
