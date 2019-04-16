@@ -824,6 +824,10 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		global $_W;
 		global $_GPC;
 		$openid = $_W['openid'];
+		$status = $_GPC['status'];
+		if(!isset($status)){
+			returnJson([],'请传入订单状态',0);
+		}
 		//价格基础TRX价格  以及手续费
 		$sys = pdo_fetch("select trxprice,trxsxf from" . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
 		$sys['trxsxf'] = round($sys['trxsxf'], 2);
@@ -831,7 +835,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$end    = $sys['trxprice'] * (1 + 0.1);
 		$member = m('member')->getMember($_W['openid'], true);
 		//用户买入,卖出订单
-		$guamai = pdo_fetchall("select * from" . tablename("guamai") . "where openid='" . $openid . "' or openid2='" . $openid . "' order by createtime desc");
+		$guamai = pdo_fetchall("select * from" . tablename("guamai") . "where  status='".$status."' AND (openid='" . $openid . "' or openid2='" . $openid . "') order by createtime desc");
 		$time   = time();
 		foreach ($guamai as $key => $val) {
 			// var_dump($val);nickname2
@@ -1787,8 +1791,10 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		global $_W;
 		global $_GPC;
 
+		$sys = pdo_fetch("select bibi from " . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
+		
 		$list = pdo_fetch("select * from " . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
-		$data = array('zfb' => $list['zfb'], 'zfbfile' => $list['zfbfile'], 'wx' => $list['wx'], 'weixinfile' => $list['weixinfile'], 'yhk' => $list['yhk'], 'yhkfile' => $list['yhkfile'], 'add' => $list['add']);
+		$data = array('zfb' => $list['zfb'], 'zfbfile' => $list['zfbfile'], 'wx' => $list['wx'], 'weixinfile' => $list['weixinfile'], 'yhk' => $list['yhk'], 'yhkfile' => $list['yhkfile'], 'add' => $list['add'],'bibi'=>$sys['bibi']);
 		returnJson(1, array('list' => $data));
 	}
 
@@ -2343,11 +2349,11 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$pwd = trim($_GPC['pwd']);
 		$member = pdo_fetch('select openid,mobile,pwd,salt from ' . tablename('ewei_shop_member') . ' where mobile=:mobile and mobileverify=1 and uniacid=:uniacid limit 1', array(':mobile' => $mobile, ':uniacid' => $_W['uniacid']));
 		if (empty($member)) {
-			returnJson('用户不存在',-1);
+			returnJson(array(),'用户不存在',-1);
 		}
 		
 		if (md5($pwd . $member['salt']) !== $member['pwd']) {
-			returnJson('用户或密码错误',-1);
+			returnJson(array(),'用户或密码错误',-1);
 		}
 		
 		$data['userid'] = $member['openid'];
@@ -2427,9 +2433,83 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		}else{
 			returnJson(array(),'参数错误！','-1');
 		}
+	}
+
+	public function yijianfutou()
+	{
+		global $_W;
+		global $_GPC;
+		$money = $_GPC['money'];
+
+		$type = $_GPC['type'];
+
+		if (empty($money)) returnJson(array(),"复投金额不能为0",-1);
+
+		$member = m('member')->getMember($_W['openid'], true);
+
+		$sys = pdo_fetch("select *from " . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
+
+		if (($member['credit1'] + $money) > $sys['bibi']) returnJson(array(),"您的投资已超过上限",-1);
+
+		$data = array('uniacid' => $_W['uniacid'], 'openid' => $_W['openid'], 'type' => 1, 'money' => $money, 'credit' => $money, 'createtime' => time(), 'section' => $ass['id']);
+
+		$credit = 0;
+		$receive_hongbao = pdo_fetchall("select * from" . tablename("ewei_shop_receive_hongbao") . "where openid='" . $_W['openid'] . "'");
+		foreach ($receive_hongbao as $k => $val) {
+			$credit += $val['money'] + $val['money2'];
+		}
+		//最高倍率相应的释放比例
+		$result  = pdo_fetch("select * from" . tablename("ewei_shop_commission_level4") . "where uniacid=" . $_W['uniacid'] . " and start<=" . $member['credit1'] . " and end>=" . $member['credit1']);
+
+		//释放的比例
+		$money_propor = $result['multiple'] * $member['credit1'];
+		if ($credit > $money_propor) {
+
+			if ($money != $member['credit1']) {
+				returnJson(array(),"激活复投账户必须等于'" . $member['credit1'] . "'/ETH",-1);
+			}
+		}
+		// show_json($data);
+		if ($type == 2) {  //自由账户一键复投
+
+			if ($money > $member['credit2']) returnJson(array(),"您自由账户余额不足",-1);
+
+			$data['status'] = 1;
+			$data['payment'] = 1;
+			$data['title'] = "自由账户一键复投";
+			$data['front_money'] = $member['credit2'];
+			$data['after_money'] = $member['credit2'] - $money;
+			m('member')->setCredit($_W['openid'], 'credit2', -$money);
+		} else if ($type == 4) {
+
+			if ($money > $member['credit4']) returnJson(array(),"您复投账户余额不足",-1);
+
+			$data['status'] = 2;
+			$data['payment'] = 2;
+			$data['title'] = "复投账户一键复投";
+			$data['front_money'] = $member['credit4'];
+			$data['after_money'] = $member['credit4'] - $money;
 
 
+			m('member')->setCredit($_W['openid'], 'credit4', -$money);
+		}
+		// show_json($data);
+		if ($credit >= $money_propor) {
+			pdo_update("ewei_shop_member", "credit1='$money',suoding=0 ", array('openid' => $_W['openid'], 'uniacid' => $_W['uniacid']));
+			pdo_delete("ewei_shop_receive_hongbao", array('openid' => $_W['openid']));
+			pdo_delete("ewei_shop_member_log", array('openid' => $_W['openid']));
+			pdo_delete("ewei_zhuanzhang", array('openid' => $_W['openid']));
+			pdo_delete("ewei_shop_order_goods1", array('openid' => $_W['openid']));
+		} else {
+			//向投资余额打款
+			m('member')->setCredit($_W['openid'], 'credit1', $money);
 
+			if ($member['type'] == 0) {
+				pdo_update("ewei_shop_member", " type='1' ", array('openid' => $_W['openid'], 'uniacid' => $_W['uniacid']));
+			}
+		}
+		$result = pdo_insert("ewei_shop_member_log", $data);
+		if ($result) returnJson(array(),"一键复投成功",1);
 	}
 
 }
