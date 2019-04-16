@@ -1576,6 +1576,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		}
 		$result['path'] = $path.$filename;
 		$result['success'] = true;
+		returnJson($result);
 		return $result;
 	}
 
