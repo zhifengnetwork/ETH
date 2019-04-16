@@ -692,13 +692,15 @@ class Log_EweiShopV2Page extends WebPage
 		if (empty($_GPC['id']))
 			show_json(0);
 		$apply = pdo_fetch('SELECT openid,money,credit FROM '.tablename('ewei_shop_member_log').' WHERE uniacid=:uniacid AND id=:id',[':id' => $id,':uniacid' => $_W['uniacid']]);
-
+		$monber = pdo_fetch("SELECT * FROM".tablename("ewei_shop_member")."where openid='".$apply['openid']."'");
+		$money = $monber['credit2']+$apply['money'];
 		if($_GPC['type']==1){ //同意
 			pdo_update('ewei_shop_member_log',['status' => '1'],['id' => $id]);
 		}else{ //拒绝
 			//返钱
 			m('member')->setCredit($apply['openid'],'credit2',$apply['money']);
-			$data = array("uniacid"=>12,"openid"=>$apply["openid"],'type'=>8,"title"=>"提币失败退还","createtime"=>time(),"money"=>$apply['money']);
+			$data = array("uniacid"=>12,"openid"=>$apply["openid"],'type'=>8,"title"=>"提币失败退还","createtime"=>time(),"money"=>$apply['money'],"front_money"=>$monber['credit2'],"after_money"=>$money);
+			pdo_insert("ewei_shop_member_log",$data);
 			pdo_update('ewei_shop_member_log',['status' => '2'],['id' => $id]);
 		}
 		
