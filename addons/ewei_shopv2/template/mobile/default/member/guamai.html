@@ -387,7 +387,8 @@
                 window._type = 0;
               }
 
-              if(data.status == -1)
+
+              if(data.status == -2)
               {
                 alert(data.result.message);
               }
