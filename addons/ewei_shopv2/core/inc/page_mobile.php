@@ -61,6 +61,7 @@ class MobilePage extends Page
 			$action_array[] = 'member.androidapi.reg_updpwd';
 			$action_array[] = 'member.androidapi.verifycode';
 			$action_array[] = 'member.androidapi.new_file_upload';
+			$action_array[] = 'member.androidapi.get_sxf';
 
 			if (in_array($_GPC['r'], $action_array) || !isset($_GPC['r']) ) {
 				return;
