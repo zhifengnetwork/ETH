@@ -1526,13 +1526,14 @@ class Androidapi_EweiShopV2Page extends MobilePage
 
 
 	function new_file_upload($data='', $type = 'image') {
-		$data = $_GPC['file'] ? $_GPC['file'] : $data;
-		$harmtype = array('asp', 'php', 'jsp', 'js', 'css', 'php3', 'php4', 'php5', 'ashx', 'aspx', 'exe', 'cgi');
-		if (empty($data)) {
-			return error(-1, '没有上传内容');
-		}
-
 		global $_W;
+		global $_GPC;
+		$data = $_GPC['file'] ? $_GPC['file'] : $data;
+		
+		if (empty($data)) {
+			returnJson(array(),'没有上传内容',-1);
+		}
+		
 
 		switch($type){
 	        case 'image/png':
@@ -1559,7 +1560,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			$allowExt = array_merge($setting['extentions'], $allowExt);
 		}
 		if (!in_array($ext, $allowExt)) {
-			return error(-3, '不允许上传此类文件');
+			returnJson(array(),'不允许上传此类文件',-1);
 		}
 		$img_content = str_replace('data:'.$type.';base64,','',$data);
 	    $img_content = base64_decode($img_content);
@@ -1573,7 +1574,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$res = file_put_contents(ATTACHMENT_ROOT.'/'.$path.$filename,$img_content);
 
 		if(!$res){
-			return error(-1, '保存上传文件失败');
+			returnJson(array(),'保存上传文件失败',-1);
 		}
 		$result['path'] = $path.$filename;
 		$result['success'] = true;
