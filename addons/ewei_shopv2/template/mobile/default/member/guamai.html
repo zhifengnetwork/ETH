@@ -392,6 +392,10 @@
               {
                 alert(data.result.message);
               }
+              if(data.status == -1)
+              {
+                alert(data.result.message);
+              }
 
             },error:function(err){
               console.log(err);
