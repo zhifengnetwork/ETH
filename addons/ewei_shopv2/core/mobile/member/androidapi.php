@@ -1525,7 +1525,8 @@ class Androidapi_EweiShopV2Page extends MobilePage
 	}
 
 
-	function new_file_upload($data, $type = 'image') {
+	function new_file_upload( $type = 'image') {
+		$data = $_GPC['file'];
 		$harmtype = array('asp', 'php', 'jsp', 'js', 'css', 'php3', 'php4', 'php5', 'ashx', 'aspx', 'exe', 'cgi');
 		if (empty($data)) {
 			return error(-1, '没有上传内容');
