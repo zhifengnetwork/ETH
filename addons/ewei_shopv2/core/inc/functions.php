@@ -31,6 +31,12 @@ if (!function_exists('returnJson')) {
 		$result['status'] = $code;
 		$result['msg'] = $message;
 		$result['data'] = $data;
+		if(empty($data)){
+			class k{
+			}
+			$result['data'] = new k;
+		}
+		
 		$json = json_encode($result,JSON_UNESCAPED_UNICODE);
 		exit($json);
 	}
