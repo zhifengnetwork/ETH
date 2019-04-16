@@ -1568,9 +1568,9 @@ class Androidapi_EweiShopV2Page extends MobilePage
 	    $img_content = base64_decode($img_content);
 		$result = array();
 		$uniacid = intval($_W['uniacid']);
-		$path = "images/{$uniacid}/" . date('Y/m/');
-		mkdirs(ATTACHMENT_ROOT . '/' . $path,0777);
-
+		$path = "images/{$uniacid}/" . date('Y/m/d');
+		mkdir(ATTACHMENT_ROOT . '/' . $path,0777);
+		echo 1;die;
 		$filename = file_random_name(ATTACHMENT_ROOT . '/' . $path, $ext);
 
 		$res = file_put_contents(ATTACHMENT_ROOT.'/'.$path.$filename,$img_content);
@@ -1580,6 +1580,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		}
 		$result['path'] = $path.$filename;
 		$result['success'] = true;
+		
 		returnJson($result);
 		return $result;
 	}
