@@ -1548,7 +1548,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		if(!$res){
 			returnJson(array(),'保存上传文件失败',-1);
 		}
-		$d['img'] = $_SERVER['HTTP_HOST'] . '/attachment/images/ewei_shop/' .$_W['uniacid'] . '/' .$filename;
+		$d['img'] = 'http://'. $_SERVER['HTTP_HOST'] . '/attachment/images/ewei_shop/' .$_W['uniacid'] . '/' .$filename;
 		
 		returnJson($d);
 	}
@@ -2493,6 +2493,12 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$member = m('member')->getMember($_W['openid'], true);
 		returnJson(['credit1'=>$member['credit1'],'credit4'=>$member['credit4'],'credit2'=>$member['credit2']]);
 	}
-
+	
+	public function get_sxf(){
+		$set = $_W['shopset']['trade'];
+		$data = $ass = pdo_fetch("select zhuanzhangsxf from " . tablename("ewei_shop_sysset") . " where uniacid=:uniacid ", array(':uniacid' => $_W['uniacid']));
+		$data['withdrawsxf'] = $set['withdrawcharge'];
+		returnJson($data);
+	}
 }
 ?>
