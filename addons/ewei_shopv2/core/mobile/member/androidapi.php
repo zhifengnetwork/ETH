@@ -617,23 +617,20 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				$money   = $_GPC['money'];
 
 				$list    = $_GPC['list'];
-
-				var_dump($list);
-				exit;
-			
-				// if(empty($list) && !is_array($list)){
-				// 	  returnJson([], "下注失败!下注号码不能为空.",-2);
-				// }
-				// if($money < 0){
-				// 	returnJson(array(), "下注失败!金额必须大于0.",-2);
-				// }
-				// if($payment < 1){
-				// 	returnJson(array(), "下注失败!请选择支付方式.",-2);
-				// }
-				//  var_dump($list);
-				//  exit;
+				$list   = json_decode(htmlspecialchars_decode($list),true);
 				
-				// show_json($list);
+				
+				if(empty($list) || !is_array($list)){
+					  returnJson([], "下注失败!下注号码不能为空.",-2);
+				}
+				if($money < 0){
+					returnJson(array(), "下注失败!金额必须大于0.",-2);
+				}
+				if($payment < 1){
+					returnJson(array(), "下注失败!请选择支付方式.",-2);
+				}
+				
+				
 
 				if ($payment == 1) {  //ETH支付
 
@@ -664,8 +661,8 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				pdo_insert("ewei_shop_member_log", $arr_log);
 
 				foreach ($list as $key => $val) {
-					$number = $val['0'];
-					$data = array('uniacid' => $_W['uniacid'], 'openid' => $_W['openid'], 'number' => "$number", 'multiple' => $val['1'], 'money' => $val['1'] * $sale['price'], 'createtime' => time());
+					$number = $val['num'];
+					$data = array('uniacid' => $_W['uniacid'], 'openid' => $_W['openid'], 'number' => "$number", 'multiple' => $val['mul'], 'money' => $val['1'] * $sale['price'], 'createtime' => time());
 					pdo_insert("stakejilu", $data);
 				}
 
@@ -1449,7 +1446,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 	}
 
 	//修改密码
-	public function changepwd()
+	public function cahngepwd()
 	{
 		global $_W;
 		global $_GPC;
@@ -1560,7 +1557,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		
 		//生成文件夹
 		$path = ATTACHMENT_ROOT . 'images/ewei_shop/' . $_W['uniacid'];
-		$filename = date('ymdHis',time()) .  mt_rand(10000,99999) . $_W['openid'] . '.png';
+		$filename = date('ymdHis',time()) .  mt_rand(10000,99999) . '.png';
 		$name = $path . '/' . $filename;
 		
 		if (!(is_dir($path))) 
@@ -2528,23 +2525,5 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$data['withdrawsxf'] = $set['withdrawcharge'];
 		returnJson($data);
 	}
-
-	public function face() 
-	{
-		global $_W;
-		global $_GPC;
-		if ($_W['ispost']) 
-		{
-			$nickname = trim($_GPC['nickname']);
-			$avatar = trim($_GPC['avatar']);
-			if (empty($nickname)) returnJson(array(),'请填写昵称',-2);
-			if (empty($avatar)) returnJson(array(),'请上传头像',-2);
-			pdo_update('ewei_shop_member', array('avatar' => $avatar, 'nickname' => $nickname), array('openid' => $_W['openid'], 'uniacid' => $_W['uniacid']));
-			returnJson(array());
-		}else{
-			returnJson(array(),'请求失败！',-1);
-		}
-	}
-
 }
 ?>
