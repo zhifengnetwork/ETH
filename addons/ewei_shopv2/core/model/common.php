@@ -236,7 +236,7 @@ class Common_EweiShopV2Model
         $agentid = $member['agentid'];
         //一级分销
         for($i=1;$i<=1;$i++){
-        	$list = $this->shangji($agentid,$member['openid'],$money,$i);
+        	$list = $this->shangji1($agentid,$member['openid'],$money,$i);
         	// return $list;
         	$agentid = $list;
         }
