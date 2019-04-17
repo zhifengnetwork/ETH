@@ -73,6 +73,11 @@ class Index_EweiShopV2Page extends MobilePage
 			if($_W['openid']){
 				$data = $this->homeinfo($q);
 				$data = $data['data'];
+			}else{
+				$data['touzimoney'] = '0.00';
+				$data['shouyimoneysum'] = '0.00';
+				$data['shouyimoney'] = '0.00';
+				$data['money'] = '0.00';
 			}
 
 			$data['touziimg'] = MODULE_URL . 'static/icon/touzhi.png';
@@ -93,19 +98,15 @@ class Index_EweiShopV2Page extends MobilePage
 			$data['xiajiimg'] = MODULE_URL . 'static/icon/tuandui.png';
 			$data['xiajititle'] = '团队';
 			
-			// $menu['index']['url'] = empty($_GPC['merchid']) ? mobileUrl() : mobileUrl('merch');
 			$menu['index']['title'] = '首页';
 			$menu['index']['img'] =  ( $_W['routes']=='' ||  $_W['routes']=='shop' ||  $_W['routes']=='commission.myshop' ) ? MODULE_URL . 'static/icon/shouye1.png' : MODULE_URL . 'static/icon/shouye0.png';
 			
-			// $menu['qipai']['url'] = mobileUrl('member/qipai');
 			$menu['qipai']['title'] = '棋牌娱乐';
 			$menu['qipai']['img'] = $_W['routes'] =='member.qipai' ? MODULE_URL . 'static/icon/qipaiyule1.png' : MODULE_URL . 'static/icon/qipaiyule0.png';
 
-			// $menu['guamai']['url'] = mobileUrl('member/guamai');
 			$menu['guamai']['title'] = 'C2C';
 			$menu['guamai']['img'] = $_W['routes'] =='member.guamai' ? MODULE_URL . 'static/icon/C2C1.png' : MODULE_URL . 'static/icon/C2C0.png';
 
-			// $menu['member']['url'] = mobileUrl('member/member');
 			$menu['member']['title'] = '我的';
 			$menu['member']['img'] = $_W['routes'] =='member' ? MODULE_URL . 'static/icon/wode1.png' : MODULE_URL . 'static/icon/wode0.png';
 			
