@@ -101,13 +101,7 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 		if (empty($money)) show_json(0, "复投金额不能为0");
 
 		$member = m('member')->getMember($_W['openid'], true);
-
-		$sys = pdo_fetch("select *from " . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
-
-		if (($member['credit1'] + $money) > $sys['bibi']) show_json(0, "您的投资已超过上限");
-
-		$data = array('uniacid' => $_W['uniacid'], 'openid' => $_W['openid'], 'type' => 1, 'money' => $money, 'credit' => $money, 'createtime' => time(), 'section' => $ass['id']);
-
+		
 		$credit = 0;
 		$receive_hongbao = pdo_fetchall("select * from" . tablename("ewei_shop_receive_hongbao") . "where openid='" . $_W['openid'] . "'");
 		foreach ($receive_hongbao as $k => $val) {
@@ -117,13 +111,25 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 		$result  = pdo_fetch("select * from" . tablename("ewei_shop_commission_level4") . "where uniacid=" . $_W['uniacid'] . " and start<=" . $member['credit1'] . " and end>=" . $member['credit1']);
 
 		//释放的比例
+		// dump($credit);
 		$money_propor = $result['multiple'] * $member['credit1'];
+		// dump($result['multiple']);
+		// dump($money_propor);die;
 		if ($credit > $money_propor) {
 
 			if ($money != $member['credit1']) {
 				show_json(-1, "激活复投账户必须等于'" . $member['credit1'] . "'/ETH");
 			}
 		}
+		
+
+		$sys = pdo_fetch("select *from " . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
+		if($member['suoding'] == 0){
+			if (($member['credit1'] + $money) > $sys['bibi']) show_json(0, "您的投资已超过上限");
+		}
+
+		$data = array('uniacid' => $_W['uniacid'], 'openid' => $_W['openid'], 'type' => 1, 'money' => $money, 'credit' => $money, 'createtime' => time(), 'section' => $ass['id']);
+
 		// show_json($data);
 		if ($type == 2) {  //自由账户一键复投
 

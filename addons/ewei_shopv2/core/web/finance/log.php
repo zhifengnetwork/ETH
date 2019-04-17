@@ -671,7 +671,7 @@ class Log_EweiShopV2Page extends WebPage
 		$type = pdo_fetch("select * from".tablename("ewei_shop_commission_level")."where id='".$member1['agentlevel']."'");
 		if($member1['type'] == 1){
 			//直推奖金
-			// m('common')->commission_dakuan($member1,$type['type'],$id,$apply['openid']);
+			m('common')->commission_dakuan($member1,$type['type'],$id,$apply['openid']);
 			//动态奖金
 			m('common')->comm($apply['openid'],$apply['money']);
 			
