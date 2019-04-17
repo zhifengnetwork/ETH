@@ -591,6 +591,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		global $_W;
 		global $_GPC;
 
+		
 			$type = $_GPC['type'];
 
 			if ($type == 1) {    //确认信息
@@ -616,7 +617,8 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				$money   = $_GPC['money'];
 
 				$list    = $_GPC['list'];
-				
+				var_dump($list);
+				exit;
 				if(empty($list) && !is_array($list)){
 					  returnJson([], "下注失败!下注号码不能为空.",-2);
 				}
@@ -626,6 +628,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				if($payment < 1){
 					returnJson(array(), "下注失败!请选择支付方式.",-2);
 			    }
+				
 				// show_json($list);
 
 				if ($payment == 1) {  //ETH支付

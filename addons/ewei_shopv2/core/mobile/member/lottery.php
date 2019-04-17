@@ -98,41 +98,45 @@ class Lottery_EweiShopV2Page extends MobileLoginPage
 
 				$payment = $_GPC['payment'];
 
-				$money = $_GPC['money'];
+				$money   = $_GPC['money'];
 
-				$list = $_GPC['list'];
+				$list    = $_GPC['list'];
+
+				var_dump($list);
+				exit;
 				// show_json($list);
 
-				if ($payment == 1) {  //ETH支付
+				// if ($payment == 1) {  //ETH支付
 
-					if ($member['credit2'] < $money)  show_json(-1, "您的自由账户余额不足");
-					//扣除该会员的下注金额
-					m('member')->setCredit($_W['openid'], 'credit2', -$money);
-					$title = "自由账户进行下注减少" . $money;
-					$front_money = $member['credit2'];
-				} else if ($payment == 2) {  //复投账户支付
+				// 	if ($member['credit2'] < $money)  show_json(-1, "您的自由账户余额不足");
+				// 	//扣除该会员的下注金额
+				// 	m('member')->setCredit($_W['openid'], 'credit2', -$money);
+				// 	$title = "自由账户进行下注减少" . $money;
+				// 	$front_money = $member['credit2'];
+				// } else if ($payment == 2) {  //复投账户支付
 
-					if ($member['credit4'] < $money)  show_json(-1, "您的复投账户余额");
-					//扣除该会员的下注金额
-					m('member')->setCredit($_W['openid'], 'credit4', -$money);
-					$title = "复投账户进行下注减少" . $money;
-					$front_money = $member['credit4'];
-				}
-				$arr_log = array(
-					'uniacid' => 12,
-					'openid' => $_W['openid'],
-					'money' => $money,
-					'type' => 7,
-					'title' => $title,
-					'payment' => $payment,
-					'front_money' => $front_money,
-					'after_money' => $front_money - $money,
-					'createtime' => time()
-				);
-				pdo_insert("ewei_shop_member_log", $arr_log);
+				// 	if ($member['credit4'] < $money)  show_json(-1, "您的复投账户余额");
+				// 	//扣除该会员的下注金额
+				// 	m('member')->setCredit($_W['openid'], 'credit4', -$money);
+				// 	$title = "复投账户进行下注减少" . $money;
+				// 	$front_money = $member['credit4'];
+				// }
+				// $arr_log = array(
+				// 	'uniacid' => 12,
+				// 	'openid' => $_W['openid'],
+				// 	'money' => $money,
+				// 	'type' => 7,
+				// 	'title' => $title,
+				// 	'payment' => $payment,
+				// 	'front_money' => $front_money,
+				// 	'after_money' => $front_money - $money,
+				// 	'createtime' => time()
+				// );
+				// pdo_insert("ewei_shop_member_log", $arr_log);
 
 				foreach ($list as $key => $val) {
-
+					var_dump( $val);
+					exit;
 					$number = $val['0'];
 					$data = array('uniacid' => $_W['uniacid'], 'openid' => $_W['openid'], 'number' => "$number", 'multiple' => $val['1'], 'money' => $val['1'] * $sale['price'], 'createtime' => time());
 					pdo_insert("stakejilu", $data);
