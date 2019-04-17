@@ -604,7 +604,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				$start = mktime(19, 59, 59, date("m", $t), date("d", $t), date("Y", $t));
 
 				if ($t >= $start) {
-					returnJson(array(), "下注失败!每日下注时间为下午20点前.",0);
+					returnJson(array(), "下注失败!每日下注时间为下午20点前.",-2);
 				}
 				// $end = mktime(23,59,59,date("m",$t),date("d",$t),date("Y",$t));
 				$member = m('member')->getMember($_W['openid'], true);
@@ -618,26 +618,26 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				$list    = $_GPC['list'];
 
 				if(empty($list) && !is_array($list)){
-					  returnJson([], "下注失败!下注号码不能为空.",0);
+					  returnJson([], "下注失败!下注号码不能为空.",-2);
 				}
 				if($money < 0){
-					returnJson(array(), "下注失败!金额必须大于0.",0);
+					returnJson(array(), "下注失败!金额必须大于0.",-2);
 				}
 				if($payment < 1){
-					returnJson(array(), "下注失败!请选择支付方式.",0);
+					returnJson(array(), "下注失败!请选择支付方式.",-2);
 			    }
 				// show_json($list);
 
 				if ($payment == 1) {  //ETH支付
 
-					if ($member['credit2'] < $money)  returnJson(array(), "您的自由账户余额不足",0);
+					if ($member['credit2'] < $money)  returnJson(array(), "您的自由账户余额不足",-2);
 					//扣除该会员的下注金额
 					m('member')->setCredit($_W['openid'], 'credit2', -$money);
 					$title = "自由账户进行下注减少" . $money;
 					$front_money = $member['credit2'];
 				} else if ($payment == 2) {  //复投账户支付
 
-					if ($member['credit4'] < $money)  returnJson(array(), "您的复投账户余额不足",0);
+					if ($member['credit4'] < $money)  returnJson(array(), "您的复投账户余额不足",-2);
 					//扣除该会员的下注金额
 					m('member')->setCredit($_W['openid'], 'credit4', -$money);
 					$title = "复投账户进行下注减少" . $money;
@@ -828,7 +828,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$openid = $_W['openid'];
 		$status = $_GPC['status'];
 		if(!isset($status)){
-			returnJson([],'请传入订单状态',0);
+			returnJson([],'请传入订单状态',-2);
 		}
 		//价格基础TRX价格  以及手续费
 		$sys = pdo_fetch("select trxprice,trxsxf from" . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
@@ -880,14 +880,14 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			$start = $sys['trxprice'] * (1 - 0.1);
 			$end   = $sys['trxprice'] * (1 + 0.1);
 			if ($_GPC['price'] < $start || $_GPC['price'] > $end) {
-				returnJson([], "请参考价格建议区间",0);
+				returnJson([], "请参考价格建议区间",-2);
 			}
 			//判断该会员是否上传收款信息
 			if (!$member['zfbfile'] && !$member['wxfile'] && (!$member['bankid'] || !$member['bankname'] || !$member['bank'])) {
-				returnJson([], "请上传您的收款信息",0);
+				returnJson([], "请上传您的收款信息",-2);
 			}
 			if ($member['credit2'] < $_GPC['trx2']) {
-				returnJson([],'您的ETH不足，请尽快投资！',0);
+				returnJson([],'您的ETH不足，请尽快投资！',-2);
 			}
 			$data   = array('openid' => $openid, 'uniacid' => $_W['uniacid'], 'price' => $_GPC['price'], 'trx' => $_GPC['trx'], 'trx2' => $_GPC['trx2'], 'money' => $_GPC['money'], 'type' => $type, 'status' => '0', 'sxf0' => $_GPC['sxf0'], 'createtime' => time());
 			$data['apple_time'] = time() + 1800;
@@ -949,7 +949,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			// dump($type);die;
 			if ($type == 0) {   //买入
 				if ($guamai_nums >= 1) {
-					returnJson([],"您还有订单尚未处理或还在交易中,请先进行交易！", 0);
+					returnJson([],"您还有订单尚未处理或还在交易中,请先进行交易！", -2);
 				}
 				if ($op == 1) {
 					$result = pdo_update("guamai", array('file' => $_GPC['file']), array('uniacid' => $_W['uniacid'], 'id' => $id));
@@ -960,13 +960,13 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				} else {
 					//判断是否是自己买入自己
 					if($sell['openid'] == $_W['openid']){
-						 returnJson([],"不能买入自己发放的账单", 0);
+						 returnJson([],"不能买入自己发放的账单", -2);
 					}
 					//判断该用户是否有足够的币进行抢单
 					$member = m('member')->getMember($_W['openid'], true);
 					//判断该会员是否上传收款信息
 					if (!$member['zfbfile'] && !$member['wxfile'] && (!$member['bankid'] || !$member['bankname'] || !$member['bank'])) {
-						returnJson([], "请上传您的收款信息",-1);
+						returnJson([], "请上传您的收款信息",-2);
 					}
 					$apple_time = time() + 1800;
 					$result = pdo_update("guamai", array('file' => $_GPC['file'], 'status' => 1, 'apple_time' => $apple_time, 'openid2' => $_W['openid']), array('uniacid' => $_W['uniacid'], 'id' => $_GPC['id']));
@@ -992,7 +992,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 					$member = m('member')->getMember($_W['openid'], true);
 					$sell   = pdo_fetch("select g.trx,m.mobile,m2.mobile as mobile2 from" . tablename("guamai") . ' g left join ' . tablename('ewei_shop_member') . ' m ON m.openid=g.openid ' . ' left join ' . tablename('ewei_shop_member') . ' m2 ON m2.openid=g.openid2 ' . " where g.uniacid=" . $_W['uniacid'] . " and g.id='$id' and g.type=0");
 					if ($guamai_nums >= 1) {
-						returnJson([],"您还有订单尚未处理或还在交易中,请先进行交易！",0);
+						returnJson([],"您还有订单尚未处理或还在交易中,请先进行交易！",-2);
 					}
 					if($sell['openid'] == $_W['openid']){
 						returnJson([],"不能卖出自己发放的账单", 0);
@@ -1001,10 +1001,10 @@ class Androidapi_EweiShopV2Page extends MobilePage
 
 					//判断该会员是否上传收款信息
 					if (!$member['zfbfile'] && !$member['wxfile'] && (!$member['bankid'] || !$member['bankname'] || !$member['bank'])) {
-						returnJson([], "请上传您的收款信息",0);
+						returnJson([], "请上传您的收款信息",-2);
 					}
 					if ($member['credit2'] < $sell['trx']) {
-						returnJson([], "您的ETH不足，请尽快投资！",0);
+						returnJson([], "您的ETH不足，请尽快投资！",-2);
 					}
 					//币足够的时候进行抢单  （扣币）
 					$apple_time = time() + 1800;
@@ -1084,7 +1084,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				$guamai = pdo_fetch("select * from" . tablename("guamai") . "where id='" . $id . "'");
 				$appeal = pdo_fetch("select * from" . tablename("guamai_appeal") . "where stuas=0 and order_id='" . $id . "' and appeal_name='" . $_W['mid'] . "'");
 				if ($appeal) {
-					returnJson(array(),'您还有一条为审核的申诉,请稍后再试!!!',0);
+					returnJson(array(),'您还有一条为审核的申诉,请稍后再试!!!',-2);
 				} else {
 					$data_appeal = array(
 						"openid"      => $guamai['openid'],
@@ -1100,7 +1100,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 						"createtime"  => time()
 					);
 					$guamai_appeal = pdo_insert("guamai_appeal", $data_appeal);
-					$guamai_appeal?returnJson(array(), "申诉成功",1):returnJson(array(), "申诉失败",0);
+					$guamai_appeal?returnJson(array(), "申诉成功",1):returnJson(array(), "申诉失败",-2);
 			  }
 		}
 
@@ -1176,7 +1176,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		if (empty($sell)) return false;
 		// dump($sell);die;
 		if ($sell['status'] == 1) {
-			returnJson(array(),"该订单已经在进行中,不能进行撤销!!!",0);
+			returnJson(array(),"该订单已经在进行中,不能进行撤销!!!",-2);
 		}
 		if ($sell['type'] == 0) {
 			// $data = array("credit2"=>$sell['trx']+$sell['credit2']);
@@ -1191,7 +1191,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				$result = pdo_update("ewei_shop_member", $data, array("openid" => $sell['openid']));
 				returnJson(array(),"撤销成功!",1);
 			} else {
-				returnJson(array(),"撤销失败!",1);
+				returnJson(array(),"撤销失败!",-2);
 			}
 		}
 	}
@@ -1383,12 +1383,12 @@ class Androidapi_EweiShopV2Page extends MobilePage
 
 		$res = pdo_fetch('select exprie_time from ' . tablename('phone_auth') . ' where phone=:phone order by id DESC limit 1', array(':phone' => $mobile));
 		if( $res['exprie_time'] > time() ){
-			returnJson(array(),'请求频繁请稍后重试','-1');
+			returnJson(array(),'请求频繁请稍后重试','-2');
 		}
 
 		$sms_id = $set['wap'][$temp];
 		if (empty($sms_id)) {
-			returnJson(array(),'短信发送失败(NOSMSID)','-1');
+			returnJson(array(),'短信发送失败(NOSMSID)','-2');
 		}
 		
 		$code = random(5, true);
@@ -1438,9 +1438,9 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		}
 		
 		if( $this->phoneAuth($mobile,$code) === '-1' ){
-			returnJson(array(),'验证码已过期！','-1');
+			returnJson(array(),'验证码已过期！','-2');
 		}else if( !$this->phoneAuth($mobile,$code) ){
-			returnJson(array(),'验证码错误！','-1');
+			returnJson(array(),'验证码错误！','-2');
 		}
 		
 		$member = pdo_fetch('select id,openid,mobile,pwd,salt,credit1,credit2, createtime from ' . tablename('ewei_shop_member') . ' where mobile=:mobile and uniacid=:uniacid and mobileverify=1 limit 1', array(':mobile' => $mobile, ':uniacid' => $_W['uniacid']));
@@ -1531,7 +1531,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		global $_W;
 		global $_GPC;
 		$data = $_GPC['file'];
-		if(!$data) returnJson(array(),'请上传图片！',-1);
+		if(!$data) returnJson(array(),'请上传图片！',-2);
 		$img=base64_decode($data);
 		
 		//生成文件夹
@@ -1546,7 +1546,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		//保存图片到本地
 		$res = file_put_contents($name,$img);
 		if(!$res){
-			returnJson(array(),'保存上传文件失败',-1);
+			returnJson(array(),'保存上传文件失败',-2);
 		}
 		$d['img'] = 'http://'. $_SERVER['HTTP_HOST'] . '/attachment/images/ewei_shop/' .$_W['uniacid'] . '/' .$filename;
 		
@@ -1784,10 +1784,10 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$member = m('member')->getMember($_W['openid'], true);
 		$sys = pdo_fetch("select *from " . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
 
-		if (empty($money)) returnJson(-1, "请输入您要投资的数量");
-		if (empty($url)) returnJson(-1, "请上传到您的支付凭证");
+		if (empty($money)) returnJson(array(), "请输入您要投资的数量",-2);
+		if (empty($url)) returnJson(array(), "请上传到您的支付凭证",-2);
 
-		if (($member['credit1'] + $money) > $sys['bibi']) returnJson(-1, "您的投资已超过上限");
+		if (($member['credit1'] + $money) > $sys['bibi']) returnJson(array(), "您的投资已超过上限",-2);
 
 
 		$data = array('uniacid' => $_W['uniacid'], 'openid' => $_W['openid'], 'type' => 1, 'title' => '资产投资', 'status' => 0, 'money' => $money, 'credit' => $money, 'createtime' => time(), 'url' => $url);
@@ -2091,18 +2091,18 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$set = $_W['shopset']['trade'];
 
 		if (empty($set['withdraw'])) {
-			returnJson(array(), '系统未开启提现!',-1);
+			returnJson(array(), '系统未开启提现!',-2);
 		}
 		$set_array = array();
 
 		//判断该会员是否绑定钱包地址和二维码
 		$member = m('member')->getMember($_W['openid'], true);
 		if (!$member['walletcode'] || !$member['walletaddress']) {
-			returnJson(array(), '请完善您的资料!',-1);
+			returnJson(array(), '请完善钱包信息!',0);
 		}
 
 		$money = floatval($_GPC['money']);
-		if (!floor($money / $set['withdrawmoney']))  returnJson(array(), "提现的金额必须是" . $set['withdrawmoney'] . "的倍数",-1);
+		if (!floor($money / $set['withdrawmoney']))  returnJson(array(), "提现的金额必须是" . $set['withdrawmoney'] . "的倍数",-2);
 		$credit = m('member')->getCredit($_W['openid'], 'credit2');
 
 		$apply = array();
@@ -2156,11 +2156,11 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$member = m('member')->getMember($_W['openid'], true);
 		$member2 = pdo_fetch("select * from " . tablename("ewei_shop_member") . "where uniacid=" . $_W['uniacid'] . " and id='$mid'");
 
-		if (!$money) returnJson(array(), "请输入转账金额",-1);
-		if (!$mid) returnJson(array(), "请输入转账人id",-1);
-		if ($member['credit2'] < $money) returnJson(array(), "您输入的转账金额过大，账户余额不足",-1);
+		if (!$money) returnJson(array(), "请输入转账金额",-2);
+		if (!$mid) returnJson(array(), "请输入转账人id",-2);
+		if ($member['credit2'] < $money) returnJson(array(), "您输入的转账金额过大，账户余额不足",-2);
 		// returnJson(array()mid);
-		if ($member2['openid'] == $_W['openid']) returnJson(array(), "不能对自己进行转账",-1);
+		if ($member2['openid'] == $_W['openid']) returnJson(array(), "不能对自己进行转账",-2);
 
 		$data = array('uniacid' => $_W['uniacid'], 'openid' => $_W['openid'], 'openid2' => $member2['openid'], 'money' => $money, 'money2' => $moneysxf, 'createtime' => time());
 
@@ -2180,7 +2180,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		global $_GPC;
 
 		$type = $_GPC['type'];
-		if(!$type) returnJson(array(),'参数错误！',-1);
+		if(!$type) returnJson(array(),'参数错误！',-2);
 		$pindex = max(1, intval($_GPC['page']));
 		$psize = 10;
 		$openid = $_W['openid'];
@@ -2228,7 +2228,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		if($result){
 			returnJson(array());
 		}else{
-			returnJson(array(),'失败',-1);
+			returnJson(array(),'失败',-2);
 		}
 	}
 
@@ -2282,14 +2282,14 @@ class Androidapi_EweiShopV2Page extends MobilePage
 
 		$money = $_GPC['money'];
 		if (empty($_W['openid'])) {
-			returnJson(array(), "openid不能为空", 0);
+			returnJson(array(), "openid不能为空", -1);
 		}
 		
 		$time = time();
 		$user = pdo_fetch("select openid,createtime from" . tablename("ewei_shop_member") . "where openid='" . $_W['openid'] . "'");
 		$time_one = $user['createtime'] + '2592000';
 		if ($time > $time_one) {
-			returnJson(array(), "账户已注册满一个月不能进行退出机制！", -1);
+			returnJson(array(), "账户已注册满一个月不能进行退出机制！", -2);
 		}
 		// $money_receive = 0;
 		// $receive = pdo_fetchall("select * from" . tablename("ewei_shop_receive_hongbao") . "where openid='" . $_W['openid'] . "'");
@@ -2324,11 +2324,11 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$pwd = trim($_GPC['pwd']);
 		$member = pdo_fetch('select openid,mobile,pwd,salt from ' . tablename('ewei_shop_member') . ' where mobile=:mobile and mobileverify=1 and uniacid=:uniacid limit 1', array(':mobile' => $mobile, ':uniacid' => $_W['uniacid']));
 		if (empty($member)) {
-			returnJson(array(),'用户不存在',-1);
+			returnJson(array(),'用户不存在',-2);
 		}
 		
 		if (md5($pwd . $member['salt']) !== $member['pwd']) {
-			returnJson(array(),'用户或密码错误',-1);
+			returnJson(array(),'用户或密码错误',-2);
 		}
 		
 		$data['userid'] = $member['openid'];
@@ -2351,13 +2351,13 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$pwd = $_GPC['pwd'];
 
 		if(!$mobile || !$code || !$pwd || !$type){
-			returnJson(array(),'参数错误！','-1');
+			returnJson(array(),'参数错误！','-2');
 		}
 		
 		if( $this->phoneAuth($mobile,$code) === '-1' ){
-			returnJson(array(),'验证码已过期！','-1');
+			returnJson(array(),'验证码已过期！','-2');
 		}else if( !$this->phoneAuth($mobile,$code) ){
-			returnJson(array(),'验证码错误！','-1');
+			returnJson(array(),'验证码错误！','-2');
 		}
 
 		$member = pdo_fetch('select id,openid,mobile,pwd,salt,credit1,credit2, createtime from ' . tablename('ewei_shop_member') . ' where mobile=:mobile and uniacid=:uniacid and mobileverify=1 limit 1', array(':mobile' => $mobile, ':uniacid' => $_W['uniacid']));
@@ -2403,7 +2403,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				$d['mobile'] = $data['mobile'];
 				returnJson($d);
 			}
-			returnJson(array(),'注册失败！',-1);
+			returnJson(array(),'注册失败！',-2);
 
 		}else{
 			returnJson(array(),'参数错误！','-1');
@@ -2418,13 +2418,13 @@ class Androidapi_EweiShopV2Page extends MobilePage
 
 		$type = $_GPC['type'];
 
-		if (empty($money)) returnJson(array(),"复投金额不能为0",-1);
+		if (empty($money)) returnJson(array(),"复投金额不能为0",-2);
 
 		$member = m('member')->getMember($_W['openid'], true);
 
 		$sys = pdo_fetch("select *from " . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
 
-		if (($member['credit1'] + $money) > $sys['bibi']) returnJson(array(),"您的投资已超过上限",-1);
+		if (($member['credit1'] + $money) > $sys['bibi']) returnJson(array(),"您的投资已超过上限",-2);
 
 		$data = array('uniacid' => $_W['uniacid'], 'openid' => $_W['openid'], 'type' => 1, 'money' => $money, 'credit' => $money, 'createtime' => time(), 'section' => $ass['id']);
 
@@ -2441,13 +2441,13 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		if ($credit > $money_propor) {
 
 			if ($money != $member['credit1']) {
-				returnJson(array(),"激活复投账户必须等于'" . $member['credit1'] . "'/ETH",-1);
+				returnJson(array(),"激活复投账户必须等于'" . $member['credit1'] . "'/ETH",-2);
 			}
 		}
 		// show_json($data);
 		if ($type == 2) {  //自由账户一键复投
 
-			if ($money > $member['credit2']) returnJson(array(),"您自由账户余额不足",-1);
+			if ($money > $member['credit2']) returnJson(array(),"您自由账户余额不足",-2);
 
 			$data['status'] = 1;
 			$data['payment'] = 1;
