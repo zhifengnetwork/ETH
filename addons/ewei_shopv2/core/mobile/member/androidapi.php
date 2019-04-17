@@ -849,7 +849,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		if(empty($guamai)){
 			$guamai = array();
 		}
-		returnJson($guamai,'获取订单成功',1);
+		returnJson($guamai[0],'获取订单成功',1);
 	}
 
 		/**
@@ -858,10 +858,11 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		public function guamai_appeal(){
 			global $_W;
 			global $_GPC;
+			$member = m('member')->getMember($_W['openid'], true);
 			$pindex = max(1, intval($_GPC['page']));
 			$psize  = 10;
 			$limit  = ' LIMIT ' . (($pindex - 1) * $psize) . ',' . $psize;
-			$guamai_appeal = pdo_fetchall("select * from" . tablename("guamai_appeal") . "where appeal_name='" . $_GPC['userid'] . "'".$limit);
+			$guamai_appeal = pdo_fetchall("select * from" . tablename("guamai_appeal") . "where appeal_name='" . $member['id'] . "'".$limit);
 			foreach ($guamai_appeal as $k => $v) {
 				$guamai_appeal[$k]['createtime'] = date("m-d", $val['createtime']);
 			}
