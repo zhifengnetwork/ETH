@@ -2493,6 +2493,8 @@ class Androidapi_EweiShopV2Page extends MobilePage
 	}
 
 	public function fotou_info(){
+		global $_W;
+		global $_GPC;
 		$member = m('member')->getMember($_W['openid'], true);
 		returnJson(['credit1'=>$member['credit1'],'credit4'=>$member['credit4'],'credit2'=>$member['credit2']]);
 	}
