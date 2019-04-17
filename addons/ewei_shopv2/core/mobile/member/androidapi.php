@@ -604,10 +604,10 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				$t = time();
 				$start = mktime(19, 59, 59, date("m", $t), date("d", $t), date("Y", $t));
 
-				// if ($t >= $start) {
-				// 	returnJson(array(), "下注失败!每日下注时间为下午20点前.",-2);
-				// }
-				// $end = mktime(23,59,59,date("m",$t),date("d",$t),date("Y",$t));
+				if ($t >= $start) {
+					returnJson(array(), "下注失败!每日下注时间为下午20点前.",-2);
+				}
+				$end = mktime(23,59,59,date("m",$t),date("d",$t),date("Y",$t));
 				$member = m('member')->getMember($_W['openid'], true);
 
 				$sale = pdo_fetch("select * from" . tablename("ewei_shop_lottery2") . "where uniacid=" . $_W['uniacid']);
