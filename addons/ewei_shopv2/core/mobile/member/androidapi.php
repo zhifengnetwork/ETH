@@ -616,7 +616,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				$money   = $_GPC['money'];
 
 				$list    = $_GPC['list'];
-
+				
 				if(empty($list) && !is_array($list)){
 					  returnJson([], "下注失败!下注号码不能为空.",-2);
 				}

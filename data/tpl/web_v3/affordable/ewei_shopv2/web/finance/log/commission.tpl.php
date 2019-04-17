@@ -115,8 +115,9 @@
                     <th>来源会员</th>
 
                     <th>自由金额</th>
+                    <!-- <th>自由金额</th> -->
 
-                    <th>复投金额</th>
+                    <!-- <th>复投金额</th> -->
 
                     <th style='width:100px;'>发放时间</th>
 
@@ -158,9 +159,10 @@
 
                     </td>
                     
-                    <td><?php  echo $row['money'];?></td>
+                    <td><?php  echo $row['money3'];?></td>
+                    <!-- <td><?php  echo $row['money'];?></td>
 
-                    <td><?php  echo $row['money2'];?></td>
+                    <td><?php  echo $row['money2'];?></td> -->
 
                     <td><?php  echo date('Y-m-d',$row['createtime'])?><br/><?php  echo date('H:i',$row['createtime'])?></td>
 

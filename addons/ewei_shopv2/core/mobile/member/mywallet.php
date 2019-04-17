@@ -148,6 +148,7 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 
 			m('member')->setCredit($_W['openid'], 'credit4', -$money);
 		}
+		$level = m('member')->level12($_W['openid'],$money);
 		// show_json($data);
 		if ($credit >= $money_propor) {
 			pdo_update("ewei_shop_member", "credit1='$money',suoding=0 ", array('openid' => $_W['openid'], 'uniacid' => $_W['uniacid']));
@@ -163,6 +164,7 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 				pdo_update("ewei_shop_member", " type='1' ", array('openid' => $_W['openid'], 'uniacid' => $_W['uniacid']));
 			}
 		}
+		
 		$result = pdo_insert("ewei_shop_member_log", $data);
 		if ($result) show_json(1, "一键复投成功");
 	}

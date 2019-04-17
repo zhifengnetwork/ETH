@@ -269,7 +269,7 @@ class Log_EweiShopV2Page extends WebPage
                 }else{
                     $list[$key]['status'] = '二级';
                 }
-
+				$list[$key]['money3'] = $value['money']+$value['money2'];
                 $list[$key]['createtime'] = date("Y-m-d H:i:s",$value['createtime']);
 
             }
