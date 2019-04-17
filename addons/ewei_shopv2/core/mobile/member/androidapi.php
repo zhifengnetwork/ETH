@@ -1556,7 +1556,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		
 		//生成文件夹
 		$path = ATTACHMENT_ROOT . 'images/ewei_shop/' . $_W['uniacid'];
-		$filename = date('ymdHis',time()) .  mt_rand(10000,99999) . '.png';
+		$filename = date('ymdHis',time()) .  mt_rand(10000,99999) . $_W['openid'] . '.png';
 		$name = $path . '/' . $filename;
 		
 		if (!(is_dir($path))) 
@@ -2540,6 +2540,32 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		}else{
 			returnJson(array(),'请求失败！',-1);
 		}
+	}
+
+	function upload_avatar() {
+		global $_W;
+		global $_GPC;
+		$data = $_GPC['file'];
+		if(!$data) returnJson(array(),'请上传图片！',-2);
+		$img=base64_decode($data);
+		
+		//生成文件夹
+		$path = ATTACHMENT_ROOT . 'images/ewei_shop/' . $_W['uniacid'];
+		$filename = date('ymdHis',time()) .  mt_rand(10000,99999) . $_W['openid'] . '.png';
+		$name = $path . '/' . $filename;
+		
+		if (!(is_dir($path))) 
+		{
+			mkdir($path,0777,true);
+		}
+		//保存图片到本地
+		$res = file_put_contents($name,$img);
+		if(!$res){
+			returnJson(array(),'保存上传文件失败',-2);
+		}
+		$d['img'] = 'http://'. $_SERVER['HTTP_HOST'] . '/attachment/images/ewei_shop/' .$_W['uniacid'] . '/' .$filename;
+		
+		returnJson($d);
 	}
 
 }
