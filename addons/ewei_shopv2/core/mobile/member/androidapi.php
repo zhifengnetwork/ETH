@@ -1536,7 +1536,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		
 		//生成文件夹
 		$path = ATTACHMENT_ROOT . 'images/ewei_shop/' . $_W['uniacid'];
-		$filename = date('ymdHis',time()) . '.png';
+		$filename = date('ymdHis',time()) .  mt_rand(10000,99999) . '.png';
 		$name = $path . '/' . $filename;
 		
 		if (!(is_dir($path))) 
