@@ -1457,7 +1457,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				$salt = random(16);
 			}
 		}
-		pdo_update('ewei_shop_member', array('mobile' => $mobile, 'pwd' => md5($pwd . $salt), 'salt' => $salt, 'mobileverify' => 1), array('id' => $id, 'uniacid' => $_W['uniacid']));
+		pdo_update('ewei_shop_member', array('mobile' => $mobile, 'pwd' => md5($pwd . $salt), 'salt' => $salt, 'mobileverify' => 1), array('mobile' => $mobile, 'uniacid' => $_W['uniacid']));
 		returnJson(array());
 	}
 
@@ -2376,7 +2376,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 					$salt = random(16);
 				}
 			}
-			pdo_update('ewei_shop_member', array('mobile' => $mobile, 'pwd' => md5($pwd . $salt), 'salt' => $salt, 'mobileverify' => 1), array('id' => $id, 'uniacid' => $_W['uniacid']));
+			pdo_update('ewei_shop_member', array('mobile' => $mobile, 'pwd' => md5($pwd . $salt), 'salt' => $salt, 'mobileverify' => 1), array('mobile' => $mobile, 'uniacid' => $_W['uniacid']));
 			returnJson(array());
 		}else if($type=='sms_reg'){
 			if (!(empty($member))) {
