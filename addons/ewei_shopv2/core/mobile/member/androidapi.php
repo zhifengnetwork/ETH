@@ -604,9 +604,9 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				$t = time();
 				$start = mktime(19, 59, 59, date("m", $t), date("d", $t), date("Y", $t));
 
-				if ($t >= $start) {
-					returnJson(array(), "下注失败!每日下注时间为下午20点前.",-2);
-				}
+				// if ($t >= $start) {
+				// 	returnJson(array(), "下注失败!每日下注时间为下午20点前.",-2);
+				// }
 				// $end = mktime(23,59,59,date("m",$t),date("d",$t),date("Y",$t));
 				$member = m('member')->getMember($_W['openid'], true);
 
@@ -617,17 +617,21 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				$money   = $_GPC['money'];
 
 				$list    = $_GPC['list'];
-				
-				
-				if(empty($list) && !is_array($list)){
-					  returnJson([], "下注失败!下注号码不能为空.",-2);
-				}
-				if($money < 0){
-					returnJson(array(), "下注失败!金额必须大于0.",-2);
-				}
-				if($payment < 1){
-					returnJson(array(), "下注失败!请选择支付方式.",-2);
-			    }
+
+				var_dump($list);
+				exit;
+			
+				// if(empty($list) && !is_array($list)){
+				// 	  returnJson([], "下注失败!下注号码不能为空.",-2);
+				// }
+				// if($money < 0){
+				// 	returnJson(array(), "下注失败!金额必须大于0.",-2);
+				// }
+				// if($payment < 1){
+				// 	returnJson(array(), "下注失败!请选择支付方式.",-2);
+				// }
+				//  var_dump($list);
+				//  exit;
 				
 				// show_json($list);
 
