@@ -2524,5 +2524,23 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$data['withdrawsxf'] = $set['withdrawcharge'];
 		returnJson($data);
 	}
+
+	public function face() 
+	{
+		global $_W;
+		global $_GPC;
+		if ($_W['ispost']) 
+		{
+			$nickname = trim($_GPC['nickname']);
+			$avatar = trim($_GPC['avatar']);
+			if (empty($nickname)) returnJson(array(),'请填写昵称',-2);
+			if (empty($avatar)) returnJson(array(),'请上传头像',-2);
+			pdo_update('ewei_shop_member', array('avatar' => $avatar, 'nickname' => $nickname), array('openid' => $_W['openid'], 'uniacid' => $_W['uniacid']));
+			returnJson(array());
+		}else{
+			returnJson(array(),'请求失败！',-1);
+		}
+	}
+
 }
 ?>
