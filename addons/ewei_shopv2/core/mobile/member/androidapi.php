@@ -828,7 +828,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$openid = $_W['openid'];
 		$status = $_GPC['status'];
 		if(!isset($status)){
-			returnJson([],'请传入订单状态',-2);
+			returnJson(array(),'请传入订单状态',-2);
 		}
 		//价格基础TRX价格  以及手续费
 		$sys = pdo_fetch("select trxprice,trxsxf from" . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
@@ -839,15 +839,16 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		//用户买入,卖出订单
 		$guamai = pdo_fetchall("select * from" . tablename("guamai") . "where  status='".$status."' AND (openid='" . $openid . "' or openid2='" . $openid . "') order by createtime desc");
 		$time   = time();
-		foreach ($guamai as $key => $val) {
-			// var_dump($val);nickname2
-			$guamai[$key]['datatime']  = date("Y-m-d H:i:s", $val['createtime']);
-			$guamai[$key]['time_news'] = ($val['createtime'] + 1800) - $time;
-			$guamai[$key]['nickname']  = substr($val['openid'], -11);
-			$guamai[$key]['nickname2'] = substr($val['openid2'], -11);
-		}
 		if(empty($guamai)){
 			$guamai = array();
+		}else{
+			foreach ($guamai as $key => $val) {
+				// var_dump($val);nickname2
+				$guamai[$key]['datatime']  = date("Y-m-d H:i:s", $val['createtime']);
+				$guamai[$key]['time_news'] = ($val['createtime'] + 1800) - $time;
+				$guamai[$key]['nickname']  = substr($val['openid'], -11);
+				$guamai[$key]['nickname2'] = substr($val['openid2'], -11);
+			}
 		}
 		returnJson($guamai,'获取订单成功',1);
 	}
