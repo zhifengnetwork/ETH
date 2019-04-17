@@ -269,7 +269,7 @@ class Log_EweiShopV2Page extends WebPage
                 }else{
                     $list[$key]['status'] = '二级';
                 }
-				$list[$key]['money3'] = $value['money']+$value['money2'];
+				
                 $list[$key]['createtime'] = date("Y-m-d H:i:s",$value['createtime']);
 
             }
@@ -291,7 +291,10 @@ class Log_EweiShopV2Page extends WebPage
         }
 
 
-        $list = pdo_fetchall($select.$tablename.$where.$limit,$params);
+		$list = pdo_fetchall($select.$tablename.$where.$limit,$params);
+		foreach($list as $k=>$v){
+			$list[$k]['money3'] = $v['money']+$v['money2'];
+		}
         $total = pdo_fetchcolumn('SELECT count(og.id) FROM '.$tablename.$where, $params);
         $pager = pagination2($total, $pindex, $psize);
         // echo '<pre>';

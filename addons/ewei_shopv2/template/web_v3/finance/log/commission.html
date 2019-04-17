@@ -115,9 +115,8 @@
                     <th>来源会员</th>
 
                     <th>自由金额</th>
-                    <!-- <th>自由金额</th> -->
 
-                    <!-- <th>复投金额</th> -->
+                    <th>复投金额</th>
 
                     <th style='width:100px;'>发放时间</th>
 
@@ -158,11 +157,15 @@
                         </a>
 
                     </td>
-                    
+                    {if $row['type']==1}
                     <td>{$row['money3']}</td>
-                    <!-- <td>{$row['money']}</td>
+                    <td>0.00</td>
+                    {else}
+                    <td>{$row['money']}</td>
 
-                    <td>{$row['money2']}</td> -->
+                    <td>{$row['money2']}</td>
+                    {/if}
+                    
 
                     <td>{php echo date('Y-m-d',$row['createtime'])}<br/>{php echo date('H:i',$row['createtime'])}</td>
 
