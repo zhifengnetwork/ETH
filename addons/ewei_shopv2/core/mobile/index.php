@@ -9,12 +9,24 @@ class Index_EweiShopV2Page extends MobilePage
 
 		global $_W;
 		global $_GPC;
+		$q = $_GPC['q'];
+		if($q){
+			$userid  = $_GPC['userid'];
+			if(!$userid) returnJson(array(), "用户ID不能为空",-1);
+			$res = base64_decode($userid);  #输出解密后的字符串
+			$res = json_decode($res,true);
+			if(!$res['userid'])returnJson(array(), "用户不存在",-1);
+			$_W['openid'] = $res['userid'];
+			
+			$res = base64_decode($userid);  #输出解密后的字符串
+			$res = json_decode($res,true);
+		}
 		$_SESSION['newstoreid'] = 0;
 		$this->diypage('home');
 		$uniacid = $_W['uniacid'];
 		$mid = intval($_GPC['mid']);
 		$index_cache = $this->getpage();
-		$q = $_GPC['q'];
+		
 		
 		$member = m('member')->getMember($_W['openid'], true);
 
