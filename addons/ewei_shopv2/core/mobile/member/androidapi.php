@@ -924,23 +924,24 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			$id     = $_GPC['id']; //订单ID
 			$op     = $_GPC['op']; //特殊参数
 			$openid = $_W['openid'];
-			$sell = pdo_fetch("select g.*,m.nickname,m.mobile,m.zfbfile,m.wxfile,m.bankid,m.bankname,m.bank,m2.nickname as nickname2,m2.mobile as mobile2,m2.zfbfile as zfbfile2,m2.wxfile as wxfile2,m2.bankid as bankid2,m2.bankname as bankname2,m2.bank as bank2 from" . tablename('guamai') . ' g left join ' . tablename('ewei_shop_member') . ' m ON m.openid=g.openid left join ' . tablename('ewei_shop_member') . ' m2 ON m2.openid=g.openid2 ' . " where g.uniacid=" . $_W['uniacid'] . " and g.id='$id'");
-			// dump($sell);
-			if ($op == 1) {
-				if ($sell['zfbfile']) $payment[] = array('name' => "支付宝", 'type' => 'zfb');
-				if ($sell['wxfile']) $payment[] = array('name' => "微信", 'type' => 'wx');
-				if ($sell['bank'] && $sell['bankid'] && $sell['bankname']) $payment[] = array('name' => "银行", 'type' => 'bank');
-			} else {
-				if ($sell['zfbfile2']) $payment[] = array('name' => "支付宝", 'type' => 'zfb');
-				if ($sell['wxfile2']) $payment[] = array('name' => "微信", 'type' => 'wx');
-				if ($sell['bank2'] && $sell['bankid2'] && $sell['bankname2']) $payment[] = array('name' => "银行", 'type' => 'bank');
-			}
+			$sell = pdo_fetch("select * from" . tablename('guamai') . " where uniacid=" . $_W['uniacid'] . " and id='$id'");
+		
+			// // dump($sell);
+			// if ($op == 1) {
+			// 	if ($sell['zfbfile']) $payment[] = array('name' => "支付宝", 'type' => 'zfb');
+			// 	if ($sell['wxfile']) $payment[] = array('name' => "微信", 'type' => 'wx');
+			// 	if ($sell['bank'] && $sell['bankid'] && $sell['bankname']) $payment[] = array('name' => "银行", 'type' => 'bank');
+			// } else {
+			// 	if ($sell['zfbfile2']) $payment[] = array('name' => "支付宝", 'type' => 'zfb');
+			// 	if ($sell['wxfile2']) $payment[] = array('name' => "微信", 'type' => 'wx');
+			// 	if ($sell['bank2'] && $sell['bankid2'] && $sell['bankname2']) $payment[] = array('name' => "银行", 'type' => 'bank');
+			// }
 	
-			if ($sell['openid'] == $_W['openid']) {
-				$type = 1;
-			} else if ($sell['openid2'] == $_W['openid']) {
-				$type = 2;
-			}
+			// if ($sell['openid'] == $_W['openid']) {
+			// 	$type = 1;
+			// } else if ($sell['openid2'] == $_W['openid']) {
+			// 	$type = 2;
+			// }
 
 			$type = $_GPC['type'];
 			$guamai = pdo_fetchall("select * from" . tablename("guamai") . " where status = 1 and openid2='" . $openid . "'");
@@ -948,7 +949,6 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			if ($guamai) {
 				$guamai_nums = count($guamai);
 			}
-			
 			// dump($type);die;
 			if ($type == 0) {   //买入
 				if ($guamai_nums >= 1) {
@@ -961,10 +961,17 @@ class Androidapi_EweiShopV2Page extends MobilePage
 
 					if ($result) returnJson([],"挂单人付款成功", 1);
 				} else {
+					
 					//判断是否是自己买入自己
+					if(empty($sell['openid'])){
+						returnJson([],"订单出错", 0);
+					}
 					if($sell['openid'] == $_W['openid']){
 						 returnJson([],"不能买入自己发放的账单", -2);
 					}
+					// var_dump($sell['openid'],'订单中的openid');
+					// var_dump($_W['openid'],'购买人的openid');
+					// exit;
 					//判断该用户是否有足够的币进行抢单
 					$member = m('member')->getMember($_W['openid'], true);
 					//判断该会员是否上传收款信息
@@ -997,9 +1004,15 @@ class Androidapi_EweiShopV2Page extends MobilePage
 					if ($guamai_nums >= 1) {
 						returnJson([],"您还有订单尚未处理或还在交易中,请先进行交易！",-2);
 					}
+
+					if(empty($sell['openid'])){
+						returnJson([],"订单出错", 0);
+					}
+                   
 					if($sell['openid'] == $_W['openid']){
 						returnJson([],"不能卖出自己发放的账单", 0);
 					}
+					
 					// returnJson(['openid' => $sell['openid'] , 'openid2' => $_W['openid']]);
 
 					//判断该会员是否上传收款信息
