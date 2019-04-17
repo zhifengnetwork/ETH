@@ -846,6 +846,9 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			$guamai[$key]['nickname']  = substr($val['openid'], -11);
 			$guamai[$key]['nickname2'] = substr($val['openid2'], -11);
 		}
+		if(empty($guamai)){
+			$guamai = array();
+		}
 		returnJson($guamai,'获取订单成功',1);
 	}
 
