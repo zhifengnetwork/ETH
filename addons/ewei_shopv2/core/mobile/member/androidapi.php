@@ -1445,7 +1445,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 	}
 
 	//修改密码
-	public function cahngepwd()
+	public function changepwd()
 	{
 		global $_W;
 		global $_GPC;
