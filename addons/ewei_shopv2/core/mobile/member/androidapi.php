@@ -617,8 +617,8 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				$money   = $_GPC['money'];
 
 				$list    = $_GPC['list'];
-				var_dump($list,'end');
-				exit;
+				
+				
 				if(empty($list) && !is_array($list)){
 					  returnJson([], "下注失败!下注号码不能为空.",-2);
 				}
@@ -849,11 +849,10 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			$guamai[$key]['nickname']  = substr($val['openid'], -11);
 			$guamai[$key]['nickname2'] = substr($val['openid2'], -11);
 		}
-		
 		if(empty($guamai)){
 			$guamai = array();
 		}
-		returnJson($guamai[0],'获取订单成功',1);
+		returnJson(['list' => $guamai],'获取订单成功',1);
 	}
 
 		/**
@@ -1051,9 +1050,9 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			global $_GPC;
 			//参数  id  type 
 			//该订单的信息
-			$id = $_GPC['id']; //订单ID
+			$id     = $_GPC['id']; //订单ID
 			$openid = $_W['openid'];
-			$sell = pdo_fetch("select g.*,m.nickname,m.mobile,m.zfbfile,m.wxfile,m.bankid,m.bankname,m.bank,m2.nickname as nickname2,m2.mobile as mobile2,m2.zfbfile as zfbfile2,m2.wxfile as wxfile2,m2.bankid as bankid2,m2.bankname as bankname2,m2.bank as bank2 from" . tablename('guamai') . ' g left join ' . tablename('ewei_shop_member') . ' m ON m.openid=g.openid left join ' . tablename('ewei_shop_member') . ' m2 ON m2.openid=g.openid2 ' . " where g.uniacid=" . $_W['uniacid'] . " and g.id='$id'");
+			$sell   = pdo_fetch("select g.*,m.nickname,m.mobile,m.zfbfile,m.wxfile,m.bankid,m.bankname,m.bank,m2.nickname as nickname2,m2.mobile as mobile2,m2.zfbfile as zfbfile2,m2.wxfile as wxfile2,m2.bankid as bankid2,m2.bankname as bankname2,m2.bank as bank2 from" . tablename('guamai') . ' g left join ' . tablename('ewei_shop_member') . ' m ON m.openid=g.openid left join ' . tablename('ewei_shop_member') . ' m2 ON m2.openid=g.openid2 ' . " where g.uniacid=" . $_W['uniacid'] . " and g.id='$id'");
 			// dump($sell);
 			if ($op == 1) {
 				if ($sell['zfbfile']) $payment[] = array('name' => "支付宝", 'type' => 'zfb');
