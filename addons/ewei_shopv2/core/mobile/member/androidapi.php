@@ -1013,7 +1013,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 					$op = $_GPC['op'];
 					//判断该用户是否有足够的币进行抢单
 					$member = m('member')->getMember($_W['openid'], true);
-					$sell   = pdo_fetch("select g.trx,m.mobile,g.openid,m2.mobile as mobile2 from" . tablename("guamai") . ' g left join ' . tablename('ewei_shop_member') . ' m ON m.openid=g.openid ' . ' left join ' . tablename('ewei_shop_member') . ' m2 ON m2.openid=g.openid2 ' . " where g.uniacid=" . $_W['uniacid'] . " and g.id='$id' and g.type=1");
+					$sell   = pdo_fetch("select g.trx,m.mobile,g.openid,m2.mobile as mobile2 from" . tablename("guamai") . ' g left join ' . tablename('ewei_shop_member') . ' m ON m.openid=g.openid ' . ' left join ' . tablename('ewei_shop_member') . ' m2 ON m2.openid=g.openid2 ' . " where g.uniacid=" . $_W['uniacid'] . " and g.id='$id' and g.type=0");
 					if ($guamai_nums >= 1) {
 						returnJson([],"您还有订单尚未处理或还在交易中,请先进行交易！",-2);
 					}
