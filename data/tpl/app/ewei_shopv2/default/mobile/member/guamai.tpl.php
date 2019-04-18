@@ -361,6 +361,8 @@
           $(this).addClass('disable')
           let id = $(this).data('id');
           let type = $(this).attr('data-type');
+
+         
           $.ajax({
             type:'post',
             url:"<?php  echo mobileurl('member/guamai/sellout')?>",
