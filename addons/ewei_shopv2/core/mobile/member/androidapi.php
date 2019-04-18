@@ -842,15 +842,16 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		//用户买入,卖出订单
 		$guamai = pdo_fetchall("select * from" . tablename("guamai") . "where  status='".$status."' AND (openid='" . $openid . "' or openid2='" . $openid . "') order by createtime desc");
 		$time   = time();
+		
 		foreach ($guamai as $key => $val) {
 			if($val['openid'] == $_W['openid']){
-				$guamai[$key]['type2'] = $guamai['type'];
-			}else{
-				if($guamai['type'] == 0){
-					$guamai[$key]['type2'] = 1;
+				if($val['type'] == 0){
+					$guamai[$key]['type'] = 1;
 				}else{
-					$guamai[$key]['type2'] = 0;
+					$guamai[$key]['type'] = 0;
 				}
+			}else{
+				$guamai[$key]['type'] = $val['type'];
 			}
 			// var_dump($val);nickname2
 			$guamai[$key]['datatime']  = date("Y-m-d H:i:s", $val['createtime']);
