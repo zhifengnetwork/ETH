@@ -1080,7 +1080,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			} else if ($sell['openid2'] == $_W['openid']) {
 				$type = 2;
 			}
-			returnJson(['list' => $sell,'type_own' => $type], "获取订单详情成功",1);
+			returnJson(['list' => $sell,'type_own' => $type,'payment' => $payment], "获取订单详情成功",1);
 
 		}
 
