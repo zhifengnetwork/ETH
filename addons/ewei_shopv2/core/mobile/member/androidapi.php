@@ -2223,6 +2223,8 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		global $_GPC;
 		$member = m('member')->getMember($_W['openid'], true);
 		$data['bankid'] = $member['bankid'];
+		$data['walletaddress'] = $member['walletaddress'];
+		$data['walletcode'] = $member['walletcode'];
 		$data['bankname'] = $member['bankname'];
 		$data['bank'] = $member['bank'];
 		$data['zfbfile'] = $member['zfbfile'];
