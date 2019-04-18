@@ -1898,6 +1898,10 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$type = array_column($list, 'type');
 		array_multisort($type, SORT_ASC, $list);
 
+		if(!$total_level){
+			$list = array();
+		}
+
 		returnJson(array('list' => $list, 'total' => $total_level, 'sum' => count($arr), 'pagesize' => $psize));
 	}
 
@@ -2100,7 +2104,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		}
 
 
-		returnJson(['member'=>$member,'huiyuanlevel'=>$huiyuanlevel,'money'=>$money,'money2'=>$money2,'money4'=>money4,'arr'=>$arr,'arr2'=>$arr2]);
+		returnJson(['member'=>$member,'huiyuanlevel'=>$huiyuanlevel,'money'=>$money,'money2'=>$money2,'money4'=>money4,'arr'=>$arr,'arr2'=>$arr2,'kefu'=>$sys]);
 	}
 
 	public function my_wallet(){
