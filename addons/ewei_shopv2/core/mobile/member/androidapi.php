@@ -1211,6 +1211,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				$data_member_array_log['front_money'] = $sell['credit22'];
 				$data_member_array_log['after_money'] = $credit2;
 				pdo_insert("ewei_shop_member_log", $data_member_array_log);
+				returnJson([],"订单完成", 1);
 			}else{
 				//卖出订单挂单人点击确认收款
 				$sell    = pdo_fetch("select g.*,m.mobile,m2.mobile as mobile2,m2.openid as openid2,m.credit2,m2.credit2 as credit22 from" . tablename('guamai') . ' g left join ' . tablename('ewei_shop_member') . ' m ON m.openid=g.openid left join ' . tablename('ewei_shop_member') . ' m2 ON m2.openid=g.openid2 ' . " where g.uniacid=" . $_W['uniacid'] . " and g.id='$id'");
