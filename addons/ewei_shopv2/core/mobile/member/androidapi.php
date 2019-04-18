@@ -1090,11 +1090,10 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			global $_W;
 			global $_GPC;
 			$id      = $_GPC['id'];
-			$user_id = $_GPC['userid'];
-			$users = pdo_fetch("select * from" . tablename("ewei_shop_member") . " where id='$user_id'");
+			$member = m('member')->getMember($_W['openid'], true);
 			$guamai_appeal = pdo_fetch("select g.*,m.* from" . tablename("guamai_appeal") . ' g left join ' . tablename('guamai') . '  m ON m.id=g.order_id' . " where g.id='$id'");
 			// dump($guamai_appeal);
-			if ($users['openid'] == $guamai_appeal['openid']) {
+			if ($member['openid'] == $guamai_appeal['openid']) {
 				$guamai_appeal['openid2'] = substr($guamai_appeal['openid2'], -11);
 				$guamai_appeal['type1']   = "0";
 			} else {
@@ -1944,10 +1943,6 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$type = array_column($list, 'type');
 		array_multisort($type, SORT_ASC, $list);
 
-		if(!$total_level){
-			$list = array();
-		}
-
 		returnJson(array('list' => $list, 'total' => $total_level, 'sum' => count($arr), 'pagesize' => $psize));
 	}
 
@@ -2150,7 +2145,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		}
 
 
-		returnJson(['member'=>$member,'huiyuanlevel'=>$huiyuanlevel,'money'=>$money,'money2'=>$money2,'money4'=>money4,'arr'=>$arr,'arr2'=>$arr2,'kefu'=>$sys]);
+		returnJson(['member'=>$member,'huiyuanlevel'=>$huiyuanlevel,'money'=>$money,'money2'=>$money2,'money4'=>money4,'arr'=>$arr,'arr2'=>$arr2]);
 	}
 
 	public function my_wallet(){
@@ -2283,8 +2278,6 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		global $_GPC;
 		$member = m('member')->getMember($_W['openid'], true);
 		$data['bankid'] = $member['bankid'];
-		$data['walletaddress'] = $member['walletaddress'];
-		$data['walletcode'] = $member['walletcode'];
 		$data['bankname'] = $member['bankname'];
 		$data['bank'] = $member['bank'];
 		$data['zfbfile'] = $member['zfbfile'];
