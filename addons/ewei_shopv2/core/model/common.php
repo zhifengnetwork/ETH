@@ -102,6 +102,8 @@ class Common_EweiShopV2Model
 				
         if($arr['status']==1){  //达到分销打款的等级
 						$order = pdo_fetch("select * from".tablename("ewei_shop_member_log")."where id='".$id."'");
+						// dump($id);
+						// die;
 						$level_list = pdo_fetch("select id,type,levelname,commission1 from".tablename("ewei_shop_commission_level")."where type='".$type."'");
 						if($order['money']>=$arr['credit1']){
 							$jifen_money = $arr['credit1']*$level_list['commission1']*0.01;         //代数积分

@@ -170,8 +170,25 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 				pdo_update("ewei_shop_member", " type='1' ", array('openid' => $_W['openid'], 'uniacid' => $_W['uniacid']));
 			}
 		}
+		//投资人直推上级信息
+		$member1 = pdo_fetch("select * from".tablename("ewei_shop_member")."where id='".$member['agentid']."'");
+		$type = pdo_fetch("select * from".tablename("ewei_shop_commission_level")."where id='".$member['agentlevel']."'");
 		
 		$result = pdo_insert("ewei_shop_member_log", $data);
+		if (!empty($result)) {
+			$uid = pdo_insertid();
+			$apply = pdo_fetch('SELECT openid,money,credit FROM '.tablename('ewei_shop_member_log').' WHERE uniacid=:uniacid AND id=:id',[':id' => $uid,':uniacid' => $_W['uniacid']]);
+			if($member1['type'] == 1){
+				//直推奖金
+				m('common')->commission_dakuan($member1,$type['type'],$uid,$apply['openid']);
+				//动态奖金
+				m('common')->comm($apply['openid'],$apply['money']);
+				
+				//领导奖奖金
+				m('common')->leader($apply['openid'],$apply['money']);
+				
+			}
+		}
 		if ($result) show_json(1, "一键复投成功");
 	}
 
