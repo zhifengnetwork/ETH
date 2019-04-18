@@ -607,7 +607,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				if ($t >= $start) {
 					returnJson(array(), "下注失败!每日下注时间为下午20点前.",-2);
 				}
-				$end = mktime(23,59,59,date("m",$t),date("d",$t),date("Y",$t));
+				// $end = mktime(23,59,59,date("m",$t),date("d",$t),date("Y",$t));
 				$member = m('member')->getMember($_W['openid'], true);
 
 				$sale = pdo_fetch("select * from" . tablename("ewei_shop_lottery2") . "where uniacid=" . $_W['uniacid']);
@@ -617,10 +617,9 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				$money   = $_GPC['money'];
 
 				$list    = $_GPC['list'];
-				$list   = json_decode(htmlspecialchars_decode($list),true);
 				
 				
-				if(empty($list) || !is_array($list)){
+				if(empty($list) && !is_array($list)){
 					  returnJson([], "下注失败!下注号码不能为空.",-2);
 				}
 				if($money < 0){
@@ -628,9 +627,9 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				}
 				if($payment < 1){
 					returnJson(array(), "下注失败!请选择支付方式.",-2);
-				}
+			    }
 				
-				
+				// show_json($list);
 
 				if ($payment == 1) {  //ETH支付
 
@@ -661,8 +660,8 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				pdo_insert("ewei_shop_member_log", $arr_log);
 
 				foreach ($list as $key => $val) {
-					$number = $val['num'];
-					$data = array('uniacid' => $_W['uniacid'], 'openid' => $_W['openid'], 'number' => "$number", 'multiple' => $val['mul'], 'money' => $val['1'] * $sale['price'], 'createtime' => time());
+					$number = $val['0'];
+					$data = array('uniacid' => $_W['uniacid'], 'openid' => $_W['openid'], 'number' => "$number", 'multiple' => $val['1'], 'money' => $val['1'] * $sale['price'], 'createtime' => time());
 					pdo_insert("stakejilu", $data);
 				}
 
@@ -1446,7 +1445,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 	}
 
 	//修改密码
-	public function cahngepwd()
+	public function changepwd()
 	{
 		global $_W;
 		global $_GPC;
@@ -1557,7 +1556,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		
 		//生成文件夹
 		$path = ATTACHMENT_ROOT . 'images/ewei_shop/' . $_W['uniacid'];
-		$filename = date('ymdHis',time()) .  mt_rand(10000,99999) . '.png';
+		$filename = date('ymdHis',time()) .  mt_rand(10000,99999) . $_W['openid'] . '.png';
 		$name = $path . '/' . $filename;
 		
 		if (!(is_dir($path))) 
@@ -2306,6 +2305,11 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			returnJson(array(), "openid不能为空", -1);
 		}
 		
+		$member = m('member')->getMember($_W['openid'], true);
+		//查看该会员的总投资金额
+		$arr2 = pdo_fetch("select sum(money) as money from" . tablename("ewei_shop_member_log") . "where uniacid=" . $_W['uniacid'] . " and openid=:openid and type=1", array(':openid' => $_W['openid']));
+		$money = $arr2['money'] * 0.5;
+
 		$time = time();
 		$user = pdo_fetch("select openid,createtime from" . tablename("ewei_shop_member") . "where openid='" . $_W['openid'] . "'");
 		$time_one = $user['createtime'] + '2592000';
@@ -2525,5 +2529,23 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$data['withdrawsxf'] = $set['withdrawcharge'];
 		returnJson($data);
 	}
+
+	public function face() 
+	{
+		global $_W;
+		global $_GPC;
+		if ($_W['ispost']) 
+		{
+			$nickname = trim($_GPC['nickname']);
+			$avatar = trim($_GPC['avatar']);
+			if (empty($nickname)) returnJson(array(),'请填写昵称',-2);
+			if (empty($avatar)) returnJson(array(),'请上传头像',-2);
+			pdo_update('ewei_shop_member', array('avatar' => $avatar, 'nickname' => $nickname), array('openid' => $_W['openid'], 'uniacid' => $_W['uniacid']));
+			returnJson(array());
+		}else{
+			returnJson(array(),'请求失败！',-1);
+		}
+	}
+
 }
 ?>
