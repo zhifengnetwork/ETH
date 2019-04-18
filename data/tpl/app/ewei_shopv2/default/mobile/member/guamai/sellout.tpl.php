@@ -1,5 +1,5 @@
 <?php defined('IN_IA') or exit('Access Denied');?><?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('_header', TEMPLATE_INCLUDEPATH)) : (include template('_header', TEMPLATE_INCLUDEPATH));?>
-<?php  if($op ==0 && $type==2 ) { ?><!-- 卖出订单   挂卖人进入 -->
+<?php  if($op == 0 && $type==2 ) { ?><!-- 卖出订单   挂卖人进入 -->
 <!-- 收钱 卖出 -->
 <style>
   .fui-header {

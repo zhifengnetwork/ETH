@@ -928,18 +928,17 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			$id     = $_GPC['id']; //订单ID
 			$op     = $_GPC['op']; //特殊参数
 			$openid = $_W['openid'];
-			$sell = pdo_fetch("select * from" . tablename('guamai') . " where uniacid=" . $_W['uniacid'] . " and id='$id'");
-		
-			// // dump($sell);
-			// if ($op == 1) {
-			// 	if ($sell['zfbfile']) $payment[] = array('name' => "支付宝", 'type' => 'zfb');
-			// 	if ($sell['wxfile']) $payment[] = array('name' => "微信", 'type' => 'wx');
-			// 	if ($sell['bank'] && $sell['bankid'] && $sell['bankname']) $payment[] = array('name' => "银行", 'type' => 'bank');
-			// } else {
-			// 	if ($sell['zfbfile2']) $payment[] = array('name' => "支付宝", 'type' => 'zfb');
-			// 	if ($sell['wxfile2']) $payment[] = array('name' => "微信", 'type' => 'wx');
-			// 	if ($sell['bank2'] && $sell['bankid2'] && $sell['bankname2']) $payment[] = array('name' => "银行", 'type' => 'bank');
-			// }
+			$sell = pdo_fetch("select g.*,m.nickname,m.mobile,m.zfbfile,m.wxfile,m.bankid,m.bankname,m.bank,m2.nickname as nickname2,m2.mobile as mobile2,m2.zfbfile as zfbfile2,m2.wxfile as wxfile2,m2.bankid as bankid2,m2.bankname as bankname2,m2.bank as bank2 from" . tablename('guamai') . ' g left join ' . tablename('ewei_shop_member') . ' m ON m.openid=g.openid left join ' . tablename('ewei_shop_member') . ' m2 ON m2.openid=g.openid2 ' . " where g.uniacid=" . $_W['uniacid'] . " and g.id='$id'");		
+			
+			if ($op == 1) {
+				if ($sell['zfbfile']) $payment[] = array('name' => "支付宝", 'type' => 'zfb');
+				if ($sell['wxfile']) $payment[] = array('name' => "微信", 'type' => 'wx');
+				if ($sell['bank'] && $sell['bankid'] && $sell['bankname']) $payment[] = array('name' => "银行", 'type' => 'bank');
+			} else {
+				if ($sell['zfbfile2']) $payment[] = array('name' => "支付宝", 'type' => 'zfb');
+				if ($sell['wxfile2']) $payment[] = array('name' => "微信", 'type' => 'wx');
+				if ($sell['bank2'] && $sell['bankid2'] && $sell['bankname2']) $payment[] = array('name' => "银行", 'type' => 'bank');
+			}
 	
 			// if ($sell['openid'] == $_W['openid']) {
 			// 	$type = 1;

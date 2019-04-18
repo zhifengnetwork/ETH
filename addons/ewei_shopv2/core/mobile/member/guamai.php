@@ -452,7 +452,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		} else if ($sell['openid2'] == $_W['openid']) {
 			$type = 2;
 		}
-		// dump($sell);
+		
 
 		if ($_W['ispost']) {
 			// show_json(123454);
