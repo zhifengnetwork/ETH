@@ -1113,7 +1113,11 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				global $_W;
 				global $_GPC;
 				$id     = $_GPC['id'];//订单号
+
+				var_dump($_GPC['files']);
+				exit;
 				$hello  = json_encode(explode(',', $_GPC['files']));
+
 				$guamai = pdo_fetch("select * from" . tablename("guamai") . "where id='" . $id . "'");
 				$appeal = pdo_fetch("select * from" . tablename("guamai_appeal") . "where stuas=0 and order_id='" . $id . "' and appeal_name='" . $_W['mid'] . "'");
 				if ($appeal) {
