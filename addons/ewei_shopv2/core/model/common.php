@@ -233,7 +233,7 @@ class Common_EweiShopV2Model
         global $_GPC;
         //查询投资人id
 				$member = pdo_fetch("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and openid= '$openid' ");
-				$member1 = pdo_fetchall("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and id= '".$member['agentid']."' ");
+				$member1 = pdo_fetchall("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and id= '".$member['agentid']."' and type = 1");
 				$nums = count($member1);
 				if($nums>=5){
 					$agentid = $member['agentid'];
