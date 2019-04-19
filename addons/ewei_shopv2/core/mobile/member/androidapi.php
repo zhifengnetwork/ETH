@@ -1092,15 +1092,17 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			$id      = $_GPC['id'];
 			$member = m('member')->getMember($_W['openid'], true);
 			$guamai_appeal = pdo_fetch("select g.*,m.* from" . tablename("guamai_appeal") . ' g left join ' . tablename('guamai') . '  m ON m.id=g.order_id' . " where g.id='$id'");
+			$openid  = $guamai_appeal['openid'];
+			$openid2 = $guamai_appeal['openid2'];
 			if ($_W['openid'] == $guamai_appeal['openid']) {
-				$guamai_appeal['openid'] = substr($_W['openid'], -11);
-				$guamai_appeal['type1']   = "0";
+				$guamai_appeal['openid']   = substr($_W['openid'], -11);
+				$guamai_appeal['openid2']  = substr($guamai_appeal['openid2'], -11);
 			} else {
-				$guamai_appeal['openid2'] = substr($_W['openid'], -11);
-				$guamai_appeal['type1']   = "1";
+				$guamai_appeal['openid2']  = substr($openid, -11);
+				$guamai_appeal['openid']   = substr($openid2, -11);
 			}
-			$guamai_appeal['openid']  = substr($guamai_appeal['openid'], -11);
-			$guamai_appeal['openid2'] = substr($guamai_appeal['openid2'], -11);
+
+			
 			returnJson(['list' => $guamai_appeal], "获取申诉详情成功",1);
 		}
 
@@ -1110,8 +1112,8 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		{
 				global $_W;
 				global $_GPC;
-				$id    = $_GPC['id'];//订单号
-				$hello = json_encode(explode(',', $_GPC['files']));
+				$id     = $_GPC['id'];//订单号
+				$hello  = json_encode(explode(',', $_GPC['files']));
 				$guamai = pdo_fetch("select * from" . tablename("guamai") . "where id='" . $id . "'");
 				$appeal = pdo_fetch("select * from" . tablename("guamai_appeal") . "where stuas=0 and order_id='" . $id . "' and appeal_name='" . $_W['mid'] . "'");
 				if ($appeal) {
@@ -1124,7 +1126,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 						"file"        => $guamai['file'],
 						"files"       => $hello,
 						"type"        => $guamai['type'],
-						"appeal_name" => $_W['mid'],
+						"appeal_name" => $_W['openid'],
 						"stuas"       => 0,
 						"text"        => $_GPC['text'],
 						"textarea"    => $_GPC['textarea'],
