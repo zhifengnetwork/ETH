@@ -874,10 +874,11 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			global $_W;
 			global $_GPC;
 			$member = m('member')->getMember($_W['openid'], true);
+			$openid = $_W['openid'];
 			$pindex = max(1, intval($_GPC['page']));
 			$psize  = 10;
 			$limit  = ' LIMIT ' . (($pindex - 1) * $psize) . ',' . $psize;
-			$guamai_appeal = pdo_fetchall("select * from" . tablename("guamai_appeal") . "where appeal_name='" . $member['id'] . "'".$limit);
+			$guamai_appeal = pdo_fetchall("select * from" . tablename("guamai_appeal") . "where openid='" . $openid . "' or openid2='" . $openid . "'".$limit);
 			foreach ($guamai_appeal as $k => $v) {
 				$guamai_appeal[$k]['createtime'] = date("m-d", $val['createtime']);
 			}
