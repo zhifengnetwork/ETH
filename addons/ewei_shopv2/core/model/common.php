@@ -232,15 +232,19 @@ class Common_EweiShopV2Model
         global $_W;
         global $_GPC;
         //查询投资人id
-        $member = pdo_fetch("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and openid= '$openid' ");
-        $agentid = $member['agentid'];
-        //一级分销
-        for($i=1;$i<=1;$i++){
-        	$list = $this->shangji1($agentid,$member['openid'],$money,$i);
-        	// return $list;
-        	$agentid = $list;
-        }
-        return $list;
+				$member = pdo_fetch("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and openid= '$openid' ");
+				$member1 = pdo_fetchall("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and id= '".$member['agentid']."' ");
+				$nums = count($member1);
+				if($nums>=5){
+					$agentid = $member['agentid'];
+					//一级分销
+					for($i=1;$i<=1;$i++){
+						$list = $this->shangji1($agentid,$member['openid'],$money,$i);
+						// return $list;
+						$agentid = $list;
+					}
+					return $list;
+				}
     }
 
     //领导奖所属人
