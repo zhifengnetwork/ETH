@@ -1093,8 +1093,13 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			$member = m('member')->getMember($_W['openid'], true);
 			$guamai_appeal = pdo_fetch("select g.*,m.* from" . tablename("guamai_appeal") . ' g left join ' . tablename('guamai') . '  m ON m.id=g.order_id' . " where g.id='$id'");
 			
-			$guamai_appeal['openid2']  = substr($guamai_appeal['openid2'], -11);
-			$guamai_appeal['openid']   = substr($guamai_appeal['openid'], -11);
+			if ($guamai_appeal['openid'] == $guamai_appeal['appeal_name']) {
+				$guamai_appeal['openid']   = substr($guamai_appeal['appeal_name'], -11);
+				$guamai_appeal['openid2']  = substr($guamai_appeal['openid2'], -11);
+			} else {
+				$guamai_appeal['openid']   = substr($guamai_appeal['openid2'], -11);
+				$guamai_appeal['openid2']  = substr($guamai_appeal['appeal_name'], -11);
+			}
 			
 			returnJson(['list' => $guamai_appeal], "获取申诉详情成功",1);
 		}
@@ -1106,6 +1111,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				global $_W;
 				global $_GPC;
 				$id     = $_GPC['id'];//订单号
+				
 				// $hello  = json_encode(explode(',', $_GPC['files']));
 				$guamai = pdo_fetch("select * from" . tablename("guamai") . "where id='" . $id . "'");
 				$appeal = pdo_fetch("select * from" . tablename("guamai_appeal") . "where stuas=0 and order_id='" . $id . "' and appeal_name='" . $_W['mid'] . "'");
@@ -1118,11 +1124,11 @@ class Androidapi_EweiShopV2Page extends MobilePage
 						$openid2 = $guamai['openid'];
 					}
 					$data_appeal = array(
-						"openid"      => $_W['openid'],
-						"openid2"     => $openid2,
+						"openid"      => $guamai['openid'],
+						"openid2"     => $guamai['openid2'],
 						"order_id"    => $id,
 						"file"        => $guamai['file'],
-						"files"       => $_GPC['file'],
+						"files"       => $_GPC['files'],
 						"type"        => $guamai['type'],
 						"appeal_name" => $_W['openid'],
 						"stuas"       => 0,
