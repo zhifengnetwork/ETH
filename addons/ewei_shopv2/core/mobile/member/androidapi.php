@@ -1092,15 +1092,8 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			$id      = $_GPC['id'];
 			$member = m('member')->getMember($_W['openid'], true);
 			$guamai_appeal = pdo_fetch("select g.*,m.* from" . tablename("guamai_appeal") . ' g left join ' . tablename('guamai') . '  m ON m.id=g.order_id' . " where g.id='$id'");
-			
-			if ($guamai_appeal['openid'] == $guamai_appeal['appeal_name']) {
-				$guamai_appeal['openid']   = substr($guamai_appeal['appeal_name'], -11);
-				$guamai_appeal['openid2']  = substr($guamai_appeal['openid2'], -11);
-			} else {
-				$guamai_appeal['openid']   = substr($guamai_appeal['openid2'], -11);
-				$guamai_appeal['openid2']  = substr($guamai_appeal['appeal_name'], -11);
-			}
-			
+			$guamai_appeal['openid']  = substr($guamai_appeal['appeal_openid'], -11);
+			$guamai_appeal['openid2'] = substr($guamai_appeal['appeal_openid2'], -11);
 			returnJson(['list' => $guamai_appeal], "获取申诉详情成功",1);
 		}
 
@@ -1111,17 +1104,16 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				global $_W;
 				global $_GPC;
 				$id     = $_GPC['id'];//订单号
-				
-				// $hello  = json_encode(explode(',', $_GPC['files']));
+			
 				$guamai = pdo_fetch("select * from" . tablename("guamai") . "where id='" . $id . "'");
 				$appeal = pdo_fetch("select * from" . tablename("guamai_appeal") . "where stuas=0 and order_id='" . $id . "' and appeal_name='" . $_W['mid'] . "'");
 				if ($appeal) {
 					returnJson(array(),'您还有一条为审核的申诉,请稍后再试!!!',-2);
 				} else {
-					if($_W['openid'] == $guamai['openid']){
-                        $openid2 = $guamai['openid2'];
+					if($guamai['openid'] == $_W['openid']){
+                         $openid2  = $guamai['openid2'];
 					}else{
-						$openid2 = $guamai['openid'];
+						 $openid2  = $guamai['openid'];
 					}
 					$data_appeal = array(
 						"openid"      => $guamai['openid'],
@@ -1130,10 +1122,12 @@ class Androidapi_EweiShopV2Page extends MobilePage
 						"file"        => $guamai['file'],
 						"files"       => $_GPC['files'],
 						"type"        => $guamai['type'],
-						"appeal_name" => $_W['openid'],
+						"appeal_name" => $_W['mid'],
 						"stuas"       => 0,
-						"text"        => $_GPC['text'],
-						"textarea"    => $_GPC['textarea'],
+						'appeal_openid'  => $_W['openid'],
+						'appeal_openid2' => $openid2,
+						"text"           => $_GPC['text'],
+						"textarea"       => $_GPC['textarea'],
 						"createtime"  => time()
 					);
 					$guamai_appeal = pdo_insert("guamai_appeal", $data_appeal);
