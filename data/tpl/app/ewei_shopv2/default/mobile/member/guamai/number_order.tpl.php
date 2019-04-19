@@ -1066,6 +1066,11 @@
 
 	})
 
+
+
+
+	
+
 	// 监听卖出价格的input变化
 	$('.maiChu_price').bind('input onpropertychange', function () {
 		if ($('.maiChu_price').val() < 0) {
@@ -1112,6 +1117,10 @@
 			$('.setTrx0').val("0");
 		}
 	})
+
+
+
+
 
 	// 监听买入价格的input变化
 	$('.maiRu_price').bind('input onpropertychange', function () {
