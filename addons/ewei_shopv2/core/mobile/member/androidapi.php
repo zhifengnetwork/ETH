@@ -880,7 +880,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			$limit  = ' LIMIT ' . (($pindex - 1) * $psize) . ',' . $psize;
 			$guamai_appeal = pdo_fetchall("select * from" . tablename("guamai_appeal") . "where openid='" . $openid . "' or openid2='" . $openid . "'".$limit);
 			foreach ($guamai_appeal as $k => $v) {
-				$guamai_appeal[$k]['createtime'] = date("m-d", $val['createtime']);
+				$guamai_appeal[$k]['createtime'] = date("m-d", intval($v['createtime']));
 			}
 			returnJson(['list'=>$guamai_appeal],'获取申诉列表成功',1);
 		}
