@@ -172,7 +172,7 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 		}
 		//投资人直推上级信息
 		$member1 = pdo_fetch("select * from".tablename("ewei_shop_member")."where id='".$member['agentid']."'");
-		$type = pdo_fetch("select * from".tablename("ewei_shop_commission_level")."where id='".$member['agentlevel']."'");
+		$type = pdo_fetch("select * from".tablename("ewei_shop_commission_level")."where id='".$member1['agentlevel']."'");
 		
 		$result = pdo_insert("ewei_shop_member_log", $data);
 		if (!empty($result)) {
@@ -182,7 +182,7 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 				//直推奖金
 				m('common')->commission_dakuan($member1,$type['type'],$uid,$apply['openid']);
 				//动态奖金
-				m('common')->comm($apply['openid'],$apply['money']);
+				// m('common')->comm($apply['openid'],$apply['money']);
 				
 				//领导奖奖金
 				m('common')->leader($apply['openid'],$apply['money']);

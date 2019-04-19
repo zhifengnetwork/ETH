@@ -248,14 +248,15 @@ class Common_EweiShopV2Model
 
    		global $_W;
     	global $_GPC;
-
+			dump($id);
     	$member = pdo_fetch("select m.openid,m.agentid,m.agentlevel3,l.* from ".tablename("ewei_shop_member")."m left join".tablename("ewei_shop_commission_level3")."l on m.agentlevel3=l.id "." where m.uniacid=".$_W['uniacid']." and m.id='$id'");
-
-
+			dump($member);
+			
     	if($member['agentlevel3']){
 
     		$member2 = pdo_fetch("select m.openid,m.agentid,m.agentlevel3,l.* from ".tablename("ewei_shop_member")."m left join".tablename("ewei_shop_commission_level3")."l on m.agentlevel3=l.id "." where m.uniacid=".$_W['uniacid']." and m.id=:id",array(":id"=>$member['agentid']));
-
+				dump($member['type']);
+				dump($member2);
     		//第一种情况----------------------
     		if($member['type']==1 && $type==1){
 
@@ -501,10 +502,11 @@ class Common_EweiShopV2Model
 
     	//查询投资人id
         $member = pdo_fetch("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and openid= '$openid' ");
-
+				// dump($member);
+				$id = $member['agentid'];
         //查该投资人所属团队(谁拿第一笔团队奖)
-        $list = $this->leaderdigui($member['agentid'],$openid,$money,1);
-        return $list;
+        $list = $this->leaderdigui($id,$openid,$money,1);
+        // return $list;
         // $member2 = pdo_fetch("select m.openid,m.agentid,m.agentlevel3,l.* from ".tablename("ewei_shop_member")."m left join".tablename("ewei_shop_commission_level3")."l on m.agentlevel3=l.id "." where m.uniacid=".$_W['uniacid']." and m.id=:id",array(":id"=>$list['agentid']));
 
         // if($list['type']==1){
