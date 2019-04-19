@@ -112,7 +112,12 @@ class Common_EweiShopV2Model
             if($jifen_money){   //该代数的现金积分不为空
               	m('member')->setCredit($arr['openid'],'credit2',$jifen_money);
                 $data = array('orderid'=>$order['id'],'price'=>$order['price'],'openid'=>$arr['openid'],'openid2'=>$user_openid,'money'=>$jifen_money,'jifen'=>$jifen_money,'status'=>$type,'createtime'=>time(),'type'=>'1','uniacid'=>$_W['uniacid']);
-                pdo_insert("ewei_shop_order_goods1",$data);
+								pdo_insert("ewei_shop_order_goods1",$data);
+								// dump($arr['openid']);
+								$moneber = pdo_fetch("select * from".tablename("ewei_shop_member")."where id = '".$arr['agentid']."'");
+								// dump($moneber['openid']);die;
+								//动态奖金
+								$this->comm($arr['openid'],$jifen_money);
             }
         }
     }
@@ -223,7 +228,7 @@ class Common_EweiShopV2Model
 
     }
 
-    public function comm($openid,$money){   //单笔购买投资
+    public function comm($openid,$money){   //单笔购买投资commission_dakuan
         /*
          * 8  三代会员(id)
          * 9  五代会员(id)
