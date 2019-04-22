@@ -674,7 +674,6 @@ class Log_EweiShopV2Page extends WebPage
 			m('common')->commission_dakuan($member1,$type['type'],$id,$apply['openid']);
 			//动态奖金
 			// m('common')->comm($apply['openid'],$apply['money']);
-			
 			//领导奖奖金
 			m('common')->leader($apply['openid'],$apply['money']);
 			

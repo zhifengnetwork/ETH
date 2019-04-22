@@ -142,22 +142,22 @@ class Common_EweiShopV2Model
     	  global $_W;
         global $_GPC;
 
-        $member = pdo_fetch("select m.openid,m.agentid,m.agentlevel2,l.* from ".tablename("ewei_shop_member")."m left join".tablename("ewei_shop_commission_level2")."l on m.agentlevel2=l.id "." where m.uniacid=".$_W['uniacid']." and m.id='$id'");
-
+				$member = pdo_fetch("select m.openid,m.agentid,m.agentlevel2,l.* from ".tablename("ewei_shop_member")."m left join".tablename("ewei_shop_commission_level2")."l on m.agentlevel2=l.id "." where m.uniacid=".$_W['uniacid']." and m.id='$id'");
+				
         if($member['agentlevel2']){
           //静态账户获得金额
         	$cmoney1 = round($money*$member['commission1']*0.01*0.8,6);
           //复投·账户获钱
 					$cmoney2 = round($money*$member['commission1']*0.01*0.2,6);
-					$cmoney3 = $ $cmoney1 + $ $cmoney2;
+					$cmoney3 = $cmoney1 + $cmoney2;
         	$data = array('uniacid'=>$_W['uniacid'],'openid'=>$member['openid'],'openid2'=>$openid2,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'2','status'=>$status,'price'=>$money);
         	pdo_insert("ewei_shop_order_goods1",$data);
 
           //充值
-          m('member')->setCredit($member['openid'],'credit2',$cmoney3);
+					m('member')->setCredit($member['openid'],'credit2',$cmoney3);
+					return $cmoney3;
           // m('member')->setCredit($member['openid'],'credit4',$cmoney2);
-        }
-
+				}
     }
 
 
@@ -226,7 +226,29 @@ class Common_EweiShopV2Model
        }
        	
 
-    }
+		}
+		//获取推荐上级
+		public function get_uper_user($data)
+		{
+				$recUser = $this->getAllUp($data);
+				return array('recUser' => $recUser);
+		}
+		/*
+		* 获取所有上级
+		*/
+		public function getAllUp($invite_id, &$userList = array())
+		{
+				global $_W;
+				// $field = "user_id, first_leader, agent_user, is_lock, is_agent";
+				// $UpInfo = M('users')->field($field)->where(['user_id' => $invite_id])->find();
+				$UpInfo = pdo_fetch("select id,agentid,openid,type,mobile,status from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and id= '$invite_id' ");
+				if ($UpInfo)  //有上级
+				{
+						$userList[] = $UpInfo;
+						$this->getAllUp($UpInfo['agentid'], $userList);
+				}
+				return $userList;
+		}
 
     public function comm($openid,$money){   //单笔购买投资commission_dakuan
         /*
@@ -236,19 +258,19 @@ class Common_EweiShopV2Model
          * */
         global $_W;
         global $_GPC;
-        //查询投资人id
+				//查询投资人id
 				$member = pdo_fetch("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and openid= '$openid' ");
-				$member1 = pdo_fetchall("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and agentid= '".$member['agentid']."' and type = 1");
-				$nums = count($member1);
-				if($nums>=5){
-					$agentid = $member['agentid'];
-					//一级分销
-					for($i=1;$i<=1;$i++){
-						$list = $this->shangji1($agentid,$member['openid'],$money,$i);
-						// return $list;
-						$agentid = $list;
+				$user_list = $this->get_uper_user($member['id']);
+				foreach($user_list['recUser'] as $key=>$value){
+
+					$member1 = pdo_fetchall("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and agentid= '".$value['id']."' and type = 1");
+					$nums = count($member1);
+					
+					if($nums>=5){
+							$agentid = $value['id'];
+							$list = $this->shangji1($agentid,$member['openid'],$money,$key+1);
+							$money = $list;
 					}
-					return $list;
 				}
     }
 
