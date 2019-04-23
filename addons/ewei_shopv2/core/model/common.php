@@ -286,6 +286,32 @@ class Common_EweiShopV2Model
 				
     }
 
+		public function comm1($openid,$money){   //单笔购买投资commission_dakuan
+			/*
+			 * 8  三代会员(id)
+			 * 9  五代会员(id)
+			 * 10 九代会员(id)
+			 * */
+			global $_W;
+			global $_GPC;
+			//查询投资人id
+			$member = pdo_fetch("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and openid= '$openid' ");
+			$user_list = $this->get_uper_user($member['id']);
+			foreach($user_list['recUser'] as $key=>$value){
+				$member1 = pdo_fetchall("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and agentid= '".$value['id']."' and type = 1");
+				$nums = count($member1);
+				if($nums<5){
+					return false;
+				}
+				if($nums>=5){
+						$agentid = $value['id'];
+						$list = $this->shangji1($agentid,$member['openid'],$money,$key+1);
+				}
+				$money = $list;
+			}
+			
+	}
+
     //领导奖所属人
    	public function leaderdigui($id,$openid2,$money,$type){
 

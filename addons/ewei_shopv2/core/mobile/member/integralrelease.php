@@ -75,7 +75,7 @@ class Integralrelease_EweiShopV2Page extends MobilePage
                     //管理奖
                     m('common')->shangji1($member['agentid'], $member['openid'], $money3, 2);
                     //动态奖金
-                    m('common')->comm($member['openid'],$money3);
+                    m('common')->comm1($member['openid'],$money3);
                     //积分释放记录
                     pdo_insert("ewei_shop_receive_hongbao", array('openid' => $openid, 'money' => $money, 'money2' => $money2, 'type' => '1', 'time' => time(), 'uniacid' => $_W['uniacid']));
                 }
