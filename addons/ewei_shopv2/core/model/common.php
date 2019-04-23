@@ -143,7 +143,6 @@ class Common_EweiShopV2Model
         global $_GPC;
 
 				$member = pdo_fetch("select m.openid,m.agentid,m.agentlevel2,l.* from ".tablename("ewei_shop_member")."m left join".tablename("ewei_shop_commission_level2")."l on m.agentlevel2=l.id "." where m.uniacid=".$_W['uniacid']." and m.id='$id'");
-				
         if($member['agentlevel2']){
           //静态账户获得金额
         	$cmoney1 = round($money*$member['commission1']*0.01*0.8,6);
@@ -241,7 +240,7 @@ class Common_EweiShopV2Model
 				global $_W;
 				// $field = "user_id, first_leader, agent_user, is_lock, is_agent";
 				// $UpInfo = M('users')->field($field)->where(['user_id' => $invite_id])->find();
-				$UpInfo = pdo_fetch("select id,agentid,openid,type,mobile,status from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and id= '$invite_id' ");
+				$UpInfo = pdo_fetch("select id,agentid,openid,type,agentlevel2,mobile,status from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and id= '$invite_id' ");
 				if ($UpInfo)  //有上级
 				{
 						$userList[] = $UpInfo;
@@ -262,16 +261,29 @@ class Common_EweiShopV2Model
 				$member = pdo_fetch("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and openid= '$openid' ");
 				$user_list = $this->get_uper_user($member['id']);
 				foreach($user_list['recUser'] as $key=>$value){
-
 					$member1 = pdo_fetchall("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and agentid= '".$value['id']."' and type = 1");
 					$nums = count($member1);
-					
+					$member_level = pdo_fetch("select * from".tablename("ewei_shop_member")."where id='".$member['agentid']."'");
+					//直推上级的管理奖
+					if($member['id'] == $value['id'])
+					{
+						$member_level_num = pdo_fetchall("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and agentid= '".$member_level['id']."' and type = 1");
+						$level_nums = count($member_level_num);
+						if($level_nums>=5){
+							$agentid = $member_level['id'];
+							$list = $this->shangji1($agentid,$member['openid'],$money,$key+1);
+						}
+					}
+					if($nums<5){
+						return false;
+					}
 					if($nums>=5){
 							$agentid = $value['id'];
 							$list = $this->shangji1($agentid,$member['openid'],$money,$key+1);
-							$money = $list;
 					}
+					$money = $list;
 				}
+				
     }
 
     //领导奖所属人
