@@ -261,54 +261,77 @@ class Common_EweiShopV2Model
 				$member = pdo_fetch("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and openid= '$openid' ");
 				$user_list = $this->get_uper_user($member['id']);
 				foreach($user_list['recUser'] as $key=>$value){
-					$member1 = pdo_fetchall("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and agentid= '".$value['id']."' and type = 1");
-					$nums = count($member1);
-					$member_level = pdo_fetch("select * from".tablename("ewei_shop_member")."where id='".$member['agentid']."'");
-					//直推上级的管理奖
-					if($member['id'] == $value['id'])
-					{
-						$member_level_num = pdo_fetchall("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and agentid= '".$member_level['id']."' and type = 1");
-						$level_nums = count($member_level_num);
-						if($level_nums>=5){
-							$agentid = $member_level['id'];
-							$list = $this->shangji1($agentid,$member['openid'],$money,$key+1);
+					if($key>=1){
+						$member1 = pdo_fetchall("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and agentid= '".$value['id']."' and type = 1");
+						$nums = count($member1);
+						$member_level = pdo_fetch("select * from".tablename("ewei_shop_member")."where id='".$member['agentid']."'");
+						//直推上级的管理奖
+						if($member['id'] == $value['id'])
+						{
+							$member_level_num = pdo_fetchall("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and agentid= '".$member_level['id']."' and type = 1");
+							$level_nums = count($member_level_num);
+							if($level_nums>=5){
+								$agentid = $member_level['id'];
+								$list = $this->shangji1($agentid,$member['openid'],$money,$key+1);
+							}
 						}
+						if($nums<5){
+							break;
+						}
+						if($nums>=5){
+								$agentid = $value['id'];
+								$list = $this->shangji1($agentid,$member['openid'],$money,$key+1);
+						}
+						$money = $list;
 					}
-					if($nums<5){
-						return false;
-					}
-					if($nums>=5){
-							$agentid = $value['id'];
-							$list = $this->shangji1($agentid,$member['openid'],$money,$key+1);
-					}
-					$money = $list;
 				}
 				
     }
-
-		public function comm1($openid,$money){   //单笔购买投资commission_dakuan
-			/*
-			 * 8  三代会员(id)
-			 * 9  五代会员(id)
-			 * 10 九代会员(id)
-			 * */
-			global $_W;
-			global $_GPC;
-			//查询投资人id
-			$member = pdo_fetch("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and openid= '$openid' ");
-			$user_list = $this->get_uper_user($member['id']);
-			foreach($user_list['recUser'] as $key=>$value){
+	//动态管理奖
+	public function comm1($openid){   //单笔购买投资commission_dakuan
+		/*
+			* 8  三代会员(id)
+			* 9  五代会员(id)
+			* 10 九代会员(id)
+			* */
+		global $_W;
+		global $_GPC;
+		//查询投资人id
+		$member = pdo_fetch("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and openid= '$openid' ");
+		//获取所有上级
+		$user_list = $this->get_uper_user($member['id']);
+		if($member['openid'] == "wap_user_12_18228178866"){
+			dump($user_list);
+		}
+		foreach($user_list['recUser'] as $key=>$value){
+			if($key>=1){
 				$member1 = pdo_fetchall("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and agentid= '".$value['id']."' and type = 1");
+				//直推人数
 				$nums = count($member1);
-				if($nums<5){
-					return false;
-				}
 				if($nums>=5){
-						$agentid = $value['id'];
-						$list = $this->shangji1($agentid,$member['openid'],$money,$key+1);
+					return true;
 				}
-				$money = $list;
 			}
+		// 	if($key>=1){
+		// 		$member1 = pdo_fetchall("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and agentid= '".$value['id']."' and type = 1");
+		// 		//直推人数
+		// 		$nums = count($member1);
+		// 		dump($value['openid'].'--------'.$value['id'].'-------'.$nums);
+		// 		dump($git);
+		// 		if($git==1){
+		// 			break;
+		// 		}
+		// 		if($nums<5){
+		// 			$git = 1;
+		// 			continue;
+		// 		}
+		// 		if($nums>=5){
+		// 				$agentid = $value['id'];
+		// 				$list = $this->shangji1($agentid,$member['openid'],$money,$key+1);
+		// 		}
+		// 		$money = $list;
+		// 	} 
+		}
 			
 	}
 
