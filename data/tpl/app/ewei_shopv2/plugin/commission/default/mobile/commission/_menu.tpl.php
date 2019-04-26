@@ -33,9 +33,9 @@
     <!-- <a href="<?php  echo mobileUrl('member/lottery')?>" class="external nav-item <?php  if($_W['routes']=='member.lottery') { ?>active<?php  } ?>" id="menucart"> -->
         <!-- <span class="icon icon-browser"></span> -->
         <?php  if($_W['routes']=='member.qipai') { ?>
-        <img src="<?php  echo EWEI_SHOPV2_LOCAL?>static/icon/qipai1.png" alt="" width="16">
+        <img src="<?php  echo EWEI_SHOPV2_LOCAL?>static/icon/qipaiyule1.png" alt="" width="16">
         <?php  } else { ?>
-        <img src="<?php  echo EWEI_SHOPV2_LOCAL?>static/icon/qipai0.png" alt="" width="16">
+        <img src="<?php  echo EWEI_SHOPV2_LOCAL?>static/icon/qipaiyule0.png" alt="" width="16">
         <?php  } ?>
         <span class="label">棋牌娱乐</span>
     </a>
