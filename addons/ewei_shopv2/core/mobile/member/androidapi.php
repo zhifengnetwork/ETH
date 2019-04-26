@@ -2181,7 +2181,6 @@ class Androidapi_EweiShopV2Page extends MobilePage
 
 		$money = floatval($_GPC['money']);
 		$deductionmoney = $money / (100/$withdrawcharge);
-		$money = $money - $deductionmoney;
 		
 		if (!floor($money / $set['withdrawmoney']))  returnJson(array(), "提现的金额必须是" . $set['withdrawmoney'] . "的倍数",-2);
 		$credit = m('member')->getCredit($_W['openid'], 'credit2');
@@ -2189,7 +2188,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$apply = array();
 		$type_array = array();
 
-		$realmoney = $money;
+		$realmoney = $money - $deductionmoney;
 
 		if (!(empty($set_array['charge']))) {
 			$money_array = m('member')->getCalculateMoney($money, $set_array);
@@ -2198,7 +2197,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				$deductionmoney = $money_array['deductionmoney'];
 			}
 		}
-
+		
 		m('member')->setCredit($_W['openid'], 'credit2', -$money, array(0, $_W['shopset']['set'][''] . '余额提现预扣除: ' . $money . ',实际到账金额:' . $realmoney . ',手续费金额:' . $deductionmoney));
 		$logno = m('common')->createNO('member_log', 'logno', 'RW');
 		$apply['uniacid'] = $_W['uniacid'];
@@ -2214,8 +2213,8 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$apply['after_money'] = $member['credit2'] - $money;
 		$apply['add'] = $member['walletaddress'];
 		$apply['url'] = $member['walletcode'];
-		$apply['realmoney'] = $_GPC['realmoney'];
-		$apply['charge'] = $_GPC['charge'];
+		$apply['realmoney'] = $realmoney;
+		$apply['charge'] = $deductionmoney;
 		// show_json($apply);
 		pdo_insert('ewei_shop_member_log', $apply);
 		$logid = pdo_insertid();
