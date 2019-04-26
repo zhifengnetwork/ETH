@@ -100,7 +100,7 @@ class Common_EweiShopV2Model
         global $_W;
 				global $_GPC;
 				
-        if($arr['status']==1){  //达到分销打款的等级
+        if($arr['type']==1){  //达到分销打款的等级
 						$order = pdo_fetch("select * from".tablename("ewei_shop_member_log")."where id='".$id."'");
 						$level_list = pdo_fetch("select id,type,levelname,commission1 from".tablename("ewei_shop_commission_level")."where type='".$type."'");
 						if($order['money']>=$arr['credit1']){
