@@ -101,7 +101,7 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 		if (empty($money)) show_json(0, "复投金额不能为0");
 
 		$member = m('member')->getMember($_W['openid'], true);
-		if ($member['credit1'] == 0) show_json(0, "投资金额为零不能进行复投,请先进行投资");
+		// if ($member['credit1'] == 0) show_json(0, "投资金额为零不能进行复投,请先进行投资");
 		$credit = 0;
 		$receive_hongbao = pdo_fetchall("select * from" . tablename("ewei_shop_receive_hongbao") . "where openid='" . $_W['openid'] . "'");
 		foreach ($receive_hongbao as $k => $val) {
