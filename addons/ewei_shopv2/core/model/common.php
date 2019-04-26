@@ -263,6 +263,10 @@ class Common_EweiShopV2Model
 				// dump($user_list);
 				$money = $money;
 				foreach($user_list['recUser'] as $key=>$value){
+					if($value['id'] == $member['agentid'])
+					{
+							continue;
+					}
 					$member1 = pdo_fetchall("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and agentid= '".$value['id']."' and type = 1");
 					//直推人数
 					$nums = count($member1);
