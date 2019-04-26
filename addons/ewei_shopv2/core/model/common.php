@@ -138,7 +138,7 @@ class Common_EweiShopV2Model
     }
 
     //查上级，管理奖
-    public function shangji1($id,$openid2,$money,$status){
+    public function shangji1($id,$openid2,$money,$status,$type){
     	  global $_W;
         global $_GPC;
 
@@ -149,7 +149,7 @@ class Common_EweiShopV2Model
           //复投·账户获钱
 					$cmoney2 = round($money*$member['commission1']*0.01*0.2,6);
 					$cmoney3 = $cmoney1 + $cmoney2;
-        	$data = array('uniacid'=>$_W['uniacid'],'openid'=>$member['openid'],'openid2'=>$openid2,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'2','status'=>$status,'price'=>$money);
+        	$data = array('uniacid'=>$_W['uniacid'],'openid'=>$member['openid'],'openid2'=>$openid2,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'2','status'=>$status,'price'=>$money,'jindongtai'=>$type);
         	pdo_insert("ewei_shop_order_goods1",$data);
 
           //充值

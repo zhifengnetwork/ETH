@@ -73,11 +73,35 @@ class Integralrelease_EweiShopV2Page extends MobilePage
                     // 扣积分
                     // m('member')->setCredit($openid,'credit1',-$money3);
                     //管理奖
-                    $list = m('common')->shangji1($member['agentid'], $member['openid'], $money3, 2);
-                    dump($list."-----".$member['agentid']."-------------------".$member['id']);
-                     //动态奖金
-                    $this->money($member,$list);
-                   
+                    $money = m('common')->shangji1($member['agentid'], $member['openid'], $money3, 2,1);
+                    if(!empty($money))
+                    {
+                        //动态奖金
+                        // dump($money."-----".$member['agentid']."-------------------".$member['id']);
+                        // $this->money($member,$money);
+                        //获取所有上级
+                        $user_list = m('common')->get_uper_user($member['agentid']);
+                        $money = $money;
+                        foreach($user_list['recUser'] as $key=>$value){
+                            if($value['id'] == $member['agentid'])
+                            {
+                                continue;
+                            }
+                            $member1 = pdo_fetchall("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and agentid= '".$value['id']."' and type = 1");
+                            //直推人数
+                            $nums = count($member1);
+                            if($nums>=5){
+                                $agentid = $value['id'];
+                                // dump('1111111-------------'.$agentid.'========'.$money);
+                                $list111 = m('common')->shangji1($agentid,$member['openid'],$money,$key+1,2);
+                                $money = $list111;
+                            }else{
+                                break;
+                            }
+                        }
+                        
+                    }
+                    
                     // //积分释放记录
                     pdo_insert("ewei_shop_receive_hongbao", array('openid' => $openid, 'money' => $money, 'money2' => $money2, 'money3' => $money3, 'type' => '1', 'time' => time(), 'uniacid' => $_W['uniacid']));
                 }
@@ -93,9 +117,16 @@ class Integralrelease_EweiShopV2Page extends MobilePage
     public function money($member,$money)
     {
         global $_W;
+        dump($money);
+        //今日开始时间和结束时间戳
+        $start = mktime(0, 0, 0, date('m'), date('d'), date('Y'));
+        $end = mktime(0, 0, 0, date('m'), date('d') + 1, date('Y')) - 1;
+        $user_order_goods = pdo_fetch("select * from".tablename("ewei_shop_order_goods1")."where openid2='".$member['openid']."' and createtime>='$start' and createtime<='$end' and jindongtai=1");
+        dump($user_order_goods);
         $user_list = pdo_fetchall("select * from".tablename("ewei_shop_member")."where agentid='".$member['id']."'"); 
         $money = $money;
         if($user_list){
+            dump($money.'++++++++++++++++++');
             //获取所有上级
             $user_list = m('common')->get_uper_user($member['agentid']);
             
