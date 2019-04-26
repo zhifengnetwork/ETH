@@ -63,7 +63,7 @@
       <div class="time">发放时间：<span><%log.createtime%></span></div>
       <div>奖金来源：<span><%log.nickname%></span></div>
       <div>自由账户奖金：<span><%log.money3%></span></div>
-      <!-- <div>复投账户奖金：<span><%log.money2%></span></div> -->
+      <div>释放类型：<span><%log.jindongtai%></span></div>
     </div>
     <%/each%>
   </script>

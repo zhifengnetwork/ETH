@@ -50,9 +50,6 @@ class Integralrelease_EweiShopV2Page extends MobilePage
                     $money_propor = $result['multiple'] * $value['credit1'];
 
                     if ($credit >= $money_propor) {
-                        // dump('111111---' . $credit);
-                        // dump('222222---' . $money_propor);
-                        // continue;
                         pdo_update("ewei_shop_member", " suoding='1' ", array('openid' => $openid));
                         continue;
                     }

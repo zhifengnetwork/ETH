@@ -194,7 +194,7 @@ class Common_EweiShopV2Model
               $agentidis = pdo_fetch("select clickcount from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and id=:id",array(':id'=>$member['agentid']));
               if($agentidis['clickcount']>=5){
                   //当获得分销奖时，上级能得到一个管理奖
-                  $this->shangji1($member['agentid'],$member['openid'],$cmoney1+$cmoney2,$type);
+                  $this->shangji1($member['agentid'],$member['openid'],$cmoney1+$cmoney2,$type,2);
               }
 
        			}else if($member['commission'.$type]){	//上级总投资小于下级的单笔投资(烧伤机制)
@@ -214,7 +214,7 @@ class Common_EweiShopV2Model
               $agentidis = pdo_fetch("select clickcount from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and id=:id",array(':id'=>$member['agentid']));
               if($agentidis['clickcount']>=5){
                   //当获得分销奖时，上级能得到一个管理奖
-                  $this->shangji1($member['agentid'],$member['openid'],$cmoney1+$cmoney2,$type);
+                  $this->shangji1($member['agentid'],$member['openid'],$cmoney1+$cmoney2,$type,2);
               }
        				
 
@@ -272,7 +272,7 @@ class Common_EweiShopV2Model
 							$level_nums = count($member_level_num);
 							if($level_nums>=5){
 								$agentid = $member_level['id'];
-								$list = $this->shangji1($agentid,$member['openid'],$money,$key+1);
+								$list = $this->shangji1($agentid,$member['openid'],$money,$key+1,2);
 							}
 						}
 						if($nums<5){
@@ -280,7 +280,7 @@ class Common_EweiShopV2Model
 						}
 						if($nums>=5){
 								$agentid = $value['id'];
-								$list = $this->shangji1($agentid,$member['openid'],$money,$key+1);
+								$list = $this->shangji1($agentid,$member['openid'],$money,$key+1,2);
 						}
 						$money = $list;
 					}
