@@ -163,13 +163,12 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 			pdo_delete("ewei_shop_member_log", array('openid' => $_W['openid']));
 			pdo_delete("ewei_zhuanzhang", array('openid' => $_W['openid']));
 			pdo_delete("ewei_shop_order_goods1", array('openid' => $_W['openid']));
-		} else {
-			//向投资余额打款
-			m('member')->setCredit($_W['openid'], 'credit1', $money);
+		}
+		//向投资余额打款
+		m('member')->setCredit($_W['openid'], 'credit1', $money);
 
-			if ($member['type'] == 0) {
-				pdo_update("ewei_shop_member", " type='1' ", array('openid' => $_W['openid'], 'uniacid' => $_W['uniacid']));
-			}
+		if ($member['type'] == 0) {
+			pdo_update("ewei_shop_member", " type='1' ", array('openid' => $_W['openid'], 'uniacid' => $_W['uniacid']));
 		}
 		//投资人直推上级信息
 		$member1 = pdo_fetch("select * from".tablename("ewei_shop_member")."where id='".$member['agentid']."'");
