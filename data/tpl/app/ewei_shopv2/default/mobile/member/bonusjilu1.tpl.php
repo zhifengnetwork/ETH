@@ -72,7 +72,7 @@
     <%each list as log%>
     <div class="goods-item">
       <div class="time">释放时间：<span><% log.createtime %></span></div>
-      <div>释放至静态账户：<span><% log.money %></span></div>
+      <div>释放至自由钱包：<span><% log.money %></span></div>
       <div>释放至复投账户：<span><% log.money2 %></span></div>
     </div>
     <%/each%>
