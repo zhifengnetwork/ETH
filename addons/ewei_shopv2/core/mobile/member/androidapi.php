@@ -2161,12 +2161,13 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		returnJson(['member'=>$member]);
 	}
 
+
 	public function submit()
 	{
 		global $_W;
 		global $_GPC;
 		$set = $_W['shopset']['trade'];
-
+		$withdrawcharge = $set['withdrawcharge'];
 		if (empty($set['withdraw'])) {
 			returnJson(array(), '系统未开启提现!',-2);
 		}
@@ -2179,6 +2180,9 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		}
 
 		$money = floatval($_GPC['money']);
+		$deductionmoney = $money / (100/$withdrawcharge);
+		$money = $money - $deductionmoney;
+		
 		if (!floor($money / $set['withdrawmoney']))  returnJson(array(), "提现的金额必须是" . $set['withdrawmoney'] . "的倍数",-2);
 		$credit = m('member')->getCredit($_W['openid'], 'credit2');
 
