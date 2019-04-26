@@ -175,7 +175,7 @@ class Down_EweiShopV2Page extends CommissionMobileLoginPage
 
 		$pindex = max(1, intval($_GPC['page']));
 
-		$psize = 10;
+		$psize = 100;
 
 		$ass = pdo_fetchall('select * from ' . tablename('ewei_shop_member') . ' where uniacid = ' . $_W['uniacid']);
 
@@ -198,7 +198,7 @@ class Down_EweiShopV2Page extends CommissionMobileLoginPage
 		}
 
 
-		$list = pdo_fetchall('select * from ' . tablename('ewei_shop_member') . ' where uniacid = ' . $_W['uniacid'] . ' ' . $condition . '  ORDER BY isagent desc,id desc limit ' . (($pindex - 1) * $psize) . ',' . $psize);
+		$list = pdo_fetchall('select * from ' . tablename('ewei_shop_member') . ' where uniacid = ' . $_W['uniacid'] . ' ' . $condition . '  ORDER BY isagent desc,id desc');
 
 
 

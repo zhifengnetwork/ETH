@@ -45,7 +45,7 @@ class Integralrelease_EweiShopV2Page extends MobilePage
                     // dump($result['multiple']);
                     //释放的比例
                     $proportion = $result['commission1'] + $result['commission2'];
-
+                    // dump($proportion.'-------------'.$arr1['openid']);
                     //收益总币数
                     $money_propor = $result['multiple'] * $value['credit1'];
 
@@ -54,23 +54,26 @@ class Integralrelease_EweiShopV2Page extends MobilePage
                         continue;
                     }
                     if (!$proportion) $proportion = 0.3;
+                    dump($proportion.'-------------'.$arr1['openid']);
+                    $nums_money = round($proportion * $value['credit1'] * 0.01, 6);
+                    dump($nums_money);
                     //静态账户获得金额
-                    $money = round($proportion * $value['credit1'] * 0.8 * 0.01, 6);
+                    $money1 = round($nums_money*0.8,6);
 
                     //复投账户获得金额
-                    $money2 = round($proportion * $value['credit1'] * 0.2 * 0.01, 6);
+                    $money2 = round($nums_money*0.2,6);
 
-                    $money3 = $money + $money2;
 
                     $member = m('member')->getMember($openid, true);
-
+                    dump($money1);
+                    dump($money2);
                     //充值
-                    m('member')->setCredit($openid, 'credit2', $money);
+                    m('member')->setCredit($openid, 'credit2', $money1);
                     m('member')->setCredit($openid, 'credit4', $money2);
                     // 扣积分
                     // m('member')->setCredit($openid,'credit1',-$money3);
                     //管理奖
-                    $money = m('common')->shangji1($member['agentid'], $member['openid'], $money3, 2,1);
+                    $money = m('common')->shangji1($member['agentid'], $member['openid'], $nums_money, 2,1);
                     if(!empty($money))
                     {
                         //动态奖金
@@ -100,7 +103,7 @@ class Integralrelease_EweiShopV2Page extends MobilePage
                     }
                     
                     // //积分释放记录
-                    pdo_insert("ewei_shop_receive_hongbao", array('openid' => $openid, 'money' => $money, 'money2' => $money2, 'money3' => $money3, 'type' => '1', 'time' => time(), 'uniacid' => $_W['uniacid']));
+                    pdo_insert("ewei_shop_receive_hongbao", array('openid' => $openid, 'money' => $money1, 'money2' => $money2, 'money3' => $nums_money, 'type' => '1', 'time' => time(), 'uniacid' => $_W['uniacid']));
                 }
             }
         } else {
