@@ -116,9 +116,10 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 		// dump($result['multiple']);
 		// dump($money_propor);die;
 		if ($credit > $money_propor) {
-
-			if ($money != $member['credit1']) {
-				show_json(-1, "激活复投账户必须等于'" . $member['credit1'] . "'/ETH");
+			if($member['suoding']==1){
+				if ($money != $member['credit1']) {
+					show_json(-1, "激活复投账户必须等于'" . $member['credit1'] . "'/ETH");
+				}
 			}
 		}
 		
