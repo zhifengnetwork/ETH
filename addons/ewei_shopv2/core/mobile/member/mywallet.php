@@ -55,6 +55,7 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 
 		$money = $_GPC['money'];
 		$moneysxf = $_GPC['moneysxf'];
+		$moneys = $money+$moneysxf;
 		$mid = $_GPC['id'];
 
 		$member = m('member')->getMember($_W['openid'], true);
@@ -72,9 +73,9 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 		pdo_insert("ewei_zhuanzhang", $data);
 
 		//向对方账户打钱
-		m('member')->setCredit($member2['openid'], 'credit2', $money - $moneysxf);
+		m('member')->setCredit($member2['openid'], 'credit2', $money,"转账增加ETH");
 		//自己扣钱
-		m('member')->setCredit($member['openid'], 'credit2', -$money);
+		m('member')->setCredit($member['openid'], 'credit2', -$moneys,"转账减少ETH");
 		show_json(1, "转账成功");
 	}
 
@@ -141,7 +142,7 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 			$data['title'] = "自由账户一键复投";
 			$data['front_money'] = $member['credit2'];
 			$data['after_money'] = $member['credit2'] - $money;
-			m('member')->setCredit($_W['openid'], 'credit2', -$money);
+			m('member')->setCredit($_W['openid'], 'credit2', -$money,"自由账户一键复投");
 		} else if ($type == 4) {
 
 			if ($money > $member['credit4']) show_json(0, "您复投账户余额不足");
@@ -153,7 +154,7 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 			$data['after_money'] = $member['credit4'] - $money;
 
 
-			m('member')->setCredit($_W['openid'], 'credit4', -$money);
+			m('member')->setCredit($_W['openid'], 'credit4', -$money,"复投账户一键复投");
 		}
 		$level = m('member')->level12($_W['openid'],$money);
 		// show_json($data);
@@ -165,7 +166,7 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 			pdo_delete("ewei_shop_order_goods1", array('openid' => $_W['openid']));
 		}
 		//向投资余额打款
-		m('member')->setCredit($_W['openid'], 'credit1', $money);
+		m('member')->setCredit($_W['openid'], 'credit1', $money,"自由账户一键复投");
 
 		if ($member['type'] == 0) {
 			pdo_update("ewei_shop_member", " type='1' ", array('openid' => $_W['openid'], 'uniacid' => $_W['uniacid']));
