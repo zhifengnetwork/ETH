@@ -164,10 +164,10 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 			pdo_delete("ewei_shop_member_log", array('openid' => $_W['openid']));
 			pdo_delete("ewei_zhuanzhang", array('openid' => $_W['openid']));
 			pdo_delete("ewei_shop_order_goods1", array('openid' => $_W['openid']));
+		}else{
+			//向投资余额打款
+			m('member')->setCredit($_W['openid'], 'credit1', $money,"自由账户一键复投");
 		}
-		//向投资余额打款
-		m('member')->setCredit($_W['openid'], 'credit1', $money,"自由账户一键复投");
-
 		if ($member['type'] == 0) {
 			pdo_update("ewei_shop_member", " type='1' ", array('openid' => $_W['openid'], 'uniacid' => $_W['uniacid']));
 		}
