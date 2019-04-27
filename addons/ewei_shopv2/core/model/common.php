@@ -117,7 +117,7 @@ class Common_EweiShopV2Model
 								$moneber = pdo_fetch("select * from".tablename("ewei_shop_member")."where id = '".$arr['agentid']."'");
 								// dump($moneber['openid']);die;
 								//动态奖金
-								$this->comm($moneber['openid'],$jifen_money);
+								$this->comm($arr['openid'],$jifen_money);
             }
         }
     }
@@ -256,14 +256,15 @@ class Common_EweiShopV2Model
          * 10 九代会员(id)
          * */
         global $_W;
-        global $_GPC;
+				global $_GPC;
+
 				//查询投资人id
 				$member = pdo_fetch("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and openid= '$openid' ");
 				$user_list = $this->get_uper_user($member['id']);
 				// dump($user_list);
 				$money = $money;
 				foreach($user_list['recUser'] as $key=>$value){
-					if($value['id'] == $member['agentid'])
+					if($key <= 0)
 					{
 							continue;
 					}
@@ -278,29 +279,6 @@ class Common_EweiShopV2Model
 					}else{
 							break;
 					}
-					// $member1 = pdo_fetchall("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and agentid= '".$value['id']."' and type = 1");
-					// $nums = count($member1);
-					// dump($nums);
-					// $member_level = pdo_fetch("select * from".tablename("ewei_shop_member")."where id='".$member['agentid']."'");
-					// dump($member_level);
-					// //直推上级的管理奖
-					// if($member['id'] == $value['id'])
-					// {
-					// 	$member_level_num = pdo_fetchall("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and agentid= '".$member_level['id']."' and type = 1");
-					// 	$level_nums = count($member_level_num);
-					// 	if($level_nums>=5){
-					// 		$agentid = $member_level['id'];
-					// 		$list = $this->shangji1($agentid,$member['openid'],$money,$key+1,2);
-					// 	}
-					// }
-					// if($nums<5){
-					// 	break;
-					// }
-					// if($nums>=5){
-					// 		$agentid = $value['id'];
-					// 		$list = $this->shangji1($agentid,$member['openid'],$money,$key+1,2);
-					// }
-					// $money = $list;
 				}
 				
     }
