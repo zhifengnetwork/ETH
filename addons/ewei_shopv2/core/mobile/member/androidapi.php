@@ -2262,7 +2262,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$type = $_GPC['type'];
 		if(!$type) returnJson(array(),'参数错误！',-2);
 		$pindex = max(1, intval($_GPC['page']));
-		$psize = 4;
+		$psize = 10;
 		$openid = $_W['openid'];
 		$count = pdo_fetchall("select g.*,m.nickname from" . tablename("ewei_shop_member_log") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.openid='$openid' order by g.createtime desc");
 		$pageCount = ceil(count($count) / $psize);
