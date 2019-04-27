@@ -2272,7 +2272,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		if( !empty($list) || !empty($zhuanzhang) ){
 			foreach ($zhuanzhang as $k => $v) {
 				$zhuanzhang[$k]['openid'] = substr($v['openid'], -11);
-				$zhuanzhang[$k]['openid2'] = substr($v['openid2'], -11);
+				$zhuanzhang[$k]['openid2'] = substr($v['openid2'], -11) == false ? '' : substr($v['openid2'], -11);
 				$zhuanzhang[$k]['createtime'] = date("Y-m-d", $v['createtime']);
 				$zhuanzhang[$k]['title'] = '转币';
 				$zhuanzhang[$k]['type'] = 3;
