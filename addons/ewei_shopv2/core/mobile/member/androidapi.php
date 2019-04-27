@@ -2274,6 +2274,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				$zhuanzhang[$k]['openid'] = substr($v['openid'], -11);
 				$zhuanzhang[$k]['openid2'] = substr($v['openid2'], -11);
 				$zhuanzhang[$k]['createtime'] = date("Y-m-d", $v['createtime']);
+				$zhuanzhang[$k]['type'] = 3;
 			}
 			foreach ($list as $key => $val) {
 				$list[$key]['shouxufei'] = $val['money1'] - $val['money'];
@@ -2285,7 +2286,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			returnJson([],'暂无数据！',-2);
 		}
 		// pred($list);
-		returnJson(['list'=>$list,'zhuanzhang'=>$zhuanzhang]);
+		returnJson(['list'=>$list]);
 	}
 
 	public function pay_management() 
