@@ -76,6 +76,7 @@
 <?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('_footer', TEMPLATE_INCLUDEPATH)) : (include template('_footer', TEMPLATE_INCLUDEPATH));?>
 
 <script type="text/javascript">
+  var bool = true;
   $('.futouBtn').click(function () {
     let futouMoney = Number($('.futouMoney').val());
     let accountMoney = Number($('.accountMoney').html());
@@ -87,26 +88,30 @@
       FoxUI.toast.show('当前余额不足');
       return;
     }
-    $.ajax({
-      type:'post',
-      url:"<?php  echo mobileurl('member/mywallet/yijianfutou')?>",
-      data:{money:futouMoney,type:"<?php  echo $type;?>"},
-      dataType:'json',
-      success:function(data){
-        console.log(data);
-        FoxUI.toast.show(data.result.message)
-        if(data.status == 1){
-          setTimeout(() => {
-            history.go(-1);
-          }, 1500);
+    if(bool)
+    {
+      $.ajax({
+        type:'post',
+        url:"<?php  echo mobileurl('member/mywallet/yijianfutou')?>",
+        data:{money:futouMoney,type:"<?php  echo $type;?>"},
+        dataType:'json',
+        success:function(data){
+          console.log(data);
+          FoxUI.toast.show(data.result.message)
+          if(data.status == 1){
+            setTimeout(() => {
+              history.go(-1);
+            }, 1500);
+          }
+          
+        },error:function(err){
+          console.log(err);
+          
         }
-        
-      },error:function(err){
-        console.log(err);
-        
-      }
 
-    })
+      })
+      bool = false;
+    }
   })
 
 </script>
