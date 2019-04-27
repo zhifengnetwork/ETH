@@ -2283,7 +2283,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 
 			$list = array_merge($list,$zhuanzhang);
 		}else{
-			returnJson([],'暂无数据！',-2);
+			returnJson([],'暂无数据！',1);
 		}
 		// pred($list);
 		returnJson(['list'=>$list]);
