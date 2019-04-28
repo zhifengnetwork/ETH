@@ -2264,18 +2264,30 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$pindex = max(1, intval($_GPC['page']));
 		$psize = 10;
 		$openid = $_W['openid'];
-		$list =  pdo_fetchall("select g.*,m.nickname from" . tablename("ewei_shop_member_log") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.openid='$openid' order by g.createtime desc");
-		$zhuanzhang = pdo_fetchall("select g.*,m.nickname from" . tablename("ewei_zhuanzhang") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.openid=$openid order by g.createtime desc");
-		foreach ($zhuanzhang as $k => $v) {
-			$zhuanzhang[$k]['openid'] = substr($v['openid'], -11);
-			$zhuanzhang[$k]['openid2'] = substr($v['openid2'], -11);
-			$zhuanzhang[$k]['createtime'] = date("Y-m-d", $v['createtime']);
+		$count = pdo_fetchall("select g.*,m.nickname from" . tablename("ewei_shop_member_log") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.openid='$openid' order by g.createtime desc");
+		$pageCount = ceil(count($count) / $psize);
+		$offset = ($pindex - 1) * $psize;
+		$list =  pdo_fetchall("select g.*,m.nickname from" . tablename("ewei_shop_member_log") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.openid='$openid' order by g.createtime desc limit $offset,$psize");
+		$zhuanzhang = pdo_fetchall("select g.*,m.nickname from" . tablename("ewei_zhuanzhang") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.openid='$openid' order by g.createtime desc limit $offset,$psize");
+		if( !empty($list) || !empty($zhuanzhang) ){
+			foreach ($zhuanzhang as $k => $v) {
+				$zhuanzhang[$k]['openid'] = substr($v['openid'], -11);
+				$zhuanzhang[$k]['openid2'] = substr($v['openid2'], -11) == false ? '' : substr($v['openid2'], -11);
+				$zhuanzhang[$k]['createtime'] = date("Y-m-d", $v['createtime']);
+				$zhuanzhang[$k]['title'] = '转币';
+				$zhuanzhang[$k]['type'] = 3;
+			}
+			foreach ($list as $key => $val) {
+				$list[$key]['shouxufei'] = $val['money1'] - $val['money'];
+				$list[$key]['createtime'] = date("Y-m-d", $val['createtime']);
+			}
+
+			$list = array_merge($list,$zhuanzhang);
+		}else{
+			returnJson([],'暂无数据！',1);
 		}
-		foreach ($list as $key => $val) {
-			$list[$key]['shouxufei'] = $val['money1'] - $val['money'];
-			$list[$key]['createtime'] = date("Y-m-d", $val['createtime']);
-		}
-		returnJson(['list'=>$list,'zhuanzhang'=>$zhuanzhang]);
+		// pred($list);
+		returnJson(['list'=>$list]);
 	}
 
 	public function pay_management() 
