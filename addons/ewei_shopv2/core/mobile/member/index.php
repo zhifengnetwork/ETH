@@ -9,7 +9,7 @@ class Index_EweiShopV2Page extends MobileLoginPage
 		global $_W;
 		global $_GPC;
 		//控制查询整个系统进入人时是否升级
-		// $a = p("commission")->lingdaolevel();
+		$a = p("commission")->lingdaolevel();
 		// var_dump($a);exit();
 		$this->diypage('member');
 		$member = m('member')->getMember($_W['openid'], true);
