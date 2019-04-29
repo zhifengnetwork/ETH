@@ -103,24 +103,31 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 
 		$member = m('member')->getMember($_W['openid'], true);
 		// if ($member['credit1'] == 0) show_json(0, "投资金额为零不能进行复投,请先进行投资");
-		$credit = 0;
-		$receive_hongbao = pdo_fetchall("select * from" . tablename("ewei_shop_receive_hongbao") . "where openid='" . $_W['openid'] . "'");
-		foreach ($receive_hongbao as $k => $val) {
-			$credit += $val['money'] + $val['money2'];
-		}
-		//最高倍率相应的释放比例
-		$result  = pdo_fetch("select * from" . tablename("ewei_shop_commission_level4") . "where uniacid=" . $_W['uniacid'] . " and start<=" . $member['credit1'] . " and end>=" . $member['credit1']);
+		// $credit = 0;
+		// $receive_hongbao = pdo_fetchall("select * from" . tablename("ewei_shop_receive_hongbao") . "where openid='" . $_W['openid'] . "'");
+		// foreach ($receive_hongbao as $k => $val) {
+		// 	$credit += $val['money'] + $val['money2'];
+		// }
+		// //最高倍率相应的释放比例
+		// $result  = pdo_fetch("select * from" . tablename("ewei_shop_commission_level4") . "where uniacid=" . $_W['uniacid'] . " and start<=" . $member['credit1'] . " and end>=" . $member['credit1']);
 
-		//释放的比例
-		// dump($credit);
-		$money_propor = $result['multiple'] * $member['credit1'];
+		// //释放的比例
+		// // dump($credit);
+		// $money_propor = $result['multiple'] * $member['credit1'];
 		// dump($result['multiple']);
 		// dump($money_propor);die;
-		if ($credit > $money_propor) {
-			if($member['suoding']==1){
-				if ($money != $member['credit1']) {
-					show_json(-1, "激活复投账户必须等于'" . $member['credit1'] . "'/ETH");
-				}
+		// if ($credit > $money_propor) {
+			
+		// }
+		if($member['suoding']==1){
+			if ($money != $member['credit1']) {
+				show_json(-1, "激活复投账户必须等于'" . $member['credit1'] . "'/ETH");
+			}else{
+				pdo_update("ewei_shop_member", "credit1='$money',suoding=0 ", array('openid' => $_W['openid'], 'uniacid' => $_W['uniacid']));
+				pdo_delete("ewei_shop_receive_hongbao", array('openid' => $_W['openid']));
+				pdo_delete("ewei_shop_member_log", array('openid' => $_W['openid']));
+				pdo_delete("ewei_zhuanzhang", array('openid' => $_W['openid']));
+				pdo_delete("ewei_shop_order_goods1", array('openid' => $_W['openid']));
 			}
 		}
 		
@@ -157,17 +164,8 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 			m('member')->setCredit($_W['openid'], 'credit4', -$money,"复投账户一键复投");
 		}
 		$level = m('member')->level12($_W['openid'],$money);
-		// show_json($data);
-		if ($credit >= $money_propor) {
-			pdo_update("ewei_shop_member", "credit1='$money',suoding=0 ", array('openid' => $_W['openid'], 'uniacid' => $_W['uniacid']));
-			pdo_delete("ewei_shop_receive_hongbao", array('openid' => $_W['openid']));
-			pdo_delete("ewei_shop_member_log", array('openid' => $_W['openid']));
-			pdo_delete("ewei_zhuanzhang", array('openid' => $_W['openid']));
-			pdo_delete("ewei_shop_order_goods1", array('openid' => $_W['openid']));
-		}else{
-			//向投资余额打款
-			m('member')->setCredit($_W['openid'], 'credit1', $money,"自由账户一键复投");
-		}
+		//向投资余额打款
+		m('member')->setCredit($_W['openid'], 'credit1', $money,"自由账户一键复投");
 		if ($member['type'] == 0) {
 			pdo_update("ewei_shop_member", " type='1' ", array('openid' => $_W['openid'], 'uniacid' => $_W['uniacid']));
 		}
@@ -180,11 +178,16 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 			$uid = pdo_insertid();
 			$apply = pdo_fetch('SELECT openid,money,credit FROM '.tablename('ewei_shop_member_log').' WHERE uniacid=:uniacid AND id=:id',[':id' => $uid,':uniacid' => $_W['uniacid']]);
 			if($member1['type'] == 1){
+				// //到达投资等级倍数自动退出出局
+				// $out_user_money = m('common')->out_user_money($apply['openid']);
+				// if ($out_user_money) {
+				// 	$data = array('orderid'=>0,'price'=>0,'openid'=>'您的收益已经超过投资倍数。暂停收益','openid2'=>$member['agentid'],'money'=>0,'jifen'=>0,'status'=>$type,'createtime'=>time(),'type'=>'9','uniacid'=>$_W['uniacid']);
+				// 	pdo_insert("ewei_shop_order_goods1",$data);
+				// }
 				//直推奖金
 				m('common')->commission_dakuan($member1,$type['type'],$uid,$apply['openid']);
 				//动态奖金
 				// m('common')->comm($apply['openid'],$apply['money']);
-				
 				//领导奖奖金
 				m('common')->leader($apply['openid'],$apply['money']);
 				

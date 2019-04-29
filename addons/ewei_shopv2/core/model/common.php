@@ -109,7 +109,14 @@ class Common_EweiShopV2Model
 						if($order['money'] < $arr['credit1']){
 							$jifen_money = $order['money']*$level_list['commission1']*0.01; 
 						}
-            if($jifen_money){   //该代数的现金积分不为空
+						if($jifen_money){   //该代数的现金积分不为空
+
+							//到达投资等级倍数自动退出出局
+							$out_user_money = $this->out_user_money($arr['openid']);
+							if ($out_user_money) {
+								$data = array('title'=>'您的收益已经超过投资倍数。暂停收益','openid'=>$arr['openid'],'createtime'=>time(),'uniacid'=>$_W['uniacid']);
+								pdo_insert("ewei_shop_member_log",$data);
+							}else{
               	m('member')->setCredit($arr['openid'],'credit2',$jifen_money);
                 $data = array('orderid'=>$order['id'],'price'=>$order['price'],'openid'=>$arr['openid'],'openid2'=>$user_openid,'money'=>$jifen_money,'jifen'=>$jifen_money,'status'=>$type,'createtime'=>time(),'type'=>'1','uniacid'=>$_W['uniacid']);
 								pdo_insert("ewei_shop_order_goods1",$data);
@@ -118,6 +125,7 @@ class Common_EweiShopV2Model
 								// dump($moneber['openid']);die;
 								//动态奖金
 								$this->comm($arr['openid'],$jifen_money);
+							}
             }
         }
     }
@@ -264,20 +272,28 @@ class Common_EweiShopV2Model
 				// dump($user_list);
 				$money = $money;
 				foreach($user_list['recUser'] as $key=>$value){
-					if($key <= 0)
-					{
-							continue;
-					}
-					$member1 = pdo_fetchall("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and agentid= '".$value['id']."' and type = 1");
-					//直推人数
-					$nums = count($member1);
-					if($nums>=5){
-							$agentid = $value['id'];
-							// dump('1111111-------------'.$agentid.'========'.$money);
-							$list111 = m('common')->shangji1($agentid,$member['openid'],$money,$key+1,2);
-							$money = $list111;
+					//到达投资等级倍数自动退出出局
+					$out_user_money = $this->out_user_money($value['openid']);
+					if ($out_user_money) {
+						$data = array('title'=>'您的收益已经超过投资倍数。暂停收益','openid'=>$arr['openid'],'createtime'=>time(),'uniacid'=>$_W['uniacid']);
+						pdo_insert("ewei_shop_member_log",$data);
+						continue;
 					}else{
-							break;
+						if($key <= 0)
+						{
+								continue;
+						}
+						$member1 = pdo_fetchall("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and agentid= '".$value['id']."' and type = 1");
+						//直推人数
+						$nums = count($member1);
+						if($nums>=5){
+								$agentid = $value['id'];
+								// dump('1111111-------------'.$agentid.'========'.$money);
+								$list111 = m('common')->shangji1($agentid,$member['openid'],$money,$key+1,2);
+								$money = $list111;
+						}else{
+								break;
+						}
 					}
 				}
 				
@@ -335,7 +351,14 @@ class Common_EweiShopV2Model
 
    		global $_W;
     	global $_GPC;
-    	$member = pdo_fetch("select m.openid,m.agentid,m.agentlevel3,l.* from ".tablename("ewei_shop_member")."m left join".tablename("ewei_shop_commission_level3")."l on m.agentlevel3=l.id "." where m.uniacid=".$_W['uniacid']." and m.id='$id'");
+    	$member = pdo_fetch("select m.openid,m.agentid,m.agentlevel3,m.suoding,l.* from ".tablename("ewei_shop_member")."m left join".tablename("ewei_shop_commission_level3")."l on m.agentlevel3=l.id "." where m.uniacid=".$_W['uniacid']." and m.id='$id'");
+			if($member['suoding']==1){
+				if($id==0){
+    			return 1;
+    		}
+    		// return $this->leaderdigui($member['agentid'],$openid2,$money,$type);
+			}else{
+
 			
     	if($member['agentlevel3']){
 
@@ -571,12 +594,43 @@ class Common_EweiShopV2Model
     			return 1;
     		}
     		return $this->leaderdigui($member['agentid'],$openid2,$money,$type);
-    	}
+			}
+		}
     	
 
    	}
 
+		 //到达投资等级倍数自动退出出局
+		public function out_user_money($openid)
+		{
+			global $_W;
+			$credit = 0;
+			$credit1 = 0;
+			$receive_hongbao = pdo_fetchall("select * from" . tablename("ewei_shop_receive_hongbao") . "where openid='" . $openid . "'");
+			$receive_logs    = pdo_fetchall("select * from" . tablename("ewei_shop_order_goods1") . "where openid='" . $openid . "'");
+			foreach ($receive_logs as $key1 => $value1){
+					$credit1 += $value1['money']+$value1['money2'];
+			}
+			foreach ($receive_hongbao as $k => $val) {
+					$credit += $val['money'] + $val['money2'];
+			}
+			$credit = $credit1 + $credit;
+			 //获取该会员最高的投资倍率
+			 $arr1 = m('member')->getMember($openid, true);
 
+			 //最高倍率相应的释放比例
+			 $result  = pdo_fetch("select * from" . tablename("ewei_shop_commission_level4") . "where uniacid=" . $_W['uniacid'] . " and start<=" . $arr1['credit1'] . " and end>=" . $arr1['credit1']);
+
+			  //收益总币数
+				$money_propor = $result['multiple'] * $arr1['credit1'];
+				if ($credit >= $money_propor) {
+					pdo_update("ewei_shop_member", " suoding='1' ", array('openid' => $openid));
+					return true;
+				}else{
+					return false;
+				}
+
+		}
 
     public function leader($openid,$money){
 

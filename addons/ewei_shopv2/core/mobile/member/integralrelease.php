@@ -23,7 +23,7 @@ class Integralrelease_EweiShopV2Page extends MobilePage
         if ($beginToday) {
 
             //可以进行积分释放的会员
-            $ass = pdo_fetchall("select openid,credit1,credit2,credit4,type from " . tablename("ewei_shop_member") . " where uniacid=:uniacid and type='1' ", array(':uniacid' => $_W['uniacid']));
+            $ass = pdo_fetchall("select openid,credit1,credit2,credit4,type from " . tablename("ewei_shop_member") . " where uniacid=:uniacid and type='1' and suoding = 0 ", array(':uniacid' => $_W['uniacid']));
             foreach ($ass as $key => $value) {
                 $credit = 0;
                 $receive_hongbao = pdo_fetchall("select * from" . tablename("ewei_shop_receive_hongbao") . "where openid='" . $value['openid'] . "'");
