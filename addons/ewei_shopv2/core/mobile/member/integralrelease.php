@@ -26,10 +26,16 @@ class Integralrelease_EweiShopV2Page extends MobilePage
             $ass = pdo_fetchall("select openid,credit1,credit2,credit4,type from " . tablename("ewei_shop_member") . " where uniacid=:uniacid and type='1' and suoding = 0 ", array(':uniacid' => $_W['uniacid']));
             foreach ($ass as $key => $value) {
                 $credit = 0;
+                $credit1 = 0;
                 $receive_hongbao = pdo_fetchall("select * from" . tablename("ewei_shop_receive_hongbao") . "where openid='" . $value['openid'] . "'");
-                foreach ($receive_hongbao as $k => $val) {
-                    $credit += $val['money'] + $val['money2'];
+                $receive_logs    = pdo_fetchall("select * from" . tablename("ewei_shop_order_goods1") . "where openid='" . $value['openid'] . "'");
+                foreach ($receive_logs as $key1 => $value1){
+                        $credit1 += $value1['money']+$value1['money2'];
                 }
+                foreach ($receive_hongbao as $k => $val) {
+                        $credit += $val['money'] + $val['money2'];
+                }
+                $credit = $credit1 + $credit;
 
                 //向积分释放表中查询该会员今天是否已经释放
                 $arr = pdo_fetch("select * from " . tablename("ewei_shop_receive_hongbao") . "where openid=:openid and time>=$start and time<=$end  and uniacid=:uniacid", array(':openid' => $value['openid'], ':uniacid' => $_W['uniacid']));
