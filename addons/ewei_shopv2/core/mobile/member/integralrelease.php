@@ -25,17 +25,24 @@ class Integralrelease_EweiShopV2Page extends MobilePage
             //可以进行积分释放的会员
             $ass = pdo_fetchall("select openid,credit1,credit2,credit4,type from " . tablename("ewei_shop_member") . " where uniacid=:uniacid and type='1' and suoding = 0 ", array(':uniacid' => $_W['uniacid']));
             foreach ($ass as $key => $value) {
-                $credit = 0;
-                $credit1 = 0;
-                $receive_hongbao = pdo_fetchall("select * from" . tablename("ewei_shop_receive_hongbao") . "where openid='" . $value['openid'] . "'");
-                $receive_logs    = pdo_fetchall("select * from" . tablename("ewei_shop_order_goods1") . "where openid='" . $value['openid'] . "'");
-                foreach ($receive_logs as $key1 => $value1){
-                        $credit1 += $value1['money']+$value1['money2'];
+                //到达投资等级倍数自动退出出局
+                $out_user_money = m('common')->out_user_money($value['openid']);
+                if ($out_user_money) {
+                    $data = array('title'=>'您的收益已经超过投资倍数。暂停收益','openid'=>$value['openid'],'createtime'=>time(),'uniacid'=>$_W['uniacid']);
+                    pdo_insert("ewei_shop_member_log",$data);
+                    continue;
                 }
-                foreach ($receive_hongbao as $k => $val) {
-                        $credit += $val['money'] + $val['money2'];
-                }
-                $credit = $credit1 + $credit;
+                // $credit = 0;
+                // $credit1 = 0;
+                // $receive_hongbao = pdo_fetchall("select * from" . tablename("ewei_shop_receive_hongbao") . "where openid='" . $value['openid'] . "'");
+                // $receive_logs    = pdo_fetchall("select * from" . tablename("ewei_shop_order_goods1") . "where openid='" . $value['openid'] . "'");
+                // foreach ($receive_logs as $key1 => $value1){
+                //         $credit1 += $value1['money']+$value1['money2'];
+                // }
+                // foreach ($receive_hongbao as $k => $val) {
+                //         $credit += $val['money'] + $val['money2'];
+                // }
+                // $credit = $credit1 + $credit;
 
                 //向积分释放表中查询该会员今天是否已经释放
                 $arr = pdo_fetch("select * from " . tablename("ewei_shop_receive_hongbao") . "where openid=:openid and time>=$start and time<=$end  and uniacid=:uniacid", array(':openid' => $value['openid'], ':uniacid' => $_W['uniacid']));
@@ -53,12 +60,13 @@ class Integralrelease_EweiShopV2Page extends MobilePage
                     $proportion = $result['commission1'] + $result['commission2'];
                     // dump($proportion.'-------------'.$arr1['openid']);
                     //收益总币数
-                    $money_propor = $result['multiple'] * $value['credit1'];
+                    // $money_propor = $result['multiple'] * $value['credit1'];
 
-                    if ($credit >= $money_propor) {
-                        pdo_update("ewei_shop_member", " suoding='1' ", array('openid' => $openid));
-                        continue;
-                    }
+                    // if ($credit >= $money_propor) {
+                    //     pdo_update("ewei_shop_member", " suoding='1' ", array('openid' => $openid));
+                    //     continue;
+                    // }
+                    
                     if (!$proportion) $proportion = 0.3;
                     dump($proportion.'-------------'.$arr1['openid']);
                     $nums_money = round($proportion * $value['credit1'] * 0.01, 6);
