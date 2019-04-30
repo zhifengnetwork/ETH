@@ -382,7 +382,7 @@ class Common_EweiShopV2Model
 	       		if($member2['type']==$member['type']){
 
 	       			$cmoney1  = round($money*$member['commission1']*0.01*0.8*0.1,6);
-              $cmoney2  = round($money*$member['commission1']*0.01*0.8*0.1,6);
+              $cmoney2  = round($money*$member['commission1']*0.01*0.2*0.1,6);
 	       				
 	       			$data2 = array('uniacid'=>$_W['uniacid'],'openid'=>$member2['openid'],'openid2'=>$openid2,'money'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'2','price'=>$money);
 
