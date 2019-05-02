@@ -352,250 +352,250 @@ class Common_EweiShopV2Model
    		global $_W;
     	global $_GPC;
     	$member = pdo_fetch("select m.openid,m.agentid,m.agentlevel3,m.suoding,l.* from ".tablename("ewei_shop_member")."m left join".tablename("ewei_shop_commission_level3")."l on m.agentlevel3=l.id "." where m.uniacid=".$_W['uniacid']." and m.id='$id'");
-			if($member['suoding']==1){
-				if($id==0){
-    			return 1;
-    		}
-    		// return $this->leaderdigui($member['agentid'],$openid2,$money,$type);
-			}else{
+		if($member['suoding']==1){
+			if($id==0){
+				return 1;
+			}
+		// return $this->leaderdigui($member['agentid'],$openid2,$money,$type);
+		}else{
 
 			
-    	if($member['agentlevel3']){
+	    	if($member['agentlevel3']){
 
-    		$member2 = pdo_fetch("select m.openid,m.agentid,m.agentlevel3,l.* from ".tablename("ewei_shop_member")."m left join".tablename("ewei_shop_commission_level3")."l on m.agentlevel3=l.id "." where m.uniacid=".$_W['uniacid']." and m.id=:id",array(":id"=>$member['agentid']));
-    		//第一种情况----------------------
-    		if($member['type']==1 && $type==1){
+	    		$member2 = pdo_fetch("select m.openid,m.agentid,m.agentlevel3,l.* from ".tablename("ewei_shop_member")."m left join".tablename("ewei_shop_commission_level3")."l on m.agentlevel3=l.id "." where m.uniacid=".$_W['uniacid']." and m.id=:id",array(":id"=>$member['agentid']));
+	    		//第一种情况----------------------
+	    		if($member['type']==1 && $type==1){
 
-	       		//静态账户获得金额
-            $cmoney1 = round($money*$member['commission1']*0.01*0.8,6);
-            //复投·账户获钱
-						$cmoney2 = round($money*$member['commission1']*0.01*0.2,6);
-						$cmoney3 = $cmoney1 + $$cmoney2;
+		       		//静态账户获得金额
+	            $cmoney1 = round($money*$member['commission1']*0.01*0.8,6);
+	            //复投·账户获钱
+				$cmoney2 = round($money*$member['commission1']*0.01*0.2,6);
+				$cmoney3 = $cmoney1 + $$cmoney2;
 	       		$data = array('uniacid'=>$_W['uniacid'],'openid'=>$member['openid'],'openid2'=>$openid2,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'1','price'=>$money);
 	       		pdo_insert("ewei_shop_order_goods1",$data);
 
-     				//充值
-     				m('member')->setCredit($member['openid'],'credit2',$cmoney3);
-            // m('member')->setCredit($member['openid'],'credit4',$cmoney2);
+ 				//充值
+ 				m('member')->setCredit($member['openid'],'credit2',$cmoney3);
+	            // m('member')->setCredit($member['openid'],'credit4',$cmoney2);
 
-	       		//查看是否有同级领导收益
+		       		//查看是否有同级领导收益
 	       		if($member2['type']==$member['type']){
 
-	       			$cmoney1  = round($money*$member['commission1']*0.01*0.8*0.1,6);
-              $cmoney2  = round($money*$member['commission1']*0.01*0.2*0.1,6);
-	       				
+	       			$cmoney1  = round($cmoney3*$member['commission1']*0.01*0.8*0.1,6);
+	                $cmoney2  = round($cmoney3*$member['commission1']*0.01*0.2*0.1,6);
+		       		$cmoney3  = $cmoney1 + $cmoney2;
 	       			$data2 = array('uniacid'=>$_W['uniacid'],'openid'=>$member2['openid'],'openid2'=>$openid2,'money'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'2','price'=>$money);
 
 	       			pdo_insert("ewei_shop_order_goods1",$data2);
 
 	   				//充值
-	   				m('member')->setCredit($member['openid'],'credit2',$cmoney1);
-            m('member')->setCredit($member['openid'],'credit4',$cmoney2);
+	   				m('member')->setCredit($member['openid'],'cmoney3',$cmoney1);
+	            	// m('member')->setCredit($member['openid'],'credit4',$cmoney2);
 
 	       			//查询第二次团队奖
 	       			return $this->leaderdigui($member2['agentid'],$openid2,$money,2);
-	       			
+		       			
 	       		}else{
 	       			//查询第二次团队奖
 	       			return $this->leaderdigui($member['agentid'],$openid2,$money,2);
 	       		}
 
-	       		
+		       		
 
-	        }
-	        
-	        if($member['type']==2 && $type==2){
-	        		
-	        	$ass = pdo_fetch("select commission1 from ".tablename("ewei_shop_commission_level3")."where uniacid=".$_W['uniacid']." and type='1'");	
+		        }
+		        
+		        if($member['type']==2 && $type==2){
+		        		
+		        	$ass = pdo_fetch("select commission1 from ".tablename("ewei_shop_commission_level3")."where uniacid=".$_W['uniacid']." and type='1'");	
 
-	        	$cmoney1 = round($money*($member['commission1']-$ass['commission1'])*0.01*0.8,6);
-            $cmoney2 = round($money*($member['commission1']-$ass['commission1'])*0.01*0.2,6);
-	       				
-	       		$data = array('uniacid'=>$_W['uniacid'],'openid'=>$member['openid'],'openid2'=>$openid2,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'1','price'=>$money);
+		        	$cmoney1 = round($money*($member['commission1']-$ass['commission1'])*0.01*0.8,6);
+	            	$cmoney2 = round($money*($member['commission1']-$ass['commission1'])*0.01*0.2,6);
+		       				
+		       		$data = array('uniacid'=>$_W['uniacid'],'openid'=>$member['openid'],'openid2'=>$openid2,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'1','price'=>$money);
 
-	       		pdo_insert("ewei_shop_order_goods1",$data);
+		       		pdo_insert("ewei_shop_order_goods1",$data);
 
-   				  //充值
-   				  m('member')->setCredit($member['openid'],'credit2',$cmoney1);
-            m('member')->setCredit($member['openid'],'credit4',$cmoney2);
+	   				  //充值
+	   				  m('member')->setCredit($member['openid'],'credit2',$cmoney1);
+	            m('member')->setCredit($member['openid'],'credit4',$cmoney2);
 
 
-	       		
-	       		//查看是否有同级领导收益
-	       		if($member2['type']==$member['type']){
+		       		
+		       		//查看是否有同级领导收益
+		       		if($member2['type']==$member['type']){
 
-	       			$cmoney1 = round($money*($member['commission1']-$ass['commission1'])*0.01*0.8*0.1,6);
-              $cmoney2 = round($money*($member['commission1']-$ass['commission1'])*0.01*0.2*0.1,6);
-	       				
-	       			$data2 = array('uniacid'=>$_W['uniacid'],'openid'=>$member2['openid'],'openid2'=>$openid2,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'2','price'=>$money);
+		       			$cmoney1 = round($money*($member['commission1']-$ass['commission1'])*0.01*0.8*0.1,6);
+	              $cmoney2 = round($money*($member['commission1']-$ass['commission1'])*0.01*0.2*0.1,6);
+		       				
+		       			$data2 = array('uniacid'=>$_W['uniacid'],'openid'=>$member2['openid'],'openid2'=>$openid2,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'2','price'=>$money);
 
-	       			pdo_insert("ewei_shop_order_goods1",$data2);
+		       			pdo_insert("ewei_shop_order_goods1",$data2);
 
-	   				//充值
-	   				m('member')->setCredit($member['openid'],'credit2',$cmoney1);
-            m('member')->setCredit($member['openid'],'credit4',$cmoney2);
+		   				//充值
+		   				m('member')->setCredit($member['openid'],'credit2',$cmoney1);
+	            m('member')->setCredit($member['openid'],'credit4',$cmoney2);
 
-	       			//查询第三次团队奖
-	       			return $this->leaderdigui($member2['agentid'],$openid2,$money,3);
-	       			
-	       		}else{
+		       			//查询第三次团队奖
+		       			return $this->leaderdigui($member2['agentid'],$openid2,$money,3);
+		       			
+		       		}else{
 
-	       			//查询第三次团队奖
-	       			return $this->leaderdigui($member['agentid'],$openid2,$money,3);
+		       			//查询第三次团队奖
+		       			return $this->leaderdigui($member['agentid'],$openid2,$money,3);
 
-	       		}
+		       		}
 
-	        }
+		        }
 
-	        if($member['type']==3 && $type==3){
-	        		
-	        	$ass = pdo_fetch("select commission1 from ".tablename("ewei_shop_commission_level3")."where uniacid=".$_W['uniacid']." and type='1'");
-	        	$ass2 = pdo_fetch("select commission1 from ".tablename("ewei_shop_commission_level3")."where uniacid=".$_W['uniacid']." and type='2'");		
+		        if($member['type']==3 && $type==3){
+		        		
+		        	$ass = pdo_fetch("select commission1 from ".tablename("ewei_shop_commission_level3")."where uniacid=".$_W['uniacid']." and type='1'");
+		        	$ass2 = pdo_fetch("select commission1 from ".tablename("ewei_shop_commission_level3")."where uniacid=".$_W['uniacid']." and type='2'");		
 
-	        	$cmoney1 = round($money*($member['commission1']-$ass['commission1']-($ass2['commission1']-$ass['commission1']))*0.01*0.8,6);
-            $cmoney2 = round($money*($member['commission1']-$ass['commission1']-($ass2['commission1']-$ass['commission1']))*0.01*0.2,6);
-	       				
-	       		$data = array('uniacid'=>$_W['uniacid'],'openid'=>$member['openid'],'openid2'=>$openid2,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'1','price'=>$money);
+		        	$cmoney1 = round($money*($member['commission1']-$ass['commission1']-($ass2['commission1']-$ass['commission1']))*0.01*0.8,6);
+	            $cmoney2 = round($money*($member['commission1']-$ass['commission1']-($ass2['commission1']-$ass['commission1']))*0.01*0.2,6);
+		       				
+		       		$data = array('uniacid'=>$_W['uniacid'],'openid'=>$member['openid'],'openid2'=>$openid2,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'1','price'=>$money);
 
-	       		pdo_insert("ewei_shop_order_goods1",$data);
-
-   				//充值
-   				m('member')->setCredit($member['openid'],'credit2',$cmoney1);
-          m('member')->setCredit($member['openid'],'credit4',$cmoney2);
-	       		
-	       		//查看是否有同级领导收益
-	       		if($member2['type']==$member['type']){
-
-	       			$cmoney1 = round($money*($member['commission1']-$ass['commission1']-($ass2['commission1']-$ass['commission1']))*0.01*0.8*0.1,6);
-            $cmoney2 = round($money*($member['commission1']-$ass['commission1']-($ass2['commission1']-$ass['commission1']))*0.01*0.2*0.1,6);
-	       				
-	       			$data2 = array('uniacid'=>$_W['uniacid'],'openid'=>$member2['openid'],'openid2'=>$openid2,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'2','price'=>$money);
-
-	       			pdo_insert("ewei_shop_order_goods1",$data2);
+		       		pdo_insert("ewei_shop_order_goods1",$data);
 
 	   				//充值
 	   				m('member')->setCredit($member['openid'],'credit2',$cmoney1);
-            m('member')->setCredit($member['openid'],'credit4',$cmoney2);
-	     			return 1;	
-	       			
-	       		}
+	          m('member')->setCredit($member['openid'],'credit4',$cmoney2);
+		       		
+		       		//查看是否有同级领导收益
+		       		if($member2['type']==$member['type']){
 
-	        }
+		       			$cmoney1 = round($money*($member['commission1']-$ass['commission1']-($ass2['commission1']-$ass['commission1']))*0.01*0.8*0.1,6);
+	            $cmoney2 = round($money*($member['commission1']-$ass['commission1']-($ass2['commission1']-$ass['commission1']))*0.01*0.2*0.1,6);
+		       				
+		       			$data2 = array('uniacid'=>$_W['uniacid'],'openid'=>$member2['openid'],'openid2'=>$openid2,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'2','price'=>$money);
 
-	        //第一种情况----------------------
+		       			pdo_insert("ewei_shop_order_goods1",$data2);
 
-	        //第二种情况----------------------
-	        if($member['type']==2 && $type==1){
-	        		
-	        	$cmoney1 = round($money*$member['commission1']*0.01*0.8,6);
-            $cmoney2 = round($money*$member['commission1']*0.01*0.2,6);
-	       				
-	       		$data = array('uniacid'=>$_W['uniacid'],'openid'=>$member['openid'],'openid2'=>$openid2,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'1','price'=>$money);
+		   				//充值
+		   				m('member')->setCredit($member['openid'],'credit2',$cmoney1);
+	            m('member')->setCredit($member['openid'],'credit4',$cmoney2);
+		     			return 1;	
+		       			
+		       		}
 
-	       		pdo_insert("ewei_shop_order_goods1",$data);
+		        }
 
-   				//充值
-   				m('member')->setCredit($member['openid'],'credit2',$cmoney1);
-          m('member')->setCredit($member['openid'],'credit4',$cmoney2);
+		        //第一种情况----------------------
 
-	       		//查看是否有同级领导收益
-	       		if($member2['type']==$member['type']){
+		        //第二种情况----------------------
+		        if($member['type']==2 && $type==1){
+		        		
+		        	$cmoney1 = round($money*$member['commission1']*0.01*0.8,6);
+	            $cmoney2 = round($money*$member['commission1']*0.01*0.2,6);
+		       				
+		       		$data = array('uniacid'=>$_W['uniacid'],'openid'=>$member['openid'],'openid2'=>$openid2,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'1','price'=>$money);
 
-	       			$cmoney1 = round($money*$member['commission1']*0.01*0.8*0.1,6);
-              $cmoney2 = round($money*$member['commission1']*0.01*0.2*0.1,6);
-	       				
-	       			$data2 = array('uniacid'=>$_W['uniacid'],'openid'=>$member2['openid'],'openid2'=>$openid2,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'2','price'=>$money);
-
-	       			pdo_insert("ewei_shop_order_goods1",$data2);
+		       		pdo_insert("ewei_shop_order_goods1",$data);
 
 	   				//充值
 	   				m('member')->setCredit($member['openid'],'credit2',$cmoney1);
-            m('member')->setCredit($member['openid'],'credit4',$cmoney2);
+	          m('member')->setCredit($member['openid'],'credit4',$cmoney2);
 
-	       			//查询第二次团队奖
-	       			return $this->leaderdigui($member2['agentid'],$openid2,$money,2);
-	       			
-	       		}else{
+		       		//查看是否有同级领导收益
+		       		if($member2['type']==$member['type']){
 
-	       			//查询第二次团队奖
-	       			return $this->leaderdigui($member['agentid'],$openid2,$money,2);
-	       		}
+		       			$cmoney1 = round($money*$member['commission1']*0.01*0.8*0.1,6);
+	              $cmoney2 = round($money*$member['commission1']*0.01*0.2*0.1,6);
+		       				
+		       			$data2 = array('uniacid'=>$_W['uniacid'],'openid'=>$member2['openid'],'openid2'=>$openid2,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'2','price'=>$money);
 
-	        }
+		       			pdo_insert("ewei_shop_order_goods1",$data2);
 
-	        if($member['type']==3 && $type==2){
+		   				//充值
+		   				m('member')->setCredit($member['openid'],'credit2',$cmoney1);
+	            m('member')->setCredit($member['openid'],'credit4',$cmoney2);
 
-	        	$ass = pdo_fetch("select commission1 from ".tablename("ewei_shop_commission_level3")."where uniacid=".$_W['uniacid']." and type='2'");	
+		       			//查询第二次团队奖
+		       			return $this->leaderdigui($member2['agentid'],$openid2,$money,2);
+		       			
+		       		}else{
 
-	        	$cmoney1 = round($money*($member['commission1']-$ass['commission1'])*0.01*0.8,6);
-	       		$cmoney2 = round($money*($member['commission1']-$ass['commission1'])*0.01*0.2,6);
+		       			//查询第二次团队奖
+		       			return $this->leaderdigui($member['agentid'],$openid2,$money,2);
+		       		}
 
-	       		$data = array('uniacid'=>$_W['uniacid'],'openid'=>$member['openid'],'openid2'=>$openid2,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'1','price'=>$money);
+		        }
 
-	       		pdo_insert("ewei_shop_order_goods1",$data);
+		        if($member['type']==3 && $type==2){
 
-   				//充值
-   				m('member')->setCredit($member['openid'],'credit2',$cmoney1);
-          m('member')->setCredit($member['openid'],'credit4',$cmoney2);
-	       		
-	       		//查看是否有同级领导收益
-	       		if($member2['type']==$member['type']){
+		        	$ass = pdo_fetch("select commission1 from ".tablename("ewei_shop_commission_level3")."where uniacid=".$_W['uniacid']." and type='2'");	
 
-	       		  $cmoney1 = round($money*($member['commission1']-$ass['commission1'])*0.01*0.8*0.1,6);
-              $cmoney2 = round($money*($member['commission1']-$ass['commission1'])*0.01*0.2*0.1,6);
-	       				
-	       			$data2 = array('uniacid'=>$_W['uniacid'],'openid'=>$member2['openid'],'openid2'=>$openid2,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'2','price'=>$money);
+		        	$cmoney1 = round($money*($member['commission1']-$ass['commission1'])*0.01*0.8,6);
+		       		$cmoney2 = round($money*($member['commission1']-$ass['commission1'])*0.01*0.2,6);
 
-	       			pdo_insert("ewei_shop_order_goods1",$data2);
+		       		$data = array('uniacid'=>$_W['uniacid'],'openid'=>$member['openid'],'openid2'=>$openid2,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'1','price'=>$money);
 
-	   				//充值
-          m('member')->setCredit($member['openid'],'credit2',$cmoney1);
-          m('member')->setCredit($member['openid'],'credit4',$cmoney2);
-					return 1;	
-	       			
-	       		}
-	        }
-	        //第二种情况----------------------
-
-	        //第三种情况----------------------
-	        if($member['type']==3 && $type==1){
-	        	
-	        	$cmoney1 = round($money*$member['commission1']*0.01*0.8,6);
-            $cmoney2 = round($money*$member['commission1']*0.01*0.2,6);
-	       				
-	       		$data = array('uniacid'=>$_W['uniacid'],'openid'=>$member['openid'],'openid2'=>$openid2,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'1','price'=>$money);
-
-	       		pdo_insert("ewei_shop_order_goods1",$data);
-
-   				//充值
-          m('member')->setCredit($member['openid'],'credit2',$cmoney1);
-          m('member')->setCredit($member['openid'],'credit4',$cmoney2);
-
-	       		//查看是否有同级领导收益
-	       		if($member2['type']==$member['type']){
-
-             $cmoney1 = round($money*$member['commission1']*0.01*0.8*0.1,6);
-             $cmoney2 = round($money*$member['commission1']*0.01*0.2*0.1,6);
-	       				
-	       			$data2 = array('uniacid'=>$_W['uniacid'],'openid'=>$member2['openid'],'openid2'=>$openid2,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'2','price'=>$money);
-
-	       			pdo_insert("ewei_shop_order_goods1",$data2);
+		       		pdo_insert("ewei_shop_order_goods1",$data);
 
 	   				//充值
-           m('member')->setCredit($member['openid'],'credit2',$cmoney1);
-           m('member')->setCredit($member['openid'],'credit4',$cmoney2);
-	   				return 1;		
-	       			
-	       		}
-	        }
-	        return $this->leaderdigui($member['agentid'],$openid2,$money,$type);
-    	}else{
-    		if($id==0){
-    			return 1;
-    		}
-    		return $this->leaderdigui($member['agentid'],$openid2,$money,$type);
+	   				m('member')->setCredit($member['openid'],'credit2',$cmoney1);
+	          m('member')->setCredit($member['openid'],'credit4',$cmoney2);
+		       		
+		       		//查看是否有同级领导收益
+		       		if($member2['type']==$member['type']){
+
+		       		  $cmoney1 = round($money*($member['commission1']-$ass['commission1'])*0.01*0.8*0.1,6);
+	              $cmoney2 = round($money*($member['commission1']-$ass['commission1'])*0.01*0.2*0.1,6);
+		       				
+		       			$data2 = array('uniacid'=>$_W['uniacid'],'openid'=>$member2['openid'],'openid2'=>$openid2,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'2','price'=>$money);
+
+		       			pdo_insert("ewei_shop_order_goods1",$data2);
+
+		   				//充值
+	          m('member')->setCredit($member['openid'],'credit2',$cmoney1);
+	          m('member')->setCredit($member['openid'],'credit4',$cmoney2);
+						return 1;	
+		       			
+		       		}
+		        }
+		        //第二种情况----------------------
+
+		        //第三种情况----------------------
+		        if($member['type']==3 && $type==1){
+		        	
+		        	$cmoney1 = round($money*$member['commission1']*0.01*0.8,6);
+	            $cmoney2 = round($money*$member['commission1']*0.01*0.2,6);
+		       				
+		       		$data = array('uniacid'=>$_W['uniacid'],'openid'=>$member['openid'],'openid2'=>$openid2,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'1','price'=>$money);
+
+		       		pdo_insert("ewei_shop_order_goods1",$data);
+
+	   				//充值
+	          m('member')->setCredit($member['openid'],'credit2',$cmoney1);
+	          m('member')->setCredit($member['openid'],'credit4',$cmoney2);
+
+		       		//查看是否有同级领导收益
+		       		if($member2['type']==$member['type']){
+
+	             $cmoney1 = round($money*$member['commission1']*0.01*0.8*0.1,6);
+	             $cmoney2 = round($money*$member['commission1']*0.01*0.2*0.1,6);
+		       				
+		       			$data2 = array('uniacid'=>$_W['uniacid'],'openid'=>$member2['openid'],'openid2'=>$openid2,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'2','price'=>$money);
+
+		       			pdo_insert("ewei_shop_order_goods1",$data2);
+
+		   				//充值
+	           m('member')->setCredit($member['openid'],'credit2',$cmoney1);
+	           m('member')->setCredit($member['openid'],'credit4',$cmoney2);
+		   				return 1;		
+		       			
+		       		}
+		        }
+		        return $this->leaderdigui($member['agentid'],$openid2,$money,$type);
+	    	}else{
+	    		if($id==0){
+	    			return 1;
+	    		}
+	    		return $this->leaderdigui($member['agentid'],$openid2,$money,$type);
+				}
 			}
-		}
     	
 
    	}
@@ -639,37 +639,9 @@ class Common_EweiShopV2Model
 
     	//查询投资人id
         $member = pdo_fetch("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and openid= '$openid' ");
-				// dump($member);
-				$id = $member['agentid'];
+		$id = $member['agentid'];
         //查该投资人所属团队(谁拿第一笔团队奖)
         $list = $this->leaderdigui($id,$openid,$money,1);
-        // return $list;
-        // $member2 = pdo_fetch("select m.openid,m.agentid,m.agentlevel3,l.* from ".tablename("ewei_shop_member")."m left join".tablename("ewei_shop_commission_level3")."l on m.agentlevel3=l.id "." where m.uniacid=".$_W['uniacid']." and m.id=:id",array(":id"=>$list['agentid']));
-
-        // if($list['type']==1){
-
-        // 	$cmoney = round($money*$list['commission1']*0.01,2);
-       				
-        // 	$data = array('uniacid'=>$_W['uniacid'],'openid'=>$list['openid'],'openid2'=>$openid,'money'=>$cmoney,'createtime'=>time(),'type'=>'3','price'=>$money);
-
-       	// 	if($member2['type']==$list['type']){
-
-	       // 			$cmoney2 = round($money*$list['commission1']*0.01*0.1,2);
-	       				
-	       // 			$data2 = array('uniacid'=>$_W['uniacid'],'openid'=>$member2['openid'],'openid2'=>$openid,'money'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'2','price'=>$money);
-
-	       // 			//查询第二次团队奖
-	       // 			$list2 = $this->leaderdigui($member2['agentid'],1);
-	       			
-	       // 			return $list2;
-	       // 	}else{
-	       			
-	       // 	}
-
-
-
-        // }
-
         return $list;
 
 
