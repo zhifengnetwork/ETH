@@ -248,7 +248,7 @@ class Common_EweiShopV2Model
 				global $_W;
 				// $field = "user_id, first_leader, agent_user, is_lock, is_agent";
 				// $UpInfo = M('users')->field($field)->where(['user_id' => $invite_id])->find();
-				$UpInfo = pdo_fetch("select id,agentid,openid,type,agentlevel2,mobile,status from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and id= '$invite_id' ");
+				$UpInfo = pdo_fetch("select id,agentid,openid,type,agentlevel2,agentlevel3,suoding,mobile,status from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and id= '$invite_id' ");
 				if ($UpInfo)  //有上级
 				{
 						$userList[] = $UpInfo;
@@ -638,14 +638,75 @@ class Common_EweiShopV2Model
     	global $_GPC;
 
     	//查询投资人id
-        $member = pdo_fetch("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and openid= '$openid' ");
-		$id = $member['agentid'];
-        //查该投资人所属团队(谁拿第一笔团队奖)
-        $list = $this->leaderdigui($id,$openid,$money,1);
-        return $list;
+			$member = pdo_fetch("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and openid= '$openid' ");
+			// $agentid = $member['agentid'];
+			//获取用户上级所有上级
+			$user_list = $this->get_uper_user($member['agentid']);
+			foreach($user_list['recUser'] as $key=>$value)
+			{
+				if($value['suoding'] == 1)
+				{
+					return 1;
+				}
+				// $user_level = pdo_fetch("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and openid= '$openid' ");
+				$user_level = pdo_fetch("select * from".tablename("ewei_shop_commission_level3")."where id='".$value['agentlevel3']."'");
+				dump($user_level['type']);
+			}
+			dump($user_list);
+			// //查该投资人所属团队(谁拿第一笔团队奖)
+			// $list = $this->leaderdigui($id,$openid,$money,1);
+			// return $list;
 
 
-    }
+		}
+		//根据等级判断用户是否获取领导收益
+
+		public function bonus($meetUser,$price)
+		{
+			$logName  = '级差奖';
+			//获取分红比例
+			$rateArr  = $this->get_js_rate();
+			$useRate = 0;
+			$pj_money = 0;
+			$userLevel = 0;
+			$sourceType = 4;
+			$is_top = false;
+			foreach($meetUser as $k => $user){
+				if($k<=0) continue;
+				if(!$user['agent_user'] || $user['is_lock'] == 1) continue;
+				$grade  = $user['agent_user'];
+				if($grade < $userLevel) continue;
+				$jsRate = intval($rateArr[$grade]) - $useRate;
+				if($jsRate<0) continue;
+				$money = ($price*$jsRate/100) * $this->goodNum;
+				if($jsRate==0 && $grade==5) 
+				{
+					$jsRate  = $rateArr[127];
+					$logName = '平级奖';
+					$sourceType = 5;
+					$money = ($pj_money*$jsRate/100) * $this->goodNum;
+					$is_top = true;
+				}
+				$useRate = $rateArr[$grade];
+				$userLevel = $grade;
+				$pj_money = $money;
+				$users = $this->first_leader($user['user_id']);
+				$data = array(
+					'user_money'=>$users['user_money']+$money
+				);
+				$res = M('users')->where(['user_id'=>$users['user_id']])->update($data);
+				if($res)
+				{
+					$this->writeLog($users['user_id'],$money,$logName,101);
+				}
+				//平级脱离
+				if($is_top){
+					break;
+				}
+			}
+		}
+
+
 
 	public function getSysset($key = '', $uniacid = 0) 
 	{
