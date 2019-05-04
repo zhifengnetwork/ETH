@@ -79,7 +79,10 @@ class Withdraw_EweiShopV2Page extends MobileLoginPage
 		}
 		
 		$money = floatval($_GPC['money']);
-		// if (!floor($money / $set['withdrawmoney']))  show_json(0, "提现的金额必须是" . $set['withdrawmoney'] . "的倍数");
+		if($money < $set['withdrawmoney']){
+			show_json(0, "提现的金额最低为" . $set['withdrawmoney'] . "!!!");
+		}
+
 		$credit = m('member')->getCredit($_W['openid'], 'credit2');
 
 		$apply = array();

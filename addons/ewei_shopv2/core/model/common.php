@@ -642,17 +642,18 @@ class Common_EweiShopV2Model
 			// $agentid = $member['agentid'];
 			//获取用户上级所有上级
 			$user_list = $this->get_uper_user($member['agentid']);
-			foreach($user_list['recUser'] as $key=>$value)
-			{
-				if($value['suoding'] == 1)
-				{
-					return 1;
-				}
+			$this->bonus($user_list['recUser'],$money,$openid);
+			// foreach($user_list['recUser'] as $key=>$value)
+			// {
+			// 	if($value['suoding'] == 1)
+			// 	{
+			// 		return 1;
+			// 	}
 				// $user_level = pdo_fetch("select * from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and openid= '$openid' ");
-				$user_level = pdo_fetch("select * from".tablename("ewei_shop_commission_level3")."where id='".$value['agentlevel3']."'");
-				dump($user_level['type']);
-			}
-			dump($user_list);
+				// $user_level = pdo_fetch("select * from".tablename("ewei_shop_commission_level3")."where id='".$value['agentlevel3']."'");
+			// 	dump($user_level['type']);
+			// }
+			// dump($user_list);
 			// //查该投资人所属团队(谁拿第一笔团队奖)
 			// $list = $this->leaderdigui($id,$openid,$money,1);
 			// return $list;
@@ -661,48 +662,66 @@ class Common_EweiShopV2Model
 		}
 		//根据等级判断用户是否获取领导收益
 
-		public function bonus($meetUser,$price)
+		public function bonus($meetUser,$price,$openid)
 		{
+			// dump($meetUser);die;
+			global $_W;
 			$logName  = '级差奖';
-			//获取分红比例
-			$rateArr  = $this->get_js_rate();
+			// //获取分红比例
+			// $rateArr  = $this->get_js_rate();
 			$useRate = 0;
 			$pj_money = 0;
 			$userLevel = 0;
 			$sourceType = 4;
 			$is_top = false;
 			foreach($meetUser as $k => $user){
-				if($k<=0) continue;
-				if(!$user['agent_user'] || $user['is_lock'] == 1) continue;
-				$grade  = $user['agent_user'];
-				if($grade < $userLevel) continue;
-				$jsRate = intval($rateArr[$grade]) - $useRate;
-				if($jsRate<0) continue;
-				$money = ($price*$jsRate/100) * $this->goodNum;
-				if($jsRate==0 && $grade==5) 
+				if($user['type']==0 || $user['suoding'] == 1) continue;
+				// $grade  = $user['agent_user'];
+				// if($grade < $userLevel) continue;
+				//获取分红比例
+				$user_level = pdo_fetch("select * from".tablename("ewei_shop_commission_level3")."where id='".$user['agentlevel3']."'");
+				$jsRate = intval($user_level['commission1']) - $useRate;
+				
+				// if($jsRate<0) continue;
+				$money = ($price*$jsRate/100);
+				
+				if($jsRate==0) 
 				{
-					$jsRate  = $rateArr[127];
-					$logName = '平级奖';
-					$sourceType = 5;
-					$money = ($pj_money*$jsRate/100) * $this->goodNum;
-					$is_top = true;
+
+				// 	$jsRate  = $rateArr[127];
+				// 	$logName = '平级奖';
+				// 	$sourceType = 5;
+					$money = ($pj_money*10/100);
+				// 	$is_top = true;
 				}
-				$useRate = $rateArr[$grade];
-				$userLevel = $grade;
+				$useRate = $user_level['commission1'];
+				// $userLevel = $grade;
 				$pj_money = $money;
-				$users = $this->first_leader($user['user_id']);
-				$data = array(
-					'user_money'=>$users['user_money']+$money
-				);
-				$res = M('users')->where(['user_id'=>$users['user_id']])->update($data);
-				if($res)
-				{
-					$this->writeLog($users['user_id'],$money,$logName,101);
-				}
+				
+				//静态账户获得金额
+				$cmoney1 = round($money*0.8,6);
+				//复投·账户获钱
+				$cmoney2 = round($money*0.2,6);
+				$cmoney3 = $cmoney1 + $$cmoney2;
+				$data = array('uniacid'=>$_W['uniacid'],'openid'=>$openid,'openid2'=>$user['openid'],'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'1','price'=>$money);
+				pdo_insert("ewei_shop_order_goods1",$data);
+
+				//充值
+				m('member')->setCredit($user['openid'],'credit2',$cmoney3);
+				// dump($jsRate.'+++++++++++++'.$money.'++++++++++++'.$user['openid']);
+				// $users = $this->first_leader($user['user_id']);
+				// $data = array(
+				// 	'user_money'=>$users['user_money']+$money
+				// );
+				// $res = M('users')->where(['user_id'=>$users['user_id']])->update($data);
+				// if($res)
+				// {
+				// 	$this->writeLog($users['user_id'],$money,$logName,101);
+				// }
 				//平级脱离
-				if($is_top){
-					break;
-				}
+				// if($is_top){
+				// 	break;
+				// }
 			}
 		}
 
