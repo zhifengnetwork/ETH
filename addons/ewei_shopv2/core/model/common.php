@@ -708,7 +708,7 @@ class Common_EweiShopV2Model
 
 				//充值
 				m('member')->setCredit($user['openid'],'credit2',$cmoney3);
-				dump($jsRate.'+++++++++++++'.$money.'++++++++++++'.$user['openid']);
+				// dump($jsRate.'+++++++++++++'.$money.'++++++++++++'.$user['openid']);
 				// $users = $this->first_leader($user['user_id']);
 				// $data = array(
 				// 	'user_money'=>$users['user_money']+$money

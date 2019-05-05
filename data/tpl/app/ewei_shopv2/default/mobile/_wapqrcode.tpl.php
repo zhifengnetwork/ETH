@@ -12,7 +12,6 @@
              $('#wap-qrcode').qrcode("<?php  echo $currenturl;?>");
          });
      },500);
-
     })
 </script>
 <?php  } ?>

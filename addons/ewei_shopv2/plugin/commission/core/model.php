@@ -2692,7 +2692,7 @@ if (!class_exists('CommissionModel')) {
 			$sys = pdo_fetch("select give from ".tablename("ewei_shop_sysset")."where uniacid=".$_W['uniacid']);
 
 			if($sys['give']){
-				pdo_update("ewei_shop_member",array('credit1'=>$member['credit1']+$sys['give']),array('openid'=>$openid,'uniacid'=>$_W['uniacid']));
+				pdo_update("ewei_shop_member",array('credit4'=>$member['credit4']+$sys['give']),array('openid'=>$openid,'uniacid'=>$_W['uniacid']));
 			}
 
 
