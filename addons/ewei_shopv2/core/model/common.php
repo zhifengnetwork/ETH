@@ -703,12 +703,12 @@ class Common_EweiShopV2Model
 				//复投·账户获钱
 				$cmoney2 = round($money*0.2,6);
 				$cmoney3 = $cmoney1 + $$cmoney2;
-				$data = array('uniacid'=>$_W['uniacid'],'openid'=>$openid,'openid2'=>$user['openid'],'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'1','price'=>$money);
+				$data = array('uniacid'=>$_W['uniacid'],'openid'=>$user['openid'],'openid2'=>$openid,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'1','price'=>$money);
 				pdo_insert("ewei_shop_order_goods1",$data);
 
 				//充值
 				m('member')->setCredit($user['openid'],'credit2',$cmoney3);
-				// dump($jsRate.'+++++++++++++'.$money.'++++++++++++'.$user['openid']);
+				dump($jsRate.'+++++++++++++'.$money.'++++++++++++'.$user['openid']);
 				// $users = $this->first_leader($user['user_id']);
 				// $data = array(
 				// 	'user_money'=>$users['user_money']+$money

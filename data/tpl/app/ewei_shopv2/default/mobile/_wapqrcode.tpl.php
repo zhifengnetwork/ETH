@@ -2,7 +2,7 @@
 <div class="wap-qrcode-container">
     <p class="example1"><?php  echo $shopname;?></p>
     <div class="wap-qrcode-image" id="wap-qrcode"></div>
-    <p class="example1">微信“扫一扫”浏览</p>
+    <p class="example1">微信“扫一扫”浏览111</p>
 </div>
 <script language="javascript">
     $(function(){
