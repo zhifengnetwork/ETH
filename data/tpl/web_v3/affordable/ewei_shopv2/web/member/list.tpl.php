@@ -406,6 +406,17 @@
 
                                         <?php  } ?> -->
 
+                                        <a class="btn  btn-op btn-operation" href="<?php  echo webUrl('order/list', array('searchfield'=>'member','keyword'=>$row['nickname']))?>"
+
+                                            title=''>
+
+                                                <span data-toggle="tooltip" data-placement="top" title="" data-original-title="冻结">
+
+                                                    <i class='icow icow-dingdan2'></i>
+
+                                                 </span>
+
+                                         </a>
                                         <?php if(cv('finance.recharge.credit1')) { ?>
 
                                        <a class="btn  btn-op btn-operation" data-toggle="ajaxModal"
@@ -459,7 +470,7 @@
 
                         <td colspan="3">
 
-                           <!--  <div class="btn-group">
+                           <div class="btn-group">
 
                                 <?php if(cv('member.list.edit')) { ?>
 
@@ -479,19 +490,19 @@
 
                                 <?php if(cv('member.list.delete')) { ?>
 
-                                <button class="btn btn-default btn-sm btn-operation" type="button" data-toggle='batch-remove' data-confirm="确认要删除?" data-href="<?php  echo webUrl('member/list/delete')?>">
+                                <!-- <button class="btn btn-default btn-sm btn-operation" type="button" data-toggle='batch-remove' data-confirm="确认要删除?" data-href="<?php  echo webUrl('member/list/delete')?>">
 
                                     <i class="icow icow-shanchu1"></i> 批量删除
 
-                                </button>
+                                </button> -->
 
                                 <?php  } ?>
 
-                                <button class="btn btn-default btn-sm btn-operation" type="button" data-toggle='batch-group'> <i class="icow icow-fenzuqunfa"></i>修改分组</button>
+                                <!-- <button class="btn btn-default btn-sm btn-operation" type="button" data-toggle='batch-group'> <i class="icow icow-fenzuqunfa"></i>修改分组</button>
 
-                                <button class="btn btn-default btn-sm btn-operation" type="button" data-toggle='batch-level'><i class="icow icow-cengjiguanli"></i> 修改等级</button>
+                                <button class="btn btn-default btn-sm btn-operation" type="button" data-toggle='batch-level'><i class="icow icow-cengjiguanli"></i> 修改等级</button> -->
 
-                            </div> -->
+                            </div>
 
                         </td>
 
