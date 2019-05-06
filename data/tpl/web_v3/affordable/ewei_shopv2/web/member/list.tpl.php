@@ -406,7 +406,7 @@
 
                                         <?php  } ?> -->
 
-                                        <a class="btn  btn-op btn-operation" href="<?php  echo webUrl('order/list', array('searchfield'=>'member','keyword'=>$row['nickname']))?>"
+                                        <!-- <a class="btn  btn-op btn-operation" href="<?php  echo webUrl('member/is_black_list', array('type'=>'credit1','id'=>$row['id']))?>"
 
                                             title=''>
 
@@ -416,7 +416,8 @@
 
                                                  </span>
 
-                                         </a>
+                                         </a> -->
+                                         
                                         <?php if(cv('finance.recharge.credit1')) { ?>
 
                                        <a class="btn  btn-op btn-operation" data-toggle="ajaxModal"
