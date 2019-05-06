@@ -99,35 +99,40 @@ class Common_EweiShopV2Model
     public function commission_dakuan($arr,$type,$id,$user_openid){ //$arr打款人信息  $type代数  $id订单id
         global $_W;
 				global $_GPC;
-				
-        if($arr['status']==1){  //达到分销打款的等级
-						$order = pdo_fetch("select * from".tablename("ewei_shop_member_log")."where id='".$id."'");
-						$level_list = pdo_fetch("select id,type,levelname,commission1 from".tablename("ewei_shop_commission_level")."where type='".$type."'");
-						if($order['money']>=$arr['credit1']){
-							$jifen_money = $arr['credit1']*$level_list['commission1']*0.01;         //代数积分
-						}
-						if($order['money'] < $arr['credit1']){
-							$jifen_money = $order['money']*$level_list['commission1']*0.01; 
-						}
-						if($jifen_money){   //该代数的现金积分不为空
-
-							//到达投资等级倍数自动退出出局
-							$out_user_money = $this->out_user_money($arr['openid']);
-							if ($out_user_money) {
-								$data = array('title'=>'您的收益已经超过投资倍数。暂停收益','openid'=>$arr['openid'],'createtime'=>time(),'uniacid'=>$_W['uniacid']);
-								pdo_insert("ewei_shop_member_log",$data);
-							}else{
-              	m('member')->setCredit($arr['openid'],'credit2',$jifen_money);
-                $data = array('orderid'=>$order['id'],'price'=>$order['price'],'openid'=>$arr['openid'],'openid2'=>$user_openid,'money'=>$jifen_money,'jifen'=>$jifen_money,'status'=>$type,'createtime'=>time(),'type'=>'1','uniacid'=>$_W['uniacid']);
-								pdo_insert("ewei_shop_order_goods1",$data);
-								// dump($arr['openid']);
-								$moneber = pdo_fetch("select * from".tablename("ewei_shop_member")."where id = '".$arr['agentid']."'");
-								// dump($moneber['openid']);die;
-								//动态奖金
-								$this->comm($arr['openid'],$jifen_money);
+				// dump($arr['isblack']);
+				if($arr['isblack']==1){
+					// dump($arr['isblack']);
+					return 1;
+				}else{
+					if($arr['status']==1){  //达到分销打款的等级
+							$order = pdo_fetch("select * from".tablename("ewei_shop_member_log")."where id='".$id."'");
+							$level_list = pdo_fetch("select id,type,levelname,commission1 from".tablename("ewei_shop_commission_level")."where type='".$type."'");
+							if($order['money']>=$arr['credit1']){
+								$jifen_money = $arr['credit1']*$level_list['commission1']*0.01;         //代数积分
 							}
-            }
-        }
+							if($order['money'] < $arr['credit1']){
+								$jifen_money = $order['money']*$level_list['commission1']*0.01; 
+							}
+							if($jifen_money){   //该代数的现金积分不为空
+	
+								//到达投资等级倍数自动退出出局
+								$out_user_money = $this->out_user_money($arr['openid']);
+								if ($out_user_money) {
+									$data = array('title'=>'您的收益已经超过投资倍数。暂停收益','openid'=>$arr['openid'],'createtime'=>time(),'uniacid'=>$_W['uniacid']);
+									pdo_insert("ewei_shop_member_log",$data);
+								}else{
+									m('member')->setCredit($arr['openid'],'credit2',$jifen_money);
+									$data = array('orderid'=>$order['id'],'price'=>$order['price'],'openid'=>$arr['openid'],'openid2'=>$user_openid,'money'=>$jifen_money,'jifen'=>$jifen_money,'status'=>$type,'createtime'=>time(),'type'=>'1','uniacid'=>$_W['uniacid']);
+									pdo_insert("ewei_shop_order_goods1",$data);
+									// dump($arr['openid']);
+									$moneber = pdo_fetch("select * from".tablename("ewei_shop_member")."where id = '".$arr['agentid']."'");
+									// dump($moneber['openid']);die;
+									//动态奖金
+									$this->comm($arr['openid'],$jifen_money);
+								}
+							}
+					}
+				}
     }
 
    
@@ -248,7 +253,7 @@ class Common_EweiShopV2Model
 				global $_W;
 				// $field = "user_id, first_leader, agent_user, is_lock, is_agent";
 				// $UpInfo = M('users')->field($field)->where(['user_id' => $invite_id])->find();
-				$UpInfo = pdo_fetch("select id,agentid,openid,type,agentlevel2,agentlevel3,suoding,mobile,status from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and id= '$invite_id' ");
+				$UpInfo = pdo_fetch("select id,agentid,openid,type,agentlevel2,agentlevel3,suoding,mobile,isblack,status from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']." and id= '$invite_id' ");
 				if ($UpInfo)  //有上级
 				{
 						$userList[] = $UpInfo;
@@ -675,7 +680,7 @@ class Common_EweiShopV2Model
 			$sourceType = 4;
 			$is_top = false;
 			foreach($meetUser as $k => $user){
-				if($user['type']==0 || $user['suoding'] == 1) continue;
+				if($user['type']==0 || $user['suoding'] == 1 || $user['isblack'] == 1) continue;
 				// $grade  = $user['agent_user'];
 				// if($grade < $userLevel) continue;
 				//获取分红比例
