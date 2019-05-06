@@ -385,7 +385,7 @@ class Member_EweiShopV2Model
 			$member['id'] = pdo_insertid();
 		} else {
 			if ($member['isblack'] == 1) {
-				show_message('暂时无法访问，请稍后再试!');
+				show_message('系统检测到您的账户存在违规操作,该账户已被锁定请及时联系客服!!!');
 			}
 			$upgrade = array('uid' => $uid);
 			if (isset($mc['nickname']) && ($member['nickname_wechat'] != $mc['nickname'])) {
