@@ -237,6 +237,8 @@
 
                         <th style="width: 300px;">粉丝</th>
 
+                        <th style="width: 300px;">拉黑时间</th>
+                        <!-- <th style="width: 300px;">注册时间</th> -->
                         <th style="width: 300px;">注册时间</th>
 
                         <th style="width: 300px;">ETH币/余额/复投账户</th>
@@ -354,6 +356,8 @@
                             </td>
 
 
+                            <td>{php echo date("Y-m-d",$row['isblack_time'])}<br/>{php echo date("H:i:s",$row['isblack_time'])}</td>
+                            <!-- <td>{php echo date("Y-m-d",$row['createtime'])}<br/>{php echo date("H:i:s",$row['createtime'])}</td> -->
                             <td>{php echo date("Y-m-d",$row['createtime'])}<br/>{php echo date("H:i:s",$row['createtime'])}</td>
 
                             <td>
@@ -463,13 +467,13 @@
 
                                 {ifp 'member.list.edit'}
 
-                                <button class="btn btn-default btn-sm btn-operation" type="button" data-toggle='batch' data-href="{php echo webUrl('member/list/setblack',array('isblack'=>1))}">
+                                <button class="btn btn-default btn-sm btn-operation" type="button" data-toggle='batch' data-href="{php echo webUrl('member/isblack_list/setblack',array('isblack'=>1))}">
 
                                     <i class="icow icow-heimingdan2"></i>设置黑名单
 
                                 </button>
 
-                                <button class="btn btn-default btn-sm btn-operation" type="button" data-toggle='batch' data-href="{php echo webUrl('member/list/setblack',array('isblack'=>0))}">
+                                <button class="btn btn-default btn-sm btn-operation" type="button" data-toggle='batch' data-href="{php echo webUrl('member/isblack_list/setblack',array('isblack'=>0))}">
 
                                     <i class="icow icow-yongxinyonghu"></i> 取消黑名单
 

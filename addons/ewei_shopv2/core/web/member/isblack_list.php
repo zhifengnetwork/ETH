@@ -501,10 +501,10 @@ class Isblack_List_EweiShopV2Page extends WebPage
     $black = intval($_GPC['isblack']);
     foreach ($members as $member) {
       if (!(empty($black))) {
-        pdo_update('ewei_shop_member', array('isblack' => 1), array('id' => $member['id']));
+        pdo_update('ewei_shop_member', array('isblack' => 1,'isblack_time' => time()), array('id' => $member['id']));
         plog('member.list.edit', '设置黑名单 <br/>用户信息:  ID: ' . $member['id'] . ' /  ' . $member['openid'] . '/' . $member['nickname'] . '/' . $member['realname'] . '/' . $member['mobile']);
       } else {
-        pdo_update('ewei_shop_member', array('isblack' => 0), array('id' => $member['id']));
+        pdo_update('ewei_shop_member', array('isblack' => 0,'isblack_relieve_time'=>time(),'isblack_time'=>0), array('id' => $member['id']));
         plog('member.list.edit', '取消黑名单 <br/>用户信息:  ID: ' . $member['id'] . ' /  ' . $member['openid'] . '/' . $member['nickname'] . '/' . $member['realname'] . '/' . $member['mobile']);
       }
     }
