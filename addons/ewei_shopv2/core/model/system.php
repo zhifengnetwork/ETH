@@ -728,7 +728,7 @@ class System_EweiShopV2Model
 			'finance'    => array(
 				'title'    => '财务',
 				'subtitle' => '财务管理',
-				'icon'     => '31',
+				'icon'     => 'finance',
 				'items'    => array(
 					array(
 						'title' => '财务',
