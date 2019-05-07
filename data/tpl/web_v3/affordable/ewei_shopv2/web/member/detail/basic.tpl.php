@@ -263,10 +263,10 @@
     
 
 </div>
-<div class="form-group">
+<!-- <div class="form-group">
     <label class="col-lg control-label">冻结</label>
     <div class="col-sm-6">
-        <!--checked-->
+        <!--checked--  >
         <div class="checkbox col-sm-3">
             <label class="checkbox" for="closeButton">
                 <input id="closeButton" type="checkbox" value="checked" class="input-mini" />冻结7天
@@ -288,7 +288,7 @@
             </label>
         </div>
     </div>
-</div>
+</div> -->
 <div class="form-group">
 
     <label class="col-lg control-label">自由账户</label>

@@ -572,6 +572,7 @@ class System_EweiShopV2Model
 						'items' => array(
 							array('title' => '会员列表', 'route' => 'list', 'route_in' => true),
 							array('title' => '退出机制会员列表', 'route' => 'quit_list', 'route_in' => true),
+							array('title' => '黑名单列表', 'route' => 'isblack_list', 'route_in' => true),
 							// array('title' => '会员等级', 'route' => 'level'),
 							//		           array('title' => '会员分组', 'route' => 'group'),
 							//		           array('title' => '排行榜设置', 'route' => 'rank', 'desc' => '会员积分/消费排行榜设置'),
