@@ -60,7 +60,7 @@ class Perm_EweiShopV2ComModel extends ComModel
 	}
 	protected function perm_member()
 	{
-		return array('text' => '会员管理', 'list' => array('text' => '会员管理', 'view' => '浏览', 'edit' => '修改-log', 'detail' => '查看修改资料-log', 'delete' => '删除-log', 'xxx' => array('setblack' => 'edit')), 'quit_list' => array('text' => '退出机制会员列表', 'view' => '浏览', 'edit' => '修改-log', 'detail' => '查看修改资料-log', 'delete' => '删除-log', 'xxx' => array('setblack' => 'edit')));
+		return array('text' => '会员管理', 'list' => array('text' => '会员管理', 'view' => '浏览', 'edit' => '修改-log', 'detail' => '查看修改资料-log', 'delete' => '删除-log', 'xxx' => array('setblack' => 'edit')), 'quit_list' => array('text' => '退出机制会员列表', 'view' => '浏览', 'edit' => '修改-log', 'detail' => '查看修改资料-log', 'delete' => '删除-log', 'xxx' => array('setblack' => 'edit')),'isblack_list' => array('text' => '黑名单列表', 'view' => '浏览', 'edit' => '修改-log', 'detail' => '查看修改资料-log', 'delete' => '删除-log', 'xxx' => array('setblack' => 'edit')));
 	}
 	protected function perm_bargain()
 	{
@@ -83,6 +83,7 @@ class Perm_EweiShopV2ComModel extends ComModel
 	protected function perm_finance()
 	{
 		return array('text' => '财务管理', 'log' => array('text' => '财务管理', 'recharge' => '提现申请', 'turnout' => '一键复投记录', 'withdraw' => '投资申请', 'zhuanzhang' => '转账记录', 'commission' => '奖励明细', 'hongbao' => '积分释放记录'));
+		// return array('text' => '财务管理', 'log' => array('text' => '财务管理', 'view' => '浏览'), 'recharge' => array('text' => '提现申请', 'view' => '浏览'),'turnout' => array('text' => '一键复投记录', 'view' => '浏览'));
 	}
 	protected function perm_statistics()
 	{

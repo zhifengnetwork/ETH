@@ -639,30 +639,83 @@
 
                         <?php  } ?>
 
-                        <?php if(cv('finance.log.withdraw')) { ?>
-
+                        <?php if(cv('finance.log.recharge')) { ?>
                             <li class="fui-list">
-
-                                <a href="<?php  echo webUrl('finance/log/withdraw',array('status'=>0))?>">
-
+                                <a href="<?php  echo webUrl('finance/log/recharge',array('status'=>0))?>">
                                     <div class="fui-list-media">
-
                                         <span class="icow text-warning icow-shenhe"></span>
-
                                     </div>
-
                                     <div class="fui-list-inner">
-
                                         <h5 class="finance_total">-</h5>
-
-                                        <p>点击进入审核体现列表</p>
-
+                                        <p>点击进入审核提现列表</p>
                                     </div>
-
                                 </a>
-
                             </li>
-
+                        <?php  } ?>
+                        <?php if(cv('finance.log.turnout')) { ?>
+                            <li class="fui-list">
+                                <a href="<?php  echo webUrl('finance/log/turnout',array('status'=>0))?>">
+                                    <div class="fui-list-media">
+                                        <span class="icow text-warning icow-shenhe"></span>
+                                    </div>
+                                    <div class="fui-list-inner">
+                                        <h5 class="finance_total">-</h5>
+                                        <p>点击进入一键复投记录列表</p>
+                                    </div>
+                                </a>
+                            </li>
+                        <?php  } ?>
+                        <?php if(cv('finance.log.withdraw')) { ?>
+                            <li class="fui-list">
+                                <a href="<?php  echo webUrl('finance/log/withdraw',array('status'=>0))?>">
+                                    <div class="fui-list-media">
+                                        <span class="icow text-warning icow-shenhe"></span>
+                                    </div>
+                                    <div class="fui-list-inner">
+                                        <h5 class="finance_total">-</h5>
+                                        <p>点击进入投资申请列表</p>
+                                    </div>
+                                </a>
+                            </li>
+                        <?php  } ?>
+                        <?php if(cv('finance.log.zhuanzhang')) { ?>
+                            <li class="fui-list">
+                                <a href="<?php  echo webUrl('finance/log/recharge',array('status'=>0))?>">
+                                    <div class="fui-list-media">
+                                        <span class="icow text-warning icow-shenhe"></span>
+                                    </div>
+                                    <div class="fui-list-inner">
+                                        <h5 class="finance_total">-</h5>
+                                        <p>点击进入转账记录列表</p>
+                                    </div>
+                                </a>
+                            </li>
+                        <?php  } ?>
+                        <?php if(cv('finance.log.commission')) { ?>
+                            <li class="fui-list">
+                                <a href="<?php  echo webUrl('finance/log/commission',array('status'=>0))?>">
+                                    <div class="fui-list-media">
+                                        <span class="icow text-warning icow-shenhe"></span>
+                                    </div>
+                                    <div class="fui-list-inner">
+                                        <h5 class="finance_total">-</h5>
+                                        <p>点击进入奖励明细列表</p>
+                                    </div>
+                                </a>
+                            </li>
+                        <?php  } ?>
+                        <?php if(cv('finance.log.hongbao')) { ?>
+                            <li class="fui-list">
+                                <a href="<?php  echo webUrl('finance/log/hongbao',array('status'=>0))?>">
+                                    <div class="fui-list-media">
+                                        <span class="icow text-warning icow-shenhe"></span>
+                                    </div>
+                                    <div class="fui-list-inner">
+                                        <h5 class="finance_total">-</h5>
+                                        <p>点击进入积分释放记录列表</p>
+                                    </div>
+                                </a>
+                            </li>
                         <?php  } ?>
 
                     </ul>
