@@ -210,10 +210,10 @@ if (user_is_vice_founder($_W['uid']) && is_array($acl[$controller]['vice-founder
 	message('不能访问, 需要相应的权限才能访问.');
 }
 // checklogin();
-echo 123123;
-print_r($controller);
-print_r($action);
-die;
+// echo 123123;
+// print_r($controller);
+// print_r($action);
+// die;
 require _forward($controller, $action);
 
 define('ENDTIME', microtime());
