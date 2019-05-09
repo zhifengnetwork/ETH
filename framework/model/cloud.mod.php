@@ -141,7 +141,8 @@ function cloud_request($url, $post = '', $extra = array(), $timeout = 60) {
 }
 
 function cloud_prepare() { //加载注册信息对比
-	global $_W;	echo 111111;	exit;
+	global $_W;	
+	echo 111111;	die;
 	setting_load();
 /* 	if(empty($_W['setting']['site']['key']) || empty($_W['setting']['site']['token'])) {
 		return error('-1', "您的站点只有在微擎云服务平台成功注册后，才能使用云服务的相应功能。");
