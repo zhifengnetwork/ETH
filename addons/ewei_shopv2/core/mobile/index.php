@@ -129,8 +129,6 @@ class Index_EweiShopV2Page extends MobilePage
 	//首页信息
 	public function homeinfo($q='')
 	{
-		echo 111;
-		die;
 		global $_W;
 		global $_GPC;
 		$id = $_GPC['id'];
