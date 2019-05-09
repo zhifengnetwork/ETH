@@ -3,8 +3,7 @@
  * [WeEngine System] Copyright (c) 2014 WE7.CC
  * WeEngine is NOT a free software, it under the license terms, visited http://www.we7.cc/ for more details.
  */
-echo 111222;
-die;
+
 require './framework/bootstrap.inc.php';
 $host = $_SERVER['HTTP_HOST'];
 if (!empty($host)) {
@@ -14,6 +13,8 @@ if (!empty($host)) {
 		exit;
 	}
 }
+echo 222222;
+die;
 if ($_W['os'] == 'mobile' && (!empty($_GPC['i']) || !empty($_SERVER['QUERY_STRING']))) {
 	header('Location: ./app/index.php?' . $_SERVER['QUERY_STRING']);
 } else {
