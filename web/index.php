@@ -211,6 +211,8 @@ if (user_is_vice_founder($_W['uid']) && is_array($acl[$controller]['vice-founder
 }
 // checklogin();
 echo 123123;
+print_r($controller);
+print_r($action);
 die;
 require _forward($controller, $action);
 
