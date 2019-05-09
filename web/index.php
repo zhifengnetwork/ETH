@@ -209,7 +209,7 @@ if (is_array($acl[$controller]['founder']) && in_array($action, $acl[$controller
 if (user_is_vice_founder($_W['uid']) && is_array($acl[$controller]['vice-founder']) && !in_array($action, $acl[$controller]['vice-founder'])) {
 	message('不能访问, 需要相应的权限才能访问.');
 }
-checklogin();
+// checklogin();
 echo 123123;
 die;
 require _forward($controller, $action);
