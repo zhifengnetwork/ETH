@@ -1959,7 +1959,12 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$this->diypage('member');
 		$member = m('member')->getMember($_W['openid'], true);
 		$level = m('member')->getLevel($_W['openid']);
-
+		if($member){
+			if( $member['avatar'] == 'http://eth.com/attachment/132' ){
+				$member['avatar'] = '';
+			}
+		}
+		
 		//客服
 		$sys = pdo_fetch("select kefufile,wxkffile from" . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
 
