@@ -304,7 +304,8 @@
 
                                 <h4 class="panel-title">
 
-                                    <i><img src="../addons/ewei_shopv2/static/images/gonggao.png"  style="width: 23px"></i> <a>内部公告</a> <span></span>
+                                    <i><img src="../addons/ewei_shopv2/static/images/gonggao.png"  style="width: 23px"></i>
+                                     <a>内部公告</a> <span></span>
 
                                 </h4>
 
@@ -360,7 +361,8 @@
 
                                 <h4 class="panel-title">
 
-                                    <i><img src="../addons/ewei_shopv2/static/images/yongjin.png"  style="width: 23px"></i> <a>佣金提现</a> <span></span>
+                                    <i><img src="../addons/ewei_shopv2/static/images/yongjin.png"  style="width: 23px"></i> 
+                                    <a>佣金提现</a> <span></span>
 
                                 </h4>
 
@@ -418,7 +420,8 @@
 
                             <h4 class="panel-title">
 
-                                <i><img src="../addons/ewei_shopv2/static/images/pingjia.png"  style="width: 23px"></i> <a>评价</a> <span></span>
+                                <i><img src="../addons/ewei_shopv2/static/images/pingjia.png"  style="width: 23px"></i>
+                                 <a>评价</a> <span></span>
 
                             </h4>
 
@@ -463,7 +466,8 @@
 
                             <h4 class="panel-title">
 
-                                <i><img src="../addons/ewei_shopv2/static/images/tishi.png"  style="width: 23px"></i> <a style="position:relative;">系统提示 <i class="systips"></i></a> <span></span>
+                                <i><img src="../addons/ewei_shopv2/static/images/tishi.png"  style="width: 23px"></i>
+                                 <a style="position:relative;">系统提示 <i class="systips"></i></a> <span></span>
 
                             </h4>
 
@@ -561,7 +565,7 @@
 
                     <ul class="fui-list-group">
 
-                        {ifp 'goods'}
+                        <!-- {ifp 'goods'}
 
                             <li class="fui-list">
 
@@ -585,9 +589,9 @@
 
                             </li>
 
-                        {/if}
+                        {/if} -->
 
-                        {ifp 'order.list.status1'}
+                        <!-- {ifp 'order.list.status1'}
 
                             <li class="fui-list">
 
@@ -611,9 +615,9 @@
 
                             </li>
 
-                        {/if}
+                        {/if} -->
 
-                        {ifp 'order.list.status4'}
+                        <!-- {ifp 'order.list.status4'}
 
                             <li class="fui-list">
 
@@ -637,7 +641,7 @@
 
                             </li>
 
-                        {/if}
+                        {/if} -->
 
                         {ifp 'finance.log.recharge'}
                             <li class="fui-list">
@@ -748,7 +752,7 @@
 
                                 </li>
 
-                                <li class="fui-list">
+                                <!-- <li class="fui-list">
 
                                     <a href="{php echo webUrl('commission/apply',array('status'=>1))}">
 
@@ -768,11 +772,11 @@
 
                                     </a>
 
-                                </li>
+                                </li> -->
 
                             {/if}
 
-                            {ifp 'commission.apply.view1'}
+                            <!-- {ifp 'commission.apply.view1'}
 
                                 <li class="fui-list">
 
@@ -796,9 +800,9 @@
 
                                 </li>
 
-                            {/if}
+                            {/if} -->
 
-                            {ifp 'commission.apply.view2'}
+                            <!-- {ifp 'commission.apply.view2'}
 
                                 <li class="fui-list">
 
@@ -822,7 +826,7 @@
 
                                 </li>
 
-                            {/if}
+                            {/if} -->
 
                         </ul>
 
@@ -841,7 +845,7 @@
     {if $ordercol}
 
         <div class="row">
-            <div class="col-md-{$ordercol}">
+            <!-- <div class="col-md-{$ordercol}">
 
                 <div class="ibox h300" style="min-height: 404px;">
 
@@ -914,12 +918,12 @@
 
                 </div>
 
-            </div>
+            </div> -->
             <div class="col-md-{$ordercol}">
 
                 <div class="ibox" style="position: relative;">
 
-                    <div class="ibox-title">
+                    <!-- <div class="ibox-title">
 
                         <h5><i class="icow">&#xe622;</i>订单概述</h5>
 
@@ -935,9 +939,9 @@
 
                         </ul>
 
-                    </div>
+                    </div> -->
 
-                    <div class="ibox-content">
+                    <!-- <div class="ibox-content">
 
                         <div class="tab-content" style="height: auto;">
 
@@ -1119,7 +1123,7 @@
 
                         </div>
 
-                    </div>
+                    </div> -->
 
                 </div>
 

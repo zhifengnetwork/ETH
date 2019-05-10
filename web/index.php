@@ -206,9 +206,11 @@ if (is_array($acl[$controller]['founder']) && in_array($action, $acl[$controller
 		message('不能访问, 需要创始人权限才能访问.');
 	}
 }
-if (user_is_vice_founder($_W['uid']) && is_array($acl[$controller]['vice-founder']) && !in_array($action, $acl[$controller]['vice-founder'])) {
-	message('不能访问, 需要相应的权限才能访问.');
-}
+// if (user_is_vice_founder($_W['uid']) && is_array($acl[$controller]['vice-founder']) && !in_array($action, $acl[$controller]['vice-founder'])) {
+// 	message('不能访问, 需要相应的权限才能访问.');
+// }
+// echo 123;
+// die;
 checklogin();
 require _forward($controller, $action);
 

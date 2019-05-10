@@ -24,7 +24,7 @@
 <body>        
 <form  class="form-box" method="post" role="form">    
 	<div class="new-bg">
-		<img src="../web/resource/affordable/images/logo.png" alt="logo" style="width: 166px;position: absolute;left: 1%;top: 5%;">
+		<!-- <img src="../web/resource/affordable/images/logo.png" alt="logo" style="width: 166px;position: absolute;left: 1%;top: 5%;"> -->
 	</div>
 
 
@@ -61,7 +61,7 @@
 
 					<div class="form-group input-group">
 
-						<div class="input-group-addon"><img src="./resource/images/icon-user.png" alt="" /></div>
+						<!-- <div class="input-group-addon"><img src="./resource/images/icon-user.png" alt="" /></div> -->
 
 						<input name="username" type="text" class="form-control" placeholder="请输入用户名登录">
 
@@ -69,7 +69,7 @@
 
 					<div class="form-group input-group">
 
-						<div class="input-group-addon"><img src="./resource/images/icon-pass.png" alt="" /></div>
+						<!-- <div class="input-group-addon"><img src="./resource/images/icon-pass.png" alt="" /></div> -->
 
 						<input name="password" type="password" class="form-control" placeholder="请输入登录密码">
 
