@@ -12,6 +12,8 @@ $setting = $_W['setting'];
 template('user/login');
 
 function _login($forward = '') {
+	// echo 111;
+	// die;
 	global $_GPC, $_W;
 	load()->model('user');
 	$member = array();

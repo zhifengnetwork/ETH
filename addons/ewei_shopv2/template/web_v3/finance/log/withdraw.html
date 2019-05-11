@@ -40,15 +40,15 @@
 
                 <span class="input-group-select">
 
-                    <select name="status" class="form-control"   style="width:80px;"  >
+                    <select name="status1" class="form-control"   style="width:80px;"  >
 
-                        <option value="" {if $_GPC['status']==''}selected{/if}>状态</option>
+                        <option value="" {if $_GPC['status1']==''}selected{/if}>状态</option>
 
-                        <option value="1" {if $_GPC['status']=='1'}selected{/if}>完成</option>
+                        <option value="1" {if $_GPC['status1']=='1'}selected{/if}>完成</option>
 
-                        <option value="0" {if $_GPC['status']=='0'}selected{/if}>申请中</option>
+                        <option value="0" {if $_GPC['status1']=='0'}selected{/if}>申请中</option>
 
-                        <option value="-1" {if $_GPC['status']=='-1'}selected{/if}>失败</option>
+                        <option value="-1" {if $_GPC['status1']=='-1'}selected{/if}>失败</option>
 
                     </select>
 
@@ -102,7 +102,7 @@
 
                 <span class="input-group-btn">
 
-                    <button class="btn btn-primary" type="submit"> 搜索</button>
+                    <button class="btn btn-primary" name="submit" value="submit" type="submit"> 搜索</button>
 
                     {ifp 'finance.log.withdraw.export'}
 

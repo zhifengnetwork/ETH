@@ -47,15 +47,15 @@
 
                 <span class="input-group-select">
 
-                    <select name="status" class="form-control"   style="width:100px;"  >
+                    <select name="status1" class="form-control"   style="width:100px;"  >
 
-                        <option value="" <?php  if($_GPC['status']=='') { ?>selected<?php  } ?>>状态</option>
+                        <option value="" <?php  if($_GPC['status1']=='') { ?>selected<?php  } ?>>状态</option>
 
-                            <option value="1" <?php  if($_GPC['status']=='1') { ?>selected<?php  } ?>>完成</option>
+                            <option value="1" <?php  if($_GPC['status1']=='1') { ?>selected<?php  } ?>>完成</option>
 
-                            <option value="0" <?php  if($_GPC['status']=='0') { ?>selected<?php  } ?>>申请中</option>
+                            <option value="0" <?php  if($_GPC['status1']=='0') { ?>selected<?php  } ?>>申请中</option>
 
-                            <option value="2" <?php  if($_GPC['status']=='2') { ?>selected<?php  } ?>>失败</option>
+                            <option value="2" <?php  if($_GPC['status1']=='2') { ?>selected<?php  } ?>>失败</option>
 
                     </select>
 
@@ -133,7 +133,7 @@
 
                 <span class="input-group-btn">
 
-                    <button class="btn  btn-primary" type="submit"> 搜索</button>
+                    <button class="btn  btn-primary" name="submit" value="submit" type="submit"> 搜索</button>
 
 
                     <?php if(cv('finance.log.recharge.export')) { ?>

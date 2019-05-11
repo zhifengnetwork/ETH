@@ -84,10 +84,9 @@ class Qrcode_EweiShopV2Page extends CommissionMobileLoginPage
 
 		$goodsid = intval($_GPC['goodsid']);
 
-
+		
 
 		if (!empty($goodsid)) {
-
 			$goods = pdo_fetch('select * from ' . tablename('ewei_shop_goods') . ' where uniacid=:uniacid and id=:id limit 1', array(':uniacid' => $_W['uniacid'], ':id' => $goodsid));
 
 			$goods = set_medias($goods, 'thumb');
@@ -105,26 +104,24 @@ class Qrcode_EweiShopV2Page extends CommissionMobileLoginPage
 			}
 
 		}
-
+		
 
 
 		if (!$share_goods) {
-
+			
 			if (empty($set['closemyshop'])) {
 
 				$_W['shopshare'] = array('imgUrl' => $myshop['logo'], 'title' => $myshop['name'], 'desc' => $myshop['desc'], 'link' => mobileUrl('commission/share', array('mid' => $member['id']), true));
-
+				
 			}
 
 			else {
 
 				$_W['shopshare'] = array('imgUrl' => !empty($share_set['icon']) ? $share_set['icon'] : $_W['shopset']['shop']['logo'], 'title' => !empty($share_set['title']) ? $share_set['title'] : $_W['shopset']['shop']['name'], 'desc' => !empty($share_set['desc']) ? $share_set['desc'] : $_W['shopset']['shop']['description'], 'link' => mobileUrl('commission/share', array('mid' => $member['id']), true));
-
+				
 			}
 
 		}
-
-
 
 		if ($_W['ispost']) {
 
@@ -179,12 +176,17 @@ class Qrcode_EweiShopV2Page extends CommissionMobileLoginPage
 				}
 
 			}
-
-
-
 			show_json(1, array('img' => $img . '?t=' . TIMESTAMP));
 
+		}else{
+			$img = "";
+			if (empty($img)) {
+
+				$img = $this->model->createShopImage();
+
+			}
 		}
+		
 
 		if($q){
 			$p = p('poster');
@@ -212,10 +214,12 @@ class Qrcode_EweiShopV2Page extends CommissionMobileLoginPage
 			}
 			returnJson(array('img' => $img . '?t=' . TIMESTAMP));
 		}		
-
-
-		$set['qrcode_content'] = htmlspecialchars_decode($set['qrcode_content'], ENT_QUOTES);
-
+		
+		if($set['qrcode_content'] == null){
+			$set['qrcode_content'] = $img;
+		}else{
+			$set['qrcode_content'] = htmlspecialchars_decode($set['qrcode_content'], ENT_QUOTES);
+		}
 		include $this->template();
 
 	}

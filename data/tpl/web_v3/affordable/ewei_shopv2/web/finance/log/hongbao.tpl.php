@@ -15,7 +15,11 @@
     }
 </style>
 
-<div class="page-header"><img src="../addons/ewei_shopv2/static/images/font_31.png">当前位置：<span class="text-primary">红包领取记录</span></div>
+<div class="page-header">
+    <span>释放到自有账户总额:<?php  echo $moneys;?></span>　　　　　　　　
+    <span>释放到复投账户总额:<?php  echo $moneys2;?></span>　　　　　　　　
+    <span>释放总额:<?php  echo $moneys3;?></span>　
+    <img src="../addons/ewei_shopv2/static/images/font_31.png">当前位置：<span class="text-primary">红包领取记录</span></div>
 
 <div class="page-content">
 
