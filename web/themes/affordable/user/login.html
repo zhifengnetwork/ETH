@@ -120,7 +120,8 @@
 <script>
 
 function formcheck() {
-	
+	console.log($('#remember:checked').length);
+	return;
 	if($('#remember:checked').length == 1) {
 
 		cookie.seet('remember-username', $(':text[name="username"]').val());

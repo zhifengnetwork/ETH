@@ -1,14 +1,22 @@
 <?php
+
 /**
  * [ZhiFun System] Copyright (c) 2016 ZHIFUN.CC
  * WeiShiHui is NOT a free software, it under the license terms, visited http://www.zhifun.cc/ for more details.
  */
 defined('IN_IA') or exit('Access Denied');
 define('IN_GW', true);
-if (checksubmit() || $_W['isajax']) {
+
+if (checksubmit() || $_W['isajax'] || $_W['ispost']) {
+	// echo 222222;
 	_login($_GPC['referer']);
 }
+// echo 333333;
+
 $setting = $_W['setting'];
+// print_r($setting);
+// print_r($_GPC['referer']);
+// die;
 template('user/login');
 
 function _login($forward = '') {
