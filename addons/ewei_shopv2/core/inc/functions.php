@@ -1059,7 +1059,8 @@ if (!function_exists('webUrl')) {
 		$query = array_merge(array('m' => 'ewei_shopv2'), $query);
 
 		if ($full) {
-			return $_W['siteroot'] . 'web/' . substr(wurl('site/entry', $query), 2);
+			// return $_W['siteroot'] . 'web/' . substr(wurl('site/entry', $query), 2);
+			return './' . substr(wurl('site/entry', $query), 2);
 		}
 
 		return wurl('site/entry', $query);
