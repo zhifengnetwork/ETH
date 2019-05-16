@@ -24,8 +24,14 @@
             <a class="back"></a>
 
         </div>
-
+        <?php  if($type == 3) { ?>
+        <div class="title">转币记录</div>
+        <?php  } else if($type == 4) { ?>
+        <div class="title">提币记录</div>
+        <?php  } else { ?>
         <div class="title">投资记录</div>
+        <?php  } ?>
+        
 
     </div>
 
@@ -113,7 +119,9 @@
     <script language='javascript'>
 
         require(['biz/member/investmentjilu'], function (modal) {
+            console.log(<?php  echo $type;?>)
 
+            // $('.title').html('转币记录')
             modal.init({ type: "<?php  echo $type;?>" });
 
         });

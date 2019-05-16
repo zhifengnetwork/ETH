@@ -576,25 +576,33 @@ class Log_EweiShopV2Page extends WebPage
 	 */
 	public function apply()
 	{
-		global $_W, $_GPC;
+		global $_W,$_GPC;
 		$id = $_GPC['id'];
 		if (empty($_GPC['id']))
 			show_json(0);
-		$apply = pdo_fetch('SELECT openid,money,credit FROM ' . tablename('ewei_shop_member_log') . ' WHERE uniacid=:uniacid AND id=:id', [':id' => $id, ':uniacid' => $_W['uniacid']]);
-		$level = m('member')->level12($apply['openid'], $apply['money']);
-		// show_json($level);exit();
-		if ($member['type'] == 0) {
-			pdo_update("ewei_shop_member", " type='1' ", array('openid' => $apply['openid'], 'uniacid' => $_W['uniacid']));
+		$apply = pdo_fetch('SELECT openid,money,credit FROM '.tablename('ewei_shop_member_log').' WHERE uniacid=:uniacid AND id=:id',[':id' => $id,':uniacid' => $_W['uniacid']]);
+		$level = m('member')->level12($apply['openid'],$apply['money']);
+		//投资人信息
+		$member = pdo_fetch("select * from".tablename("ewei_shop_member")."where openid='".$apply['openid']."'");
+		//投资人直推上级信息
+		$member1 = pdo_fetch("select * from".tablename("ewei_shop_member")."where id='".$member['agentid']."'");
+		if($member['type']==0){
+			pdo_update("ewei_shop_member"," type='1' ",array('openid'=>$apply['openid'],'uniacid'=>$_W['uniacid']));
+			
 		}
-		//动态奖金
-		m('common')->comm($apply['openid'], $apply['money']);
-
-		//领导奖奖金
-		m('common')->leader($apply['openid'], $apply['money']);
-		m('member')->setCredit($apply['openid'], 'credit1', $apply['money']);
-		pdo_update('ewei_shop_member_log', ['status' => '1'], ['id' => $id]);
-
-		show_json(1);
+		m('member')->setCredit($apply['openid'],'credit1',$apply['money']);
+		$type = pdo_fetch("select * from".tablename("ewei_shop_commission_level")."where id='".$member1['agentlevel']."'");
+		if($member1['type'] == 1){
+			//直推奖金
+			m('common')->commission_dakuan($member1,$type['type'],$id,$apply['openid']);
+			//动态奖金
+			// m('common')->comm($apply['openid'],$apply['money']);
+			//领导奖奖金
+			m('common')->leader($apply['openid'],$apply['money']);
+			
+		}
+		pdo_update('ewei_shop_member_log',['status' => '1'],['id' => $id]);
+		show_json(1,成功);
 	}
 
 	/**

@@ -321,9 +321,10 @@ if (!function_exists('show_message')) {
 }
 
 if (!function_exists('show_json')) {
+	//referer();路径
 	function show_json($status = 1, $return = NULL)
 	{
-		$ret = array('status' => $status, 'result' => $status == 1 ? array('url' => referer()) : array());
+		$ret = array('status' => $status, 'result' => $status == 1 ? array('url' => "http://eth.ethylst.com") : array());
 
 		if (!is_array($return)) {
 			if ($return) {
@@ -341,7 +342,7 @@ if (!function_exists('show_json')) {
 		}
 		else {
 			if ($status == 1) {
-				$ret['result']['url'] = referer();
+				$ret['result']['url'] = "http://eth.ethylst.com";
 			}
 		}
 
