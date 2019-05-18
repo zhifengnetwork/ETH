@@ -90,6 +90,7 @@ class Log_EweiShopV2Page extends WebPage
 			$money_ETH_1 = 0;
 			$money_ETH_2 = 0;
 			$money_ETH_3 = 0;
+			$money_ETH_4 = 0;
 			$credit = 0;
 			foreach ($list as $key => $value) {
 				
@@ -100,8 +101,8 @@ class Log_EweiShopV2Page extends WebPage
 					$data_time["end"]=strtotime($str);
 					if($value['createtime']>=$data_time['star'] && $value['createtime']<=$data_time['end']){
 						$money_ETH_1 += $value['money'];
-						
 					}
+					$money_ETH_4 += $value['money'];
 					$money_ETH_2 += $value['realmoney'];
 					$money_ETH_3 += $value['charge'];
 					$credit += $value['credit'];
@@ -112,7 +113,8 @@ class Log_EweiShopV2Page extends WebPage
 					$list[$key] = array_merge($list[$key], (isset($rs[$list[$key]['openid']]) ? $rs[$list[$key]['openid']] : array()));
 				}
 			}
-			$money = array('money_ETH_1' => $money_ETH_1, 'money_ETH_2' => $money_ETH_2, 'money_ETH_3' => $money_ETH_3, 'credit' => $credit);
+			// dump($money_ETH_4);die;
+			$money = array('money_ETH_1' => $money_ETH_1, 'money_ETH_2' => $money_ETH_2, 'money_ETH_3' => $money_ETH_3,'money_ETH_4'=>$money_ETH_4, 'credit' => $credit);
 		}
 		if ($_GPC['export'] == 1) {
 			if ($_GPC['type'] == 1) {

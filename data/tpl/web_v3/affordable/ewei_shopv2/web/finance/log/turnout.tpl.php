@@ -9,7 +9,8 @@
     }
 </style>
 <div class="page-header">
-<span>投资金额总额:<?php  echo $money['money_ETH_1'];?></span>　　　　　　　　
+<span>今日投资金额总额:<?php  echo $money['money_ETH_1'];?></span>　　　　　　　　
+<span>投资金额总额:<?php  echo $money['money_ETH_4'];?></span>　　　　　　　　
 <span>投资ETH总额:<?php  echo $money['credit'];?></span>　　　　　　　
 <img src="../addons/ewei_shopv2/static/images/font_31.png">当前位置：<span class="text-primary">一键复投记录</span></div>
 

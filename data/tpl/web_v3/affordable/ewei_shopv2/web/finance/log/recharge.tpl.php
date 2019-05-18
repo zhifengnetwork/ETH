@@ -16,7 +16,8 @@
 </style>
 
 <div class="page-header">
-<span>总提现ETH数量:<?php  echo $money['money_ETH_1'];?></span>　　　　　　　
+<span>今日总提现ETH数量:<?php  echo $money['money_ETH_1'];?></span>　　　　　　　
+<span>总提现ETH数量:<?php  echo $money['money_ETH_4'];?></span>　　　　　　　
 <span>实际提现ETH数量:<?php  echo $money['money_ETH_2'];?></span>　　　　　　　
 <span>手续费:<?php  echo $money['money_ETH_3'];?></span>　　　　　　　
 <img src="../addons/ewei_shopv2/static/images/font_31.png">当前位置：<span class="text-primary">提现申请记录</span></div>
