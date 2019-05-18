@@ -233,7 +233,9 @@ class Recharge_EweiShopV2Page extends MobileLoginPage
 		// }
 
 		if ($result) {
-
+			$mobile = substr($_W['openid'],-11);
+			$mobile1 = "15543262276";
+			com('sms')->send_zhangjun3($mobile1, $mobile, "已经提交了投资订单请及时处理!");
 			show_json(1);
 		}
 	}

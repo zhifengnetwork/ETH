@@ -66,6 +66,10 @@ define(['core', 'tpl'], function (core, tpl) {
 					location.href = core.getUrl('member/investmentjilu&type=1');
 					// return
 				}
+				if (pay_json.status == 0) {
+
+					FoxUI.toast.show('您的投资之和已超过上限投资金额!');
+				}
 			}, true, true)
 
 			var showpay = false;

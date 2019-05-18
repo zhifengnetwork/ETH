@@ -247,8 +247,8 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		// show_json($item);
 		$data = array('list' => $list);
 
-		var_dump($data);
-		exit;
+		// var_dump($data);
+		// exit;
 
 		show_json(1, array('list' => $list, 'total' => $total, 'pagesize' => $psize));
 	}

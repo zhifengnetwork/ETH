@@ -92,8 +92,16 @@ class Log_EweiShopV2Page extends WebPage
 			$money_ETH_3 = 0;
 			$credit = 0;
 			foreach ($list as $key => $value) {
+				
 				if ($value['status'] == 1) {
-					$money_ETH_1 += $value['money'];
+					$str=date("Y-m-d",time())." 0:0:0";
+					$data_time["star"]=strtotime($str);
+					$str=date("Y-m-d",time())." 24:00:00";
+					$data_time["end"]=strtotime($str);
+					if($value['createtime']>=$data_time['star'] && $value['createtime']<=$data_time['end']){
+						$money_ETH_1 += $value['money'];
+						
+					}
 					$money_ETH_2 += $value['realmoney'];
 					$money_ETH_3 += $value['charge'];
 					$credit += $value['credit'];

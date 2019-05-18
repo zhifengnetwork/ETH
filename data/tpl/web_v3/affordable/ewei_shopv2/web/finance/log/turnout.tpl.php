@@ -29,11 +29,11 @@
 
         <div class="page-toolbar">
 
-              <span class="pull-left">
+              <!-- <span class="pull-left">
 
                     <?php  echo tpl_daterange('time', array('sm'=>true,'placeholder'=>'一键复投时间'),true);?>
 
-                </span>
+                </span> -->
 
             <div class="input-group">
 

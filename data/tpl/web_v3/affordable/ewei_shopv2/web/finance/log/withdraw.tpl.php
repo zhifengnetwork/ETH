@@ -10,8 +10,8 @@
 </style>
 
 <div class="page-header">
-<span>投资金额总额:<?php  echo $money['money_ETH_1'];?></span>　　　　　　　　
 <span>投资ETH总额:<?php  echo $money['credit'];?></span>　　　　　　　　
+<span>今日投资ETH总额:<?php  echo $money['money_ETH_1'];?></span>　　　　　　　
 <img src="../addons/ewei_shopv2/static/images/font_31.png">当前位置：<span class="text-primary">投资申请记录</span></div>
 
 <div class="page-content">
@@ -30,11 +30,11 @@
 
         <div class="page-toolbar">
 
-              <span class="pull-left">
+              <!-- <span class="pull-left">
 
                     <?php  echo tpl_daterange('time', array('sm'=>true,'placeholder'=>'投资时间'),true);?>
 
-                </span>
+                </span> -->
 
             <div class="input-group">
 
@@ -90,7 +90,7 @@
 
                     <select name="searchfield" class="form-control" style="width:110px;"  >
 
-                        <option value="logno" <?php  if($_GPC['searchfield']=='logno') { ?>selected<?php  } ?>>申请ID</option>
+                        <option value="logno" <?php  if($_GPC['searchfield']=='logno') { ?>selected<?php  } ?>>序号</option>
 
                         <option value="member" <?php  if($_GPC['searchfield']=='member') { ?>selected<?php  } ?>>会员信息</option>
 
@@ -140,30 +140,30 @@
 
                 <thead class="navbar-inner">
 
-                <tr>
+                <tr style="width: 100%;">
 
-                    <th style='width:180px;'>申请ID</th>
+                    <th style='width:5%;'>序号</th>
 
-                    <th>粉丝</th>
+                    <th style='width:10%'>粉丝</th>
 
-                    <th>会员信息</th>
+                    <th style='width:10%'>会员信息</th>
 
                     <!-- <th style='width:100px;'>提现金额<br/>应到账金额<br/>手续费金额</th> -->
-                    <th style='width:180px;'>投资金额</th>
+                    <th style='width:10%'>投资金额</th>
 
-                    <th style='width:180px;'>充币数量</th>
+                    <th style='width:10%'>充币数量</th>
 
                     <!-- <th style="width: 80px;">已发送金额 <br/>(微信红包)</th> -->
 
                     <!-- <th style='width:180px;'>提现方式</th> -->
 
-                    <th >投资时间</th>
+                    <th style='width:10%'>投资时间</th>
 
-                    <th style="width:180px;hight:100px;">支付凭证</th>
+                    <th style="width:10%;height:70px;">支付凭证</th>
 
-                    <th style='width:100px;'>状态</th>
+                    <th style='width:10%;'>状态</th>
 
-                    <th style='width:150px;text-align: center;'>操作</th>
+                    <th style='width:10%;text-align: center;'>操作</th>
 
                 </tr>
 
@@ -201,9 +201,9 @@
 
                         <?php if(cv('member.member.view')) { ?>
 
-                        <a  href="<?php  echo webUrl('member/list/detail',array('id' => $row['mid']));?>" target='_blank'>
+                        <a  href="<?php  echo webUrl('member/list/detail',array('id' => $row['mid']));?>" target='_blank' >
 
-                            <img class="radius50" src='<?php  echo tomedia($row['avatar'])?>' style='width:30px;height:30px;padding1px;border:1px solid #ccc'  onerror="this.src='../addons/ewei_shopv2/static/images/noface.png'"/> <?php  echo $row['nickname'];?>
+                            <img class="radius50" src="<?php  echo tomedia($row['avatar'])?>" style='width:30px;height:30px;padding1px;border:1px solid #ccc'  onerror="this.src='../addons/ewei_shopv2/static/images/noface.png'"/> <?php  echo $row['nickname'];?>
 
                         </a>
 
@@ -286,8 +286,8 @@
                     <td><?php  echo date('Y-m-d',$row['createtime'])?><br/><?php  echo date('H:i',$row['createtime'])?></td>
 
                     <td>
-                        <a href="<?php  echo $row['url'];?>">
-                            <img src="<?php  echo $row['url'];?>" style="width:100px;hight:100px;">
+                        <a href="<?php  echo $row['url'];?>" target='_blank'>
+                            <img src="<?php  echo $row['url'];?>" style="width:50px;height:70px;">
                         </a>
                     </td>
 
@@ -431,8 +431,6 @@
 
                         </a> -->
                     </td>
-
-
                 </tr>
 
                 <?php  } } ?>
