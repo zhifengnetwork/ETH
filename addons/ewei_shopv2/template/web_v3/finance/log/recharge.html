@@ -168,25 +168,25 @@
 
                 <thead>
 
-                <tr>
+                <tr style="width:100%;">
 
-                    <th >提现单号</th>
+                    <th style="width:20%;">提现单号</th>
 
-                    <th >粉丝</th>
+                    <th style="width:15%;">粉丝</th>
 
-                    <th >会员信息</th>
+                    <th style="width:10%;">会员信息</th>
 
-                    <th >提币详情</th>
+                    <th style="width:15%;">提币详情</th>
 
-                    <th >提现时间</th>
+                    <th style="width:10%;">提现时间</th>
 
-                    <th style='text-align: center;'>提现地址</th>
+                    <th style='text-align: center;width:10%;'>提现地址</th>
 
-                    <th style='text-align: center;'>二维码</th>
+                    <th style='text-align: center;width:10%;'>二维码</th>
 
-                    <th style='text-align: center;'>状态</th>
+                    <th style='text-align: center;width:10%;'>状态</th>
 
-                    <th style="text-align: center;">操作</th>
+                    <th style="text-align: center;width:10%;">操作</th>
 
                 </tr>
 

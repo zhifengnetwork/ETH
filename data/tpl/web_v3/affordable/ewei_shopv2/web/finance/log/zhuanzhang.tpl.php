@@ -91,24 +91,24 @@
 
                 <thead>
 
-                <tr>
+                <tr style="width: 100%">
 
-                    <th style='width:120px;'>转账id</th>
+                    <th style='width:5%;'>序号</th>
 
-                    <th style="width: 250px;">转账人</th>
+                    <th style="width: 15%;">转账人</th>
 
-                    <th style="width: 250px;">收款人</th>
+                    <th style="width: 15%;">收款人</th>
 
-                    <th>转账金额</th>
+                    <th style="width: 10%;">转账金额</th>
 
-                    <th>实到金额</th>
+                    <th style="width: 10%;">实到金额</th>
 
-                    <th>手续费</th>
+                    <th style="width: 10%;">手续费</th>
 
-                    <th style='width:100px;'>转账时间</th>
+                    <th style='width:10%;'>转账时间</th>
 
 
-                    <th style='width:200px;text-align: center;'>转账状态</th>
+                    <th style='width:10%;text-align: center;'>转账状态</th>
 
                 </tr>
 

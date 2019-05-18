@@ -122,28 +122,28 @@
 
                 <thead class="navbar-inner">
 
-                <tr>
+                <tr style="width: 100%">
 
-                    <th style='width:120px;'>复投记录ID</th>
+                    <th style='width:5%;'>复投记录ID</th>
 
-                    <th>粉丝</th>
+                    <th style='width:15%;'>粉丝</th>
 
-                    <th>会员信息</th>
+                    <th style='width:15%;'>会员信息</th>
 
                     <!-- <th style='width:100px;'>提现金额<br/>应到账金额<br/>手续费金额</th> -->
-                    <th style='width:200px;'>一键复投金额</th>
+                    <th style='width:10%;'>一键复投金额</th>
 
-                    <th style='width:200px;'>充ETH数量</th>
+                    <th style='width:10%;'>充ETH数量</th>
 
                     <!-- <th style="width: 80px;">已发送金额 <br/>(微信红包)</th> -->
 
                     <!-- <th style='width:180px;'>提现方式</th> -->
 
-                    <th >投资时间</th>
+                    <th style='width:10%;'>投资时间</th>
 
-                    <th >复投类型</th>
+                    <th style='width:10%;'>复投类型</th>
 
-                    <th style='width:100px;'>状态</th>
+                    <th style='width:5%;'>状态</th>
 
                     <th style="width: 0"></th>
 

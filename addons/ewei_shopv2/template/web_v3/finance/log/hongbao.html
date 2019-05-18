@@ -105,22 +105,22 @@
 
                 <thead>
 
-                <tr>
-                    <th style='width:150px;'>红包ID</th>
+                <tr style="width:100%;">
+                    <th style='width:5%;'>红包ID</th>
 
-                    <th style='width:250px;'>领取会员</th>
+                    <th style='width:15%;'>领取会员</th>
 
-                    <th style='width:200px;'>自由账户</th>
+                    <th style='width:10%;'>自由账户</th>
 
-                    <th style='width:200px;'>复投账户</th>
+                    <th style='width:10%;'>复投账户</th>
 
-                    <th style='width:200px;'>领取时间</th>
+                    <th style='width:10%;'>领取时间</th>
 
-                    <th style='width:300px;text-align: center;'>发放类型</th>
+                    <th style='width:10%;text-align: center;'>发放类型</th>
 
-                    <th style='text-align: center;'>返现类型</th>
+                    <th style='text-align: center;width:10%;'>返现类型</th>
 
-                    <th style='text-align: center;'>发放状态</th>
+                    <th style='text-align: center;width:10%;'>发放状态</th>
 
                 </tr>
 
