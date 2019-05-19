@@ -384,13 +384,24 @@ class Log_EweiShopV2Page extends WebPage
 		$list = pdo_fetchall($select . $tablename . $where . $limit, $params);
 		$moneys = 0;
 		$moneys2 = 0;
+		$money_ETH_1 = 0;
+		$money_ETH_2 = 0;
 		
 		foreach ($list as $key => $value)
 		{
+			$str=date("Y-m-d",time())." 0:0:0";
+			$data_time["star"]=strtotime($str);
+			$str=date("Y-m-d",time())." 24:00:00";
+			$data_time["end"]=strtotime($str);
+			if($value['time']>=$data_time['star'] && $value['time']<=$data_time['end']){
+				$money_ETH_1 += $value['money'];
+				$money_ETH_2 += $value['money2'];
+			}
 			$moneys += $value['money'];
 			$moneys2 += $value['money2'];
 		}
 		$moneys3 = $moneys + $moneys2;
+		$moneys4 = $money_ETH_1 + $money_ETH_2;
 		$total = pdo_fetchcolumn('SELECT count(rh.id) FROM ' . $tablename . $where, $params);
 		$pager = pagination2($total, $pindex, $psize);
 		// echo '<pre>';
