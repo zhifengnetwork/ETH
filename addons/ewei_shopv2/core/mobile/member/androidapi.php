@@ -2526,7 +2526,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 
 		
 
-		returnJson(['article'=>$art,'advs'=>$advs]);
+		returnJson(['article'=>$art,'advs'=>$advs,'readnum'=>$readnum,'likenum'=>$likenum]);
 	}
 
 	public function out()
