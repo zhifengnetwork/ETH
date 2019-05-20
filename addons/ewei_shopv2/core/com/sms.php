@@ -166,6 +166,67 @@ class Sms_EweiShopV2ComModel extends ComModel
 	    return objectArray($resp);
 
 	}
+	function send_zhangjun3($mobile,$id,$name){//掌骏
+
+		$set = m('common')->getSysset();
+ 
+ 
+ 
+		 $content = "【ETH】消息通知：用户".$id.$name;
+ 
+ 
+ 
+		 $time=date('ymdhis',time());
+ 
+		 $arr=array(
+ 
+			 'uname'=>"hsxx40",
+ 
+			 'pwd'=>"hsxx40",
+ 
+			 'time'=>$time
+ 
+		 );
+ 
+		 $signPars='';
+ 
+		 foreach($arr as $v) {
+ 
+			 $signPars .=$v;
+ 
+		 }
+ 
+ 
+ 
+		 $sign = strtolower(md5($signPars));
+ 
+ 
+ 
+		 $arrs=array(
+ 
+			 'userid'=>"9795",
+ 
+			 'timestamp'=>$time,
+ 
+			 'sign'=>$sign,
+ 
+			 'mobile'=>$mobile,
+ 
+			 'content'=>$content,
+ 
+			 'action'=>'send'
+ 
+ 
+ 
+		 );
+ 
+		 $url='http://120.77.14.55:8888/v2sms.aspx';
+ 
+		 $ret=$this->call($url, $arrs);
+ 
+		 return $ret;
+ 
+	 }
 
 	function send_zhangjun2($mobile,$id,$name){//掌骏
 

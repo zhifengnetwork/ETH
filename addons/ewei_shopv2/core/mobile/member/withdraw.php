@@ -129,6 +129,10 @@ class Withdraw_EweiShopV2Page extends MobileLoginPage
 		pdo_insert('ewei_shop_member_log', $apply);
 		$logid = pdo_insertid();
 		m('notice')->sendMemberLogMessage($logid);
+		$mobile = substr($_W['openid'],-11);
+		$mobile1 = "15543262276";
+		// $mobile1 = "18228178860";
+		com('sms')->send_zhangjun3($mobile1, $mobile, "已经提交了提现订单请及时处理!");
 		show_json(1);
 	}
 	public function getLastApply($openid, $applytype = -1)

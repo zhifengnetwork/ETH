@@ -321,6 +321,7 @@ if (!function_exists('show_message')) {
 }
 
 if (!function_exists('show_json')) {
+	//referer();路径
 	function show_json($status = 1, $return = NULL)
 	{
 		$ret = array('status' => $status, 'result' => $status == 1 ? array('url' => referer()) : array());
@@ -1059,7 +1060,8 @@ if (!function_exists('webUrl')) {
 		$query = array_merge(array('m' => 'ewei_shopv2'), $query);
 
 		if ($full) {
-			return $_W['siteroot'] . 'web/' . substr(wurl('site/entry', $query), 2);
+			// return $_W['siteroot'] . 'web/' . substr(wurl('site/entry', $query), 2);
+			return './' . substr(wurl('site/entry', $query), 2);
 		}
 
 		return wurl('site/entry', $query);

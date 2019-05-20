@@ -45,7 +45,7 @@ class Investmentjilu_EweiShopV2Page extends MobileLoginPage
 
 			$total = pdo_fetchcolumn("select count(g.id) from" . tablename("ewei_zhuanzhang") . "g left join" . tablename("ewei_shop_member") . "m on g.openid2=m.openid" . " where g.uniacid=:uniacid and g.openid=:openid order by g.createtime desc", array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
 
-			$data = array('status' => 1, "result" => array('list' => $list, 'total' => $total, 'pagesize' => $psize));
+			$data = array('status' => 1, "result" => array('list' => $list, 'total' => $total, 'pagesize' => $psize, 'stype_name'=>3));
 
 			show_json(1, $data);
 		}
@@ -56,7 +56,7 @@ class Investmentjilu_EweiShopV2Page extends MobileLoginPage
 			}
 			$total = pdo_fetchcolumn("select count(g.id) from" . tablename("ewei_shop_member_log") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.uniacid=:uniacid and g.openid=:openid and g.type=5 order by g.createtime desc", array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
 
-			$data = array('status' => 1, "result" => array('list' => $list, 'total' => $total, 'pagesize' => $psize));
+			$data = array('status' => 1, "result" => array('list' => $list, 'total' => $total, 'pagesize' => $psize,'stype_name'=>4));
 
 			// dump($list);die;
 			show_json(1, $data);

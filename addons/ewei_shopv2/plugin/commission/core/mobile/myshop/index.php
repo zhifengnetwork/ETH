@@ -46,7 +46,7 @@ class Index_EweiShopV2Page extends PluginMobilePage
 
 			if (!empty($set['closemyshop'])) {
 
-				$shopurl = mobileUrl('', array('mid' => $mid));
+				$shopurl = mobileUrl('account/register', array('mid' => $mid));
 
 				header('location: ' . $shopurl);
 

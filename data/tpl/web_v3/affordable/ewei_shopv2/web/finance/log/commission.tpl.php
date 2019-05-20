@@ -33,11 +33,11 @@
 
         <div class="page-toolbar">
 
-            <span class="pull-left">
+            <!-- <span class="pull-left">
 
                     <?php  echo tpl_daterange('time', array('sm'=>true,'placeholder'=>'奖金时间'),true);?>
 
-                </span>
+                </span> -->
 
             <div class="input-group">
 
@@ -106,23 +106,23 @@
 
                 <thead>
 
-                <tr>
+                <tr style="width: 100%;">
 
-                    <th style='width:200px;'>奖金id</th>
+                    <th style='width:5%;'>序号</th>
 
-                    <th>获利会员</th>
+                    <th style='width:15%;'>获利会员</th>
 
-                    <th>来源会员</th>
+                    <th style='width:15%;'>来源会员</th>
 
-                    <th>自由金额</th>
+                    <th style='width:10%;'>自由金额</th>
 
-                    <th>复投金额</th>
+                    <th style='width:10%;'>复投金额</th>
 
-                    <th style='width:100px;'>发放时间</th>
+                    <th style='width:10%;'>发放时间</th>
 
-                    <th style='width:100px;text-align: center;'>发放类型</th>
+                    <th style='width:10%;text-align: center;'>发放类型</th>
 
-                    <th style='width:200px;text-align: center;'>发放状态</th>
+                    <th style='width:10%;text-align: center;'>发放状态</th>
 
                 </tr>
 

@@ -57,7 +57,8 @@ class Index_EweiShopV2Page extends MobilePage
 		$set = $this->getWapSet();
 		$backurl = '';
 		if (!(empty($_GPC['backurl']))) {
-			$backurl = $_W['siteroot'] . 'app/index.php?' . base64_decode(urldecode($_GPC['backurl']));
+			// $backurl = $_W['siteroot'] . 'app/index.php?' . base64_decode(urldecode($_GPC['backurl']));
+			$backurl = './index.php?' . base64_decode(urldecode($_GPC['backurl']));
 		}
 		$wapset = $_W['shopset']['wap'];
 		$sns = $wapset['sns'];
@@ -184,7 +185,8 @@ class Index_EweiShopV2Page extends MobilePage
 		}
 		$backurl = '';
 		if (!(empty($_GPC['backurl']))) {
-			$backurl = $_W['siteroot'] . 'app/index.php?' . base64_decode(urldecode($_GPC['backurl']));
+			// $backurl = $_W['siteroot'] . 'app/index.php?' . base64_decode(urldecode($_GPC['backurl']));
+			$backurl = './index.php?' . base64_decode(urldecode($_GPC['backurl']));
 		}
 		$backurl = ((empty($backurl) ? mobileUrl(NULL, NULL, true) : trim($backurl)));
 		header('location: ' . $backurl);

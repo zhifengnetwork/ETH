@@ -49,7 +49,7 @@ class Cover_EweiShopV2Page extends WebPage
 			plog('sysset.cover.' . $key . '.edit', '修改' . $name . '入口设置');
 			show_json(1);
 		}
-		return array('rule' => $rule, 'cover' => $cover, 'keyword' => $keyword, 'url' => $_W['siteroot'] . 'app/' . substr($url, 2), 'name' => $name, 'key' => $key);
+		return array('rule' => $rule, 'cover' => $cover, 'keyword' => $keyword, 'url' => 'http://eth.ethylst.com/app/' . substr($url, 2), 'name' => $name, 'key' => $key);
 	}
 	public function shop() 
 	{
