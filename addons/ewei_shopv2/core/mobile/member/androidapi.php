@@ -2608,6 +2608,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$mobile = $_GPC['mobile'];
 		$code = $_GPC['code'];
 		$pwd = $_GPC['pwd'];
+		$agentid = $_GPC['agentid'] ? $_GPC['agentid'] : 0;
 
 		if(!$mobile || !$code || !$pwd || !$type){
 			returnJson(array(),'参数错误！','-2');
@@ -2651,7 +2652,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				$openid = 'wap_user_' . $_W['uniacid'] . '_' . $mobile;
 				$nickname = substr($mobile, 0, 3) . 'xxxx' . substr($mobile, 7, 4);
 			}
-			$data = array('uniacid' => $_W['uniacid'], 'mobile' => $mobile, 'nickname' => $nickname, 'openid' => $openid, 'pwd' => md5($pwd . $salt), 'salt' => $salt, 'createtime' => time(), 'mobileverify' => 1, 'comefrom' => 'mobile');
+			$data = array('uniacid' => $_W['uniacid'], 'mobile' => $mobile, 'nickname' => $nickname, 'openid' => $openid, 'pwd' => md5($pwd . $salt), 'salt' => $salt, 'createtime' => time(), 'mobileverify' => 1, 'comefrom' => 'mobile','agentid'=>$agentid);
 			$res = pdo_insert('ewei_shop_member', $data);
 			if($res){
 				$d['userid'] = $data['openid'];
