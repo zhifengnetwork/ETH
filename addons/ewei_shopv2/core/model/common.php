@@ -699,9 +699,9 @@ class Common_EweiShopV2Model
 				// 	$logName = '平级奖';
 				// 	$sourceType = 5;
 					$money = ($pj_money*10/100);
-					if($money>0){
+					if($money<0){
 						load()->func('logging');
-						logging_run(array("data"=>$pj_money));
+						logging_run(array("data"=>$pj_money,"id"=>json_encode($user)));
 					}
 				// 	$is_top = true;
 				}
@@ -713,12 +713,12 @@ class Common_EweiShopV2Model
 				$cmoney1 = round($money*0.8,6);
 				//复投·账户获钱
 				$cmoney2 = round($money*0.2,6);
-				$cmoney3 = $cmoney1 + $$cmoney2;
+				$cmoney3 = $cmoney1 + $cmoney2;
 				if($cmoney1<0){
 					load()->func('logging');
 					logging_run('数据为负数');
 				}
-				if($cmoney2>0){
+				if($cmoney2<0){
 					load()->func('logging');
 					logging_run('数据为负数');
 				}
