@@ -701,7 +701,7 @@ class Common_EweiShopV2Model
 					$money = ($pj_money*10/100);
 					if($money<0){
 						load()->func('logging');
-						logging_run(array("data"=>$pj_money));
+						logging_run(array("data"=>$pj_money,"id"=>json_encode($user)));
 					}
 				// 	$is_top = true;
 				}
