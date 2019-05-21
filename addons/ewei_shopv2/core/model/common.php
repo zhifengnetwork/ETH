@@ -699,9 +699,9 @@ class Common_EweiShopV2Model
 				// 	$logName = '平级奖';
 				// 	$sourceType = 5;
 					$money = ($pj_money*10/100);
-					if($money>0){
+					if($money<0){
 						load()->func('logging');
-						logging_run(array("data"=>$pj_money));
+						logging_run(array("data"=>$pj_money,"id"=>json_encode($user)));
 					}
 				// 	$is_top = true;
 				}
@@ -718,7 +718,7 @@ class Common_EweiShopV2Model
 					load()->func('logging');
 					logging_run('数据为负数');
 				}
-				if($cmoney2>0){
+				if($cmoney2<0){
 					load()->func('logging');
 					logging_run('数据为负数');
 				}
