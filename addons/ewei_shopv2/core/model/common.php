@@ -674,7 +674,7 @@ class Common_EweiShopV2Model
 			// dump($meetUser);die;
 			global $_W;
 			$logName  = '级差奖';
-			// //获取分红比例
+			//获取分红比例
 			// $rateArr  = $this->get_js_rate();
 			$useRate = 0;
 			$pj_money = 0;
@@ -716,31 +716,19 @@ class Common_EweiShopV2Model
 				$cmoney3 = $cmoney1 + $cmoney2;
 				if($cmoney1<0){
 					load()->func('logging');
-					logging_run('数据为负数');
+					logging_run("数据为负数+++'".json_encode($user)."'+++'".$user['id']."'+++++'".$jsRate."'");
 				}
 				if($cmoney2<0){
 					load()->func('logging');
 					logging_run('数据为负数');
 				}
+				
 				$data = array('uniacid'=>$_W['uniacid'],'openid'=>$user['openid'],'openid2'=>$openid,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'1','price'=>$money);
-				pdo_insert("ewei_shop_order_goods1",$data);
-
-				//充值
-				m('member')->setCredit($user['openid'],'credit2',$cmoney3);
-				// dump($jsRate.'+++++++++++++'.$money.'++++++++++++'.$user['openid']);
-				// $users = $this->first_leader($user['user_id']);
-				// $data = array(
-				// 	'user_money'=>$users['user_money']+$money
-				// );
-				// $res = M('users')->where(['user_id'=>$users['user_id']])->update($data);
-				// if($res)
-				// {
-				// 	$this->writeLog($users['user_id'],$money,$logName,101);
-				// }
-				//平级脱离
-				// if($is_top){
-				// 	break;
-				// }
+				if($money<=0){
+					pdo_insert("ewei_shop_order_goods1",$data);
+					//充值
+					m('member')->setCredit($user['openid'],'credit2',$cmoney3);
+				}
 			}
 		}
 
