@@ -179,7 +179,7 @@
 		<div class="qbadress">
 			<div class="fui-content-title">
 
-				支付宝二维码:
+				支付宝收款二维码:
 			</div>
 			<div class="fui-content-box">
 				<div class="pic zfb">
@@ -202,7 +202,7 @@
 		<div class="qbadress">
 			<div class="fui-content-title">
 
-				微信二维码:
+				微信收款二维码:
 			</div>
 			<div class="fui-content-box">
 				<div class="pic wx">

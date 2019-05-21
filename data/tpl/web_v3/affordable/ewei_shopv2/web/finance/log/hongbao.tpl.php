@@ -16,13 +16,13 @@
 </style>
 
 <div class="page-header">
-    <span>今日释放到自有账户总额:<?php  echo $money_ETH_1;?></span>　　　　　　　　
-    <span>今日释放到复投账户总额:<?php  echo $money_ETH_2;?></span>　　　　　　　　
-    <span>今日释放总额:<?php  echo $moneys4;?></span>　　　　　　　　
-    <span>释放到自有账户总额:<?php  echo $moneys;?></span>　　　　　　　　
-    <span>释放到复投账户总额:<?php  echo $moneys2;?></span>　　　　　　　　
-    <span>释放总额:<?php  echo $moneys3;?></span>　
-    <img src="../addons/ewei_shopv2/static/images/font_31.png">当前位置：<span class="text-primary">红包领取记录</span></div>
+    <span >今日释放到自有账户总额:<?php  echo $money_ETH_1;?></span>　
+    <span >今日释放到复投账户总额:<?php  echo $money_ETH_2;?></span>　
+    <span >今日释放总额:<?php  echo $moneys4;?></span>　
+    <span >释放到自有账户总额:<?php  echo $moneys;?></span>　
+    <span >释放到复投账户总额:<?php  echo $moneys2;?></span>　
+    <span >释放总额:<?php  echo $moneys3;?></span>
+    <img  src="../addons/ewei_shopv2/static/images/font_31.png">当前位置：<span class="text-primary">红包领取记录</span></div>
 
 <div class="page-content">
 

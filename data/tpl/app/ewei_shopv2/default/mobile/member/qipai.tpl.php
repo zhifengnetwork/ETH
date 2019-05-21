@@ -39,7 +39,8 @@
 
   <div class='fui-content navbar'>
     <ul class="uls">
-      <a class="lis" href="<?php  echo mobileUrl('member/lottery')?>">
+      <!-- <?php  echo mobileUrl('member/lottery')?> -->
+      <a class="lis zanweikaifang" href="">
           <img src="<?php  echo EWEI_SHOPV2_LOCAL?>static/icon/3D0.png" alt="" width="65%" height="100%">
           <img src="<?php  echo EWEI_SHOPV2_LOCAL?>static/icon/3D1.png" alt="" width="30%" height="100%">
       </a>
@@ -57,7 +58,14 @@
   </div>
 
 </div>
-
+<script>
+    $(function () {
+      $('.zanweikaifang').click(function () {
+        alert('暂未开放')
+      })
+    })
+    
+    </script>
 
 <?php  $this->footerMenus()?>
 <?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('_footer', TEMPLATE_INCLUDEPATH)) : (include template('_footer', TEMPLATE_INCLUDEPATH));?>

@@ -278,14 +278,14 @@
 			<div class="list_right icon icon-right"></div>
 		</a>
 	<?php  } ?>
-
-		<a href="<?php  echo mobileurl('account/download')?>" class="lis">
+		<!-- 下载app -->
+		<!-- <a href="<?php  echo mobileurl('account/download')?>" class="lis">
 			<div class="lis_left">
 				<img src="../addons/ewei_shopv2/static/images/xiazai.png" alt="">
 				<span>下载APP</span>
 			</div>
 			<div class="list_right icon icon-right"></div>
-		</a>
+		</a> -->
 
 		<!-- <a href="javascript:;" class="lis" >
 			<div class="lis_left">
