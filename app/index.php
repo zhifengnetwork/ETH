@@ -4,7 +4,7 @@
  * WeEngine is NOT a free software, it under the license terms, visited http://www.we7.cc/ for more details.
  */
 
-die("<h2>非常抱歉，临时关闭一会，修复几个问题,耐心等待片刻...</h2>");
+// die("<h2>非常抱歉，临时关闭一会，修复几个问题,耐心等待片刻...</h2>");
 define('IN_MOBILE', true);
 
 require '../framework/bootstrap.inc.php';
