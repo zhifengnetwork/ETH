@@ -699,6 +699,10 @@ class Common_EweiShopV2Model
 				// 	$logName = '平级奖';
 				// 	$sourceType = 5;
 					$money = ($pj_money*10/100);
+					if($money>0){
+						load()->func('logging');
+						logging_run(array("data"=>$pj_money));
+					}
 				// 	$is_top = true;
 				}
 				$useRate = $user_level['commission1'];
@@ -710,6 +714,14 @@ class Common_EweiShopV2Model
 				//复投·账户获钱
 				$cmoney2 = round($money*0.2,6);
 				$cmoney3 = $cmoney1 + $$cmoney2;
+				if($cmoney1<0){
+					load()->func('logging');
+					logging_run('数据为负数');
+				}
+				if($cmoney2>0){
+					load()->func('logging');
+					logging_run('数据为负数');
+				}
 				$data = array('uniacid'=>$_W['uniacid'],'openid'=>$user['openid'],'openid2'=>$openid,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'1','price'=>$money);
 				pdo_insert("ewei_shop_order_goods1",$data);
 
