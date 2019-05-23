@@ -281,8 +281,8 @@
 		</a>
 	<?php  } ?>
 		<!--修改后的退出登录-->
-		<a href="javascript:;" class="lis">
-			<div class="lis_left">
+		<a href="javascript:;" class="lis  fui-cell external btn-logout">
+			<div class="lis_left fui-cell-group">
 				<img src="../addons/ewei_shopv2/static/images/jizhi.png" alt="">
 				<span>退出登录</span>
 			</div>
@@ -318,12 +318,14 @@
 	</div>
 	
 	<!--原退出登录按钮-->
-	<!--<div class="fui-cell-group fui-cell-click transparent">-->
-		<!--<a class="fui-cell external btn-logout">-->
-			<!--<div class="fui-cell-text" style="text-align: center;margin-bottom: .5rem;background: #ffffff;">
+	<!-- <a href="javascript:;" class="lis">
+		<div class="fui-cell-group fui-cell-click transparent">
+			<a class="fui-cell external btn-logout">
+			<div class="fui-cell-text" style="text-align: center;margin-bottom: .5rem;">
 				<p class="fui-cell-text" style="color: #000000;">退出登录</p>
-			</div>-->
-	<!--</div>-->
+			</div>
+		</div>
+	</a> -->
 
 	<div class="mask0">
 		<div class="mask0_box">
