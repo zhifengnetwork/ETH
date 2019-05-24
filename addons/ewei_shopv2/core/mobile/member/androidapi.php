@@ -2652,6 +2652,13 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				$openid = 'wap_user_' . $_W['uniacid'] . '_' . $mobile;
 				$nickname = substr($mobile, 0, 3) . 'xxxx' . substr($mobile, 7, 4);
 			}
+			//查询是否开启注册送币
+			$sys = pdo_fetch("select give from ".tablename("ewei_shop_sysset")."where uniacid=".$_W['uniacid']);
+
+			if($sys['give']){
+				$data['give'] = $sys['give'];
+				// pdo_update("ewei_shop_member",array('credit4'=>$member['credit4']+$sys['give']),array('openid'=>$openid,'uniacid'=>$_W['uniacid']));
+			}
 			$data = array('uniacid' => $_W['uniacid'], 'mobile' => $mobile, 'nickname' => $nickname, 'openid' => $openid, 'pwd' => md5($pwd . $salt), 'salt' => $salt, 'createtime' => time(), 'mobileverify' => 1, 'comefrom' => 'mobile','agentid'=>$agentid);
 			$res = pdo_insert('ewei_shop_member', $data);
 			if($res){
