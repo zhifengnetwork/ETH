@@ -2718,7 +2718,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			m('member')->setCredit($_W['openid'], 'credit2', -$money);
 		} else if ($type == 4) {
 			if ($money > $member['credit4']) returnJson(array(),"您复投账户余额不足",-1);
-			$data['status'] = 2;
+			$data['status'] = 1;
 			$data['payment'] = 2;
 			$data['title'] = "复投账户一键复投";
 			$data['front_money'] = $member['credit4'];
