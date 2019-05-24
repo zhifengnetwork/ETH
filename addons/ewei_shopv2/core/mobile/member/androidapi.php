@@ -2728,20 +2728,20 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			returnJson(array(),'参数错误！',-1);
 		}
 		
-		// show_json($data);
-		if ($credit >= $money_propor) {
-			pdo_update("ewei_shop_member", "credit1='$money',suoding=0 ", array('openid' => $_W['openid'], 'uniacid' => $_W['uniacid']));
+		if($member['suoding']==1){
+			$levels2 = pdo_fetch("select *  from " . tablename("ewei_shop_commission_level2") . "where uniacid=:uniacid and start<=:credit1 and end>=:credit1 ", array(':uniacid' => $_W['uniacid'], ':credit1' => $money));
+			pdo_update("ewei_shop_member",array('credit1'=>$money,'suoding'=>0,'agentlevel'=>$levels2['id']), array('openid' => $_W['openid'], 'uniacid' => $_W['uniacid']));
 			pdo_delete("ewei_shop_receive_hongbao", array('openid' => $_W['openid']));
 			pdo_delete("ewei_shop_member_log", array('openid' => $_W['openid']));
 			pdo_delete("ewei_zhuanzhang", array('openid' => $_W['openid']));
 			pdo_delete("ewei_shop_order_goods1", array('openid' => $_W['openid']));
-		} else {
-			//判断用户是否达到管理升级条件
+		}else{
 			$level = m('member')->level12($_W['openid'],$money);
 			//向投资余额打款
-			m('member')->setCredit($_W['openid'], 'credit1', $money);
-			
+			m('member')->setCredit($_W['openid'], 'credit1', $money,"自由账户一键复投");
+
 		}
+		
 		if ($member['type'] == 0) {
 			pdo_update("ewei_shop_member", " type='1' ", array('openid' => $_W['openid'], 'uniacid' => $_W['uniacid']));
 		}
