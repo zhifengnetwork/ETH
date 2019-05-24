@@ -2675,19 +2675,12 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		global $_W;
 		global $_GPC;
 		$money = $_GPC['money'];
-
 		$type = $_GPC['type'];
-
 		if (empty($money)) returnJson(array(),"复投金额不能为0",-2);
-
 		$member = m('member')->getMember($_W['openid'], true);
-
 		$sys = pdo_fetch("select *from " . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
-
 		if (($member['credit1'] + $money) > $sys['bibi']) returnJson(array(),"您的投资已超过上限",-2);
-
 		$data = array('uniacid' => $_W['uniacid'], 'openid' => $_W['openid'], 'type' => 1, 'money' => $money, 'credit' => $money, 'createtime' => time(), 'section' => $ass['id']);
-
 		$credit = 0;
 		$receive_hongbao = pdo_fetchall("select * from" . tablename("ewei_shop_receive_hongbao") . "where openid='" . $_W['openid'] . "'");
 		foreach ($receive_hongbao as $k => $val) {
@@ -2695,7 +2688,6 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		}
 		//最高倍率相应的释放比例
 		$result  = pdo_fetch("select * from" . tablename("ewei_shop_commission_level4") . "where uniacid=" . $_W['uniacid'] . " and start<=" . $member['credit1'] . " and end>=" . $member['credit1']);
-
 		//释放的比例
 		$money_propor = $result['multiple'] * $member['credit1'];
 		if ($credit > $money_propor) {
@@ -2704,11 +2696,8 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				returnJson(array(),"激活复投账户必须等于'" . $member['credit1'] . "'/ETH",-2);
 			}
 		}
-		// show_json($data);
 		if ($type == 2) {  //自由账户一键复投
-
 			if ($money > $member['credit2']) returnJson(array(),"您自由账户余额不足",-2);
-
 			$data['status'] = 1;
 			$data['payment'] = 1;
 			$data['title'] = "自由账户一键复投";
@@ -2716,20 +2705,18 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			$data['after_money'] = $member['credit2'] - $money;
 			m('member')->setCredit($_W['openid'], 'credit2', -$money);
 		} else if ($type == 4) {
-
 			if ($money > $member['credit4']) returnJson(array(),"您复投账户余额不足",-1);
-
 			$data['status'] = 2;
 			$data['payment'] = 2;
 			$data['title'] = "复投账户一键复投";
 			$data['front_money'] = $member['credit4'];
 			$data['after_money'] = $member['credit4'] - $money;
-
-
 			m('member')->setCredit($_W['openid'], 'credit4', -$money);
 		}else{
 			returnJson(array(),'参数错误！',-1);
 		}
+		//判断用户是否达到管理升级条件
+		$level = m('member')->level12($_W['openid'],$money);
 		// show_json($data);
 		if ($credit >= $money_propor) {
 			pdo_update("ewei_shop_member", "credit1='$money',suoding=0 ", array('openid' => $_W['openid'], 'uniacid' => $_W['uniacid']));
@@ -2740,13 +2727,52 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		} else {
 			//向投资余额打款
 			m('member')->setCredit($_W['openid'], 'credit1', $money);
-
 			if ($member['type'] == 0) {
 				pdo_update("ewei_shop_member", " type='1' ", array('openid' => $_W['openid'], 'uniacid' => $_W['uniacid']));
 			}
 		}
+		//投资人直推上级信息
+		$member1 = pdo_fetch("select * from".tablename("ewei_shop_member")."where id='".$member['agentid']."'");
+		$type = pdo_fetch("select * from".tablename("ewei_shop_commission_level")."where id='".$member1['agentlevel']."'");
 		$result = pdo_insert("ewei_shop_member_log", $data);
+		if (!empty($result)) {
+			$uid = pdo_insertid();
+			$apply = pdo_fetch('SELECT openid,money,credit FROM '.tablename('ewei_shop_member_log').' WHERE uniacid=:uniacid AND id=:id',[':id' => $uid,':uniacid' => $_W['uniacid']]);
+			if($member1['type'] == 1){
+				//直推奖金
+				m('common')->commission_dakuan($member1,$type['type'],$uid,$apply['openid']);
+				//领导奖奖金
+				m('common')->leader($apply['openid'],$apply['money']);
+			}
+		}
 		if ($result) returnJson(array(),"一键复投成功",1);
+	}
+
+	public function lingdaolevel(){
+			global $_W;
+			global $_GPC;
+			$member = pdo_fetchall("select id,openid,agentlevel3,clickcount,agentid from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']);
+			foreach ($member as $key => $val) {
+				$tuandui = count($this->digui($member,$val['id']));
+				//查询 当前会员的领导等级
+				$level1 = pdo_fetch("select *  from ".tablename("ewei_shop_commission_level3")."where uniacid=:uniacid and id = :id ",array(':uniacid'=>$_W['uniacid'],':id'=>$val['agentlevel3']));
+				$tuijian_user = pdo_fetchall("select * from " .tablename("ewei_shop_member")." where agentid='".$val['id']."'");
+				$nums_tuijian = count($tuijian_user);
+				// dump($nums_tuijian.'--------------ordercount-------直推');
+				// dump($tuandui.'+++++++++++downcount++++++++++团队');
+				// dump($level1);
+				//查询该会员目前直推人和团队人能达到的等级
+				$levels1 = pdo_fetch("select *  from ".tablename("ewei_shop_commission_level3")."where uniacid=:uniacid and ordercount<=:clickcount and downcount<=:tuandui order by type desc ",array(':uniacid'=>$_W['uniacid'],':clickcount'=>$nums_tuijian,':tuandui'=>$tuandui));
+
+				if($level1 && $levels1){
+					pdo_update('ewei_shop_member', array('agentlevel3' => $levels1['id']), array('uniacid' => $_W['uniacid'], 'id' => $val['id']));
+				}else if($levels1){
+					pdo_update('ewei_shop_member', array('agentlevel3' => $levels1['id']), array('uniacid' => $_W['uniacid'], 'id' => $val['id']));
+				}  
+			}
+
+
+
 	}
 
 	public function fotou_info(){
