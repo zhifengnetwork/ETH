@@ -1768,7 +1768,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			$count =  pdo_fetch("select sum(g.money) as money,sum(g.money2) as money2 from" . tablename("ewei_shop_receive_hongbao") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.uniacid=:uniacid  and g.openid=:openid", array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
 
 			if (!$count['money'] && !$count['money2']) {
-				$summoeny = 0;
+				$summoeny = $count['money'] + $count['money2'];
 			} else {
 				$summoeny = $count['money'] + $count['money2'];
 			}
