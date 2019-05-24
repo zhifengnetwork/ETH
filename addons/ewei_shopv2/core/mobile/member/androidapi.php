@@ -93,7 +93,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$set = $_W['shopset']['trade'];
 		if (empty($set['withdraw']))
 		{
-			$data1 = array('status'=>0,"fail"=>"系统未开启提现");
+			$data1 = array('status'=>0,"fail"=>"系统未开启提币");
 			echo json_encode($data1);exit();
 		}
 		$set_array = array();
@@ -123,12 +123,12 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			}
 		}
 
-		m('member')->setCredit($_W['openid'], 'credit2', -$money, array(0, $_W['shopset']['set'][''] . '余额提现预扣除: ' . $money . ',实际到账金额:' . $realmoney . ',手续费金额:' . $deductionmoney));
+		m('member')->setCredit($_W['openid'], 'credit2', -$money, array(0, $_W['shopset']['set'][''] . '余额提币预扣除: ' . $money . ',实际到账金额:' . $realmoney . ',手续费金额:' . $deductionmoney));
 		$logno = m('common')->createNO('member_log', 'logno', 'RW');
 		$apply['uniacid'] = $_W['uniacid'];
 		$apply['logno'] = $logno;
 		$apply['openid'] = $_W['openid'];
-		$apply['title'] = 'TRX提现';
+		$apply['title'] = 'ETH提币';
 		$apply['type'] = 4;
 		$apply['createtime'] = time();
 		$apply['status'] = 0;
@@ -141,7 +141,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		pdo_insert('ewei_shop_member_log', $apply);
 		$logid = pdo_insertid();
 		m('notice')->sendMemberLogMessage($logid);
-		$data = array('status'=>1,"success"=>"提现申请成功");
+		$data = array('status'=>1,"success"=>"提币申请成功");
 		echo json_encode($data);exit();
 	}
 
@@ -161,7 +161,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$set = $_W['shopset']['trade'];
 		if (empty($set['withdraw']))
 		{
-			$data1 = array('status'=>0,"fail"=>"系统未开启提现");
+			$data1 = array('status'=>0,"fail"=>"系统未开启提币");
 			echo json_encode($data1);exit();
 		}
 		$set_array = array();
@@ -172,12 +172,12 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$credit = m('member')->getCredit($_W['openid'], 'credit3');
 		if ($money <= 0)
 		{
-			$data1 = array('status'=>0,"fail"=>"提现金额错误");
+			$data1 = array('status'=>0,"fail"=>"提币金额错误");
 			echo json_encode($data1);exit();
 		}
 		if ($credit < $money)
 		{
-			$data1 = array('status'=>0,"fail"=>"提现金额过大");
+			$data1 = array('status'=>0,"fail"=>"提币金额过大");
 			echo json_encode($data1);exit();
 		}
 		$apply = array();
@@ -193,7 +193,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				$deductionmoney = $money_array['deductionmoney'];
 			}
 		}
-		m('member')->setCredit($_W['openid'], 'credit3', -$money, array(0, $_W['shopset']['set'][''] . '余额提现预扣除: ' . $money . ',实际到账金额:' . $realmoney . ',手续费金额:' . $deductionmoney));
+		m('member')->setCredit($_W['openid'], 'credit3', -$money, array(0, $_W['shopset']['set'][''] . '余额提币预扣除: ' . $money . ',实际到账金额:' . $realmoney . ',手续费金额:' . $deductionmoney));
 		m('member')->setCredit($member['openid'],'credit2',$money);
 		$logno = m('common')->createNO('member_log', 'logno', 'RW');
 		$apply['uniacid'] = $_W['uniacid'];
@@ -2174,7 +2174,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$set = $_W['shopset']['trade'];
 		$withdrawcharge = $set['withdrawcharge'];
 		if (empty($set['withdraw'])) {
-			returnJson(array(), '系统未开启提现!',-2);
+			returnJson(array(), '系统未开启提币!',-2);
 		}
 		$set_array = array();
 
@@ -2187,7 +2187,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$money = floatval($_GPC['money']);
 		$deductionmoney = $money / (100/$withdrawcharge);
 		
-		if (!floor($money / $set['withdrawmoney']))  returnJson(array(), "提现的金额必须是" . $set['withdrawmoney'] . "的倍数",-2);
+		if (!floor($money / $set['withdrawmoney']))  returnJson(array(), "提币的金额必须是" . $set['withdrawmoney'] . "的倍数",-2);
 		$credit = m('member')->getCredit($_W['openid'], 'credit2');
 
 		$apply = array();
@@ -2203,12 +2203,12 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			}
 		}
 		
-		m('member')->setCredit($_W['openid'], 'credit2', -$money, array(0, $_W['shopset']['set'][''] . '余额提现预扣除: ' . $money . ',实际到账金额:' . $realmoney . ',手续费金额:' . $deductionmoney));
+		m('member')->setCredit($_W['openid'], 'credit2', -$money, array(0, $_W['shopset']['set'][''] . '余额提币预扣除: ' . $money . ',实际到账金额:' . $realmoney . ',手续费金额:' . $deductionmoney));
 		$logno = m('common')->createNO('member_log', 'logno', 'RW');
 		$apply['uniacid'] = $_W['uniacid'];
 		$apply['logno'] = $logno;
 		$apply['openid'] = $_W['openid'];
-		$apply['title'] = 'ETH提现余额';
+		$apply['title'] = 'ETH提币余额';
 		$apply['type'] = 4;
 		$apply['payment'] = 1;
 		$apply['createtime'] = time();
