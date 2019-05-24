@@ -1762,6 +1762,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			$list =  pdo_fetchall("select g.*,m.nickname from" . tablename("ewei_shop_receive_hongbao") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.uniacid=:uniacid  and g.openid=:openid order by g.time desc", array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
 
 			foreach ($list as $key => $val) {
+				$list[$key]['summoeny'] = $val['money']+$val['money2'];
 				$list[$key]['createtime'] = date("Y-m-d H:i:s", $val['time']);
 			}
 
@@ -1781,6 +1782,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$list =  pdo_fetchall("select g.*,m.nickname from" . tablename("ewei_shop_order_goods1") . "g left join" . tablename("ewei_shop_member") . "m on g.openid2=m.openid" . " where g.uniacid=:uniacid and g.type='$type' and g.openid=:openid order by g.createtime desc", array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
 
 		foreach ($list as $key => $val) {
+			$list[$key]['summoeny'] = $val['money']+$val['money2'];
 			$list[$key]['createtime'] = date("Y-m-d H:i:s", $val['createtime']);
 		}
 
