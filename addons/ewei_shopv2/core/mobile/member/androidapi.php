@@ -2697,10 +2697,15 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$result  = pdo_fetch("select * from" . tablename("ewei_shop_commission_level4") . "where uniacid=" . $_W['uniacid'] . " and start<=" . $member['credit1'] . " and end>=" . $member['credit1']);
 		//释放的比例
 		$money_propor = $result['multiple'] * $member['credit1'];
-		if ($credit > $money_propor) {
+		// if ($credit > $money_propor) {
 
+		// 	if ($money != $member['credit1']) {
+		// 		returnJson(array(),"激活复投账户必须等于'" . $member['credit1'] . "'/ETH",-2);
+		// 	}
+		// }
+		if($member['suoding']==1){
 			if ($money != $member['credit1']) {
-				returnJson(array(),"激活复投账户必须等于'" . $member['credit1'] . "'/ETH",-2);
+				show_json(-1, "激活复投账户必须等于'" . $member['credit1'] . "'/ETH");
 			}
 		}
 		if ($type == 2) {  //自由账户一键复投
