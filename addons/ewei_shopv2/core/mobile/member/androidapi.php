@@ -1782,7 +1782,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 
 		foreach ($list as $key => $val) {
 			$list[$key]['createtime'] = date("Y-m-d H:i:s", $val['createtime']);
-			$list[$key]['money3'] = $val['money'] + $val['money2'];
+			$list[$key]['money3'] = sprintf("%.6f",$val['money'] + $val['money2']);
 		}
 
 		$count =  pdo_fetch("select sum(g.money) as money,sum(g.money2) as money2 from" . tablename("ewei_shop_order_goods1") . "g left join" . tablename("ewei_shop_member") . "m on g.openid2=m.openid" . " where g.uniacid=:uniacid and g.type='$type' and g.openid=:openid", array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
