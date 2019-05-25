@@ -280,14 +280,14 @@
 			<div class="list_right icon icon-right"></div>
 		</a>
 	{/if}
-		<!--修改后的退出登录-->
-		<a href="javascript:;" class="lis  fui-cell external btn-logout">
-			<div class="lis_left fui-cell-group">
-				<img src="../addons/ewei_shopv2/static/images/jizhi.png" alt="">
-				<span>退出登录</span>
-			</div>
-			<div class="list_right icon icon-right"></div>
-		</a>
+
+	<a href="javascript:;" class="lis fui-cell external btn-logout">
+		<div class="lis_left fui-cell-group">
+			<img src="../addons/ewei_shopv2/static/images/jizhi.png" alt="">
+			<span>退出登录</span>
+		</div>
+		<div class="list_right icon icon-right"></div>
+	</a>
 		<!-- 下载app -->
 		<!-- <a href="{php echo mobileurl('account/download')}" class="lis">
 			<div class="lis_left">
@@ -316,16 +316,18 @@
 			</div>
 		</a> -->
 	</div>
-	
-	<!--原退出登录按钮-->
-	<!-- <a href="javascript:;" class="lis">
-		<div class="fui-cell-group fui-cell-click transparent">
-			<a class="fui-cell external btn-logout">
+
+	<!-- <div class="fui-cell-group fui-cell-click transparent">
+
+		<a class="fui-cell external btn-logout">
+
 			<div class="fui-cell-text" style="text-align: center;margin-bottom: .5rem;">
 				<p class="fui-cell-text" style="color: #000000;">退出登录</p>
 			</div>
-		</div>
-	</a> -->
+
+		</a>
+
+	</div> -->
 
 	<div class="mask0">
 		<div class="mask0_box">
@@ -357,7 +359,7 @@
 			<div class="mask1_title"><img src="../addons/ewei_shopv2/static/images/jinggao.png">提示：该操作有风险！</div>
 			<p class="mask1_txt">该操作将锁定您的账户，不能再进行投资和收益，不能解锁账户</p>
 			<p class="mask1_txt">退出规则：进行该操作，交易日退还投资的50%，剩下的50%分5个月退还！<span style="color:red">取消操作点击不退出</span></p>
-			<p>投资总额：{$arr2['money']} </p>
+			<p>投资总额：{$arr2['credit1']} </p>
 			<p>可退金额：<span class="ketuiMoney">{$money4}</span> </p>
 			<div class="mask1_box_btn">
 				<button class="mask1_btn1 mask1_btn">不退出</button>

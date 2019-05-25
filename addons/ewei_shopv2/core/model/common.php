@@ -668,7 +668,6 @@ class Common_EweiShopV2Model
 
 		}
 		//根据等级判断用户是否获取领导收益
-
 		public function bonus($meetUser,$price,$openid)
 		{
 			// dump($meetUser);die;
@@ -684,14 +683,14 @@ class Common_EweiShopV2Model
 			foreach($meetUser as $k => $user){
 			
 				if($user['type']==0 || $user['suoding'] == 1 || $user['isblack'] == 1) continue;
-				dump($user);
+				// dump($user);
 				// $grade  = $user['agent_user'];
 				// if($grade < $userLevel) continue;
 				//获取分红比例
 				$user_level = pdo_fetch("select * from".tablename("ewei_shop_commission_level3")."where id='".$user['agentlevel3']."'");
 				$jsRate = intval($user_level['commission1']) - $useRate;
 				
-				// if($jsRate<0) continue;
+				if($jsRate<0) continue;
 				$money = ($price*$jsRate/100);
 				
 				if($jsRate==0) 
@@ -732,6 +731,71 @@ class Common_EweiShopV2Model
 				m('member')->setCredit($user['openid'],'credit2',$cmoney3);
 			}
 		}
+		// public function bonus($meetUser,$price,$openid)
+		// {
+		// 	// dump($meetUser);die;
+		// 	global $_W;
+		// 	$logName  = '级差奖';
+		// 	//获取分红比例
+		// 	// $rateArr  = $this->get_js_rate();
+		// 	$useRate = 0;
+		// 	$pj_money = 0;
+		// 	$userLevel = 0;
+		// 	$sourceType = 4;
+		// 	$is_top = false;
+		// 	foreach($meetUser as $k => $user){
+		// 		// $useRate = 0;
+		// 		if($user['type']==0 || $user['suoding'] == 1 || $user['isblack'] == 1) continue;
+		// 		// dump($user);
+		// 		// $grade  = $user['agent_user'];
+		// 		if($user['agentlevel3']==0 || $user['agentlevel3']==""){
+		// 			continue;
+		// 		}
+		// 		// if($grade < $userLevel) continue;
+		// 		//获取分红比例
+		// 		$user_level = pdo_fetch("select * from".tablename("ewei_shop_commission_level3")."where id='".$user['agentlevel3']."'");
+		// 		$jsRate = $user_level['commission1'] - $useRate;
+				
+		// 		if($jsRate<0) continue;
+		// 		$money = ($price*$jsRate/100);
+				
+		// 		if($jsRate==0) 
+		// 		{
+
+		// 		// 	$jsRate  = $rateArr[127];
+		// 		// 	$logName = '平级奖';
+		// 		// 	$sourceType = 5;
+		// 			$money = ($pj_money*10/100);
+		// 			if($money<0){
+		// 				load()->func('logging');
+		// 				logging_run(array("data"=>$pj_money,"id"=>json_encode($user),'useRate'=>$useRate));
+		// 			}
+		// 		// 	$is_top = true;
+		// 		}
+		// 		$useRate = $user_level['commission1'];
+		// 		// $userLevel = $grade;
+		// 		$pj_money = $money;
+				
+		// 		//静态账户获得金额
+		// 		$cmoney1 = round($money*0.8,6);
+		// 		//复投·账户获钱
+		// 		$cmoney2 = round($money*0.2,6);
+		// 		$cmoney3 = $cmoney1 + $cmoney2;
+		// 		if($cmoney1<0){
+		// 			load()->func('logging');
+		// 			logging_run("数据为负数+++'".json_encode($user)."'+++'".$user['id']."'+++++'".$jsRate."++++++++++++++'".$useRate."''");
+		// 		}
+		// 		if($cmoney2<0){
+		// 			load()->func('logging');
+		// 			logging_run('数据为负数');
+		// 		}
+				
+		// 		$data = array('uniacid'=>$_W['uniacid'],'openid'=>$user['openid'],'openid2'=>$openid,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'1','price'=>$money);
+		// 		pdo_insert("ewei_shop_order_goods1",$data);
+		// 		//充值
+		// 		m('member')->setCredit($user['openid'],'credit2',$cmoney3);
+		// 	}
+		// }
 
 
 

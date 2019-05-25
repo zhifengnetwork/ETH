@@ -75,9 +75,14 @@ class Index_EweiShopV2Page extends MobileLoginPage
 
 		//退出机制---------------------
 		//查看该会员的总投资金额
-		$arr2 = pdo_fetch("select sum(money) as money from" . tablename("ewei_shop_member_log") . "where uniacid=" . $_W['uniacid'] . " and openid=:openid and type=1", array(':openid' => $_W['openid']));
+		// $arr2 = pdo_fetch("select * from" . tablename("ewei_shop_member") . "where openid=" . $_W['openid'] . , array(':openid' => $_W['openid']));
+		
 
-		$money4 = $arr2['money'] * 0.5;
+		$arr2 = pdo_fetch("select * from" .tablename("ewei_shop_member")."where openid='".$_W['openid']."'");
+		// var_dump($arr2);
+		$money4 = $arr2['credit1'] * 0.5;
+		// var_dump($money4);
+		
 
 
 
