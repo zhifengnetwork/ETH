@@ -155,7 +155,9 @@
     border-top: 1px solid #ccc;
 		padding: 5px 0;
 	}
-
+	.fui-cell-group .fui-cell.btn-logout .fui-cell-text {
+		background: #fff;
+	}
 </style>
 
 <div class='fui-page  fui-page-current'>
@@ -320,7 +322,7 @@
 		<a class="fui-cell external btn-logout">
 
 			<div class="fui-cell-text" style="text-align: center;margin-bottom: .5rem;">
-				<p class="fui-cell-text">退出登录</p>
+				<p class="fui-cell-text" style="color: #000000;">退出登录</p>
 			</div>
 
 		</a>

@@ -1,4 +1,4 @@
- {template '_header'}
+<?php defined('IN_IA') or exit('Access Denied');?> <?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('_header', TEMPLATE_INCLUDEPATH)) : (include template('_header', TEMPLATE_INCLUDEPATH));?>
 <link rel="stylesheet" href="../addons/ewei_shopv2/static/css/bass.css">
 <link rel="stylesheet" href="../addons/ewei_shopv2/static/css/me.css">
 <title>我的</title>
@@ -164,30 +164,30 @@
 	<div class="header">
 		<div class="headerTit">我的</div>
 		<div class="headerCon">
-			<a class="headerCon_left" href="{php echo mobileUrl('member/info/face')}">
+			<a class="headerCon_left" href="<?php  echo mobileUrl('member/info/face')?>">
 				<div class="imgBox">
-					<img src="{$member['avatar']}" onerror="this.src='../addons/ewei_shopv2/static/images/noface.png'" />
+					<img src="<?php  echo $member['avatar'];?>" onerror="this.src='../addons/ewei_shopv2/static/images/noface.png'" />
 				</div>
 				<div class="left_txt" style="color: white;">
-					<span> {$member['nickname']} </span>
+					<span> <?php  echo $member['nickname'];?> </span>
 
-					<span>会员ID：{$member['id']}</span>
+					<span>会员ID：<?php  echo $member['id'];?></span>
 
-					{if $huiyuanlevel['levelname1'] == ''}
+					<?php  if($huiyuanlevel['levelname1'] == '') { ?>
 						<span> 会员等级: 暂无 </span>
-					{else}
-						<span> 会员等级: {$huiyuanlevel['levelname1']} </span>
-					{/if}
+					<?php  } else { ?>
+						<span> 会员等级: <?php  echo $huiyuanlevel['levelname1'];?> </span>
+					<?php  } ?>
 
-					{if $huiyuanlevel['levelname3'] == ''}
+					<?php  if($huiyuanlevel['levelname3'] == '') { ?>
 						<span> 市场等级: 暂无 </span>
-					{else}
-						<span> 市场等级: {$huiyuanlevel['levelname3']} </span>
-					{/if}
+					<?php  } else { ?>
+						<span> 市场等级: <?php  echo $huiyuanlevel['levelname3'];?> </span>
+					<?php  } ?>
 
 				</div>
 			</a>
-			<div class="headerCon_right">{if $member['type']==0}未激活{else if $member['type']==1}已激活{else}已锁户{/if}</div>
+			<div class="headerCon_right"><?php  if($member['type']==0) { ?>未激活<?php  } else if($member['type']==1) { ?>已激活<?php  } else { ?>已锁户<?php  } ?></div>
 		</div>
 	</div>
 	<div class="list">
@@ -208,7 +208,7 @@
 			</div>
 			<div class="list_right icon icon-right"></div>
 		</a> -->
-		<a href="{php echo mobileUrl('member/wallet')}" class="lis">
+		<a href="<?php  echo mobileUrl('member/wallet')?>" class="lis">
 			<div class="lis_left">
 				<img src="../addons/ewei_shopv2/static/images/zhifu.png" alt="">
 				<span>支付管理</span>
@@ -216,7 +216,7 @@
 			<div class="list_right icon icon-right"></div>
 		</a>
 
-		<a href="{php echo mobileUrl('member/payManage')}" class="lis">
+		<a href="<?php  echo mobileUrl('member/payManage')?>" class="lis">
 			<div class="lis_left">
 				<img src="../addons/ewei_shopv2/static/images/qianbao.png" alt="">
 				<span>钱包地址</span>
@@ -224,14 +224,14 @@
 			<div class="list_right icon icon-right"></div>
 		</a>
 
-		<!-- <a href="{php echo mobileurl('member/guamai/guamaijilu')}" class="lis">
+		<!-- <a href="<?php  echo mobileurl('member/guamai/guamaijilu')?>" class="lis">
 			<div class="lis_left">
 				<img src="../addons/ewei_shopv2/static/images/jihuo.png" alt="">
 				<span>C2C订单</span>
 			</div>
 			<div class="list_right icon icon-right"></div>
 		</a> -->
-		<a class="lis" href="{php echo mobileUrl('member/changepwd')}">
+		<a class="lis" href="<?php  echo mobileUrl('member/changepwd')?>">
 			<div class="lis_left">
 				<img src="../addons/ewei_shopv2/static/images/mima.png" alt="">
 				<span>修改密码</span>
@@ -239,7 +239,7 @@
 			<div class="list_right icon icon-right"></div>
 		</a>
 
-		<!-- <a href="{php echo mobileUrl('member/info')}" class="lis">
+		<!-- <a href="<?php  echo mobileUrl('member/info')?>" class="lis">
 			<div class="lis_left">
 				<img src="../addons/ewei_shopv2/static/images/xiaoxi.png" alt="">
 				<span>实名认证</span>
@@ -247,7 +247,7 @@
 			<div class="list_right icon icon-right"></div>
 		</a> -->
 
-		<a href="{php echo mobileUrl('commission/qrcode')}" class="lis">
+		<a href="<?php  echo mobileUrl('commission/qrcode')?>" class="lis">
 			<div class="lis_left">
 				<img src="../addons/ewei_shopv2/static/images/yijian.png" alt="">
 				<span>我的邀请</span>
@@ -255,7 +255,7 @@
 			<div class="list_right icon icon-right"></div>
 		</a>
 
-		<a href="{php echo mobileurl('article/list')}" class="lis">
+		<a href="<?php  echo mobileurl('article/list')?>" class="lis">
 			<div class="lis_left">
 				<img src="../addons/ewei_shopv2/static/images/gonggao2.png" alt="">
 				<span>平台公告</span>
@@ -271,7 +271,7 @@
 			<div class="list_right icon icon-right"></div>
 		</a>
 
-	{if $member['type'] != 2 && $member['suoding'] != 1}
+	<?php  if($member['type'] != 2 && $member['suoding'] != 1) { ?>
 		<a href="javascript:;" class="lis tuichujizhi">
 			<div class="lis_left">
 				<img src="../addons/ewei_shopv2/static/images/jizhi.png" alt="">
@@ -279,7 +279,8 @@
 			</div>
 			<div class="list_right icon icon-right"></div>
 		</a>
-	{/if}
+	<?php  } ?>
+<<<<<<< HEAD
 
 	<a href="javascript:;" class="lis fui-cell external btn-logout">
 		<div class="lis_left fui-cell-group">
@@ -288,8 +289,18 @@
 		</div>
 		<div class="list_right icon icon-right"></div>
 	</a>
+=======
+		<!--修改后的退出登录-->
+		<a href="javascript:;" class="lis  fui-cell external btn-logout">
+			<div class="lis_left fui-cell-group">
+				<img src="../addons/ewei_shopv2/static/images/jizhi.png" alt="">
+				<span>退出登录</span>
+			</div>
+			<div class="list_right icon icon-right"></div>
+		</a>
+>>>>>>> 96314174f1788efb832a33562668350719fec478
 		<!-- 下载app -->
-		<!-- <a href="{php echo mobileurl('account/download')}" class="lis">
+		<!-- <a href="<?php  echo mobileurl('account/download')?>" class="lis">
 			<div class="lis_left">
 				<img src="../addons/ewei_shopv2/static/images/xiazai.png" alt="">
 				<span>下载APP</span>
@@ -316,40 +327,53 @@
 			</div>
 		</a> -->
 	</div>
+<<<<<<< HEAD
 
 	<!-- <div class="fui-cell-group fui-cell-click transparent">
 
 		<a class="fui-cell external btn-logout">
 
+=======
+	
+	<!--原退出登录按钮-->
+	<!-- <a href="javascript:;" class="lis">
+		<div class="fui-cell-group fui-cell-click transparent">
+			<a class="fui-cell external btn-logout">
+>>>>>>> 96314174f1788efb832a33562668350719fec478
 			<div class="fui-cell-text" style="text-align: center;margin-bottom: .5rem;">
 				<p class="fui-cell-text" style="color: #000000;">退出登录</p>
 			</div>
+<<<<<<< HEAD
 
 		</a>
 
 	</div> -->
+=======
+		</div>
+	</a> -->
+>>>>>>> 96314174f1788efb832a33562668350719fec478
 
 	<div class="mask0">
 		<div class="mask0_box">
 			<div class="mask0_box_title">积分释放</div>
 			<div class="mask0_box_lis">
 				<span>当前积分：</span>
-				<span class="credit1">{$member['credit1']}</span>
+				<span class="credit1"><?php  echo $member['credit1'];?></span>
 			</div>
 			<div class="mask0_box_lis">
 				<span>本次可得静态余额：</span>
-				<span class="money">{$money}</span>
+				<span class="money"><?php  echo $money;?></span>
 			</div>
 			<div class="mask0_box_lis">
 				<span>本次可得复投余额：</span>
-				<span class="money2">{$money2}</span>
+				<span class="money2"><?php  echo $money2;?></span>
 			</div>
 
-			{if !$arr}
+			<?php  if(!$arr) { ?>
 			<div class="mask0_box_btn">确定释放</div>
-			{else}
+			<?php  } else { ?>
 			<div class="mask0_box_btn">今日已释放</div>
-			{/if}
+			<?php  } ?>
 
 		</div>
 	</div>
@@ -359,8 +383,8 @@
 			<div class="mask1_title"><img src="../addons/ewei_shopv2/static/images/jinggao.png">提示：该操作有风险！</div>
 			<p class="mask1_txt">该操作将锁定您的账户，不能再进行投资和收益，不能解锁账户</p>
 			<p class="mask1_txt">退出规则：进行该操作，交易日退还投资的50%，剩下的50%分5个月退还！<span style="color:red">取消操作点击不退出</span></p>
-			<p>投资总额：{$arr2['credit1']} </p>
-			<p>可退金额：<span class="ketuiMoney">{$money4}</span> </p>
+			<p>投资总额：<?php  echo $arr2['credit1'];?> </p>
+			<p>可退金额：<span class="ketuiMoney"><?php  echo $money4;?></span> </p>
 			<div class="mask1_box_btn">
 				<button class="mask1_btn1 mask1_btn">不退出</button>
 				<button class="mask1_btn0 mask1_btn">确认退出</butt>
@@ -376,8 +400,8 @@
 				<span class="tit_QQ kefu_tit_active">QQ客服</span>
 				<span class="tit_WX">微信客服</span>
 			</div>
-			<img src=" {php echo tomedia($sys['kefufile'])}" alt="" class="erweima qqerweima">
-			<img src="{php echo tomedia($sys['wxkffile'])}" alt="" class="erweima wxerweima">
+			<img src=" <?php  echo tomedia($sys['kefufile'])?>" alt="" class="erweima qqerweima">
+			<img src="<?php  echo tomedia($sys['wxkffile'])?>" alt="" class="erweima wxerweima">
 			<div class="mask2_close">关闭</div>
 		</div>
 	</div>
@@ -425,14 +449,14 @@
 
 	$('.lis').click(function (event) {
 
-		if("{$member['type']}" == 2 || "{$member['suoding']}" == 1){
+		if("<?php  echo $member['type'];?>" == 2 || "<?php  echo $member['suoding'];?>" == 1){
 			alert('该账号已锁户！');
 			return false;
 		}
 	})
 	$('.headerCon').click(function (event) {
 
-		if("{$member['type']}" == 2 || "{$member['suoding']}" == 1){
+		if("<?php  echo $member['type'];?>" == 2 || "<?php  echo $member['suoding'];?>" == 1){
 			alert('该账号已锁户！');
 			return false;
 		}
@@ -451,7 +475,7 @@
 		let money = $('.ketuiMoney').html();
 
 		$.ajax({
-			url:"{php echo mobileUrl('member/index/out')}",
+			url:"<?php  echo mobileUrl('member/index/out')?>",
 			data:{
 				money: money
 			},
@@ -474,10 +498,10 @@
 	})
 
 	$('.jifenshifang').click(function () {
-		// console.log('{$arr}');
-		if ('{$arr}') {
+		// console.log('<?php  echo $arr;?>');
+		if ('<?php  echo $arr;?>') {
 			alert('今日积分已释放');
-		} else if("{$member['type']}"==2){
+		} else if("<?php  echo $member['type'];?>"==2){
 			alert('您的账号已锁户');
 		}else{
 			$('.mask0').fadeIn(300);
@@ -495,7 +519,7 @@
 			$(this).fadeOut(300);
 		} else {
 			$.ajax({
-				url: "{php echo mobileUrl('member/index')}",
+				url: "<?php  echo mobileUrl('member/index')?>",
 				type: 'post',
 				data: { type: 1 },
 				dataType: 'json',
@@ -509,16 +533,16 @@
 	})
 </script>
 
-{if empty($_GPC['isnewstore']) }
+<?php  if(empty($_GPC['isnewstore']) ) { ?>
 
-{php $this->footerMenus()}
+<?php  $this->footerMenus()?>
 
-{else}
+<?php  } else { ?>
 
-{template '../../../plugin/newstore/template/mobile/default/_menu'}
+<?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('../../../plugin/newstore/template/mobile/default/_menu', TEMPLATE_INCLUDEPATH)) : (include template('../../../plugin/newstore/template/mobile/default/_menu', TEMPLATE_INCLUDEPATH));?>
 
-{/if}
+<?php  } ?>
 
 
 
-{template '_footer'}
+<?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('_footer', TEMPLATE_INCLUDEPATH)) : (include template('_footer', TEMPLATE_INCLUDEPATH));?>

@@ -12,7 +12,11 @@
 
         </div>
 
+<<<<<<< HEAD
         <div class="title">提币</div>
+=======
+        <div class="title">提现</div>
+>>>>>>> 96314174f1788efb832a33562668350719fec478
 
         <div class="fui-header-right">&nbsp;</div>
 
@@ -24,17 +28,29 @@
 
             <div id="tab" class="fui-tab fui-tab-danger">
 
+<<<<<<< HEAD
             <a data-tab="tab1"  class="external <?php  if($_GPC['type']==0) { ?>active<?php  } ?>" href="<?php  echo mobileUrl('member/withdraw', array('type' => 0))?>" data-type='0'>ETH提币</a>
 
             <!-- <a data-tab="tab2" class='external <?php  if($_GPC['type']==1) { ?>active<?php  } ?>' href="<?php  echo mobileUrl('member/withdraw1', array('type' => 1))?>"  data-type='1'>静态账户</a> -->
 
             <!-- <a data-tab="tab3" class='external <?php  if($_GPC['type']==2) { ?>active<?php  } ?>' href="<?php  echo mobileUrl('member/withdraw2', array('type' => 2))?>"  data-type='1'>复投账户</a> -->
+=======
+            <a data-tab="tab1"  class="external <?php  if($_GPC['type']==0) { ?>active<?php  } ?>" href="<?php  echo mobileUrl('member/withdraw', array('type' => 0))?>" data-type='0'>ETH提现</a>
+
+            <!-- <a data-tab="tab2" class='external <?php  if($_GPC['type']==1) { ?>active<?php  } ?>' href="<?php  echo mobileUrl('member/withdraw1', array('type' => 1))?>"  data-type='1'>静态账户</a> -->
+
+            <a data-tab="tab3" class='external <?php  if($_GPC['type']==2) { ?>active<?php  } ?>' href="<?php  echo mobileUrl('member/withdraw2', array('type' => 2))?>"  data-type='1'>复投账户</a>
+>>>>>>> 96314174f1788efb832a33562668350719fec478
 
             </div>
 
             <div class='fui-cell-title'>
 
+<<<<<<< HEAD
                 <div class='fui-cell-info' style='color:#999'>当前可提币金额: ￥<span id='current'><?php  echo number_format($credit,6)?></span> <a id='btn-all' class='text-primary external' href='#'>全部提币</a></div>
+=======
+                <div class='fui-cell-info' style='color:#999'>当前可提现金额: ￥<span id='current'><?php  echo number_format($credit,2)?></span> <a id='btn-all' class='text-primary external' href='#'>全部提现</a></div>
+>>>>>>> 96314174f1788efb832a33562668350719fec478
 
             </div>
 
@@ -180,7 +196,11 @@
 
             <?php  if(!empty($withdrawcharge)) { ?>
 
+<<<<<<< HEAD
             <div class='fui-cell-title'>提币手续费为 <?php  echo $withdrawcharge;?>%</div>
+=======
+            <div class='fui-cell-title'>提现手续费为 <?php  echo $withdrawcharge;?>%</div>
+>>>>>>> 96314174f1788efb832a33562668350719fec478
 
             <?php  } ?>
 
@@ -194,13 +214,21 @@
 
 
 
+<<<<<<< HEAD
             <div class='fui-cell-title charge-group' style="display: none;">本次提币将扣除手续费 ￥<span class='text-danger' id='deductionmoney'></span>
+=======
+            <div class='fui-cell-title charge-group' style="display: none;">本次提现将扣除手续费 ￥<span class='text-danger' id='deductionmoney'></span>
+>>>>>>> 96314174f1788efb832a33562668350719fec478
 
             </div>
 
 
 
+<<<<<<< HEAD
             <div class='fui-cell-title charge-group' style="display: none;">本次提币实际到账金额 ￥<span class='text-danger' id='realmoney'></span>
+=======
+            <div class='fui-cell-title charge-group' style="display: none;">本次提现实际到账金额 ￥<span class='text-danger' id='realmoney'></span>
+>>>>>>> 96314174f1788efb832a33562668350719fec478
 
             </div>
 
@@ -208,7 +236,11 @@
 
 
 
+<<<<<<< HEAD
         <a id='btn-next' style="" class='btn btn-success block disabled '>提币</a>
+=======
+        <a id='btn-next' style="" class='btn btn-success block disabled '>提现</a>
+>>>>>>> 96314174f1788efb832a33562668350719fec478
 
 
 
