@@ -155,7 +155,9 @@
     border-top: 1px solid #ccc;
 		padding: 5px 0;
 	}
-
+	.fui-cell-group .fui-cell.btn-logout .fui-cell-text {
+		background: #fff;
+	}
 </style>
 
 <div class='fui-page  fui-page-current'>
@@ -278,6 +280,14 @@
 			<div class="list_right icon icon-right"></div>
 		</a>
 	<?php  } ?>
+		<!--修改后的退出登录-->
+		<a href="javascript:;" class="lis  fui-cell external btn-logout">
+			<div class="lis_left fui-cell-group">
+				<img src="../addons/ewei_shopv2/static/images/jizhi.png" alt="">
+				<span>退出登录</span>
+			</div>
+			<div class="list_right icon icon-right"></div>
+		</a>
 		<!-- 下载app -->
 		<!-- <a href="<?php  echo mobileurl('account/download')?>" class="lis">
 			<div class="lis_left">
@@ -306,18 +316,16 @@
 			</div>
 		</a> -->
 	</div>
-
-	<div class="fui-cell-group fui-cell-click transparent">
-
-		<a class="fui-cell external btn-logout">
-
+	
+	<!--原退出登录按钮-->
+	<!-- <a href="javascript:;" class="lis">
+		<div class="fui-cell-group fui-cell-click transparent">
+			<a class="fui-cell external btn-logout">
 			<div class="fui-cell-text" style="text-align: center;margin-bottom: .5rem;">
-				<p class="fui-cell-text">退出登录</p>
+				<p class="fui-cell-text" style="color: #000000;">退出登录</p>
 			</div>
-
-		</a>
-
-	</div>
+		</div>
+	</a> -->
 
 	<div class="mask0">
 		<div class="mask0_box">
