@@ -2804,6 +2804,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		global $_GPC;
 		$set = $_W['shopset']['trade'];
 		$data =  pdo_fetch("select sets,zhuanzhangsxf from " . tablename("ewei_shop_sysset") . " where uniacid=:uniacid ", array(':uniacid' => $_W['uniacid']));
+		pred($data);
 		$trade = unserialize( $data['plugins'] );
 		$data['withdraw'] = $trade['trade']['withdraw'];
 		$data['withdrawmoney'] = $trade['trade']['withdrawmoney'];
