@@ -1850,6 +1850,16 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		returnJson(array('list' => $data));
 	}
 
+	public function ether()
+	{
+		global $_W;
+		global $_GPC;
+		$sys = pdo_fetch("select bibi from " . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
+		$data = array('trxprice' => $sys['trxprice'], 'trxsxf' => $sys['trxsxf']);
+		returnJson(array('list' => $data));
+	}
+
+
 
 	public function wechat_complete1()
 	{
