@@ -1854,7 +1854,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 	{
 		global $_W;
 		global $_GPC;
-		$sys = pdo_fetch("select bibi from " . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
+		$sys = pdo_fetch("select * from " . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);
 		$data = array('trxprice' => $sys['trxprice'], 'trxsxf' => $sys['trxsxf']);
 		returnJson(array('list' => $data));
 	}
