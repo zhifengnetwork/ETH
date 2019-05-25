@@ -1827,7 +1827,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 
 		foreach ($list as $key => $val) {
 			$list[$key]['createtime'] = date("Y-m-d H:i:s", $val['createtime']);
-			$list[$key]['money3'] = $val['money'] + $val['money2'];
+			$list[$key]['money3'] = sprintf("%.6f",$val['money'] + $val['money2']);
 			$list[$key]['summoney'] = $list[$key]['money3'];
 		}
 
