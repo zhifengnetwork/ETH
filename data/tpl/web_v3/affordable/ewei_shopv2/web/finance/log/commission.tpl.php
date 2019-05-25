@@ -158,8 +158,8 @@
 
                     </td>
                     <?php  if($row['type']==1) { ?>
-                    <td><?php  echo $row['money3'];?></td>
-                    <td>0.00</td>
+                    <td><?php  echo $row['money'];?></td>
+                    <td><?php  echo $row['money2'];?></td>
                     <?php  } else { ?>
                     <td><?php  echo $row['money'];?></td>
 

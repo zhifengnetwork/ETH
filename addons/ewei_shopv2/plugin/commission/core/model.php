@@ -2731,7 +2731,8 @@ if (!class_exists('CommissionModel')) {
 				// dump($tuandui.'+++++++++++downcount++++++++++团队');
 				// dump($level1);
 				//查询该会员目前直推人和团队人能达到的等级
-				$levels1 = pdo_fetch("select *  from ".tablename("ewei_shop_commission_level3")."where uniacid=:uniacid and ordercount<=:clickcount and downcount<=:tuandui order by type desc ",array(':uniacid'=>$_W['uniacid'],':clickcount'=>$nums_tuijian,':tuandui'=>$tuandui));
+				// $levels1 = pdo_fetch("select *  from ".tablename("ewei_shop_commission_level3")."where uniacid=:uniacid and ordercount<=:clickcount and downcount<=:tuandui order by type desc ",array(':uniacid'=>$_W['uniacid'],':clickcount'=>$nums_tuijian,':tuandui'=>$tuandui));
+				$levels1 = pdo_fetch("select *  from ".tablename("ewei_shop_commission_level3")." where $nums_tuijian >= ordercount and $tuandui >= downcount");
 				// dump($levels1);
 				// if($val['id']=="36732"){
 				// 	echo 4444;
