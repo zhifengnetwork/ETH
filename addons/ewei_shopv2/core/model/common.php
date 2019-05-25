@@ -682,7 +682,9 @@ class Common_EweiShopV2Model
 			$sourceType = 4;
 			$is_top = false;
 			foreach($meetUser as $k => $user){
+			
 				if($user['type']==0 || $user['suoding'] == 1 || $user['isblack'] == 1) continue;
+				dump($user);
 				// $grade  = $user['agent_user'];
 				// if($grade < $userLevel) continue;
 				//获取分红比例
@@ -724,11 +726,10 @@ class Common_EweiShopV2Model
 				}
 				
 				$data = array('uniacid'=>$_W['uniacid'],'openid'=>$user['openid'],'openid2'=>$openid,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'1','price'=>$money);
-				if($money<=0){
-					pdo_insert("ewei_shop_order_goods1",$data);
-					//充值
-					m('member')->setCredit($user['openid'],'credit2',$cmoney3);
-				}
+				dump($data);
+				pdo_insert("ewei_shop_order_goods1",$data);
+				//充值
+				m('member')->setCredit($user['openid'],'credit2',$cmoney3);
 			}
 		}
 

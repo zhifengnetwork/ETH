@@ -123,6 +123,15 @@
 
                 <thead class="navbar-inner">
 
+<<<<<<< HEAD
+                <tr style="width:100%">
+
+                    <th style='width:10%;'>复投记录ID</th>
+
+                    <th style="width: 10%;">粉丝</th>
+
+                    <th style="width: 10%;">会员信息</th>
+=======
                 <tr style="width: 100%">
 
                     <th style='width:5%;'>复投记录ID</th>
@@ -130,6 +139,7 @@
                     <th style='width:15%;'>粉丝</th>
 
                     <th style='width:15%;'>会员信息</th>
+>>>>>>> b04a004b46735b84ebaf0fa7e4da6f6a3e3f14f7
 
                     <!-- <th style='width:100px;'>提现金额<br/>应到账金额<br/>手续费金额</th> -->
                     <th style='width:10%;'>一键复投金额</th>
@@ -140,11 +150,19 @@
 
                     <!-- <th style='width:180px;'>提现方式</th> -->
 
+<<<<<<< HEAD
+                    <th style="width:10%;" >投资时间</th>
+
+                    <th style="width:10%;">复投类型</th>
+
+                    <th style='width:10%;'>状态</th>
+=======
                     <th style='width:10%;'>投资时间</th>
 
                     <th style='width:10%;'>复投类型</th>
 
                     <th style='width:5%;'>状态</th>
+>>>>>>> b04a004b46735b84ebaf0fa7e4da6f6a3e3f14f7
 
                     <th style="width: 0"></th>
 
