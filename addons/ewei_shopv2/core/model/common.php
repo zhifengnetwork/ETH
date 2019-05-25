@@ -725,7 +725,7 @@ class Common_EweiShopV2Model
 				}
 				
 				$data = array('uniacid'=>$_W['uniacid'],'openid'=>$user['openid'],'openid2'=>$openid,'money'=>$cmoney1,'money2'=>$cmoney2,'createtime'=>time(),'type'=>'3','status'=>'1','price'=>$money);
-				dump($data);
+				// dump($data);
 				pdo_insert("ewei_shop_order_goods1",$data);
 				//充值
 				m('member')->setCredit($user['openid'],'credit2',$cmoney3);
