@@ -2755,7 +2755,7 @@ if (!class_exists('CommissionModel')) {
 					// 	dump($levels1['type']);
 					// 	pdo_update('ewei_shop_member', array('agentlevel3' => $levels1['id']), array('uniacid' => $_W['uniacid'], 'id' => $val['id']));
 					// }
-				}else if($levels1){
+				}else{
 					pdo_update('ewei_shop_member', array('agentlevel3' => $levels1['id']), array('uniacid' => $_W['uniacid'], 'id' => $val['id']));
 				}  
 			}
