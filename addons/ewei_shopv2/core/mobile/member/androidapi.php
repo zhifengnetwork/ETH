@@ -2763,6 +2763,8 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			global $_GPC;
 			$member = pdo_fetchall("select id,openid,agentlevel3,clickcount,agentid from".tablename("ewei_shop_member")."where uniacid=".$_W['uniacid']);
 			foreach ($member as $key => $val) {
+				// dump($val['id']);
+				// dump($val['openid']);
 				$tuandui = count($this->digui($member,$val['id']));
 				//查询 当前会员的领导等级
 				$level1 = pdo_fetch("select *  from ".tablename("ewei_shop_commission_level3")."where uniacid=:uniacid and id = :id ",array(':uniacid'=>$_W['uniacid'],':id'=>$val['agentlevel3']));
@@ -2771,12 +2773,17 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				// dump($nums_tuijian.'--------------ordercount-------直推');
 				// dump($tuandui.'+++++++++++downcount++++++++++团队');
 				// dump($level1);
+				
 				//查询该会员目前直推人和团队人能达到的等级
 				$levels1 = pdo_fetch("select *  from ".tablename("ewei_shop_commission_level3")."where uniacid=:uniacid and ordercount<=:clickcount and downcount<=:tuandui order by type desc ",array(':uniacid'=>$_W['uniacid'],':clickcount'=>$nums_tuijian,':tuandui'=>$tuandui));
-
+				// dump($val['id']);
+				// dump($levels1['id']);
+				// pdo_update('ewei_shop_member', array('agentlevel3' => $levels1['id']), array('id' => $val['id']));
+				// dump($data11);
+				// pdo_update('ewei_shop_member', array('agentlevel3' => $levels1['id']), array('openid' => $val['openid']));
 				if($level1 && $levels1){
 					pdo_update('ewei_shop_member', array('agentlevel3' => $levels1['id']), array('uniacid' => $_W['uniacid'], 'id' => $val['id']));
-				}else if($levels1){
+				}else{
 					pdo_update('ewei_shop_member', array('agentlevel3' => $levels1['id']), array('uniacid' => $_W['uniacid'], 'id' => $val['id']));
 				}  
 			}
