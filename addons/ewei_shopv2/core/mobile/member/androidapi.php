@@ -2701,6 +2701,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		// }
 		if($member['suoding']==1){
 			if ($money != $member['credit1']) {
+				returnJson(array(),"激活复投账户必须等于'" . $member['credit1'] . "'/ETH",-2);
 				show_json(-1, "激活复投账户必须等于'" . $member['credit1'] . "'/ETH");
 			}
 		}
@@ -2713,7 +2714,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			$data['after_money'] = $member['credit2'] - $money;
 			m('member')->setCredit($_W['openid'], 'credit2', -$money);
 		} else if ($type == 4) {
-			if ($money > $member['credit4']) returnJson(array(),"您复投账户余额不足",-1);
+			if ($money > $member['credit4']) returnJson(array(),"您复投账户余额不足",-2);
 			$data['status'] = 1;
 			$data['payment'] = 2;
 			$data['title'] = "复投账户一键复投";
@@ -2721,7 +2722,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			$data['after_money'] = $member['credit4'] - $money;
 			m('member')->setCredit($_W['openid'], 'credit4', -$money);
 		}else{
-			returnJson(array(),'参数错误！',-1);
+			returnJson(array(),'参数错误！',-2);
 		}
 		
 		if($member['suoding']==1){
