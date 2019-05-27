@@ -104,23 +104,7 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 		if (empty($money)) show_json(0, "复投金额不能为0");
 
 		$member = m('member')->getMember($_W['openid'], true);
-		// if ($member['credit1'] == 0) show_json(0, "投资金额为零不能进行复投,请先进行投资");
-		// $credit = 0;
-		// $receive_hongbao = pdo_fetchall("select * from" . tablename("ewei_shop_receive_hongbao") . "where openid='" . $_W['openid'] . "'");
-		// foreach ($receive_hongbao as $k => $val) {
-		// 	$credit += $val['money'] + $val['money2'];
-		// }
-		// //最高倍率相应的释放比例
-		// $result  = pdo_fetch("select * from" . tablename("ewei_shop_commission_level4") . "where uniacid=" . $_W['uniacid'] . " and start<=" . $member['credit1'] . " and end>=" . $member['credit1']);
-
-		// //释放的比例
-		// // dump($credit);
-		// $money_propor = $result['multiple'] * $member['credit1'];
-		// dump($result['multiple']);
-		// dump($money_propor);die;
-		// if ($credit > $money_propor) {
-			
-		// }
+		
 		if($member['suoding']==1){
 			if ($money != $member['credit1']) {
 				show_json(-1, "激活复投账户必须等于'" . $member['credit1'] . "'/ETH");

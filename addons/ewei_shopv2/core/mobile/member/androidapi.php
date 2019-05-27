@@ -9,7 +9,6 @@ class Androidapi_EweiShopV2Page extends MobilePage
 	{
 		global $_W ;
 		global $_GPC;
-
 	}
 
 	//投资
@@ -25,45 +24,30 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			$data1 = array('status'=>0,"fail"=>"请上传会员的id");
 			echo json_encode($data1);exit();
 		}
-		// show_json($memberis);
 		$money = $_GPC['money'];
 		$url = $_GPC['url'];
-		//exit();
 		//投资区间
 		$min = pdo_fetch("select min(start) as start from ".tablename("ewei_shop_commission_level4")." where uniacid=".$_W['uniacid']);
 		$max = pdo_fetch("select max(end) as end from ".tablename("ewei_shop_commission_level4")." where uniacid=".$_W['uniacid']);
 
 		if($money<$min['start'] || $money>$max['end']){  //投资范围不在区间内
-
 			$data = array('type'=>-1,'start'=>$min['start'],'end'=>$max['end']);
-
 			$data1 = array('status'=>0,"fail"=>"投资范围不在区间内");
 			echo json_encode($data1);exit();
-
 		}else{
-
 			//查询投资的区间
 			$ass = pdo_fetch("select * from".tablename("ewei_shop_commission_level4")."where uniacid=".$_W['uniacid']." and start<=".$money." and end>=".$money);
-
 			//动态奖金
 			//m('common')->comm($_W['openid'],$money);
-
 			//领导奖奖金
 			//m('common')->leader($_W['openid'],$money);
-
 			// var_dump($list);exit();
 			// show_json($list);
-
 			$moneys = $money*$ass['multiple'];
-
 			//m('member')->setCredit($_W['openid'],'credit1',$moneys);
-
 			$data = array('uniacid'=>$_W['uniacid'],'openid'=>$_W['openid'],'type'=>1,'title'=>'资产投资','status'=>0,'money'=>$money,'credit'=>$moneys,'section'=>$ass['id'],'createtime'=>time(),'url'=>$url);
-
 			$result = pdo_insert("ewei_shop_member_log",$data);
-
 			$member = m('member')->getMember($_W['openid'], true);
-
 			if($member['type']==0){
 				pdo_update("ewei_shop_member"," type='1' ",array('openid'=>$_W['openid'],'uniacid'=>$_W['uniacid']));
 			}
@@ -199,7 +183,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$apply['uniacid'] = $_W['uniacid'];
 		$apply['logno'] = $logno;
 		$apply['openid'] = $_W['openid'];
-		$apply['title'] = '转出至TRX';
+		$apply['title'] = '转出至ETH';
 		$apply['type'] = 2;
 		$apply['createtime'] = time();
 		$apply['status'] = 0;
@@ -400,8 +384,6 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			//给每个会员加入等级
 
 			$level = pdo_fetch("select levelname from".tablename("ewei_shop_member_level")."where uniacid=:uniacid and id=:id",array(':uniacid'=>$_W['uniacid'],':id'=>$row['level']));
-
-//			var_dump($level);
 
 			$row['level'] = $level['levelname'];
 
@@ -2303,7 +2285,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 
 			$list = array_merge($list,$zhuanzhang);
 		}else{
-			returnJson([],'暂无数据！',1);
+			returnJson([],'暂无数据！',1);l
 		}
 		// pred($list);
 		returnJson(['list'=>$list]);
