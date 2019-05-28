@@ -613,16 +613,20 @@ class Common_EweiShopV2Model
 			$credit1 = 0;
 			$receive_hongbao = pdo_fetchall("select * from" . tablename("ewei_shop_receive_hongbao") . "where openid='" . $openid . "'");
 			$receive_logs    = pdo_fetchall("select * from" . tablename("ewei_shop_order_goods1") . "where openid='" . $openid . "'");
-			foreach ($receive_logs as $key1 => $value1){
+			if($receive_hongbao){
+				foreach ($receive_logs as $key1 => $value1){
 					$credit1 += $value1['money']+$value1['money2'];
+				}
 			}
-			foreach ($receive_hongbao as $k => $val) {
+			if($receive_logs){
+				foreach ($receive_hongbao as $k => $val) {
 					$credit += $val['money'] + $val['money2'];
+				}
 			}
+			
 			$credit = $credit1 + $credit;
 			 //获取该会员最高的投资倍率
 			 $arr1 = m('member')->getMember($openid, true);
-
 			 //最高倍率相应的释放比例
 			$result  = pdo_fetch("select * from" . tablename("ewei_shop_commission_level4") . "where uniacid=" . $_W['uniacid'] . " and start<=" . $arr1['credit1'] . " and end>=" . $arr1['credit1']);	
 			//收益总币数
