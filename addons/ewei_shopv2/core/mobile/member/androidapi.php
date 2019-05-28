@@ -2803,7 +2803,13 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		foreach($user_s as $key_log => $list ){
 			if($list['credit1']<=0) continue;
 			$receive_hongbao = pdo_fetchall("select * from" . tablename("ewei_shop_receive_hongbao") . "where openid='" . $list['openid'] . "'");
+			
+			
 			$receive_logs    = pdo_fetchall("select * from" . tablename("ewei_shop_order_goods1") . "where openid='" . $list['openid'] . "'");
+			if(!$receive_hongbao && !$receive_logs){
+				continue;
+			}
+			
 			foreach ($receive_logs as $key1 => $value1){
 				$credit1 += $value1['money']+$value1['money2'];
 			}
@@ -2811,7 +2817,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				$credit += $val['money'] + $val['money2'];
 			}
 			$credit = $credit1 + $credit;
-			
+			 
 			//最高倍率相应的释放比例
 			$result  = pdo_fetch("select * from" . tablename("ewei_shop_commission_level4") . "where uniacid=" . $_W['uniacid'] . " and start<=" . $list['credit1'] . " and end>=" . $list['credit1']);	
 			//收益总币数
