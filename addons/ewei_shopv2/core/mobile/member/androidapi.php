@@ -2231,7 +2231,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$money = $_GPC['money'];
 		// $moneysxf = $_GPC['moneysxf'];
 		$ass = pdo_fetch("select zhuanzhangsxf from " . tablename("ewei_shop_sysset") . " where uniacid=:uniacid ", array(':uniacid' => $_W['uniacid']));
-		$moneysxf = $ass['zhuanzhangsxf'];
+		$moneysxf = $ass['zhuanzhangsxf'] / 100;
 		$mid = $_GPC['id'];
 
 		$member = m('member')->getMember($_W['openid'], true);
