@@ -624,19 +624,14 @@ class Common_EweiShopV2Model
 			 $arr1 = m('member')->getMember($openid, true);
 
 			 //最高倍率相应的释放比例
-			 $result  = pdo_fetch("select * from" . tablename("ewei_shop_commission_level4") . "where uniacid=" . $_W['uniacid'] . " and start<=" . $arr1['credit1'] . " and end>=" . $arr1['credit1']);
-
-			  //收益总币数
-				$money_propor = $result['multiple'] * $arr1['credit1'];
-				if($arr1['credit1']>0){
-					if ($credit >= $money_propor) {
-						pdo_update("ewei_shop_member", " suoding='1' ", array('openid' => $openid));
-						return true;
-					}else{
-						return false;
-					}
+			$result  = pdo_fetch("select * from" . tablename("ewei_shop_commission_level4") . "where uniacid=" . $_W['uniacid'] . " and start<=" . $arr1['credit1'] . " and end>=" . $arr1['credit1']);	
+			//收益总币数
+			$money_propor = $result['multiple'] * $arr1['credit1'];
+			if($arr1['credit1']>0){
+				if ($credit >= $money_propor) {
+					pdo_update("ewei_shop_member", " suoding='1' ", array('openid' => $openid));
 				}
-
+			}
 		}
 
     public function leader($openid,$money){

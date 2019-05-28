@@ -2793,6 +2793,42 @@ class Androidapi_EweiShopV2Page extends MobilePage
 
 	}
 
+	 //到达投资等级倍数自动退出出局
+	public function out_user_money()
+	{
+		global $_W;
+		$credit = 0;
+		$credit1 = 0;
+		$user_s = pdo_fetchall("select id,openid,type,credit1,suoding from" . tablename("ewei_shop_member") . "where suoding=0 and type=1 and uniacid=" . $_W['uniacid']);
+		foreach($user_s as $key_log => $list ){
+			if($list['credit1']<=0) continue;
+			$receive_hongbao = pdo_fetchall("select * from" . tablename("ewei_shop_receive_hongbao") . "where openid='" . $list['openid'] . "'");
+			$receive_logs    = pdo_fetchall("select * from" . tablename("ewei_shop_order_goods1") . "where openid='" . $list['openid'] . "'");
+			foreach ($receive_logs as $key1 => $value1){
+				$credit1 += $value1['money']+$value1['money2'];
+			}
+			foreach ($receive_hongbao as $k => $val) {
+				$credit += $val['money'] + $val['money2'];
+			}
+			$credit = $credit1 + $credit;
+			
+			//最高倍率相应的释放比例
+			$result  = pdo_fetch("select * from" . tablename("ewei_shop_commission_level4") . "where uniacid=" . $_W['uniacid'] . " and start<=" . $list['credit1'] . " and end>=" . $list['credit1']);	
+			//收益总币数
+			$money_propor = $result['multiple'] * $list['credit1'];
+
+			dump($credit.'+++++++++++++'.$list['openid']);
+			// dump($result['multiple']);
+			dump($money_propor.'+++++++++++++'.$list['credit1']);
+			if($money_propor<=0) continue;
+			
+			if ($credit >= $money_propor) {
+				pdo_update("ewei_shop_member", " suoding='1' ", array('openid' => $list['openid']));
+			}
+		}
+		return true;
+	}
+
 	public function fotou_info(){
 		global $_W;
 		global $_GPC;
