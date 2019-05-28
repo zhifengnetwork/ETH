@@ -676,7 +676,7 @@ class Common_EweiShopV2Model
 			$sourceType = 4;
 			$is_top = false;
 			foreach($meetUser as $k => $user){
-			
+				if($user['agentlevel3']<=0) continue;
 				if($user['type']==0 || $user['suoding'] == 1 || $user['isblack'] == 1) continue;
 				// dump($user);
 				// $grade  = $user['agent_user'];
