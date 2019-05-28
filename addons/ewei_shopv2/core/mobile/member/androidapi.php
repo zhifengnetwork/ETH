@@ -2806,7 +2806,10 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			
 			
 			$receive_logs    = pdo_fetchall("select * from" . tablename("ewei_shop_order_goods1") . "where openid='" . $list['openid'] . "'");
-			if(!$receive_hongbao && !$receive_logs){
+			if(!$receive_hongbao){
+				continue;
+			}
+			if(!$receive_logs){
 				continue;
 			}
 			
