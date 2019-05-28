@@ -2183,7 +2183,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$money = floatval($_GPC['money']);
 		$deductionmoney = $money / (100/$withdrawcharge);
 		
-		if (!floor($money / $set['withdrawmoney']))  returnJson(array(), "提币的金额必须是" . $set['withdrawmoney'] . "的倍数",-2);
+		if (!floor($money / $set['withdrawmoney']))  returnJson(array(), "提币的金额必须大于" . $set['withdrawmoney'] ,-2);
 		$credit = m('member')->getCredit($_W['openid'], 'credit2');
 
 		$apply = array();
