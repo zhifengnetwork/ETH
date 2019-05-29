@@ -169,7 +169,6 @@
 
                 <thead>
 
-<<<<<<< HEAD
                 <tr style="width: 100%">
 
                     <th style='width:15%;'>提现单号</th>
@@ -187,25 +186,6 @@
                     <th style='width:10%;text-align: center;'>二维码</th>
 
                     <th style='width:10%;text-align: center;'>状态</th>
-=======
-                <tr style="width:100%;">
-
-                    <th style="width:20%;">提现单号</th>
-
-                    <th style="width:15%;">粉丝</th>
-
-                    <th style="width:10%;">会员信息</th>
-
-                    <th style="width:15%;">提币详情</th>
-
-                    <th style="width:10%;">提现时间</th>
-
-                    <th style='text-align: center;width:10%;'>提现地址</th>
-
-                    <th style='text-align: center;width:10%;'>二维码</th>
-
-                    <th style='text-align: center;width:10%;'>状态</th>
->>>>>>> b04a004b46735b84ebaf0fa7e4da6f6a3e3f14f7
 
                     <th style="text-align: center;width:10%;">操作</th>
 
