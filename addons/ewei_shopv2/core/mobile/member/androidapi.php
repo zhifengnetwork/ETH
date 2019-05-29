@@ -2797,10 +2797,10 @@ class Androidapi_EweiShopV2Page extends MobilePage
 	public function out_user_money()
 	{
 		global $_W;
-		$credit = 0;
-		$credit1 = 0;
 		$user_s = pdo_fetchall("select id,openid,type,credit1,suoding from" . tablename("ewei_shop_member") . "where suoding=0 and type=1 and uniacid=" . $_W['uniacid']);
 		foreach($user_s as $key_log => $list ){
+			$credit = 0;
+			$credit1 = 0;
 			if($list['credit1']<=0) continue;
 			// dump($list['credit1']);
 			$receive_hongbao = pdo_fetchall("select * from" . tablename("ewei_shop_receive_hongbao") . "where openid='" . $list['openid'] . "'");
