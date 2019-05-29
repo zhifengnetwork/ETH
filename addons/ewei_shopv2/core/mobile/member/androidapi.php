@@ -2183,7 +2183,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$money = floatval($_GPC['money']);
 		$deductionmoney = $money / (100/$withdrawcharge);
 		
-		if (!floor($money / $set['withdrawmoney']))  returnJson(array(), "提币的金额必须是" . $set['withdrawmoney'] . "的倍数",-2);
+		if (!floor($money / $set['withdrawmoney']))  returnJson(array(), "提币的金额必须大于" . $set['withdrawmoney'] ,-2);
 		$credit = m('member')->getCredit($_W['openid'], 'credit2');
 
 		$apply = array();
@@ -2231,7 +2231,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$money = $_GPC['money'];
 		// $moneysxf = $_GPC['moneysxf'];
 		$ass = pdo_fetch("select zhuanzhangsxf from " . tablename("ewei_shop_sysset") . " where uniacid=:uniacid ", array(':uniacid' => $_W['uniacid']));
-		$moneysxf = $ass['zhuanzhangsxf'];
+		$moneysxf = $ass['zhuanzhangsxf'] / 100;
 		$mid = $_GPC['id'];
 
 		$member = m('member')->getMember($_W['openid'], true);
