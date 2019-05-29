@@ -2809,13 +2809,13 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			$receive_logs    = pdo_fetchall("select * from" . tablename("ewei_shop_order_goods1") . "where openid='" . $list['openid'] . "'");
 			// dump($receive_logs);
 			
-			if(!empty($receive_hongbao)){
-				continue;
-			}
+			// if(!empty($receive_hongbao)){
+			// 	continue;
+			// }
 			
-			if(!empty($receive_logs)){
-				continue;
-			}
+			// if(!empty($receive_logs)){
+			// 	continue;
+			// }
 			
 			foreach ($receive_logs as $key1 => $value1){
 				$credit1 += $value1['money']+$value1['money2'];
