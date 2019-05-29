@@ -2802,16 +2802,20 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$user_s = pdo_fetchall("select id,openid,type,credit1,suoding from" . tablename("ewei_shop_member") . "where suoding=0 and type=1 and uniacid=" . $_W['uniacid']);
 		foreach($user_s as $key_log => $list ){
 			if($list['credit1']<=0) continue;
+			// dump($list['credit1']);
 			$receive_hongbao = pdo_fetchall("select * from" . tablename("ewei_shop_receive_hongbao") . "where openid='" . $list['openid'] . "'");
 			
 			
 			$receive_logs    = pdo_fetchall("select * from" . tablename("ewei_shop_order_goods1") . "where openid='" . $list['openid'] . "'");
-			if(!$receive_hongbao){
-				continue;
-			}
-			if(!$receive_logs){
-				continue;
-			}
+			// dump($receive_logs);
+			
+			// if(!empty($receive_hongbao)){
+			// 	continue;
+			// }
+			
+			// if(!empty($receive_logs)){
+			// 	continue;
+			// }
 			
 			foreach ($receive_logs as $key1 => $value1){
 				$credit1 += $value1['money']+$value1['money2'];
