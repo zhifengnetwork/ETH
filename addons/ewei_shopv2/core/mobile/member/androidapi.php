@@ -887,9 +887,12 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			if (!$member['zfbfile'] && !$member['wxfile'] && (!$member['bankid'] || !$member['bankname'] || !$member['bank'])) {
 				returnJson([], "请上传您的收款信息",-2);
 			}
-			if ($member['credit2'] < $_GPC['trx2']) {
-				returnJson([],'您的ETH不足，请尽快投资！',-2);
+			if($type == 1){
+				if ($member['credit2'] < $_GPC['trx2']) {
+					returnJson([],'您的ETH不足，请尽快投资！',-2);
+				}
 			}
+			
 			$data   = array('openid' => $openid, 'uniacid' => $_W['uniacid'], 'price' => $_GPC['price'], 'trx' => $_GPC['trx'], 'trx2' => $_GPC['trx2'], 'money' => $_GPC['money'], 'type' => $type, 'status' => '0', 'sxf0' => $_GPC['sxf0'], 'createtime' => time());
 			$data['apple_time'] = time() + 1800;
 			$result = pdo_insert("guamai", $data);
