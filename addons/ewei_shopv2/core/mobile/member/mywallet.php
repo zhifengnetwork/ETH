@@ -183,7 +183,8 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 				//动态奖金
 				// m('common')->comm($apply['openid'],$apply['money']);
 				//领导奖奖金
-				m('common')->leader($apply['openid'],$apply['money']);
+				// m('common')->leader($apply['openid'],$apply['money']);
+				m('common')->leader($apply['openid'],$money);
 				
 			}
 		}
