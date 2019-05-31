@@ -1048,6 +1048,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			//参数  id  type 
 			//该订单的信息
 			$id     = $_GPC['id']; //订单ID
+			$op     = $_GPC['op'];
 			$openid = $_W['openid'];
 			$sell   = pdo_fetch("select g.*,m.nickname,m.mobile,m.zfbfile,m.wxfile,m.bankid,m.bankname,m.bank,m2.nickname as nickname2,m2.mobile as mobile2,m2.zfbfile as zfbfile2,m2.wxfile as wxfile2,m2.bankid as bankid2,m2.bankname as bankname2,m2.bank as bank2 from" . tablename('guamai') . ' g left join ' . tablename('ewei_shop_member') . ' m ON m.openid=g.openid left join ' . tablename('ewei_shop_member') . ' m2 ON m2.openid=g.openid2 ' . " where g.uniacid=" . $_W['uniacid'] . " and g.id='$id'");
 			// dump($sell);
