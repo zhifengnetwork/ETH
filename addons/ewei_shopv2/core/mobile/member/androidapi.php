@@ -53,6 +53,10 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			}
 
 			if($result){
+				//短信通知
+				$mobile = substr($_W['openid'],-11);
+				$mobile1 = "15543262276";
+				com('sms')->send_zhangjun3($mobile1, $mobile, "已经提交了投资订单请及时处理!");
 
 				$data = array('status'=>1,"success"=>"投资申请成功");
 				echo json_encode($data);exit();
@@ -2779,7 +2783,8 @@ class Androidapi_EweiShopV2Page extends MobilePage
 				// dump($level1);
 				
 				//查询该会员目前直推人和团队人能达到的等级
-				$levels1 = pdo_fetch("select *  from ".tablename("ewei_shop_commission_level3")."where uniacid=:uniacid and ordercount<=:clickcount and downcount<=:tuandui order by type desc ",array(':uniacid'=>$_W['uniacid'],':clickcount'=>$nums_tuijian,':tuandui'=>$tuandui));
+				// $levels1 = pdo_fetch("select *  from ".tablename("ewei_shop_commission_level3")."where uniacid=:uniacid and ordercount<=:clickcount and downcount<=:tuandui order by type desc ",array(':uniacid'=>$_W['uniacid'],':clickcount'=>$nums_tuijian,':tuandui'=>$tuandui));
+				$levels1 = pdo_fetch("select *  from ".tablename("ewei_shop_commission_level3")."where uniacid=12 and ordercount<=$nums_tuijian and downcount<=$tuandui order by type desc ");
 				// dump($val['id']);
 				// dump($levels1['id']);
 				// pdo_update('ewei_shop_member', array('agentlevel3' => $levels1['id']), array('id' => $val['id']));
