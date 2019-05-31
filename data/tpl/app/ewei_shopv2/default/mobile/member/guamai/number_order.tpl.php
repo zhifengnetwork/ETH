@@ -1038,7 +1038,7 @@
 		let maiChu_num = $('.maiChu_Num').val(); // 卖出数量
 		let getMoney0 = $('.getMoney0').val(); // 获得金额
 		let sxf0 = $('.sxf0').html(); // 手续费
-		let setTrx0 = $('.setTrx0').val(); // 支付TRX
+		let setTrx0 = $('.setTrx0').val(); // 支付ETH
 
 		// 1. 卖出价格需在最小单价与最大单价区间中
 		if (maiChu_price < price_min || maiChu_price > price_max) {
@@ -1173,9 +1173,9 @@
 			var muns = Number($('.buyNum').val());
 			let getMoney = muns * $('.maiRu_price').val();
 			let getMoney0 = Number($('.buyNum').val()) - Number(sxf0);
-			// console.log($('.buyNum').val());
-			// console.log($('.maiRu_price').val());
-			// console.log(Number($('.buyNum').val())-Number(sxf0));
+			console.log($('.buyNum').val());
+			console.log($('.maiRu_price').val());
+			console.log(Number($('.buyNum').val())-Number(sxf0));
 
 			$('.mairu_Money').val(Number(getMoney).toFixed(8));
 			$('.getMoney0').val(Number(getMoney0).toFixed(8));
@@ -1191,6 +1191,7 @@
 		let price_min = $('.price_Min').html();
 		let price_max = $('.price_Max').html();
 		let buy_nam = $('.buyNum').val();
+		
 		let sxf0 = $('.sxf0').html() * $('.buyNum').val() / 100; // 手续费
 		// 1. 买入价格需在最小单价与最大单价区间中
 		if (maiRu_price < price_min || maiRu_price > price_max) {
@@ -1205,12 +1206,19 @@
 			type: 'post',
 			url: "<?php  echo mobileurl('member/guamai/hangonsale')?>",
 			data: {
-				price: $('.maiRu_price').val(),
-				trx: $('.buyNum').val(),
-				money: $('.mairu_Money').val(),
+				price: maiRu_price,
+				trx: buy_nam,
+				trx2: Number($('.buyNum').val())-Number(sxf0),
+				money: $('.getMoney0').val()*maiRu_price,
 				type: "0",
 				sxf0: sxf0
 			},
+			// price: maiChu_price,
+			// 	trx: maiChu_num,
+			// 	money: getMoney0,
+			// 	servicecharge: sxf0,
+			// 	trx2: setTrx0,
+			// 	type: "1"
 			dataType: 'json',
 			success: function (data) {
 				console.log(data);
