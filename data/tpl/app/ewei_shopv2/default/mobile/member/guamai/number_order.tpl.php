@@ -1,4 +1,4 @@
-{template '_header'}
+<?php defined('IN_IA') or exit('Access Denied');?><?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('_header', TEMPLATE_INCLUDEPATH)) : (include template('_header', TEMPLATE_INCLUDEPATH));?>
 
 <style>
 	#tab>a {
@@ -619,204 +619,204 @@
 					<div class="my_order" id="load" style="left: 0%;transition-duration: 0.3s;">
 						<!-- 未交易 -->
 						<div class="tab_cont undone">
-							{loop $guamai $winn}
-							{if $winn['status'] == '0'}
+							<?php  if(is_array($guamai)) { foreach($guamai as $winn) { ?>
+							<?php  if($winn['status'] == '0') { ?>
 							<div class="order_list">
 								<div class="order">
 									<p class="buy">
-										{if $openid == $winn['openid2']}
-												{if $winn['type'] == '0'}
+										<?php  if($openid == $winn['openid2']) { ?>
+												<?php  if($winn['type'] == '0') { ?>
 												<span style="color:brown">卖出<b>ETH</b></span>
-												{/if}
-												{if $winn['type'] == '1'}
+												<?php  } ?>
+												<?php  if($winn['type'] == '1') { ?>
 												<span style="color:#0a0">买入<b>ETH</b></span>
-												{/if}
-										{else}
-												{if $winn['type'] == '0'}
+												<?php  } ?>
+										<?php  } else { ?>
+												<?php  if($winn['type'] == '0') { ?>
 												<span style="color:#0a0">买入<b>ETH</b></span>
-												{/if}
-												{if $winn['type'] == '1'}
+												<?php  } ?>
+												<?php  if($winn['type'] == '1') { ?>
 												<span style="color:brown">卖出<b>ETH</b></span>
-												{/if}
-										{/if}
-										{if $winn['status'] == '0'}
+												<?php  } ?>
+										<?php  } ?>
+										<?php  if($winn['status'] == '0') { ?>
 										<span class="fn_cl" data-val="0"
-											onclick="location.href='{php echo mobileurl('member/guamai/sellout_list')}&id={$winn['id']}&type={$winn['status']}'">未交易<img
+											onclick="location.href='<?php  echo mobileurl('member/guamai/sellout_list')?>&id=<?php  echo $winn['id'];?>&type=<?php  echo $winn['status'];?>'">未交易<img
 												src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
-										{/if}
+										<?php  } ?>
 									</p>
 									<p class="form">
-										<span><span class="font_color_999"> {$winn['trx']}</span>/个</span>
+										<span><span class="font_color_999"> <?php  echo $winn['trx'];?></span>/个</span>
 
-										<!-- <span><span class="font_color_999">{$winn['price']}</span></span>
-										<span>总额(CNY)： <span class="font_color_999">{$winn['money']}</span></span> -->
+										<!-- <span><span class="font_color_999"><?php  echo $winn['price'];?></span></span>
+										<span>总额(CNY)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span> -->
 
-										<span>CNY:<span class="font_color_999">{$winn['price']}</span></span>
+										<span>CNY:<span class="font_color_999"><?php  echo $winn['price'];?></span></span>
 									</p>
 									<p class="form form_spww">
-										<span>总额(CNY)： <span class="font_color_999">{$winn['money']}</span></span>
-										<span><span class="font_color_999">{$winn['datatime']}</span></span>
+										<span>总额(CNY)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span>
+										<span><span class="font_color_999"><?php  echo $winn['datatime'];?></span></span>
 									</p>
 								</div>
 							</div>
-							{/if}
-							{/loop}
+							<?php  } ?>
+							<?php  } } ?>
 
 						</div>
 						<!-- 交易中 -->
 						<div class="tab_cont trading">
-							{loop $guamai $winn}
-							{if $winn['status'] == '1'}
+							<?php  if(is_array($guamai)) { foreach($guamai as $winn) { ?>
+							<?php  if($winn['status'] == '1') { ?>
 							<div class="order_list">
 								<div class="order">
 
 									<p class="buy">
-										{if $openid == $winn['openid2']}
-										{if $winn['type'] == '0'}
+										<?php  if($openid == $winn['openid2']) { ?>
+										<?php  if($winn['type'] == '0') { ?>
 										<span style="color:brown">卖出<b>ETH</b></span>
-										{/if}
-										{if $winn['type'] == '1'}
+										<?php  } ?>
+										<?php  if($winn['type'] == '1') { ?>
 										<span style="color:#0a0">买入<b>ETH</b></span>
-										{/if}
-										{else}
-										{if $winn['type'] == '0'}
+										<?php  } ?>
+										<?php  } else { ?>
+										<?php  if($winn['type'] == '0') { ?>
 										<span style="color:#0a0">买入<b>ETH</b></span>
-										{/if}
-										{if $winn['type'] == '1'}
+										<?php  } ?>
+										<?php  if($winn['type'] == '1') { ?>
 										<span style="color:brown">卖出<b>ETH</b></span>
-										{/if}
-										{/if}
+										<?php  } ?>
+										<?php  } ?>
 
 
-										{if $winn['status'] == '1'}
+										<?php  if($winn['status'] == '1') { ?>
 										<span class="fn_cl" data-val="1"
-											onclick="location.href='{php echo mobileurl('member/guamai/sellout')}&id={$winn['id']}&op={$winn['type']}&status={$winn['status']}'">交易中<img
+											onclick="location.href='<?php  echo mobileurl('member/guamai/sellout')?>&id=<?php  echo $winn['id'];?>&op=<?php  echo $winn['type'];?>&status=<?php  echo $winn['status'];?>'">交易中<img
 												src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
-										{/if}
+										<?php  } ?>
 									</p>
 									<p class="form">
-										<span><span class="font_color_999"> {$winn['trx']}</span>/个</span><!-- 
+										<span><span class="font_color_999"> <?php  echo $winn['trx'];?></span>/个</span><!-- 
 <<<<<<< HEAD
-										<span><span class="font_color_999">{$winn['price']}</span></span>
-										<span>总额(CNY)： <span class="font_color_999">{$winn['money']}</span></span> -->
-										<span>CNY:<span class="font_color_999">{$winn['price']}</span></span>
+										<span><span class="font_color_999"><?php  echo $winn['price'];?></span></span>
+										<span>总额(CNY)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span> -->
+										<span>CNY:<span class="font_color_999"><?php  echo $winn['price'];?></span></span>
 									</p>
-									<p><span>总额(CNY)： <span class="font_color_999">{$winn['money']}</span></span></p>
+									<p><span>总额(CNY)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span></p>
 									<p class="form form_spww">
 										<!--倒计时-时间戳-->
-										<span><span class="font_color_999">{$winn['datatime']}</span></span>
-										<input type="hidden" value="{$winn['apple_time']}" class="time" />
+										<span><span class="font_color_999"><?php  echo $winn['datatime'];?></span></span>
+										<input type="hidden" value="<?php  echo $winn['apple_time'];?>" class="time" />
 										<span id="order_time" class="order_time"></span>
 									</p>
 								</div>
 							</div>
-							{/if}
+							<?php  } ?>
 
-							{/loop}
+							<?php  } } ?>
 						</div>
 						<!-- 交易完成 -->
 						<div class="tab_cont achieve">
-							{loop $guamai $winn}
-							{if $winn['status'] == '2'}
+							<?php  if(is_array($guamai)) { foreach($guamai as $winn) { ?>
+							<?php  if($winn['status'] == '2') { ?>
 							<div class="order_list">
 								<div class="order">
 
 									<p class="buy">
-										{if $openid == $winn['openid2']}
-										{if $winn['type'] == '0'}
+										<?php  if($openid == $winn['openid2']) { ?>
+										<?php  if($winn['type'] == '0') { ?>
 										<span style="color:brown">卖出<b>ETH</b></span>
-										{/if}
-										{if $winn['type'] == '1'}
+										<?php  } ?>
+										<?php  if($winn['type'] == '1') { ?>
 										<span style="color:#0a0">买入<b>ETH</b></span>
-										{/if}
-										{else}
-										{if $winn['type'] == '0'}
+										<?php  } ?>
+										<?php  } else { ?>
+										<?php  if($winn['type'] == '0') { ?>
 										<span style="color:#0a0">买入<b>ETH</b></span>
-										{/if}
-										{if $winn['type'] == '1'}
+										<?php  } ?>
+										<?php  if($winn['type'] == '1') { ?>
 										<span style="color:brown">卖出<b>ETH</b></span>
-										{/if}
-										{/if}
-										{if $winn['status'] == '2'}
+										<?php  } ?>
+										<?php  } ?>
+										<?php  if($winn['status'] == '2') { ?>
 										<span class="fn_cl" data-val="2"
-											onclick="location.href='{php echo mobileurl('member/guamai/sellout_list')}&id={$winn['id']}&op={$winn['type']}&status={$winn['status']}'">交易完成<img
+											onclick="location.href='<?php  echo mobileurl('member/guamai/sellout_list')?>&id=<?php  echo $winn['id'];?>&op=<?php  echo $winn['type'];?>&status=<?php  echo $winn['status'];?>'">交易完成<img
 												src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
-										{/if}
+										<?php  } ?>
 
 									</p>
 
 
 									<p class="form">
-										<span><span class="font_color_999"> {$winn['trx']}</span>/个</span><!-- 
+										<span><span class="font_color_999"> <?php  echo $winn['trx'];?></span>/个</span><!-- 
 <<<<<<< HEAD
-										<span><span class="font_color_999">{$winn['price']}</span></span>
-										<span>总额(CNY)： <span class="font_color_999">{$winn['money']}</span></span>
+										<span><span class="font_color_999"><?php  echo $winn['price'];?></span></span>
+										<span>总额(CNY)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span>
 ======= -->
-										<span>CNY:<span class="font_color_999">{$winn['price']}</span></span>
+										<span>CNY:<span class="font_color_999"><?php  echo $winn['price'];?></span></span>
 									</p>
 									<p class="form form_spww">
-										<span>总额(CNY)： <span class="font_color_999">{$winn['money']}</span></span>
+										<span>总额(CNY)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span>
 										<!--倒计时-时间戳-->
-										<span><span class="font_color_999">{$winn['datatime']}</span></span>
+										<span><span class="font_color_999"><?php  echo $winn['datatime'];?></span></span>
 									</p>
 								</div>
 							</div>
-							{/if}
-							{/loop}
+							<?php  } ?>
+							<?php  } } ?>
 
 						</div>
 						<!-- 交易失败 -->
 						<div class="tab_cont defeated">
-							{loop $guamai $winn}
-							{if $winn['status'] == '3'}
+							<?php  if(is_array($guamai)) { foreach($guamai as $winn) { ?>
+							<?php  if($winn['status'] == '3') { ?>
 							<div class="order_list">
 								<div class="order">
 
 									<p class="buy">
-										{if $openid == $winn['openid2']}
-										{if $winn['type'] == '0'}
+										<?php  if($openid == $winn['openid2']) { ?>
+										<?php  if($winn['type'] == '0') { ?>
 										<span style="color:brown">卖出<b>ETH</b></span>
-										{/if}
-										{if $winn['type'] == '1'}
+										<?php  } ?>
+										<?php  if($winn['type'] == '1') { ?>
 										<span style="color:#0a0">买入<b>ETH</b></span>
-										{/if}
-										{else}
-										{if $winn['type'] == '0'}
+										<?php  } ?>
+										<?php  } else { ?>
+										<?php  if($winn['type'] == '0') { ?>
 										<span style="color:#0a0">买入<b>ETH</b></span>
-										{/if}
-										{if $winn['type'] == '1'}
+										<?php  } ?>
+										<?php  if($winn['type'] == '1') { ?>
 										<span style="color:brown">卖出<b>ETH</b></span>
-										{/if}
-										{/if}
+										<?php  } ?>
+										<?php  } ?>
 
 
-										{if $winn['status'] == '3'}
+										<?php  if($winn['status'] == '3') { ?>
 										<span class="fn_cl" data-val="3"
-											onclick="location.href='{php echo mobileurl('member/guamai/sellout_list')}&id={$winn['id']}&op={$winn['type']}&status={$winn['status']}'">交易失败<img
+											onclick="location.href='<?php  echo mobileurl('member/guamai/sellout_list')?>&id=<?php  echo $winn['id'];?>&op=<?php  echo $winn['type'];?>&status=<?php  echo $winn['status'];?>'">交易失败<img
 												src="../addons/ewei_shopv2/static/images/zhifeng/right.png"></span>
-										{/if}
+										<?php  } ?>
 									</p>
 
 									<p class="form">
-										<span><span class="font_color_999"> {$winn['trx']}</span>/个</span>
+										<span><span class="font_color_999"> <?php  echo $winn['trx'];?></span>/个</span>
 <!-- <<<<<<< HEAD
-										<span><span class="font_color_999">{$winn['price']}</span></span>
-										<span>总额(CNY)： <span class="font_color_999">{$winn['money']}</span></span>
+										<span><span class="font_color_999"><?php  echo $winn['price'];?></span></span>
+										<span>总额(CNY)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span>
 ======= -->
-										<span>CNY:<span class="font_color_999">{$winn['price']}</span></span>
+										<span>CNY:<span class="font_color_999"><?php  echo $winn['price'];?></span></span>
 
 									</p>
 
 									<p class="form form_spww">
-										<span>总额(CNY)： <span class="font_color_999">{$winn['money']}</span></span>
+										<span>总额(CNY)： <span class="font_color_999"><?php  echo $winn['money'];?></span></span>
 										<!--倒计时-时间戳-->
-										<span><span class="font_color_999">{$winn['datatime']}</span></span>
+										<span><span class="font_color_999"><?php  echo $winn['datatime'];?></span></span>
 									</p>
 
 								</div>
 							</div>
-							{/if}
-							{/loop}
+							<?php  } ?>
+							<?php  } } ?>
 						</div>
 					</div>
 				</div>
@@ -831,19 +831,19 @@
 				<div class="tab_con">
 					<div class="wtf_top">
 						<div class="wtf_item">
-							{loop $guamai_appeal $appeal}
+							<?php  if(is_array($guamai_appeal)) { foreach($guamai_appeal as $appeal) { ?>
 							<div class="wtf_item1">
-								<a href="{php echo mobileurl('member/guamai/guamai_appeal_list')}&id={$appeal['id']}">
-									<p>{$appeal['text']}</p>
+								<a href="<?php  echo mobileurl('member/guamai/guamai_appeal_list')?>&id=<?php  echo $appeal['id'];?>">
+									<p><?php  echo $appeal['text'];?></p>
 								</a>
-								<p>{$appeal['createtime']}</p>
+								<p><?php  echo $appeal['createtime'];?></p>
 							</div>
-							{/loop}
+							<?php  } } ?>
 						</div>
 					</div>
 				</div>
 
-				<!-- {if $appeal['stuas'] == 0}正在进行审核。{else if $appeal['stuas'] == 1}审核通过，并对该账号进行处罚。{else $appeal['stuas'] == 2}该申诉失效.{/if} -->
+				<!-- <?php  if($appeal['stuas'] == 0) { ?>正在进行审核。<?php  } else if($appeal['stuas'] == 1) { ?>审核通过，并对该账号进行处罚。{else $appeal['stuas'] == 2}该申诉失效.<?php  } ?> -->
 			</div>
 			<div class="mask0_box hide">
 				<!-- 卖出 -->
@@ -851,7 +851,7 @@
 					<p>价格(CNY)</p>
 					<div class="mask_lis">
 						<input type="number" placeholder="请输入卖出的价格" class="maiChu_price">
-						<div class="tishi">参考价格：￥<span class="price_Min">{$start}</span>-￥<span class="price_Max">{$end}</span>
+						<div class="tishi">参考价格：￥<span class="price_Min"><?php  echo $start;?></span>-￥<span class="price_Max"><?php  echo $end;?></span>
 						</div>
 					</div>
 					<div class="mask_lis">
@@ -861,7 +861,7 @@
 					<div class="mask_lis">
 						<p>预获金额(CNY)</p>
 						<input class="mask_lis_input getMoney0" type="number" disabled value="0">
-						<div class="tishi">手续费：<span class="sxf0">{$sys['trxsxf']}</span>%</div>
+						<div class="tishi">手续费：<span class="sxf0"><?php  echo $sys['trxsxf'];?></span>%</div>
 					</div>
 					<div class="mask_lis">
 						<p>待付(ETH)</p>
@@ -876,7 +876,7 @@
 						<p>价格(CNY)</p>
 						<input type="number" min="0" placeholder="请输入买入的价格" class="maiRu_price">
 					</div>
-					<div class="tishi">参考价格：￥<span class="price_Min">{$start}</span>-￥<span class="price_Max">{$end}</span></div>
+					<div class="tishi">参考价格：￥<span class="price_Min"><?php  echo $start;?></span>-￥<span class="price_Max"><?php  echo $end;?></span></div>
 
 					<p class="mask_lis_p">买入数量(ETH)</p>
 					<div class="mask1_lis">
@@ -885,7 +885,7 @@
 					<div class="mask_lis">
 						<p>预获币数(ETH)</p>
 						<input class="mask_lis_input getMoney0" type="number" disabled value="0">
-						<div class="tishi">手续费：<span class="sxf0">{$sys['trxsxf']}</span>%</div>
+						<div class="tishi">手续费：<span class="sxf0"><?php  echo $sys['trxsxf'];?></span>%</div>
 					</div>
 					<div class="mask_lis">
 						<p>预付金额(CNY)</p>
@@ -1008,7 +1008,7 @@
 
 		$.ajax({
 			type: 'post',
-			url: "{php echo mobileurl('member/guamai/tab_con')}",
+			url: "<?php  echo mobileurl('member/guamai/tab_con')?>",
 			data: {
 				textarea: textarea
 			},
@@ -1017,7 +1017,7 @@
 				console.log(data);
 				if (data.status == '-2') {
 					alert(data.result.message);
-					location.href = "{php echo mobileurl('member/wallet')}";
+					location.href = "<?php  echo mobileurl('member/wallet')?>";
 				} else if (data.status == 1) {
 					alert(data.result.message);
 					location.reload();
@@ -1051,7 +1051,7 @@
 
 		$.ajax({
 			type: 'post',
-			url: "{php echo mobileurl('member/guamai/hangonsale')}",
+			url: "<?php  echo mobileurl('member/guamai/hangonsale')?>",
 			data: {
 				price: maiChu_price,
 				trx: maiChu_num,
@@ -1065,7 +1065,7 @@
 				console.log(data);
 				if (data.status == '-2') {
 					alert(data.result.message);
-					location.href = "{php echo mobileurl('member/wallet')}";
+					location.href = "<?php  echo mobileurl('member/wallet')?>";
 				} else if (data.status == 1) {
 					alert(data.result.message);
 					location.reload();
@@ -1204,7 +1204,7 @@
 
 		$.ajax({
 			type: 'post',
-			url: "{php echo mobileurl('member/guamai/hangonsale')}",
+			url: "<?php  echo mobileurl('member/guamai/hangonsale')?>",
 			data: {
 				price: maiRu_price,
 				trx: buy_nam,
@@ -1224,7 +1224,7 @@
 				console.log(data);
 				if (data.status == '-2') {
 					alert(data.result.message);
-					location.href = "{php echo mobileurl('member/guamai')}";
+					location.href = "<?php  echo mobileurl('member/guamai')?>";
 				} else if (data.status == 1) {
 					alert(data.result.message);
 					location.reload();
@@ -1289,8 +1289,8 @@
 	})
 </script>
 
-{php $this->footerMenus()}
+<?php  $this->footerMenus()?>
 
 </div>
 
-{template '_footer'}
+<?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('_footer', TEMPLATE_INCLUDEPATH)) : (include template('_footer', TEMPLATE_INCLUDEPATH));?>
