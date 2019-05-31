@@ -343,6 +343,7 @@
 				// 	core.tip.show('请填写钱包地址！');
 				// 	return false;
 				// }
+<<<<<<< HEAD
 				if ($('#bank').isEmpty()) {
 					core.tip.show('请填写开户行！');
 					return false;
@@ -355,6 +356,20 @@
 					core.tip.show('请填写开户人！');
 					return false;
 				}
+=======
+				// if ($('#bank').isEmpty()) {
+				// 	core.tip.show('请填写开户行！');
+				// 	return false;
+				// }
+				// if ($('#bankid').isEmpty()) {
+				// 	core.tip.show('请填写银行卡号！');
+				// 	return false;
+				// }
+				// if ($('#bankname').isEmpty()) {
+				// 	core.tip.show('请填写开户人！');
+				// 	return false;
+				// }
+>>>>>>> 6e8a88c6095050b3f6e1dcbdb20fc248b4d5dd97
 
 
 
