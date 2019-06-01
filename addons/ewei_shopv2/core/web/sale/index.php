@@ -98,9 +98,24 @@ class Index_EweiShopV2Page extends ComWebPage
 			$guamai_appeal = pdo_fetch('select * from ' . tablename('guamai_appeal') . "where id= " . $_GPC['id']);
 			$guamai_appeal['files'] = json_decode($guamai_appeal['files']);
 			$guamai = pdo_fetch('select * from ' . tablename('guamai') . "where id= " . $guamai_appeal['order_id']);
-			// dump($guamai_appeal);die;
+			
 		}
+		
 		if ($_W['ispost']) {
+			//type=1 卖出判断
+			if($guamai_appeal['type']==1){
+				$openid = substr($guamai_appeal['openid2'], -11);
+				$name_list = pdo_fetch('select * from ' . tablename('ewei_shop_member') . "where mobile= " . $openid);
+				$money = $name_list['credit2']+$guamai['trx2'];
+				pdo_update("ewei_shop_member",array("credit2"=>$money),array("openid"=>$name_list['openid']));
+			}
+			//type=0 买入判断
+			if($guamai_appeal['type']==0){
+				$openid = substr($guamai_appeal['openid'], -11);
+				$name_list = pdo_fetch('select * from ' . tablename('ewei_shop_member') . "where mobile= " . $openid);
+				$money = $name_list['credit2']+$guamai['trx2'];
+				pdo_update("ewei_shop_member",array("credit2"=>$money),array("openid"=>$name_list['openid']));
+			}
 			if ($_GPC['type'] == 1) {
 				// $user_id = $guamai_appeal['appeal_name'];
 				// $user = pdo_fetch('select id,openid,credit2 from '.tablename('ewei_shop_member')."where id= ".$user_id);
