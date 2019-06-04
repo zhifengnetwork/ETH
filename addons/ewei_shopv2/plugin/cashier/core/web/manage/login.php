@@ -30,6 +30,9 @@ class Login_EweiShopV2Page extends CashierWebPage
 	{
 		global $_W;
 		global $_GPC;
+		dump($username);
+		dump($password);
+		die;
 		if ($is_operator == 0) 
 		{
 			$user = pdo_fetch('SELECT * FROM ' . tablename('ewei_shop_cashier_user') . ' WHERE username=:username AND uniacid=:uniacid AND status=1 AND deleted=0 LIMIT 1', array(':username' => $username, ':uniacid' => $_W['uniacid']));

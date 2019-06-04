@@ -40,9 +40,8 @@ class Index_EweiShopV2Page extends MobilePage
 			// header('location: ' . mobileUrl());
 		}
 		if ($_W['ispost']) {
-
-			$mobile = trim($_GPC['mobile']);
-			$pwd = trim($_GPC['pwd']);
+			$mobile = base64_decode(trim($_GPC['mobile']));
+			$pwd = base64_decode(trim($_GPC['pwd']));
 			$member = pdo_fetch('select id,openid,mobile,pwd,salt from ' . tablename('ewei_shop_member') . ' where mobile=:mobile and mobileverify=1 and uniacid=:uniacid limit 1', array(':mobile' => $mobile, ':uniacid' => $_W['uniacid']));
 			if (empty($member)) {
 				show_json(0, '用户不存在');

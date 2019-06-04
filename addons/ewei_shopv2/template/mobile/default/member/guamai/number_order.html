@@ -1176,6 +1176,7 @@
 			console.log($('.buyNum').val());
 			console.log($('.maiRu_price').val());
 			console.log(Number($('.buyNum').val())-Number(sxf0));
+			console.log(Number(getMoney).toFixed(8));
 
 			$('.mairu_Money').val(Number(getMoney).toFixed(8));
 			$('.getMoney0').val(Number(getMoney0).toFixed(8));
@@ -1209,7 +1210,7 @@
 				price: maiRu_price,
 				trx: buy_nam,
 				trx2: Number($('.buyNum').val())-Number(sxf0),
-				money: $('.getMoney0').val()*maiRu_price,
+				money: buy_nam*maiRu_price,
 				type: "0",
 				sxf0: sxf0
 			},
