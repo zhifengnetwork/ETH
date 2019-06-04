@@ -204,8 +204,8 @@
                         <?php  } ?>
 
                     </td>
-                    <td><?php  echo $row['m1mobile'];?></td>
                     <td><?php  echo $row['m2mobile'];?></td>
+                    <td><?php  echo $row['m1mobile'];?></td>
                     <td><?php  echo $row['order_id'];?></td>
                     <td><?php  echo date('Y-m-d H:i',$row['createtime'])?></td>
                     <!-- <td><?php  echo $row['money'];?></td> -->

@@ -75,9 +75,9 @@
     </div>
     <div class='fui-content navbar'>
       <div class="txtInfo">
-        <p>申诉问题：<?php  echo $guamai_appeal['order_id'];?></p>
+        <p>申诉问题：<?php  echo $guamai_appeal['textarea'];?></p>
         <p>申诉原因：<?php  echo $guamai_appeal['text'];?> </p>
-        <p>申诉订单：<?php  echo $guamai_appeal['textarea'];?> </p>
+        <p>申诉订单：<?php  echo $guamai_appeal['order_id'];?> </p>
         <p>申诉人：<?php  echo $users['mobile'];?> </p>
         <?php  if($guamai_appeal['openid'] == $users['openid']) { ?>
         <p>被申诉人：<?php  echo $guamai_appeal['openid'];?> </p>
