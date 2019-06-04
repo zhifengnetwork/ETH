@@ -111,6 +111,12 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		global $_W;
 		global $_GPC;
 		if ($_W['ispost']) {
+			if($_GPC['text']==''){
+				show_json(-1, '标题不能为空!!!');
+			}
+			if($_GPC['textarea']==''){
+				show_json(-1, '内容不能为空!!!');
+			}
 			$id = $_GPC['id'];
 			$hello = json_encode(explode(',', $_GPC['files']));
 			// $aa =  json_decode($hello);

@@ -1,4 +1,4 @@
-{template '_header'}
+<?php defined('IN_IA') or exit('Access Denied');?><?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('_header', TEMPLATE_INCLUDEPATH)) : (include template('_header', TEMPLATE_INCLUDEPATH));?>
 <style>
 	.all{background: #071a21;padding: 2.2rem 0 2.7rem 0;background: #071a21;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;overflow-y: scroll;height: 100%;}
 
@@ -158,7 +158,7 @@
 			console.log('数组push完成，可以ajax！');
 			$.ajax({
         type:'post',
-        url:"{php echo mobileurl('member/guamai/upimgarray')}",
+        url:"<?php  echo mobileurl('member/guamai/upimgarray')?>",
         data:{images:upImgArr},
         dataType:'json',
         success:function(data){
@@ -180,27 +180,27 @@
 </script>
 <script>
     $(".button").click(function(){
-      let id = "{$id}";
+      let id = "<?php  echo $id;?>";
       let text = $(".text").val();
       let files = $(".files").val();
       let textarea = $(".textarea").val();
 			// console.log(files);
       $.ajax({
         type:'post',
-        url:"{php echo mobileurl('member/guamai/tab_con')}",
+        url:"<?php  echo mobileurl('member/guamai/tab_con')?>",
         data:{id:id,text:text,textarea:textarea,files:files},
         dataType:'json',
         success:function(data){
           // console.log(data);
           if(data.status == 1){
 						if(confirm(data.result.message)){
-							location.href="{php echo mobileurl('member/guamai/number_order')}";
+							location.href="<?php  echo mobileurl('member/guamai/number_order')?>";
 						}else {
 							console.log('取消!')
 						}
             // alert(data.result.message);
             // // history.back(-1);
-						// location.href="{php echo mobileurl('member/guamai/number_order')}";
+						// location.href="<?php  echo mobileurl('member/guamai/number_order')?>";
             // $(".se_tank").css('height',0);
 		  }
 		  if(data.status == -1){
@@ -213,4 +213,4 @@
     });
   </script>
 
-{template '_footer'}
+<?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('_footer', TEMPLATE_INCLUDEPATH)) : (include template('_footer', TEMPLATE_INCLUDEPATH));?>
