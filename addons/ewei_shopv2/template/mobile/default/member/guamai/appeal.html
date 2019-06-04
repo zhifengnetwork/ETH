@@ -202,7 +202,10 @@
             // // history.back(-1);
 						// location.href="{php echo mobileurl('member/guamai/number_order')}";
             // $(".se_tank").css('height',0);
-          }
+		  }
+		  if(data.status == -1){
+			alert(data.result.message);
+		  }
         },error:function(err){
           console.log(err);
         }
