@@ -48,7 +48,7 @@
 
                 <div class='fui-cell-label big' style='width:auto;'>￥</div>
 
-                <div class='fui-cell-info'><input type='number' class='fui-input' id='money' style='font-size:1.2rem;'></div>
+                <div class='fui-cell-info'><input type='number' class='fui-input' id='money' oninput="clearNoNum(this)" style='font-size:1.2rem;'></div>
 
             </div>
 
@@ -94,6 +94,14 @@
 <?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('_footer', TEMPLATE_INCLUDEPATH)) : (include template('_footer', TEMPLATE_INCLUDEPATH));?>
 
 <script type="text/javascript">
+  function clearNoNum(obj) {
+    obj.value = obj.value.replace(/[\u4e00-\u9fa5]+/g, ""); //验证非汉字
+    obj.value = obj.value.replace(/[^\d.]/g, ""); //清除"数字"和"."以外的字符  
+    obj.value = obj.value.replace(/^\./g, ""); //验证第一个字符是数字而不是  
+    obj.value = obj.value.replace(/\.{2,}/g, "."); //只保留第一个. 清除多余的  
+    obj.value = obj.value.replace(".", "$#$").replace(/\./g, "").replace("$#$", ".");
+    obj.value = obj.value.replace(/^(\-)*(\d+)\.(\d{6}).*$/, '$1$2.$3'); //只能输入6个小数  
+  }
 
     $("#money").bind('input propertychange',function () {
       // console.log($('#money').attr('flag'));

@@ -328,7 +328,9 @@
 				});
 			});
 			/*图片上传*/
-
+			if(status == 'error'){
+				alert(message);
+			}
 			$('.btn-sub').click(function () {
 				var adress = $('#ad').val();
 				var url = $('#avatar').val();
