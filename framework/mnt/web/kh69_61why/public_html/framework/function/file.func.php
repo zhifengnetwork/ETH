@@ -109,7 +109,7 @@ function file_upload($file, $type = 'image', $name = '') {
 	$ext = strtolower($ext);
 	$setting = $_W['setting']['upload'][$type];
 	if (!in_array(strtolower($ext), $setting['extentions']) || in_array(strtolower($ext), $harmtype)) {
-		return error(-3, '不允许上传此类文件');
+		return error(-3, '不允许上传此类文件333');
 	}
 	if (!empty($setting['limit']) && $setting['limit'] * 1024 < filesize($file['tmp_name'])) {
 		return error(-4, "上传的文件超过大小限制，请上传小于 {$setting['limit']}k 的文件");
@@ -150,7 +150,7 @@ function file_wechat_upload($file, $type = 'image', $name = '') {
 	$ext = pathinfo($file['name'], PATHINFO_EXTENSION);
 	$ext = strtolower($ext);
 	if (in_array(strtolower($ext), $harmtype)) {
-		return error(-3, '不允许上传此类文件');
+		return error(-3, '不允许上传此类文件444');
 	}
 
 	$result = array();

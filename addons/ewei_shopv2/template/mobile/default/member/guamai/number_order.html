@@ -850,13 +850,13 @@
 				<div class="mask0 hide">
 					<p>价格(CNY)</p>
 					<div class="mask_lis">
-						<input type="number" placeholder="请输入卖出的价格" class="maiChu_price">
+						<input type="number" oninput="clearNoNum(this)" placeholder="请输入卖出的价格" class="maiChu_price">
 						<div class="tishi">参考价格：￥<span class="price_Min">{$start}</span>-￥<span class="price_Max">{$end}</span>
 						</div>
 					</div>
 					<div class="mask_lis">
 						<p class="mask_lis_p">数量(ETH)</p>
-						<input type="number" placeholder="请输入卖出的数量" class="maiChu_Num">
+						<input type="number" oninput="clearNoNum(this)" placeholder="请输入卖出的数量" class="maiChu_Num">
 					</div>
 					<div class="mask_lis">
 						<p>预获金额(CNY)</p>
@@ -874,13 +874,13 @@
 				<div class="mask1">
 					<div class="mask1_pice">
 						<p>价格(CNY)</p>
-						<input type="number" min="0" placeholder="请输入买入的价格" class="maiRu_price">
+						<input type="number" min="0" oninput="clearNoNum(this)" placeholder="请输入买入的价格" class="maiRu_price">
 					</div>
 					<div class="tishi">参考价格：￥<span class="price_Min">{$start}</span>-￥<span class="price_Max">{$end}</span></div>
 
 					<p class="mask_lis_p">买入数量(ETH)</p>
 					<div class="mask1_lis">
-						<input type="number " min="0" placeholder="请输入购买的数量" class="buyNum ">
+						<input type="number " min="0" oninput="clearNoNum(this)" placeholder="请输入购买的数量" class="buyNum ">
 					</div>
 					<div class="mask_lis">
 						<p>预获币数(ETH)</p>
@@ -899,6 +899,16 @@
 			</script>
 			<!---交易倒计时----->
 			<script>
+
+				function clearNoNum(obj) {
+					obj.value = obj.value.replace(/[\u4e00-\u9fa5]+/g, ""); //验证非汉字
+					obj.value = obj.value.replace(/[^\d.]/g, ""); //清除"数字"和"."以外的字符  
+					obj.value = obj.value.replace(/^\./g, ""); //验证第一个字符是数字而不是  
+					obj.value = obj.value.replace(/\.{2,}/g, "."); //只保留第一个. 清除多余的  
+					obj.value = obj.value.replace(".", "$#$").replace(/\./g, "").replace("$#$", ".");
+					obj.value = obj.value.replace(/^(\-)*(\d+)\.(\d{6}).*$/, '$1$2.$3'); //只能输入6个小数  
+				}
+
 				$(function () {
 
 					var addTimer = function () {

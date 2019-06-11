@@ -1,4 +1,4 @@
-{template '_header'}
+<?php defined('IN_IA') or exit('Access Denied');?><?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('_header', TEMPLATE_INCLUDEPATH)) : (include template('_header', TEMPLATE_INCLUDEPATH));?>
 <style>
 .disabled{
   pointer-events: none;
@@ -28,14 +28,14 @@
 
             <div id="tab" class="fui-tab fui-tab-danger">
 
-            <a data-tab="tab1"  class="external {if $_GPC['type']==0}active{/if}" href="{php echo mobileUrl('member/withdraw', array('type' => 0))}" data-type='0'>转帐</a>
+            <a data-tab="tab1"  class="external <?php  if($_GPC['type']==0) { ?>active<?php  } ?>" href="<?php  echo mobileUrl('member/withdraw', array('type' => 0))?>" data-type='0'>转帐</a>
 
             </div>
 
             <div class='fui-cell-title'>
 
                 <div class='fui-cell-info' style='color:#999'>
-                当前可交易金额: ￥<span id='current'>{$member['credit2']}</span>
+                当前可交易金额: ￥<span id='current'><?php  echo $member['credit2'];?></span>
                 <!-- <a id='btn-all' class='text-primary external' href='#'>全部提现</a> -->
                 </div>
 
@@ -64,7 +64,7 @@
 
 
 
-            <div class='fui-cell-title'>交易手续费为 {$ass['zhuanzhangsxf']}%</div>
+            <div class='fui-cell-title'>交易手续费为 <?php  echo $ass['zhuanzhangsxf'];?>%</div>
 
 
 
@@ -91,7 +91,7 @@
 
 </div>
 
-{template '_footer'}
+<?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('_footer', TEMPLATE_INCLUDEPATH)) : (include template('_footer', TEMPLATE_INCLUDEPATH));?>
 
 <script type="text/javascript">
   function clearNoNum(obj) {
@@ -107,9 +107,9 @@
       // console.log($('#money').attr('flag'));
 
       let id = $('#id').val();
-      let current = Number("{$member['credit2']}");
+      let current = Number("<?php  echo $member['credit2'];?>");
       let money = Number($(this).val());
-      let sxf = Number("{$ass['zhuanzhangsxf']}");
+      let sxf = Number("<?php  echo $ass['zhuanzhangsxf'];?>");
 
       if(money > current){
         $('#btn-next').addClass('disabled');
@@ -142,11 +142,11 @@
 
     $('#id').blur(function () {
       let id = $(this).val();
-      let current = Number("{$member['credit2']}");
+      let current = Number("<?php  echo $member['credit2'];?>");
       let money = Number($('#money').val());
       $.ajax({
         type:'post',
-        url:"{php echo mobileurl('member.mywallet.openid')}",
+        url:"<?php  echo mobileurl('member.mywallet.openid')?>",
         data:{id:id},
         dataType:'json',
         success:function(data){
@@ -177,7 +177,7 @@
       let id = $('#id').val();
       $.ajax({
         type:'post',
-        url:"{php echo mobileurl('member/mywallet/zhuangzhangis')}",
+        url:"<?php  echo mobileurl('member/mywallet/zhuangzhangis')?>",
         data:{money:money,moneysxf:moneysxf,id:id},
         dataType:'json',
         success:function(data){

@@ -1,4 +1,4 @@
-{template '_header'}
+<?php defined('IN_IA') or exit('Access Denied');?><?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('_header', TEMPLATE_INCLUDEPATH)) : (include template('_header', TEMPLATE_INCLUDEPATH));?>
 <style type="text/css">
 	.fui-header ~ .fui-content{
 		background-color: #fff;
@@ -107,7 +107,7 @@
     			钱包地址:
     		</div>
     		<div class="fui-content-box">
-    			<input type="text" name="qbadress" value="{$member['walletaddress']}" class="form-control ad" id="ad">
+    			<input type="text" name="qbadress" value="<?php  echo $member['walletaddress'];?>" class="form-control ad" id="ad">
     		</div>
     	</div> -->
 
@@ -116,7 +116,7 @@
 				银行卡卡号:
 			</div>
 			<div class="fui-content-box">
-				<input type="text" name="qbadress" value="{$member['bankid']}" class="form-control ad" id="bankid">
+				<input type="text" name="qbadress" value="<?php  echo $member['bankid'];?>" class="form-control ad" id="bankid">
 			</div>
 		</div>
 
@@ -125,7 +125,7 @@
 				开户人:
 			</div>
 			<div class="fui-content-box">
-				<input type="text" name="qbadress" value="{$member['bankname']}" class="form-control ad" id="bankname">
+				<input type="text" name="qbadress" value="<?php  echo $member['bankname'];?>" class="form-control ad" id="bankname">
 			</div>
 		</div>
 
@@ -134,11 +134,11 @@
 				开户行:
 			</div>
 			<div class="fui-content-box">
-				<input type="text" name="qbadress" value="{$member['bank']}" class="form-control ad" id="bank">
+				<input type="text" name="qbadress" value="<?php  echo $member['bank'];?>" class="form-control ad" id="bank">
 			</div>
 		</div>
 
-		<!-- {if empty($template_flag)}
+		<!-- <?php  if(empty($template_flag)) { ?>
 		<div class="fui-cell-group" style="    padding: 10px 3% 0 3%;">
 
 			<div class="fui-cell" style="padding:0">
@@ -146,13 +146,13 @@
 				<div class="fui-cell-label" style="flex: 1;text-align: right;">所在城市: </div>
 
 				<div class="fui-cell-info" style="flex: 3;border-bottom: 1px solid #ccc;padding-left: 10px;height: 39px;line-height: 39px;">
-					<input type="text"  class='fui-input'  id='city' name='city' placeholder="请选择城市"  value="{$member['province']} {$member['city']}" data-value="{if !empty($show_data)}{$member['datavalue']}{/if}" readonly/>
+					<input type="text"  class='fui-input'  id='city' name='city' placeholder="请选择城市"  value="<?php  echo $member['province'];?> <?php  echo $member['city'];?>" data-value="<?php  if(!empty($show_data)) { ?><?php  echo $member['datavalue'];?><?php  } ?>" readonly/>
 				</div>
 
 			</div>
 
 		</div>
-		{/if} -->
+		<?php  } ?> -->
 
 		<!-- 钱包二维码 -->
 		<!-- <div class="qbadress">
@@ -167,10 +167,10 @@
 						<input type="file" name='imgFile0' id='imgFile0' />
 					</div>
 					<div class="images">
-						<img  src="{$member['walletcode']}" />
+						<img  src="<?php  echo $member['walletcode'];?>" />
 
 					</div>
-					<input  type="hidden"  value="{$member['walletcode']}"  id="avatar"/>
+					<input  type="hidden"  value="<?php  echo $member['walletcode'];?>"  id="avatar"/>
 				</div>
     		</div>
     	</div> -->
@@ -188,13 +188,13 @@
 						<input type="file" name='zfbimgFile0' id='zfbimgFile0' />
 					</div>
 					<div class="images">
-						<img src="{$member['zfbfile']}" />
+						<img src="<?php  echo $member['zfbfile'];?>" />
 						<!-- <img  src="../addons/ewei_shopv2/static/images/upload.png"  /> -->
 						<!-- upload.png为默认图片 -->
 
 					</div>
 					<!-- input无图时为空 -->
-					<input type="hidden" value="{$member['zfbfile']}" id="zfbavatar" />
+					<input type="hidden" value="<?php  echo $member['zfbfile'];?>" id="zfbavatar" />
 				</div>
 			</div>
 		</div>
@@ -211,13 +211,13 @@
 						<input type="file" name='wximgFile0' id='wximgFile0' />
 					</div>
 					<div class="images">
-						<img src="{$member['wxfile']}" />
+						<img src="<?php  echo $member['wxfile'];?>" />
 						<!-- <img  src="../addons/ewei_shopv2/static/images/upload.png"  /> -->
 						<!-- upload.png为默认图片 -->
 
 					</div>
 					<!-- input无图时为空 -->
-					<input type="hidden" value="{$member['wxfile']}" id="wxavatar" />
+					<input type="hidden" value="<?php  echo $member['wxfile'];?>" id="wxavatar" />
 				</div>
 			</div>
 		</div>
@@ -241,13 +241,13 @@
 			var wximg = $('.wx .images img');
 			var zfbimg = $('.zfb .images img');
 			var qbimg = $('.qb .images img');
-			if ("{$member['wxfile']}" == '') {
+			if ("<?php  echo $member['wxfile'];?>" == '') {
 				wximg.prop('src', '../addons/ewei_shopv2/static/images/upload.png')
 			}
-			if ("{$member['zfbfile']}" == '') {
+			if ("<?php  echo $member['zfbfile'];?>" == '') {
 				zfbimg.prop('src', '../addons/ewei_shopv2/static/images/upload.png')
 			}
-			// if("{$member['walletcode']}" == ''){
+			// if("<?php  echo $member['walletcode'];?>" == ''){
 			// 	qbimg.prop('src','../addons/ewei_shopv2/static/images/upload.png')
 			// }
 			/*图片上传*/
@@ -361,7 +361,7 @@
 
 
 				$.ajax({
-					url: "{php echo mobileUrl('member/wallet/submit')}",
+					url: "<?php  echo mobileUrl('member/wallet/submit')?>",
 					type: 'post',
 					data: { adress: adress, url: url, zfbfile: zfbfile, wxfile: wxfile, bankid: bankid, bankname: bankname, bank: bank },
 					dataType: 'json',
@@ -369,7 +369,7 @@
 						if (data.status == 1) {
 							core.tip.show('上传成功');
 							setTimeout(function () {
-								window.location.href = "{php echo mobileUrl('member/index')}";
+								window.location.href = "<?php  echo mobileUrl('member/index')?>";
 							}, 1000)
 						}
 					}, error: function (e) {
@@ -387,4 +387,4 @@
 
 
 
-{template '_footer'}
+<?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('_footer', TEMPLATE_INCLUDEPATH)) : (include template('_footer', TEMPLATE_INCLUDEPATH));?>

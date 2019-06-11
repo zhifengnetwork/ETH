@@ -132,6 +132,7 @@ function file_upload($file, $type = 'image', $name = '') {
 		$allowExt = array_merge($setting['extentions'], $allowExt);
 	}
 	if (!in_array(strtolower($ext), $allowExt) || in_array(strtolower($ext), $harmtype)) {
+		show_json(-3, '不允许上传此类文件!!!');
 		return error(-3, '不允许上传此类文件');
 	}
 	if (!empty($limit) && $limit * 1024 < filesize($file['tmp_name'])) {
