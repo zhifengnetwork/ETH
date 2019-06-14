@@ -63,7 +63,12 @@
     border-radius: .5rem;
     margin: 1rem auto 0;
   }
-
+  img[src=""],img:not([src]){
+     opacity: 0;
+     border:none;
+     visibility: hidden;
+     max-width: none;
+ }
 </style>
 <!-- <script src="../../../../../../../addons/ewei_shopv2/static/js/clipboard.js" type="text/javascript"></script> -->
 <div class='fui-page  fui-page-current member-log-page'>
@@ -297,6 +302,12 @@
   .disable{
     pointer-events: none;
   }
+  img[src=""],img:not([src]){
+     opacity: 0;
+     border:none;
+     visibility: hidden;
+     max-width: none;
+ }
 </style>
 
 <div class='fui-page  fui-page-current member-log-page'>
@@ -568,7 +579,12 @@
     border-radius: .5rem;
     margin: 1rem auto 0;
   }
-
+  img[src=""],img:not([src]){
+     opacity: 0;
+     border:none;
+     visibility: hidden;
+     max-width: none;
+ }
 </style>
 
 <div class='fui-page  fui-page-current member-log-page'>
@@ -800,6 +816,12 @@
   .disable{
     pointer-events: none;
   }
+  img[src=""],img:not([src]){
+     opacity: 0;
+     border:none;
+     visibility: hidden;
+     max-width: none;
+ }
 </style>
 
 <div class='fui-page  fui-page-current member-log-page'>
