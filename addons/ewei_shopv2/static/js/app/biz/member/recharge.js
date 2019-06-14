@@ -70,6 +70,10 @@ define(['core', 'tpl'], function (core, tpl) {
 
 					FoxUI.toast.show('您的投资之和已超过上限投资金额!');
 				}
+				if (pay_json.status == -1) {
+
+					FoxUI.toast.show(pay_json.result.message);
+				}
 			}, true, true)
 
 			var showpay = false;

@@ -212,7 +212,14 @@ class Recharge_EweiShopV2Page extends MobileLoginPage
 	{
 		global $_W;
 		global $_GPC;
-		$money = $_GPC['money'];
+		// $money = $_GPC['money'];
+		$money = floatval($_GPC['money']);
+		
+		if ($money<= 0) {
+			
+			show_json(-1, '充值金额必须大于0!');
+			// dump($money);die;
+		}
 		$url = $_GPC['url'];
 		$member = m('member')->getMember($_W['openid'], true);
 		$sys = pdo_fetch("select *from " . tablename("ewei_shop_sysset") . "where uniacid=" . $_W['uniacid']);

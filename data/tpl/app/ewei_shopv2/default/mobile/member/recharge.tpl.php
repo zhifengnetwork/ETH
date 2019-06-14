@@ -1,4 +1,4 @@
-{template '_header'}
+<?php defined('IN_IA') or exit('Access Denied');?><?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('_header', TEMPLATE_INCLUDEPATH)) : (include template('_header', TEMPLATE_INCLUDEPATH));?>
 
 <link
   rel="stylesheet"
@@ -137,7 +137,7 @@
   </div>
 
   <div class="fui-content navbar">
-    <input type="hidden" id="logid" value="{$logid}" />
+    <input type="hidden" id="logid" value="<?php  echo $logid;?>" />
 
     <input type="hidden" id="couponid" value="" />
 
@@ -146,25 +146,24 @@
         <div class="fui-cell-label">当前投资额</div>
 
         <div class="fui-cell-info">
-          {php echo number_format($member['credit1'],2)}
+          <?php  echo number_format($member['credit1'],2)?>
         </div>
       </div>
 
       <div class="fui-cell">
         <div class="fui-cell-label">
-          {if $member['type']==0}激活投资{else if
-          $member['type']==1}追加投资{/if}
+          <?php  if($member['type']==0) { ?>激活投资<?php  } else if($member['type']==1) { ?>追加投资<?php  } ?>
         </div>
 
         <div class="fui-cell-info">
-          <input type="number" oninput="clearNoNum(this)" class="fui-input" id="money" value="{$_GPC['money']}"/>
+          <input type="number" oninput="clearNoNum(this)" class="fui-input" id="money" value="<?php  echo $_GPC['money'];?>"/>
         </div>
       </div>
 
       <div class="fui-cell">
-        账户投资上限：{$sys['bibi']}<br />
+        账户投资上限：<?php  echo $sys['bibi'];?><br />
 
-        当前最多可投资：{php echo $sys['bibi']-$member['credit1']}
+        当前最多可投资：<?php  echo $sys['bibi']-$member['credit1']?>
       </div>
 
       <div class="fui-cell erweima">
@@ -193,14 +192,14 @@
             type="text"
             class="fui-input"
             id="skaddress"
-            value="{$_GPC['address']}"
+            value="<?php  echo $_GPC['address'];?>"
           />
         </div>
       </div>
     </div>
 
     <div class="fui-cell-group">
-      {if com('coupon')}
+      <?php  if(com('coupon')) { ?>
 
       <div class="fui-cell" id="coupondiv" style="display:none">
         <div class="fui-cell-label" style="width:auto">优惠券</div>
@@ -214,7 +213,7 @@
         </div>
       </div>
 
-      {/if}
+      <?php  } ?>
     </div>
 
     <div class="box">
@@ -249,7 +248,7 @@
               <input type="file" name="imgFile0" id="imgFile0" />
             </div>
             <div class="images">
-              <!-- <img  src="{$member['walletcode']}" /> -->
+              <!-- <img  src="<?php  echo $member['walletcode'];?>" /> -->
               <img src="../addons/ewei_shopv2/static/images/upload.png" />
               <!-- upload.png为默认图片 -->
             </div>
@@ -264,59 +263,59 @@
       </div>
     </div>
 
-    {if !empty($acts)}
+    <?php  if(!empty($acts)) { ?>
 
     <div class="fui-cell-group">
       <div class="fui-according expanded">
         <div class="fui-according-header">
           <div class="text">
             充值活动 充值满
-            <span class="text-danger">{$acts[0]['enough']}</span> 元立即送
-            <span class="text-danger">{$acts[0]['give']}</span> 元
+            <span class="text-danger"><?php  echo $acts[0]['enough'];?></span> 元立即送
+            <span class="text-danger"><?php  echo $acts[0]['give'];?></span> 元
           </div>
 
-          {if count($acts)>1}<span class="remark">更多</span>{/if}
+          <?php  if(count($acts)>1) { ?><span class="remark">更多</span><?php  } ?>
         </div>
 
-        {if count($acts)>1}
+        <?php  if(count($acts)>1) { ?>
 
         <div class="fui-according-content">
           <div class="content-block" style="padding: 0 0.5rem;">
             <div class="fui-cell-group" style="margin-top: 0;">
-              {loop $acts $key $enough} {if $key>0}
+              <?php  if(is_array($acts)) { foreach($acts as $key => $enough) { ?> <?php  if($key>0) { ?>
 
               <div class="fui-cell" style="">
                 <div class="fui-cell-text">
                   充值满
-                  <span class="text-danger">{$enough['enough']}</span> 元立即送
-                  <span class="text-danger">{$enough['give']}</span> 元
+                  <span class="text-danger"><?php  echo $enough['enough'];?></span> 元立即送
+                  <span class="text-danger"><?php  echo $enough['give'];?></span> 元
                 </div>
               </div>
 
-              {/if} {/loop}
+              <?php  } ?> <?php  } } ?>
             </div>
           </div>
         </div>
 
-        {/if}
+        <?php  } ?>
       </div>
     </div>
 
-    {/if}
+    <?php  } ?>
 
     <a id="btn-next" class="btn btn-success block disabled">付款</a>
     <!--
-		{if $wechat['success'] || $payinfo['wechat']}
+		<?php  if($wechat['success'] || $payinfo['wechat']) { ?>
 
 		<a id='btn-wechat' class='btn btn-success block btn-pay ' style='display:none'>微信支付</a>
 
-		{/if}
+		<?php  } ?>
 
-		{if ($alipay['success'] && !is_h5app()) || $payinfo['alipay']}
+		<?php  if(($alipay['success'] && !is_h5app()) || $payinfo['alipay']) { ?>
 
 		<a id='btn-alipay' class='btn btn-warning  block btn-pay'  style='display:none'>支付宝支付</a>
 
-		{/if} -->
+		<?php  } ?> -->
 
     <script type="text/javascript">
 
@@ -382,7 +381,7 @@
         // 		return false;
         // 	}
         // 	$.ajax({
-        // 		url:"{php echo mobileUrl('member/recharge/submit')}",
+        // 		url:"<?php  echo mobileUrl('member/recharge/submit')?>",
         // 		type:'post',
         // 		data:{url:url},
         // 		dataType:'json',
@@ -390,7 +389,7 @@
         // 			if(data.status == 1){
         // 				core.tip.show('上传成功');
         // 				setTimeout(function(){
-        // 					window.location.href="{php echo mobileUrl('member/assets')}";
+        // 					window.location.href="<?php  echo mobileUrl('member/assets')?>";
         // 				},1000)
         // 			}
         // 		},error:function(e){
@@ -413,17 +412,17 @@
     </script>
   </div>
 
-  {template 'order/pay/wechat_jie'}
+  <?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('order/pay/wechat_jie', TEMPLATE_INCLUDEPATH)) : (include template('order/pay/wechat_jie', TEMPLATE_INCLUDEPATH));?>
 
   <script language="javascript">
     require(["biz/member/recharge"], function(modal) {
       modal.init({
-        minimumcharge: "{php echo intval($wechat['success'])}",
-        wechat: "{php echo intval($wechat['success'])}",
-        alipay: "{php echo intval($alipay['success'])}"
+        minimumcharge: "<?php  echo intval($wechat['success'])?>",
+        wechat: "<?php  echo intval($wechat['success'])?>",
+        alipay: "<?php  echo intval($alipay['success'])?>"
       });
     });
   </script>
 </div>
 
-{template 'sale/coupon/util/picker'} {template '_footer'}
+<?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('sale/coupon/util/picker', TEMPLATE_INCLUDEPATH)) : (include template('sale/coupon/util/picker', TEMPLATE_INCLUDEPATH));?> <?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('_footer', TEMPLATE_INCLUDEPATH)) : (include template('_footer', TEMPLATE_INCLUDEPATH));?>
