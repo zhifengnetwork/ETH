@@ -270,9 +270,14 @@
 					success: function (res, status) {
 						var src2 = $('.zfb .images img').prop('src');
 						console.log(res.url);
+						if (res.status == -3) {
+							alert(res.result.message);
+							return false;
+						}
 						if (res.url == undefined) {
 							return false;
 						}
+						
 						// core.removeLoading();
 						//var obj = $(tpl('tpl_img', res));
 						var obj = document.createElement('img');
@@ -283,7 +288,6 @@
 						$('.zfb .images').html(' ');
 						$('.zfb .images').append(obj);
 						$('.zfb #zfbavatar').val(res.url);
-
 					}, error: function (data, status, e) {
 						// core.removeLoading();
 						core.tip.show('上传失败!');
@@ -307,9 +311,14 @@
 					success: function (res, status) {
 						var src2 = $('.wx .images img').prop('src');
 						console.log(res.url);
+						if (res.status == -3) {
+							alert(res.result.message);
+							return false;
+						}
 						if (res.url == undefined) {
 							return false;
 						}
+						
 						// core.removeLoading();
 						//var obj = $(tpl('tpl_img', res));
 						var obj = document.createElement('img');
@@ -372,6 +381,11 @@
 								window.location.href = "{php echo mobileUrl('member/index')}";
 							}, 1000)
 						}
+						if (data.status == -3) {
+							core.tip.show('上传失败');
+							
+						}
+						
 					}, error: function (e) {
 						console.log(e)
 					}
