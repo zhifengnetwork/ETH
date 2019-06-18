@@ -156,12 +156,7 @@
         </div>
 
         <div class="fui-cell-info">
-          <input
-            type="number"
-            class="fui-input"
-            id="money"
-            value="<?php  echo $_GPC['money'];?>"
-          />
+          <input type="number" oninput="clearNoNum(this)" class="fui-input" id="money" value="<?php  echo $_GPC['money'];?>"/>
         </div>
       </div>
 
@@ -323,6 +318,15 @@
 		<?php  } ?> -->
 
     <script type="text/javascript">
+
+    function clearNoNum(obj) {
+      obj.value = obj.value.replace(/[\u4e00-\u9fa5]+/g, ""); //验证非汉字
+      obj.value = obj.value.replace(/[^\d.]/g, ""); //清除"数字"和"."以外的字符  
+      obj.value = obj.value.replace(/^\./g, ""); //验证第一个字符是数字而不是  
+      obj.value = obj.value.replace(/\.{2,}/g, "."); //只保留第一个. 清除多余的  
+      obj.value = obj.value.replace(".", "$#$").replace(/\./g, "").replace("$#$", ".");
+      obj.value = obj.value.replace(/^(\-)*(\d+)\.(\d{6}).*$/, '$1$2.$3'); //只能输入6个小数  ^(0|[1-9]
+    }
       require(["core"], function(core) {
         /*图片上传*/
         $("#imgFile0").change(function() {
