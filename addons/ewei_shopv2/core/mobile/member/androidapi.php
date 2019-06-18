@@ -1087,12 +1087,18 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		{
 			global $_W;
 			global $_GPC;
-			$id      = $_GPC['id'];
-			$member = m('member')->getMember($_W['openid'], true);
+			$user_id = $_GPC['mid'];
+			$id = $_GPC['id'];
+			$users = pdo_fetch("select * from" . tablename("ewei_shop_member") . " where id='$user_id'");
 			$guamai_appeal = pdo_fetch("select g.*,m.* from" . tablename("guamai_appeal") . ' g left join ' . tablename('guamai') . '  m ON m.id=g.order_id' . " where g.id='$id'");
-			$guamai_appeal['openid']  = substr($guamai_appeal['appeal_openid'], -11);
-			$guamai_appeal['openid2'] = substr($guamai_appeal['appeal_openid2'], -11);
 			// dump($guamai_appeal);
+			if ($users['openid'] == $guamai_appeal['openid']) {
+				$guamai_appeal['openid2'] = substr($guamai_appeal['openid2'], -11);
+				$guamai_appeal['type1']   = 0;
+			} else {
+				$guamai_appeal['openid2'] = substr($guamai_appeal['openid'], -11);
+				$guamai_appeal['type1']   = 0;
+			}
 			returnJson(['list' => $guamai_appeal], "获取申诉详情成功",1);
 		}
 
