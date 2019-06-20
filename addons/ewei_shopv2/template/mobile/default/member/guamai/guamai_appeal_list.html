@@ -79,7 +79,7 @@
         <p>申诉内容：{$guamai_appeal['textarea']} </p>
         <p>申诉订单：{$guamai_appeal['order_id']} </p>
         <p>申诉人：{$users['mobile']} </p>
-        {if $guamai_appeal['appeal_name'] == $users['openid']}
+        {if $guamai_appeal['openid'] == $users['openid']}
         <p>被申诉人：{$guamai_appeal['openid2']} </p>
         {else}
         <p>被申诉人：{$guamai_appeal['openid']} </p>
