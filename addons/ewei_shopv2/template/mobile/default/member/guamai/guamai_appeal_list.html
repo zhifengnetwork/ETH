@@ -75,14 +75,14 @@
     </div>
     <div class='fui-content navbar'>
       <div class="txtInfo">
-        <p>申诉问题：{$guamai_appeal['textarea']}</p>
-        <p>申诉原因：{$guamai_appeal['text']} </p>
+        <p>申诉标题：{$guamai_appeal['text']}</p>
+        <p>申诉内容：{$guamai_appeal['textarea']} </p>
         <p>申诉订单：{$guamai_appeal['order_id']} </p>
         <p>申诉人：{$users['mobile']} </p>
-        {if $guamai_appeal['openid'] == $users['openid']}
-        <p>被申诉人：{$guamai_appeal['openid']} </p>
-        {else}
+        {if $guamai_appeal['appeal_name'] == $users['openid']}
         <p>被申诉人：{$guamai_appeal['openid2']} </p>
+        {else}
+        <p>被申诉人：{$guamai_appeal['openid']} </p>
         {/if}
         <p>ETH数量：{$guamai_appeal['trx']} </p>
         <p>CNY数量：{$guamai_appeal['money']} </p>

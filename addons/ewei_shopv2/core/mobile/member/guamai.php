@@ -150,10 +150,11 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 	{
 		global $_W;
 		global $_GPC;
-		$user_id = $_GPC['mid'];
 		$id = $_GPC['id'];
-		$users = pdo_fetch("select * from" . tablename("ewei_shop_member") . " where id='$user_id'");
 		$guamai_appeal = pdo_fetch("select g.*,m.* from" . tablename("guamai_appeal") . ' g left join ' . tablename('guamai') . '  m ON m.id=g.order_id' . " where g.id='$id'");
+		// $user_id = $_GPC['mid'];
+		$user_id = $guamai_appeal['appeal_name'];
+		$users = pdo_fetch("select * from" . tablename("ewei_shop_member") . " where id='$user_id'");
 		// dump($guamai_appeal);
 		if ($users['openid'] == $guamai_appeal['openid']) {
 			$guamai_appeal['openid2'] = substr($guamai_appeal['openid2'], -11);
