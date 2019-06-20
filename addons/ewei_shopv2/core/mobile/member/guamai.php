@@ -98,7 +98,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		}
 
 		//申诉
-		$guamai_appeal = pdo_fetchall("select * from" . tablename("guamai_appeal") . "where appeal_name='" . $_W['mid'] . "'");
+		$guamai_appeal = pdo_fetchall("select * from" . tablename("guamai_appeal") . "where openid='" . $openid . "' or openid2='" . $openid . "'");
 		foreach ($guamai_appeal as $k => $v) {
 			$guamai_appeal[$k]['createtime'] = date("Y-m-d", $v['createtime']);
 		}
