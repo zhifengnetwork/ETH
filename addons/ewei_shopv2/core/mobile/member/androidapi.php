@@ -2260,6 +2260,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		global $_GPC;
 
 		$money = $_GPC['money'];
+		$id = $_GPC['id'];
 		// $moneysxf = $_GPC['moneysxf'];
 		$ass = pdo_fetch("select zhuanzhangsxf from " . tablename("ewei_shop_sysset") . " where uniacid=:uniacid ", array(':uniacid' => $_W['uniacid']));
 		$moneysxf = $ass['zhuanzhangsxf'] / 100;
@@ -2271,6 +2272,11 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		if (!$money) returnJson(array(), "请输入转账金额",-2);
 		if (!$mid) returnJson(array(), "请输入转账人id",-2);
 		if ($member['credit2'] < $money) returnJson(array(), "您输入的转账金额过大，账户余额不足",-2);
+		$member = pdo_fetch("select * from " . tablename("ewei_shop_member") . "where uniacid=" . $_W['uniacid'] . " and id='$id'");
+
+		if (!$member) {
+			returnJson(array(), "该会员不存在",-2);
+		}
 		// returnJson(array()mid);
 		if ($member2['openid'] == $_W['openid']) returnJson(array(), "不能对自己进行转账",-2);
 
