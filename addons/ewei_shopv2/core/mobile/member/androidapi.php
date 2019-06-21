@@ -2288,8 +2288,6 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$log = pdo_insert("ewei_zhuanzhang", $data);
 		if($log)
 		{
-			dump($member2['openid']);
-			dump($member['openid']);
 			//向对方账户打钱
 			m('member')->setCredit($member2['openid'], 'credit2', $money,"转账增加ETH");
 			//自己扣钱
