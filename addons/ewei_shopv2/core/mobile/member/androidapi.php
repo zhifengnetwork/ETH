@@ -1095,7 +1095,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			$user_id = $_W['openid'];
 			$users = pdo_fetch("select * from" . tablename("ewei_shop_member") . " where openid='$user_id'");
 			$id = $_GPC['id'];
-			$guamai_appeal = pdo_fetch("select g.*,m.* from" . tablename("guamai_appeal") . ' g left join ' . tablename('guamai') . '  m ON m.id=g.order_id' . " where g.order_id='$id'");
+			$guamai_appeal = pdo_fetch("select g.*,m.* from" . tablename("guamai_appeal") . ' g left join ' . tablename('guamai') . '  m ON m.id=g.order_id' . " where g.id='$id'");
 			// dump($guamai_appeal);die;
 			if ($users['openid'] == $guamai_appeal['openid']) {
 				$guamai_appeal['openid2'] = substr($guamai_appeal['openid2'], -11);
