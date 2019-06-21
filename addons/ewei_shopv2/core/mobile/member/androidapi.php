@@ -2262,6 +2262,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 
 		$money = $_GPC['money'];
 		$id = $_GPC['id'];
+		
 		// $moneysxf = $_GPC['moneysxf'];
 		$ass = pdo_fetch("select zhuanzhangsxf from " . tablename("ewei_shop_sysset") . " where uniacid=:uniacid ", array(':uniacid' => $_W['uniacid']));
 		$moneysxf = $ass['zhuanzhangsxf'] / 100;
@@ -2273,9 +2274,9 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		if (!$money) returnJson(array(), "请输入转账金额",-2);
 		if (!$mid) returnJson(array(), "请输入转账人id",-2);
 		if ($member['credit2'] < $money) returnJson(array(), "您输入的转账金额过大，账户余额不足",-2);
-		$member = pdo_fetch("select * from " . tablename("ewei_shop_member") . "where uniacid=" . $_W['uniacid'] . " and id='$id'");
+		$member1 = pdo_fetch("select * from " . tablename("ewei_shop_member") . "where uniacid=" . $_W['uniacid'] . " and id='$id'");
 
-		if (!$member) {
+		if (!$member1) {
 			returnJson(array(), "该会员不存在",-2);
 		}
 		// returnJson(array()mid);
@@ -2287,6 +2288,8 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$log = pdo_insert("ewei_zhuanzhang", $data);
 		if($log)
 		{
+			dump($member2['openid']);
+			dump($member['openid']);
 			//向对方账户打钱
 			m('member')->setCredit($member2['openid'], 'credit2', $money,"转账增加ETH");
 			//自己扣钱
