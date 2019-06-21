@@ -2180,7 +2180,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		}
 
 
-		returnJson(['member'=>$member,'huiyuanlevel'=>$huiyuanlevel,'money'=>$money,'money2'=>$money2,'money4'=>money4,'arr'=>$arr,'arr2'=>$arr2,'kefu'=>$sys]);
+		returnJson(['member'=>$member,'huiyuanlevel'=>$huiyuanlevel,'money'=>$money,'money2'=>$money2,'money4'=>$money4,'arr'=>$arr,'arr2'=>$arr2,'kefu'=>$sys]);
 	}
 
 	public function my_wallet(){
