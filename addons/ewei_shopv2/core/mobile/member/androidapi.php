@@ -1983,6 +1983,8 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		//控制查询整个系统进入人时是否升级
 		// $a = p("commission")->lingdaolevel();
 		// var_dump($a);exit();
+		// dump($_W['openid']);
+		// die;
 		$this->diypage('member');
 		$member = m('member')->getMember($_W['openid'], true);
 		$level = m('member')->getLevel($_W['openid']);
@@ -2056,8 +2058,6 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$arr2 = pdo_fetch("select * from" .tablename("ewei_shop_member")."where openid='".$_W['openid']."'");
 
 		$money4 = $arr2['money'] * 0.5;
-
-
 
 		$open_creditshop = p('creditshop') && $_W['shopset']['creditshop']['centeropen'];
 		$params = array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']);
