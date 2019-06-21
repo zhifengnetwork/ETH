@@ -82,7 +82,7 @@ class Index_EweiShopV2Page extends ComWebPage
 		$params[':uniacid'] = $_W['uniacid'];
 
 		$list = pdo_fetchall($select . $tablename . $where . $limit, $params);
-		dump($list);die;
+		// dump($list);die;
 		$total = pdo_fetchcolumn('SELECT count(og.id) FROM ' . $tablename . $where, $params);
 		$total = pagination2($total, $pindex, $psize);
 		include $this->template();
