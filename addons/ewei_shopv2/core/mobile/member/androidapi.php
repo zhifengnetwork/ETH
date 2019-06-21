@@ -2057,7 +2057,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		// $arr2 = pdo_fetch("select sum(money) as money from" . tablename("ewei_shop_member_log") . "where uniacid=" . $_W['uniacid'] . " and openid=:openid and type=1", array(':openid' => $_W['openid']));
 		$arr2 = pdo_fetch("select * from" .tablename("ewei_shop_member")."where openid='".$_W['openid']."'");
 
-		$money4 = $arr2['money'] * 0.5;
+		$money4 = $arr2['credit1'] * 0.5;
 
 		$open_creditshop = p('creditshop') && $_W['shopset']['creditshop']['centeropen'];
 		$params = array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']);
@@ -2179,8 +2179,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		if (p('mmanage')) {
 			$roleuser = pdo_fetch('SELECT id, uid, username, status FROM' . tablename('ewei_shop_perm_user') . 'WHERE openid=:openid AND uniacid=:uniacid AND status=1 LIMIT 1', array(':openid' => $_W['openid'], ':uniacid' => $_W['uniacid']));
 		}
-
-
+		
 		returnJson(['member'=>$member,'huiyuanlevel'=>$huiyuanlevel,'money'=>$money,'money2'=>$money2,'money4'=>$money4,'arr'=>$arr,'arr2'=>$arr2,'kefu'=>$sys]);
 	}
 
