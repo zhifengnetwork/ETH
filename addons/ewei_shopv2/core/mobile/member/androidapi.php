@@ -2179,7 +2179,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		if (p('mmanage')) {
 			$roleuser = pdo_fetch('SELECT id, uid, username, status FROM' . tablename('ewei_shop_perm_user') . 'WHERE openid=:openid AND uniacid=:uniacid AND status=1 LIMIT 1', array(':openid' => $_W['openid'], ':uniacid' => $_W['uniacid']));
 		}
-		
+
 		returnJson(['member'=>$member,'huiyuanlevel'=>$huiyuanlevel,'money'=>$money,'money2'=>$money2,'money4'=>$money4,'arr'=>$arr,'arr2'=>$arr2,'kefu'=>$sys]);
 	}
 
@@ -2264,7 +2264,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$ass = pdo_fetch("select zhuanzhangsxf from " . tablename("ewei_shop_sysset") . " where uniacid=:uniacid ", array(':uniacid' => $_W['uniacid']));
 		$moneysxf = $ass['zhuanzhangsxf'] / 100;
 		$mid = $_GPC['id'];
-
+		$money2 = $moneysxf*$money;
 		$member = m('member')->getMember($_W['openid'], true);
 		$member2 = pdo_fetch("select * from " . tablename("ewei_shop_member") . "where uniacid=" . $_W['uniacid'] . " and id='$mid'");
 
@@ -2274,8 +2274,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		// returnJson(array()mid);
 		if ($member2['openid'] == $_W['openid']) returnJson(array(), "不能对自己进行转账",-2);
 
-		$data = array('uniacid' => $_W['uniacid'], 'openid' => $_W['openid'], 'openid2' => $member2['openid'], 'money' => $money, 'money2' => $moneysxf, 'createtime' => time());
-
+		$data = array('uniacid' => $_W['uniacid'], 'openid' => $_W['openid'], 'openid2' => $member2['openid'], 'money' => $money, 'money2' => $money2, 'createtime' => time());
 		//添加转账记录
 		pdo_insert("ewei_zhuanzhang", $data);
 
