@@ -82,6 +82,12 @@ class Index_EweiShopV2Page extends ComWebPage
 		$params[':uniacid'] = $_W['uniacid'];
 
 		$list = pdo_fetchall($select . $tablename . $where . $limit, $params);
+		foreach($list as $key => $v){
+			$user_id = $v['appeal_name'];
+			$users = pdo_fetch("select * from" . tablename("ewei_shop_member") . " where id='$user_id'");
+			$list[$key]['mobile']   = $users['mobile'];
+			$list[$key]['openid_user']   = $users['openid'];
+		}
 		// dump($list);die;
 		$total = pdo_fetchcolumn('SELECT count(og.id) FROM ' . $tablename . $where, $params);
 		$total = pagination2($total, $pindex, $psize);
