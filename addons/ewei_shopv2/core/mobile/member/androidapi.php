@@ -2284,14 +2284,14 @@ class Androidapi_EweiShopV2Page extends MobilePage
 
 		$data = array('uniacid' => $_W['uniacid'], 'openid' => $_W['openid'], 'openid2' => $member2['openid'], 'money' => $money, 'money2' => $money2, 'createtime' => time());
 		//添加转账记录
-		$moneys = $money+$money2;
+		$moneys = $money-$money2;
 		$log = pdo_insert("ewei_zhuanzhang", $data);
 		if($log)
 		{
 			//向对方账户打钱
-			m('member')->setCredit($member2['openid'], 'credit2', $money,"转账增加ETH");
+			m('member')->setCredit($member2['openid'], 'credit2', $moneys,"转账增加ETH");
 			//自己扣钱
-			m('member')->setCredit($member['openid'], 'credit2', -$moneys,"转账减少ETH");
+			m('member')->setCredit($member['openid'], 'credit2', -$money,"转账减少ETH");
 		}
 		// //添加转账记录
 		// pdo_insert("ewei_zhuanzhang", $data);

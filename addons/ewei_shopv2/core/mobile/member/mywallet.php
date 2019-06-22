@@ -55,7 +55,7 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 
 		$money = $_GPC['money'];
 		$moneysxf = $_GPC['moneysxf'];
-		$moneys = $money+$moneysxf;
+		$moneys = $money-$moneysxf;
 		$mid = $_GPC['id'];
 
 		$member = m('member')->getMember($_W['openid'], true);
@@ -74,9 +74,9 @@ class Mywallet_EweiShopV2Page extends MobileLoginPage
 		if($log)
 		{
 			//向对方账户打钱
-			m('member')->setCredit($member2['openid'], 'credit2', $money,"转账增加ETH");
+			m('member')->setCredit($member2['openid'], 'credit2', $moneys,"转账增加ETH");
 			//自己扣钱
-			m('member')->setCredit($member['openid'], 'credit2', -$moneys,"转账减少ETH");
+			m('member')->setCredit($member['openid'], 'credit2', -$money,"转账减少ETH");
 		}
 		show_json(1, "转账成功");
 	}
