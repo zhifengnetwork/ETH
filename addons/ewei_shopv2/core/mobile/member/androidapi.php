@@ -1106,10 +1106,12 @@ class Androidapi_EweiShopV2Page extends MobilePage
 			$guamai_appeal['openid2'] = substr($guamai_appeal['openid2'], -11);
 			$guamai_appeal['openid']  = substr($guamai_appeal['openid'], -11);
 			$guamai_appeal['type1']   = 0;
+			$guamai_appeal['mobile']   = $users['mobile'];
 		} else {
 			$guamai_appeal['openid2'] = substr($guamai_appeal['openid'], -11);
 			$guamai_appeal['openid']  = substr($guamai_appeal['openid2'], -11);
 			$guamai_appeal['type1']   = 0;
+			$guamai_appeal['mobile']   = $users['mobile'];
 		}
 		// dump($guamai_appeal);
 		// die;
