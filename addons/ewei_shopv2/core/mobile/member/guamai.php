@@ -7,7 +7,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 	protected $member;
 	public function __construct()
 	{
-		
+
 		global $_W;
 		global $_GPC;
 		parent::__construct();
@@ -111,10 +111,10 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		global $_W;
 		global $_GPC;
 		if ($_W['ispost']) {
-			if($_GPC['text']==''){
+			if ($_GPC['text'] == '') {
 				show_json(-1, '标题不能为空!!!');
 			}
-			if($_GPC['textarea']==''){
+			if ($_GPC['textarea'] == '') {
 				show_json(-1, '内容不能为空!!!');
 			}
 			$id = $_GPC['id'];
@@ -158,11 +158,11 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		// dump($guamai_appeal);
 		if ($users['openid'] == $guamai_appeal['openid']) {
 			$guamai_appeal['openid2'] = substr($guamai_appeal['openid2'], -11);
-			$guamai_appeal['openid'] = substr($guamai_appeal['openid'], -11);
+			$guamai_appeal['openid']  = substr($guamai_appeal['openid'], -11);
 			$guamai_appeal['type1']   = 0;
 		} else {
 			$guamai_appeal['openid2'] = substr($guamai_appeal['openid'], -11);
-			$guamai_appeal['openid'] = substr($guamai_appeal['openid2'], -11);
+			$guamai_appeal['openid']  = substr($guamai_appeal['openid2'], -11);
 			$guamai_appeal['type1']   = 0;
 		}
 		// dump($guamai_appeal['openid2']);
@@ -286,9 +286,9 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 				show_json(-2, "请上传您的收款信息");
 			}
 
-			if($type == 1){
+			if ($type == 1) {
 				if ($member['credit2'] < $_GPC['trx2']) {
-					returnJson([],'您的ETH不足，请尽快投资！',-2);
+					returnJson([], '您的ETH不足，请尽快投资！', -2);
 				}
 			}
 
@@ -444,7 +444,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		global $_GPC;
 		//该订单的信息
 		$id = $_GPC['id'];
-		$op = $_GPC['op'];//付款操作 1挂单人操作  type 买入卖出
+		$op = $_GPC['op']; //付款操作 1挂单人操作  type 买入卖出
 		$openid = $_W['openid'];
 		$sell = pdo_fetch("select g.*,m.nickname,m.mobile,m.zfbfile,m.wxfile,m.bankid,m.bankname,m.bank,m2.nickname as nickname2,m2.mobile as mobile2,m2.zfbfile as zfbfile2,m2.wxfile as wxfile2,m2.bankid as bankid2,m2.bankname as bankname2,m2.bank as bank2 from" . tablename('guamai') . ' g left join ' . tablename('ewei_shop_member') . ' m ON m.openid=g.openid left join ' . tablename('ewei_shop_member') . ' m2 ON m2.openid=g.openid2 ' . " where g.uniacid=" . $_W['uniacid'] . " and g.id='$id'");
 		// dump($sell);
@@ -463,8 +463,8 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 		} else if ($sell['openid2'] == $_W['openid']) {
 			$type = 2;
 		}
-		
-	
+
+
 		if ($_W['ispost']) {
 			// show_json(123454);
 			$type = $_GPC['type'];
@@ -502,7 +502,7 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 					if ($result) show_json(1, "抢单成功");
 				}
 			} else if ($type == 1) {  //卖出
-			
+
 				if ($op == 1) {	//买入订单  挂单人付钱
 					// dump($op);die;
 					$result = pdo_update("guamai", array('file' => $_GPC['file']), array('uniacid' => $_W['uniacid'], 'id' => $id));
@@ -511,15 +511,15 @@ class Guamai_EweiShopV2Page extends MobileLoginPage
 
 					if ($result) show_json(1, "挂单人付款成功");
 				} else {
-				
+
 					$id = $_GPC['id'];
 					$op = $_GPC['op'];
 					//判断该用户是否有足够的币进行抢单
 					$member = m('member')->getMember($_W['openid'], true);
 					$sell = pdo_fetch("select g.trx,g.openid,m.mobile,m2.mobile as mobile2 from" . tablename("guamai") . ' g left join ' . tablename('ewei_shop_member') . ' m ON m.openid=g.openid ' . ' left join ' . tablename('ewei_shop_member') . ' m2 ON m2.openid=g.openid2 ' . " where g.uniacid=" . $_W['uniacid'] . " and g.id='$id' and g.type=0");
-				//    var_dump($sell['openid']);
-				//    var_dump($_W['openid']);
-				//    exit;
+					//    var_dump($sell['openid']);
+					//    var_dump($_W['openid']);
+					//    exit;
 					if ($guamai_nums >= 1) {
 						show_json(-1, "您还有订单尚未处理或还在交易中,请先进行交易！");
 					}
