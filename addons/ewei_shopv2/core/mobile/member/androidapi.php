@@ -1738,7 +1738,8 @@ class Androidapi_EweiShopV2Page extends MobilePage
 		$pindex = max(1, intval($_GPC['page']));
 		$psize = 10;
 		$openid = $_W['openid'];
-		$list =  pdo_fetchall("select g.*,m.nickname from" . tablename("ewei_shop_member_log") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.uniacid=:uniacid and g.type='$type' and g.openid=:openid order by g.createtime desc" . ' LIMIT ' . (($pindex - 1) * $psize) . ',' . $psize, array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
+		// $list =  pdo_fetchall("select g.*,m.nickname from" . tablename("ewei_shop_member_log") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.uniacid=:uniacid and g.type=int('$type','$type2') and g.openid=:openid order by g.createtime desc" . ' LIMIT ' . (($pindex - 1) * $psize) . ',' . $psize, array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
+		$list =  pdo_fetchall("select g.openid,g.type,g.title,g.createtime,g.money,g.front_money,g.after_money,g.money1,g.money2,g.RMB,g.typec2c,m.nickname from" . tablename("ewei_shop_member_log") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.openid='$openid' and g.type in('$type','$type2') order by g.createtime desc");
 		// dump($openid);
 		// dump($list);die;
 		if ($type == 3) { //查询转币记录
