@@ -1225,7 +1225,7 @@ class Androidapi_EweiShopV2Page extends MobilePage
 
 				//加币记录
 				$money1 = $sell['trx'] - $sell['sxf0'];
-				$data_member_log = array('uniacid' => 12, 'openid' => $sell['openid'], 'type' => 5, 'title' => "自由账户C2C交易添加" . $money1, 'money' => $sell['trx'], 'money1' => $money1, 'money2' => $sell['credit2'], 'RMB' => $sell['money'], 'typec2c' => $sell['type'], 'createtime' => time());
+				$data_member_log = array('uniacid' => 12, 'openid' => $sell['openid'], 'type' => 5, 'title' => "自由账户C2C交易增加" . $money1, 'money' => $sell['trx'], 'money1' => $money1, 'money2' => $sell['credit2'], 'RMB' => $sell['money'], 'typec2c' => $sell['type'], 'createtime' => time());
 				$data_member_log['front_money'] = $sell['credit2'];
 				$data_member_log['after_money'] = $ETH;
 				pdo_insert("ewei_shop_member_log", $data_member_log);
