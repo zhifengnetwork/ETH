@@ -695,6 +695,7 @@
 										<?php  } ?>
 									</p>
 									<p class="form">
+										<span>编号:<?php  echo $winn['id'];?></span>
 										<span><span class="font_color_999"> <?php  echo $winn['trx'];?></span>/个</span><!-- 
 <<<<<<< HEAD
 										<span><span class="font_color_999"><?php  echo $winn['price'];?></span></span>
