@@ -105,10 +105,10 @@
 
         <%each list as item%>
         <div class=" goods-item">
-          <div class="time">转账时间：<span><% item.createtime %></span></div>
-          <div>收款人：<% item.nickname %></div>
-          <div>收款金额：<% item.money %> 个</div>
-          <div>收款手续费：<% item.money2 %> 个</div>
+          <div class="time">转币时间：<span><% item.createtime %></span></div>
+          <div>得币人：<% item.nickname %></div>
+          <div>得币数：<% item.money %> 个</div>
+          <div>手续费：<% item.money2 %> 个</div>
         </div>
         <%/each%>
 
