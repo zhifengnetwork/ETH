@@ -92,7 +92,7 @@
         <div class=" goods-item">
           <div class="time">提币时间：<span><% item.createtime %></span></div>
           <div>提币类型：<% item.title %></div>
-          <div>提币状态：<%if item.type==2 %>成功<%else%><%if item.status==1 %>成功<%else%>审核中<%/if%><%/if%></div>
+          <div>提币状态：<%if item.status==1 %>成功<%else if item.status==2 %>失败<%else%>审核中<%/if%></div>
           <div>提币金额：<% item.money %> 个</div>
           <div>实到金额：<% item.realmoney %> 个</div>
           <div>手续费：<% item.charge %> 个</div>
