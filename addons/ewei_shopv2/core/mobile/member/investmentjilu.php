@@ -29,7 +29,7 @@ class Investmentjilu_EweiShopV2Page extends MobileLoginPage
 		$type = $_GPC['type'];
 		if ($type == 1) $type2 = 2;
 		$pindex = max(1, intval($_GPC['page']));
-		$psize = 10;
+		$psize = 100;
 		$openid = $_W['openid'];
 		// ='$type'
 		$list =  pdo_fetchall("select g.*,m.nickname from" . tablename("ewei_shop_member_log") . "g left join" . tablename("ewei_shop_member") . "m on g.openid=m.openid" . " where g.uniacid=:uniacid and g.type in(1,2) and g.openid=:openid order by g.createtime desc" . ' LIMIT ' . (($pindex - 1) * $psize) . ',' . $psize, array(':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
