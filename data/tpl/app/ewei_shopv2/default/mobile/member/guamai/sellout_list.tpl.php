@@ -95,9 +95,9 @@
       <div class="txtInfo">
           <p>订单号：<?php  echo $sell['id'];?> </p>
         <?php  if($op == 1) { ?>
-        <p>挂卖人：<?php  echo $sell['mobile'];?> </p>
+        <p>卖出人：<?php  echo $sell['mobile'];?> </p>
         <?php  } else if($op == 0) { ?>
-        <p>挂买人：<?php  echo $sell['mobile2'];?> </p>
+        <p>买入人：<?php  echo $sell['mobile2'];?> </p>
         <?php  } ?>
         <p>挂卖单价：<?php  echo $sell['price'];?> </p>
         <p>挂卖数量：<?php  echo $sell['trx'];?> </p>
