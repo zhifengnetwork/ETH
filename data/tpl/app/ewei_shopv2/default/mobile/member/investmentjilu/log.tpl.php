@@ -58,9 +58,9 @@
             <?php  } ?>
           <?php  } else { ?>
             <?php  if($log['typec2c'] == 1) { ?>
-            <p>类型：卖出</p>
-            <?php  } else { ?>
             <p>类型：买入</p>
+            <?php  } else { ?>
+            <p>类型：卖出</p>
             <?php  } ?>
           <?php  } ?>
           <?php  if($log['after_money']!=null) { ?>
@@ -76,7 +76,7 @@
 
       <?php  if(is_array($zhuanzhang)) { foreach($zhuanzhang as $logs) { ?>
       <div class=" goods-item">
-        <div class="time">时间：<span><?php  echo $logs['createtime'];?></span></div>
+        <!-- <div class="time">时间：<span><?php  echo $logs['createtime'];?></span></div> -->
         <div class="lis">
           <p>描述：转币</p>
           <p>转币人：<?php  echo $logs['openid'];?></p>

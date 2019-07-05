@@ -38,6 +38,11 @@
       <div class="lis">
         <p>ETH数量：<?php  echo $log['title'];?></p>
         <p>交易金额：<?php  echo $log['RMB'];?></p>
+        <?php  if($log['typec2c'] == 1) { ?>
+        <p>类型：买入</p>
+        <?php  } else { ?>
+        <p>类型：卖出</p>
+        <?php  } ?>
       </div>
     </div>
     <?php  } } ?>
