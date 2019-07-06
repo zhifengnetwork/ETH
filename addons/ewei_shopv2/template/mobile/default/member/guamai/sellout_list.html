@@ -95,11 +95,11 @@
       <div class="txtInfo">
           <p>订单号：{$sell['id']} </p>
           <p>挂单人：{$sell['mobile']} </p>
-        {if $op == 1}
+        <!-- {if $op == 1}
         <p>卖出人：{$sell['mobile']} </p>
         {else if $op == 0}
         <p>买入人：{$sell['mobile2']} </p>
-        {/if}
+        {/if} -->
         <p>挂卖单价：{$sell['price']} </p>
         <p>挂卖数量：{$sell['trx']} </p>
         {if $openid == $sell['openid2']}

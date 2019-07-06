@@ -95,11 +95,11 @@
       <div class="txtInfo">
           <p>订单号：<?php  echo $sell['id'];?> </p>
           <p>挂单人：<?php  echo $sell['mobile'];?> </p>
-        <?php  if($op == 1) { ?>
+        <!-- <?php  if($op == 1) { ?>
         <p>卖出人：<?php  echo $sell['mobile'];?> </p>
         <?php  } else if($op == 0) { ?>
         <p>买入人：<?php  echo $sell['mobile2'];?> </p>
-        <?php  } ?>
+        <?php  } ?> -->
         <p>挂卖单价：<?php  echo $sell['price'];?> </p>
         <p>挂卖数量：<?php  echo $sell['trx'];?> </p>
         <?php  if($openid == $sell['openid2']) { ?>
