@@ -117,9 +117,9 @@
         <?php  } ?>
         <?php  if($openid == $sell['openid2']) { ?>
           <?php  if($op == 1) { ?>
-          <p style="margin-top:10px">付款人：<?php  echo $sell['mobile2'];?> </p>
-          <?php  } else if($op == 0) { ?>
           <p style="margin-top:10px">收款人：<?php  echo $sell['mobile'];?> </p>
+          <?php  } else if($op == 0) { ?>
+          <p style="margin-top:10px">付款人：<?php  echo $sell['mobile2'];?> </p>
           <?php  } ?>
         <?php  } else { ?>
           <?php  if($op == 1) { ?>

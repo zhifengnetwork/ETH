@@ -117,15 +117,15 @@
         {/if}
         {if $openid == $sell['openid2']}
           {if $op == 1}
-          <p style="margin-top:10px">付款人：{$sell['mobile2']} </p>
-          {else if $op == 0}
           <p style="margin-top:10px">收款人：{$sell['mobile']} </p>
+          {else if $op == 0}
+          <p style="margin-top:10px">付款人：{$sell['mobile2']} </p>
           {/if}
         {else}
           {if $op == 1}
-          <p style="margin-top:10px">收款人：{$sell['mobile2']} </p>
+          <p style="margin-top:10px">收款人：{$sell['mobile']} </p>
           {else if $op == 0}
-          <p style="margin-top:10px">付款人：{$sell['mobile']} </p>
+          <p style="margin-top:10px">付款人：{$sell['mobile2']} </p>
           {/if}
         {/if}
         <!-- {if $op == 1}
