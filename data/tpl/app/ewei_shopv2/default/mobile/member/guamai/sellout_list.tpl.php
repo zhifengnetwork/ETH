@@ -94,6 +94,7 @@
     <div class='fui-content navbar'>
       <div class="txtInfo">
           <p>订单号：<?php  echo $sell['id'];?> </p>
+          <p>挂单人：<?php  echo $sell['mobile'];?> </p>
         <?php  if($op == 1) { ?>
         <p>卖出人：<?php  echo $sell['mobile'];?> </p>
         <?php  } else if($op == 0) { ?>
@@ -114,12 +115,24 @@
         <p>已付款：<?php  echo $sell['money'];?> </p>
         <?php  } ?>
         <?php  } ?>
-        
-        <?php  if($op == 1) { ?>
+        <?php  if($openid == $sell['openid2']) { ?>
+          <?php  if($op == 1) { ?>
+          <p style="margin-top:10px">付款人：<?php  echo $sell['mobile2'];?> </p>
+          <?php  } else if($op == 0) { ?>
+          <p style="margin-top:10px">收款人：<?php  echo $sell['mobile'];?> </p>
+          <?php  } ?>
+        <?php  } else { ?>
+          <?php  if($op == 1) { ?>
+          <p style="margin-top:10px">收款人：<?php  echo $sell['mobile'];?> </p>
+          <?php  } else if($op == 0) { ?>
+          <p style="margin-top:10px">付款人：<?php  echo $sell['mobile2'];?> </p>
+          <?php  } ?>
+        <?php  } ?>
+        <!-- <?php  if($op == 1) { ?>
         <p style="margin-top:10px">付款人：<?php  echo $sell['mobile2'];?> </p>
         <?php  } else if($op == 0) { ?>
         <p style="margin-top:10px">收款人：<?php  echo $sell['mobile'];?> </p>
-        <?php  } ?>
+        <?php  } ?> -->
         <div class="zfBox">
         </div>
         <div class="setImg">
